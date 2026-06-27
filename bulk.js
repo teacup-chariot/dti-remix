@@ -29,6 +29,64 @@
 (function () {
   'use strict';
 
+  // ── Flash-free "open a reskinned DTI page in a new tab" ─────────────────────────────────────
+  // A brand-new tab paints its native green BEFORE Tampermonkey can inject our cover (the cover
+  // carries permissions = a slower inject lane, and nothing of ours has run yet). So instead of
+  // opening the page directly, open about:blank — which WE control and renders instantly cream — and
+  // load the real page in a full-bleed iframe that stays invisible until ITS reskin is ready, then
+  // fade it in. about:blank inherits our origin, so the same-origin iframe is allowed (DTI sends
+  // X-Frame-Options: SAMEORIGIN). Address bar swaps to the real URL once ready. The poll knows each
+  // route's "ready" signal (item shell+badges, closet root-not-loading, editor shell, home/bulk root).
+  // Falls back to a plain open if the popup is blocked or writing the doc fails.
+  window._dtrOpenTab = function (url) {
+    var w = null;
+    try { w = window.open('about:blank', '_blank'); } catch (_) {}
+    if (!w) { try { window.open(url, '_blank', 'noopener'); } catch (_) {} return; }
+    try {
+      var html =
+        '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Loading…</title>' +
+        '<style>html,body{margin:0;height:100%;background:#fdf7f0;overflow:hidden}' +
+        '#dtrf{position:fixed;inset:0;width:100%;height:100%;border:0;opacity:0;transition:opacity .22s ease-out}' +
+        '#dtrf.dtr-show{opacity:1}</style></head>' +
+        '<body><iframe id="dtrf" src="' + url + '"></iframe>' +
+        '<scr' + 'ipt>(function(){' +
+          'var f=document.getElementById("dtrf"),done=false,sr=0;' +
+          'function reveal(){if(done)return;done=true;f.classList.add("dtr-show");' +
+            'try{history.replaceState(null,"","' + url + '");}catch(e){}}' +
+          'var iv=setInterval(function(){try{' +
+            'var d=f.contentDocument;if(!d)return;' +
+            'var sh=d.getElementById("dia-shell");' +
+            'if(sh&&sh.classList.contains("dtr-shell-ready")){if(!sr)sr=Date.now();' +                          /* ITEM */
+              'if(d.querySelector(".dib-vis")||Date.now()-sr>2500){clearInterval(iv);setTimeout(reveal,250);}return;}' +
+            'var cl=d.getElementById("dia-closet-v2-root");' +
+            'if(cl){if(!sr)sr=Date.now();if(!cl.querySelector(".cv2-msg")||Date.now()-sr>4000){clearInterval(iv);setTimeout(reveal,300);}return;}' + /* CLOSET (root w/o the Loading… msg) */
+            'var oe=d.getElementById("dtr-outfit-editor");' +
+            'if(oe){if(!sr)sr=Date.now();if(Date.now()-sr>800){clearInterval(iv);reveal();}return;}' +          /* EDITOR */
+            'var hp=d.getElementById("dia-hp-page")||d.getElementById("dia-bulk-root");' +
+            'if(hp){if(!sr)sr=Date.now();if(Date.now()-sr>500){clearInterval(iv);reveal();}return;}' +          /* HOME / BULK */
+          '}catch(e){clearInterval(iv);reveal();}},60);' +
+          'setTimeout(function(){clearInterval(iv);reveal();},15000);' +
+        '})();</scr' + 'ipt></body></html>';
+      w.document.open(); w.document.write(html); w.document.close();
+    } catch (e) { try { w.location.href = url; } catch (_) {} }
+  };
+  window._dtrOpenItemTab = function (seg) { window._dtrOpenTab('https://impress.openneo.net/items/' + seg); };
+
+  // Delegated handler: wrap same-origin "open in a new tab" links to ITEM pages only with the
+  // flash-free trick. Item pages are quick PEEKS with no nav inside them, so the frame is perfect.
+  // Interactive pages (closet, editor) are deliberately NOT wrapped: inside an iframe, THEIR own nav
+  // links (Settings, Items, …) would navigate the frame instead of the tab = broken. Those open
+  // normally (a tiny flash, but full function + working nav). The ? buttons call the helper directly.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[target="_blank"]');
+    if (!a) return;
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var u; try { u = new URL(a.getAttribute('href') || a.href, location.href); } catch (_) { return; }
+    if (u.origin !== location.origin || !/^\/items\/\d+/.test(u.pathname)) return;
+    e.preventDefault();
+    window._dtrOpenTab(u.href);
+  }, true);
+
   // ── Single-instance guard ───────────────────────────────────────────────
   // If a second copy of this userscript is installed (e.g. an old "Dress to
   // Repress" left enabled beside a renamed "DTI Remix"), BOTH @match the same
@@ -6497,7 +6555,7 @@
         });
         infoBtn.addEventListener('mouseleave', _cv2HideTip);
         infoBtn.addEventListener('mouseover', () => { if (!_cv2ZC[id]) _cv2FetchFast(id); }, { passive: true, once: true });
-        infoBtn.addEventListener('click', () => { _cv2HideTip(); window.open('https://impress.openneo.net/items/' + id, '_blank', 'noopener'); });
+        infoBtn.addEventListener('click', () => { _cv2HideTip(); window._dtrOpenItemTab(id); });
         var actions = document.createElement('div'); actions.className = 'dtr-card-actions';
         var noteBtn = document.createElement('button'); noteBtn.type = 'button'; noteBtn.className = 'dtr-card-btn dtr-note-btn'; noteBtn.setAttribute('aria-label', 'Note'); noteBtn.innerHTML = '';
         var refreshNote = () => { var n = getDIASection('itemNotes', {})[id] || ''; noteBtn.classList.toggle('has-note', !!n); };
@@ -14861,7 +14919,7 @@
           // Wire zone tooltip to the info button
           _hpWireZoneTooltip(card, infoBtn);
           // 10.286: clicking the ? opens item details (the card body no longer navigates there).
-          infoBtn.addEventListener('click', (e) => { try { e.preventDefault(); e.stopPropagation(); window.open('https://impress.openneo.net/items/' + itemId, '_blank', 'noopener'); } catch (_e) {} });
+          infoBtn.addEventListener('click', (e) => { try { e.preventDefault(); e.stopPropagation(); window._dtrOpenItemTab(itemId); } catch (_e) {} });
 
           // ── Note button — top-right (unchanged) ───────────────────────────
           const actions = document.createElement('div');
@@ -26020,7 +26078,7 @@ if (!tradeLinks.length) {
               // Wire zone tooltip directly on the info button here — no timing race
               if (!infoBtn.dataset.zoneWired) {
                 infoBtn.dataset.zoneWired = '1';
-                infoBtn.addEventListener('click', (e) => { try { e.preventDefault(); e.stopPropagation(); window.open('https://impress.openneo.net/items/' + itemId, '_blank', 'noopener'); } catch (_e) {} });
+                infoBtn.addEventListener('click', (e) => { try { e.preventDefault(); e.stopPropagation(); window._dtrOpenItemTab(itemId); } catch (_e) {} });
                 infoBtn.addEventListener('mouseenter', () => {
                   const stillHere = () => infoBtn.matches(':hover');
                   fetchDateIfMissing(itemId);
@@ -35811,7 +35869,7 @@ if (!tradeLinks.length) {
           if (rmBtn) { e.stopPropagation(); oeRemoveFromList(rmBtn.dataset.remove); return; }  // 2-step delete for Loved
           const infoBtn = e.target.closest('[data-info-btn]');
           if (infoBtn) { e.stopPropagation(); e.preventDefault();
-            window.open('https://impress.openneo.net/items/' + infoBtn.dataset.infoBtn + '-' + (infoBtn.dataset.infoSlug||''), '_blank', 'noopener'); return; }
+            window._dtrOpenItemTab(infoBtn.dataset.infoBtn + '-' + (infoBtn.dataset.infoSlug||'')); return; }
           const noteBtn = e.target.closest('[data-note-btn]');
           if (noteBtn) { e.stopPropagation(); e.preventDefault(); oeOpenNotePopover(noteBtn); return; }
           const haul = e.target.closest('[data-haul-add]');
