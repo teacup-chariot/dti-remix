@@ -22,9 +22,10 @@ That's it — you only ever install that one tiny loader. It downloads the full 
 
 ## Updating (for the maintainer)
 
-- **Reskin/feature changes** → edit `bulk.js`, then upload it here (**Add file → Upload files → drag `bulk.js` → Commit**). Users get it on their next refresh (2nd refresh after a push, due to ETag cache-then-revalidate; GitHub raw is also CDN-cached ~5 min).
+- **Reskin/feature changes** → upload the latest `bulk.js` here (**Add file → Upload files → drag `bulk.js` → Commit**). Users get it on their next refresh (2nd refresh after a push, due to ETag cache-then-revalidate; GitHub raw is also CDN-cached ~5 min).
 - **Loader changes** (e.g. new `@match`) → bump the loader's `@version` and upload it; Tampermonkey auto-updates it for users via `@updateURL`.
-- `node --check bulk.js` before uploading.
+
+> `bulk.js` is run via `eval()`, so one syntax error breaks it for everyone. Each edit is validated with `node --check bulk.js` before it's handed off — you just upload.
 
 ## Notes
 
