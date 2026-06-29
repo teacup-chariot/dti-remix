@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         DTI Remix
-// @version      1.0.0
+// @version      1.1.0
 // @namespace    dti-remix
 // @description  DTI Remix — a full accessible reskin of Neopets Dress to Impress. Tiny loader: shows an instant cover (kills the cold-load flash), then runs the full reskin from GitHub (downloaded once, cached, auto-updates in the background).
 // @author       teacup-chariot
@@ -30,7 +30,8 @@
   'use strict';
 
   // ── WHERE THE BIG FILE LIVES ────────────────────────────────────────────────
-  var BULK_URL = 'https://raw.githubusercontent.com/teacup-chariot/dti-remix/main/bulk.js';
+  // GitHub serves the CLEAN build (bulk_clean.js) to all users.
+  var BULK_URL = 'https://raw.githubusercontent.com/teacup-chariot/dti-remix/main/bulk_clean.js';
 
   // ── 1) Instant cold-load cover (runs first; tiny so it injects before paint) ──
   (function () {
