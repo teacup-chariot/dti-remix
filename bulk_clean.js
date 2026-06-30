@@ -3392,7 +3392,7 @@
 
       'html.dia-items-preactive body{background:#f3efe7!important}',
 
-      'html.dtr-outfit-preactive > body > *:not(#dtr-outfit-editor):not(#wardrobe-2020-root):not(style):not(script){display:none!important}',
+      'html.dtr-outfit-preactive > body > *:not(#dtr-outfit-editor):not(#wardrobe-2020-root):not(style):not(script):not(#dia-ps-pop):not(#dia-ps-dim):not(.dia-ps-tip):not(.dia-ps-toast):not(.dia-ui-tooltip):not(.dtr-note-popover){display:none!important}',
       'html.dtr-outfit-preactive > body > #wardrobe-2020-root{visibility:hidden!important}',
       'html.dtr-outfit-preactive body{background:#ece9e1!important}',
 
@@ -3499,7 +3499,7 @@
 
       '#dia-hp-tryon-panel .tryon-canvas-wrap { flex:0 0 auto !important; width:100% !important; aspect-ratio:1/1 !important; overflow:hidden !important; align-self:flex-start !important; }',
 
-      'html.dtr-outfit-active > body > *:not(#dtr-outfit-editor):not(#wardrobe-2020-root):not(style):not(script) { display:none !important; }',
+      'html.dtr-outfit-active > body > *:not(#dtr-outfit-editor):not(#wardrobe-2020-root):not(style):not(script):not(#dia-ps-pop):not(#dia-ps-dim):not(.dia-ps-tip):not(.dia-ps-toast):not(.dia-ui-tooltip):not(.dtr-note-popover) { display:none !important; }',
 
       'html.dtr-outfit-active > body > #wardrobe-2020-root { position:fixed!important; inset:0!important; visibility:hidden!important; pointer-events:none!important; z-index:-1!important; overflow:hidden!important; }',
 
@@ -3574,6 +3574,11 @@
       '#dtr-outfit-editor .dtr-oe-tag-input:focus{border-color:var(--accent);border-style:solid;width:120px;}',
 
       '@keyframes dtrspin{to{transform:rotate(360deg)}}',
+      '@keyframes dtrDelCountdown{from{transform:scaleX(1)}to{transform:scaleX(0)}}',
+      '@keyframes dtrDelFade{from{opacity:1}to{opacity:0;transform:scale(.95)}}',
+
+      '.dia-ui-tooltip{position:fixed;z-index:2147483647;width:auto;min-width:60px;max-width:min(260px,calc(100vw - 24px));padding:8px 9px;border-radius:6px;border:1px solid #d4ae3a;background:#fffdf5;color:#4f3b00;font:600 11px/1.3 Inter,Arial,Helvetica,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,0.08);white-space:normal;text-align:center;pointer-events:none;text-shadow:none;-webkit-font-smoothing:antialiased;opacity:0;visibility:hidden;transition:opacity .07s ease}',
+      '.dia-ui-tooltip.show{opacity:1;visibility:visible}',
       '#dtr-outfit-editor .dtr-oe-scroll{scrollbar-width:thin;scrollbar-color:var(--dtr-scroll,#a6e4dc) transparent;}',
       '#dtr-outfit-editor .dtr-oe-scroll::-webkit-scrollbar{width:9px;height:9px;}',
       '#dtr-outfit-editor .dtr-oe-scroll::-webkit-scrollbar-track{background:transparent;}',
@@ -8773,7 +8778,8 @@
 
         const esc = (x) => String(x == null ? '' : x).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
         const $ = id => document.getElementById(id);
-        const spSel = $('dia-hp-species'), coSel = $('dia-hp-color');
+
+        const spSel = cfg.spSel || $('dia-hp-species'), coSel = cfg.coSel || $('dia-hp-color');
         if (!spSel) return;
         const speciesList = [...spSel.options].map(o => ({ id:String(o.value), name:(o.text||'').trim() })).filter(s => s.id);
         if (!speciesList.length) return;
@@ -8993,12 +8999,14 @@
             if (coSel && style.colorId && [...coSel.options].some(o => String(o.value) === style.colorId)) coSel.value = style.colorId;
 
           }
-          syncField(); renderHero(style);
+          syncField();
+
+          if (cfg.onApply) cfg.onApply(style); else renderHero(style);
         };
 
         const _psPref = (k, d) => { try { const v = GM_getValue('dtr_ps_' + k, null); return v == null ? d : v; } catch (_) { return d; } };
         const _psSavePref = (k, v) => { try { GM_setValue('dtr_ps_' + k, v); } catch (_) {} };
-        const M = { scope:'all', q:'', cwName:'', cwOpen:false, cwQuery:'', spOpen:false, spQuery:'', sort:_psPref('sort', 'abc'), takeover:null, tkVariant:'', tkvOpen:false, ownFilter:(_psPref('ownf', 'all') === 'only' ? 'only' : 'all'), loaded:0 };
+        const M = { scope:(cfg.defaultScope || 'all'), q:'', cwName:'', cwOpen:false, cwQuery:'', spOpen:false, spQuery:'', sort:_psPref('sort', 'abc'), takeover:null, tkVariant:'', tkvOpen:false, ownFilter:(_psPref('ownf', 'all') === 'only' ? 'only' : 'all'), loaded:0 };
         let _allRun = false;
         const _bgRefreshAll = async (staleIds) => {
           const CH = 8;
@@ -9437,13 +9445,13 @@
 
             "#dia-ps-grid .dia-ps-mtile .dia-ps-tile-thumb,#dia-ps-grid .dia-ps-secm .dia-ps-tile-thumb{overflow:visible}",
 
-            "#dia-ps-grid .dia-ps-note{position:absolute;top:7px;right:7px;width:24px;height:24px;border-radius:50%;cursor:pointer;z-index:5;background:rgba(255,255,255,.92) center/13px 13px no-repeat;box-shadow:0 1px 4px rgba(0,0,0,.28);opacity:.92}",
-            "#dia-ps-grid .dia-ps-note:hover{transform:scale(1.13);opacity:1;box-shadow:0 0 0 3px rgba(255,133,118,.45),0 0 12px rgba(255,133,118,.45)}",
-            "#dia-ps-grid .dia-ps-note.has{background-color:var(--dtr-accent,#ff8576)}",
+            "#dia-ps-grid .dia-ps-note{position:absolute;top:7px;right:7px;width:24px;height:24px;border-radius:50%;cursor:pointer;z-index:5;background:rgba(255,255,255,.96) center/13px 13px no-repeat;border:1px solid #a8d4c4;box-shadow:0 1px 4px rgba(0,0,0,.18);opacity:.92}",
+            "#dia-ps-grid .dia-ps-note:hover{transform:scale(1.13);opacity:1;border-color:#6ab89a;box-shadow:0 0 0 3px rgba(168,212,196,.5),0 0 12px rgba(168,212,196,.45)}",
+            "#dia-ps-grid .dia-ps-note.has{background-color:#fffbe6;border-color:#d4ae3a;box-shadow:0 0 0 2px rgba(212,174,58,.35),0 2px 6px rgba(180,140,0,.28)}",
             ((window.__DTR_ICONS && window.__DTR_ICONS.note) ? "#dia-ps-grid .dia-ps-note{background-image:url('" + window.__DTR_ICONS.note + "')}" : ""),
             "#dia-ps-grid .dia-ps-ownbadge{position:absolute;left:0;right:0;bottom:5px;margin:0 auto;width:-moz-fit-content;width:fit-content;max-width:88%;z-index:4;cursor:pointer;color:#fff;font:700 9px Nunito,Arial,sans-serif;padding:2px 8px;border-radius:6px;background:rgba(110,75,35,.86);text-shadow:0 1px 2px rgba(0,0,0,.3)}",
 
-            "#dia-ps-grid .dia-ps-tile-thumb:has(.dia-ps-wantbadge) .dia-ps-ownbadge[data-own-o]{bottom:30px}",
+            "#dia-ps-grid .dia-ps-tile-thumb:has(.dia-ps-wantwrap) .dia-ps-ownbadge[data-own-o]{bottom:32px}",
 
             "#dia-ps-grid .dia-ps-wantwrap{position:absolute;left:0;right:0;bottom:5px;z-index:4;display:flex;align-items:center;justify-content:center;gap:4px}",
             "#dia-ps-grid .dia-ps-wantbadge{position:static;inset:auto;margin:0;background:rgba(157,117,212,.92)}",
@@ -9472,8 +9480,8 @@
 
             "#dia-ps-grid .dia-ps-tile{display:flex;flex-direction:column;gap:6px;min-width:0;border:none!important;box-shadow:none!important;background:transparent!important}",
             "#dia-ps-grid .dia-ps-tilemain{border:none!important;outline:none!important;box-shadow:none!important;background:transparent!important;cursor:pointer;text-align:center;padding:0;margin:0;display:flex;flex-direction:column;gap:5px;min-width:0;transition:transform .12s ease}",
-            "#dia-ps-grid .dia-ps-tilemain:hover{transform:translateY(-2px) scale(1.03)}",
-            "#dia-ps-grid .dia-ps-tile-thumb{position:relative;width:100%;aspect-ratio:1;overflow:hidden;border:none!important;outline:none!important;box-shadow:none!important;background:var(--dtr-primary-bg,#eef7f4)!important;border-radius:12px}",
+            "#dia-ps-grid .dia-ps-tilemain:hover{transform:translateY(-2px)}",
+            "#dia-ps-grid .dia-ps-tile-thumb{position:relative;width:100%;aspect-ratio:1;overflow:hidden;border:none!important;outline:none!important;box-shadow:none!important;background:#fff!important;border-radius:12px}",
             "#dia-ps-grid .dia-ps-tile-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;border:none!important;outline:none!important;box-shadow:none!important;background:transparent!important}",
             "#dia-ps-grid .dia-ps-tile-thumb img.dia-ps-gif{mix-blend-mode:multiply}",
 
@@ -9515,7 +9523,7 @@
             "#dia-ps-pop.tk-open .dia-ps-pophead,#dia-ps-pop.tk-open #dia-ps-sortbar{display:none}",
             "#dia-ps-pop.tk-open #dia-ps-grid{grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:16px}",
             "#dia-ps-grid .dia-ps-mtile{border:none!important;outline:none!important;box-shadow:none!important;background:transparent!important;cursor:pointer;text-align:center;padding:0;margin:0;display:flex;flex-direction:column;gap:5px;min-width:0;transition:transform .12s ease}",
-            "#dia-ps-grid .dia-ps-mtile:hover{transform:translateY(-2px) scale(1.02)}",
+            "#dia-ps-grid .dia-ps-mtile:hover{transform:translateY(-2px)}",
             "#dia-ps-grid .dia-ps-mtile-nm{font:700 11.5px/1.25 Nunito,Arial,sans-serif;color:#3a3a35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}",
             "#dia-ps-grid .dia-ps-mtile.on .dia-ps-mtile-nm{color:var(--dtr-primary,#149c8e)}",
             "#dia-ps-grid .dia-ps-mtile-sp{font:600 10px Nunito,Arial,sans-serif;color:#9a9a90}",
@@ -9535,7 +9543,7 @@
           if (left + w > vw - 8) left = vw - 8 - w;
           pop.style.width = w + 'px';
           pop.style.left = Math.round(Math.max(8, left)) + 'px';
-          const below = vh - r.bottom - 8, above = r.top - 8, cap = Math.min(vh * 0.86, 700);
+          const below = vh - r.bottom - 8, above = r.top - 8, cap = Math.min(vh * 0.86, (cfg.heightCap || 700));
           if (below < 260 && above > below) {
             pop.style.top = 'auto';
             pop.style.bottom = Math.round(vh - r.top + 6) + 'px';
@@ -10241,7 +10249,7 @@
 
         try { if (sessionStorage.getItem('dtr_open_ps_board')) { sessionStorage.removeItem('dtr_open_ps_board'); setTimeout(openBoard, 60); } } catch (_) {}
 
-        const scratch = $('dia-hp-scratch');
+        const scratch = cfg.fieldHost || $('dia-hp-scratch');
         if (scratch && !$('dia-ps-row')) {
           ensureCss();
           const row = document.createElement('div'); row.id = 'dia-ps-row';
@@ -10253,7 +10261,7 @@
             +   '<button id="dia-ps-x" type="button" aria-label="Clear Pet Style" title="Clear Pet Style">×</button>'
             +   '<span class="dia-ps-fieldcaret" aria-hidden="true">▾</span>'
             + '</div>';
-          ($('dia-hp-scratch-left') || scratch).appendChild(row);
+          (cfg.fieldHost || $('dia-hp-scratch-left') || scratch).appendChild(row);
 
           const _capPsField = () => { try { const sr = $('dia-hp-scratch-row'), pr = $('dia-ps-row'); if (sr && pr && sr.offsetWidth) pr.style.width = sr.offsetWidth + 'px'; } catch (_) {} };
           requestAnimationFrame(_capPsField);
@@ -10883,7 +10891,7 @@
                <a class="dia-ql" href="${itemsHref}">Items</a>
                <button type="button" class="dia-ql dia-ql-psboard" data-ps-board>Pet Styles</button>
                <a class="dia-ql" href="https://impress.openneo.net/your-outfits">Outfits</a>
-               <a class="dia-ql" href="/settings">Settings</a>
+               <a class="dia-ql" href="/users/edit">Settings</a>
                <div class="dia-ql-divider"></div>
                <div class="dia-more">
                  <button type="button" class="dia-ql dia-more-btn">More <span class="dia-more-caret">▾</span></button>
@@ -17528,7 +17536,8 @@
             try {
               const manifest = props.manifest || [];
               if (!manifest.length) { resolve(); return; }
-              const queue = new createjs.LoadQueue(false);
+
+              const queue = new createjs.LoadQueue(false, null, 'Anonymous');
               queue.addEventListener('complete', () => {
                 try {
 
@@ -17563,7 +17572,14 @@
           let chosenName = null;
           let ctor = null;
           const fnNames = Object.keys(lib).filter(k => typeof lib[k] === 'function');
-          const fileBase = (() => { try { return String(movieUrl).split('/').pop().split('.')[0]; } catch (_) { return ''; } })();
+
+          const fileBase = (() => {
+            try {
+              let fn = String(movieUrl).split(/[?#]/)[0].split('/').pop();
+              try { fn = decodeURIComponent(fn); } catch (_) {}
+              return fn.replace(/\.[^.]*$/, '');
+            } catch (_) { return ''; }
+          })();
           const fileSyms = (() => {
             if (!fileBase) return [];
             const bases = [
@@ -17614,6 +17630,12 @@
               fnNames.slice(0, 12), fnNames.length > 12 ? '…' : '', ')');
 
           const root = new ctor();
+
+          try {
+            const _pw = +props.width, _ph = +props.height;
+            if (_pw > 0) root.scaleX = canvas.width  / _pw;
+            if (_ph > 0) root.scaleY = canvas.height / _ph;
+          } catch (_) {}
           const StageCtor = (typeof lib.Stage === 'function') ? lib.Stage : createjs.Stage;
           const stage = new StageCtor(canvas);
           stage.addChild(root);
@@ -33246,6 +33268,8 @@ if (!tradeLinks.length) {
         compareOpen:     false,
         cmpRenameIdx:    null,
         cmpDelConfirm:   null,
+        delPendingKeys:  [],
+        delDoneKeys:     [],
         cmpSelected:     [],
         cmpShowHidden:   false,
         cmpCollage:      false,
@@ -33317,7 +33341,7 @@ if (!tradeLinks.length) {
       'wishLists','wished','loggedIn','styleWarn','csQuery']);
 
     const OE_CENTER_KEYS = new Set(['outfitName','editingName','frameShape','outfitLocked',
-      'pose','poseOpen','appQuery','appOpen','variants','activeIdx','compareOpen','cmpRenameIdx','cmpDelConfirm','cmpSelected','cmpShowHidden','cmpCollage','cmpShareLevel','cmpShareMenuOpen','cmpCopying','cmpCopied','cmpSavedName','cmpDeepCollapsed','renameError','cmpDimOwned','cmpAddPickFor','cmpAddedItems',
+      'pose','poseOpen','appQuery','appOpen','variants','activeIdx','compareOpen','cmpRenameIdx','cmpDelConfirm','cmpSelected','cmpShowHidden','cmpCollage','cmpShareLevel','cmpShareMenuOpen','cmpCopying','cmpCopied','cmpSavedName','cmpDeepCollapsed','renameError','cmpDimOwned','cmpAddPickFor','cmpAddedItems','delPendingKeys','delDoneKeys',
       'copied','loggedIn','speciesId','colorId',
       'speciesName','colorName','allSpecies','allColors','altStyles','outfitId','saveState','altStyleId','poseThumbTick','oeLoadingPet','validPosesReady']);
     const OE_RIGHT_KEYS = new Set(['searchQuery','searchResults','searchLoading','searchError',
@@ -33929,10 +33953,8 @@ if (!tradeLinks.length) {
 
       on('[data-cs-row]', 'click', e => {
         if (e.target.closest('button')) return;
-        const nm = e.currentTarget.dataset.csRow, st0 = OE.get();
-        const inL = st0.considering.find(x => x.name === nm);
+        const nm = e.currentTarget.dataset.csRow;
 
-        if (inL && inL.applied !== false && oeDrawnNames(st0.considering).has(nm)) return;
         oeToggleApply(nm);
       });
 
@@ -34215,8 +34237,8 @@ if (!tradeLinks.length) {
       let user = '', pts = '';
       try { user = GM_getValue('dtr_last_user', '') || ''; pts = GM_getValue('dtr_last_pts', '') || ''; } catch (_) {}
       const info = user
-        ? { greeting: user, pts: pts, logoutHref: 'https://impress.openneo.net/users/sign_out', itemsHref: 'https://impress.openneo.net/items' }
-        : { greeting: '', pts: '', logoutHref: '#', itemsHref: 'https://impress.openneo.net/items' };
+        ? { greeting: user, pts: pts, logoutHref: 'https://impress.openneo.net/users/sign_out', itemsHref: 'https://impress.openneo.net/users/current-user/closet' }
+        : { greeting: '', pts: '', logoutHref: '#', itemsHref: 'https://impress.openneo.net/users/current-user/closet' };
       const navHtml = (typeof window !== 'undefined' && window.__DTR_NAV && typeof window.__DTR_NAV.html === 'function')
         ? window.__DTR_NAV.html(info)
         : '<span style="font:700 14px Nunito,sans-serif;color:#b0b0a6">DTR</span>';
@@ -34419,6 +34441,10 @@ if (!tradeLinks.length) {
         if (oldCanvas) {
           const _ol = oldCanvas.querySelector('.dtr-oe-layers'), _nl = newCanvas.querySelector('.dtr-oe-layers');
           if (_ol && _nl) { while (_ol.firstChild) _nl.appendChild(_ol.firstChild); }
+
+          const _ops = oldCanvas.querySelector('#dia-oe-ps-slot'), _nps = newCanvas.querySelector('#dia-oe-ps-slot');
+          const _fld = _ops && _ops.querySelector('#dia-ps-row');
+          if (_fld && _nps) _nps.appendChild(_fld);
         }
         if (oldCanvas) wrap.replaceChild(newCanvas, oldCanvas);
         else wrap.appendChild(newCanvas);
@@ -34450,12 +34476,13 @@ if (!tradeLinks.length) {
           if (_ovScroll) { const sc = _newOv.querySelector('[data-cmp-scroll]'); if (sc) sc.scrollTop = _ovScroll; }
         }
         requestAnimationFrame(oeFitSidePanels);
+        oeMountStylePicker();
       }
 
       OE.sub(repaint);
 
       OE.sub((s2, changed) => {
-        if (changed && !changed.some(k => k === 'considering' || k === 'variants' || k === 'lebronReady' || k === 'stripRenameIdx' || k === 'renameError' || k === 'stripShowHidden' || k === 'stripDelConfirm')) return;
+        if (changed && !changed.some(k => k === 'considering' || k === 'variants' || k === 'lebronReady' || k === 'stripRenameIdx' || k === 'renameError' || k === 'stripShowHidden' || k === 'stripDelConfirm' || k === 'delPendingKeys' || k === 'delDoneKeys')) return;
         const oldStrip = wrap.querySelector('[data-oe-variant-strip]');
         if (oldStrip) wrap.replaceChild(oeVariantStrip(OE.get()), oldStrip);
       });
@@ -34671,15 +34698,8 @@ if (!tradeLinks.length) {
         +'<span style="font:800 10px Nunito,sans-serif;color:#bcbcb2;text-transform:uppercase;padding-bottom:11px;flex:none">or</span>'
 
         +'<div style="position:relative;flex:1;min-width:0">'
-        +(selStyle && selStyle.thumbnailUrl
-          ? '<img src="'+selStyle.thumbnailUrl+'" alt="" style="position:absolute;left:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;object-fit:contain;border-radius:7px;background:#f5f3ee;z-index:2;pointer-events:none">'
-          : '')
-        +(s.altStyleId
-          ? '<button data-app-clear style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;border:none;background:#e8e5dc;color:#7a7a70;font-size:11px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:3;flex:none">✕</button>'
-          : '')
-        +'<input data-app-query value="'+s.appQuery+'" placeholder="'+(selStyle ? (selStyle.label||'').replace(/"/g,'&quot;')+' ✓ (browse others below)' : 'Search Pet Style Tokens')+'" style="width:100%;padding:10px '+(s.altStyleId?'32px':'12px')+' 10px '+(selStyle?'42px':'12px')+';border:1.5px solid var(--border);border-radius:11px;font:600 13px Nunito,sans-serif;color:#4a4a45;background:#fff">'
-        +'<span style="position:absolute;'+(selStyle?'left:42px':'left:11px')+';top:-7px;background:#fff;padding:0 4px;font:700 9px Nunito,sans-serif;letter-spacing:.08em;color:#b0b0a6">APPEARANCE</span>'
-        + appDropdown
+        +'<div id="dia-oe-ps-slot" style="min-height:42px"></div>'
+        +'<span style="position:absolute;left:11px;top:-7px;background:#fff;padding:0 4px;font:700 9px Nunito,sans-serif;letter-spacing:.08em;color:#b0b0a6;z-index:3;pointer-events:none">APPEARANCE</span>'
         +'</div>'
 
         +(s.altStyleId ? '' :
@@ -34923,19 +34943,34 @@ if (!tradeLinks.length) {
               const renaming = s.stripRenameIdx === i;
               const tc = _oeThumbCachedHTML(s, i);
 
+              const _vkey = oeVariantKey(v, i);
+              const _pending = (s.delPendingKeys || []).includes(_vkey);
+              const _done = (s.delDoneKeys || []).includes(_vkey);
               const cardStyle = 'flex:0 0 calc((100% - 22px) / 3);min-width:0;border-radius:14px;overflow:hidden;cursor:pointer;padding:0;text-align:center;position:relative;display:flex;flex-direction:column;'
                 + oeSelBorder(isA)
-                + (isHidden?'opacity:.5;filter:grayscale(.45);':'');
+                + (isHidden?'opacity:.5;filter:grayscale(.45);':'')
+                + (_done?'animation:dtrDelFade .48s ease forwards;':'');
 
               const _sDelC = s.stripDelConfirm === i;
-              const _sAct = 'border:none;background:#e7e1d4;cursor:pointer;font:800 8.5px Nunito,sans-serif;letter-spacing:.03em;color:#5c574b;padding:5px 0;border-radius:7px;flex:1';
-              const _sDel = 'border:none;background:#fbdfe3;cursor:pointer;font:800 8.5px Nunito,sans-serif;letter-spacing:.03em;color:#cf3b58;padding:5px 0;border-radius:7px;flex:1';
-              const stripBar = '<div style="display:flex;gap:5px;padding:8px 8px 9px;flex:none">'
-                + (_sDelC
-                    ? '<button data-strip-del="'+i+'" style="flex:1;border:none;background:#f3c6cf;cursor:pointer;font:800 8px Nunito,sans-serif;color:#b32f4f;padding:5px 4px;border-radius:7px;line-height:1.2">Delete this custom?</button>'
-                    : '<button data-strip-hide="'+i+'" title="'+(v.hidden?'Unhide (return to Compare)':'Hide from Compare')+'" style="'+_sAct+'">'+(v.hidden?'Unhide':'Hide')+'</button>'
-                      + '<button data-strip-del="'+i+'"'+(variants.length<=1?' disabled':'')+' title="Delete this variant" style="'+_sDel+(variants.length<=1?';opacity:.45;cursor:not-allowed':'')+'">Delete</button>')
-                + '</div>';
+
+              const _sAct = 'border:none;background:#efeadf;cursor:pointer;font:700 9px Nunito,sans-serif;letter-spacing:.02em;color:#7a756a;padding:5px 0;border-radius:999px;flex:1';
+              const _sDel = 'border:none;background:#f7dde2;cursor:pointer;font:700 9px Nunito,sans-serif;letter-spacing:.02em;color:#c0566c;padding:5px 0;border-radius:999px;flex:1';
+              const stripBar = _done
+                ? '<div style="padding:8px 8px 9px;flex:none"><div style="text-align:center;font:800 9px Nunito,sans-serif;letter-spacing:.04em;color:#5d8467;padding:5px 0;border-radius:999px;background:#dff0e4">Deleted ✓</div></div>'
+                : _pending
+                  ? '<div style="padding:8px 8px 6px;flex:none">'
+                      + '<div style="display:flex;gap:6px;align-items:center">'
+                      + '<span style="flex:1;font:700 9px Nunito,sans-serif;color:#b08a3a;text-align:left;padding-left:2px">Deleting…</span>'
+                      + '<button data-strip-undodel="'+_vkey+'" style="border:none;background:'+S+';color:#fff;cursor:pointer;font:800 9px Nunito,sans-serif;padding:5px 13px;border-radius:999px">Undo</button>'
+                      + '</div>'
+                      + '<div style="height:3px;border-radius:2px;background:#efe7da;margin-top:6px;overflow:hidden"><div style="height:100%;background:'+S+';transform-origin:left;animation:dtrDelCountdown 5s linear forwards"></div></div>'
+                    + '</div>'
+                  : '<div style="display:flex;gap:6px;padding:8px 8px 9px;flex:none">'
+                    + (_sDelC
+                        ? '<button data-strip-del="'+i+'" style="flex:1;border:none;background:#f3c6cf;cursor:pointer;font:700 8.5px Nunito,sans-serif;color:#b32f4f;padding:5px 4px;border-radius:999px;line-height:1.2">Delete this custom?</button>'
+                        : '<button data-strip-hide="'+i+'" title="'+(v.hidden?'Unhide (return to Compare)':'Hide from Compare')+'" style="'+_sAct+'">'+(v.hidden?'Unhide':'Hide')+'</button>'
+                          + '<button data-strip-del="'+i+'"'+(variants.length<=1?' disabled':'')+' title="Delete this variant" style="'+_sDel+(variants.length<=1?';opacity:.45;cursor:not-allowed':'')+'">Delete</button>')
+                    + '</div>';
               return '<div data-pick-variant="'+i+'" data-strip-drag="'+i+'"'+(renaming?'':' draggable="true"')+' title="'+(isHidden?'Hidden from Compare':'Switch to '+nm+' · drag to reorder')+'" style="'+cardStyle+';transition:transform .12s ease,box-shadow .12s ease,opacity .12s ease">'
                 + stripBar
                 + '<div data-oe-vthumb="'+i+'"'+(tc?' data-cmp-sig="'+tc.sig+'"':'')+' style="position:relative;width:100%;aspect-ratio:1/1;background:#f6f4ee;isolation:isolate;flex:none">'
@@ -34963,7 +34998,9 @@ if (!tradeLinks.length) {
         +'<span style="font-family:\'Baloo 2\',sans-serif;font-size:11px;font-weight:700;letter-spacing:.07em;color:#b0b0a6;margin-right:2px">VARIANTS</span>'
         +'<div style="flex:1"></div>'
 
-        +(_nHidden > 0 ? '<button data-strip-showhidden title="'+(s.stripShowHidden?'Collapse hidden variants':'Show variants hidden in Compare')+'" style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:999px;border:1.5px solid '+(s.stripShowHidden?S:'#e0dbce')+';background:'+(s.stripShowHidden?S+'14':'#fff')+';color:'+(s.stripShowHidden?S:'#8a8575')+';font:700 11px Nunito,sans-serif;cursor:pointer">👁 '+(s.stripShowHidden?'Hide hidden':('+'+_nHidden+' hidden'))+'</button>' : '')
+        +(_nHidden > 0 ? (s.stripShowHidden
+            ? '<button data-strip-showhidden title="Collapse hidden variants" style="border:1.5px dashed #b48fe0;background:#f7f2fc;color:#9a72c8;font:700 9px Nunito,sans-serif;letter-spacing:.03em;text-transform:uppercase;border-radius:999px;padding:3px 11px;cursor:pointer">Hide '+_nHidden+' hidden</button>'
+            : '<button data-strip-showhidden title="Show variants hidden in Compare" style="border:none;background:none;color:#9a72c8;font:600 11px Nunito,sans-serif;font-style:italic;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0">Show '+_nHidden+' hidden</button>') : '')
         +(variants.length > 1 ? '<button data-compare style="'+compareStyle+'"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" style="flex:none"><rect x="2" y="3" width="4.5" height="10" rx="1.4"></rect><rect x="9.5" y="3" width="4.5" height="10" rx="1.4"></rect></svg>Compare</button>' : '')
         +'</div>'
         + stripHTML;
@@ -35001,18 +35038,22 @@ if (!tradeLinks.length) {
 
       card.querySelectorAll('[data-strip-unhide]').forEach(el =>
         el.addEventListener('click', e => { e.stopPropagation(); const i = parseInt(el.dataset.stripUnhide, 10);
-          OE.set(s2 => ({ variants: (s2.variants||[]).map((v, j) => j === i ? Object.assign({}, v, { hidden:false }) : v) })); })
+          oeToggleVarHidden(i, false); })
       );
 
       card.querySelectorAll('[data-strip-hide]').forEach(el =>
         el.addEventListener('click', e => { e.stopPropagation(); const i = parseInt(el.dataset.stripHide, 10);
-          OE.set(s2 => ({ variants: (s2.variants||[]).map((v, j) => j === i ? Object.assign({}, v, { hidden: !v.hidden }) : v), stripDelConfirm: null })); })
+          oeToggleVarHidden(i); })
       );
 
       card.querySelectorAll('[data-strip-del]').forEach(el =>
         el.addEventListener('click', e => { e.stopPropagation(); if (el.disabled) return; const i = parseInt(el.dataset.stripDel, 10);
           if (OE.get().stripDelConfirm !== i) { OE.set({ stripDelConfirm: i, stripRenameIdx: null }); return; }
-          oeDeleteVariant(i); OE.set({ stripDelConfirm: null }); })
+          oeStartPendingDelete(i); })
+      );
+
+      card.querySelectorAll('[data-strip-undodel]').forEach(el =>
+        el.addEventListener('click', e => { e.stopPropagation(); oeUndoPendingDelete(el.dataset.stripUndodel); })
       );
 
       const _shBtn = card.querySelector('[data-strip-showhidden]');
@@ -35287,12 +35328,16 @@ if (!tradeLinks.length) {
 
       const _cgn = cardCols.length, collageCols = Math.min(3, Math.max(1, _cgn));
 
-      const actBtn = 'border:none;background:#e7e1d4;cursor:pointer;font:800 10px Nunito,sans-serif;letter-spacing:.03em;color:#5c574b;padding:6px 13px;border-radius:8px';
-      const delBtn = 'border:none;background:#fbdfe3;cursor:pointer;font:800 10px Nunito,sans-serif;letter-spacing:.03em;color:#cf3b58;padding:6px 13px;border-radius:8px';
+      const actBtn = 'border:none;background:#efeadf;cursor:pointer;font:700 10px Nunito,sans-serif;letter-spacing:.02em;color:#7a756a;padding:6px 13px;border-radius:999px';
+      const delBtn = 'border:none;background:#f7dde2;cursor:pointer;font:700 10px Nunito,sans-serif;letter-spacing:.02em;color:#c0566c;padding:6px 13px;border-radius:999px';
       const _selSet = new Set((s.cmpSelected || []).filter(n => n >= 0));
       const cardsHTML = cardCols.map((c, ci) => {
         const i = c.i, v = c.v, renaming = s.cmpRenameIdx === i, delc = s.cmpDelConfirm === i;
         const hidden = !!v.hidden, sel = _selSet.has(i);
+
+        const _vkey = oeVariantKey(v, i);
+        const _pending = (s.delPendingKeys || []).includes(_vkey);
+        const _done = (s.delDoneKeys || []).includes(_vkey);
 
         const cardFrame = collage ? 'border:1px solid #ece7da;background:#fff;' : oeSelBorder(sel);
         const cardShadow = collage ? 'box-shadow:0 8px 24px rgba(80,70,90,.16);' : '';
@@ -35307,19 +35352,29 @@ if (!tradeLinks.length) {
         return '<div data-cmp-card="'+i+'" data-cmp-drag="'+i+'"'+(renaming?'':' draggable="true"')
           +' data-cmp-vname="'+_oeEsc(v.name||('Variant '+(i+1)))+'" data-cmp-pet="'+_oeEsc(c.petName||'')+'" data-cmp-owned="'+ownedN+'" data-cmp-total="'+totalN+'" data-cmp-missn="'+missN+'" data-cmp-misscaps="'+_oeEsc(missCaps)+'"'
           +' data-cmp-items="'+_oeEsc(JSON.stringify(c.worn.map(x => ({ n: x.name || '', o: x.owned ? 1 : 0 }))))+'"'
-          +' title="Click to select · drag to reorder" style="'+cardFrame+cardShadow+'border-radius:16px;overflow:hidden;display:flex;flex-direction:column;cursor:'+(renaming?'default':'pointer')+';position:relative;opacity:'+(hidden?'.6':'1')+'">'
+          +' title="Click to select · drag to reorder" style="'+cardFrame+cardShadow+'border-radius:16px;overflow:hidden;display:flex;flex-direction:column;cursor:'+(renaming?'default':'pointer')+';position:relative;opacity:'+(hidden?'.6':'1')+(_done?';animation:dtrDelFade .48s ease forwards':'')+'">'
 
           + (collage ? '<div style="position:absolute;top:10px;left:11px;z-index:70;min-width:27px;height:27px;padding:0 8px;border-radius:999px;background:#fff;border:1.5px solid #e3ded0;color:#3a3a35;display:flex;align-items:center;justify-content:center;font:800 15px Nunito,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.2)">'+(ci+1)+'</div>'
               + '<button class="dia-cmp-copyone" data-cmp-copyone="'+i+'" title="Copy this one" aria-label="Copy this one"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>' : '')
 
           + ((!collage && hidden) ? '<div style="padding:6px;background:#cfc6b6;color:#fff;font:800 9px Nunito,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-align:center">Hidden · not compared</div>' : '')
 
-          + (collage ? '' : '<div style="display:flex;gap:6px;justify-content:center;padding:9px 10px">'
-          + (delc
-              ? '<button data-cmp-del="'+i+'" style="flex:1;border:none;background:#f3c6cf;cursor:pointer;font:800 10px Nunito,sans-serif;color:#b32f4f;padding:7px 10px;border-radius:8px;line-height:1.3">Permanently delete this custom?</button>'
-              : '<button data-cmp-hide="'+i+'" style="'+actBtn+'">'+(hidden?'Unhide':'Hide')+'</button>'
-                + '<button data-cmp-del="'+i+'"'+(variants.length<=1?' disabled':'')+' style="'+delBtn+(variants.length<=1?';opacity:.45;cursor:not-allowed':'')+'">Delete</button>')
-          + '</div>')
+          + (collage ? '' : (_done
+              ? '<div style="padding:9px 10px"><div style="text-align:center;font:800 10px Nunito,sans-serif;letter-spacing:.04em;color:#5d8467;padding:6px 0;border-radius:999px;background:#dff0e4">Deleted ✓</div></div>'
+              : _pending
+                ? '<div style="padding:9px 10px 7px">'
+                    + '<div style="display:flex;gap:7px;align-items:center">'
+                    + '<span style="flex:1;font:700 10px Nunito,sans-serif;color:#b08a3a;padding-left:2px">Deleting…</span>'
+                    + '<button data-cmp-undodel="'+_vkey+'" style="border:none;background:'+S+';color:#fff;cursor:pointer;font:800 10px Nunito,sans-serif;padding:6px 15px;border-radius:999px">Undo</button>'
+                    + '</div>'
+                    + '<div style="height:3px;border-radius:2px;background:#efe7da;margin-top:7px;overflow:hidden"><div style="height:100%;background:'+S+';transform-origin:left;animation:dtrDelCountdown 5s linear forwards"></div></div>'
+                  + '</div>'
+                : '<div style="display:flex;gap:6px;justify-content:center;padding:9px 10px">'
+                  + (delc
+                      ? '<button data-cmp-del="'+i+'" style="flex:1;border:none;background:#f3c6cf;cursor:pointer;font:700 10px Nunito,sans-serif;color:#b32f4f;padding:7px 10px;border-radius:999px;line-height:1.3">Permanently delete this custom?</button>'
+                      : '<button data-cmp-hide="'+i+'" style="'+actBtn+'">'+(hidden?'Unhide':'Hide')+'</button>'
+                        + '<button data-cmp-del="'+i+'"'+(variants.length<=1?' disabled':'')+' style="'+delBtn+(variants.length<=1?';opacity:.45;cursor:not-allowed':'')+'">Delete</button>')
+                  + '</div>'))
           + '<div data-cmp-thumb="'+i+'" style="position:relative;width:100%;aspect-ratio:1/1;background:#f6f4ee">'
           + '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="width:26px;height:26px;border:3px solid #ece7da;border-top-color:'+GRAPE+';border-radius:50%;animation:dtrspin .8s linear infinite"></div></div></div>'
           + '<div style="padding:11px 12px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;flex:1">'
@@ -35537,13 +35592,15 @@ if (!tradeLinks.length) {
           OE.set(s2 => ({ variants: (s2.variants||[]).map((v, j) => Object.assign({}, v, { starred: j === i ? !v.starred : false })) })); return; }
         const hide = e.target.closest('[data-cmp-hide]');
         if (hide) { e.stopPropagation(); const i = +hide.dataset.cmpHide;
-          OE.set(s2 => ({ variants: (s2.variants||[]).map((v, j) => j === i ? Object.assign({}, v, { hidden: !v.hidden }) : v) })); return; }
+          oeToggleVarHidden(i); return; }
         const edit = e.target.closest('[data-cmp-edit]');
         if (edit) { e.stopPropagation(); OE.set({ cmpRenameIdx: +edit.dataset.cmpEdit, cmpDelConfirm:null, renameError:null }); return; }
+        const undodel = e.target.closest('[data-cmp-undodel]');
+        if (undodel) { e.stopPropagation(); oeUndoPendingDelete(undodel.dataset.cmpUndodel); return; }
         const del = e.target.closest('[data-cmp-del]');
         if (del) { e.stopPropagation(); if (del.disabled) return; const i = +del.dataset.cmpDel;
           if (s.cmpDelConfirm !== i) { OE.set({ cmpDelConfirm:i, cmpRenameIdx:null }); return; }
-          oeDeleteVariant(i); return; }
+          oeStartPendingDelete(i); return; }
         const add = e.target.closest('[data-cmp-add]');
         if (add) { e.stopPropagation(); oeAddVariant(); return; }
         if (e.target.closest('[data-cmp-close]')) { close(); return; }
@@ -35602,6 +35659,35 @@ if (!tradeLinks.length) {
       return overlay;
     }
 
+    const _oeDelTimers = {};
+    function oeVariantKey(v, i) { return (v && v.outfitId) ? ('oid:' + v.outfitId) : ('idx:' + i); }
+    function oeStartPendingDelete(i) {
+      const v = (OE.get().variants || [])[i];
+      if (!v) return;
+      const key = oeVariantKey(v, i);
+      if (_oeDelTimers[key]) return;
+      OE.set(s2 => ({ delPendingKeys: [...(s2.delPendingKeys || []), key], stripDelConfirm: null, cmpDelConfirm: null }));
+      _oeDelTimers[key] = setTimeout(() => { delete _oeDelTimers[key]; oeCommitPendingDelete(key); }, 5000);
+    }
+    function oeUndoPendingDelete(key) {
+      if (_oeDelTimers[key]) { clearTimeout(_oeDelTimers[key]); delete _oeDelTimers[key]; }
+      OE.set(s2 => ({ delPendingKeys: (s2.delPendingKeys || []).filter(k => k !== key) }));
+    }
+    function oeKeyToIndex(key) {
+      const vs = OE.get().variants || [];
+      if (key.indexOf('oid:') === 0) return vs.findIndex(v => String(v.outfitId) === key.slice(4));
+      if (key.indexOf('idx:') === 0) return parseInt(key.slice(4), 10);
+      return -1;
+    }
+    function oeCommitPendingDelete(key) {
+
+      OE.set(s2 => ({ delPendingKeys: (s2.delPendingKeys || []).filter(k => k !== key), delDoneKeys: [...(s2.delDoneKeys || []), key] }));
+      setTimeout(() => {
+        const idx = oeKeyToIndex(key);
+        OE.set(s2 => ({ delDoneKeys: (s2.delDoneKeys || []).filter(k => k !== key) }));
+        if (idx >= 0) oeDeleteVariant(idx);
+      }, 480);
+    }
     function oeDeleteVariant(i) {
       OE.set(s2 => {
         const v = (s2.variants || []).slice();
@@ -36722,6 +36808,23 @@ if (!tradeLinks.length) {
       try { const all = _oeAllVGroups(); mem.forEach(mid => { all[mid] = mem.slice(); }); GM_setValue(_OE_VGROUP_KEY, JSON.stringify(all)); } catch (_) {}
     }
 
+    const _OE_VHIDDEN_KEY = 'dtr_oe_variant_hidden';
+    function _oeAllVHidden() { try { return JSON.parse(GM_getValue(_OE_VHIDDEN_KEY, '{}')) || {}; } catch (_) { return {}; } }
+    function oeIsVarHidden(outfitId) { return outfitId ? !!_oeAllVHidden()[String(outfitId)] : false; }
+    function oeSetVarHidden(outfitId, hidden) {
+      if (!outfitId) return;
+      try { const all = _oeAllVHidden(); if (hidden) all[String(outfitId)] = 1; else delete all[String(outfitId)]; GM_setValue(_OE_VHIDDEN_KEY, JSON.stringify(all)); } catch (_) {}
+    }
+
+    function oeToggleVarHidden(i, force) {
+      OE.set(s2 => ({ variants: (s2.variants || []).map((v, j) => {
+        if (j !== i) return v;
+        const next = (force === undefined) ? !v.hidden : !!force;
+        oeSetVarHidden(v.outfitId, next);
+        return Object.assign({}, v, { hidden: next });
+      }), stripDelConfirm: null }));
+    }
+
     async function oeFetchOutfitFull(id) {
       let o;
       try {
@@ -36781,6 +36884,7 @@ if (!tradeLinks.length) {
           const idx = built.length;
           built.push({
             name: d.name, items: d.considering, tags: d.tags, outfitId: d.outfitId, locked: false, starred: false,
+            hidden: oeIsVarHidden(d.outfitId),
             biology: { speciesId: d.speciesId, colorId: d.colorId, speciesName: null, colorName: null, pose: d.pose, altStyleId: d.altStyleId, petStateId: d.petStateId },
           });
           if (d.outfitId === String(id)) { activeIdx = idx; active = d; }
@@ -37015,6 +37119,62 @@ if (!tradeLinks.length) {
       } catch (_) { return false; }
     }
 
+    function _oeShimSelect(items, curId) {
+      const sel = document.createElement('select');
+      sel.style.cssText = 'position:absolute;left:-9999px;width:0;height:0;opacity:0;pointer-events:none';
+      (items || []).forEach(it => { const o = document.createElement('option'); o.value = String(it.id); o.text = it.name; sel.appendChild(o); });
+      if (curId != null) sel.value = String(curId);
+      return sel;
+    }
+    let _oePSShimSp = null, _oePSShimCo = null;
+
+    function oeMountStylePicker() {
+      const slot = document.getElementById('dia-oe-ps-slot');
+      if (!slot) return;
+      const existing = document.getElementById('dia-ps-row');
+      if (existing) { if (existing.parentNode !== slot) slot.appendChild(existing); return; }
+      if (typeof window._dtrPSPicker !== 'function') return;
+      const st = OE.get();
+      if (!(st.allSpecies && st.allSpecies.length)) return;
+      _oePSShimSp = _oeShimSelect(st.allSpecies, st.speciesId);
+      _oePSShimCo = _oeShimSelect(st.allColors, st.colorId);
+      document.body.appendChild(_oePSShimSp); document.body.appendChild(_oePSShimCo);
+      try {
+        window._dtrPSPicker({
+          spSel: _oePSShimSp, coSel: _oePSShimCo, fieldHost: slot,
+          defaultScope: String(st.speciesId),
+          heightCap: 460,
+          onApply: (style) => {
+            const _dispatch = (asid) => { if (window.__dtrOEDispatch) { try { window.__dtrOEDispatch({ type:'setAltStyle', altStyleId: asid ? String(asid) : null }); } catch (_) {} } };
+            if (!style) { OE.set({ altStyleId: null }); try { oeReconcileAltStyle(); oeKickSearch(); } catch (_) {} _dispatch(null); return; }
+            const sp = String(style.spId), cur = OE.get();
+
+            const oeStyle = {
+              id: String(style.id), label: style.label || style.colorway || ('Style ' + style.id),
+              colorway: style.colorway || '', series: style.series || '', colorId: String(style.colorId || cur.colorId || ''),
+              thumbnailUrl: style.thumb || '', bodyId: null,
+              layers: (style.layers || []).map(l => ({ imageUrlV2: l.u, zone: { id: null, depth: l.d, label: null } })).filter(l => l.imageUrlV2),
+            };
+            const have = (cur.altStyles || []).some(x => String(x.id) === String(style.id) && x.layers && x.layers.length);
+            const patch = { altStyleId: String(style.id) };
+            if (!have) patch.altStyles = [oeStyle];
+
+            if (sp !== String(cur.speciesId)) {
+              patch.speciesId = sp;
+              patch.speciesName = (cur.allSpecies.find(x => String(x.id) === sp) || {}).name || null;
+              if (!oePairValid(sp, cur.colorId)) {
+                const vc = (cur.allColors || []).find(c => oePairValid(sp, c.id));
+                if (vc) { patch.colorId = String(vc.id); patch.colorName = vc.name; }
+              }
+            }
+            OE.set(patch);
+            if (sp !== String(cur.speciesId) || !have) { try { oeFetchAltStyles(sp); } catch (_) {} }
+            try { oeReconcileAltStyle(); oeKickSearch(); } catch (_) {}
+            _dispatch(style.id);
+          },
+        });
+      } catch (e) { try {  } catch (_) {} }
+    }
     async function oeFetchAltStyles(speciesId) {
       try {
 
@@ -37088,12 +37248,12 @@ if (!tradeLinks.length) {
 
     const _oeInfoCache = {};
     let _oeInfoTipEl = null;
-    function oeHideInfoTip() { if (_oeInfoTipEl) _oeInfoTipEl.style.opacity = '0'; }
+    function oeHideInfoTip() { if (_oeInfoTipEl) _oeInfoTipEl.classList.remove('show'); }
     function _oeEnsureInfoTip(host) {
       if (!_oeInfoTipEl) {
         _oeInfoTipEl = document.createElement('div');
         _oeInfoTipEl.id = 'dtr-oe-info-tip';
-        _oeInfoTipEl.style.cssText = 'position:fixed;z-index:2147483647;background:#2c2b29;color:#fff;font:600 11px/1.45 Nunito,sans-serif;padding:8px 11px;border-radius:9px;box-shadow:0 6px 20px rgba(0,0,0,.28);max-width:240px;pointer-events:none;opacity:0;transition:opacity .12s';
+        _oeInfoTipEl.className = 'dia-ui-tooltip';
       }
       const parent = host || document.body;
       if (_oeInfoTipEl.parentNode !== parent) parent.appendChild(_oeInfoTipEl);
@@ -37103,7 +37263,7 @@ if (!tradeLinks.length) {
     function oeShowStaticTip(anchor, html) {
       const el = _oeEnsureInfoTip();
       el.innerHTML = html;
-      el.style.opacity = '1';
+      el.classList.add('show');
       const r = anchor.getBoundingClientRect(), tw = el.offsetWidth;
       el.style.left = Math.min(window.innerWidth - tw - 8, Math.max(8, r.left + r.width/2 - tw/2)) + 'px';
       el.style.top = (r.bottom + 7) + 'px';
@@ -37120,21 +37280,22 @@ if (!tradeLinks.length) {
 
     function oeShowInfoTip(btn, id, name, host) {
       const el = _oeEnsureInfoTip(host);
+
       const render = (info) => {
-        let html = '<b style="font-size:11.5px;color:#fff">' + _oeEsc(name || (info && info.name) || 'Item') + '</b>';
-        if (info && info.desc) html += '<br><span style="opacity:.82">' + _oeEsc(info.desc) + '</span>';
+        let html = '<strong>' + _oeEsc(name || (info && info.name) || 'Item') + '</strong>';
+        if (info && info.desc) html += '<div style="margin:6px 0 0;font-style:italic;opacity:0.85;">' + _oeEsc(info.desc) + '</div>';
         if (info && info.occ) html += info.occ.length
-          ? '<br><span style="color:#9fe0c0">Zones:</span> ' + info.occ.map(_oeEsc).join(', ')
-          : '<br><span style="color:#e7b3a4">Cannot be worn by this pet</span>';
-        if (info && info.rest && info.rest.length) html += '<br><span style="color:#e6c07a">Restricts:</span> ' + info.rest.map(_oeEsc).join(', ');
+          ? '<strong style="color:#a8d4c4;font-size:10px;text-transform:uppercase;letter-spacing:0.05em;display:block;margin-top:6px;">Zones</strong><div style="margin:2px 0 0;">' + info.occ.map(_oeEsc).join(', ') + '</div>'
+          : '<div style="margin-top:6px;opacity:0.85;">Cannot be worn by this pet</div>';
+        if (info && info.rest && info.rest.length) html += '<strong style="color:#a8d4c4;font-size:10px;text-transform:uppercase;letter-spacing:0.05em;display:block;margin-top:6px;">Restricts</strong><div style="margin:2px 0 0;">' + info.rest.map(_oeEsc).join(', ') + '</div>';
         const seen = info && _oeFmtFirstSeen(info.created);
-        if (seen) html += '<br><span style="color:#c3b7e6">First seen:</span> ' + seen;
+        if (seen) html += '<div style="margin-top:6px;font-size:10px;opacity:0.65;">First seen: ' + seen + '</div>';
         const owned = info ? info.owned : _oeOwnedQty(id);
-        html += '<br><span style="color:#9fc8e8">Copies owned:</span> ' + (owned > 0 ? owned + ' across your lists' : 'none');
+        html += '<div style="margin-top:6px;font-size:10px;opacity:0.65;">Copies owned: ' + (owned > 0 ? owned + ' across your lists' : 'none') + '</div>';
         return html;
       };
       const place = (html) => {
-        el.innerHTML = html; el.style.opacity = '1';
+        el.innerHTML = html; el.classList.add('show');
         const r = btn.getBoundingClientRect(), tw = el.offsetWidth;
         el.style.left = Math.min(window.innerWidth - tw - 8, Math.max(8, r.left + r.width/2 - tw/2)) + 'px';
         el.style.top = (r.bottom + 7) + 'px';
@@ -37647,12 +37808,13 @@ if (!tradeLinks.length) {
         const k = cv.dataset.oeLid;
         if (!want.has(k)) { const d = _oeAnimById.get(k); if (d) { try { d(); } catch (_) {} _oeAnimById.delete(k); } cv.remove(); if (imgByK[k]) imgByK[k].style.visibility = ''; }
       });
-      if (!CORE || !animLayers.length) return;
+      if (!CORE || !animLayers.length) {  return; }
+
       let w;
       try { w = await CORE.ensureCreateJS(); } catch (e) {  return; }
-      if (gen !== _oeRenderGen) return;
+      if (gen !== _oeRenderGen) {  return; }
       for (const l of animLayers) {
-        if (gen !== _oeRenderGen) return;
+        if (gen !== _oeRenderGen) {  return; }
         const k = _oeLayerKey(l);
         if (_oeAnimById.has(k)) continue;
         const movie = l.canvasMovieLibraryUrl;
@@ -37740,29 +37902,41 @@ if (!tradeLinks.length) {
 
     function oeLocked() { return !!oeActiveVar(OE.get()).locked; }
 
+    function _oeZoneKeys(it, extraZones) {
+      const ks = [];
+      if (it) {
+        if (it.zoneIds && it.zoneIds.length) it.zoneIds.forEach(z => ks.push('id:' + z));
+        if (it.zone) ks.push('z:' + it.zone);
+      }
+      if (extraZones) extraZones.forEach(z => { if (z) ks.push('z:' + z); });
+      return ks.length ? ks : (it && it.name ? ['item:' + it.name] : []);
+    }
+
     function oeDrawnNames(considering) {
       const taken = new Set(), drawn = new Set();
       const list = considering || [];
       for (let i = list.length - 1; i >= 0; i--) {
         const it = list[i];
         if (!it || it.applied === false) continue;
-        const z = it.zone ? ('z:' + it.zone) : ('item:' + it.name);
-        if (!taken.has(z)) { taken.add(z); drawn.add(it.name); }
+        const keys = _oeZoneKeys(it);
+        if (!keys.some(k => taken.has(k))) { keys.forEach(k => taken.add(k)); drawn.add(it.name); }
       }
       return drawn;
     }
     function oeApplyNow(name) {
       if (oeLocked()) return;
       OE.set(s2 => {
-        const inList = s2.considering.find(x => x.name === name);
+
+        const inListEntries = s2.considering.filter(x => x.name === name);
+        const inList = inListEntries[0];
         const src = inList || (s2.searchResults || []).find(x => x.name === name);
-        if (!inList && (!src || !src.id || !src.name)) return {};
-        const entry = inList
-          ? Object.assign({}, inList, { applied: true, bodyConflict: false })
-          : { name: src.name, id: String(src.id), zone: src.zone || null, hue: src.hue || 0, loved: false, applied: true, thumb: src.thumb || '', nc: !!src.nc, owned: !!src.owned };
+        if (!inListEntries.length && (!src || !src.id || !src.name)) return {};
+        const newest = inListEntries.length
+          ? inListEntries.map(e => Object.assign({}, e, { applied: true, bodyConflict: false }))
+          : [{ name: src.name, id: String(src.id), zone: src.zone || null, hue: src.hue || 0, loved: false, applied: true, thumb: src.thumb || '', nc: !!src.nc, owned: !!src.owned }];
 
         const rest = s2.considering.filter(x => x.name !== name);
-        return { considering: [...rest, entry], removeConfirm: null };
+        return { considering: [...rest, ...newest], removeConfirm: null };
       });
       try {
         const it2 = OE.get().considering.find(x => x.name === name);
@@ -37982,15 +38156,29 @@ if (!tradeLinks.length) {
       const worn    = items.map((a, i) => ({ ...a, _itemId: itemIds[i] }));
 
       const zoneById = {};
+      const labelToZoneId = {};
+      const allZoneIdsById = {};
       worn.forEach(a => {
-        const z = (a.layers || []).map(l => l.zone).filter(Boolean).sort((x, y) => (y.depth||0) - (x.depth||0))[0];
+        const zs = (a.layers || []).map(l => l.zone).filter(Boolean);
+        const z = zs.slice().sort((x, y) => (y.depth||0) - (x.depth||0))[0];
         if (z && z.label) zoneById[String(a._itemId)] = z.label;
+        zs.forEach(zn => { if (zn.label && zn.id != null) labelToZoneId[String(a._itemId) + '|' + zn.label] = String(zn.id); });
+        const ids = [...new Set(zs.map(l => l.id).filter(Boolean).map(String))];
+        if (ids.length) allZoneIdsById[String(a._itemId)] = ids;
       });
       const cons = OE.get().considering || [];
       let zoneChanged = false;
       const consFixed = cons.map(x => {
         const lbl = zoneById[String(x.id)];
-        if (lbl && !x.zone) { zoneChanged = true; return Object.assign({}, x, { zone: lbl }); }
+        const patch = {};
+        if (lbl && !x.zone) patch.zone = lbl;
+
+        const useZone = x.zone || patch.zone;
+        const zids = (useZone && labelToZoneId[String(x.id) + '|' + useZone])
+          ? [labelToZoneId[String(x.id) + '|' + useZone]]
+          : allZoneIdsById[String(x.id)];
+        if (zids && zids.join(',') !== ((x.zoneIds || []).join(','))) patch.zoneIds = zids;
+        if (Object.keys(patch).length) { zoneChanged = true; return Object.assign({}, x, patch); }
         return x;
       });
       if (zoneChanged) OE.set({ considering: consFixed });
