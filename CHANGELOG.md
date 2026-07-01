@@ -1,5 +1,15 @@
 # DTI Remix — Changelog
 
+## July 1, 2026
+
+### Fixes
+- **Customize:** The Pet Style field now shows the style your pet loaded with (like from a shared link) — it used to sit empty until you picked one yourself.
+- **Customize:** Your Animated / Static choice is remembered — it used to reset to Animated every time you opened the editor.
+- **Customize:** On the Zone Map, a zone's "Search" button now hides while that zone is already the active search.
+
+### Enhancements
+- **Customize:** The "Compare" button on item variants is now "Details," and it shows even when an item has just one variant.
+
 ## June 30, 2026
 
 ### Fixes

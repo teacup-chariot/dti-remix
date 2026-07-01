@@ -9136,6 +9136,8 @@
           }
         };
 
+        try { window._dtrPSPickerReflect = (style) => { if (!style || !selected || String(selected.id) !== String(style.id)) { selected = style || null; syncField(); } }; } catch (_) {}
+
         const syncScopeLabel = () => {
           const b = document.querySelector('#dia-ps-pop .dia-ps-spbtn-lbl');
           if (b) b.textContent = (M.scope === 'all') ? 'All species' : (spName[M.scope] || 'Species');
@@ -33505,7 +33507,7 @@ if (!tradeLinks.length) {
         frameShape:      'rounded',
         outfitLocked:    false,
         oeLoadingPet:    false,
-        animated:        true,
+        animated:        (() => { try { return GM_getValue('dtr_oe_animated', true); } catch(_) { return true; } })(),
         pinnedZones:     (() => { try { return new Set(JSON.parse(GM_getValue('dtr_oe_pinned_zones','[]'))); } catch(_) { return new Set(); } })(),
 
         zoneMapShow:     (() => { try { return GM_getValue('dtr_oe_zonemap_show', true) !== false; } catch(_) { return true; } })(),
@@ -33605,6 +33607,97 @@ if (!tradeLinks.length) {
 
     function oeAboxGet() { try { const o = JSON.parse(GM_getValue('dtr_oe_abox', '') || 'null'); if (o && typeof o.l === 'number') return { l:o.l, t:o.t, w:o.w, h:o.h }; } catch (_) {} return { l:38.6, t:28.0, w:33.4, h:33.4 }; }
     function oeAboxSet(o) { try { GM_setValue('dtr_oe_abox', JSON.stringify({ l:o.l, t:o.t, w:o.w, h:o.h })); } catch (_) {} }
+
+    const _oeAboxCache = new Map();
+    let _oeAboxPetKey = '';
+    let _oeAboxPetLayers = null, _oeAboxPetLayersKey = '';
+
+    function _oeAboxBetaOn() {
+      try { if (typeof window !== 'undefined' && typeof window.__DTR_ABOX_BETA === 'boolean') return window.__DTR_ABOX_BETA; } catch (_) {}
+      return OE_ABOX_BETA;
+    }
+
+    function _oeAboxCfg() {
+      const o = (typeof window !== 'undefined' && window.__DTR_ABOX) || {};
+      const n = (v, d) => (typeof v === 'number' ? v : d);
+      return { size: n(o.size, 0.30), yNudge: n(o.yNudge, 0), xNudge: n(o.xNudge, 0) };
+    }
+    function _oeAboxKey(s) { return s ? (s.speciesId + ':' + s.colorId + ':' + s.pose + ':' + (s.altStyleId || '')) : ''; }
+
+    function _oeAboxAlpha(url) {
+      return new Promise(res => {
+        const im = new Image(); im.crossOrigin = 'anonymous';
+        im.onload = () => {
+          try {
+            const w = im.naturalWidth, h = im.naturalHeight;
+            const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+            const cx = cv.getContext('2d'); cx.drawImage(im, 0, 0);
+            const d = cx.getImageData(0, 0, w, h).data;
+            let a = w, b = h, X = -1, Y = -1;
+            for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (d[(y * w + x) * 4 + 3] > 16) { if (x < a) a = x; if (x > X) X = x; if (y < b) b = y; if (y > Y) Y = y; }
+            if (X < 0) return res(null);
+            res({ cx: ((a + X) / 2) / w, cy: ((b + Y) / 2) / h, dim: Math.max(X - a, Y - b) / w, top: b / h, bottom: Y / h, left: a / w, right: X / w });
+          } catch (_) { res(null); }
+        };
+        im.onerror = () => res(null);
+        im.src = url;
+      });
+    }
+
+    async function oeAboxEnsureHead(petLayers, key) {
+      if (!key || _oeAboxCache.has(key)) return;
+      _oeAboxCache.set(key, 'pending');
+      try {
+        const zones = (petLayers || []).map(l => l.zone && l.zone.id).filter(x => x != null);
+        const layerUrl = (zid) => { const l = (petLayers || []).find(l => l.zone && String(l.zone.id) === zid); return (l && (l.imageUrlV2 || l.imageUrl)) || null; };
+        const eUrl = layerUrl('33'), mUrl = layerUrl('34'), hUrl = layerUrl('30');
+        const [eyes, mouth, head] = await Promise.all([
+          eUrl ? _oeAboxAlpha(eUrl) : null,
+          mUrl ? _oeAboxAlpha(mUrl) : null,
+          hUrl ? _oeAboxAlpha(hUrl) : null,
+        ]);
+        const cfg = _oeAboxCfg();
+        const size = Math.max(0.12, Math.min(0.9, cfg.size));
+
+        let cx, cy, used;
+        if (mouth) { cx = mouth.cx; cy = mouth.cy; used = 'mouth'; }
+        else if (eyes) { cx = eyes.cx; cy = eyes.cy; used = 'eyes'; }
+        else if (head) { cx = head.cx; cy = head.cy; used = 'head'; }
+        else { used = 'none'; }
+        const P = (b) => (b ? { cx: +b.cx.toFixed(3), cy: +b.cy.toFixed(3) } : null);
+        const diag = { key, zones, used, eyes: P(eyes), mouth: P(mouth), head: P(head) };
+        if (used === 'none') { _oeAboxCache.set(key, null); try { window.__DTR_ABOX_LAST = diag; } catch (_) {}  oeAboxPaint(); return; }
+        cx += cfg.xNudge; cy += cfg.yNudge;
+        const l = Math.max(0, Math.min(1 - size, cx - size / 2)) * 100;
+        const t = Math.max(0, Math.min(1 - size, cy - size / 2)) * 100;
+        const pc = (b) => b ? Math.round(b.cx * 100) + ',' + Math.round(b.cy * 100) : '-';
+
+        const dbg = used + ' · C ' + Math.round(cx * 100) + ',' + Math.round(cy * 100) + ' · eyes ' + pc(eyes) + ' · mouth ' + pc(mouth) + ' · head ' + pc(head);
+        const box = { l: +l.toFixed(1), t: +t.toFixed(1), w: +(size * 100).toFixed(1), h: +(size * 100).toFixed(1), dbg: dbg };
+        _oeAboxCache.set(key, box);
+
+        oeAboxPaint();
+      } catch (e) {
+        _oeAboxCache.set(key, null);
+
+      }
+    }
+
+    function oeAboxPaint() {
+      const ph = document.getElementById('dtr-oe-canvas');
+      if (!ph) return;
+      const host = ph.querySelector('[data-oe-abox-host]');
+      if (!host) return;
+      const box = _oeAboxPetKey ? _oeAboxCache.get(_oeAboxPetKey) : null;
+      if (box && box !== 'pending') {
+        host.innerHTML =
+          '<div data-oe-activebox data-oe-nocap style="position:absolute;left:' + box.l.toFixed(2) + '%;top:' + box.t.toFixed(2) + '%;width:' + box.w.toFixed(2) + '%;height:' + box.h.toFixed(2) + '%;z-index:3;pointer-events:none;box-shadow:0 0 0 9999px rgba(30,32,42,.55);border:2px dashed rgba(255,255,255,.92);border-radius:3px;box-sizing:border-box"></div>'
+          + '<div data-oe-nocap style="position:absolute;left:0;right:0;top:calc(' + (box.t + box.h).toFixed(2) + '% + 7px);z-index:3;pointer-events:none;text-align:center;font:800 9px/1.35 Nunito,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7)">Neoboards<br>Active Box<br><span style="font-weight:700;font-size:8px;letter-spacing:0;text-transform:none;opacity:.95;background:rgba(0,0,0,.45);padding:1px 4px;border-radius:4px">' + (box.dbg || '') + '</span></div>';
+      } else {
+        host.innerHTML = '';
+        if (!box && _oeAboxPetLayers && _oeAboxPetLayersKey === _oeAboxPetKey) oeAboxEnsureHead(_oeAboxPetLayers, _oeAboxPetKey);
+      }
+    }
 
     const OE_ABOX_BETA = false;
     const OE_CENTER_KEYS = new Set(['outfitName','editingName','frameShape','outfitLocked',
@@ -34551,6 +34644,7 @@ if (!tradeLinks.length) {
         }
         requestAnimationFrame(oeFitSidePanels);
         oeMountStylePicker();
+        try { oeReflectStylePicker(); } catch (_) {}
       }
 
       OE.sub(repaint);
@@ -34761,7 +34855,6 @@ if (!tradeLinks.length) {
 
       const _zmOnNow = s.zoneMapShow !== false;
       const cr = s.frameShape === 'square' ? '4px' : (s.frameShape === 'circle' && !_zmOnNow) ? '50%' : '16px';
-      const _ab = oeAboxGet();
 
       function fsBtn(active) {
 
@@ -34924,13 +35017,10 @@ if (!tradeLinks.length) {
           '<div data-canvas-icons data-oe-nocap style="position:absolute;bottom:54px;left:50%;transform:translateX(-50%);z-index:6;display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.92);border-radius:999px;padding:3px;box-shadow:0 2px 8px rgba(60,60,55,.16)">'
           +'<button data-frame="rounded" title="Rounded frame" style="'+fsBtn(s.frameShape==='rounded')+'"><span style="width:9px;height:9px;background:currentColor;border-radius:2.5px;display:block"></span></button>'
           +'<button data-frame="circle" title="Circle frame" style="'+fsBtn(s.frameShape==='circle')+'"><span style="width:9px;height:9px;background:currentColor;border-radius:50%;display:block"></span></button>'
-          +(OE_ABOX_BETA ? '<button data-frame="active" title="Neoboards Active Box viewfinder" style="'+fsBtn(s.frameShape==='active')+'"><span style="width:9px;height:9px;background:currentColor;border-radius:2px;display:flex;align-items:center;justify-content:center"><span style="width:4px;height:4px;background:#fff;border-radius:1px;opacity:.9"></span></span></button>' : '')
+          +(_oeAboxBetaOn() ? '<button data-frame="active" title="Neoboards Active Box viewfinder" style="'+fsBtn(s.frameShape==='active')+'"><span style="width:9px;height:9px;background:currentColor;border-radius:2px;display:flex;align-items:center;justify-content:center"><span style="width:4px;height:4px;background:#fff;border-radius:1px;opacity:.9"></span></span></button>' : '')
           +'</div>')
 
-        +((OE_ABOX_BETA && s.frameShape==='active' && !_zmOnNow) ? (
-          '<div data-oe-activebox data-oe-nocap style="position:absolute;left:'+_ab.l+'%;top:'+_ab.t+'%;width:'+_ab.w+'%;height:'+_ab.h+'%;z-index:3;pointer-events:none;box-shadow:0 0 0 9999px rgba(30,32,42,.55);border:2px dashed rgba(255,255,255,.92);border-radius:3px;box-sizing:border-box"></div>'
-          + '<div data-oe-nocap style="position:absolute;left:0;right:0;top:calc('+(_ab.t+_ab.h)+'% + 7px);z-index:3;pointer-events:none;text-align:center;font:800 9px/1.35 Nunito,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7)">Neoboards<br>Active Box</div>'
-        ) : '')
+        +((_oeAboxBetaOn() && s.frameShape==='active' && !_zmOnNow) ? '<div data-oe-abox-host data-oe-nocap style="position:absolute;inset:0;z-index:3;pointer-events:none"></div>' : '')
 
         + lockedBanner
 
@@ -35037,13 +35127,14 @@ if (!tradeLinks.length) {
         });
       });
 
-      on('[data-frame]', 'click', e => OE.set({ frameShape:e.currentTarget.dataset.frame }));
+      on('[data-frame]', 'click', e => { OE.set({ frameShape:e.currentTarget.dataset.frame }); try { requestAnimationFrame(oeAboxPaint); } catch (_) {} });
 
       onOne('[data-anim-toggle]', 'click', e => {
         e.stopPropagation();
         const btn  = e.currentTarget;
         const next = !OE.get().animated;
         OE.set({ animated: next });
+        try { GM_setValue('dtr_oe_animated', next); } catch (_) {}
         oeSetAnimated(next);
 
         btn.style.background = next ? '#52b96a' : 'rgba(70,75,80,.6)';
@@ -35254,7 +35345,7 @@ if (!tradeLinks.length) {
         +(_nHidden > 0 ? (s.stripShowHidden
             ? '<button data-strip-showhidden title="Collapse hidden variants" style="border:1.5px dashed #b48fe0;background:#f7f2fc;color:#9a72c8;font:700 9px Nunito,sans-serif;letter-spacing:.03em;text-transform:uppercase;border-radius:999px;padding:3px 11px;cursor:pointer">Hide '+_nHidden+' hidden</button>'
             : '<button data-strip-showhidden title="Show variants hidden in Compare" style="border:none;background:none;color:#9a72c8;font:600 11px Nunito,sans-serif;font-style:italic;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0">Show '+_nHidden+' hidden</button>') : '')
-        +(variants.length > 1 ? '<button data-compare style="'+compareStyle+'"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" style="flex:none"><rect x="2" y="3" width="4.5" height="10" rx="1.4"></rect><rect x="9.5" y="3" width="4.5" height="10" rx="1.4"></rect></svg>Compare</button>' : '')
+        +(variants.length >= 1 ? '<button data-compare style="'+compareStyle+'"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" style="flex:none"><rect x="2" y="3" width="4.5" height="10" rx="1.4"></rect><rect x="9.5" y="3" width="4.5" height="10" rx="1.4"></rect></svg>Details</button>' : '')
         +'</div>'
         + stripHTML;
 
@@ -37117,7 +37208,7 @@ if (!tradeLinks.length) {
             + '<div style="font:800 '+(mini?'8px':'8.5px')+'/1.1 Nunito,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#6f6f66;margin-bottom:'+(mini?4:5)+'px;overflow-wrap:normal">'+zone+'</div>'
             + thumb
             + (showName ? '<div style="'+nameCss+'">'+_oeEsc(occ.name)+'</div>' : '')
-            + (expanded ? '<div style="margin-top:8px">'+searchBtnHTML+'</div>' : '')
+            + (expanded && zone !== s.activeZone ? '<div style="margin-top:8px">'+searchBtnHTML+'</div>' : '')
             + '</div>';
         } else {
 
@@ -37173,6 +37264,7 @@ if (!tradeLinks.length) {
           e.stopPropagation();
           OE.set({ activeZone: zone, selectedZone: zone });
           oeKickSearch();
+          try { searchBtn.style.display = 'none'; } catch (_) {}
         });
 
         cardEl.addEventListener('mousedown', (ev) => {
@@ -37710,6 +37802,15 @@ if (!tradeLinks.length) {
     }
     let _oePSShimSp = null, _oePSShimCo = null;
 
+    function oeReflectStylePicker() {
+      if (typeof window._dtrPSPickerReflect !== 'function') return;
+      const st = OE.get();
+      const stObj = st.altStyleId ? (st.altStyles || []).find(x => String(x.id) === String(st.altStyleId)) : null;
+      const reflect = stObj
+        ? { id: String(stObj.id), label: stObj.label || stObj.colorway || ('Style ' + stObj.id), thumb: stObj.thumbnailUrl || '', spId: String(st.speciesId) }
+        : null;
+      try { window._dtrPSPickerReflect(reflect); } catch (_) {}
+    }
     function oeMountStylePicker() {
       const slot = document.getElementById('dia-oe-ps-slot');
       if (!slot) return;
@@ -38701,6 +38802,9 @@ if (!tradeLinks.length) {
         layersEl.innerHTML = '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="width:34px;height:34px;border:3px solid #ece7da;border-top-color:var(--accent);border-radius:50%;animation:dtrspin .8s linear infinite"></div></div>';
         return;
       }
+
+      _oeAboxPetKey = _oeAboxKey(s);
+      try { oeAboxPaint(); } catch (_) {}
       const pose = OE_POSE_URLS[s.pose] || 'HAPPY_FEM';
       const itemIds = [...new Set((s.considering||[]).filter(x => x.applied !== false).map(x => x.id).filter(Boolean).map(String))];
 
@@ -38736,6 +38840,9 @@ if (!tradeLinks.length) {
       if (gen !== _oeRenderGen) return;
 
       const petData = { petLayers: pet.petLayers, bodyId: null, restrictedZones: pet.restrictedZones || [] };
+
+      _oeAboxPetLayers = petData.petLayers; _oeAboxPetLayersKey = _oeAboxPetKey;
+      try { oeAboxEnsureHead(petData.petLayers, _oeAboxPetKey); } catch (_) {}
 
       if (pet && 'petStateId' in pet && OE.get().petStateId !== pet.petStateId) OE.set({ petStateId: pet.petStateId });
       const worn    = items.map((a, i) => ({ ...a, _itemId: itemIds[i] }));
