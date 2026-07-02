@@ -3544,6 +3544,8 @@
       '#dtr-outfit-editor { --accent:var(--dtr-accent,#ff8576); --secondary:var(--dtr-primary,#149c8e); --surface:#fefdf8; --border:#e9e3d4; --haul:#3f9d92; --capsbg:#fbe2e8; --capstext:#c45a72; --oe-stripe:linear-gradient(180deg,#7bb4e6,#86cda0,#f2a9c0,#f2c879,#e98f93); --oe-stripe-h:var(--dtr-stripe); --oe-text:#46463f; --oe-text-head:#3a3a35; --oe-text-muted:#a6a69e; --oe-text-zone:#b5b5ab; --oe-nc:#7e6aa8; --oe-star:#f6c945; --oe-canvas-bg:linear-gradient(170deg,#cfe3f2,#e6def0 52%,#f5ead9); --oe-empty-stripe:repeating-linear-gradient(45deg,#faf8f1 0 6px,#f2efe4 6px 12px); font-family:"Nunito",sans-serif; color:var(--oe-text); box-sizing:border-box; position:fixed; inset:0; z-index:9100; overflow-y:auto; min-height:100vh; background-color:var(--surface); background-image:var(--dtr-polka); background-size:var(--dtr-polka-size,30px 30px,30px 30px,28px 28px,32px 32px,auto); background-position:var(--dtr-polka-pos,0 0,15px 15px,8px 21px,21px 6px,0 0); background-attachment:fixed; }',
       '#dtr-outfit-editor *,#dtr-outfit-editor *::before,#dtr-outfit-editor *::after { box-sizing:border-box; }',
 
+      '#dtr-outfit-editor .dtr-oe-menurow:not([data-on]):not(:disabled):hover { background:#f6f3ea !important; }',
+
       'html[data-dtr-skin=milktea] #dtr-outfit-editor { --accent:#a07550; --secondary:#c8987f; --surface:#faf4ec; --border:#e7d8c4; --haul:#a07550; --capsbg:#f3e9da; --capstext:#8a6342; }',
       'html[data-dtr-skin=cranberry] #dtr-outfit-editor { --accent:#a83250; --secondary:#c79a3f; --surface:#fdf3f5; --border:#ecd9de; --haul:#a83250; --capsbg:#f7dbe2; --capstext:#a8506a; }',
       'html[data-dtr-skin=chantilly] #dtr-outfit-editor { --accent:#9b7fc6; --secondary:#c79a3f; --surface:#faf6fd; --border:#e4d9f0; --haul:#9b7fc6; --capsbg:#ece4f5; --capstext:#7555a0; }',
@@ -3594,7 +3596,8 @@
       '#dtr-outfit-editor [data-heart]:hover,#dtr-outfit-editor [data-remove]:hover{transform:scale(1.14);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 38%,transparent),0 3px 9px rgba(0,0,0,.32)!important;}',
 
       '#dtr-outfit-editor li.object.dtr-oe-applied{border:2.5px solid transparent!important;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%) border-box!important;box-shadow:0 4px 14px rgba(0,0,0,.12);}',
-      '#dtr-outfit-editor li.object.dtr-oe-applied .dtr-oe-applied-tag{position:absolute;top:0;left:0;right:0;z-index:13;background:linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%);color:#fff;text-align:center;font:800 7.5px/1.4 "Nunito",sans-serif;letter-spacing:.07em;text-transform:uppercase;padding:4px 2px;pointer-events:none;text-shadow:0 1px 1px rgba(0,0,0,.25);}',
+
+      '#dtr-outfit-editor li.object.dtr-oe-applied .dtr-oe-applied-tag{position:absolute;top:0;left:0;right:0;z-index:13;background:linear-gradient(rgba(255,251,245,.84),rgba(255,251,245,.84)),linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%);color:#4a4a45;text-align:center;font:800 7.5px/1.4 "Nunito",sans-serif;letter-spacing:.07em;text-transform:uppercase;padding:4px 2px;pointer-events:none;}',
 
       '#dtr-outfit-editor li.object .dtr-status-overlay{position:absolute;inset:0;border-radius:12px;display:flex;pointer-events:none;z-index:6;overflow:hidden;}',
       '#dtr-outfit-editor li.object .dtr-status-overlay .dtr-ov-owned{flex:1;display:flex;align-items:center;justify-content:center;background:transparent;}',
@@ -10974,7 +10977,7 @@
         </div>`;
   }
 
-  const DTR_HANGER_SVG = '<svg class="dtr-hanger" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5.8" r="1.6"/><path d="M12 7.4V11"/><path d="M12 11 4 17h16l-8-6Z"/></svg>';
+  const DTR_HANGER_SVG = '<svg class="dtr-hanger" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 5.2a2.2 2.2 0 1 1 3 2.05c-.8.34-1.3.85-1.3 1.55v.5"/><path d="M12 9.3 4.5 14.2a1.75 1.75 0 0 0 .96 3.2h13.08a1.75 1.75 0 0 0 .96-3.2L12 9.3Z"/></svg>';
   const DTR_ITEM_HANGER_SVG = "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'><path d='M12 9V7.2a2 2 0 1 1 2.6 1.9'/><path d='M12 9 4.2 15a1 1 0 0 0 .6 1.8h14.4a1 1 0 0 0 .6-1.8L12 9z'/></svg>";
 
   try { window.__DTR_ICONS = { hanger: DTR_HANGER_SVG, itemHanger: DTR_ITEM_HANGER_SVG, note: DIA_ICON_NOTE }; } catch (_) {}
@@ -33483,6 +33486,7 @@ if (!tradeLinks.length) {
 
         considering:   [],
         lovedOnly:     false,
+        csView:        (() => { try { return String(GM_getValue('dtr_oe_cs_view', 'list')); } catch (_) { return 'list'; } })(),
         appliedOnly:   false,
       styleWarn:     null,
       csQuery:       '',
@@ -33492,6 +33496,8 @@ if (!tradeLinks.length) {
         declutterOpen: false,
 
         managerOpen:   false,
+        packGallery:   true,
+        packDeleteConfirm: null,
         packs:         oeLoadPacks(),
         activePackIdx: 0,
         renamingPack:  false,
@@ -33511,9 +33517,14 @@ if (!tradeLinks.length) {
         pinnedZones:     (() => { try { return new Set(JSON.parse(GM_getValue('dtr_oe_pinned_zones','[]'))); } catch(_) { return new Set(); } })(),
 
         zoneMapShow:     (() => { try { return GM_getValue('dtr_oe_zonemap_show', true) !== false; } catch(_) { return true; } })(),
+
+        zoneMapDocked:   (() => { try { return GM_getValue('dtr_oe_zonemap_docked', GM_getValue('dtr_oe_zonemap_show', true) === false) === true; } catch(_) { return false; } })(),
         zoneMapExpanded: null,
         zoneMapActiveId: null,
         zoneMapNewOpen:  false,
+        zoneMapRenameOpen: false,
+        zoneMapPickOpen: false,
+        zoneMapSavePackOpen: false,
         zoneMapCogOpen:  false,
         zoneMapLocked:   (() => { try { return GM_getValue('dtr_oe_zonemap_locked', false) === true; } catch(_) { return false; } })(),
         zoneMapExempt:   [],
@@ -33602,8 +33613,8 @@ if (!tradeLinks.length) {
 
     const OE_LEFT_KEYS = new Set(['watchZones','pinnedZones','locks','activeZone','selectedZone','addZoneOpen','activeCogZone',
       'activeWishZone','conflict','removeConfirm','wearMode','considering','lovedOnly','appliedOnly','favZoneFilter','groupByZone',
-      'haulMenuOpen','declutterOpen','managerOpen','packs','activePackIdx','renamingPack','packQuery','packSearchResults',
-      'wishLists','wished','loggedIn','styleWarn','csQuery','zoneMapShow']);
+      'haulMenuOpen','declutterOpen','managerOpen','packGallery','packDeleteConfirm','packs','activePackIdx','renamingPack','packQuery','packSearchResults',
+      'wishLists','wished','loggedIn','styleWarn','csQuery','csView','zoneMapShow','zoneMapDocked']);
 
     function oeAboxGet() { try { const o = JSON.parse(GM_getValue('dtr_oe_abox', '') || 'null'); if (o && typeof o.l === 'number') return { l:o.l, t:o.t, w:o.w, h:o.h }; } catch (_) {} return { l:38.6, t:28.0, w:33.4, h:33.4 }; }
     function oeAboxSet(o) { try { GM_setValue('dtr_oe_abox', JSON.stringify({ l:o.l, t:o.t, w:o.w, h:o.h })); } catch (_) {} }
@@ -33712,7 +33723,7 @@ if (!tradeLinks.length) {
     const OE_BODYCAT_LABEL = { standard:'Standard', baby:'Baby', maraquan:'Maraquan', mutant:'Mutant', petstyle:'Pet Style' };
     const OE_BODYCAT_ORDER = ['standard','baby','maraquan','mutant','petstyle'];
 
-    const OE_ZONEMAP_KEYS = new Set(['considering','pinnedZones','locks','zoneMapShow','zoneMapExpanded',
+    const OE_ZONEMAP_KEYS = new Set(['considering','pinnedZones','locks','zoneMapShow','zoneMapDocked','zoneMapExpanded',
       'zoneMapRemoveConfirm','zoneMapActiveId','zoneMapResetPending','zoneMapMini','zoneMapLocked','zoneMapExempt','zoneMapAddOpen','activeZone','speciesId','colorId','colorName','altStyleId','variants','activeIdx']);
     let _oeZoneMapCat = null;
     let _oeZmResetTimer = null;
@@ -33731,6 +33742,96 @@ if (!tradeLinks.length) {
     const OE_ZM_GLASS = 'background:rgba(255,251,245,.8);border:1px solid rgba(255,255,255,.7);';
     const OE_PILL    = 'display:inline-flex;align-items:center;gap:5px;border:none;border-radius:999px;background:#efeadf;color:#7a756a;font:700 12px Nunito,sans-serif;letter-spacing:.02em;cursor:pointer';
     const OE_PILL_SM = 'display:inline-flex;align-items:center;gap:5px;border:none;border-radius:999px;background:#efeadf;color:#7a756a;font:700 11px Nunito,sans-serif;letter-spacing:.02em;cursor:pointer';
+
+    const OE_MENU      = 'background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 28px rgba(60,60,55,.2);padding:6px';
+    const OE_MENU_HEAD = 'font:700 9px Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#b0b0a6;margin:2px 6px 5px';
+    const OE_MENU_ROW  = 'display:block;width:100%;text-align:left;padding:7px 8px;border:none;background:transparent;border-radius:7px;cursor:pointer;font:700 11px Nunito,sans-serif;color:#5a5a52';
+
+    const OE_STAR = (sz) => '<svg viewBox="0 0 24 24" width="'+sz+'" height="'+sz+'" aria-hidden="true" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3.6l2.47 5.01 5.53.8-4 3.9.94 5.5L12 16.2l-4.94 2.6.94-5.5-4-3.9 5.53-.8Z"/></svg>';
+
+    let _oeToastEl = null, _oeToastTimer = 0;
+    function oeToast(msg, anchorEl) {
+      try {
+        const root = document.getElementById('dtr-outfit-editor'); if (!root) return;
+        if (!_oeToastEl || !_oeToastEl.isConnected) {
+          _oeToastEl = document.createElement('div');
+          _oeToastEl.style.cssText = 'position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:2147483200;color:#fff;font:800 12px Nunito,sans-serif;padding:9px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap;opacity:0;transition:opacity .18s';
+          root.appendChild(_oeToastEl);
+        }
+        _oeToastEl.style.background = oeSec();
+        _oeToastEl.textContent = msg;
+
+        const zp = (anchorEl && anchorEl.isConnected) ? anchorEl : document.querySelector('[data-oe-zone-panel]');
+        const zr = zp ? zp.getBoundingClientRect() : null;
+        if (zr && zr.width > 0) {
+          _oeToastEl.style.left = Math.round(zr.left + zr.width / 2) + 'px';
+          _oeToastEl.style.bottom = 'auto';
+          _oeToastEl.style.top = Math.round(Math.min(Math.max(8, zr.top - 46), window.innerHeight - 54)) + 'px';
+        } else {
+          _oeToastEl.style.top = 'auto'; _oeToastEl.style.left = '50%'; _oeToastEl.style.bottom = '26px';
+        }
+        _oeToastEl.style.opacity = '1';
+        clearTimeout(_oeToastTimer);
+        _oeToastTimer = setTimeout(() => { if (_oeToastEl) _oeToastEl.style.opacity = '0'; }, 2600);
+      } catch (_) {}
+    }
+
+    document.addEventListener('mousedown', function (e) {
+      try {
+        const t = e.target;
+        const sel = t && t.closest ? t.closest('#dtr-outfit-editor select') : null;
+        if (!sel) {
+
+          if (!(t && t.closest && t.closest('[data-oe-selmenu]'))) {
+            document.querySelectorAll('[data-oe-selmenu]').forEach(m => m.remove());
+          }
+          return;
+        }
+        if (sel.disabled) return;
+        e.preventDefault();
+
+        const root = document.getElementById('dtr-outfit-editor'); if (!root) return;
+        const wasOpen = document.querySelector('[data-oe-selmenu][data-oe-selfor]');
+        const wasMine = wasOpen && wasOpen.__oeSelFor === sel;
+        document.querySelectorAll('[data-oe-selmenu]').forEach(m => m.remove());
+        if (wasMine) return;
+        const S2 = oeSec();
+        const menu = document.createElement('div');
+        menu.dataset.oeSelmenu = '1';
+        menu.dataset.oeSelfor = '1';
+        menu.__oeSelFor = sel;
+        menu.className = 'dtr-oe-scroll';
+
+        menu.style.cssText = 'position:fixed;z-index:2147483000;min-width:120px;max-width:280px;max-height:300px;overflow-y:auto;overflow-x:hidden;'+OE_MENU;
+        menu.innerHTML = Array.from(sel.options).map((o, i) =>
+          '<button type="button" data-oe-selopt="'+i+'"'+(o.disabled ? ' disabled' : '')
+          +(i === sel.selectedIndex ? ' data-on="1"' : '')
+          +' class="dtr-oe-menurow" style="'+OE_MENU_ROW+';white-space:nowrap;overflow:hidden;text-overflow:ellipsis'
+          +(i === sel.selectedIndex ? ';background:'+S2+'14;color:#4a4a45' : '')
+          +(o.disabled ? ';color:#c9c4b8;cursor:default' : '')+'">'+_oeEsc(o.text)+'</button>'
+        ).join('');
+        menu.addEventListener('click', function (e2) {
+          const b = e2.target.closest('[data-oe-selopt]');
+          if (!b || b.disabled) return;
+          const i = +b.dataset.oeSelopt;
+          menu.remove();
+          if (sel.selectedIndex !== i) { sel.selectedIndex = i; sel.dispatchEvent(new Event('change', { bubbles: true })); }
+        });
+        root.appendChild(menu);
+
+        const sr = sel.getBoundingClientRect();
+        menu.style.minWidth = Math.max(120, Math.round(sr.width))+'px';
+        const mw = menu.offsetWidth, mh = menu.offsetHeight;
+        menu.style.left = Math.round(Math.max(8, Math.min(sr.left, window.innerWidth - mw - 8)))+'px';
+        menu.style.top  = (window.innerHeight - sr.bottom < mh + 10 && sr.top > mh + 10)
+          ? Math.round(sr.top - mh - 5)+'px'
+          : Math.round(sr.bottom + 5)+'px';
+
+        const onScroll = (ev) => { if (menu.contains(ev.target)) return; menu.remove(); window.removeEventListener('scroll', onScroll, true); };
+        window.addEventListener('scroll', onScroll, true);
+        try { sel.focus(); } catch (_) {}
+      } catch (_) {}
+    }, true);
 
     const OE_SOFT_TILE = 'border:2.5px solid transparent;background:linear-gradient(#fffaf3,#fffaf3) padding-box,linear-gradient(135deg,#ffd1dc,#d3edd9 52%,#cfe4f5) border-box;';
 
@@ -33829,25 +33930,29 @@ if (!tradeLinks.length) {
       const n = oeNormText(name);
       return q.split(' ').every(tok => n.indexOf(tok) !== -1);
     }
+
+    let _oeSearchH = 0;
+    try { _oeSearchH = Math.max(0, +GM_getValue('dtr_oe_search_h', 0) || 0); } catch (_) {}
     function oeFitSidePanels() {
       try {
         const grid = document.getElementById('dtr-oe-grid');
         const cc = document.querySelector('[data-oe-canvas-card]');
         const H = cc ? Math.round(cc.getBoundingClientRect().height) : 0;
         const fixable = H > 200;
-        [grid && grid.children[0], grid && grid.children[2]].forEach(col => {
+        [grid && grid.children[0], grid && grid.children[2]].forEach((col, ci) => {
           if (!col) return;
           const list = col.querySelector('[data-cs-list], [data-results-scroll]');
           if (fixable) {
-            col.style.height = H + 'px';
-            col.style.overflow = 'hidden';
-            col.style.display = 'flex'; col.style.flexDirection = 'column';
 
+            col.style.height = ''; col.style.overflow = '';
+            col.style.display = 'flex'; col.style.flexDirection = 'column';
             const listCard = (list && list.closest('.dtr-oe-card')) || col.firstElementChild;
             Array.from(col.children).forEach(ch => {
               const isListCard = ch === listCard;
-              ch.style.flex = isListCard ? '1' : '0 0 auto';
+              ch.style.flex = '0 0 auto';
               ch.style.minHeight = isListCard ? '0' : '';
+
+              if (isListCard) { ch.style.height = ((ci === 1 && _oeSearchH > H) ? _oeSearchH : H) + 'px'; }
             });
             if (list) {
               const top = list.getBoundingClientRect().top, colTop = col.getBoundingClientRect().top;
@@ -33861,6 +33966,27 @@ if (!tradeLinks.length) {
             if (list) { const top = list.getBoundingClientRect().top; if (top > 0) list.style.maxHeight = Math.max(180, Math.round(window.innerHeight - top - 16)) + 'px'; }
           }
         });
+      } catch (_) {}
+      oeBalanceVariants();
+    }
+
+    function oeBalanceVariants() {
+      try {
+        const grid = document.getElementById('dtr-oe-grid');
+        if (!grid || !grid.children[0]) return;
+        const vCard = grid.querySelector('[data-oe-variant-strip]');
+        if (!vCard) return;
+        vCard.style.minHeight = '';
+        vCard.style.display = ''; vCard.style.flexDirection = ''; vCard.style.justifyContent = '';
+        const lb = grid.children[0].getBoundingClientRect().bottom;
+        const vr = vCard.getBoundingClientRect();
+        if (lb - vr.bottom > 4) {
+          vCard.style.minHeight = Math.round(vr.height + (lb - vr.bottom)) + 'px';
+
+          vCard.style.display = 'flex';
+          vCard.style.flexDirection = 'column';
+          vCard.style.justifyContent = 'center';
+        }
       } catch (_) {}
     }
 
@@ -33912,8 +34038,9 @@ if (!tradeLinks.length) {
       const s = OE.get();
       let changed = false;
       if (s.addZoneOpen   && outside('[data-oe-addzone]'))    { OE.set({addZoneOpen:false});   changed=true; }
-      if (s.zoneMapAddOpen&& outside('[data-zmp-addbtn]') && outside('[data-zmp-addpanel]')) { OE.set({zoneMapAddOpen:false}); changed=true; }
+      if (s.zoneMapAddOpen&& outside('[data-zmp-addbtn]') && outside('[data-zmdock-add]') && outside('[data-zmp-addpanel]')) { OE.set({zoneMapAddOpen:false}); changed=true; }
       if (s.zoneMapCogOpen&& outside('[data-zmp-cog]') && outside('[data-zmp-cogmenu]')) { OE.set({zoneMapCogOpen:false}); changed=true; }
+      if (s.zoneMapPickOpen&& outside('[data-zmp-title]') && outside('[data-zmp-mapmenu]')) { OE.set({zoneMapPickOpen:false}); changed=true; }
       if (s.activeCogZone && outside('[data-oe-cogmenu]'))    { OE.set({activeCogZone:null});  changed=true; }
       if (s.activeWishZone&& outside('[data-oe-wishmenu]'))   { OE.set({activeWishZone:null}); changed=true; }
       if (s.haulMenuOpen  && outside('[data-oe-haulbtn]'))    { OE.set({haulMenuOpen:false});  changed=true; }
@@ -33936,15 +34063,15 @@ if (!tradeLinks.length) {
       const haul      = (window.DTR_HAUL && typeof window.DTR_HAUL.all === 'function') ? window.DTR_HAUL : null;
       const haulCats  = haul ? haul.SOURCES.map(src => ({ key:src.key, label:src.label, count:haul.sourceCount(src.key) })) : [];
       const haulTotal = haul ? haul.all().length : 0;
-      const haulRowStyle = 'display:block;width:100%;text-align:left;padding:7px 8px;border:none;background:transparent;border-radius:7px;cursor:pointer;font:700 11px Nunito,sans-serif;color:#5a5a52';
+
       const haulPanel = s.haulMenuOpen
-        ? '<div data-oe-haulbtn style="position:absolute;top:calc(100% + 5px);right:0;z-index:55;width:210px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 28px rgba(60,60,55,.2);padding:6px">'
-          + '<div style="font:700 9px Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#b0b0a6;margin:2px 6px 5px">Pull from Try-On Haul</div>'
+        ? '<div data-oe-haulbtn style="position:absolute;top:calc(100% + 5px);right:0;z-index:55;width:210px;'+OE_MENU+'">'
+          + '<div style="'+OE_MENU_HEAD+'">Pull from Try-On Haul</div>'
           + (haulTotal === 0
             ? '<div style="padding:7px 8px;font:600 11px Nunito,sans-serif;color:#b0b0a6">Haul is empty</div>'
-            : '<button data-haul-cat="ALL" style="'+haulRowStyle+'">All items ('+haulTotal+')</button>'
+            : '<button data-haul-cat="ALL" class="dtr-oe-menurow" style="'+OE_MENU_ROW+'">All items ('+haulTotal+')</button>'
               + haulCats.filter(c => c.count > 0).map(c =>
-                  '<button data-haul-cat="'+c.key+'" style="'+haulRowStyle+'">'+c.label+' ('+c.count+')</button>'
+                  '<button data-haul-cat="'+c.key+'" class="dtr-oe-menurow" style="'+OE_MENU_ROW+'">'+c.label+' ('+c.count+')</button>'
                 ).join('')
           )
           + '</div>'
@@ -33962,8 +34089,9 @@ if (!tradeLinks.length) {
           .filter(x => (fz === 'All zones' || x.zone === fz) && (!s.lovedOnly || x.loved) && (!s.appliedOnly || _drawn.has(x.name)) && oeSmartMatch(x.name, s.csQuery));
         const hasNonLoved = allItems.some(x => !x.loved);
 
-        const lovedOnStyle  = 'display:inline-flex;align-items:center;gap:4px;padding:6px 11px;border-radius:999px;border:none;background:'+A+';color:#fff;font:700 11px Nunito,sans-serif;cursor:pointer';
-        const lovedOffStyle = OE_PILL_SM + ';padding:6px 11px';
+        const csSeg = on => 'display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:999px;border:none;cursor:pointer;font:700 11px Nunito,sans-serif;'+(on ? 'background:'+S+';color:#fff' : 'background:transparent;color:#7a7a72');
+
+        const csStar = on => '<span style="display:flex;color:'+(on ? '#fff' : '#f0ad3a')+'">'+OE_STAR(12)+'</span>';
         const grpOnStyle    = 'display:inline-flex;align-items:center;gap:4px;padding:6px 11px;border-radius:999px;border:none;background:'+S+';color:#fff;font:700 11px Nunito,sans-serif;cursor:pointer';
         const grpOffStyle   = 'display:inline-flex;align-items:center;gap:4px;padding:6px 11px;border-radius:999px;border:none;background:#f1ede4;color:#6a6a64;font:700 11px Nunito,sans-serif;cursor:pointer';
 
@@ -33976,7 +34104,7 @@ if (!tradeLinks.length) {
           const warn    = s.styleWarn === it.name;
           const confirming = s.removeConfirm === it.name;
           const rowBg = 'background:'+(blocked ? '#fbf1e0' : it.loved ? S+'10' : '#faf8f2');
-          const heartC = it.loved ? A : '#c9c4b6';
+          const heartC = it.loved ? '#f0ad3a' : '#c9c4b6';
           const thumbEl = thumb
             ? '<img loading=lazy alt="" src="'+thumb+'" style="width:34px;height:34px;object-fit:contain;border-radius:9px;display:block">'
             : '<div style="width:34px;height:34px;border-radius:9px;'+oeStripes(hue)+'"></div>';
@@ -33994,10 +34122,38 @@ if (!tradeLinks.length) {
                 ? '<div style="font:800 9px Nunito,sans-serif;letter-spacing:.02em;color:#c5862a;margin-top:1px">⚠ '+blockMsg+'</div>'
                 : (showZone ? '<div style="font:700 9px Nunito,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#bcbcb2">'+it.zone+'</div>' : ''))
             + '</div>'
-            + '<button data-cs-heart="'+it.name+'" style="width:26px;height:26px;border-radius:50%;border:none;background:'+(it.loved?A+'18':'#f1ede4')+';color:'+heartC+';font-size:14px;cursor:pointer;flex:none">♥</button>'
+            + '<button data-cs-heart="'+it.name+'" title="'+(it.loved?'Starred — click to unstar':'Star (quick-prioritize in this list)')+'" style="width:26px;height:26px;border-radius:50%;border:none;background:'+(it.loved?'#fdf1dc':'#f1ede4')+';color:'+heartC+';cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center">'+OE_STAR(13)+'</button>'
             + (confirming
               ? '<button data-cs-remove="'+it.name+'" title="Click again to remove" style="height:26px;padding:0 9px;border-radius:13px;border:none;background:#d4393b;color:#fff;font:800 10px/1 Nunito,sans-serif;cursor:pointer;flex:none">Remove?</button>'
               : '<button data-cs-remove="'+it.name+'" style="width:26px;height:26px;border-radius:50%;border:none;background:#efeae0;color:var(--accent);font-size:13px;cursor:pointer;flex:none">×</button>')
+            + '</div>';
+        }
+
+        function renderItemTile(it, small) {
+          const hue = it.hue || 0;
+          const thumb = it.thumb || it.thumbnailUrl || '';
+          const applied = _drawn.has(it.name);
+          const blocked = !!it.demotedByStyle || !!it.bodyConflict;
+          const warn = s.styleWarn === it.name;
+          const confirming = s.removeConfirm === it.name;
+          const tsz = small ? 40 : 60;
+          const tileTitle = blocked
+            ? (it.bodyConflict ? "This pet's body can't wear this item" : "This Pet Style's body can't wear this item — change the style to wear it")
+            : (applied ? 'On the pet — click to take off' : 'Off the pet — click to wear');
+          const thumbEl = thumb
+            ? '<img loading=lazy alt="" src="'+thumb+'" style="width:'+tsz+'px;height:'+tsz+'px;object-fit:contain;display:block;margin:0 auto;border-radius:10px'+(blocked?';filter:grayscale(.55)':'')+'">'
+            : '<div style="width:'+tsz+'px;height:'+tsz+'px;border-radius:10px;margin:0 auto;'+oeStripes(hue)+'"></div>';
+          return '<div data-cs-row="'+it.name+'" title="'+tileTitle+'" style="position:relative;overflow:hidden;padding:'+(small?'13px 4px 6px':'14px 6px 7px')+';border-radius:12px;cursor:'+(blocked?'not-allowed':'pointer')+';text-align:center;min-width:0;'
+            + 'background:'+(blocked ? '#fbf1e0' : it.loved ? S+'10' : '#faf8f2')+';opacity:'+(blocked?'.92':'1')+';'
+            + 'box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)'+(warn?',0 0 0 2px #e0a83c':'')+'">'
+            + (applied ? '<div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a)"></div>' : '')
+            + '<button data-cs-heart="'+it.name+'" title="'+(it.loved?'Starred — click to unstar':'Star (quick-prioritize in this list)')+'" style="position:absolute;top:6px;left:5px;width:20px;height:20px;border-radius:50%;border:none;background:'+(it.loved?'#f0ad3a':'#fff')+';color:'+(it.loved?'#fff':'#c9c4b6')+';box-shadow:0 1px 4px rgba(60,60,55,.2);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0">'+OE_STAR(11)+'</button>'
+            + (confirming
+              ? '<button data-cs-remove="'+it.name+'" title="Click again to remove" style="position:absolute;top:6px;right:5px;height:20px;padding:0 7px;border-radius:10px;border:none;background:#d4393b;color:#fff;font:800 9px/1 Nunito,sans-serif;cursor:pointer">Remove?</button>'
+              : '<button data-cs-remove="'+it.name+'" style="position:absolute;top:6px;right:5px;width:20px;height:20px;border-radius:50%;border:none;background:#fff;color:var(--accent);font-size:11px;line-height:1;cursor:pointer;box-shadow:0 1px 4px rgba(60,60,55,.2);padding:0">×</button>')
+            + thumbEl
+            + '<div style="font:'+(applied?'700':'600')+' '+(small?'8.5px':'10px')+'/1.25 Nunito,sans-serif;color:#46463f;margin-top:4px;max-height:'+(small?'21px':'25px')+';overflow:hidden;word-break:break-word">'+it.name+'</div>'
+            + (blocked ? '<div style="font:800 8px Nunito,sans-serif;color:#c5862a;margin-top:1px">⚠ Can’t wear</div>' : '')
             + '</div>';
         }
 
@@ -34005,19 +34161,23 @@ if (!tradeLinks.length) {
         {
           const groups = [...new Set(filtered.map(it => it.zone))].sort();
 
-          itemsHTML = groups.map(g =>
-            '<div style="font:700 9px Nunito,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:'+S+';margin:9px 2px 5px">'+g+'</div>'
-            + filtered.filter(it => it.zone === g).sort((a, b) => (a.name || '').localeCompare(b.name || '')).map(it => renderItemRow(it, false)).join('')
-          ).join('');
-          if (!filtered.length) itemsHTML = '<div style="font:600 11px Nunito,sans-serif;color:#b3b3a8;padding:6px 2px;line-height:1.4">'+(csq ? 'No worn items match “'+_oeEsc(s.csQuery.trim())+'”.' : 'Nothing here yet. Click a search result to try it on, then ♥ the ones you love.')+'</div>';
+          const view = s.csView === 'tiles' || s.csView === 'mini' ? s.csView : 'list';
+          itemsHTML = groups.map(g => {
+            const its = filtered.filter(it => it.zone === g).sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+            const body = view === 'list'
+              ? its.map(it => renderItemRow(it, false)).join('')
+              : '<div style="display:grid;grid-template-columns:repeat('+(view==='mini'?4:3)+',1fr);gap:6px;margin-bottom:2px">'+its.map(it => renderItemTile(it, view==='mini')).join('')+'</div>';
+            return '<div style="font:700 9px Nunito,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:'+S+';margin:9px 2px 5px">'+g+'</div>' + body;
+          }).join('');
+          if (!filtered.length) itemsHTML = '<div style="font:600 11px Nunito,sans-serif;color:#b3b3a8;padding:6px 2px;line-height:1.4">'+(csq ? 'No worn items match “'+_oeEsc(s.csQuery.trim())+'”.' : 'Nothing here yet. Click a search result to try it on, then star the ones you want to keep handy.')+'</div>';
         }
 
         const declutterHTML = s.declutterOpen
           ? '<div style="margin-bottom:10px;padding:10px 12px;border-radius:11px;background:#fdf3e3;border:1px solid #f0e2c6">'
-            + '<div style="font:700 12px Nunito,sans-serif;color:#b58a4a;margin-bottom:8px">Remove all non-loved items from Fitting Room?</div>'
+            + '<div style="font:700 12px Nunito,sans-serif;color:#b58a4a;margin-bottom:8px">Remove all unstarred items from Fitting Room?</div>'
             + '<div style="display:flex;gap:7px">'
             + '<button data-decl-cancel style="padding:7px 14px;border-radius:9px;border:none;background:#f1ede4;color:#6a6a64;font:700 12px Nunito,sans-serif;cursor:pointer">Keep them</button>'
-            + '<button data-decl-confirm style="padding:7px 14px;border-radius:9px;border:none;background:'+A+';color:#fff;font:700 12px Nunito,sans-serif;cursor:pointer">Remove unloved</button>'
+            + '<button data-decl-confirm style="padding:7px 14px;border-radius:9px;border:none;background:'+A+';color:#fff;font:700 12px Nunito,sans-serif;cursor:pointer">Remove unstarred</button>'
             + '</div>'
             + '</div>'
           : '';
@@ -34036,11 +34196,26 @@ if (!tradeLinks.length) {
           +   '<span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#b0b0a6;pointer-events:none;display:flex"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg></span>'
           +   (s.csQuery ? '<button data-cs-search-clear title="Clear" style="position:absolute;right:9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;border:none;background:#e8e5dc;color:#7a7a70;font-size:10px;line-height:1;cursor:pointer">✕</button>' : '')
           + '</div>'
+
+          + (function(){
+              const ic = {
+                list:  '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4.5" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4.5" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg>',
+                tiles: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>',
+                mini:  '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><rect x="4" y="4" width="4.4" height="4.4" rx="1.4"/><rect x="10" y="4" width="4.4" height="4.4" rx="1.4"/><rect x="16" y="4" width="4.4" height="4.4" rx="1.4"/><rect x="4" y="10" width="4.4" height="4.4" rx="1.4"/><rect x="10" y="10" width="4.4" height="4.4" rx="1.4"/><rect x="16" y="10" width="4.4" height="4.4" rx="1.4"/><rect x="4" y="16" width="4.4" height="4.4" rx="1.4"/><rect x="10" y="16" width="4.4" height="4.4" rx="1.4"/><rect x="16" y="16" width="4.4" height="4.4" rx="1.4"/></svg>',
+              };
+              const cur = (s.csView === 'tiles' || s.csView === 'mini') ? s.csView : 'list';
+              const b = (k, title) => '<button data-cs-view="'+k+'" title="'+title+'" style="width:30px;height:100%;border-radius:10px;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;'+(cur===k?'background:'+S+';color:#fff':'background:transparent;color:#9a9a90')+'">'+ic[k]+'</button>';
+              return '<div style="display:flex;align-items:center;background:#f4f1e8;border:1px solid var(--border);border-radius:12px;padding:2px;flex:none;height:44px;box-sizing:border-box">'
+                + b('list','List view') + b('tiles','Large tiles') + b('mini','Small tiles') + '</div>';
+            })()
           + '</div>'
 
           + '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:11px">'
-          + '<button data-cs-loved style="'+( s.lovedOnly ? lovedOnStyle : lovedOffStyle )+'">♥ Loved only</button>'
-          + '<button data-cs-applied style="'+( s.appliedOnly ? lovedOnStyle : lovedOffStyle )+'">✓ On pet</button>'
+          + '<div style="display:flex;background:#f4f1e8;border:1px solid var(--border);border-radius:999px;padding:2px">'
+          + '<button data-cs-all style="'+csSeg(!s.lovedOnly && !s.appliedOnly)+'">All</button>'
+          + '<button data-cs-loved style="'+csSeg(s.lovedOnly)+'">'+csStar(s.lovedOnly)+'Starred</button>'
+          + '<button data-cs-applied style="'+csSeg(s.appliedOnly)+'">Currently Applied</button>'
+          + '</div>'
           + (hasNonLoved ? '<button data-cs-declutter style="margin-left:auto;padding:6px 11px;border-radius:999px;border:none;background:#fbeee8;color:#cf7a4a;font:700 11px Nunito,sans-serif;cursor:pointer">Declutter</button>' : '')
           + '</div>'
           + declutterHTML
@@ -34056,7 +34231,8 @@ if (!tradeLinks.length) {
         + '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:11px">'
         + '<div style="font-family:\'Baloo 2\',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;color:#4a4a45">FITTING ROOM</div>'
         + '<div style="display:flex;gap:6px;position:relative">'
-        + '<button data-oe-openmgr style="'+OE_PILL+';padding:7px 11px"><span style="font-size:13px">🎒</span>Starter Pack</button>'
+
+        + '<button data-oe-openmgr style="'+OE_PILL+';padding:7px 11px"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.2 12.4a6.8 6.8 0 0 1 13.6 0v6a2.4 2.4 0 0 1-2.4 2.4H7.6a2.4 2.4 0 0 1-2.4-2.4Z"/><path d="M9.9 5.9a2.1 2.1 0 0 1 4.2 0"/><path d="M8.6 20.8v-2.4a3.4 3.4 0 0 1 6.8 0v2.4"/></svg>Starter Pack</button>'
         + '<div style="position:relative">'
         + '<button data-oe-haulbtn style="'+(s.haulMenuOpen?'display:inline-flex;align-items:center;gap:5px;padding:7px 11px;border-radius:999px;border:none;background:'+S+';color:#fff;font:700 12px Nunito,sans-serif;cursor:pointer':OE_PILL+';padding:7px 11px')+'">'
           + ((window.__DTR_ICONS && window.__DTR_ICONS.hanger) || '')
@@ -34077,11 +34253,17 @@ if (!tradeLinks.length) {
         if (el) el.addEventListener(evt, fn);
       }
 
-      onOne('[data-oe-openmgr]', 'click', () => OE.set({ managerOpen:true }));
+      onOne('[data-oe-openmgr]', 'click', () => OE.set({ managerOpen:true, packGallery:true }));
 
       onOne('[data-cs-zone-filter]', 'change', e => OE.set({ favZoneFilter:e.target.value }));
-      onOne('[data-cs-loved]', 'click', () => OE.set(s2 => ({ lovedOnly:!s2.lovedOnly })));
-      onOne('[data-cs-applied]', 'click', () => OE.set(s2 => ({ appliedOnly:!s2.appliedOnly })));
+      on('[data-cs-view]', 'click', e => {
+        const v = e.currentTarget.dataset.csView;
+        try { GM_setValue('dtr_oe_cs_view', v); } catch (_) {}
+        OE.set({ csView: v });
+      });
+      onOne('[data-cs-all]', 'click', () => OE.set(() => ({ lovedOnly:false, appliedOnly:false })));
+      onOne('[data-cs-loved]', 'click', () => OE.set(() => ({ lovedOnly:true, appliedOnly:false })));
+      onOne('[data-cs-applied]', 'click', () => OE.set(() => ({ lovedOnly:false, appliedOnly:true })));
       onOne('[data-cs-search]', 'input', e => OE.set({ csQuery: e.target.value }));
       onOne('[data-cs-search-clear]', 'click', () => OE.set({ csQuery: '' }));
       onOne('[data-cs-grp]',   'click', () => OE.set(s2 => ({ groupByZone:!s2.groupByZone })));
@@ -34164,22 +34346,55 @@ if (!tradeLinks.length) {
       const ap  = Math.max(0, Math.min(s.activePackIdx, s.packs.length-1));
       const cur = s.packs[ap] || { name:'', items:[] };
 
-      const tabOn  = 'display:inline-flex;align-items:center;gap:4px;padding:6px 11px;border-radius:999px;border:none;background:'+S+';color:#fff;font:700 11px Nunito,sans-serif;cursor:pointer';
-      const tabOff = 'display:inline-flex;align-items:center;gap:4px;padding:6px 11px;border-radius:999px;border:none;background:#f1ede4;color:#6a6a64;font:700 11px Nunito,sans-serif;cursor:pointer';
+      const gallery = s.packGallery !== false;
+      const packCard = (p, i) => {
+        const items = p.items || [];
 
-      const tabs = s.packs.map((p,i) =>
-        '<button data-pack-tab="'+i+'" style="'+(i===ap?tabOn:tabOff)+'">'+p.name+' <span style="opacity:.7">'+p.items.length+'</span></button>'
-      ).join('');
+        if (s.packDeleteConfirm === i) {
+          return '<div data-pack-card="'+i+'" style="display:flex;flex-direction:column;gap:8px;justify-content:center;padding:12px;border-radius:14px;border:1px solid #f0d2c0;background:#fdf6f1;min-width:0">'
+            + '<span style="font:700 11.5px Nunito,sans-serif;color:#8a5a40;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Delete “'+_oeEsc(p.name||'')+'”?</span>'
+            + '<span style="display:flex;gap:6px">'
+            + '<button data-pack-delyes="'+i+'" style="flex:1;padding:6px;border-radius:999px;border:none;background:'+A+';color:#fff;font:800 10px Nunito,sans-serif;cursor:pointer">Delete</button>'
+            + '<button data-pack-delno="'+i+'" style="flex:1;padding:6px;border-radius:999px;border:none;background:#f1ede4;color:#6a6a64;font:800 10px Nunito,sans-serif;cursor:pointer">Keep</button>'
+            + '</span></div>';
+        }
+        const thumbs = items.slice(0, 5).map(it =>
+          '<span style="width:30px;height:30px;border-radius:9px;flex:none;overflow:hidden;background:#f5f3ee;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)">'
+          + (it.thumb ? '<img loading=lazy draggable="false" src="'+it.thumb+'" alt="" style="width:100%;height:100%;object-fit:contain;display:block;-webkit-user-drag:none">' : '<span style="display:block;width:100%;height:100%;'+oeStripes(0)+'"></span>')
+          + '</span>'
+        ).join('');
+        const more = items.length > 5 ? '<span style="font:700 9.5px Nunito,sans-serif;color:#9a9a90;background:#f1ede4;border-radius:999px;padding:3px 7px;flex:none">+'+(items.length-5)+'</span>' : '';
+        return '<div data-pack-card="'+i+'" data-pack-open="'+i+'" style="position:relative;text-align:left;display:flex;flex-direction:column;gap:9px;padding:12px;border-radius:14px;border:1px solid var(--border);background:#fff;cursor:pointer;box-shadow:0 2px 8px rgba(60,60,55,.07);min-width:0;user-select:none">'
+          + (s.packs.length > 1
+              ? '<button data-pack-del="'+i+'" title="Delete this pack" style="position:absolute;top:-7px;right:-7px;width:20px;height:20px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;background:#fff;color:'+A+';box-shadow:0 2px 7px rgba(60,60,55,.28);opacity:0;transition:opacity .15s;z-index:2;font:700 12px Nunito,sans-serif;line-height:1">×</button>'
+              : '')
+          + '<span style="display:flex;align-items:center;gap:6px;width:100%">'
+          + '<span style="font-family:\'Baloo 2\',sans-serif;font-size:13px;font-weight:700;color:#3a3a35;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+_oeEsc(p.name||'')+'</span>'
+          + '<span style="font:800 9px Nunito,sans-serif;color:#347f76;background:'+S+'16;padding:2px 7px;border-radius:999px;flex:none">'+items.length+'</span>'
+          + '</span>'
+          + (items.length
+              ? '<span style="display:flex;align-items:center;gap:5px;overflow:hidden">'+thumbs+more+'</span>'
+              : '<span style="font:600 10.5px Nunito,sans-serif;color:#b3b3a8">Empty — tap to add items</span>')
+          + '</div>';
+      };
+      const galleryHTML =
+        '<div data-pack-grid style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:7px">'
+        + s.packs.map(packCard).join('')
+        + '<button data-pack-new style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:12px;border-radius:14px;border:none;'+OE_SOFT_TILE+'cursor:pointer;min-height:86px">'
+        +   '<span style="width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#ffe0ea,#ffffff 52%,#dcf0e3);color:#cf8aa6;box-shadow:inset 0 1px 3px rgba(255,255,255,.75),0 2px 6px rgba(180,150,165,.26)"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>'
+        +   '<span style="font:700 10.5px Nunito,sans-serif;letter-spacing:.03em;color:var(--dtr-primary,#149c8e)">New pack</span>'
+        + '</button>'
+        + '</div>';
 
       const packItems = (cur.items || []).map((it,i) => {
         const thumbEl = it.thumb
-          ? '<img loading=lazy src="'+it.thumb+'" alt="" style="width:32px;height:32px;object-fit:contain;display:block">'
-          : '<div style="width:32px;height:32px;'+oeStripes(0)+'"></div>';
-        return '<div style="display:flex;align-items:center;gap:8px;padding:5px;border-radius:10px;background:#faf8f2;margin-bottom:2px">'
-          + '<div style="width:32px;height:32px;border-radius:9px;flex:none;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)">'+thumbEl+'</div>'
+          ? '<img loading=lazy draggable="false" src="'+it.thumb+'" alt="" style="width:34px;height:34px;object-fit:contain;display:block">'
+          : '<div style="width:34px;height:34px;'+oeStripes(0)+'"></div>';
+        return '<div style="display:flex;align-items:center;gap:9px;padding:6px 8px;border-radius:12px;background:#fff;box-shadow:0 1px 4px rgba(60,60,55,.09)">'
+          + '<div style="width:34px;height:34px;border-radius:10px;flex:none;overflow:hidden;background:#f5f3ee;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)">'+thumbEl+'</div>'
           + '<span style="flex:1;min-width:0;font:700 12px Nunito,sans-serif;color:#4a4a45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+_oeEsc(it.name||'')+'</span>'
-          + (it.nc ? '<span style="font:800 8px Nunito,sans-serif;color:#9a7ec0;background:#f3edfa;padding:2px 6px;border-radius:999px">NC</span>' : '')
-          + '<button data-pack-remove="'+i+'" title="Remove from pack" style="width:22px;height:22px;border-radius:6px;border:none;background:transparent;color:#c2bdb0;font-size:14px;cursor:pointer">×</button>'
+          + (it.nc ? '<span style="font:800 8px Nunito,sans-serif;color:#9a7ec0;background:#f3edfa;padding:2px 6px;border-radius:999px;flex:none">NC</span>' : '')
+          + '<button data-pack-remove="'+i+'" title="Remove from pack" style="width:22px;height:22px;border-radius:50%;border:none;background:#f5f2ea;color:#a8a396;font-size:12px;line-height:1;cursor:pointer;flex:none">×</button>'
           + '</div>';
       }).join('') || '<div style="font:600 11px Nunito,sans-serif;color:#b3b3a8;padding:4px 2px;line-height:1.45">No items yet. Search below to add the wearables you reuse — Apply then drops the ones that fit onto the pet.</div>';
 
@@ -34207,47 +34422,161 @@ if (!tradeLinks.length) {
 
         + '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:11px">'
         + '<div style="display:flex;align-items:center;gap:7px">'
-        + '<span style="width:24px;height:24px;border-radius:8px;background:'+A+'1a;display:flex;align-items:center;justify-content:center;font-size:13px">🎒</span>'
+
+        + '<span style="width:24px;height:24px;border-radius:8px;background:'+A+'1a;display:flex;align-items:center;justify-content:center">'
+        +   '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="'+A+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.2 12.4a6.8 6.8 0 0 1 13.6 0v6a2.4 2.4 0 0 1-2.4 2.4H7.6a2.4 2.4 0 0 1-2.4-2.4Z"/><path d="M9.9 5.9a2.1 2.1 0 0 1 4.2 0"/><path d="M8.6 20.8v-2.4a3.4 3.4 0 0 1 6.8 0v2.4"/></svg>'
+        + '</span>'
         + '<span style="font-family:\'Baloo 2\',sans-serif;font-size:14px;font-weight:700;color:#4a4a45">Starter Packs</span>'
         + '</div>'
         + '<button data-mgr-close title="Close" style="width:30px;height:30px;border-radius:50%;border:none;background:#f1ede4;color:#6a6a64;font:700 16px Nunito,sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1">×</button>'
         + '</div>'
+        + (gallery ? galleryHTML :
 
-        + '<div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px">'
-        + tabs
-        + '<button data-pack-new style="display:inline-flex;align-items:center;gap:4px;padding:6px 11px;border-radius:999px;border:1.5px dashed #d6d0c1;background:#fff;color:#9a9a90;font:700 11px Nunito,sans-serif;cursor:pointer">+ New</button>'
-        + '</div>'
+        '<button data-pack-back style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:999px;border:none;background:#f1ede4;color:#6a6a64;font:700 11px Nunito,sans-serif;cursor:pointer;margin-bottom:12px">‹ All packs</button>'
 
-        + '<div style="display:flex;align-items:center;gap:7px;margin-bottom:4px">'
+        + '<div style="display:flex;align-items:center;gap:7px;margin-bottom:12px">'
         + (s.renamingPack
           ? '<input data-pack-rename value="'+cur.name+'" style="flex:1;min-width:0;font-family:\'Baloo 2\',sans-serif;font-size:15px;font-weight:700;color:#3a3a35;border:none;border-bottom:2px solid '+A+';background:transparent;padding:1px 2px">'
-          : '<span style="font-family:\'Baloo 2\',sans-serif;font-size:15px;font-weight:700;color:#3a3a35">'+cur.name+'</span>'
-            + '<button data-pack-start-rename style="width:24px;height:24px;border-radius:7px;border:none;background:#f1ede4;cursor:pointer;font-size:11px;color:#9a9a90">✎</button>')
-        + '<button data-pack-delete style="margin-left:auto;padding:6px 11px;border-radius:8px;border:1.5px solid #f0d2c0;background:#fff;color:#cf7a4a;font:700 10px Nunito,sans-serif;cursor:pointer">Delete pack</button>'
+          : '<span style="font-family:\'Baloo 2\',sans-serif;font-size:15px;font-weight:700;color:#3a3a35;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+cur.name+'</span>'
+            + '<span style="font:800 9px Nunito,sans-serif;color:#347f76;background:'+S+'16;padding:2px 8px;border-radius:999px;flex:none">'+eligCount+' item'+(eligCount===1?'':'s')+'</span>'
+            + '<button data-pack-start-rename title="Rename pack" style="width:24px;height:24px;border-radius:50%;border:none;background:'+S+'1c;color:'+S+';cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button>')
+        + '<button data-pack-delete style="margin-left:auto;padding:6px 12px;border-radius:999px;border:none;background:#fbeee8;color:#cf7a4a;font:700 10.5px Nunito,sans-serif;cursor:pointer;flex:none">Delete pack</button>'
         + '</div>'
-        + '<div style="font:600 11px Nunito,sans-serif;color:#a6a69e;margin-bottom:10px">'+eligCount+' item'+(eligCount===1?'':'s')+' in this pack</div>'
 
-        + '<div data-pack-items style="display:flex;flex-direction:column;gap:4px;margin-bottom:11px">'+packItems+'</div>'
+        + '<div data-pack-items class="dtr-oe-scroll" style="display:flex;flex-direction:column;gap:5px;margin-bottom:11px;max-height:300px;overflow-y:auto;padding:2px">'+packItems+'</div>'
 
         + '<div style="border-top:1px dashed #e7e1d3;padding-top:10px">'
-        + '<input data-pack-query value="'+s.packQuery.replace(/"/g,'&quot;')+'" placeholder="Search items to add…" style="width:100%;padding:8px 11px;border:1.5px solid var(--border);border-radius:10px;font:600 12px Nunito,sans-serif;color:#4a4a45;background:#fff;margin-bottom:'+(suggestHTML?'8px':'0')+'">'
+        + '<div style="position:relative">'
+        + '<input data-pack-query value="'+s.packQuery.replace(/"/g,'&quot;')+'" placeholder="Search items to add…" style="width:100%;box-sizing:border-box;height:40px;padding:0 12px 0 34px;border:1.5px solid var(--border);border-radius:12px;font:600 12px Nunito,sans-serif;color:#4a4a45;background:#fff;margin-bottom:'+(suggestHTML?'8px':'0')+'">'
+        + '<span style="position:absolute;left:12px;top:20px;transform:translateY(-50%);color:#b0b0a6;pointer-events:none;display:flex"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg></span>'
+        + '</div>'
         + '<div class="dtr-oe-scroll" style="display:flex;flex-direction:column;gap:2px;max-height:210px;overflow-y:auto">'+suggestHTML+'</div>'
         + '</div>'
 
         + '<div style="display:flex;gap:8px;margin-top:10px">'
         + '<button data-pack-fitting style="flex:1;padding:10px;border-radius:12px;border:none;background:'+S+'16;color:#5d8467;font:700 12px Nunito,sans-serif;cursor:pointer;text-align:center" title="Add all '+eligCount+' to the Fitting Room (not worn) — click them on later">＋ Add to Fitting Room ('+eligCount+')</button>'
         + '<button data-pack-apply style="flex:1;padding:10px;border-radius:12px;border:none;background:'+S+';color:#fff;font:700 12px Nunito,sans-serif;cursor:pointer;text-align:center">Apply to pet ('+eligCount+')</button>'
-        + '</div>'
+        + '</div>')
         + '</div></div>';
 
       wrap.querySelector('[data-mgr-close]').addEventListener('click', () => OE.set({ managerOpen:false, renamingPack:false }));
 
-      wrap.querySelectorAll('[data-pack-tab]').forEach(el =>
-        el.addEventListener('click', () => OE.set({ activePackIdx:+el.dataset.packTab, renamingPack:false }))
+      const packGrid = wrap.querySelector('[data-pack-grid]');
+      wrap.querySelectorAll('[data-pack-del]').forEach(b =>
+        b.addEventListener('click', e => { e.stopPropagation(); OE.set({ packDeleteConfirm: +b.dataset.packDel }); })
       );
+      wrap.querySelectorAll('[data-pack-delyes]').forEach(b =>
+        b.addEventListener('click', e => {
+          e.stopPropagation();
+          OE.set(s2 => {
+            if (s2.packs.length <= 1) return { packDeleteConfirm: null };
+            const di = +b.dataset.packDelyes;
+            const packs = s2.packs.filter((_, j) => j !== di);
+            oeSavePacks(packs);
+            return { packs, activePackIdx: 0, packDeleteConfirm: null };
+          });
+        })
+      );
+      wrap.querySelectorAll('[data-pack-delno]').forEach(b =>
+        b.addEventListener('click', e => { e.stopPropagation(); OE.set({ packDeleteConfirm: null }); })
+      );
+      wrap.querySelectorAll('[data-pack-card][data-pack-open]').forEach(el => {
+        el.addEventListener('mouseenter', () => { const b = el.querySelector('[data-pack-del]'); if (b) b.style.opacity = '1'; });
+        el.addEventListener('mouseleave', () => { const b = el.querySelector('[data-pack-del]'); if (b) b.style.opacity = '0'; });
+        el.addEventListener('mousedown', (ev) => {
+          if (ev.button !== 0) return;
+          if (ev.target.closest('[data-pack-del]')) return;
+          if (OE.get().packDeleteConfirm != null) return;
+          ev.preventDefault();
+          const sx = ev.clientX, sy = ev.clientY;
+          const startRect = el.getBoundingClientRect();
+          let moved = false, ghost = null, marker = null, pendingTarget;
+          const onMove = (mv) => {
+            if (!moved && Math.abs(mv.clientX - sx) < 3 && Math.abs(mv.clientY - sy) < 3) return;
+            if (!moved) {
+              moved = true;
+              ghost = el.cloneNode(true);
+              ghost.removeAttribute('data-pack-card'); ghost.removeAttribute('data-pack-open');
+              ghost.style.cssText += ';position:fixed;left:0;top:0;width:'+startRect.width+'px;margin:0;z-index:2147483300;pointer-events:none;opacity:.88;transform:scale(1.04) rotate(1.5deg);box-shadow:0 10px 26px rgba(60,60,55,.3)';
+              const _root = document.getElementById('dtr-outfit-editor');
+              (_root || document.body).appendChild(ghost);
+              el.style.opacity = '.35';
+
+              marker = document.createElement('div');
+              marker.style.cssText = 'position:absolute;width:3px;border-radius:2px;background:'+S+';z-index:5;pointer-events:none;display:none';
+              if (getComputedStyle(packGrid).position === 'static') packGrid.style.position = 'relative';
+              packGrid.appendChild(marker);
+            }
+            ghost.style.left = (mv.clientX - startRect.width / 2) + 'px';
+            ghost.style.top  = (mv.clientY - 16) + 'px';
+            pendingTarget = undefined;
+            let barTile = null, barAfter = false;
+            for (const t of packGrid.querySelectorAll('[data-pack-card]')) {
+              if (t === el) continue;
+              const r = t.getBoundingClientRect();
+              if (mv.clientX >= r.left - 5 && mv.clientX <= r.right + 5 && mv.clientY >= r.top - 5 && mv.clientY <= r.bottom + 5) {
+                barAfter = (mv.clientX - r.left) >= r.width / 2;
+                pendingTarget = barAfter ? t.nextSibling : t;
+                barTile = t;
+                break;
+              }
+            }
+            if (pendingTarget === el || pendingTarget === el.nextSibling) { pendingTarget = undefined; barTile = null; }
+            if (!barTile) { marker.style.display = 'none'; }
+            else {
+              const gr = packGrid.getBoundingClientRect(), r = barTile.getBoundingClientRect();
+              marker.style.left = Math.round(r.left - gr.left + (barAfter ? r.width + 2.5 : -5.5)) + 'px';
+              marker.style.top = Math.round(r.top - gr.top) + 'px';
+              marker.style.height = Math.round(r.height) + 'px';
+              marker.style.display = 'block';
+            }
+          };
+          const onUp = () => {
+            document.removeEventListener('mousemove', onMove);
+            document.removeEventListener('mouseup', onUp);
+            if (ghost) { try { ghost.remove(); } catch (_) {} }
+            if (marker) { try { marker.remove(); } catch (_) {} }
+            el.style.opacity = '';
+            if (moved) {
+              const swallow = (ce) => { ce.stopPropagation(); ce.preventDefault(); };
+              document.addEventListener('click', swallow, { capture: true, once: true });
+              setTimeout(() => document.removeEventListener('click', swallow, true), 0);
+              if (pendingTarget === undefined) return;
+              try { packGrid.insertBefore(el, pendingTarget); } catch (_) {}
+              const order = [...packGrid.querySelectorAll('[data-pack-card]')].map(c => +c.dataset.packCard);
+              const origIdx = +el.dataset.packCard;
+              OE.set(s2 => {
+                const packs = order.map(ix => s2.packs[ix]).filter(Boolean);
+                if (packs.length !== s2.packs.length) return {};
+                oeSavePacks(packs);
+                return { packs, activePackIdx: Math.max(0, order.indexOf(s2.activePackIdx)) };
+              });
+
+              const landed = document.querySelector('[data-pack-card="'+order.indexOf(origIdx)+'"]');
+              if (landed) {
+                landed.style.transition = 'none';
+                landed.style.boxShadow = '0 0 0 3px '+S+'d9, 0 6px 16px rgba(60,60,55,.24)';
+                landed.style.transform = 'scale(1.05)';
+                requestAnimationFrame(() => requestAnimationFrame(() => {
+                  landed.style.transition = 'box-shadow .5s ease, transform .35s ease';
+                  landed.style.boxShadow = '0 2px 8px rgba(60,60,55,.07)';
+                  landed.style.transform = '';
+                }));
+                setTimeout(() => { landed.style.transition = ''; }, 620);
+              }
+            } else {
+              OE.set({ activePackIdx: +el.dataset.packOpen, packGallery: false, renamingPack: false, packDeleteConfirm: null });
+            }
+          };
+          document.addEventListener('mousemove', onMove);
+          document.addEventListener('mouseup', onUp);
+        });
+      });
+      const backBtn = wrap.querySelector('[data-pack-back]');
+      if (backBtn) backBtn.addEventListener('click', () => OE.set({ packGallery:true, renamingPack:false, packQuery:'', packSearchResults:[], packDeleteConfirm:null }));
       const newBtn = wrap.querySelector('[data-pack-new]');
       if (newBtn) newBtn.addEventListener('click', () =>
-        OE.set(s2 => { const packs=[...s2.packs,{name:'New Pack',items:[]}]; oeSavePacks(packs); return { packs, activePackIdx:s2.packs.length, renamingPack:true }; })
+        OE.set(s2 => { const packs=[...s2.packs,{name:'New Pack',items:[]}]; oeSavePacks(packs); return { packs, activePackIdx:s2.packs.length, renamingPack:true, packGallery:false }; })
       );
 
       const startRen = wrap.querySelector('[data-pack-start-rename]');
@@ -34279,7 +34608,7 @@ if (!tradeLinks.length) {
       if (delBtn) delBtn.addEventListener('click', () =>
         OE.set(s2 => {
           if (s2.packs.length <= 1) return {};
-          const packs=s2.packs.filter((_,i)=>i!==s2.activePackIdx); oeSavePacks(packs); return { packs, activePackIdx:Math.max(0,s2.activePackIdx-1), renamingPack:false };
+          const packs=s2.packs.filter((_,i)=>i!==s2.activePackIdx); oeSavePacks(packs); return { packs, activePackIdx:Math.max(0,s2.activePackIdx-1), renamingPack:false, packGallery:true };
         })
       );
 
@@ -34420,7 +34749,7 @@ if (!tradeLinks.length) {
           cog.type = 'button'; cog.id = 'dtr-oe-navcog'; cog.textContent = '⚙'; cog.title = 'Outfit Editor settings';
           cog.style.cssText = 'width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:#fff;color:#7a7a72;font-size:14px;line-height:1;cursor:pointer;flex:none';
           const pop = document.createElement('div');
-          pop.style.cssText = 'position:absolute;top:calc(100% + 8px);left:0;z-index:9000;width:248px;background:#fff;border:1px solid var(--border);border-radius:15px;box-shadow:0 16px 38px rgba(60,60,55,.2);padding:13px;display:none';
+          pop.style.cssText = 'position:absolute;top:calc(100% + 8px);left:0;z-index:9000;width:248px;display:none;'+OE_MENU+';padding:13px';
           pop.addEventListener('click', e => e.stopPropagation());
           const trackS = on => 'flex:none;width:36px;height:20px;border-radius:999px;background:'+(on?'var(--secondary)':'#d9d3c8')+';position:relative;display:inline-block;transition:background .2s;cursor:pointer';
           const knobS  = on => 'position:absolute;top:2px;left:'+(on?'16px':'2px')+';width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.15);transition:left .15s';
@@ -34429,7 +34758,7 @@ if (!tradeLinks.length) {
             let hl=false; try { hl=!!GM_getValue('dtr_oe_hide_locked',false); } catch(_){}
 
             pop.innerHTML =
-              '<div style="font:700 10px Nunito,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#b0b0a6;margin:0 2px 10px">Outfit Editor settings</div>'
+              '<div style="'+OE_MENU_HEAD+';margin:0 2px 10px">Outfit Editor settings</div>'
               +'<div data-oe-set="hires" style="display:flex;align-items:center;gap:10px;padding:7px 4px;cursor:pointer;border-radius:8px"><div style="flex:1"><div style="font:700 12px Nunito,sans-serif;color:#46463f">Hi-res mode</div><div style="font:600 10px Nunito,sans-serif;color:#a6a69e">Crisper SVG layers (heavier)</div></div><div style="'+trackS(hi)+'"><span style="'+knobS(hi)+'"></span></div></div>'
               +'<div data-oe-set="hidelocked" style="display:flex;align-items:center;gap:10px;padding:7px 4px;cursor:pointer;border-radius:8px"><div style="flex:1"><div style="font:700 12px Nunito,sans-serif;color:#46463f">Hide locked-zone items</div><div style="font:600 10px Nunito,sans-serif;color:#a6a69e">Skip search results you can\'t apply</div></div><div style="'+trackS(hl)+'"><span style="'+knobS(hl)+'"></span></div></div>';
             pop.querySelector('[data-oe-set="hires"]').onclick = () => { try { GM_setValue('dtr_oe_hires', !GM_getValue('dtr_oe_hires',false)); } catch(_){} paint(); try { oeRenderPet(); } catch(_){} };
@@ -34480,8 +34809,8 @@ if (!tradeLinks.length) {
             '<div style="position:relative;flex-shrink:0">' +
               '<button id="dtr-oe-cog" type="button" style="width:32px;height:32px;border-radius:50%;border:none;background:' + (cogOpen ? '#e8e3db' : '#f1ede4') + ';color:#7a7a72;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center">⚙</button>' +
               (cogOpen
-                ? '<div id="dtr-oe-cogpanel" style="position:absolute;top:calc(100% + 9px);left:0;z-index:60;width:248px;background:#fff;border:1px solid var(--border,#e9e3d4);border-radius:15px;box-shadow:0 16px 38px rgba(60,60,55,.2);padding:13px">' +
-                    '<div style="font:700 10px \'Nunito\',sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#b0b0a6;margin:0 2px 10px">Script settings</div>' +
+                ? '<div id="dtr-oe-cogpanel" style="position:absolute;top:calc(100% + 9px);left:0;z-index:60;width:248px;'+OE_MENU+';padding:13px">' +
+                    '<div style="'+OE_MENU_HEAD+';margin:0 2px 10px">Script settings</div>' +
                     '<div id="dtr-oe-hires-row" style="display:flex;align-items:center;gap:10px;padding:7px 4px;cursor:pointer;border-radius:8px">' +
                       '<div style="flex:1"><div style="font:700 12px \'Nunito\',sans-serif;color:#46463f">Hi-res downloads</div><div style="font:600 10px \'Nunito\',sans-serif;color:#a6a69e">Export pets at 1200×1200</div></div>' +
                       '<div style="' + trackStyle(hiRes) + '"><span style="' + knobStyle(hiRes) + '"></span></div>' +
@@ -34674,12 +35003,16 @@ if (!tradeLinks.length) {
       card.style.overflow = 'visible';
 
       const wn     = (s.pinnedZones || new Set()).size;
-      const zmOn   = s.zoneMapShow !== false;
+      const docked = s.zoneMapDocked === true;
       const miniOn = s.zoneMapMini === true;
       const d        = oeZmData();
       const activeId = oeZmActiveId(s);
       const active   = d.maps[activeId] || { name: 'My Zone Map' };
       const multi    = d.order.length > 1;
+
+      const _zmDrawn = {};
+      (s.considering || []).forEach(it => { if (it && it.applied !== false && it.zone) _zmDrawn[it.zone] = it; });
+      const _zmFilledCount = [...(s.pinnedZones || [])].filter(z => _zmDrawn[z] && _zmDrawn[z].id).length;
 
       const watched = s.pinnedZones || new Set();
       const addBtns = OE_ALL_ZONES.map(n => {
@@ -34690,22 +35023,22 @@ if (!tradeLinks.length) {
           +';font:700 10px Nunito,sans-serif"><span style="color:'+(w?'#3a7a5e':S)+'">'+(w?'✓':'+')+'</span>'+n+'</button>';
       }).join('');
       const addPanel = s.zoneMapAddOpen
-        ? '<div data-zmp-addpanel style="position:absolute;bottom:calc(100% + 7px);right:0;z-index:55;width:288px;background:#fff;border:1px solid var(--border);border-radius:13px;box-shadow:0 14px 34px rgba(60,60,55,.2);padding:11px">'
-          +'<div style="font:700 10px Nunito,sans-serif;letter-spacing:.06em;color:#b0b0a6;text-transform:uppercase;margin:0 2px 7px">Add zones to '+_oeEsc(active.name)+'</div>'
+        ? '<div data-zmp-addpanel style="position:absolute;bottom:calc(100% + 7px);right:0;z-index:55;width:288px;'+OE_MENU+';padding:11px">'
+          +'<div style="'+OE_MENU_HEAD+';margin:0 2px 7px">Add zones to '+_oeEsc(active.name)+'</div>'
           +'<input data-zmp-addsearch placeholder="Search zones…" style="width:100%;padding:6px 9px;border:1px solid var(--border);border-radius:8px;font:600 11px Nunito,sans-serif;color:#4a4a45;margin-bottom:8px;box-sizing:border-box;outline:none">'
-          +'<div style="display:flex;flex-wrap:wrap;gap:5px;max-height:200px;overflow-y:auto">'+addBtns+'</div>'
+          +'<div data-zmp-addlist style="display:flex;flex-wrap:wrap;gap:5px;max-height:200px;overflow-y:auto">'+addBtns+'</div>'
           +'</div>'
         : '';
 
-      const seg = (label, on, attr) => '<button '+attr+' style="border:none;border-radius:999px;cursor:pointer;font:700 10px Nunito,sans-serif;letter-spacing:.02em;padding:4px 12px;'+(on?'background:'+S+';color:#fff':'background:transparent;color:#9a958a')+'">'+label+'</button>';
+      const seg = (label, on, attr) => '<button '+attr+' style="border:none;border-radius:999px;cursor:pointer;font:700 10px Nunito,sans-serif;letter-spacing:.02em;padding:4px 9px;'+(on?'background:'+S+';color:#fff':'background:transparent;color:#9a958a')+'">'+label+'</button>';
 
       const linkStyle = 'border:none;background:none;cursor:pointer;font:700 10.5px Nunito,sans-serif;color:#a89e8b;flex:none;padding:4px 3px';
 
-      const mapSel = multi
-        ? '<div style="position:relative;flex:1;min-width:0">'
-          + '<select data-zmp-mapsel style="appearance:none;-webkit-appearance:none;width:100%;box-sizing:border-box;padding:8px 26px 8px 13px;border:0;outline:none;box-shadow:none;border-radius:999px;background:'+S+'16;color:#347f76;font:800 11.5px Nunito,sans-serif;cursor:pointer">'
-          + d.order.map(id => '<option value="'+id+'"'+(id===activeId?' selected':'')+'>'+_oeEsc(d.maps[id].name)+(d.maps[id].bodyType?' · '+OE_BODYCAT_LABEL[d.maps[id].bodyType]:'')+'</option>').join('')
-          + '</select><span style="position:absolute;right:11px;top:50%;transform:translateY(-50%);color:#347f76;pointer-events:none;font-size:10px">▾</span>'
+      const mapMenu = (multi && s.zoneMapPickOpen)
+        ? '<div data-zmp-mapmenu style="position:absolute;top:calc(100% + 6px);left:0;z-index:60;width:210px;'+OE_MENU+'">'
+          + '<div style="'+OE_MENU_HEAD+'">Zone Map (Watching '+wn+')</div>'
+          + '<div style="height:1px;background:#f0ece2;margin:2px 4px 5px"></div>'
+          + d.order.map(id => '<button data-zmp-mappick data-id="'+id+'"'+(id===activeId?' data-on="1"':'')+' class="dtr-oe-menurow" style="'+OE_MENU_ROW+(id===activeId?';background:'+S+'14;color:#4a4a45':'')+'">'+_oeEsc(d.maps[id].name)+(d.maps[id].bodyType?' · '+OE_BODYCAT_LABEL[d.maps[id].bodyType]:'')+'</button>').join('')
           + '</div>'
         : '';
 
@@ -34723,40 +35056,72 @@ if (!tradeLinks.length) {
           + '</div>'
         : '';
 
+      const renameForm = s.zoneMapRenameOpen
+        ? '<div style="margin-bottom:10px;padding:11px;border-radius:13px;background:#faf7f0">'
+          + '<div style="font:800 9px Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#b0b0a6;margin:0 1px 7px">Rename zone map</div>'
+          + '<div style="display:flex;gap:7px;align-items:center">'
+          + '<input data-zmp-renamename value="'+_oeEsc(active.name)+'" style="flex:1;min-width:0;box-sizing:border-box;padding:7px 10px;border:0;outline:none;border-radius:9px;background:#fff;font:700 12px Nunito,sans-serif;color:#4a4a45">'
+          + '<button data-zmp-renamecancel style="'+OE_PILL_SM+';padding:7px 12px">Cancel</button>'
+          + '<button data-zmp-renamesave style="border:none;border-radius:999px;background:'+S+';color:#fff;font:700 11px Nunito,sans-serif;cursor:pointer;padding:7px 14px">Save</button>'
+          + '</div>'
+          + '</div>'
+        : '';
+
+      const savePackForm = s.zoneMapSavePackOpen
+        ? '<div style="margin-bottom:10px;padding:11px;border-radius:13px;background:#faf7f0">'
+          + '<div style="font:800 9px Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#b0b0a6;margin:0 1px 7px">Save as Starter Pack · '+_zmFilledCount+' item'+(_zmFilledCount===1?'':'s')+'</div>'
+          + '<div style="display:flex;gap:7px;align-items:center">'
+          + '<input data-zmp-packname value="'+_oeEsc(active.name)+' Pack" style="flex:1;min-width:0;box-sizing:border-box;padding:7px 10px;border:0;outline:none;border-radius:9px;background:#fff;font:700 12px Nunito,sans-serif;color:#4a4a45">'
+          + '<button data-zmp-packcancel style="'+OE_PILL_SM+';padding:7px 12px">Cancel</button>'
+          + '<button data-zmp-packsave style="border:none;border-radius:999px;background:'+S+';color:#fff;font:700 11px Nunito,sans-serif;cursor:pointer;padding:7px 14px">Save</button>'
+          + '</div>'
+          + '</div>'
+        : '';
+
       const locked = s.zoneMapLocked === true;
 
       const cogSvg = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>';
-      const cogRow = (attr, label, col) => '<button '+attr+' style="display:block;width:100%;text-align:left;padding:7px 9px;border:none;background:transparent;border-radius:8px;cursor:pointer;font:700 11.5px Nunito,sans-serif;color:'+(col||'#5a5a52')+'">'+label+'</button>';
+      const cogRow = (attr, label, col) => '<button '+attr+' class="dtr-oe-menurow" style="'+OE_MENU_ROW+(col?';color:'+col:'')+'">'+label+'</button>';
       const cogMenu = s.zoneMapCogOpen
-        ? '<div data-zmp-cogmenu style="position:absolute;bottom:calc(100% + 6px);left:0;z-index:56;width:188px;background:#fff;border:1px solid var(--border);border-radius:11px;box-shadow:0 -10px 28px rgba(60,60,55,.2);padding:5px">'
+        ? '<div data-zmp-cogmenu style="position:absolute;bottom:calc(100% + 6px);left:0;z-index:56;width:188px;'+OE_MENU+'">'
           + cogRow('data-zmp-new', '+ New map')
+          + cogRow('data-zmp-rename', 'Rename this map')
+          + (_zmFilledCount ? cogRow('data-zmp-savepack', 'Save as Starter Pack') : '')
           + (wn ? cogRow('data-zmp-reset', 'Reset positions') : '')
           + (multi ? cogRow('data-zmp-del', 'Delete this map', '#c0879a') : '')
           + '</div>'
         : '';
 
-      const zmLockIcon = (on) => '<span style="display:flex;flex-direction:column;align-items:center">'
-        + '<span style="width:8px;height:6px;border:1.7px solid currentColor;border-bottom:none;border-radius:4px 4px 0 0;margin-bottom:-1px;display:block"></span>'
-        + '<span style="width:13px;height:9px;background:'+(on?'currentColor':'transparent')+';border:1.7px solid currentColor;border-radius:2.5px;display:block"></span>'
-        + '</span>';
-      const lockBtnHtml = '<button data-zmp-lock title="'+(locked?'Zone Map locked — click to unlock (allow drag/drop)':'Lock the Zone Map layout (no accidental drag / remove)')+'" style="width:26px;height:26px;border-radius:50%;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex:none;background:'+(locked?A:'#efeadf')+';color:'+(locked?'#fff':'#7a756a')+'">'+zmLockIcon(locked)+'</button>';
+      const zmDragIcon = (off) => '<svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2.5" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="21.5" y2="12"/><polyline points="9.2 5.3 12 2.5 14.8 5.3"/><polyline points="9.2 18.7 12 21.5 14.8 18.7"/><polyline points="5.3 9.2 2.5 12 5.3 14.8"/><polyline points="18.7 9.2 21.5 12 18.7 14.8"/>'+(off?'<line x1="4.5" y1="4.5" x2="19.5" y2="19.5" stroke-width="2.6"/>':'')+'</svg>';
+
+      const zmAnchorIcon = '<svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><path d="M12 7.2V21"/><path d="M7.5 10.5h9"/><path d="M4.5 14a7.5 7.5 0 0 0 15 0"/></svg>';
+      const zmPlusIcon = '<svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+      const lockBtnHtml = '<button data-zmp-lock title="'+(locked?'Zone tile drag & drop is OFF — click to enable':'Zone tile drag & drop is ON — click to disable (prevents accidental drag / remove)')+'" style="width:26px;height:26px;border-radius:50%;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex:none;background:'+(locked?A:'#efeadf')+';color:'+(locked?'#fff':'#7a756a')+'">'+zmDragIcon(locked)+'</button>';
 
       card.innerHTML = '<div style="padding:10px 13px 9px">'
 
-        + '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px">'
-        + '<div style="display:flex;align-items:center;gap:7px;min-width:0">'
-        + '<div style="display:flex;align-items:center;gap:4px;white-space:nowrap"><span style="font-family:\'Baloo 2\',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;color:#4a4a45">ZONE MAP</span><span style="font:700 9.5px Nunito,sans-serif;color:#a8a294">(Watching '+wn+')</span></div>'
+        + '<div style="display:flex;align-items:center;justify-content:space-between;gap:6px">'
+        + '<div style="display:flex;align-items:center;gap:5px;min-width:0">'
+        + '<div style="position:relative;flex:0 1 auto;min-width:0;overflow:hidden">'
+        + '<div data-zmp-title style="display:flex;align-items:center;gap:4px;white-space:nowrap;overflow:hidden'+(multi?';cursor:pointer':'')+'"><span style="font-family:\'Baloo 2\',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;color:#4a4a45">ZONE MAP</span><span style="font:700 9.5px Nunito,sans-serif;color:#a8a294;overflow:hidden;text-overflow:ellipsis">(Watching '+wn+')</span>'+(multi?'<span style="font-size:9px;color:#b0b0a6">▾</span>':'')+'</div>'
+        + mapMenu
+        + '</div>'
         + lockBtnHtml
         + '<div style="position:relative;flex:none"><button data-zmp-cog title="Map settings" style="width:25px;height:25px;border-radius:50%;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;background:'+(s.zoneMapCogOpen?S+'22':'#efeadf')+';color:'+(s.zoneMapCogOpen?'#347f76':'#7a756a')+'">'+cogSvg+'</button>'+cogMenu+'</div>'
         + '<div style="display:inline-flex;background:#f1ede4;border-radius:999px;padding:2px;flex:none">'+seg('Full',!miniOn,'data-zmp-full')+seg('Mini',miniOn,'data-zmp-mini')+'</div>'
         + '</div>'
-        + '<div style="display:flex;align-items:center;gap:6px;flex:none">'
-        + '<button data-zmp-toggle title="Show or hide the cards on the pet" style="'+OE_PILL_SM+';padding:6px 12px">'+(zmOn?'Hide':'Show')+'</button>'
+        + '<div style="display:flex;align-items:center;gap:5px;flex:none;position:relative">'
+
+        + '<button data-zmdock-add title="Add zones to this map" style="display:inline-flex;align-items:center;gap:3px;padding:6px 9px;border-radius:999px;border:none;cursor:pointer;flex:none;background:linear-gradient(160deg,#ffe0ea,#ffffff 52%,#dcf0e3);color:#cf8aa6;font:800 10.5px Nunito,sans-serif;letter-spacing:.02em;box-shadow:inset 0 1px 3px rgba(255,255,255,.75),0 2px 6px rgba(180,150,165,.26)'+(s.zoneMapAddOpen?',0 0 0 2px '+S+'66':'')+'">'+zmPlusIcon+' Zone</button>'
+        + '<button data-zmp-toggle title="'+(docked?'Docked — click to pop the tiles back out over your pet':'Dock the Zone Map — tiles arrange in a grid down here (your arrangement is kept)')+'" style="width:26px;height:26px;border-radius:50%;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex:none;background:'+(docked?A:'#efeadf')+';color:'+(docked?'#fff':'#7a756a')+'">'+zmAnchorIcon+'</button>'
+        + addPanel
         + '</div>'
         + '</div>'
         + createForm
+        + renameForm
+        + savePackForm
 
-        + (multi && !s.zoneMapNewOpen ? '<div style="margin-top:8px">'+mapSel+'</div>' : '')
+        + (docked ? '<div data-zm-dockgrid style="margin-top:4px;padding-top:7px"></div>' : '')
 
         + (s.zoneMapResetPending ? '<div style="display:flex;justify-content:flex-end;margin-top:8px"><button data-zmp-undo title="Undo the reset" style="position:relative;overflow:hidden;border:none;border-radius:999px;background:'+A+'1f;color:'+A+';font:800 10px Nunito,sans-serif;cursor:pointer;padding:6px 14px">Undo reset<span style="position:absolute;left:0;bottom:0;height:2.5px;background:'+A+';width:100%;animation:dtrZmReset 5s linear forwards"></span></button></div>' : '')
         + (wn === 0 && !s.zoneMapNewOpen ? '<div style="margin-top:8px;padding:11px;border-radius:13px;'+OE_SOFT_TILE+'text-align:center;font:600 11px Nunito,sans-serif;color:#9a9a8e;line-height:1.4">No zones watched yet — tap <b style="color:'+S+'">+ Zone</b>.</div>' : '')
@@ -34765,17 +35130,46 @@ if (!tradeLinks.length) {
       const $  = sel => card.querySelector(sel);
       const $$ = sel => card.querySelectorAll(sel);
       const tog = $('[data-zmp-toggle]');
-      if (tog) tog.addEventListener('click', () => OE.set(s2 => { const v = !(s2.zoneMapShow !== false); try { GM_setValue('dtr_oe_zonemap_show', v); } catch(_) {} return { zoneMapShow: v }; }));
+      if (tog) tog.addEventListener('click', () => OE.set(s2 => { const v = !(s2.zoneMapDocked === true); try { GM_setValue('dtr_oe_zonemap_docked', v); } catch(_) {} try { oeToast(v ? 'Zone Map docked — tiles live down here now' : 'Zone Map popped out over the pet'); } catch(_) {} return { zoneMapDocked: v, zoneMapAddOpen: false, zoneMapCogOpen: false }; }));
+
+      const addSearch = $('[data-zmp-addsearch]');
+      if (addSearch) addSearch.addEventListener('input', e => { const q = e.target.value.toLowerCase(); $$('[data-zmp-addpill]').forEach(b => { b.style.display = (q && !b.dataset.zoneLower.includes(q)) ? 'none' : ''; }); });
+      $$('[data-zmp-addpill]').forEach(b => b.addEventListener('click', e => {
+        e.stopPropagation();
+        const zone = e.currentTarget.dataset.zone; if (!zone || e.currentTarget.disabled) return;
+
+        const _srch = $('[data-zmp-addsearch]'); const _q = _srch ? _srch.value : ''; const _hadFocus = !!(_srch && document.activeElement === _srch);
+        const _list = $('[data-zmp-addlist]'); const _top = _list ? _list.scrollTop : 0;
+        OE.set(s2 => { const p = new Set(s2.pinnedZones || []); p.add(zone); return { pinnedZones: p }; });
+        oePersistZoneCat();
+        const np = document.querySelector('[data-oe-zone-panel] [data-zmp-addpanel]');
+        if (np) {
+          const ni = np.querySelector('[data-zmp-addsearch]');
+          if (ni && _q) { ni.value = _q; ni.dispatchEvent(new Event('input', { bubbles: true })); }
+          if (ni && _hadFocus) { try { ni.focus(); } catch (_) {} }
+          const nl = np.querySelector('[data-zmp-addlist]'); if (nl) nl.scrollTop = _top;
+        }
+      }));
       const cogBtn2 = $('[data-zmp-cog]');
       if (cogBtn2) cogBtn2.addEventListener('click', e => { e.stopPropagation(); OE.set(s2 => ({ zoneMapCogOpen: !s2.zoneMapCogOpen })); });
       const lockBtn = $('[data-zmp-lock]');
-      if (lockBtn) lockBtn.addEventListener('click', () => OE.set(s2 => { const v = !(s2.zoneMapLocked === true); try { GM_setValue('dtr_oe_zonemap_locked', v); } catch(_) {} return { zoneMapLocked: v, zoneMapCogOpen: false }; }));
+      if (lockBtn) lockBtn.addEventListener('click', () => OE.set(s2 => { const v = !(s2.zoneMapLocked === true); try { GM_setValue('dtr_oe_zonemap_locked', v); } catch(_) {} try { oeToast(v ? 'Zone tile drag & drop disabled' : 'Zone tile drag & drop enabled'); } catch(_) {} return { zoneMapLocked: v, zoneMapCogOpen: false }; }));
       const fullBtn = $('[data-zmp-full]');
       if (fullBtn) fullBtn.addEventListener('click', () => { if (OE.get().zoneMapMini) { try { GM_setValue('dtr_oe_zonemap_mini', false); } catch(_) {} OE.set({ zoneMapMini: false }); } });
       const miniBtn = $('[data-zmp-mini]');
       if (miniBtn) miniBtn.addEventListener('click', () => { if (!OE.get().zoneMapMini) { try { GM_setValue('dtr_oe_zonemap_mini', true); } catch(_) {} OE.set({ zoneMapMini: true }); } });
-      const msel = $('[data-zmp-mapsel]');
-      if (msel) msel.addEventListener('change', e => { OE.set({ zoneMapActiveId: e.target.value }); });
+
+      const dockAdd = $('[data-zmdock-add]');
+      if (dockAdd) dockAdd.addEventListener('click', e => {
+        e.stopPropagation();
+        const wasOpen = OE.get().zoneMapAddOpen;
+        OE.set({ zoneMapAddOpen: !wasOpen, zoneMapCogOpen: false, zoneMapPickOpen: false });
+        if (!wasOpen) requestAnimationFrame(() => { const i = document.querySelector('[data-oe-zone-panel] [data-zmp-addsearch]'); if (i) i.focus(); });
+      });
+
+      const titleBtn = $('[data-zmp-title]');
+      if (titleBtn && multi) titleBtn.addEventListener('click', e => { e.stopPropagation(); OE.set(s2 => ({ zoneMapPickOpen: !s2.zoneMapPickOpen, zoneMapCogOpen: false })); });
+      $$('[data-zmp-mappick]').forEach(b => b.addEventListener('click', e => { e.stopPropagation(); OE.set({ zoneMapActiveId: e.currentTarget.dataset.id, zoneMapPickOpen: false }); }));
 
       const newLink = $('[data-zmp-new]');
       if (newLink) newLink.addEventListener('click', () => { OE.set({ zoneMapNewOpen: true, zoneMapCogOpen: false }); requestAnimationFrame(() => { const i = card.querySelector('[data-zmp-newname]'); if (i) i.focus(); }); });
@@ -34787,6 +35181,46 @@ if (!tradeLinks.length) {
         const bt = (card.querySelector('[data-zmp-newbody]') || {}).value || '';
         oeZmCreate(nm, bt);
       });
+
+      const renLink = $('[data-zmp-rename]');
+      if (renLink) renLink.addEventListener('click', () => {
+        OE.set({ zoneMapRenameOpen: true, zoneMapNewOpen: false, zoneMapCogOpen: false });
+        requestAnimationFrame(() => { const i = document.querySelector('[data-oe-zone-panel] [data-zmp-renamename]'); if (i) { try { i.focus(); i.select(); } catch (_) {} } });
+      });
+      const renCancel = $('[data-zmp-renamecancel]');
+      if (renCancel) renCancel.addEventListener('click', () => OE.set({ zoneMapRenameOpen: false }));
+      const renSave = $('[data-zmp-renamesave]');
+      if (renSave) renSave.addEventListener('click', () => {
+        const nm = ((card.querySelector('[data-zmp-renamename]') || {}).value || '').trim();
+        if (nm) { const d2 = oeZmData(); const m2 = d2.maps[activeId]; if (m2) { m2.name = nm; oeZmSave(d2); } }
+        OE.set({ zoneMapRenameOpen: false });
+      });
+      const renInp = $('[data-zmp-renamename]');
+      if (renInp) renInp.addEventListener('keydown', e => { if (e.key === 'Enter' && renSave) renSave.click(); if (e.key === 'Escape' && renCancel) renCancel.click(); });
+
+      const spLink = $('[data-zmp-savepack]');
+      if (spLink) spLink.addEventListener('click', () => {
+        OE.set({ zoneMapSavePackOpen: true, zoneMapNewOpen: false, zoneMapRenameOpen: false, zoneMapCogOpen: false });
+        requestAnimationFrame(() => { const i = document.querySelector('[data-oe-zone-panel] [data-zmp-packname]'); if (i) { try { i.focus({ preventScroll: true }); i.select(); } catch (_) {} } });
+      });
+      const spCancel = $('[data-zmp-packcancel]');
+      if (spCancel) spCancel.addEventListener('click', () => OE.set({ zoneMapSavePackOpen: false }));
+      const spSave = $('[data-zmp-packsave]');
+      if (spSave) spSave.addEventListener('click', () => {
+        const nm = ((card.querySelector('[data-zmp-packname]') || {}).value || '').trim() || 'Zone Map Pack';
+        const st = OE.get();
+        const drawn = {};
+        (st.considering || []).forEach(it => { if (it && it.applied !== false && it.zone) drawn[it.zone] = it; });
+        const seen = new Set();
+        const items = [...(st.pinnedZones || [])].sort().map(z => drawn[z])
+          .filter(it => it && it.id && !seen.has(String(it.id)) && seen.add(String(it.id)))
+          .map(it => ({ id: String(it.id), name: it.name || '', thumb: it.thumb || it.thumbnailUrl || '', nc: !!it.nc }));
+        if (!items.length) { try { oeToast('Nothing on the Zone Map to save yet'); } catch (_) {} OE.set({ zoneMapSavePackOpen: false }); return; }
+        OE.set(s2 => { const packs = [...s2.packs, { name: nm, items }]; oeSavePacks(packs); return { packs, zoneMapSavePackOpen: false }; });
+        try { oeToast('Saved '+items.length+' item'+(items.length===1?'':'s')+' as “'+nm+'”'); } catch (_) {}
+      });
+      const spInp = $('[data-zmp-packname]');
+      if (spInp) spInp.addEventListener('keydown', e => { if (e.key === 'Enter' && spSave) spSave.click(); if (e.key === 'Escape' && spCancel) spCancel.click(); });
 
       const del = $('[data-zmp-del]');
       if (del) { let armed = false; del.addEventListener('click', () => {
@@ -34832,10 +35266,12 @@ if (!tradeLinks.length) {
         oePersistZoneCat();
       }));
 
+      requestAnimationFrame(() => { try { if (docked) oeRenderZoneDock(); else oeBalanceVariants(); } catch (_) {} });
+
       return card;
     }
 
-    const OE_ZPANEL_KEYS = new Set(['pinnedZones','locks','zoneMapShow','zoneMapAddOpen','zoneMapActiveId','zoneMapNewOpen',
+    const OE_ZPANEL_KEYS = new Set(['pinnedZones','locks','zoneMapShow','zoneMapDocked','zoneMapAddOpen','zoneMapActiveId','zoneMapNewOpen','zoneMapRenameOpen','zoneMapPickOpen','zoneMapSavePackOpen',
       'zoneMapCogOpen','zoneMapLocked','zoneMapExempt','zoneMapResetPending','zoneMapMini','speciesId','colorId','colorName','altStyleId']);
 
     function oeCanvasCard(s) {
@@ -34853,7 +35289,7 @@ if (!tradeLinks.length) {
 
       const oLock = !!oeActiveVar(s).locked;
 
-      const _zmOnNow = s.zoneMapShow !== false;
+      const _zmOnNow = s.zoneMapDocked !== true;
       const cr = s.frameShape === 'square' ? '4px' : (s.frameShape === 'circle' && !_zmOnNow) ? '50%' : '16px';
 
       function fsBtn(active) {
@@ -34913,7 +35349,7 @@ if (!tradeLinks.length) {
       const appResultsLabel = altPool.length === 0 ? 'Loading…'
         : (q ? appFiltered.length+' match "'+s.appQuery+'"' : altPool.length+' styles — scroll to browse');
       const appDropdown = s.appOpen
-        ? '<div data-app-dropdown style="position:absolute;top:calc(100% + 6px);left:50%;right:auto;transform:translateX(-50%);width:min(720px,92vw);z-index:40;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 12px 30px rgba(60,60,55,.16);padding:12px 14px;max-height:min(62vh,560px);overflow-y:auto">'
+        ? '<div data-app-dropdown style="position:absolute;top:calc(100% + 6px);left:50%;right:auto;transform:translateX(-50%);width:min(720px,92vw);z-index:40;max-height:min(62vh,560px);overflow-y:auto;'+OE_MENU+';padding:12px 14px">'
           +'<div style="font:700 10px Nunito,sans-serif;letter-spacing:.06em;color:#b0b0a6;margin:1px 2px 9px">'+appResultsLabel+'</div>'
           +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px">'
           + appFiltered.map(x => {
@@ -35047,16 +35483,54 @@ if (!tradeLinks.length) {
             +'<div style="position:relative"><select data-species-sel style="'+_selCss+'">'+speciesNames.map(n=>'<option'+(n===selSpecies?' selected':'')+'>'+n+'</option>').join('')+'</select>'+_chev+'</div></div>'
             +'<span style="font:800 10px Nunito,sans-serif;color:#bcbcb2;text-transform:uppercase;align-self:flex-end;padding-bottom:13px;flex:none">or</span>'
 
-            +'<div style="display:flex;flex-direction:column;gap:5px;flex:1;min-width:150px">'+_lbl('Appearance')
+            +'<div style="display:flex;flex-direction:column;gap:5px;flex:1;min-width:120px">'+_lbl('Appearance')
             +'<div id="dia-oe-ps-slot" style="min-height:44px"></div></div>'
+
+            +'<span style="font:800 10px Nunito,sans-serif;color:#bcbcb2;text-transform:uppercase;align-self:flex-end;padding-bottom:13px;flex:none">or</span>'
+            +'<div style="display:flex;flex-direction:column;gap:5px;width:136px;flex:none">'+_lbl('Pet Name')
+            +'<div style="position:relative"><input data-petname-inp placeholder="Search a pet…" style="width:100%;box-sizing:border-box;padding:11px 32px 11px 13px;border:none;outline:none;background:#f4f1e8;border-radius:12px;font:700 12.5px Nunito,sans-serif;color:#4a4a45">'
+            +'<button data-petname-go title="Load this pet from Neopets" style="position:absolute;right:5px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;border:none;background:'+S+';color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>'
+            +'</div></div>'
 
             +(s.altStyleId ? '' :
               '<div style="display:flex;flex-direction:column;gap:5px;flex:none">'+_lbl('Mood')
-              +'<div style="position:relative"><button data-pose-toggle title="" style="display:inline-flex;align-items:center;gap:7px;padding:11px 13px;border-radius:12px;border:none;background:#f4f1e8;cursor:pointer;font:700 12px Nunito,sans-serif;color:#5a5a52;white-space:nowrap">'
-              +'<span style="'+poseChip+'"></span>'+(['Happy','Sad','Sick'][s.pose % 3])+' <span style="color:#b0b0a6;font-size:10px">▾</span></button>'+posePanel+'</div></div>')
+              +'<div style="position:relative"><button data-pose-toggle title="" style="display:inline-flex;align-items:center;gap:5px;padding:11px 11px;border-radius:12px;border:none;background:#f4f1e8;cursor:pointer;font:700 12px Nunito,sans-serif;color:#5a5a52;white-space:nowrap">'
+              +(['Happy','Sad','Sick'][s.pose % 3])+' <span style="color:#b0b0a6;font-size:10px">▾</span></button>'+posePanel+'</div></div>')
             +'</div>';
         })()
         +'</div>';
+
+      const _pnLoad = async () => {
+        const inp = card.querySelector('[data-petname-inp]');
+        const n = ((inp && inp.value) || '').trim();
+        if (!n) return;
+        try { oeToast('Searching for '+n+'…', inp); } catch (_) {}
+        try {
+          const csrf = document.querySelector('meta[name="csrf-token"]') ? document.querySelector('meta[name="csrf-token"]').content : '';
+          const fd = new FormData(); fd.append('name', n);
+          const r = await fetch('/pets/load', { method: 'POST', headers: { 'X-CSRF-Token': csrf, 'Accept': 'application/json' }, body: fd });
+          if (r.ok) {
+            const json = await r.json();
+            if (json && json.query) {
+              const q = new URLSearchParams(json.query);
+              const st = OE.get();
+              const sid = String(q.get('species') || st.speciesId || '1');
+              const cid = String(q.get('color') || st.colorId || '8');
+              const spName = ((st.allSpecies || []).find(x => String(x.id) === sid) || {}).name || st.speciesName;
+              const coName = ((st.allColors || []).find(x => String(x.id) === cid) || {}).name || st.colorName;
+              OE.set({ speciesId: sid, speciesName: spName, colorId: cid, colorName: coName, altStyleId: null, altStyles: [], appQuery: '' });
+              if (typeof window.__dtrOEDispatch === 'function')
+                window.__dtrOEDispatch({ type: 'setSpeciesAndColor', speciesId: sid, colorId: cid, pose: OE_POSE_URLS[OE.get().pose] || 'HAPPY_FEM' });
+              oeFetchAltStyles(sid);
+              oeKickSearch();
+              await oeLoadWornItems(q.getAll('objects[]'), true);
+              try { oeToast('Loaded '+n+'!', document.querySelector('[data-petname-inp]')); } catch (_) {}
+              return;
+            }
+          }
+        } catch (_) {}
+        try { oeToast('Couldn’t find a pet named “'+n+'”', document.querySelector('[data-petname-inp]')); } catch (_) {}
+      };
 
       function onOne(sel, evt, fn) {
         const el = card.querySelector(sel);
@@ -35158,6 +35632,8 @@ if (!tradeLinks.length) {
           window.__dtrOEDispatch({ type:'setPose', pose: OE_POSE_URLS[idx] || 'HAPPY_FEM' });
       });
 
+      onOne('[data-petname-go]', 'click', e => { e.stopPropagation(); _pnLoad(); });
+      onOne('[data-petname-inp]', 'keydown', e => { if (e.key === 'Enter') { e.preventDefault(); _pnLoad(); } });
       onOne('[data-app-query]', 'focus',  () => { if (!OE.get().appOpen) OE.set({ appOpen:true }); });
       onOne('[data-app-query]', 'input',  e => OE.set({ appQuery:e.target.value, appOpen:true }));
       on('[data-app-pick]', 'mousedown', e => {
@@ -36562,15 +37038,14 @@ if (!tradeLinks.length) {
           +(active?'background:'+S+';color:#fff':'background:transparent;color:#9a9a90');
       }
 
-      const sortActive = 'display:flex;align-items:center;gap:8px;width:100%;text-align:left;padding:7px 9px;border:none;border-radius:8px;cursor:pointer;font:700 11px Nunito,sans-serif;background:'+S+'14;color:#4a4a45';
-      const sortIdle   = 'display:flex;align-items:center;gap:8px;width:100%;text-align:left;padding:7px 9px;border:none;border-radius:8px;cursor:pointer;font:700 11px Nunito,sans-serif;background:transparent;color:#6a6a64';
+      const sortActive = OE_MENU_ROW+';background:'+S+'14;color:#4a4a45';
       const sortGroupsHTML = s.sortOpen
-        ? '<div data-oe-sortpanel style="position:absolute;top:calc(100% + 6px);right:0;z-index:50;background:#fff;border:1px solid var(--border);border-radius:13px;box-shadow:0 12px 30px rgba(60,60,55,.18);padding:7px;width:210px">'
-          + OE_SORT_GROUPS.map(g =>
+        ? '<div data-oe-sortpanel style="position:absolute;top:calc(100% + 6px);right:0;z-index:50;width:210px;'+OE_MENU+'">'
+          + OE_SORT_GROUPS.map((g, gi) =>
             '<div>'
-            +'<div style="font:700 9px Nunito,sans-serif;letter-spacing:.07em;color:#b0b0a6;text-transform:uppercase;margin:7px 5px 3px">'+g.label+'</div>'
+            +'<div style="'+OE_MENU_HEAD+(gi ? ';margin-top:7px' : '')+'">'+g.label+'</div>'
             + g.opts.map(o =>
-              '<button data-sort="'+o+'" style="'+(o===s.sortKey?sortActive:sortIdle)+'">'+o+'</button>'
+              '<button data-sort="'+o+'"'+(o===s.sortKey?' data-on="1"':'')+' class="dtr-oe-menurow" style="'+(o===s.sortKey?sortActive:OE_MENU_ROW)+'">'+o+'</button>'
             ).join('')
             +'</div>'
           ).join('')
@@ -36582,13 +37057,13 @@ if (!tradeLinks.length) {
         ? 'width:15px;height:15px;border-radius:50%;flex:none;background:'+S
         : 'width:15px;height:15px;border-radius:50%;flex:none;background:'+rainbow;
       const colorPanel = s.colorMenuOpen
-        ? '<div data-oe-colormenu style="position:absolute;top:calc(100% + 5px);left:0;z-index:55;width:142px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 28px rgba(60,60,55,.2);padding:5px">'
+        ? '<div data-oe-colormenu style="position:absolute;top:calc(100% + 5px);left:0;z-index:55;width:142px;'+OE_MENU+'">'
 
           + '<div style="font:800 8.5px Nunito,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#c2a85a;background:#fdf6e3;border-radius:7px;padding:5px 7px;margin-bottom:4px;text-align:center">✦ Coming soon</div>'
-          + '<button data-color-all style="display:flex;align-items:center;gap:9px;width:100%;text-align:left;padding:6px 8px;border:none;background:transparent;border-radius:7px;cursor:pointer;font:700 11px Nunito,sans-serif;color:#5a5a52">'
+          + '<button data-color-all class="dtr-oe-menurow" style="'+OE_MENU_ROW+';display:flex;align-items:center;gap:9px">'
           +'<span style="width:15px;height:15px;border-radius:50%;background:'+rainbow+';flex:none"></span>All</button>'
           + OE_NC_COLORS.map(c =>
-            '<button data-color-pick="'+c+'" style="display:flex;align-items:center;gap:9px;width:100%;text-align:left;padding:6px 8px;border:none;background:transparent;border-radius:7px;cursor:pointer;font:700 11px Nunito,sans-serif;color:#5a5a52">'
+            '<button data-color-pick="'+c+'" class="dtr-oe-menurow" style="'+OE_MENU_ROW+';display:flex;align-items:center;gap:9px">'
             +'<span style="width:15px;height:15px;border-radius:50%;background:'+S+';flex:none;opacity:'+(0.4+OE_NC_COLORS.indexOf(c)*0.08)+'"></span>'+c+'</button>'
           ).join('')
           +'</div>'
@@ -36597,17 +37072,17 @@ if (!tradeLinks.length) {
       const zoneChip = '';
 
       const _zoneLabels = _oeZoneLabelToIds ? Object.keys(_oeZoneLabelToIds).sort((a, b) => a.localeCompare(b)) : [];
-      const _zopt = (active) => 'display:block;width:100%;text-align:left;padding:7px 9px;border:none;background:'+(active?S+'16':'transparent')+';color:'+(active?'#5d8467':'#5a5a52')+';border-radius:8px;cursor:pointer;font:'+(active?'700':'600')+' 12px Nunito,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis';
+      const _zopt = (active) => OE_MENU_ROW+';white-space:nowrap;overflow:hidden;text-overflow:ellipsis'+(active?';background:'+S+'14;color:#4a4a45':'');
       const zonePicker =
         '<div style="position:relative;flex:none">'
         + '<button data-zone-picker-btn title="Filter by zone" style="height:44px;display:inline-flex;align-items:center;gap:5px;padding:0 11px;max-width:130px;box-sizing:border-box;border:1.5px solid '+(s.activeZone?S:'var(--border)')+';border-radius:12px;background:'+(s.activeZone?S+'12':'#fff')+';color:'+(s.activeZone?'#5d8467':'#7a7a72')+';font:700 12px Nunito,sans-serif;cursor:pointer;white-space:nowrap;overflow:hidden">'
         + '<span style="overflow:hidden;text-overflow:ellipsis">'+(s.activeZone?_oeEsc(s.activeZone):'Zone')+'</span><span style="font-size:9px;color:#b0b0a6;flex:none">▾</span></button>'
         + (s.zonePickerOpen
-            ? '<div data-zone-picker style="position:absolute;top:calc(100% + 6px);left:0;z-index:46;width:232px;max-height:332px;background:#fff;border:1px solid var(--border);border-radius:13px;box-shadow:0 12px 30px rgba(60,60,55,.18);padding:8px;display:flex;flex-direction:column">'
+            ? '<div data-zone-picker style="position:absolute;top:calc(100% + 6px);left:0;z-index:46;width:232px;max-height:332px;display:flex;flex-direction:column;'+OE_MENU+'">'
               + '<input data-zone-filter placeholder="Type a zone…" style="width:100%;box-sizing:border-box;padding:8px 10px;border:1.5px solid var(--border);border-radius:9px;font:600 12px Nunito,sans-serif;color:#4a4a45;margin-bottom:6px;flex:none">'
               + '<div data-zone-list style="overflow-y:auto;min-height:0">'
-              + '<button data-zone-pick="" class="dtr-oe-zopt" style="'+_zopt(!s.activeZone)+'">All zones</button>'
-              + _zoneLabels.map(z => '<button data-zone-pick="'+_oeEsc(z).replace(/"/g,'&quot;')+'" class="dtr-oe-zopt" style="'+_zopt(z===s.activeZone)+'">'+_oeEsc(z)+'</button>').join('')
+              + '<button data-zone-pick="" class="dtr-oe-menurow dtr-oe-zopt"'+(!s.activeZone?' data-on="1"':'')+' style="'+_zopt(!s.activeZone)+'">All zones</button>'
+              + _zoneLabels.map(z => '<button data-zone-pick="'+_oeEsc(z).replace(/"/g,'&quot;')+'" class="dtr-oe-menurow dtr-oe-zopt"'+(z===s.activeZone?' data-on="1"':'')+' style="'+_zopt(z===s.activeZone)+'">'+_oeEsc(z)+'</button>').join('')
               + '</div></div>'
             : '')
         + '</div>';
@@ -36627,12 +37102,11 @@ if (!tradeLinks.length) {
 
         const frame  = 'height:'+sz+'px;border:2px solid #fff;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;line-height:1;box-shadow:0 2px 7px rgba(0,0,0,.32);transition:transform .12s,box-shadow .12s;';
         const circle = 'width:'+sz+'px;border-radius:50%;'+frame;
-
-        const heartStyle = circle + 'font-size:'+(sz-8)+'px;' + (fav ? 'background:#ff7aa2;color:#fff;' : 'background:#fff;color:#ff7aa2;');
-        const heartBtn = '<button data-heart="'+name+'" title="'+(fav?'Loved (click to unlove)':'Love')+'" style="'+heartStyle+'">'+(fav?'♥':'♡')+'</button>';
+        const heartStyle = circle + (fav ? 'background:#f0ad3a;color:#fff;' : 'background:#fff;color:#f0ad3a;');
+        const heartBtn = '<button data-heart="'+name+'" title="'+(fav?'Starred — click to unstar':'Star (quick-prioritize in the Fitting Room)')+'" style="'+heartStyle+'">'+OE_STAR(sz-9)+'</button>';
         const xBtn = confirming
           ? '<button data-remove="'+name+'" title="Click again to remove" style="'+frame+'border-radius:'+(sz/2)+'px;padding:0 9px;font:800 '+(sz-12)+'px/1 Nunito,sans-serif;background:#e8455f;color:#fff">Remove?</button>'
-          : '<button data-remove="'+name+'" title="Remove" style="'+circle+'font:800 '+(sz-6)+'px/1 Nunito,sans-serif;background:#e8455f;color:#fff">×</button>';
+          : '<button data-remove="'+name+'" title="Remove" style="'+circle+'font:800 '+(sz-6)+'px/1 Nunito,sans-serif;background:#fff;color:#e8455f">×</button>';
         return xBtn + heartBtn;
       }
 
@@ -36750,21 +37224,16 @@ if (!tradeLinks.length) {
 
         + zoneChip
 
-        +'<div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:11px">'
-        +'<div style="display:flex;background:#f4f1e8;border:1px solid var(--border);border-radius:999px;padding:2px">'
+        +'<div style="display:flex;align-items:center;gap:6px;flex-wrap:nowrap;margin-bottom:11px">'
+        +'<div style="display:flex;flex:none;background:#f4f1e8;border:1px solid var(--border);border-radius:999px;padding:2px">'
         +'<button data-filter="all" style="'+seg(s.searchFilter==='all')+'">All</button>'
         +'<button data-filter="nc"  style="'+seg(s.searchFilter==='nc') +'">NC Only</button>'
         +'<button data-filter="np"  style="'+seg(s.searchFilter==='np') +'">NP Only</button>'
         +'</div>'
-        +'<button data-owned-toggle style="'+ownedChipStyle+'">Owned</button>'
-        +'<div style="position:relative">'
-        +'<button data-color-toggle title="Color filter — coming soon" style="display:inline-flex;align-items:center;gap:4px;padding:5px 8px 5px 6px;border-radius:999px;border:none;background:#f1ede4;cursor:pointer">'
-        +'<span style="'+colorBadge+'"></span><span style="font-size:8px;color:#c2a85a;font-weight:800;line-height:1" aria-hidden="true">✦</span><span style="font-size:9px;color:#b0b0a6">▾</span>'
-        +'</button>'
-        + colorPanel
-        +'</div>'
-        +'<div style="position:relative;margin-left:auto">'
-        +'<button data-sort-toggle style="display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:10px;border:none;background:#f1ede4;cursor:pointer;font:700 11px Nunito,sans-serif;color:#5a5a52">'
+        +'<button data-owned-toggle style="'+ownedChipStyle+';flex:none;white-space:nowrap">Owned</button>'
+
+        +'<div style="position:relative;margin-left:auto;flex:none">'
+        +'<button data-sort-toggle style="display:inline-flex;align-items:center;gap:5px;padding:6px 9px;border-radius:10px;border:none;background:#f1ede4;cursor:pointer;font:700 11px Nunito,sans-serif;color:#5a5a52;white-space:nowrap">'
         +'<span style="color:#b0b0a6">↕</span>'+s.sortKey+'<span style="color:#b0b0a6;font-size:10px">▾</span>'
         +'</button>'
         + sortGroupsHTML
@@ -36828,6 +37297,46 @@ if (!tradeLinks.length) {
       });
 
       onOne('[data-sort-toggle]', e => { e.stopPropagation(); OE.set(s2 => ({ sortOpen:!s2.sortOpen })); });
+
+      const grip = document.createElement('div');
+      grip.setAttribute('data-oe-sgrip', '');
+      grip.title = 'Drag to resize';
+      grip.style.cssText = 'position:absolute;right:2px;bottom:2px;width:20px;height:20px;cursor:nwse-resize;z-index:9;display:flex;align-items:center;justify-content:center;color:#c9c3b6';
+      grip.innerHTML = '<svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2.5 10 10 2.5M6.5 10 10 6.5"/></svg>';
+      card.appendChild(grip);
+      grip.addEventListener('mousedown', (ev) => {
+        if (ev.button !== 0) return;
+        ev.preventDefault(); ev.stopPropagation();
+        const startY = ev.clientY;
+        const startH = card.getBoundingClientRect().height;
+        const gridEl = document.getElementById('dtr-oe-grid');
+        const cc = document.querySelector('[data-oe-canvas-card]');
+        const minH = cc ? Math.round(cc.getBoundingClientRect().height) : 320;
+        const topY = card.getBoundingClientRect().top;
+        let maxH = Math.max(minH, 320);
+        try {
+          const b0 = gridEl.children[0].getBoundingClientRect().bottom;
+          const b1 = gridEl.children[1].getBoundingClientRect().bottom;
+          maxH = Math.max(minH, Math.round(Math.max(b0, b1) - topY));
+        } catch (_) {}
+        const onMove = (mv) => {
+          const h = Math.max(minH, Math.min(maxH, Math.round(startH + (mv.clientY - startY))));
+          _oeSearchH = (h <= minH + 2) ? 0 : h;
+          card.style.height = h + 'px';
+          const list = card.querySelector('[data-results-scroll]');
+          if (list) {
+            const avail = Math.round(card.getBoundingClientRect().bottom - list.getBoundingClientRect().top - 14);
+            if (avail > 100) list.style.maxHeight = avail + 'px';
+          }
+        };
+        const onUp = () => {
+          document.removeEventListener('mousemove', onMove);
+          document.removeEventListener('mouseup', onUp);
+          try { GM_setValue('dtr_oe_search_h', _oeSearchH); } catch (_) {}
+        };
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+      });
       on('[data-sort]', e => {
         e.stopPropagation();
         const key = e.currentTarget.dataset.sort;
@@ -37063,6 +37572,285 @@ if (!tradeLinks.length) {
       if (_oeZmToastT) clearTimeout(_oeZmToastT);
       _oeZmToastT = setTimeout(() => { if (t) t.style.opacity = '0'; }, 1700);
     }
+
+    function oeZmOrderedSlots(s) {
+      const canvas = document.getElementById('dtr-oe-canvas');
+      const cw = (canvas && canvas.clientWidth) || 580, ch = (canvas && canvas.clientHeight) || 580;
+      const mini = s.zoneMapMini === true;
+      const cardW = mini ? 76 : OE_ZM_CARD_W;
+      const watched = [...(s.pinnedZones || [])].sort();
+      const _activeMap = oeZmActive(s);
+      const savedPos = (_activeMap && _activeMap.pos) || {};
+
+      const _gcols = Math.max(1, Math.floor((cw - 10) / (cardW + 8)));
+      const _gstep = mini ? 66 : 118;
+      let unplaced = 0;
+      const entries = watched.map(zone => {
+        let f = savedPos[zone];
+        if (!f || typeof f.x !== 'number') { const col = unplaced % _gcols, row = Math.floor(unplaced / _gcols); f = { x: (8 + col * (cardW + 8)) / cw, y: (8 + row * _gstep) / ch }; unplaced++; }
+        return { zone, x: f.x, y: f.y };
+      });
+      entries.sort((a, b) => (a.y - b.y) || (a.x - b.x) || a.zone.localeCompare(b.zone));
+      return entries;
+    }
+    function oeZmCommitDockOrder(newZones) {
+      const s = OE.get();
+      const slots = oeZmOrderedSlots(s);
+      if (newZones.length !== slots.length) return;
+      const d = oeZmData(), m = d.maps[oeZmActiveId(s)];
+      if (!m) return;
+      m.pos = m.pos || {};
+      newZones.forEach((z, k) => { m.pos[z] = { x: slots[k].x, y: slots[k].y }; });
+      oeZmSave(d);
+
+    }
+
+    let _oeZmSearching = null;
+    function oeRenderZoneDock() {
+      const grid = document.querySelector('[data-zm-dockgrid]');
+      if (!grid) return;
+      const s = OE.get();
+      if (s.zoneMapDocked !== true) { grid.innerHTML = ''; return; }
+      const A = oeA(), S = oeSec();
+      const mini = s.zoneMapMini === true;
+
+      grid.style.display = 'grid';
+      grid.style.gridTemplateColumns = 'repeat(4,1fr)';
+      grid.style.gridAutoRows = '4px';
+      grid.style.gridAutoFlow = 'row dense';
+      grid.style.columnGap = '8px';
+      grid.style.rowGap = '0';
+
+      grid.style.alignItems = 'start';
+      const layoutLocked = s.zoneMapLocked === true;
+      const appliedByZone = {};
+      (s.considering || []).forEach(it => { if (it && it.applied !== false && it.zone) appliedByZone[it.zone] = { name: it.name, thumb: it.thumb || it.thumbnailUrl || '' }; });
+      const _pulsePhase = (Date.now() % 2400) / 1000;
+      grid.innerHTML = '';
+
+      oeZmOrderedSlots(s).forEach(({ zone }, _zi) => {
+
+        const occ = appliedByZone[zone];
+        const filled = !!occ;
+        const expanded = s.zoneMapExpanded === zone;
+        const hue = oeZoneHue(zone);
+        const itemLocked = !!(s.locks || {})[zone];
+        const confirming = s.zoneMapRemoveConfirm === zone;
+        const _rad = (mini ? 16 : 20);
+        const _zmSurface = filled
+          ? OE_ZM_GLASS
+          : 'background:linear-gradient(rgba(255,251,245,.84),rgba(255,251,245,.84)) padding-box,'+OE_SEL_STRIPE+' border-box;border:2.5px solid transparent;';
+        const cardEl = document.createElement('div');
+        cardEl.setAttribute('data-zmdock-tile', zone);
+        cardEl.style.cssText = 'position:relative;display:block;width:100%;margin:0 0 8px;'
+          + _zmSurface
+          + 'border-radius:'+_rad+'px;box-shadow:0 2px 8px rgba(60,60,55,.14);cursor:'+(layoutLocked?'default':'grab')+';user-select:none;'
+
+          + (!filled && !expanded ? 'animation:dtrZmPulse 2.4s ease-in-out infinite;animation-delay:'+(((_zi % 5) * 0.28) - _pulsePhase).toFixed(2)+'s;' : '');
+
+        const searchBtnHTML = '<button data-zm-search="'+zone+'" style="display:block;width:100%;text-align:center;padding:5px 7px;border:none;border-radius:999px;background:'+S+'1e;color:#347f76;font:800 9px Nunito,sans-serif;cursor:pointer">Search</button>';
+        let bodyHTML;
+        if (confirming) {
+          bodyHTML = '<div style="padding:7px 8px;text-align:center">'
+            + '<div style="font:800 9px/1.2 Nunito,sans-serif;color:#46463f;word-break:break-word;margin-bottom:6px">Stop watching '+zone+'?</div>'
+            + '<div style="display:flex;gap:5px">'
+            + '<button data-zm-rmyes="'+zone+'" style="flex:1;padding:5px;border:none;border-radius:999px;background:'+A+';color:#fff;font:800 9px Nunito,sans-serif;cursor:pointer">Remove</button>'
+            + '<button data-zm-rmno="'+zone+'" style="flex:1;padding:5px;border:none;border-radius:999px;background:#f1ede4;color:#6a6a64;font:800 9px Nunito,sans-serif;cursor:pointer">Keep</button>'
+            + '</div></div>';
+        } else if (filled) {
+          const tsz = mini ? 34 : 46;
+          const thumb = '<div style="width:'+tsz+'px;height:'+tsz+'px;margin:0 auto;border-radius:'+(mini?12:16)+'px;overflow:hidden;background:#fffaf3;box-shadow:0 1px 4px rgba(60,60,55,.18)">'
+            + (occ.thumb ? '<img alt="" draggable="false" src="'+occ.thumb+'" style="width:100%;height:100%;object-fit:contain;-webkit-user-drag:none">' : '<div style="width:100%;height:100%;'+oeStripes(hue)+'"></div>')
+            + '</div>';
+          const showName = expanded || !mini;
+          const nameCss = 'font:600 9px/1.2 Nunito,sans-serif;color:#2a4a3a;word-break:break-word;margin-top:5px' + (expanded ? '' : ';max-height:33px;overflow:hidden');
+          bodyHTML = '<div style="padding:'+(mini?'6px 6px 7px':'7px 7px 8px')+';text-align:center">'
+            + '<div style="font:800 '+(mini?'8px':'8.5px')+'/1.1 Nunito,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#6f6f66;margin-bottom:'+(mini?4:5)+'px;overflow-wrap:normal">'+zone+'</div>'
+            + thumb
+            + (showName ? '<div style="'+nameCss+'">'+_oeEsc(occ.name)+'</div>' : '')
+            + (expanded && zone !== s.activeZone ? '<div style="margin-top:8px">'+searchBtnHTML+'</div>' : '')
+            + '</div>';
+        } else {
+          const _zSearching = _oeZmSearching && _oeZmSearching.zone === zone && Date.now() < _oeZmSearching.until;
+          bodyHTML = '<div style="padding:8px;text-align:center">'
+            + '<div style="font:800 8.5px/1.1 Nunito,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#6f6f66;margin-bottom:6px;overflow-wrap:normal">'+zone+'</div>'
+            + (_zSearching
+              ? '<div style="display:inline-block;padding:5px 13px;border-radius:999px;background:#f1ede4;color:#6a6a64;font:900 9.5px/1.1 Nunito,sans-serif;letter-spacing:.04em">Searching Zone…</div>'
+              : '<div data-zm-search="'+zone+'" style="display:inline-block;padding:5px 13px;border-radius:999px;background:'+A+';color:#fff;font:900 9.5px/1.1 Nunito,sans-serif;letter-spacing:.04em;cursor:pointer;box-shadow:0 2px 6px '+A+'66">+ Fill Slot</div>')
+            + '</div>';
+        }
+
+        const _chunkyLock = '<span style="display:flex;flex-direction:column;align-items:center">'
+          + '<span style="width:7px;height:5px;border:1.6px solid currentColor;border-bottom:none;border-radius:3px 3px 0 0;margin-bottom:-1px;display:block"></span>'
+          + '<span style="width:11px;height:8px;background:'+(itemLocked?'currentColor':'transparent')+';border:1.6px solid currentColor;border-radius:2px;display:block"></span>'
+          + '</span>';
+        const lockBtnHTML = confirming ? '' :
+          '<button data-zm-lock="'+zone+'" title="'+(itemLocked?'Protected — this item will not be removed by try-ons. Click to unlock.':'Protect this item from being removed by try-ons')+'" '
+          + 'style="position:absolute;top:-7px;left:-7px;width:20px;height:20px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;'
+          + 'background:'+(itemLocked?A:'#fff')+';color:'+(itemLocked?'#fff':'#9a9a90')+';box-shadow:0 2px 7px rgba(60,60,55,.28)'+(itemLocked?'':',inset 0 0 0 1.5px rgba(0,0,0,.06)')+'">' + _chunkyLock + '</button>';
+        const xBtnHTML = (confirming || layoutLocked) ? '' :
+          '<button data-zm-unwatch="'+zone+'" data-zm-x title="Stop watching this zone" '
+          + 'style="position:absolute;top:-7px;right:-7px;width:20px;height:20px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;'
+          + 'background:#fff;color:'+A+';box-shadow:0 2px 7px rgba(60,60,55,.28);opacity:0;transition:opacity .15s">' + OE_ZM_ICON.x + '</button>';
+
+        cardEl.innerHTML = lockBtnHTML + xBtnHTML + bodyHTML;
+        grid.appendChild(cardEl);
+
+        cardEl.addEventListener('mouseenter', () => { const b = cardEl.querySelector('[data-zm-x]'); if (b) b.style.opacity = '1'; });
+        cardEl.addEventListener('mouseleave', () => { const b = cardEl.querySelector('[data-zm-x]'); if (b) b.style.opacity = '0'; });
+        const lockBtn = cardEl.querySelector('[data-zm-lock]');
+        if (lockBtn) lockBtn.addEventListener('click', e => {
+          e.stopPropagation();
+          const nv = !(OE.get().locks || {})[zone];
+          OE.set(s2 => ({ locks: Object.assign({}, s2.locks, { [zone]: nv }) }));
+          oePersistZoneCat();
+          try { oeToast(nv ? 'Zone locked! Items can’t be added or removed.' : 'Zone unlocked — items can change again.'); } catch (_) {}
+        });
+        const unBtn = cardEl.querySelector('[data-zm-unwatch]');
+        if (unBtn) unBtn.addEventListener('click', e => { e.stopPropagation(); OE.set({ zoneMapRemoveConfirm: zone, zoneMapExpanded: null }); });
+        const noBtn = cardEl.querySelector('[data-zm-rmno]');
+        if (noBtn) noBtn.addEventListener('click', e => { e.stopPropagation(); OE.set({ zoneMapRemoveConfirm: null }); });
+        const yesBtn = cardEl.querySelector('[data-zm-rmyes]');
+        if (yesBtn) yesBtn.addEventListener('click', e => {
+          e.stopPropagation();
+          cardEl.style.transition = 'opacity .45s ease';
+          cardEl.style.pointerEvents = 'none';
+          cardEl.innerHTML = '<div style="padding:11px 8px;text-align:center;font:800 8.5px/1.3 Nunito,sans-serif;color:'+S+';word-break:break-word">Removed from<br>Watched Zones</div>';
+
+          setTimeout(() => { try { cardEl.style.opacity = '0'; } catch (_) {} }, 1200);
+          setTimeout(() => {
+            OE.set(s2 => { const p = new Set(s2.pinnedZones || []); p.delete(zone); return { pinnedZones: p, zoneMapRemoveConfirm: null, zoneMapExpanded: s2.zoneMapExpanded === zone ? null : s2.zoneMapExpanded }; });
+            oePersistZoneCat();
+          }, 1680);
+        });
+        const searchBtn = cardEl.querySelector('[data-zm-search]');
+        if (searchBtn) searchBtn.addEventListener('click', e => {
+          e.stopPropagation();
+
+          _oeZmSearching = { zone, until: Date.now() + 2600 };
+          OE.set({ activeZone: zone, selectedZone: zone });
+          oeKickSearch();
+
+          setTimeout(() => { try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (_) {} }, 80);
+          setTimeout(() => { try { oeRenderZoneDock(); } catch (_) {} }, 2700);
+          try { searchBtn.style.display = 'none'; } catch (_) {}
+        });
+
+        cardEl.addEventListener('mousedown', (ev) => {
+          if (ev.button !== 0) return;
+          if (ev.target.closest('[data-zm-rmyes],[data-zm-rmno]')) return;
+
+          const fromControl = !!ev.target.closest('[data-zm-lock],[data-zm-unwatch],[data-zm-search]');
+          ev.preventDefault();
+
+          const sx = ev.clientX, sy = ev.clientY;
+          const startRect = cardEl.getBoundingClientRect();
+          let moved = false, _warned = false, ghost = null, marker = null, pendingTarget;
+          const onMove = (mv) => {
+            if (layoutLocked) {
+              if (!_warned && (Math.abs(mv.clientX - sx) > 3 || Math.abs(mv.clientY - sy) > 3)) { _warned = true; oeToast('Zone tile drag & drop is disabled'); }
+              return;
+            }
+            if (!moved && Math.abs(mv.clientX - sx) < 3 && Math.abs(mv.clientY - sy) < 3) return;
+            if (!moved) {
+              moved = true;
+              ghost = cardEl.cloneNode(true);
+              ghost.removeAttribute('data-zmdock-tile');
+              ghost.style.cssText += ';position:fixed;left:0;top:0;width:'+startRect.width+'px;margin:0;z-index:2147483300;pointer-events:none;opacity:.88;transform:scale(1.05) rotate(2deg);box-shadow:0 10px 26px rgba(60,60,55,.3);animation:none';
+              const _root = document.getElementById('dtr-outfit-editor');
+              (_root || document.body).appendChild(ghost);
+              cardEl.style.opacity = '.35';
+
+              marker = document.createElement('div');
+              marker.style.cssText = 'position:absolute;width:3px;border-radius:2px;background:'+S+';z-index:5;pointer-events:none;display:none';
+              if (getComputedStyle(grid).position === 'static') grid.style.position = 'relative';
+              grid.appendChild(marker);
+            }
+            ghost.style.left = (mv.clientX - startRect.width / 2) + 'px';
+            ghost.style.top  = (mv.clientY - 18) + 'px';
+
+            pendingTarget = undefined;
+            let barTile = null, barAfter = false;
+            for (const t of grid.querySelectorAll('[data-zmdock-tile]')) {
+              if (t === cardEl) continue;
+              const r = t.getBoundingClientRect();
+              if (mv.clientX >= r.left - 5 && mv.clientX <= r.right + 5 && mv.clientY >= r.top - 5 && mv.clientY <= r.bottom + 5) {
+                barAfter = (mv.clientX - r.left) >= r.width / 2;
+                pendingTarget = barAfter ? t.nextSibling : t;
+                barTile = t;
+                break;
+              }
+            }
+            if (pendingTarget === cardEl || pendingTarget === cardEl.nextSibling) { pendingTarget = undefined; barTile = null; }
+            if (!barTile) { marker.style.display = 'none'; }
+            else {
+              const gr = grid.getBoundingClientRect(), r = barTile.getBoundingClientRect();
+              marker.style.left = Math.round(r.left - gr.left + (barAfter ? r.width + 2.5 : -5.5)) + 'px';
+              marker.style.top = Math.round(r.top - gr.top) + 'px';
+              marker.style.height = Math.round(r.height) + 'px';
+              marker.style.display = 'block';
+            }
+          };
+          const onUp = () => {
+            document.removeEventListener('mousemove', onMove);
+            document.removeEventListener('mouseup', onUp);
+            if (ghost) { try { ghost.remove(); } catch (_) {} }
+            cardEl.style.opacity = '';
+            if (moved) {
+
+              const swallow = (ce) => { ce.stopPropagation(); ce.preventDefault(); };
+              document.addEventListener('click', swallow, { capture: true, once: true });
+              setTimeout(() => document.removeEventListener('click', swallow, true), 0);
+              if (marker) { try { marker.remove(); } catch (_) {} }
+              if (pendingTarget !== undefined) {
+
+                try { grid.insertBefore(cardEl, pendingTarget); } catch (_) {}
+                oeZmCommitDockOrder([...grid.querySelectorAll('[data-zmdock-tile]')].map(el2 => el2.getAttribute('data-zmdock-tile')));
+
+                const prevAnim = cardEl.style.animation;
+                cardEl.style.animation = 'none';
+                cardEl.style.transition = 'none';
+                cardEl.style.boxShadow = '0 0 0 3px '+S+'d9, 0 6px 16px rgba(60,60,55,.24)';
+                cardEl.style.transform = 'scale(1.07)';
+                requestAnimationFrame(() => requestAnimationFrame(() => {
+                  cardEl.style.transition = 'box-shadow .5s ease, transform .35s ease';
+                  cardEl.style.boxShadow = '0 2px 8px rgba(60,60,55,.14)';
+                  cardEl.style.transform = '';
+                }));
+                setTimeout(() => { cardEl.style.transition = ''; cardEl.style.animation = prevAnim; }, 620);
+              }
+            } else {
+              if (fromControl) return;
+              if (confirming) return;
+              if (!filled) {
+                _oeZmSearching = { zone, until: Date.now() + 2600 };
+                OE.set({ activeZone: zone, selectedZone: zone });
+                oeKickSearch();
+                setTimeout(() => { try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (_) {} }, 80);
+                setTimeout(() => { try { oeRenderZoneDock(); } catch (_) {} }, 2700);
+              }
+              else OE.set(s2 => ({ zoneMapExpanded: s2.zoneMapExpanded === zone ? null : zone }));
+            }
+          };
+          document.addEventListener('mousemove', onMove);
+          document.addEventListener('mouseup', onUp);
+        });
+      });
+
+      const sizeTiles = () => {
+        grid.style.paddingBottom = '';
+        grid.querySelectorAll('[data-zmdock-tile]').forEach(t => {
+          t.style.gridRowEnd = 'span ' + Math.max(1, Math.ceil((t.offsetHeight + 8) / 4));
+        });
+
+        const over = grid.scrollHeight - grid.clientHeight;
+        if (over > 0) { grid.style.paddingBottom = (over + 6) + 'px';  }
+      };
+      sizeTiles();
+
+      requestAnimationFrame(() => { try { if (grid.isConnected) sizeTiles(); oeBalanceVariants(); } catch (_) {} });
+    }
+
     function oeRenderZoneMap() {
       const canvas = document.getElementById('dtr-oe-canvas');
       if (!canvas) return;
@@ -37077,9 +37865,9 @@ if (!tradeLinks.length) {
       }
       const s = OE.get();
 
-      const _shown = s.zoneMapShow !== false;
+      const _shown = s.zoneMapDocked !== true;
       try { canvas.style.borderRadius = _shown ? '16px' : (s.frameShape === 'square' ? '4px' : s.frameShape === 'circle' ? '50%' : '16px'); } catch (_) {}
-      if (!_shown) { host.style.display = 'none'; host.innerHTML = ''; return; }
+      if (!_shown) { host.style.display = 'none'; host.innerHTML = ''; oeRenderZoneDock(); return; }
       host.style.display = '';
 
       const A = oeA(), S = oeSec();
@@ -37102,55 +37890,14 @@ if (!tradeLinks.length) {
         const col = i % _gcols, row = Math.floor(i / _gcols);
         return { x: (8 + col * (cardW + 8)) / cw, y: (8 + row * _gstep) / ch };
       };
+      const _pulsePhase = (Date.now() % 2400) / 1000;
 
       host.innerHTML = '';
-
-      const addTile = document.createElement('div');
-      addTile.setAttribute('data-zmp-addbtn', '');
-      addTile.style.cssText = 'position:absolute;top:8px;right:8px;z-index:8;pointer-events:auto;cursor:pointer;'+OE_SOFT_TILE+'border-radius:14px;width:60px;padding:7px 5px 8px;text-align:center;box-shadow:0 3px 10px rgba(60,60,55,.14)';
-      addTile.innerHTML = '<div style="font:900 18px/1 Nunito,sans-serif;color:'+A+'">+</div><div style="font:800 8px Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#9a8f80;margin-top:1px">Zone</div>';
-      host.appendChild(addTile);
-      addTile.addEventListener('click', e => { e.stopPropagation(); const wasOpen = OE.get().zoneMapAddOpen; OE.set({ zoneMapAddOpen: !wasOpen }); if (!wasOpen) requestAnimationFrame(() => { const i = host.querySelector('[data-zmp-addsearch]'); if (i) i.focus(); }); });
-      if (s.zoneMapAddOpen) {
-        const pop = document.createElement('div');
-        pop.setAttribute('data-zmp-addpanel', '');
-        pop.style.cssText = 'position:absolute;top:62px;right:8px;z-index:9;pointer-events:auto;width:262px;max-width:calc(100% - 16px);background:#fff;border:1px solid var(--border);border-radius:13px;box-shadow:0 14px 34px rgba(60,60,55,.22);padding:10px';
-        pop.innerHTML = '<div style="font:700 10px Nunito,sans-serif;letter-spacing:.06em;color:#b0b0a6;text-transform:uppercase;margin:0 2px 7px">Add zones to '+_oeEsc((_activeMap && _activeMap.name) || 'this map')+'</div>'
-          + '<input data-zmp-addsearch placeholder="Search zones…" style="width:100%;padding:6px 9px;border:1px solid var(--border);border-radius:8px;font:600 11px Nunito,sans-serif;color:#4a4a45;margin-bottom:8px;box-sizing:border-box;outline:none">'
-          + '<div data-zmp-addlist style="display:flex;flex-wrap:wrap;gap:5px;max-height:190px;overflow-y:auto">'
-          + OE_ALL_ZONES.map(n => { const w = (s.pinnedZones || new Set()).has(n);
-              return '<button data-zmp-addpill data-zone="'+n+'" data-zone-lower="'+n.toLowerCase()+'"'+(w?' disabled':'')+' style="display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;border:none;'+(w?'background:#f5f3ee;color:#bdb8ae;cursor:default':'background:#f1ede4;color:#5a5a52;cursor:pointer')+';font:700 10px Nunito,sans-serif"><span style="color:'+(w?'#3a7a5e':S)+'">'+(w?'✓':'+')+'</span>'+n+'</button>';
-            }).join('')
-          + '</div>';
-        host.appendChild(pop);
-        const inp = pop.querySelector('[data-zmp-addsearch]');
-        if (inp) inp.addEventListener('input', e => { e.stopPropagation(); const q = e.target.value.toLowerCase(); pop.querySelectorAll('[data-zmp-addpill]').forEach(b => { b.style.display = (q && !b.dataset.zoneLower.includes(q)) ? 'none' : ''; }); });
-        pop.querySelectorAll('[data-zmp-addpill]').forEach(b => b.addEventListener('click', e => {
-          e.stopPropagation();
-          const zone = e.currentTarget.dataset.zone;
-
-          const _list = pop.querySelector('[data-zmp-addlist]');
-          const _top = _list ? _list.scrollTop : 0;
-          const _srch = pop.querySelector('[data-zmp-addsearch]');
-          const _q = _srch ? _srch.value : '';
-          const _hadFocus = !!(_srch && document.activeElement === _srch);
-          OE.set(s2 => { const p = new Set(s2.pinnedZones || []); p.add(zone); return { pinnedZones: p }; });
-          oePersistZoneCat();
-
-          const np = document.querySelector('[data-zmp-addpanel]');
-          if (np) {
-            const ni = np.querySelector('[data-zmp-addsearch]');
-            if (ni && _q) { ni.value = _q; ni.dispatchEvent(new Event('input', { bubbles: true })); }
-            if (ni && _hadFocus) { try { ni.focus(); } catch (_) {} }
-            const nl = np.querySelector('[data-zmp-addlist]'); if (nl) nl.scrollTop = _top;
-          }
-        }));
-      }
 
       if (!watched.length) {
         const empty = document.createElement('div');
         empty.style.cssText = 'position:absolute;left:50%;bottom:14px;transform:translateX(-50%);pointer-events:auto;background:rgba(255,255,255,.92);border:1px dashed '+A+'66;border-radius:12px;padding:9px 13px;font:600 11px Nunito,sans-serif;color:#8a8a80;box-shadow:0 4px 14px rgba(60,60,55,.12);text-align:center;max-width:80%';
-        empty.innerHTML = 'No zones watched yet.<br><span style="color:'+A+';font-weight:800">Tap “+ Zone” (top-right) to add some.</span>';
+        empty.innerHTML = 'No zones watched yet.<br><span style="color:'+A+';font-weight:800">Tap “+ Zone” in the Zone Map toolbar below.</span>';
         host.appendChild(empty);
         return;
       }
@@ -37181,7 +37928,7 @@ if (!tradeLinks.length) {
           + 'border-radius:'+_rad+'px;box-shadow:0 2px 8px rgba(60,60,55,.14);cursor:'+(layoutLocked?'not-allowed':'grab')+';user-select:none;'
           + (expanded ? 'z-index:3;' : 'z-index:1;')
 
-          + (!filled && !expanded ? 'animation:dtrZmPulse 2.4s ease-in-out infinite;animation-delay:'+((_zi % 5) * 0.28).toFixed(2)+'s;' : '');
+          + (!filled && !expanded ? 'animation:dtrZmPulse 2.4s ease-in-out infinite;animation-delay:'+(((_zi % 5) * 0.28) - _pulsePhase).toFixed(2)+'s;' : '');
 
         const confirming = s.zoneMapRemoveConfirm === zone;
         const searchBtnHTML = '<button data-zm-search="'+zone+'" style="display:block;width:100%;text-align:center;padding:5px 7px;border:none;border-radius:999px;background:'+S+'1e;color:#347f76;font:800 9px Nunito,sans-serif;cursor:pointer">Search</button>';
@@ -37199,7 +37946,7 @@ if (!tradeLinks.length) {
 
           const tsz = mini ? 34 : 46;
           const thumb = '<div style="width:'+tsz+'px;height:'+tsz+'px;margin:0 auto;border-radius:'+(mini?12:16)+'px;overflow:hidden;background:#fffaf3;box-shadow:0 1px 4px rgba(60,60,55,.18)">'
-            + (occ.thumb ? '<img alt="" src="'+occ.thumb+'" style="width:100%;height:100%;object-fit:contain">' : '<div style="width:100%;height:100%;'+oeStripes(hue)+'"></div>')
+            + (occ.thumb ? '<img alt="" draggable="false" src="'+occ.thumb+'" style="width:100%;height:100%;object-fit:contain;-webkit-user-drag:none">' : '<div style="width:100%;height:100%;'+oeStripes(hue)+'"></div>')
             + '</div>';
 
           const showName = expanded || !mini;
@@ -37212,9 +37959,12 @@ if (!tradeLinks.length) {
             + '</div>';
         } else {
 
+          const _zSearching = _oeZmSearching && _oeZmSearching.zone === zone && Date.now() < _oeZmSearching.until;
           bodyHTML = '<div style="padding:8px;text-align:center">'
             + '<div style="font:800 8.5px/1.1 Nunito,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#6f6f66;margin-bottom:6px;overflow-wrap:normal">'+zone+'</div>'
-            + '<div data-zm-search="'+zone+'" style="display:inline-block;padding:5px 13px;border-radius:999px;background:'+A+';color:#fff;font:900 9.5px/1.1 Nunito,sans-serif;letter-spacing:.04em;cursor:pointer;box-shadow:0 2px 6px '+A+'66">+ Fill Slot</div>'
+            + (_zSearching
+              ? '<div style="display:inline-block;padding:5px 13px;border-radius:999px;background:#f1ede4;color:#6a6a64;font:900 9.5px/1.1 Nunito,sans-serif;letter-spacing:.04em">Searching Zone…</div>'
+              : '<div data-zm-search="'+zone+'" style="display:inline-block;padding:5px 13px;border-radius:999px;background:'+A+';color:#fff;font:900 9.5px/1.1 Nunito,sans-serif;letter-spacing:.04em;cursor:pointer;box-shadow:0 2px 6px '+A+'66">+ Fill Slot</div>')
             + '</div>';
         }
 
@@ -37239,7 +37989,13 @@ if (!tradeLinks.length) {
         cardEl.addEventListener('mouseleave', () => { const b = cardEl.querySelector('[data-zm-x]'); if (b) b.style.opacity = '0'; });
 
         const lockBtn = cardEl.querySelector('[data-zm-lock]');
-        if (lockBtn) lockBtn.addEventListener('click', e => { e.stopPropagation(); OE.set(s2 => ({ locks: Object.assign({}, s2.locks, { [zone]: !(s2.locks || {})[zone] }) })); oePersistZoneCat(); });
+        if (lockBtn) lockBtn.addEventListener('click', e => {
+          e.stopPropagation();
+          const nv = !(OE.get().locks || {})[zone];
+          OE.set(s2 => ({ locks: Object.assign({}, s2.locks, { [zone]: nv }) }));
+          oePersistZoneCat();
+          try { oeToast(nv ? 'Zone locked! Items can’t be added or removed.' : 'Zone unlocked — items can change again.'); } catch (_) {}
+        });
 
         const unBtn = cardEl.querySelector('[data-zm-unwatch]');
         if (unBtn) unBtn.addEventListener('click', e => { e.stopPropagation(); OE.set({ zoneMapRemoveConfirm: zone, zoneMapExpanded: null }); });
@@ -37250,14 +38006,15 @@ if (!tradeLinks.length) {
         const yesBtn = cardEl.querySelector('[data-zm-rmyes]');
         if (yesBtn) yesBtn.addEventListener('click', e => {
           e.stopPropagation();
-          cardEl.style.transition = 'opacity .42s ease';
+          cardEl.style.transition = 'opacity .45s ease';
           cardEl.style.pointerEvents = 'none';
           cardEl.innerHTML = '<div style="padding:11px 8px;text-align:center;font:800 8.5px/1.3 Nunito,sans-serif;color:'+S+';word-break:break-word">Removed from<br>Watched Zones</div>';
-          requestAnimationFrame(() => { cardEl.style.opacity = '0'; });
+
+          setTimeout(() => { try { cardEl.style.opacity = '0'; } catch (_) {} }, 1200);
           setTimeout(() => {
             OE.set(s2 => { const p = new Set(s2.pinnedZones || []); p.delete(zone); return { pinnedZones: p, zoneMapRemoveConfirm: null, zoneMapExpanded: s2.zoneMapExpanded === zone ? null : s2.zoneMapExpanded }; });
             oePersistZoneCat();
-          }, 440);
+          }, 1680);
         });
         const searchBtn = cardEl.querySelector('[data-zm-search]');
         if (searchBtn) searchBtn.addEventListener('click', e => {
@@ -37269,7 +38026,9 @@ if (!tradeLinks.length) {
 
         cardEl.addEventListener('mousedown', (ev) => {
           if (ev.button !== 0) return;
-          if (ev.target.closest('[data-zm-lock],[data-zm-unwatch],[data-zm-rmyes],[data-zm-rmno],[data-zm-search]')) return;
+          if (ev.target.closest('[data-zm-rmyes],[data-zm-rmno]')) return;
+
+          const fromControl = !!ev.target.closest('[data-zm-lock],[data-zm-unwatch],[data-zm-search]');
           ev.preventDefault();
           const r0 = canvas.getBoundingClientRect();
           const sx = ev.clientX, sy = ev.clientY, ox = px, oy = py;
@@ -37293,10 +38052,15 @@ if (!tradeLinks.length) {
             document.removeEventListener('mouseup', onUp);
             cardEl.style.cursor = 'grab';
             if (moved) {
+
+              const swallow = (ce) => { ce.stopPropagation(); ce.preventDefault(); };
+              document.addEventListener('click', swallow, { capture: true, once: true });
+              setTimeout(() => document.removeEventListener('click', swallow, true), 0);
               const W = canvas.clientWidth || 580, H = canvas.clientHeight || 580;
               oeSetZonePos(zone, px / W, py / H);
             } else {
 
+              if (fromControl) return;
               if (confirming) return;
               if (!filled) { OE.set({ activeZone: zone, selectedZone: zone }); oeKickSearch(); }
               else OE.set(s2 => ({ zoneMapExpanded: s2.zoneMapExpanded === zone ? null : zone }));

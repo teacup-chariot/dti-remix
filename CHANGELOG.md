@@ -9,6 +9,19 @@
 
 ### Enhancements
 - **Customize:** The "Compare" button on item variants is now "Details," and it shows even when an item has just one variant.
+- **Customize:** The Starter Pack backpack and Try On Haul hanger got cuter, more cartoonish icons.
+- **Customize:** The Fitting Room filter is now three buttons — All, Favorites (with a little heart), and Currently Applied — styled like the All / NC Only / NP Only filter.
+- **Customize:** Every dropdown in the editor now opens the same pretty white menu (the one the Try On Haul button uses) — including the zone filters, the sort menu, the Zone Map picker, and the species/color pickers. No more mismatched browser-default dropdowns.
+- **Customize:** You can now dock the Zone Map! The old "Hide" button is now "Dock" — it tucks your zone tiles into a tidy grid in the Zone Map panel instead of floating them over your pet. Drag tiles to reorder them there, and "Pop out" puts them back over the pet with your arrangement intact.
+- **Customize:** The Zone Map's lock icon is now drag arrows, so it's no longer mistaken for the little padlocks on individual tiles (those protect an item from try-ons). Clicking it shows a note confirming whether tile drag & drop is on or off.
+- **Customize:** You can rename your zone maps — open the Zone Map's gear menu and pick "Rename this map."
+- **Customize:** Starter Packs got a fresh look — browse your packs as cards showing each pack's name and a peek at the items inside, then tap one to open it, edit it, and apply it. Drag the cards to rearrange your packs, and hover one for a quick delete.
+- **Customize:** The Zone Map's gear menu can now "Save as Starter Pack" — it bundles whatever's currently on your watched zones into a new pack, with a name prompt.
+- **Customize:** Tapping "+ Fill Slot" on a zone tile now shows "Searching Zone…" and glides you up to the search results.
+- **Customize:** Hearts are now stars! Star items in the Fitting Room to prioritize them — same button, golden star. "Declutter" clears the unstarred ones.
+- **Customize:** New Pet Name field next to Appearance — type a pet's name to load it straight into the editor, just like the homepage.
+- **Customize:** The Fitting Room has view modes now — list, large tiles, or small tiles (the icons next to the search box). Tiles still group by zone, and pinning, removing, and click-to-wear all work the same.
+- **Customize:** "+ Zone" now lives in the Zone Map toolbar all the time, locking a zone tile confirms with a little message, and "Removed from Watched Zones" sticks around long enough to actually read.
 
 ## June 30, 2026
 
