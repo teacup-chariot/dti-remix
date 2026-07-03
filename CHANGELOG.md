@@ -1,5 +1,20 @@
 # DTI Remix — Changelog
 
+## July 3, 2026
+
+### Enhancements
+- **Your Outfits & Customize:** Your favorite variant of a look is now marked with a little golden crown that sits on top of the pet, in place of the heart — and it's one shared setting: crown a variant on either page and it shows up crowned on the other. The crowned variant is the one shown large by default.
+- **Customize:** You can flip through the Color and Species pickers with your arrow keys now — focus the field and press ↑ / ↓ to move through the options without even opening the menu, or open the menu and arrow through it (type a letter to jump to a match).
+- **Your Outfits:** In the film-strip layout, each variant thumbnail shows its name, and when a look has inactive variants a "+N inactive" chip tells you how many — click it to reveal them. (What used to be called "hidden" is now "inactive.")
+
+### Fixes
+- **Your Outfits:** Dragging one outfit onto another to group them as variants works again — it was silently doing nothing when you dropped it. Any outfits left in a tangled grouped state from before now repair themselves automatically.
+- **Your Outfits:** Crowning a variant, or clicking to preview one, no longer reshuffles your cards or makes them jump around the page.
+- **Your Outfits:** On the film-strip wearable tiles, an item's cap value now shows as the same little pink price tag used everywhere else on the site, and the Owned / Wishlisted labels sit on the item's thumbnail instead of a mismatched tag underneath.
+- **Your Outfits:** General film-strip tidy-up — looks with no variants say so instead of leaving a blank gap, variant thumbnails are centered next to the pet, the wearable checkboxes are plain coral checkboxes, and a stray outline that showed up around the selected variant is gone.
+- **Customize:** Click an item's name in the search results to try it on — the name wasn't a clickable spot before.
+- **Customize:** Removing an item from the Fitting Room with the × now sticks; before, it would quietly come back after a refresh.
+
 ## July 2, 2026
 
 ### Enhancements

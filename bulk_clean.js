@@ -3668,8 +3668,8 @@
       '#dia-hp-page #newest-modeled-items li.object .dia-item-name, .object a .dia-item-name { display: flex !important; flex: 1 1 auto !important; align-items: center !important; justify-content: center !important; padding-top: 10px !important; padding-bottom: 2px !important; margin-top: 0 !important; margin-bottom: 0 !important; }',
       '.object a .lebron, .object label .lebron { flex-shrink: 0 !important; }',
 
-      '#dia-hp-newest-grid li.object .lebron div, #dia-hp-page #newest-modeled-items li.object .lebron > div, #newest-modeled-items li.object .lebron > div, #closet-hangers .object .lebron div, #dia-closet-v2-root .cv2-it-val, .dib-leb { position: relative !important; border: none !important; border-radius: 0 8px 8px 0 !important; clip-path: polygon(9px 0, 100% 0, 100% 100%, 9px 100%, 0 50%) !important; padding: 3px 6px 3px 15px !important; font: 800 9px/1.4 "Nunito", Inter, -apple-system, sans-serif !important; font-style: normal !important; filter: drop-shadow(0 1px 1.5px rgba(110,128,150,.35)) !important; box-shadow: none !important; background: radial-gradient(circle at 8px 50%, #fff 2.2px, #ffe3ec 2.9px) !important; color: #c2487c !important; }',
-      '#dia-hp-newest-grid li.object .lebron[data-badge-type=np] div, #dia-hp-page #newest-modeled-items li.object .lebron[data-badge-type=np] > div, #newest-modeled-items li.object .lebron[data-badge-type=np] > div, #closet-hangers .object .lebron[data-badge-type=np] div, #dia-closet-v2-root .cv2-it-val-np { background: radial-gradient(circle at 8px 50%, #fff 2.2px, #e3f1fd 2.9px) !important; color: #2b6cb0 !important; }',
+      '#dia-hp-newest-grid li.object .lebron div, #dia-hp-page #newest-modeled-items li.object .lebron > div, #newest-modeled-items li.object .lebron > div, #closet-hangers .object .lebron div, #dia-closet-v2-root .cv2-it-val, .dib-leb, #dtr-yo-root .dtr-yo-val { position: relative !important; border: none !important; border-radius: 0 8px 8px 0 !important; clip-path: polygon(9px 0, 100% 0, 100% 100%, 9px 100%, 0 50%) !important; padding: 3px 6px 3px 15px !important; font: 800 9px/1.4 "Nunito", Inter, -apple-system, sans-serif !important; font-style: normal !important; filter: drop-shadow(0 1px 1.5px rgba(110,128,150,.35)) !important; box-shadow: none !important; background: radial-gradient(circle at 8px 50%, #fff 2.2px, #ffe3ec 2.9px) !important; color: #c2487c !important; }',
+      '#dia-hp-newest-grid li.object .lebron[data-badge-type=np] div, #dia-hp-page #newest-modeled-items li.object .lebron[data-badge-type=np] > div, #newest-modeled-items li.object .lebron[data-badge-type=np] > div, #closet-hangers .object .lebron[data-badge-type=np] div, #dia-closet-v2-root .cv2-it-val-np, #dtr-yo-root .dtr-yo-val-np { background: radial-gradient(circle at 8px 50%, #fff 2.2px, #e3f1fd 2.9px) !important; color: #2b6cb0 !important; }',
 
       '#dia-closet-v2-root .cv2-it-val { width: calc(100% - 12px) !important; margin-left: auto !important; margin-right: auto !important; align-self: center !important; }',
 
@@ -11700,7 +11700,7 @@
         'body.outfits-index #dtr-yo-root .dtr-yo-hidebtn.on:hover,body.outfits-index #dtr-yo-root .dtr-yo-hidebtn.on:focus{background:#fce6ef!important;color:#c2487c!important;border-color:#eab3ca!important}',
         'body.outfits-index #dtr-yo-root .dtr-yo-delbtn:hover,body.outfits-index #dtr-yo-root .dtr-yo-delbtn:focus{background:#fdecef!important;color:#c0392b!important;border-color:#e6b3ab!important}',
         'body.outfits-index #dtr-yo-root .dtr-yo-vthumb:hover,body.outfits-index #dtr-yo-root .dtr-yo-vthumb:focus{background:transparent!important;color:inherit!important;box-shadow:0 5px 14px rgba(20,156,142,.22)!important}',
-        'body.outfits-index #dtr-yo-root .dtr-yo-vthumb.sel:hover,body.outfits-index #dtr-yo-root .dtr-yo-vthumb.sel:focus{background:var(--dtr-stripe,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a))!important}',
+        'body.outfits-index #dtr-yo-root .dtr-yo-vthumb.sel:hover,body.outfits-index #dtr-yo-root .dtr-yo-vthumb.sel:focus{background:transparent!important}',
         'body.outfits-index #dtr-yo-root .dtr-yo-itemrow:hover,body.outfits-index #dtr-yo-root .dtr-yo-itemrow:focus{background:var(--dtr-primary-bg,#dbf5f1)!important;border-color:var(--dtr-primary,#8fd6c8)!important;color:inherit!important}',
         'body.outfits-index #dtr-yo-root .dtr-yo-addwant:hover,body.outfits-index #dtr-yo-root .dtr-yo-addwant:focus{background:var(--dtr-primary-bg,#dbf5f1)!important;color:var(--dtr-primary,#149c8e)!important;border-color:var(--dtr-primary,#8fd6c8)!important}',
 
@@ -11743,12 +11743,15 @@
         '#dtr-yo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;padding-bottom:4px}',
         '#dtr-yo-grid.strip{display:flex;flex-direction:column}',
 
-        '.dtr-yo-card{position:relative;background:#fff;border:1px solid var(--border,#e7e1d4);border-radius:16px;box-shadow:0 2px 8px rgba(60,60,55,.07);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .12s}',
+        '.dtr-yo-card{position:relative;background:#fff;border:1px solid var(--border,#e7e1d4);border-radius:16px;box-shadow:0 2px 8px rgba(60,60,55,.07);overflow:visible;display:flex;flex-direction:column;transition:box-shadow .12s}',
         '.dtr-yo-card:hover{box-shadow:0 6px 18px rgba(60,60,55,.14)}',
         '.dtr-yo-card.dtr-yo-hiddencard{opacity:.62}',
 
         '.dtr-yo-thumb{padding:12px 12px 2px}',
         '.dtr-yo-thumbinner{position:relative}',
+
+        '.dtr-yo-preview-crown{position:absolute;top:-29px;left:50%;transform:translateX(-50%);z-index:6;display:flex;pointer-events:none}',
+        '.dtr-yo-preview-crown svg{width:40px;height:auto;display:block}',
         '.dtr-yo-thumbinner img{width:100%;aspect-ratio:1;object-fit:contain;display:block;border-radius:12px;background:#fff;cursor:pointer}',
 
         '.dtr-yo-layers{position:absolute;inset:0;border-radius:12px;overflow:hidden;background:#fff;pointer-events:none}',
@@ -11776,8 +11779,10 @@
         '.dtr-yo-delbar{position:absolute;left:0;bottom:0;height:4px;background:#e8455f;border-radius:0 3px 3px 0;animation:yodelbar 5s linear forwards}',
         '@keyframes yodelbar{from{width:100%}to{width:0}}',
         '.dtr-yo-body{padding:9px 11px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;flex:1}',
-        '.dtr-yo-name{font:700 13px/1.3 "Nunito",sans-serif;color:#3a3a35;word-break:break-word;cursor:pointer;text-decoration:none}',
-        '.dtr-yo-name:hover{text-decoration:underline;text-underline-offset:2px}',
+
+        '.dtr-yo-name{display:inline;font:800 14px/1.3 "Baloo 2","Nunito",sans-serif;color:#43423d;word-break:break-word;cursor:pointer;text-decoration:none}',
+        '.dtr-yo-name.big{font-size:16.5px}',
+        '.dtr-yo-name:hover{text-decoration:none;color:var(--dtr-primary,#149c8e)}',
 
         '.dtr-yo-namewrap{display:inline-flex;align-items:center;gap:5px;max-width:100%;justify-content:center}',
         '.dtr-yo-strip-head .dtr-yo-namewrap{justify-content:flex-start}',
@@ -11802,16 +11807,18 @@
         '.dtr-yo-vthumb{position:relative;width:92px;height:92px;border-radius:15px;border:none;padding:3px;background:transparent;cursor:pointer;flex:none;transition:transform .1s}',
         '.dtr-yo-vthumb>span{display:block;width:100%;height:100%;border-radius:12px;background-color:#f7f5ef;background-size:cover;background-position:center;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07)}',
         '.dtr-yo-vthumb:hover{transform:scale(1.05)}',
-        '.dtr-yo-vthumb.sel{background:var(--dtr-stripe,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a))}',
+        '.dtr-yo-vthumb.sel{background:transparent}',
         '.dtr-yo-vthumb.hid>span{opacity:.45}',
 
         '.dtr-yo-vthumb>.dtr-yo-vnum{position:absolute;top:-4px;left:-4px;z-index:4;min-width:20px;width:auto;height:20px;padding:0 5px;box-sizing:border-box;border-radius:999px;background:rgba(40,36,30,.66);color:#fff;display:flex;align-items:center;justify-content:center;font:800 11px/1 "Nunito",sans-serif;box-shadow:0 1px 4px rgba(0,0,0,.28)}',
 
-        '.dtr-yo-vthumb>.dtr-yo-vheart{position:absolute;top:-5px;right:-5px;z-index:3;width:20px;height:20px;padding:0;border-radius:50%;background:#fff;color:#d6cabd;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.22);cursor:pointer;opacity:0;transition:opacity .12s,color .12s,transform .1s;border:none}',
-        '.dtr-yo-vthumb:hover>.dtr-yo-vheart{opacity:1}',
-        '.dtr-yo-vthumb>.dtr-yo-vheart.on{opacity:1;color:var(--dtr-accent,#ff8576)}',
-        '.dtr-yo-vthumb>.dtr-yo-vheart:hover{transform:scale(1.14);color:var(--dtr-accent,#ff8576)}',
-        '.dtr-yo-vthumb>.dtr-yo-vheart svg{width:12px;height:12px;display:block}',
+        '.dtr-yo-vthumb>.dtr-yo-vcrown{position:absolute;top:-19px;left:50%;z-index:5;width:30px;height:26px;padding:0;background:transparent;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transform:translateX(-50%) scale(.9);transform-origin:bottom center;transition:opacity .12s,transform .12s}',
+        '.dtr-yo-vthumb:hover>.dtr-yo-vcrown{opacity:.5;pointer-events:auto}',
+        '.dtr-yo-vthumb>.dtr-yo-vcrown.on{opacity:1;pointer-events:auto;transform:translateX(-50%) scale(1)}',
+        '.dtr-yo-vthumb>.dtr-yo-vcrown:hover{opacity:1;transform:translateX(-50%) scale(1.12)}',
+        '.dtr-yo-vthumb>.dtr-yo-vcrown svg{width:26px;height:auto;display:block}',
+
+        'body.outfits-index #dtr-yo-root .dtr-yo-vthumb>.dtr-yo-vcrown,body.outfits-index #dtr-yo-root .dtr-yo-vthumb>.dtr-yo-vcrown:focus,body.outfits-index #dtr-yo-root .dtr-yo-vthumb>.dtr-yo-vcrown:focus-visible{outline:none!important;box-shadow:none!important}',
 
         '.dtr-yo-card.strip{flex-direction:row;align-items:stretch}',
 
@@ -11820,15 +11827,26 @@
         '.dtr-yo-strip-rail .dtr-yo-vthumb{width:92px;height:92px}',
 
         '.dtr-yo-strip-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding:14px 16px}',
-        '.dtr-yo-strip-top{display:flex;gap:16px;align-items:flex-start}',
+
+        '.dtr-yo-strip-top{display:flex;gap:16px;align-items:stretch}',
         '.dtr-yo-strip-pet{flex:none;width:200px;max-width:40%}',
         '.dtr-yo-strip-pet .dtr-yo-thumb{padding:0}',
         '.dtr-yo-strip-side{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;padding-top:2px}',
 
+        '.dtr-yo-strip-vwrap{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}',
+        '.dtr-yo-strip-vwrap.novar{align-items:flex-start}',
+        '.dtr-yo-novar{font:600 11px "Nunito",sans-serif;color:#b3ab9d}',
         '.dtr-yo-veyebrow{font:800 8.5px "Nunito",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#b0aea4;margin:2px 0 5px}',
-        '.dtr-yo-strip-variants{display:flex;flex-wrap:wrap;gap:18px 20px;padding:7px 6px 2px}',
+        '.dtr-yo-strip-variants{display:flex;flex-wrap:wrap;gap:16px 18px;padding:7px 6px 2px}',
+        '.dtr-yo-vcap{display:flex;flex-direction:column;align-items:center;gap:5px;width:80px}',
+        '.dtr-yo-vcapname{font:700 9.5px/1.2 "Nunito",sans-serif;color:#8a857a;text-align:center;width:100%;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}',
+
+        '.dtr-yo-inactivechip{width:80px;height:80px;flex:none;border:none;border-radius:14px;cursor:pointer;background:linear-gradient(135deg,#f1eee5,#efe6f1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0;color:#9a94a6;transition:transform .1s,box-shadow .1s;align-self:flex-start}',
+        '.dtr-yo-inactivechip:hover{box-shadow:0 3px 11px rgba(120,110,140,.2);color:#786fa0;transform:translateY(-1px)}',
+        '.dtr-yo-inactivechip .n{font:800 17px/1 "Baloo 2","Nunito",sans-serif}',
+        '.dtr-yo-inactivechip .l{font:800 8.5px/1 "Nunito",sans-serif;letter-spacing:.05em;text-transform:uppercase}',
         '.dtr-yo-strip-variants .dtr-yo-vthumb{width:80px;height:80px}',
-        '.dtr-yo-strip-variants .dtr-yo-vthumb.sel{box-shadow:0 3px 11px rgba(255,151,179,.4)}',
+        '.dtr-yo-strip-variants .dtr-yo-vthumb.sel{box-shadow:none}',
         '.dtr-yo-strip-items h4{margin:0 0 9px;font:800 9px "Nunito",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#b0aea4}',
         '.dtr-yo-itemlist{flex:1;min-height:0;display:flex;flex-direction:column;gap:5px;overflow-y:auto}',
 
@@ -11867,7 +11885,7 @@
         '.dtr-yo-itemgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}',
         '.dtr-yo-wcard{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:13px 9px 10px;border-radius:13px;background:#faf8f2;border:2px solid transparent;cursor:pointer;transition:background .1s,border-color .1s,box-shadow .1s}',
         '.dtr-yo-wcard:hover{background:#fff;border-color:var(--dtr-primary-line,#cfe7e0)}',
-        '.dtr-yo-wcard.sel{background:linear-gradient(#fff,#fff) padding-box,var(--dtr-stripe,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a)) border-box;border:2px solid transparent;box-shadow:0 3px 11px rgba(0,0,0,.08)}',
+        '.dtr-yo-wcard.sel{background:#fff;border-color:var(--dtr-accent,#ff8576);box-shadow:0 3px 11px rgba(255,133,118,.2)}',
         '.dtr-yo-wcard.done{opacity:.72;cursor:default}',
         '.dtr-yo-wcard.tok,.dtr-yo-wcard.tok:hover{cursor:default;background:#faf8f2;border-color:transparent}',
         '.dtr-yo-wcheck{position:absolute;top:7px;right:7px;width:18px;height:18px;border-radius:6px;border:2px solid #d8d2c4;background:#fff;transition:background .1s,border-color .1s}',
@@ -11875,22 +11893,25 @@
         '#dtr-yo-root .dtr-card-info{position:absolute;top:6px;left:6px;z-index:6;width:22px;height:22px;display:flex;align-items:center;justify-content:center}',
         '#dtr-yo-root .dtr-info-btn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:999px;background:var(--dtr-primary-bg,#eaf5f0);border:1px solid #a8d4c4;cursor:pointer;padding:0;font:700 12px/1 Georgia,serif;color:#5a9a82;box-shadow:0 1px 3px rgba(0,0,0,.12);opacity:.9;flex-shrink:0}',
         '#dtr-yo-root .dtr-info-btn:hover{background:#d6f0e8;border-color:#6ab89a;color:#2d6a4e;opacity:1;box-shadow:0 0 0 2px rgba(106,184,154,.3)}',
-        '.dtr-yo-wcard.sel .dtr-yo-wcheck{background:var(--dtr-stripe,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a));border-color:transparent}',
+        '.dtr-yo-wcard.sel .dtr-yo-wcheck{background:var(--dtr-accent,#ff8576);border-color:var(--dtr-accent,#ff8576)}',
         '.dtr-yo-wcard.sel .dtr-yo-wcheck::after,.dtr-yo-wcard.done .dtr-yo-wcheck::after{content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}',
         '.dtr-yo-wcard.done .dtr-yo-wcheck{background:var(--dtr-accent,#ff8576);border-color:var(--dtr-accent,#ff8576)}',
         '.dtr-yo-wcard.tok .dtr-yo-wcheck{display:none}',
         '.dtr-yo-wopen{position:absolute;top:5px;right:6px;width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:6px;color:#b7b1a4;font:700 12px/1 "Nunito",sans-serif;text-decoration:none;opacity:0;transition:opacity .12s,background .12s,color .12s}',
         '.dtr-yo-wcard:hover .dtr-yo-wopen{opacity:1}',
         '.dtr-yo-wopen:hover{background:#f0ece1;color:var(--dtr-primary,#149c8e)}',
-        '.dtr-yo-wthumb{width:58px;height:58px;border-radius:10px;background:#fff center/contain no-repeat;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}',
+        '.dtr-yo-wthumb{position:relative;overflow:hidden;width:58px;height:58px;border-radius:10px;background:#fff center/contain no-repeat;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}',
+
+        '#dtr-yo-root .dtr-yo-wthumb .dtr-status-overlay{position:absolute;inset:0;border-radius:10px;display:flex;pointer-events:none;z-index:4;overflow:hidden}',
+        '#dtr-yo-root .dtr-yo-wthumb .dtr-ov-owned{flex:1;display:flex;align-items:center;justify-content:center;background:rgba(160,125,85,0.26)}',
+        '#dtr-yo-root .dtr-yo-wthumb .dtr-ov-wishlisted{flex:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(156,148,196,0.40),rgba(188,150,180,0.38))}',
+        '#dtr-yo-root .dtr-yo-wthumb .dtr-ov-owned span{color:#fff;font:800 7px/1.2 "Nunito",sans-serif;letter-spacing:.03em;text-transform:uppercase;text-align:center;padding:2px 5px;border-radius:5px;background:rgba(110,75,35,0.66);text-shadow:0 1px 2px rgba(0,0,0,0.3)}',
+        '#dtr-yo-root .dtr-yo-wthumb .dtr-ov-wishlisted span{color:#fff;font:800 7px/1.2 "Nunito",sans-serif;letter-spacing:.03em;text-transform:uppercase;text-align:center;padding:2px 5px;border-radius:5px;background:rgba(140,132,168,0.70);text-shadow:0 1px 2px rgba(0,0,0,0.3)}',
         '.dtr-yo-wthumb.tok{display:flex;align-items:center;justify-content:center;color:#9a7ec0;font-size:26px;box-shadow:none;background:#f6f0fc}',
         '.dtr-yo-wname{font:600 11px "Nunito",sans-serif;color:#2a4a3a;line-height:1.25;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}',
         '.dtr-yo-wbadge{min-height:16px;display:flex;align-items:center;justify-content:center}',
 
-        '.dtr-yo-val{font:800 8px "Nunito",sans-serif;letter-spacing:.02em;padding:2px 9px;border-radius:6px;border:1px solid;white-space:nowrap}',
-        '.dtr-yo-val-val{background:#fdeef2;border-color:#f4b9cf;color:#b23a6a}',
-        '.dtr-yo-val-unreported{background:#fdeef2;border-color:#f4b9cf;color:#b23a6a;font-style:italic;opacity:.85}',
-        '.dtr-yo-val-np{background:#eef4ff;border-color:#a9c9f5;color:#2b6cb0}',
+        '.dtr-yo-val{display:inline-block;white-space:nowrap;letter-spacing:.02em;margin-top:1px;align-self:center}',
         '.dtr-yo-toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%);background:#fff;border:2px solid var(--dtr-primary,#149c8e);border-radius:999px;box-shadow:0 8px 28px rgba(40,60,50,.2);padding:10px 18px;z-index:100002;font:700 12.5px/1.3 "Nunito",sans-serif;color:var(--dtr-primary,#149c8e);max-width:90vw;transition:opacity .3s}',
         '.dtr-yo-toast.at{bottom:auto;transform:translate(-50%,-50%);white-space:normal;text-align:center;line-height:1.5;max-width:280px;padding:13px 20px;border-radius:16px}',
         '.dtr-yo-toast.at strong{color:#3a3a35}',
@@ -11969,6 +11990,7 @@
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (arr) {
         _yo.outfits = Array.isArray(arr) ? arr : [];
+        _yoResymmetrizeGroups();
         _yoRender();
 
         _yo.lebron = _yoGM('dtr_lebron', {}) || {};
@@ -12068,16 +12090,28 @@
     if (m.indexOf(String(id)) === -1) m = [String(id)].concat(m);
     return m;
   }
+
+  function _yoFullGroupSet(store, id) {
+    id = String(id);
+    var set = {};
+    _yoGroupMembers(store, id).forEach(function (m) { set[String(m)] = 1; });
+    Object.keys(store).forEach(function (k) {
+      var arr = Array.isArray(store[k]) ? store[k].map(String) : [];
+      if (arr.indexOf(id) !== -1) { arr.forEach(function (m) { set[String(m)] = 1; }); set[String(k)] = 1; }
+    });
+    return set;
+  }
   function _yoMergeGroups(dragId, targetId) {
     dragId = String(dragId); targetId = String(targetId);
     if (dragId === targetId) return false;
     var store = _yoGM('dtr_oe_variant_groups', {});
     var valid = {}; (_yo.outfits || []).forEach(function (o) { valid[String(o.id)] = 1; });
     var union = {};
-    _yoGroupMembers(store, targetId).forEach(function (m) { if (valid[m]) union[m] = 1; });
-    _yoGroupMembers(store, dragId).forEach(function (m) { if (valid[m]) union[m] = 1; });
+    Object.keys(_yoFullGroupSet(store, targetId)).forEach(function (m) { if (valid[m]) union[m] = 1; });
+    Object.keys(_yoFullGroupSet(store, dragId)).forEach(function (m) { if (valid[m]) union[m] = 1; });
     var list = Object.keys(union);
     if (list.length < 2) return false;
+    list.forEach(function (m) { delete store[m]; });
     list.forEach(function (m) { store[m] = list.slice(); });
     try { GM_setValue('dtr_oe_variant_groups', JSON.stringify(store)); } catch (_) {}
     return true;
@@ -12088,13 +12122,14 @@
     if (vId === targetId) return false;
     var store = _yoGM('dtr_oe_variant_groups', {});
     var valid = {}; (_yo.outfits || []).forEach(function (o) { valid[String(o.id)] = 1; });
-    var tgt = _yoGroupMembers(store, targetId).filter(function (m) { return valid[m]; });
-    if (tgt.indexOf(vId) !== -1) return false;
-    var srcRemain = _yoGroupMembers(store, vId).filter(function (m) { return valid[m] && m !== vId; });
-    if (srcRemain.length >= 2) { srcRemain.forEach(function (m) { store[m] = srcRemain.slice(); }); }
-    else { srcRemain.forEach(function (m) { delete store[m]; }); }
-    delete store[vId];
-    var grp = tgt.slice(); grp.push(vId);
+    var tgtSet = _yoFullGroupSet(store, targetId);
+    if (tgtSet[vId]) return false;
+    var srcSet = _yoFullGroupSet(store, vId);
+    Object.keys(srcSet).forEach(function (m) { delete store[m]; });
+    var srcSurv = Object.keys(srcSet).filter(function (m) { return valid[m] && m !== vId; });
+    if (srcSurv.length >= 2) srcSurv.forEach(function (m) { store[m] = srcSurv.slice(); });
+    var grp = Object.keys(tgtSet).filter(function (m) { return valid[m]; });
+    if (grp.indexOf(vId) === -1) grp.push(vId);
     grp.forEach(function (m) { store[m] = grp.slice(); });
     try { GM_setValue('dtr_oe_variant_groups', JSON.stringify(store)); } catch (_) {}
     return true;
@@ -12104,13 +12139,27 @@
     vId = String(vId);
     var store = _yoGM('dtr_oe_variant_groups', {});
     var valid = {}; (_yo.outfits || []).forEach(function (o) { valid[String(o.id)] = 1; });
-    var srcRemain = _yoGroupMembers(store, vId).filter(function (m) { return valid[m] && m !== vId; });
-    if (!srcRemain.length) return false;
-    if (srcRemain.length >= 2) { srcRemain.forEach(function (m) { store[m] = srcRemain.slice(); }); }
-    else { srcRemain.forEach(function (m) { delete store[m]; }); }
-    delete store[vId];
+    var srcSet = _yoFullGroupSet(store, vId);
+    var srcSurv = Object.keys(srcSet).filter(function (m) { return valid[m] && m !== vId; });
+    if (!srcSurv.length) return false;
+    Object.keys(srcSet).forEach(function (m) { delete store[m]; });
+    if (srcSurv.length >= 2) srcSurv.forEach(function (m) { store[m] = srcSurv.slice(); });
     try { GM_setValue('dtr_oe_variant_groups', JSON.stringify(store)); } catch (_) {}
     return true;
+  }
+
+  function _yoResymmetrizeGroups() {
+    try {
+      if (!_yo.outfits || !_yo.outfits.length) return;
+      var groups = _yoGroups(), store = {};
+      groups.forEach(function (ms) {
+        if (!ms || ms.length < 2) return;
+        var ids = ms.map(function (o) { return String(o.id); });
+        ids.forEach(function (m) { store[m] = ids.slice(); });
+      });
+      var _next = JSON.stringify(store);
+      if (GM_getValue('dtr_oe_variant_groups', '{}') !== _next) GM_setValue('dtr_oe_variant_groups', _next);
+    } catch (_) {}
   }
 
   function _yoVisibleWorn(o) {
@@ -12214,7 +12263,8 @@
         var card = document.querySelector('[data-yo-wsel="' + oid + ':' + iid + '"]');
         if (card) {
           card.classList.remove('sel'); card.setAttribute('data-wished', '1');
-          var bh = card.querySelector('[data-yo-wbadge]'); if (bh) bh.innerHTML = '<span class="dtr-yo-ib want">Wishlisted</span>';
+          var th = card.querySelector('[data-yo-wthumb]');
+          if (th) { var _own = card.getAttribute('data-owned') === '1'; th.querySelectorAll('.dtr-status-overlay').forEach(function (n) { n.remove(); }); th.insertAdjacentHTML('beforeend', _yoStatusOv(_own, true)); }
         }
         delete _yo.stripSel[oid][iid];
       } else { fail++; }
@@ -12284,6 +12334,12 @@
     var val = (v && v !== '-') ? String(v).trim() : null;
     if (val) return { bt: 'val', text: /^\d/.test(val) ? (val + (parseFloat(val) === 1 && !/[-–]/.test(val) ? ' cap' : ' caps')) : val };
     return { bt: 'unreported', text: '? caps' };
+  }
+
+  function _yoStatusOv(owned, wished) {
+    var parts = (owned ? '<div class="dtr-ov-owned"><span>Owned</span></div>' : '')
+              + (wished ? '<div class="dtr-ov-wishlisted"><span>Wishlisted</span></div>' : '');
+    return parts ? '<div class="dtr-status-overlay">' + parts + '</div>' : '';
   }
 
   var _YO_CLIENT_THUMBS = false;
@@ -12501,6 +12557,8 @@
   var _YO_TRASH_SVG = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6.5 7l.8 12a1.5 1.5 0 0 0 1.5 1.4h6.4a1.5 1.5 0 0 0 1.5-1.4L18.5 7"/></svg>';
 
   var _YO_HEART_SVG = '<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 20.3l-1.35-1.24C6.15 15 3.3 12.4 3.3 9.2 3.3 6.7 5.25 4.8 7.7 4.8c1.4 0 2.75.66 3.6 1.72.85-1.06 2.2-1.72 3.6-1.72 2.45 0 4.4 1.9 4.4 4.4 0 3.2-2.85 5.8-7.35 9.86z"/></svg>';
+
+  var _YO_CROWN_SVG = '<svg viewBox="0 0 24 18" width="17" height="13" fill="none"><path d="M3.4 5 L7.7 9 L12 2.6 L16.3 9 L20.6 5 L19.2 16.4 L4.8 16.4 Z" fill="#f8d24d" stroke="#d99f27" stroke-width="1.6" stroke-linejoin="round"/></svg>';
   function _yoRender() {
     var root = document.getElementById('dtr-yo-root');
     if (!root) return;
@@ -12537,17 +12595,19 @@
         var _topId = _yoTopMap()[gKey];
         var pick = _yo.sel[gKey] && pool.find(function (o) { return String(o.id) === String(_yo.sel[gKey]); });
 
-        var lead = (_topId && pool.find(function (o) { return String(o.id) === String(_topId); })) || pool.slice().sort(function (a, b) { return String(b.created_at || '').localeCompare(String(a.created_at || '')); })[0];
+        var sortRep = pool.slice().sort(function (a, b) { return String(b.created_at || '').localeCompare(String(a.created_at || '')); })[0];
+
+        var lead = (_topId && pool.find(function (o) { return String(o.id) === String(_topId); })) || sortRep;
         var shown = pick || lead;
-        cards.push({ ms: ms, pool: pool, shown: shown, lead: lead, gKey: gKey });
+        cards.push({ ms: ms, pool: pool, shown: shown, lead: lead, sortRep: sortRep, gKey: gKey });
       });
       var sk = _yo.sort;
       var _cmp = _yoSortCmp(sk);
 
-      cards.sort(function (A, B) { return _cmp(A.lead, B.lead); });
+      cards.sort(function (A, B) { return _cmp(A.sortRep, B.sortRep); });
       var view = _yo.view;
 
-      function previewHTML(o, isHid) {
+      function previewHTML(o, isHid, isCrown) {
         var sid = String(o.id), pending = !!_yoDelTimers[sid], confirming = String(_yo.delConfirm) === sid;
         var mask = '';
         if (pending) {
@@ -12560,6 +12620,7 @@
         return '<div class="dtr-yo-thumb"><div class="dtr-yo-thumbinner' + (_layered ? ' dtr-yo-layered' : '') + '">'
           + '<img loading="lazy" decoding="async" alt="" data-yo-open="' + sid + '" title="Open in the outfit editor" src="' + _yoThumb(o, 300) + '">'
           + (_layered ? '<div class="dtr-yo-layers">' + _layered + '</div>' : '')
+          + (isCrown ? '<span class="dtr-yo-preview-crown" title="Preferred variant of this look">' + _YO_CROWN_SVG + '</span>' : '')
           + '<button type="button" class="dtr-yo-star' + (o.starred ? ' on' : '') + '" data-yo-star="' + sid + '" title="' + (o.starred ? 'Starred — click to unstar' : 'Star this outfit') + '">' + _YO_STAR_SVG + '</button>'
           + '<div class="dtr-yo-topright">'
           +   '<button type="button" class="dtr-yo-hidebtn' + (isHid ? ' on' : '') + '" data-yo-hide="' + sid + '" title="' + (isHid ? 'Hidden — click to show' : 'Hide this outfit (shared with the editor)') + '">' + (isHid ? 'Show' : 'Hide') + '</button>'
@@ -12574,9 +12635,9 @@
 
         var _numBadge = (total > 1 && num) ? '<span class="dtr-yo-vnum">' + num + '</span>' : '';
 
-        return '<button type="button"' + (draggable ? ' draggable="true"' : '') + ' class="dtr-yo-vthumb' + (String(v.id) === String(shownId) ? ' sel' : '') + (hid[String(v.id)] ? ' hid' : '') + (draggable ? ' dtr-yo-vdraggable' : '') + '" title="' + _yoEsc((v.name || '') + _yoDatesTitle(v)) + '" data-yo-pick="' + _yoEsc(gKey) + ':' + _yoEsc(String(v.id)) + '">'
+        return '<button type="button"' + (draggable ? ' draggable="true"' : '') + ' class="dtr-yo-vthumb' + (String(v.id) === String(shownId) ? ' sel' : '') + (_isTop ? ' crowned' : '') + (hid[String(v.id)] ? ' hid' : '') + (draggable ? ' dtr-yo-vdraggable' : '') + '" title="' + _yoEsc((v.name || '') + _yoDatesTitle(v)) + '" data-yo-pick="' + _yoEsc(gKey) + ':' + _yoEsc(String(v.id)) + '">'
           + _numBadge
-          + '<span class="dtr-yo-vheart' + (_isTop ? ' on' : '') + '" role="button" tabindex="0" data-yo-top="' + _yoEsc(gKey) + ':' + _yoEsc(String(v.id)) + '" title="' + (_isTop ? 'Top variant — click to unset' : 'Make this the group’s top variant') + '">' + _YO_HEART_SVG + '</span>'
+          + '<span class="dtr-yo-vcrown' + (_isTop ? ' on' : '') + '" role="button" tabindex="0" data-yo-top="' + _yoEsc(gKey) + ':' + _yoEsc(String(v.id)) + '" title="' + (_isTop ? 'Preferred variant — click to unset' : 'Make this your preferred variant') + '">' + _YO_CROWN_SVG + '</span>'
           + '<span style="background-image:url(\'' + _yoThumb(v, 150) + '\')"></span></button>';
       }
       function bodyHTML(o, extraChips) {
@@ -12604,7 +12665,7 @@
         var m = _yoMeta(o), itemCount = _yoVisibleWorn(o).length;
         return '<div class="dtr-yo-card' + (isHid ? ' dtr-yo-hiddencard' : '') + (opts.drag ? ' dtr-yo-draggable' : '') + '"'
           + (opts.drag ? ' draggable="true" data-yo-card="' + _yoEsc(String(o.id)) + '" data-yo-gkey="' + _yoEsc(c ? c.gKey : '') + '" title="Drag onto another outfit to group them as variants"' : '') + '>'
-          + previewHTML(o, isHid)
+          + previewHTML(o, isHid, !!(c && c.ms && c.ms.length > 1 && String(_yoTopMap()[c.gKey]) === String(o.id)))
           + '<div class="dtr-yo-body">'
           + _yoNameBlock(o, false)
           + (m.line ? '<div class="dtr-yo-meta">' + _yoEsc(m.line) + '</div>' : '')
@@ -12621,8 +12682,12 @@
       function stripCardHTML(c) {
         var o = c.shown, isHid = !!hid[String(o.id)], oid = String(o.id);
         var railMembers = c.ms.filter(function (v) { return _yo.showHidden || !hid[String(v.id)]; });
-        var variantsHTML = (railMembers.length > 1)
-          ? '<div class="dtr-yo-strip-vwrap"><div class="dtr-yo-veyebrow">Variants</div><div class="dtr-yo-strip-variants">' + railMembers.map(function (v, vi) { return thumbBtn(v, o.id, c.gKey, vi + 1, railMembers.length); }).join('') + '</div></div>' : '';
+
+        var _nInactive = c.ms.length - railMembers.length;
+        var _inactiveChip = _nInactive > 0 ? '<button type="button" class="dtr-yo-inactivechip" data-yo-showinactive="1" title="Show ' + _nInactive + ' inactive variant' + (_nInactive === 1 ? '' : 's') + '"><span class="n">+' + _nInactive + '</span><span class="l">inactive</span></button>' : '';
+        var variantsHTML = (c.ms.length > 1)
+          ? '<div class="dtr-yo-strip-vwrap"><div class="dtr-yo-veyebrow">Variants</div><div class="dtr-yo-strip-variants">' + railMembers.map(function (v, vi) { var _vn = _yoEsc(v.name || ('Variant ' + (vi + 1))); return '<div class="dtr-yo-vcap">' + thumbBtn(v, o.id, c.gKey, vi + 1, railMembers.length) + '<span class="dtr-yo-vcapname" title="' + _vn + '">' + _vn + '</span></div>'; }).join('') + _inactiveChip + '</div></div>'
+          : '<div class="dtr-yo-strip-vwrap novar"><div class="dtr-yo-veyebrow">Variants</div><div class="dtr-yo-novar">No variants yet</div></div>';
         var worn = _yoVisibleWorn(o);
         var os = _yoOwnSets();
         var sel = _yo.stripSel[oid] || {};
@@ -12646,14 +12711,13 @@
           var th = (_yo.itemThumbs && _yo.itemThumbs[sid]) || '';
           var owned = !!os.own[sid], wished = !!os.want[sid], isSel = !!sel[sid];
 
-          var badge = owned ? '<span class="dtr-yo-ib own">Owned</span>' : (wished ? '<span class="dtr-yo-ib want">Wishlisted</span>' : '');
           return '<div class="dtr-yo-wcard' + (isSel ? ' sel' : '') + '" data-yo-wsel="' + oid + ':' + sid + '" data-owned="' + (owned ? '1' : '0') + '" data-wished="' + (wished ? '1' : '0') + '" title="Click to select — you can add it to a wishlist even if you own or already wishlisted it">'
             + '<div class="dtr-card-info"><button type="button" class="dtr-info-btn" data-yo-info="' + sid + '" aria-label="Item details">?</button></div>'
             + '<span class="dtr-yo-wcheck" aria-hidden="true"></span>'
-            + '<span class="dtr-yo-wthumb"' + (th ? ' style="background-image:url(\'' + th + '\')"' : '') + '></span>'
+            + '<span class="dtr-yo-wthumb"' + (th ? ' style="background-image:url(\'' + th + '\')"' : '') + ' data-yo-wthumb>' + _yoStatusOv(owned, wished) + '</span>'
             + '<span class="dtr-yo-wname">' + (nm ? _yoEsc(nm) : 'Item #' + _yoEsc(sid)) + '</span>'
             + (function () { var vi = _yoItemVal(sid); return vi ? '<span class="dtr-yo-val dtr-yo-val-' + vi.bt + '">' + _yoEsc(vi.text) + '</span>' : ''; })()
-            + '<span class="dtr-yo-wbadge" data-yo-wbadge>' + badge + '</span></div>';
+            + '</div>';
         }).join('');
         var nUsed = worn.length + (o.alt_style_id ? 1 : 0);
         var gridInner = nUsed ? (tokenCard + wcards) : '<div class="dtr-yo-itemempty">Just the pet — no wearables.</div>';
@@ -12685,7 +12749,7 @@
         return '<div class="dtr-yo-card strip' + (isHid ? ' dtr-yo-hiddencard' : '') + '">'
           + '<div class="dtr-yo-strip-dates">' + _yoDatesHTML(o) + '</div>'
           + '<div class="dtr-yo-strip-main">'
-          +   '<div class="dtr-yo-strip-top"><div class="dtr-yo-strip-pet">' + previewHTML(o, isHid) + '</div><div class="dtr-yo-strip-side">' + headHTML + variantsHTML + '</div></div>'
+          +   '<div class="dtr-yo-strip-top"><div class="dtr-yo-strip-pet">' + previewHTML(o, isHid, !!(c && c.ms && c.ms.length > 1 && String(_yoTopMap()[c.gKey]) === String(o.id))) + '</div><div class="dtr-yo-strip-side">' + headHTML + variantsHTML + '</div></div>'
           +   bulkHTML
           +   '<div class="dtr-yo-itemgrid" data-yo-wgrid="' + oid + '">' + gridInner + '</div>'
           + '</div>'
@@ -12733,7 +12797,7 @@
         + '<button type="button" class="dtr-yo-view' + (view === 'strip' ? ' on' : '') + '" data-yo-view="strip" title="Film strip — one row per look, variants on the side"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="6" width="12" height="12" rx="2"/><rect x="18" y="6" width="3.4" height="4.8" rx="1.2"/><rect x="18" y="13.2" width="3.4" height="4.8" rx="1.2"/></svg></button>'
         + '<button type="button" class="dtr-yo-view' + (view === 'flat' ? ' on' : '') + '" data-yo-view="flat" title="All variants — every variant as an equal card"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg></button>'
         + '</span>'
-        + '<button type="button" id="dtr-yo-togglehidden" class="dtr-yo-toggle' + (_yo.showHidden ? ' on' : '') + '">' + (_yo.showHidden ? 'Showing hidden' : 'Show hidden') + (nHiddenTotal ? ' (' + nHiddenTotal + ')' : '') + '</button>'
+        + '<button type="button" id="dtr-yo-togglehidden" class="dtr-yo-toggle' + (_yo.showHidden ? ' on' : '') + '">' + (_yo.showHidden ? 'Showing inactive' : 'Show inactive') + (nHiddenTotal ? ' (' + nHiddenTotal + ')' : '') + '</button>'
         + '</div>'
         + '<div id="dtr-yo-grid" class="' + (view === 'strip' ? 'strip' : '') + '">' + (grid || '<div class="dtr-yo-empty">' + (_yo.q ? 'No outfits match “' + _yoEsc(_yo.q) + '”.' : 'No outfits yet — save one from the outfit editor and it will appear here.') + '</div>') + '</div>'
         + '</div>';
@@ -12967,6 +13031,9 @@
       }
       if ((t = e.target.closest('#dtr-yo-togglehidden'))) {
         _yo.showHidden = !_yo.showHidden; _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-yo-showinactive]'))) {
+        _yo.showHidden = true; _yo._qFocus = false; _yoRender(); return;
       }
       if ((t = e.target.closest('[data-yo-addwant]'))) {
         e.preventDefault(); e.stopPropagation();
@@ -35664,6 +35731,12 @@ if (!tradeLinks.length) {
 
     const OE_STAR = (sz) => '<svg viewBox="0 0 24 24" width="'+sz+'" height="'+sz+'" aria-hidden="true" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3.6l2.47 5.01 5.53.8-4 3.9.94 5.5L12 16.2l-4.94 2.6.94-5.5-4-3.9 5.53-.8Z"/></svg>';
 
+    const OE_CROWN = (sz, gold) => '<svg viewBox="0 0 24 18" width="'+sz+'" height="'+Math.round(sz*18/24)+'" aria-hidden="true" fill="none">'
+      + '<path d="M3.4 5 L7.7 9 L12 2.6 L16.3 9 L20.6 5 L19.2 16.4 L4.8 16.4 Z" fill="'+(gold?'#f8d24d':'#fff')+'" stroke="'+(gold?'#d99f27':'#cfc9ba')+'" stroke-width="1.6" stroke-linejoin="round"/>'
+      + '</svg>';
+
+    const OE_GILD = 'box-shadow:0 0 0 2.5px #f8d24d,0 0 0 5px #fff3c6,0 5px 16px rgba(216,160,40,.4);';
+
     const OE_IRID = 'linear-gradient(135deg,#fbecf5 0%,#ecf0fb 28%,#e6f4fb 52%,#eafbf1 76%,#fdf6ea 100%)';
 
     let _oeToastEl = null, _oeToastTimer = 0;
@@ -35720,19 +35793,61 @@ if (!tradeLinks.length) {
         menu.className = 'dtr-oe-scroll';
 
         menu.style.cssText = 'position:fixed;z-index:2147483000;min-width:120px;max-width:280px;max-height:300px;overflow-y:auto;overflow-x:hidden;'+OE_MENU;
-        menu.innerHTML = Array.from(sel.options).map((o, i) =>
-          '<button type="button" data-oe-selopt="'+i+'"'+(o.disabled ? ' disabled' : '')
-          +(i === sel.selectedIndex ? ' data-on="1"' : '')
-          +' class="dtr-oe-menurow" style="'+OE_MENU_ROW+';white-space:nowrap;overflow:hidden;text-overflow:ellipsis'
-          +(i === sel.selectedIndex ? ';background:'+S2+'14;color:#4a4a45' : '')
-          +(o.disabled ? ';color:#c9c4b8;cursor:default' : '')+'">'+_oeEsc(o.text)+'</button>'
-        ).join('');
+        const opts = Array.from(sel.options);
+        const enabledIdx = opts.map(function (o, i) { return o.disabled ? -1 : i; }).filter(function (i) { return i >= 0; });
+
+        let hi = (sel.selectedIndex >= 0 && !opts[sel.selectedIndex].disabled) ? sel.selectedIndex : (enabledIdx.length ? enabledIdx[0] : 0);
+        menu.tabIndex = -1;
+        menu.setAttribute('role', 'listbox');
+        menu.innerHTML = opts.map(function (o, i) {
+          return '<button type="button" role="option" data-oe-selopt="'+i+'"'+(o.disabled ? ' disabled' : '')
+            +(i === sel.selectedIndex ? ' data-on="1"' : '')
+            +' class="dtr-oe-menurow" style="'+OE_MENU_ROW+';white-space:nowrap;overflow:hidden;text-overflow:ellipsis'
+            +(o.disabled ? ';color:#c9c4b8;cursor:default' : '')+'">'+_oeEsc(o.text)+'</button>';
+        }).join('');
+        const _rows = function () { return menu.querySelectorAll('[data-oe-selopt]'); };
+        const _paint = function () {
+          _rows().forEach(function (r) {
+            const idx = +r.dataset.oeSelopt, isHi = idx === hi, isSel = idx === sel.selectedIndex;
+            r.style.background = isHi ? (S2+'2e') : (isSel ? (S2+'14') : 'transparent');
+            r.style.color = (r.disabled) ? '#c9c4b8' : ((isHi || isSel) ? '#3a3a35' : '#5a5a52');
+            if (isHi) { try { r.scrollIntoView({ block: 'nearest' }); } catch (_) {} }
+          });
+        };
+        const _commit = function (i) { menu.remove(); if (i != null && opts[i] && !opts[i].disabled && sel.selectedIndex !== i) { sel.selectedIndex = i; sel.dispatchEvent(new Event('change', { bubbles: true })); } };
+        const _moveHi = function (dir) {
+          if (!enabledIdx.length) return;
+          const cur = enabledIdx.indexOf(hi);
+          hi = (cur === -1) ? enabledIdx[dir > 0 ? 0 : enabledIdx.length - 1]
+                            : enabledIdx[Math.min(enabledIdx.length - 1, Math.max(0, cur + dir))];
+          _paint();
+        };
         menu.addEventListener('click', function (e2) {
           const b = e2.target.closest('[data-oe-selopt]');
           if (!b || b.disabled) return;
-          const i = +b.dataset.oeSelopt;
-          menu.remove();
-          if (sel.selectedIndex !== i) { sel.selectedIndex = i; sel.dispatchEvent(new Event('change', { bubbles: true })); }
+          _commit(+b.dataset.oeSelopt);
+        });
+
+        menu.addEventListener('mousemove', function (e2) {
+          const b = e2.target.closest('[data-oe-selopt]');
+          if (b && !b.disabled) { const i = +b.dataset.oeSelopt; if (i !== hi) { hi = i; _paint(); } }
+        });
+
+        menu.addEventListener('keydown', function (ke) {
+          const k = ke.key;
+          if (k === 'ArrowDown') { ke.preventDefault(); _moveHi(1); }
+          else if (k === 'ArrowUp') { ke.preventDefault(); _moveHi(-1); }
+          else if (k === 'Tab') { ke.preventDefault(); _moveHi(ke.shiftKey ? -1 : 1); }
+          else if (k === 'Home') { ke.preventDefault(); if (enabledIdx.length) { hi = enabledIdx[0]; _paint(); } }
+          else if (k === 'End') { ke.preventDefault(); if (enabledIdx.length) { hi = enabledIdx[enabledIdx.length - 1]; _paint(); } }
+          else if (k === 'Enter' || k === ' ') { ke.preventDefault(); _commit(hi); }
+          else if (k === 'Escape') { ke.preventDefault(); menu.remove(); try { sel.focus(); } catch (_) {} }
+          else if (k && k.length === 1 && /\S/.test(k)) {
+            const ch = k.toLowerCase(), st = enabledIdx.indexOf(hi);
+            const order = enabledIdx.slice(st + 1).concat(enabledIdx.slice(0, st + 1));
+            const found = order.find(function (i) { return (opts[i].text || '').trim().toLowerCase().indexOf(ch) === 0; });
+            if (found != null) { hi = found; _paint(); }
+          }
         });
         root.appendChild(menu);
 
@@ -35746,7 +35861,8 @@ if (!tradeLinks.length) {
 
         const onScroll = (ev) => { if (menu.contains(ev.target)) return; menu.remove(); window.removeEventListener('scroll', onScroll, true); };
         window.addEventListener('scroll', onScroll, true);
-        try { sel.focus(); } catch (_) {}
+        try { menu.focus(); } catch (_) {}
+        _paint();
       } catch (_) {}
     }, true);
 
@@ -35770,6 +35886,20 @@ if (!tradeLinks.length) {
       return v;
     }
     function oeAllOutfitIds(variants) { return (variants || []).map(v => v && v.outfitId).filter(Boolean); }
+
+    function _oeCrownGKey(variants) { return oeAllOutfitIds(variants || []).map(String).sort().join(','); }
+    function _oeTopMap() { try { return JSON.parse(GM_getValue('dtr_yo_top', '{}')) || {}; } catch (_) { return {}; } }
+    function _oeCrownedId(variants) { return _oeTopMap()[_oeCrownGKey(variants)] || null; }
+    function _oeIsCrowned(v, crownId) { return !!(v && v.outfitId && crownId && String(v.outfitId) === String(crownId)); }
+
+    function _oeSetCrown(variants, i) {
+      const gk = _oeCrownGKey(variants); if (!gk) return;
+      const vi = (variants || [])[i], id = vi && vi.outfitId;
+      try { const m = _oeTopMap();
+        if (id != null && String(m[gk]) !== String(id)) m[gk] = String(id); else delete m[gk];
+        GM_setValue('dtr_yo_top', JSON.stringify(m));
+      } catch (_) {}
+    }
     function oePatchActiveVar(s2, patch) {
       const v = (s2.variants || []).slice(), i = s2.activeIdx;
       if (v[i]) v[i] = Object.assign({}, v[i], patch);
@@ -37710,6 +37840,17 @@ if (!tradeLinks.length) {
         oeKickSearch();
       });
 
+      const _oeSelFlip = (selQ) => (e) => {
+        if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+        e.preventDefault();
+        const sel = e.target, n = sel.options.length; if (!n) return;
+        const i = Math.max(0, Math.min(n - 1, sel.selectedIndex + (e.key === 'ArrowDown' ? 1 : -1)));
+        if (i !== sel.selectedIndex) { sel.selectedIndex = i; sel.dispatchEvent(new Event('change', { bubbles: true })); }
+        setTimeout(() => { const el = document.querySelector('#dtr-outfit-editor ' + selQ); if (el) { try { el.focus(); } catch (_) {} } }, 0);
+      };
+      onOne('[data-color-sel]', 'keydown', _oeSelFlip('[data-color-sel]'));
+      onOne('[data-species-sel]', 'keydown', _oeSelFlip('[data-species-sel]'));
+
       return card;
     }
 
@@ -37730,13 +37871,14 @@ if (!tradeLinks.length) {
       const saveCloneStyle = 'display:inline-flex;align-items:center;gap:6px;padding:8px 15px;border-radius:999px;border:1.5px solid '+S+';background:'+S+'12;color:#5d8467;font:700 12px Nunito,sans-serif;cursor:pointer';
 
       const variants = s.variants || [];
+      const _crownId = _oeCrownedId(variants);
       const compareStyle = 'display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:999px;border:1.5px solid '+S+';background:#fff;color:'+S+';font:700 11px Nunito,sans-serif;cursor:pointer';
       const addStyle     = 'display:inline-flex;align-items:center;gap:4px;padding:8px 14px;border-radius:999px;border:1.5px dashed '+S+'88;background:'+S+'0e;color:'+S+';font:700 12px Nunito,sans-serif;cursor:pointer';
 
       const pillsHTML = variants.map((v, i) =>
         '<button data-pick-variant="'+i+'" style="'+(i===s.activeIdx?pillOn:pillOff)+'">'
         + (i===s.activeIdx ? '<span style="font-size:11px">✦</span>' : '')
-        + (v.starred ? '<span style="font-size:11px" title="Top variant">♥</span>' : '')
+        + (_oeIsCrowned(v, _crownId) ? '<span title="Preferred variant" style="display:inline-flex;vertical-align:-1px;transform:rotate(14deg)">'+OE_CROWN(12,true)+'</span>' : '')
         + _oeEsc(v.name || ('Variant '+(i+1)))
         + (v.locked ? '<span title="Locked" style="font-size:10px;line-height:1">🔒</span>' : '')
         + '</button>'
@@ -37775,6 +37917,7 @@ if (!tradeLinks.length) {
               const cardStyle = 'flex:0 0 calc((100% - 22px) / 3);min-width:0;border-radius:14px;overflow:hidden;cursor:pointer;padding:0;text-align:center;position:relative;display:flex;flex-direction:column;'
                 + oeSelBorder(isA)
                 + (isHidden?'opacity:.5;filter:grayscale(.45);':'')
+                + (_oeIsCrowned(v, _crownId)?OE_GILD:'')
                 + (_done?'animation:dtrDelFade .48s ease forwards;':'');
 
               const _sDelC = s.stripDelConfirm === i;
@@ -37806,7 +37949,7 @@ if (!tradeLinks.length) {
                 + (renaming
                     ? '<input data-strip-rename="'+i+'" value="'+nm+'" style="width:100%;text-align:center;font:700 13px Nunito,sans-serif;color:#3a3a35;border:none;border-bottom:2px solid '+(s.renameError?'#d4756b':S)+';background:transparent;padding:1px 0">'
                       + (s.renameError ? '<div style="font:600 9px Nunito,sans-serif;color:#c0594e;margin-top:4px;line-height:1.3">'+_oeEsc(s.renameError)+'</div>' : '')
-                    : '<div style="display:flex;align-items:center;justify-content:center;gap:5px"><span data-strip-name="'+i+'" title="Double-click to rename" style="cursor:text;font-family:\'Baloo 2\',sans-serif;font-size:13px;font-weight:700;color:'+(isA?'#3a3a35':'#4a4a45')+';line-height:1.25;overflow-wrap:anywhere">'+(v.starred?'<span style="color:var(--dtr-accent,#ff8576)">♥</span> ':'')+nm+(v.locked?' 🔒':'')+'</span><button data-strip-edit="'+i+'" title="Rename" style="border:none;background:'+S+'1c;cursor:pointer;width:20px;height:20px;border-radius:50%;color:'+S+';padding:0;flex:none;display:inline-flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button></div>')
+                    : '<div style="display:flex;align-items:center;justify-content:center;gap:5px"><button data-strip-star="'+i+'" title="'+(_oeIsCrowned(v, _crownId)?'Preferred variant — click to unset':'Make this your preferred variant')+'" style="border:none;background:transparent;cursor:pointer;line-height:1;padding:0;flex:none;display:inline-flex;transform:rotate(13deg);opacity:'+(_oeIsCrowned(v, _crownId)?'1':'.32')+'">'+OE_CROWN(14,true)+'</button><span data-strip-name="'+i+'" title="Double-click to rename" style="cursor:text;font-family:\'Baloo 2\',sans-serif;font-size:13px;font-weight:700;color:'+(isA?'#3a3a35':'#4a4a45')+';line-height:1.25;overflow-wrap:anywhere">'+nm+(v.locked?' 🔒':'')+'</span><button data-strip-edit="'+i+'" title="Rename" style="border:none;background:'+S+'1c;cursor:pointer;width:20px;height:20px;border-radius:50%;color:'+S+';padding:0;flex:none;display:inline-flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button></div>')
 
                 + '<div style="flex:1;display:flex;align-items:center;justify-content:center;text-align:center;font:600 11.5px Nunito,sans-serif;color:#8a8a82;line-height:1.3;overflow-wrap:anywhere;margin-top:4px;min-height:24px">'+_oeEsc(petNameOf(bio, co, sp))+'</div>'
                 + '<div style="margin-top:7px;font:700 11px Nunito,sans-serif;color:#9a9a90">'+ownedN+'/'+worn.length+' owned</div>'
@@ -37892,6 +38035,12 @@ if (!tradeLinks.length) {
 
       card.querySelectorAll('[data-strip-edit]').forEach(el =>
         el.addEventListener('click', e => { e.stopPropagation(); OE.set({ stripRenameIdx: parseInt(el.dataset.stripEdit, 10), renameError: null }); })
+      );
+
+      card.querySelectorAll('[data-strip-star]').forEach(el =>
+        el.addEventListener('click', e => { e.stopPropagation(); const i = parseInt(el.dataset.stripStar, 10);
+          _oeSetCrown(OE.get().variants || [], i);
+          OE.set(s2 => ({ variants: (s2.variants || []).slice() })); })
       );
       const sri = card.querySelector('[data-strip-rename]');
       if (sri) {
@@ -38007,6 +38156,7 @@ if (!tradeLinks.length) {
 
       const GRAPE = '#b48fe0', GRAPE_D = '#9a72c8', GRAPE_BG = '#f7f2fc';
       const variants = s.variants || [];
+      const _crownId = _oeCrownedId(variants);
       const hiddenN = variants.filter(v => v && v.hidden).length;
       const showHidden = !!s.cmpShowHidden;
       const collage = !!s.cmpCollage;
@@ -38178,7 +38328,7 @@ if (!tradeLinks.length) {
         return '<div data-cmp-card="'+i+'" data-cmp-drag="'+i+'"'+(renaming?'':' draggable="true"')
           +' data-cmp-vname="'+_oeEsc(v.name||('Variant '+(i+1)))+'" data-cmp-pet="'+_oeEsc(c.petName||'')+'" data-cmp-owned="'+ownedN+'" data-cmp-total="'+totalN+'" data-cmp-missn="'+missN+'" data-cmp-misscaps="'+_oeEsc(missCaps)+'"'
           +' data-cmp-items="'+_oeEsc(JSON.stringify(c.worn.map(x => ({ n: x.name || '', o: x.owned ? 1 : 0 }))))+'"'
-          +' title="Click to select · drag to reorder" style="'+cardFrame+cardShadow+'border-radius:16px;overflow:hidden;display:flex;flex-direction:column;cursor:'+(renaming?'default':'pointer')+';position:relative;opacity:'+(hidden?'.6':'1')+(_done?';animation:dtrDelFade .48s ease forwards':'')+'">'
+          +' title="Click to select · drag to reorder" style="'+cardFrame+cardShadow+(_oeIsCrowned(v, _crownId)?OE_GILD:'')+'border-radius:16px;overflow:hidden;display:flex;flex-direction:column;cursor:'+(renaming?'default':'pointer')+';position:relative;opacity:'+(hidden?'.6':'1')+(_done?';animation:dtrDelFade .48s ease forwards':'')+'">'
 
           + (collage ? '<div style="position:absolute;top:10px;left:11px;z-index:70;min-width:27px;height:27px;padding:0 8px;border-radius:999px;background:#fff;border:1.5px solid #e3ded0;color:#3a3a35;display:flex;align-items:center;justify-content:center;font:800 15px Nunito,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.2)">'+(ci+1)+'</div>'
               + '<button class="dia-cmp-copyone" data-cmp-copyone="'+i+'" title="Copy this one" aria-label="Copy this one"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>' : '')
@@ -38205,7 +38355,7 @@ if (!tradeLinks.length) {
           + '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="width:26px;height:26px;border:3px solid #ece7da;border-top-color:'+GRAPE+';border-radius:50%;animation:dtrspin .8s linear infinite"></div></div></div>'
           + '<div style="padding:11px 12px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;flex:1">'
           + '<div style="display:flex;align-items:center;gap:6px;justify-content:center;max-width:100%">'
-          + (collage ? '' : '<button data-cmp-star="'+i+'" title="'+(v.starred?'Top variant — click to unset':'Make this the top variant')+'" style="border:none;background:transparent;cursor:pointer;font-size:15px;line-height:1;color:'+(v.starred?'var(--dtr-accent,#ff8576)':'#cfc9ba')+';padding:0;flex:none">'+(v.starred?'♥':'♡')+'</button>')
+          + '<button data-cmp-star="'+i+'" title="'+(_oeIsCrowned(v, _crownId)?'Preferred variant — click to unset':'Make this your preferred variant')+'" style="border:none;background:transparent;cursor:pointer;line-height:1;padding:0;flex:none;display:inline-flex;transform:rotate(12deg);opacity:'+(_oeIsCrowned(v, _crownId)?'1':'.36')+'">'+OE_CROWN(collage?16:17,true)+'</button>'
           + (renaming
               ? '<input data-cmp-rename-input="'+i+'" value="'+_oeEsc(v.name||('Variant '+(i+1)))+'" style="flex:1;min-width:0;text-align:center;font:700 14px Nunito,sans-serif;color:#3a3a35;border:none;border-bottom:2px solid '+GRAPE+';background:transparent;padding:1px 2px">'
               : '<span data-cmp-name="'+i+'" title="Double-click to rename" style="min-width:0;cursor:text;font-family:\'Baloo 2\',sans-serif;font-size:15px;font-weight:700;color:#3a3a35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+_oeEsc(v.name||('Variant '+(i+1)))+'</span>')
@@ -38419,7 +38569,8 @@ if (!tradeLinks.length) {
 
         const star = e.target.closest('[data-cmp-star]');
         if (star) { e.stopPropagation(); const i = +star.dataset.cmpStar;
-          OE.set(s2 => ({ variants: (s2.variants||[]).map((v, j) => Object.assign({}, v, { starred: j === i ? !v.starred : false })) })); return; }
+          _oeSetCrown(OE.get().variants || [], i);
+          OE.set(s2 => ({ variants: (s2.variants||[]).slice() })); return; }
         const hide = e.target.closest('[data-cmp-hide]');
         if (hide) { e.stopPropagation(); const i = +hide.dataset.cmpHide;
           oeToggleVarHidden(i); return; }
@@ -39451,7 +39602,8 @@ if (!tradeLinks.length) {
           const haul = e.target.closest('[data-haul-add]');
           if (haul) { e.stopPropagation(); const li = haul.closest('[data-try]'); if (li) oeTryOnByName(li.dataset.try); return; }
           const tryLi = e.target.closest('[data-try]');
-          if (tryLi) { if (e.target.closest('button, a')) return; oeTryOnByName(tryLi.dataset.try); }
+
+          if (tryLi) { if (e.target.closest('button')) return; oeTryOnByName(tryLi.dataset.try); }
         });
 
         ulEl.addEventListener('mouseover', e => {
@@ -41573,6 +41725,8 @@ if (!tradeLinks.length) {
       const it = st.considering.find(x => x.name === name);
       if (it && it.loved && st.removeConfirm !== name) { OE.set({ removeConfirm: name }); return; }
       OE.set(s2 => ({ considering: s2.considering.filter(x => x.name !== name), removeConfirm: null }));
+
+      _oeSyncStarred();
     }
 
     function oeConflictModal(s) {
