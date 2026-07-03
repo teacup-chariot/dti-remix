@@ -13,8 +13,20 @@
 - **Closet:** The "Copy clipboard" window got a friendlier look and a new message box, with a 500-character counter, where you can write up your trade post (paste your list in, tidy it, and copy it straight into the Neoboards).
 - **Your Outfits:** Variants of a look are now numbered on their thumbnails, and you can mark the one that leads a group with a heart — kept separate from DTI's own favorite star, so the two never get mixed up. Each outfit's item list now shows only the wearables actually visible on the pet, so stacked or covered pieces no longer clutter it.
 - **Customize:** The marker for a variant group's lead is now a heart instead of a star, matching Your Outfits and staying clearly distinct from DTI's favorite.
+- **Your Outfits:** The film-strip layout is much richer — your pet and its details sit side by side up top, the variant thumbnails wrap in beside the pet, and every wearable the outfit uses fills a grid below. Each wearable tile shows what it's worth (its cap value, or a blue NP tag), an info button with its zones and how many you own or have wishlisted, and a checkbox — tick the ones you want and add them to any of your Wants lists in one go, with quick "Select all" and "Select unowned" buttons.
+- **Your Outfits:** Rename any outfit or variant right where it is — hover its name, click the pencil, and type.
+- **Your Outfits:** Reorganize your variants by dragging. Drop one outfit onto another to make it a variant of that look, drag a single variant's thumbnail to move just that one, or drag a variant off onto empty space to split it back into its own outfit. A counter shows how many you're moving, and dragging toward the top or bottom of the screen scrolls the page for you.
+- **Customize:** Search results stream in as they load now, instead of leaving the whole list blank while it fetches — browsing a big zone on a slow connection no longer sits empty for minutes.
+- **Customize:** In the zone filter, type part of a zone's name and press Enter (or arrow through the matches) to jump straight to it.
+- **Closet:** Moving a big batch of items between lists is much faster — they move several at a time behind a "Moving N of M" progress bar, and anything that couldn't be moved is reported instead of quietly skipped.
 
 ### Fixes
+- **Customize:** Outfits now save only the items actually shown on your pet — not every item you tried on or starred along the way. Before, all your "maybe" picks were saved as worn, which is why an outfit's thumbnail could show a whole pile of wigs stacked on top of each other. Your starred picks are still kept (they live in your Fitting Room now), and re-saving an affected outfit once cleans up its thumbnail.
+- **Customize:** Leaving the editor while an outfit is still loading can no longer save a blank or half-loaded version over your real one.
+- **Customize:** The search box no longer scrambles the letters while you're still typing, and tabbing through results moves from item to item instead of catching on the ? and note buttons.
+- **Your Outfits:** Deleting one variant now deletes only that variant — its sibling variants stay put and stay grouped. Before, deleting a variant could take the rest of the group down with it.
+- **Your Outfits:** Owning an item no longer stops you from adding it to a wishlist — Owned and Wishlisted are just labels; you can still add another copy (say, for a different pet). Previewing a different variant no longer reshuffles your list or scrolls the page, and Pet Style tokens show their real artwork on the tiles.
+- **Closet:** Removed the duplicate "Select all" from a list's header (use the sidebar's "Select all shown"), and the Clipboard and Try On Haul side tabs no longer overlap the Filters panel.
 - **Closet:** Your closet loads right away again — a background sync that keeps Comparison Mode in step was holding up the page from drawing on large, mostly-unsorted closets.
 - **Everywhere:** Buttons and cards on Your Outfits and Customize now show a soft mint hover instead of a jarring green one (or none at all).
 - **Customize:** In the Details view, long value notes no longer run off the edge of the card.

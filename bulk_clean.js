@@ -5762,7 +5762,7 @@
         var _fRawDesc = (l.description || '').replace(/<[^>]*>/g, '').replace(/&[a-z]+;/gi, ' ').replace(/[ \t]+/g, ' ').replace(/\n{3,}/g, '\n\n').trim();
         var _fDescHtml = _fRawDesc ? '<div class=cv2-fly-desc>' + esc(_fRawDesc) + '</div>' : '';
         fly.innerHTML = '<div class=cv2-fly-head id=cv2-fly-head>'
-          + '<div class=cv2-fph-row><span class=cv2-fph-name>' + esc(l.name) + '</span><span class=cv2-fph-spacer></span><span class=cv2-fph-count>' + n + ' items</span>' + (n && !_cv2Visitor ? '<button class=cv2-fph-selall type=button data-cv2-selall aria-label="Select all items currently shown"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span class=cv2-selall-txt>Select all</span></button>' : '') + ((_cv2Visitor || _cv2IsUnlisted(l.id)) ? '' : '<button class=cv2-fph-edit type=button aria-label="Edit list" data-edit-list="' + l.id + '"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>') + '</div>'
+          + '<div class=cv2-fph-row><span class=cv2-fph-name>' + esc(l.name) + '</span><span class=cv2-fph-spacer></span><span class=cv2-fph-count>' + n + ' items</span>' + ((_cv2Visitor || _cv2IsUnlisted(l.id)) ? '' : '<button class=cv2-fph-edit type=button aria-label="Edit list" data-edit-list="' + l.id + '"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>') + '</div>'
           + (_fNick ? '<div class=cv2-fph-nick>' + esc(_fNick) + '</div>' : '')
           + '<div class=cv2-fph-badges>' + _cv2Badges(l) + '</div>'
           + ((_cv2IsUnlisted(l.id) && !_cv2Visitor) ? ('<div class=cv2-fph-unlhint><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l-3 3 3 3"/><path d="M2 12h12"/><path d="M14 5h4a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-4"/></svg><span>These aren’t in a list yet — drag any onto a list on the left to file it.</span></div>') : '')
@@ -6945,6 +6945,45 @@
           }
         });
       };
+
+      const _cv2MoveProg = (function () {
+        var el = null, lbl = null, fill = null;
+        function ensure() {
+          if (el && document.body.contains(el)) return;
+          if (!document.getElementById('cv2-mp-kf')) { var st = document.createElement('style'); st.id = 'cv2-mp-kf'; st.textContent = '@keyframes cv2mpspin{to{transform:rotate(360deg)}}'; document.head.appendChild(st); }
+          el = document.createElement('div'); el.className = 'cv2-move-progress';
+          el.style.cssText = 'position:fixed;left:50%;top:64px;transform:translateX(-50%);z-index:1000050;background:#fff;border:2px solid var(--dtr-primary,#149c8e);border-radius:14px;box-shadow:0 10px 34px rgba(20,80,60,.24);padding:12px 16px 13px;min-width:250px;max-width:90vw;font-family:Nunito,Inter,sans-serif;transition:opacity .3s';
+          el.innerHTML = '<div style="font:800 12.5px Nunito,sans-serif;color:var(--dtr-primary,#149c8e);margin-bottom:8px;display:flex;align-items:center;gap:8px"><span class="cv2-mp-spin" style="width:13px;height:13px;border-radius:50%;border:2px solid #d7ecec;border-top-color:var(--dtr-primary,#149c8e);display:inline-block;animation:cv2mpspin .7s linear infinite;flex:none"></span><span class="cv2-mp-text">Moving…</span></div><div style="height:8px;border-radius:999px;background:#eef3f1;overflow:hidden"><div class="cv2-mp-fill" style="height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,var(--dtr-primary,#149c8e),var(--dtr-pink,#ff97b3));transition:width .18s ease"></div></div>';
+          document.body.appendChild(el); lbl = el.querySelector('.cv2-mp-text'); fill = el.querySelector('.cv2-mp-fill');
+        }
+        return {
+          show: function (total, listName) { ensure(); el.style.opacity = '1'; lbl.textContent = 'Moving 0 of ' + total + (listName ? ' → ' + listName : ''); fill.style.width = '0%'; },
+          update: function (done, total, listName) { if (!el) return; lbl.textContent = 'Moving ' + done + ' of ' + total + (listName ? ' → ' + listName : ''); fill.style.width = Math.round(done / total * 100) + '%'; },
+          done: function (moved, total, failedN) {
+            if (!el) return; var sp = el.querySelector('.cv2-mp-spin'); if (sp) sp.style.display = 'none';
+            fill.style.width = '100%'; if (failedN) fill.style.background = '#d64545';
+            lbl.textContent = failedN ? ('Moved ' + moved + ' of ' + total + ' · ' + failedN + ' failed') : ('Moved ' + moved + ' of ' + total + ' ✓');
+            var _el = el; el = null;
+            setTimeout(function () { if (_el) _el.style.opacity = '0'; }, failedN ? 5200 : 2200);
+            setTimeout(function () { if (_el && _el.parentNode) _el.remove(); }, failedN ? 5700 : 2700);
+          },
+        };
+      })();
+
+      const _cv2ShowMoveFailed = (items) => {
+        try {
+          document.querySelectorAll('.cv2-fail-toast').forEach(function (t) { t.remove(); });
+          var n = items.length;
+          var t = document.createElement('div'); t.className = 'cv2-fail-toast';
+          t.style.cssText = 'position:fixed;left:50%;top:110px;transform:translateX(-50%);max-width:460px;background:#fff;border:2px solid #d64545;border-radius:14px;box-shadow:0 8px 30px rgba(180,40,40,.25);padding:12px 15px;z-index:1000060;font:600 12.5px/1.45 \'Nunito\',Inter,sans-serif;color:#8a2a2a;';
+          var names = items.slice(0, 6).map(function (x) { return (x && x.name) ? x.name : ('#' + (x && x.id)); });
+          t.innerHTML = '⚠︎ <strong>' + (n === 1 ? '1 item could not be moved' : (n + ' items could not be moved')) + '</strong> — they were left where they are (nothing was lost).<div style="margin-top:6px;font-weight:600;color:#a85a5a">' + names.map(function (s) { return esc(s); }).join(', ') + (n > 6 ? ', +' + (n - 6) + ' more' : '') + '</div><div style="margin-top:8px"><button class="cv2-fail-x" style="border:none;background:#f0dede;color:#8a2a2a;font:700 11px Nunito,sans-serif;padding:5px 13px;border-radius:999px;cursor:pointer">Dismiss</button></div>';
+          document.body.appendChild(t);
+          t.querySelector('.cv2-fail-x').addEventListener('click', function () { t.remove(); });
+          setTimeout(function () { if (t.parentNode) t.style.opacity = '0'; }, 11000);
+          setTimeout(function () { if (t.parentNode) t.remove(); }, 11500);
+        } catch (_) {}
+      };
       const _cv2MoveItems = async (itemIds, targetListId, targetCard, dropX, dropY, srcOverride, itemsOverride) => {
         if (_cv2Visitor) return;
         if (!itemIds.length) return;
@@ -6960,6 +6999,8 @@
         var moved = [];
         var moveInfo = {};
         var skipped = [];
+        var failed = [];
+        var tasks = [];
         for (var i = 0; i < itemIds.length; i++) {
           var iid = String(itemIds[i]);
           var _srcPool = itemsOverride || (_cv2ActiveList ? _cv2ActiveList.items : []) || [];
@@ -7022,13 +7063,38 @@
           _lists[_srcKey] = remaining;
           _lists[_tgt] = (parseInt(itemQtys[_tgt], 10) || 0) + 1;
           Object.keys(_lists).forEach(function(lid){ body.set('quantity[' + lid + ']', String(_lists[lid])); });
-          try {
-            var resp = await fetch(action, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-CSRF-Token': csrf }, body: body.toString(), credentials: 'include' });
-            if (resp.ok && it) { moved.push(it); moveInfo[iid] = { remaining: remaining, leaves: qtyInSrc <= 1, srcQty: qtyInSrc, srcLid: srcLid }; }
-          } catch (_) {}
+
+          tasks.push({ iid: iid, it: it, action: action, body: body.toString(), remaining: remaining, qtyInSrc: qtyInSrc, srcLid: srcLid });
         }
+
+        var _total = tasks.length;
+        var _listName = ''; try { var _tl = (_cv2Lists || []).find(function (l) { return String(l.id) === String(targetListId); }); _listName = _tl ? _tl.name : ''; } catch (_) {}
+        var _showProg = _total >= 8;
+        if (_showProg) _cv2MoveProg.show(_total, _listName);
+        var _done = 0, _next = 0;
+        const _runOne = async (t) => {
+          for (var _a = 0; _a < 3; _a++) {
+            try {
+              var resp = await fetch(t.action, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-CSRF-Token': csrf }, body: t.body, credentials: 'include' });
+              if (resp.ok) { if (t.it) { moved.push(t.it); moveInfo[t.iid] = { remaining: t.remaining, leaves: t.qtyInSrc <= 1, srcQty: t.qtyInSrc, srcLid: t.srcLid }; } return; }
+            } catch (_) {}
+            if (_a < 2) await new Promise(function (r) { setTimeout(r, 300 * (_a + 1)); });
+          }
+          if (t.it) failed.push(t.it);
+        };
+        const _worker = async () => {
+          while (_next < tasks.length) {
+            var t = tasks[_next++];
+            await _runOne(t);
+            _done++;
+            if (_showProg) _cv2MoveProg.update(_done, _total, _listName);
+          }
+        };
+        if (_total) await Promise.all(Array.from({ length: Math.min(8, _total) }, _worker));
+        if (_showProg) _cv2MoveProg.done(moved.length, _total, failed.length);
         var _toastSrc = (moved.length && moveInfo[String(moved[0].id)] && moveInfo[String(moved[0].id)].srcLid) ? moveInfo[String(moved[0].id)].srcLid : srcListId;
-        if (moved.length) { _cv2ApplyMove(moved, _toastSrc, targetListId, moveInfo); _cv2ShowMoveToast(moved, targetListId, targetCard, dropX, dropY, _toastSrc, moveInfo); }
+        if (moved.length) { _cv2ApplyMove(moved, _toastSrc, targetListId, moveInfo); if (!_showProg) _cv2ShowMoveToast(moved, targetListId, targetCard, dropX, dropY, _toastSrc, moveInfo); }
+        if (failed.length) { _cv2ShowMoveFailed(failed); }
         if (skipped.length) { _cv2ShowMoveSkipped(skipped); }
         try {  } catch (_) {}
         _cv2ClearSel();
@@ -7447,11 +7513,11 @@
             var leftX, topY;
 
             var _findInp = document.getElementById('cv2-find-input');
-            if (_findInp) {
-              topY = Math.round(_findInp.getBoundingClientRect().bottom + 50);
-            } else if (filters) {
-              var fb = filters.getBoundingClientRect();
-              topY = Math.round(fb.bottom + VGAP);
+            if (filters) {
+
+              topY = Math.round(filters.getBoundingClientRect().bottom + 18);
+            } else if (_findInp) {
+              topY = Math.round(_findInp.getBoundingClientRect().bottom + 60);
             } else {
               topY = Math.round(window.innerHeight / 2);
             }
@@ -11685,6 +11751,10 @@
         '.dtr-yo-thumbinner{position:relative}',
         '.dtr-yo-thumbinner img{width:100%;aspect-ratio:1;object-fit:contain;display:block;border-radius:12px;background:#fff;cursor:pointer}',
 
+        '.dtr-yo-layers{position:absolute;inset:0;border-radius:12px;overflow:hidden;background:#fff;pointer-events:none}',
+        '.dtr-yo-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}',
+        '.dtr-yo-layered>img[data-yo-open]{opacity:0}',
+
         '.dtr-yo-star{position:absolute;top:6px;left:6px;z-index:3;width:27px;height:27px;border-radius:50%;border:1.5px solid var(--dtr-accent,#ff8576);background:#fff;color:#f0ad3a;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;opacity:0;transition:opacity .12s}',
         '.dtr-yo-card:hover .dtr-yo-star,.dtr-yo-star.on{opacity:1}',
         '.dtr-yo-star.on{background:#f0ad3a;color:#fff}',
@@ -11708,6 +11778,18 @@
         '.dtr-yo-body{padding:9px 11px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;flex:1}',
         '.dtr-yo-name{font:700 13px/1.3 "Nunito",sans-serif;color:#3a3a35;word-break:break-word;cursor:pointer;text-decoration:none}',
         '.dtr-yo-name:hover{text-decoration:underline;text-underline-offset:2px}',
+
+        '.dtr-yo-namewrap{display:inline-flex;align-items:center;gap:5px;max-width:100%;justify-content:center}',
+        '.dtr-yo-strip-head .dtr-yo-namewrap{justify-content:flex-start}',
+        '.dtr-yo-rename-btn{flex:none;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:999px;border:none;background:transparent;color:#bcb6a8;cursor:pointer;padding:0;opacity:0;transition:opacity .12s,background .12s,color .12s}',
+        '.dtr-yo-card:hover .dtr-yo-rename-btn,.dtr-yo-strip-head:hover .dtr-yo-rename-btn,.dtr-yo-series-cards .dtr-yo-card:hover .dtr-yo-rename-btn{opacity:1}',
+        '.dtr-yo-rename-btn:hover{background:var(--dtr-primary-bg,#e7f6f2);color:var(--dtr-primary,#149c8e)}',
+        '.dtr-yo-namewrap.editing{width:100%;gap:4px}',
+        '.dtr-yo-rename-input{flex:1;min-width:0;font:700 13px "Nunito",sans-serif;color:#3a3a35;background:#fff;border:1.5px solid var(--dtr-primary-line,#cfe7e0);border-radius:9px;padding:5px 9px;outline:none}',
+        '.dtr-yo-rename-input:focus{border-color:var(--dtr-primary,#149c8e);box-shadow:0 0 0 3px var(--dtr-primary-bg,#e7f6f2)}',
+        '.dtr-yo-rename-ok,.dtr-yo-rename-x{flex:none;width:26px;height:26px;border-radius:999px;border:none;cursor:pointer;font:700 12px/1 "Nunito",sans-serif;display:inline-flex;align-items:center;justify-content:center}',
+        '.dtr-yo-rename-ok{background:var(--dtr-primary,#149c8e);color:#fff}',
+        '.dtr-yo-rename-x{background:#f0ece1;color:#9a948a}',
         '.dtr-yo-meta{font:600 11px "Nunito",sans-serif;color:#948fa0}',
 
         '.dtr-yo-dates{font:600 9px "Nunito",sans-serif;color:#bcb8ad;line-height:1.4}',
@@ -11723,7 +11805,7 @@
         '.dtr-yo-vthumb.sel{background:var(--dtr-stripe,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a))}',
         '.dtr-yo-vthumb.hid>span{opacity:.45}',
 
-        '.dtr-yo-vthumb>.dtr-yo-vnum{position:absolute;top:-4px;left:-4px;z-index:4;min-width:20px;height:20px;padding:0 5px;box-sizing:border-box;border-radius:999px;background:rgba(40,36,30,.66);color:#fff;display:flex;align-items:center;justify-content:center;font:800 11px/1 "Nunito",sans-serif;box-shadow:0 1px 4px rgba(0,0,0,.28)}',
+        '.dtr-yo-vthumb>.dtr-yo-vnum{position:absolute;top:-4px;left:-4px;z-index:4;min-width:20px;width:auto;height:20px;padding:0 5px;box-sizing:border-box;border-radius:999px;background:rgba(40,36,30,.66);color:#fff;display:flex;align-items:center;justify-content:center;font:800 11px/1 "Nunito",sans-serif;box-shadow:0 1px 4px rgba(0,0,0,.28)}',
 
         '.dtr-yo-vthumb>.dtr-yo-vheart{position:absolute;top:-5px;right:-5px;z-index:3;width:20px;height:20px;padding:0;border-radius:50%;background:#fff;color:#d6cabd;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.22);cursor:pointer;opacity:0;transition:opacity .12s,color .12s,transform .1s;border:none}',
         '.dtr-yo-vthumb:hover>.dtr-yo-vheart{opacity:1}',
@@ -11733,13 +11815,20 @@
 
         '.dtr-yo-card.strip{flex-direction:row;align-items:stretch}',
 
-        '.dtr-yo-card.strip{min-height:360px}',
+        '.dtr-yo-card.strip{min-height:0}',
         '.dtr-yo-strip-rail{flex:none;width:116px;display:flex;flex-direction:column;align-items:center;gap:9px;padding:12px 8px;background:#faf8f2;border-right:1px dashed #efe7da;overflow-y:auto}',
         '.dtr-yo-strip-rail .dtr-yo-vthumb{width:92px;height:92px}',
-        '.dtr-yo-strip-center{flex:0 0 40%;min-width:0;display:flex;flex-direction:column}',
-        '.dtr-yo-strip-center .dtr-yo-thumb{padding:14px}',
-        '.dtr-yo-strip-center .dtr-yo-body{padding:2px 12px 14px}',
-        '.dtr-yo-strip-items{flex:1;min-width:0;border-left:1px dashed #efe7da;padding:13px 14px;display:flex;flex-direction:column}',
+
+        '.dtr-yo-strip-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;padding:14px 16px}',
+        '.dtr-yo-strip-top{display:flex;gap:16px;align-items:flex-start}',
+        '.dtr-yo-strip-pet{flex:none;width:200px;max-width:40%}',
+        '.dtr-yo-strip-pet .dtr-yo-thumb{padding:0}',
+        '.dtr-yo-strip-side{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;padding-top:2px}',
+
+        '.dtr-yo-veyebrow{font:800 8.5px "Nunito",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#b0aea4;margin:2px 0 5px}',
+        '.dtr-yo-strip-variants{display:flex;flex-wrap:wrap;gap:18px 20px;padding:7px 6px 2px}',
+        '.dtr-yo-strip-variants .dtr-yo-vthumb{width:80px;height:80px}',
+        '.dtr-yo-strip-variants .dtr-yo-vthumb.sel{box-shadow:0 3px 11px rgba(255,151,179,.4)}',
         '.dtr-yo-strip-items h4{margin:0 0 9px;font:800 9px "Nunito",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#b0aea4}',
         '.dtr-yo-itemlist{flex:1;min-height:0;display:flex;flex-direction:column;gap:5px;overflow-y:auto}',
 
@@ -11757,6 +11846,64 @@
         '.dtr-yo-ib.own{background:#ece0cd;color:#8a6638}',
         '.dtr-yo-ib.want{background:linear-gradient(135deg,#e9e3f4,#f2e2ec);color:#8a76aa}',
         '.dtr-yo-itemempty{font:600 11px "Nunito",sans-serif;color:#b3b3a8;padding:4px 2px}',
+
+        '.dtr-yo-strip-head{display:flex;flex-direction:column;gap:4px;align-items:flex-start;max-width:calc(100% - 150px)}',
+
+        '.dtr-yo-card.strip{position:relative}',
+        '.dtr-yo-strip-dates{position:absolute;top:13px;right:16px;text-align:right;z-index:2;pointer-events:none}',
+        '.dtr-yo-wcount{font:800 8.5px "Nunito",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#8a8575;background:#f4f1e8;padding:3px 9px;border-radius:999px}',
+        '.dtr-yo-name.big{font-size:16px;font-weight:800}',
+        '.dtr-yo-strip-head .dtr-yo-chips{justify-content:flex-start}',
+        '.dtr-yo-bulkbar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:7px 9px;border-radius:12px;background:#faf6ee;border:1px solid #efe7da}',
+        '.dtr-yo-selcount{font:800 8.5px "Nunito",sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#8a8575}',
+        '.dtr-yo-bulkbtn{font:700 10.5px "Nunito",sans-serif;color:var(--dtr-primary,#149c8e);background:var(--dtr-primary-bg,#e7f6f2);border:none;padding:5px 11px;border-radius:999px;cursor:pointer;transition:filter .1s}',
+        '.dtr-yo-bulkbtn:hover{filter:brightness(.97)}',
+        '.dtr-yo-wladd-wrap{position:relative;margin-left:auto}',
+        '.dtr-yo-wladd{font:800 10.5px "Nunito",sans-serif;color:#fff;background:var(--dtr-accent,#ff8576);border:none;padding:6px 13px;border-radius:999px;cursor:pointer;box-shadow:0 2px 8px rgba(255,133,118,.32);transition:filter .1s}',
+        '.dtr-yo-wladd:hover{filter:brightness(1.05)}',
+        '.dtr-yo-wladd.dis{opacity:.45;cursor:default;box-shadow:none}',
+        '.dtr-yo-wlmenu{position:absolute;top:calc(100% + 6px);right:0;z-index:40;min-width:180px;max-width:250px;background:#fff;border:1px solid #ece5d6;border-radius:13px;box-shadow:0 10px 30px rgba(60,50,40,.18);padding:7px;max-height:260px;overflow-y:auto}',
+        '.dtr-yo-wlnote{font:600 10px "Nunito",sans-serif;color:#b0aa9c;padding:3px 8px 5px;line-height:1.4}',
+        '.dtr-yo-itemgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}',
+        '.dtr-yo-wcard{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:13px 9px 10px;border-radius:13px;background:#faf8f2;border:2px solid transparent;cursor:pointer;transition:background .1s,border-color .1s,box-shadow .1s}',
+        '.dtr-yo-wcard:hover{background:#fff;border-color:var(--dtr-primary-line,#cfe7e0)}',
+        '.dtr-yo-wcard.sel{background:linear-gradient(#fff,#fff) padding-box,var(--dtr-stripe,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a)) border-box;border:2px solid transparent;box-shadow:0 3px 11px rgba(0,0,0,.08)}',
+        '.dtr-yo-wcard.done{opacity:.72;cursor:default}',
+        '.dtr-yo-wcard.tok,.dtr-yo-wcard.tok:hover{cursor:default;background:#faf8f2;border-color:transparent}',
+        '.dtr-yo-wcheck{position:absolute;top:7px;right:7px;width:18px;height:18px;border-radius:6px;border:2px solid #d8d2c4;background:#fff;transition:background .1s,border-color .1s}',
+
+        '#dtr-yo-root .dtr-card-info{position:absolute;top:6px;left:6px;z-index:6;width:22px;height:22px;display:flex;align-items:center;justify-content:center}',
+        '#dtr-yo-root .dtr-info-btn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:999px;background:var(--dtr-primary-bg,#eaf5f0);border:1px solid #a8d4c4;cursor:pointer;padding:0;font:700 12px/1 Georgia,serif;color:#5a9a82;box-shadow:0 1px 3px rgba(0,0,0,.12);opacity:.9;flex-shrink:0}',
+        '#dtr-yo-root .dtr-info-btn:hover{background:#d6f0e8;border-color:#6ab89a;color:#2d6a4e;opacity:1;box-shadow:0 0 0 2px rgba(106,184,154,.3)}',
+        '.dtr-yo-wcard.sel .dtr-yo-wcheck{background:var(--dtr-stripe,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a));border-color:transparent}',
+        '.dtr-yo-wcard.sel .dtr-yo-wcheck::after,.dtr-yo-wcard.done .dtr-yo-wcheck::after{content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}',
+        '.dtr-yo-wcard.done .dtr-yo-wcheck{background:var(--dtr-accent,#ff8576);border-color:var(--dtr-accent,#ff8576)}',
+        '.dtr-yo-wcard.tok .dtr-yo-wcheck{display:none}',
+        '.dtr-yo-wopen{position:absolute;top:5px;right:6px;width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:6px;color:#b7b1a4;font:700 12px/1 "Nunito",sans-serif;text-decoration:none;opacity:0;transition:opacity .12s,background .12s,color .12s}',
+        '.dtr-yo-wcard:hover .dtr-yo-wopen{opacity:1}',
+        '.dtr-yo-wopen:hover{background:#f0ece1;color:var(--dtr-primary,#149c8e)}',
+        '.dtr-yo-wthumb{width:58px;height:58px;border-radius:10px;background:#fff center/contain no-repeat;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}',
+        '.dtr-yo-wthumb.tok{display:flex;align-items:center;justify-content:center;color:#9a7ec0;font-size:26px;box-shadow:none;background:#f6f0fc}',
+        '.dtr-yo-wname{font:600 11px "Nunito",sans-serif;color:#2a4a3a;line-height:1.25;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}',
+        '.dtr-yo-wbadge{min-height:16px;display:flex;align-items:center;justify-content:center}',
+
+        '.dtr-yo-val{font:800 8px "Nunito",sans-serif;letter-spacing:.02em;padding:2px 9px;border-radius:6px;border:1px solid;white-space:nowrap}',
+        '.dtr-yo-val-val{background:#fdeef2;border-color:#f4b9cf;color:#b23a6a}',
+        '.dtr-yo-val-unreported{background:#fdeef2;border-color:#f4b9cf;color:#b23a6a;font-style:italic;opacity:.85}',
+        '.dtr-yo-val-np{background:#eef4ff;border-color:#a9c9f5;color:#2b6cb0}',
+        '.dtr-yo-toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%);background:#fff;border:2px solid var(--dtr-primary,#149c8e);border-radius:999px;box-shadow:0 8px 28px rgba(40,60,50,.2);padding:10px 18px;z-index:100002;font:700 12.5px/1.3 "Nunito",sans-serif;color:var(--dtr-primary,#149c8e);max-width:90vw;transition:opacity .3s}',
+        '.dtr-yo-toast.at{bottom:auto;transform:translate(-50%,-50%);white-space:normal;text-align:center;line-height:1.5;max-width:280px;padding:13px 20px;border-radius:16px}',
+        '.dtr-yo-toast.at strong{color:#3a3a35}',
+        '.dtr-yo-toast-tick{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:var(--dtr-primary,#149c8e);color:#fff;font-size:12px;margin-right:6px;vertical-align:-4px}',
+
+        '.dtr-yo-draggable{cursor:grab}',
+        '.dtr-yo-draggable:active{cursor:grabbing}',
+        '.dtr-yo-vdraggable{cursor:grab}',
+        '.dtr-yo-vdraggable:active{cursor:grabbing}',
+        '.dtr-yo-dragging{opacity:.45}',
+        '.dtr-yo-droptarget{position:relative;box-shadow:0 0 0 3px var(--dtr-primary,#149c8e),0 8px 22px rgba(20,156,142,.28)!important;border-radius:16px}',
+        '.dtr-yo-droptarget::after{content:"＋ Drop to add as a variant";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;background:rgba(231,246,242,.86);color:var(--dtr-primary,#149c8e);font:800 12.5px "Nunito",sans-serif;border-radius:14px;pointer-events:none;z-index:9}',
+        'body.dtr-yo-ungroup-armed::after{content:"Drop here to make it a standalone outfit";position:fixed;left:50%;bottom:40px;transform:translateX(-50%);background:var(--dtr-accent,#ff8576);color:#fff;font:800 12px "Nunito",sans-serif;padding:10px 18px;border-radius:999px;z-index:100055;box-shadow:0 6px 20px rgba(255,133,118,.4);pointer-events:none}',
 
         '.dtr-yo-series{grid-column:1/-1;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.85);border-radius:16px;padding:12px 13px;margin-bottom:2px}',
         '.dtr-yo-series-head{display:flex;align-items:center;gap:9px;margin:0 2px 11px}',
@@ -11797,7 +11944,7 @@
     _yoLoad();
   }
 
-  var _yo = { outfits: null, q: '', sort: 'created_desc', sortOpen: false, showHidden: false, sel: {}, delConfirm: null, itemNames: null, spco: null, err: null,
+  var _yo = { outfits: null, q: '', sort: 'created_desc', sortOpen: false, showHidden: false, sel: {}, stripSel: {}, renaming: null, delConfirm: null, itemNames: null, spco: null, err: null,
     view: (function () { try { var v = String(GM_getValue('dtr_yo_view', 'stack')); return (v === 'strip' || v === 'flat') ? v : 'stack'; } catch (_) { return 'stack'; } })() };
   function _yoEsc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]; }); }
   function _yoNorm(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim(); }
@@ -11824,6 +11971,29 @@
         _yo.outfits = Array.isArray(arr) ? arr : [];
         _yoRender();
 
+        _yo.lebron = _yoGM('dtr_lebron', {}) || {};
+        (function () {
+          var last = 0; try { last = parseInt(GM_getValue('dtr_lebron_ts', '0'), 10) || 0; } catch (_) {}
+          if (Object.keys(_yo.lebron).length && (Date.now() - last) < 172800000) return;
+          fetch('https://lebron-values.netlify.app/item_values.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+            if (d && typeof d === 'object') { _yo.lebron = d; try { GM_setValue('dtr_lebron', JSON.stringify(d)); GM_setValue('dtr_lebron_ts', String(Date.now())); } catch (_) {} _yoRender(); }
+          }).catch(function () {});
+        })();
+
+        _yo.psThumbs = _yoGM('dtr_ps_thumbs', {}) || {};
+        (function () {
+          var bySp = {};
+          _yo.outfits.forEach(function (o) { if (o.alt_style_id && o.species_id && !_yo.psThumbs[String(o.alt_style_id)]) bySp[String(o.species_id)] = 1; });
+          var sps = Object.keys(bySp); if (!sps.length) return;
+          Promise.all(sps.map(function (sp) {
+            return fetch('/species/' + encodeURIComponent(sp) + '/alt-styles.json', { headers: { 'Accept': 'application/json' } }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+          })).then(function (lists) {
+            var changed = false;
+            lists.forEach(function (data) { if (Array.isArray(data)) data.forEach(function (x) { if (x && x.id && x.thumbnail_url) { _yo.psThumbs[String(x.id)] = x.thumbnail_url; changed = true; } }); });
+            if (changed) { try { GM_setValue('dtr_ps_thumbs', JSON.stringify(_yo.psThumbs)); } catch (_) {} _yoRender(); }
+          });
+        })();
+
         _yo.spco = _yoGM('dtr_spco_names', null);
         if (!_yo.spco) {
           _yoGql('{allSpecies{id name} allColors{id name}}').then(function (j) {
@@ -11839,26 +12009,28 @@
         var cacheNames = _yoGM('dtr_item_names', {});
         var cacheThumbs = _yoGM('dtr_item_thumbs', {});
         var cacheZones = _yoGM('dtr_item_zones', {});
+        var cacheNc = _yoGM('dtr_item_nc', {});
         var want = {};
 
-        _yo.outfits.forEach(function (o) { (((o.item_ids || {}).worn) || []).forEach(function (id) { if (!cacheNames[String(id)] || !cacheThumbs[String(id)] || !cacheZones[String(id)]) want[String(id)] = 1; }); });
+        _yo.outfits.forEach(function (o) { (((o.item_ids || {}).worn) || []).forEach(function (id) { if (!cacheNames[String(id)] || !cacheThumbs[String(id)] || !cacheZones[String(id)] || cacheNc[String(id)] === undefined) want[String(id)] = 1; }); });
         var missing = Object.keys(want);
-        _yo.itemNames = cacheNames; _yo.itemThumbs = cacheThumbs; _yo.itemZones = cacheZones;
+        _yo.itemNames = cacheNames; _yo.itemThumbs = cacheThumbs; _yo.itemZones = cacheZones; _yo.itemNc = cacheNc;
         if (missing.length) {
           var chunks = []; for (var i = 0; i < missing.length; i += 120) chunks.push(missing.slice(i, i + 120));
 
           Promise.all(chunks.map(function (ch) {
             return fetch('https://impress-2020.openneo.net/api/graphql', {
               method: 'POST', headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ query: 'query($ids:[ID!]!){items(ids:$ids){id name thumbnailUrl allOccupiedZones{id depth}}}', variables: { ids: ch.map(String) } }),
+              body: JSON.stringify({ query: 'query($ids:[ID!]!){items(ids:$ids){id name thumbnailUrl isNc allOccupiedZones{id depth}}}', variables: { ids: ch.map(String) } }),
             }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
           })).then(function (results) {
             var got = 0;
-            results.forEach(function (j) { (((j || {}).data || {}).items || []).forEach(function (it) { if (it && it.id) { got++; cacheNames[String(it.id)] = it.name || ''; if (it.thumbnailUrl) cacheThumbs[String(it.id)] = it.thumbnailUrl; cacheZones[String(it.id)] = (it.allOccupiedZones || []).map(function (z) { return { i: String(z.id), d: z.depth || 0 }; }); } }); });
+            results.forEach(function (j) { (((j || {}).data || {}).items || []).forEach(function (it) { if (it && it.id) { got++; cacheNames[String(it.id)] = it.name || ''; if (it.thumbnailUrl) cacheThumbs[String(it.id)] = it.thumbnailUrl; cacheZones[String(it.id)] = (it.allOccupiedZones || []).map(function (z) { return { i: String(z.id), d: z.depth || 0 }; }); cacheNc[String(it.id)] = !!it.isNc; } }); });
             try { GM_setValue('dtr_item_names', JSON.stringify(cacheNames)); } catch (_) {}
             try { GM_setValue('dtr_item_thumbs', JSON.stringify(cacheThumbs)); } catch (_) {}
             try { GM_setValue('dtr_item_zones', JSON.stringify(cacheZones)); } catch (_) {}
-            _yo.itemNames = cacheNames; _yo.itemThumbs = cacheThumbs; _yo.itemZones = cacheZones;
+            try { GM_setValue('dtr_item_nc', JSON.stringify(cacheNc)); } catch (_) {}
+            _yo.itemNames = cacheNames; _yo.itemThumbs = cacheThumbs; _yo.itemZones = cacheZones; _yo.itemNc = cacheNc;
             try {  } catch (_) {}
             _yoRender();
           });
@@ -11889,6 +12061,56 @@
     var m = _yoTopMap();
     if (String(m[gKey]) === String(id)) delete m[gKey]; else m[gKey] = String(id);
     try { GM_setValue('dtr_yo_top', JSON.stringify(m)); } catch (_) {}
+  }
+
+  function _yoGroupMembers(store, id) {
+    var m = Array.isArray(store[String(id)]) ? store[String(id)].map(String) : [];
+    if (m.indexOf(String(id)) === -1) m = [String(id)].concat(m);
+    return m;
+  }
+  function _yoMergeGroups(dragId, targetId) {
+    dragId = String(dragId); targetId = String(targetId);
+    if (dragId === targetId) return false;
+    var store = _yoGM('dtr_oe_variant_groups', {});
+    var valid = {}; (_yo.outfits || []).forEach(function (o) { valid[String(o.id)] = 1; });
+    var union = {};
+    _yoGroupMembers(store, targetId).forEach(function (m) { if (valid[m]) union[m] = 1; });
+    _yoGroupMembers(store, dragId).forEach(function (m) { if (valid[m]) union[m] = 1; });
+    var list = Object.keys(union);
+    if (list.length < 2) return false;
+    list.forEach(function (m) { store[m] = list.slice(); });
+    try { GM_setValue('dtr_oe_variant_groups', JSON.stringify(store)); } catch (_) {}
+    return true;
+  }
+
+  function _yoMoveVariantToGroup(vId, targetId) {
+    vId = String(vId); targetId = String(targetId);
+    if (vId === targetId) return false;
+    var store = _yoGM('dtr_oe_variant_groups', {});
+    var valid = {}; (_yo.outfits || []).forEach(function (o) { valid[String(o.id)] = 1; });
+    var tgt = _yoGroupMembers(store, targetId).filter(function (m) { return valid[m]; });
+    if (tgt.indexOf(vId) !== -1) return false;
+    var srcRemain = _yoGroupMembers(store, vId).filter(function (m) { return valid[m] && m !== vId; });
+    if (srcRemain.length >= 2) { srcRemain.forEach(function (m) { store[m] = srcRemain.slice(); }); }
+    else { srcRemain.forEach(function (m) { delete store[m]; }); }
+    delete store[vId];
+    var grp = tgt.slice(); grp.push(vId);
+    grp.forEach(function (m) { store[m] = grp.slice(); });
+    try { GM_setValue('dtr_oe_variant_groups', JSON.stringify(store)); } catch (_) {}
+    return true;
+  }
+
+  function _yoUngroupVariant(vId) {
+    vId = String(vId);
+    var store = _yoGM('dtr_oe_variant_groups', {});
+    var valid = {}; (_yo.outfits || []).forEach(function (o) { valid[String(o.id)] = 1; });
+    var srcRemain = _yoGroupMembers(store, vId).filter(function (m) { return valid[m] && m !== vId; });
+    if (!srcRemain.length) return false;
+    if (srcRemain.length >= 2) { srcRemain.forEach(function (m) { store[m] = srcRemain.slice(); }); }
+    else { srcRemain.forEach(function (m) { delete store[m]; }); }
+    delete store[vId];
+    try { GM_setValue('dtr_oe_variant_groups', JSON.stringify(store)); } catch (_) {}
+    return true;
   }
 
   function _yoVisibleWorn(o) {
@@ -11926,6 +12148,257 @@
     return _yoOwnCache;
   }
   function _yoItemSlug(nm) { return String(nm || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+  function _yoMyLists() { try { var c = JSON.parse(GM_getValue('dtr_my_lists_cache', 'null')); return (c && c.slug && Array.isArray(c.lists)) ? c : null; } catch (_) { return null; } }
+  function _yoMyWishlists() { var c = _yoMyLists(); return c ? c.lists.filter(function (l) { return l.ownsOrWantsItems === 'WANTS'; }) : []; }
+
+  async function _yoAddItemToList(itemId, name, listId) {
+    var c = _yoMyLists(); if (!c || !itemId || !listId) return false;
+    var list = c.lists.find(function (l) { return String(l.id) === String(listId); }); if (!list) return false;
+    if ((list.itemIds || []).indexOf(String(itemId)) !== -1) return 'exists';
+    var csrf = (document.querySelector('meta[name=csrf-token]') || {}).content || ''; if (!csrf) return false;
+    var slug = String(name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    var action = '/user/' + c.slug + '/items/' + itemId + '-' + slug + '/closet_hangers/update_quantities';
+    var body = new URLSearchParams(); body.set('_method', 'put'); body.set('authenticity_token', csrf); body.set('quantity[' + listId + ']', '1');
+    try {
+      var resp = await fetch(action, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-CSRF-Token': csrf }, body: body.toString(), credentials: 'include' });
+      if (resp.ok) { try { list.itemIds = (list.itemIds || []).concat([String(itemId)]); GM_setValue('dtr_my_lists_cache', JSON.stringify(c)); } catch (_) {} return true; }
+    } catch (_) {}
+    return false;
+  }
+
+  function _yoToast(msg) {
+    try {
+      var host = document.getElementById('dtr-yo-root') || document.body; if (!host) return;
+      host.querySelectorAll('.dtr-yo-toast').forEach(function (t) { t.remove(); });
+      var t = document.createElement('div'); t.className = 'dtr-yo-toast'; t.textContent = msg;
+      host.appendChild(t);
+      setTimeout(function () { t.style.opacity = '0'; }, 2600);
+      setTimeout(function () { t.remove(); }, 3000);
+    } catch (_) {}
+  }
+
+  function _yoToastAt(html, x, y) {
+    try {
+      var host = document.getElementById('dtr-yo-root') || document.body; if (!host) return;
+      host.querySelectorAll('.dtr-yo-toast').forEach(function (t) { t.remove(); });
+      var t = document.createElement('div'); t.className = 'dtr-yo-toast at'; t.innerHTML = html;
+      t.style.left = Math.round(x) + 'px'; t.style.top = Math.round(y) + 'px';
+      host.appendChild(t);
+      var w = t.offsetWidth, hh = t.offsetHeight;
+      t.style.left = Math.round(Math.min(window.innerWidth - w / 2 - 10, Math.max(w / 2 + 10, x))) + 'px';
+      t.style.top = Math.round(Math.min(window.innerHeight - hh / 2 - 10, Math.max(hh / 2 + 10, y))) + 'px';
+      setTimeout(function () { t.style.opacity = '0'; }, 5200);
+      setTimeout(function () { t.remove(); }, 5700);
+    } catch (_) {}
+  }
+
+  function _yoUpdateBulkBar(oid) {
+    var sel = _yo.stripSel[oid] || {}, n = Object.keys(sel).length;
+    var bar = document.querySelector('[data-yo-bulkbar="' + oid + '"]'); if (!bar) return;
+    var cnt = bar.querySelector('[data-yo-selcount]'); if (cnt) cnt.textContent = n ? (n + ' selected') : 'Select wearables';
+    var addBtn = bar.querySelector('[data-yo-wladd]'); if (addBtn) { addBtn.disabled = !n; addBtn.classList.toggle('dis', !n); }
+  }
+
+  async function _yoAddSelectedToWishlist(oid, listId) {
+    var sel = _yo.stripSel[oid] || {}, ids = Object.keys(sel); if (!ids.length) return;
+    var menu = document.querySelector('[data-yo-wlmenu="' + oid + '"]'); if (menu) menu.hidden = true;
+    var lw = _yoMyWishlists().find(function (l) { return String(l.id) === String(listId); });
+    var listName = (lw && lw.name) || 'wishlist';
+    var ok = 0, fail = 0;
+    for (var k = 0; k < ids.length; k++) {
+      var iid = ids[k];
+      var nm = (_yo.itemNames && _yo.itemNames[iid]) || '';
+      var res = await _yoAddItemToList(iid, nm, listId);
+      if (res === true || res === 'exists') {
+        ok++;
+        var card = document.querySelector('[data-yo-wsel="' + oid + ':' + iid + '"]');
+        if (card) {
+          card.classList.remove('sel'); card.setAttribute('data-wished', '1');
+          var bh = card.querySelector('[data-yo-wbadge]'); if (bh) bh.innerHTML = '<span class="dtr-yo-ib want">Wishlisted</span>';
+        }
+        delete _yo.stripSel[oid][iid];
+      } else { fail++; }
+    }
+    _yoOwnCache = null;
+    _yoUpdateBulkBar(oid);
+    _yoToast(ok ? ('Added ' + ok + ' to “' + listName + '”' + (fail ? ' · ' + fail + ' failed' : '')) : 'Could not add — try again.');
+  }
+
+  var _YO_PENCIL_SVG = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>';
+  function _yoNameBlock(o, big) {
+    var oid = String(o.id);
+    if (String(_yo.renaming) === oid) {
+      return '<span class="dtr-yo-namewrap editing">'
+        + '<input class="dtr-yo-rename-input" data-yo-rename-input="' + oid + '" value="' + _yoEsc(o.name || '') + '" maxlength="80" placeholder="Outfit name">'
+        + '<button type="button" class="dtr-yo-rename-ok" data-yo-rename-save="' + oid + '" title="Save name" aria-label="Save">✓</button>'
+        + '<button type="button" class="dtr-yo-rename-x" data-yo-rename-cancel="' + oid + '" title="Cancel" aria-label="Cancel">✕</button>'
+        + '</span>';
+    }
+    return '<span class="dtr-yo-namewrap">'
+      + '<a class="dtr-yo-name' + (big ? ' big' : '') + '" data-yo-open="' + oid + '" href="/outfits/' + oid + '">' + _yoEsc(o.name || 'My Outfit') + '</a>'
+      + '<button type="button" class="dtr-yo-rename-btn" data-yo-rename="' + oid + '" title="Rename this outfit" aria-label="Rename">' + _YO_PENCIL_SVG + '</button>'
+      + '</span>';
+  }
+  function _yoCommitRename(oid, name) {
+    name = String(name || '').trim();
+    var o = (_yo.outfits || []).find(function (x) { return String(x.id) === String(oid); });
+    _yo.renaming = null; _yo._renameFocus = false;
+    if (!o) { _yoRender(); return; }
+    if (!name || name === o.name) { _yoRender(); return; }
+    var prev = o.name; o.name = name; _yoRender();
+    var csrf = ((document.querySelector('meta[name="csrf-token"]') || {}).content) || '';
+    fetch('/outfits/' + encodeURIComponent(oid), {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-CSRF-Token': csrf, 'Accept': 'application/json' },
+      body: 'outfit%5Bname%5D=' + encodeURIComponent(name), credentials: 'include',
+    }).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); })
+      .catch(function (err) {  o.name = prev; _yoRender(); _yoToast('Rename failed — try again.'); });
+  }
+
+  var _yoZC = {}, _yoZFetch = {};
+  function _yoTipEl() { var t = document.getElementById('dtr-yo-info-tip'); if (!t) { t = document.createElement('div'); t.className = 'dia-ui-tooltip'; t.id = 'dtr-yo-info-tip'; document.body.appendChild(t); } return t; }
+  function _yoFetchItemInfo(id) {
+    var sid = String(id);
+    if (_yoZC[sid]) return Promise.resolve(_yoZC[sid]);
+    if (_yoZFetch[sid]) return _yoZFetch[sid];
+    _yoZFetch[sid] = fetch('/items/' + sid, { credentials: 'include' }).then(function (r) { return r.text(); }).then(function (txt) {
+      var doc = new DOMParser().parseFromString(txt, 'text/html'), occ = [], res = [];
+      doc.querySelectorAll('.item-zones-info h3').forEach(function (h3) {
+        var sib = h3.nextElementSibling, zones = [].slice.call(sib ? sib.querySelectorAll('li') : []).map(function (li) { return li.textContent.trim(); });
+        if (/occupies/i.test(h3.textContent)) occ.push.apply(occ, zones);
+        if (/restricts/i.test(h3.textContent)) res.push.apply(res, zones);
+      });
+      var descEl = doc.querySelector('.item-description');
+      _yoZC[sid] = { occupies: occ, restricts: res, desc: descEl ? descEl.textContent.trim() : '' };
+      return _yoZC[sid];
+    }).catch(function () { return null; });
+    return _yoZFetch[sid];
+  }
+
+  function _yoValKey(nm) { return (nm || '').trim().toLowerCase().replace(/\s*:\s*/g, ': ').replace(/\s{2,}/g, ' '); }
+  function _yoItemVal(id) {
+    var sid = String(id), nc = _yo.itemNc ? _yo.itemNc[sid] : undefined;
+    if (nc === undefined) return null;
+    if (nc === false) return { bt: 'np', text: 'NP' };
+    var v = (_yo.lebron || {})[_yoValKey((_yo.itemNames && _yo.itemNames[sid]) || '')];
+    var val = (v && v !== '-') ? String(v).trim() : null;
+    if (val) return { bt: 'val', text: /^\d/.test(val) ? (val + (parseFloat(val) === 1 && !/[-–]/.test(val) ? ' cap' : ' caps')) : val };
+    return { bt: 'unreported', text: '? caps' };
+  }
+
+  var _YO_CLIENT_THUMBS = false;
+  var _yoAppCache = {}, _yoThumbLayers = {}, _yoThumbObs = null;
+  try { if (typeof unsafeWindow !== 'undefined' && unsafeWindow) unsafeWindow._yoClientThumbs = function (on) { _YO_CLIENT_THUMBS = on !== false; _yo._loopLogged = false; try { _yoRender(); } catch (_) {} return _YO_CLIENT_THUMBS; }; } catch (_) {}
+  function _yoGqlApp(q) { return fetch('https://impress-2020.openneo.net/api/graphql', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: q }) }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); }
+  function _yoPetApp(sp, co, pose) {
+    var k = 'pet:' + sp + ':' + co + ':' + pose;
+    if (k in _yoAppCache) return Promise.resolve(_yoAppCache[k]);
+    return _yoGqlApp('{petAppearance(speciesId:"' + sp + '",colorId:"' + co + '",pose:' + pose + '){bodyId layers{id imageUrlV2(idealSize:SIZE_600) zone{id depth}} restrictedZones{id}}}').then(function (j) {
+      var a = j && j.data && j.data.petAppearance;
+      _yoAppCache[k] = a ? { bodyId: a.bodyId != null ? String(a.bodyId) : null, petLayers: (a.layers || []).map(function (l) { return { id: l.id, imageUrlV2: l.imageUrlV2, zone: l.zone }; }), restrictedZones: a.restrictedZones || [] } : null;
+      return _yoAppCache[k];
+    });
+  }
+  function _yoItemApp(id, sp, co) {
+    var k = 'item:' + id + ':' + sp + ':' + co;
+    if (k in _yoAppCache) return Promise.resolve(_yoAppCache[k]);
+    return _yoGqlApp('{item(id:"' + id + '"){appearanceOn(speciesId:"' + sp + '",colorId:"' + co + '"){layers{id imageUrlV2(idealSize:SIZE_600) bodyId zone{id label depth}} restrictedZones{id}} compatibleBodiesAndTheirZones{body{id}}}}').then(function (j) {
+      var it = j && j.data && j.data.item, ao = (it && it.appearanceOn) || {};
+      _yoAppCache[k] = it ? { _itemId: String(id), layers: ao.layers || [], restrictedZones: ao.restrictedZones || [], compatibleBodyIds: (it.compatibleBodiesAndTheirZones || []).map(function (b) { return b && b.body && b.body.id; }).filter(Boolean).map(String) } : null;
+      return _yoAppCache[k];
+    });
+  }
+
+  function _yoVisibleLayers(petData, worn) {
+    var petBody = (petData.bodyId != null && petData.bodyId !== '') ? String(petData.bodyId) : null;
+    var fits = function (a) { if (!petBody) return true; var c = (a.compatibleBodyIds || []).map(String); return c.indexOf(petBody) !== -1 || (a.layers || []).some(function (l) { return l.bodyId === '0' || String(l.bodyId) === petBody; }); };
+    var occupied = {}, valid = [];
+    worn.forEach(function (a) { if (!fits(a)) return; var z = (a.layers || []).map(function (l) { return l.zone && l.zone.id; }).filter(Boolean); if (!z.some(function (x) { return occupied[x]; })) { valid.push(a); z.forEach(function (x) { occupied[x] = 1; }); } });
+    var petLayers = petData.petLayers.map(function (l) { return Object.assign({}, l, { source: 'pet' }); });
+    var itemLayers = [];
+    valid.forEach(function (a) { var c = (a.compatibleBodyIds || []).map(String); var fb = !petBody || c.indexOf(petBody) !== -1 || (a.layers || []).some(function (l) { return l.bodyId === '0' || String(l.bodyId) === petBody; }); (a.layers || []).forEach(function (l) { itemLayers.push(Object.assign({}, l, { source: 'item', _fitsBody: fb })); }); });
+    var itemRZ = {}; valid.forEach(function (a) { (a.restrictedZones || []).forEach(function (z) { itemRZ[z.id] = 1; }); });
+    var petRZ = {}; (petData.restrictedZones || []).forEach(function (z) { petRZ[z.id] = 1; });
+    return petLayers.concat(itemLayers).filter(function (l) {
+      if (l.source === 'pet' && itemRZ[l.zone.id]) return false;
+      if (l.source === 'item') { if (!l._fitsBody) return false; if (l.bodyId !== '0' && (petData.pose === 'UNCONVERTED' || petRZ[l.zone.id])) return false; }
+      if (l.source === 'pet' && petRZ[l.zone.id]) return false;
+      return true;
+    }).sort(function (a, b) { return ((a.zone && a.zone.depth) || 0) - ((b.zone && b.zone.depth) || 0); });
+  }
+
+  var _yoThumbRenderT = null;
+  function _yoScheduleThumbRender() { if (_yoThumbRenderT) return; _yoThumbRenderT = setTimeout(function () { _yoThumbRenderT = null; try { _yoRender(); } catch (_) {} }, 160); }
+  function _yoRenderThumbLayers(o) {
+    if (!o || o.alt_style_id) return;
+    var oid = String(o.id), ver = String(o.updated_at || ''), cached = _yoThumbLayers[oid];
+    if (cached && cached.ver === ver) return;
+    var sp = String(o.species_id), co = String(o.color_id), pose = (typeof o.pose === 'string' && o.pose) ? o.pose : 'HAPPY_FEM';
+    var worn = (((o.item_ids || {}).worn) || []).map(String);
+    Promise.all([_yoPetApp(sp, co, pose)].concat(worn.map(function (id) { return _yoItemApp(id, sp, co); }))).then(function (res) {
+      var petData = res[0]; if (!petData) return;
+      petData.pose = pose;
+
+      petData.bodyId = null;
+      var vis = _yoVisibleLayers(petData, res.slice(1).filter(Boolean));
+      if (!vis.length) return;
+      _yoThumbLayers[oid] = { ver: ver, html: vis.map(function (l) { return l.imageUrlV2 ? '<img class="dtr-yo-layer" src="' + l.imageUrlV2 + '" alt="" style="z-index:' + (((l.zone && l.zone.depth) || 0)) + '">' : ''; }).join('') };
+      _yoScheduleThumbRender();
+    }).catch(function () {});
+  }
+  function _yoObserveThumbs(root) {
+    if (!_YO_CLIENT_THUMBS) return;
+    try {
+      if (!_yoThumbObs) _yoThumbObs = new IntersectionObserver(function (ents) {
+        ents.forEach(function (en) {
+          if (!en.isIntersecting) return; var inner = en.target; _yoThumbObs.unobserve(inner);
+          var img = inner.querySelector('img[data-yo-open]'); if (!img) return;
+          var o = (_yo.outfits || []).find(function (x) { return String(x.id) === String(img.getAttribute('data-yo-open')); });
+          if (o) _yoRenderThumbLayers(o);
+        });
+      }, { rootMargin: '250px' });
+
+      root.querySelectorAll('.dtr-yo-thumbinner:not(.dtr-yo-layered)').forEach(function (inner) { _yoThumbObs.observe(inner); });
+    } catch (_) {}
+  }
+
+  function _yoOwnWishInfo(id) {
+    var sid = String(id), out = { owned: 0, wantLists: [] };
+    try {
+      var mc = _yoGM('dtr_my_lists_cache', null);
+      if (mc) {
+        out.owned = (mc.owned && mc.owned[sid]) || 0;
+        if (Array.isArray(mc.lists)) mc.lists.forEach(function (l) { if ((l.itemIds || []).indexOf(sid) !== -1 && l.ownsOrWantsItems === 'WANTS') out.wantLists.push(l.name || 'a wishlist'); });
+      }
+    } catch (_) {}
+    return out;
+  }
+  function _yoShowInfoTip(anchor, id) {
+    var name = (_yo.itemNames && _yo.itemNames[String(id)]) || '';
+    function paint(info) {
+      var occ = info && info.occupies, res = info && info.restricts;
+      var occText = (info == null) ? '<em style="opacity:0.6;">Loading zone details…</em>' : (occ && occ.length ? _yoEsc(occ.join(', ')) : '(none)');
+      var html = '';
+      if (name) html += '<div style="font-weight:800;margin:0 0 5px;color:var(--dtr-primary,#149c8e);">' + _yoEsc(name) + '</div>';
+      if (info && info.desc) html += '<div style="margin:0 0 8px;font-style:italic;opacity:0.85;">' + _yoEsc(info.desc) + '</div>';
+      html += '<strong style="color:#a8d4c4;font-size:10px;text-transform:uppercase;letter-spacing:0.05em;">Occupies</strong><div style="margin:2px 0 0;">' + occText + '</div>';
+      if (res && res.length) html += '<strong style="color:#a8d4c4;font-size:10px;text-transform:uppercase;letter-spacing:0.05em;display:block;margin-top:6px;">Restricts</strong><div style="margin:2px 0 0;">' + _yoEsc(res.join(', ')) + '</div>';
+      var ow = _yoOwnWishInfo(id);
+      if (ow.owned > 0 || ow.wantLists.length) {
+        html += '<div style="margin-top:8px;padding-top:7px;border-top:1px solid rgba(168,212,196,.4);line-height:1.5;text-align:left;">';
+        if (ow.owned > 0) html += 'You own <strong>' + ow.owned + '</strong> total cop' + (ow.owned === 1 ? 'y' : 'ies') + '.';
+        if (ow.wantLists.length) html += (ow.owned > 0 ? '<br>' : '') + 'In <strong>' + ow.wantLists.length + '</strong> of your wishlist' + (ow.wantLists.length === 1 ? '' : 's') + '.';
+        html += '</div>';
+      }
+      var tp = _yoTipEl(); tp.innerHTML = html; tp.classList.add('show');
+      var rect = anchor.getBoundingClientRect(), tw = tp.offsetWidth, th = tp.offsetHeight;
+      tp.style.left = Math.min(window.innerWidth - tw - 8, Math.max(8, rect.left + rect.width / 2 - tw / 2)) + 'px';
+      var top = rect.top - th - 8; tp.style.top = (top < 8 ? rect.bottom + 8 : top) + 'px';
+    }
+    if (_yoZC[String(id)]) paint(_yoZC[String(id)]);
+    else { paint(null); _yoFetchItemInfo(id).then(function (info) { if (info && anchor.matches(':hover')) paint(info); }); }
+  }
+  function _yoHideInfoTip() { var t = document.getElementById('dtr-yo-info-tip'); if (t) t.classList.remove('show'); }
   var _YO_MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   function _yoFmtDT(iso) {
     if (!iso) return '';
@@ -11976,13 +12449,35 @@
   }
 
   var _yoDelTimers = {};
+
+  function _yoPruneFromGroups(delId) {
+    delId = String(delId);
+    var store = _yoGM('dtr_oe_variant_groups', {});
+    var set = {};
+    _yoGroupMembers(store, delId).forEach(function (m) { set[String(m)] = 1; });
+    Object.keys(store).forEach(function (k) {
+      var arr = Array.isArray(store[k]) ? store[k].map(String) : [];
+      if (arr.indexOf(delId) !== -1) { arr.forEach(function (m) { set[String(m)] = 1; }); set[String(k)] = 1; }
+    });
+    delete store[delId];
+    delete set[delId];
+    var survivors = Object.keys(set);
+    if (survivors.length >= 2) survivors.forEach(function (m) { store[m] = survivors.slice(); });
+    else survivors.forEach(function (m) { delete store[m]; });
+    try { GM_setValue('dtr_oe_variant_groups', JSON.stringify(store)); } catch (_) {}
+    try {  } catch (_) {}
+    return survivors;
+  }
   function _yoDeleteCommit(id) {
     var sid = String(id);
     var csrf = ((document.querySelector('meta[name="csrf-token"]') || {}).content) || '';
+
     fetch('/outfits/' + encodeURIComponent(sid), { method: 'DELETE', headers: { 'X-CSRF-Token': csrf, 'Accept': 'application/json' } })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); })
       .catch(function (e) { try {  } catch (_) {} });
+
     _yo.outfits = (_yo.outfits || []).filter(function (o) { return String(o.id) !== sid; });
+    _yoPruneFromGroups(sid);
     delete _yoDelTimers[sid];
     _yoOwnCache = null;
     _yoRender();
@@ -12009,6 +12504,18 @@
   function _yoRender() {
     var root = document.getElementById('dtr-yo-root');
     if (!root) return;
+
+    try {
+      var _t = Date.now();
+      _yo._rts = (_yo._rts || []).filter(function (x) { return _t - x < 2000; }); _yo._rts.push(_t);
+      _yo._rc = (_yo._rc || 0) + 1;
+      if (_YO_CLIENT_THUMBS && (_yo._rc <= 60 || _yo._rc % 25 === 0)) void 0;
+      if (_YO_CLIENT_THUMBS && _yo._rts.length > 10) {
+        if (!_yo._loopLogged) { _yo._loopLogged = true;  }
+        if (_YO_CLIENT_THUMBS) { _YO_CLIENT_THUMBS = false; _yoThumbLayers = {}; if (_yoThumbRenderT) { clearTimeout(_yoThumbRenderT); _yoThumbRenderT = null; } try { if (_yoThumbObs) _yoThumbObs.disconnect(); } catch (_) {} _yoThumbObs = null; }
+      }
+    } catch (_) {}
+    var _yoScrollY = window.scrollY || window.pageYOffset || 0;
     var hid = _yoHiddenMap();
     var html = '';
     if (_yo.err) {
@@ -12030,12 +12537,14 @@
         var _topId = _yoTopMap()[gKey];
         var pick = _yo.sel[gKey] && pool.find(function (o) { return String(o.id) === String(_yo.sel[gKey]); });
 
-        var shown = pick || (_topId && pool.find(function (o) { return String(o.id) === String(_topId); })) || pool.slice().sort(function (a, b) { return String(b.created_at || '').localeCompare(String(a.created_at || '')); })[0];
-        cards.push({ ms: ms, pool: pool, shown: shown, gKey: gKey });
+        var lead = (_topId && pool.find(function (o) { return String(o.id) === String(_topId); })) || pool.slice().sort(function (a, b) { return String(b.created_at || '').localeCompare(String(a.created_at || '')); })[0];
+        var shown = pick || lead;
+        cards.push({ ms: ms, pool: pool, shown: shown, lead: lead, gKey: gKey });
       });
       var sk = _yo.sort;
       var _cmp = _yoSortCmp(sk);
-      cards.sort(function (A, B) { return _cmp(A.shown, B.shown); });
+
+      cards.sort(function (A, B) { return _cmp(A.lead, B.lead); });
       var view = _yo.view;
 
       function previewHTML(o, isHid) {
@@ -12046,8 +12555,11 @@
         } else if (confirming) {
           mask = '<div class="dtr-yo-delmask"><div class="t">Delete this outfit?</div><div class="row"><button type="button" class="yes" data-yo-del-yes="' + sid + '">Delete</button><button type="button" class="no" data-yo-del-no="' + sid + '">Keep</button></div></div>';
         }
-        return '<div class="dtr-yo-thumb"><div class="dtr-yo-thumbinner">'
+
+        var _cl = _yoThumbLayers[sid], _layered = (_cl && _cl.ver === String(o.updated_at || '')) ? _cl.html : null;
+        return '<div class="dtr-yo-thumb"><div class="dtr-yo-thumbinner' + (_layered ? ' dtr-yo-layered' : '') + '">'
           + '<img loading="lazy" decoding="async" alt="" data-yo-open="' + sid + '" title="Open in the outfit editor" src="' + _yoThumb(o, 300) + '">'
+          + (_layered ? '<div class="dtr-yo-layers">' + _layered + '</div>' : '')
           + '<button type="button" class="dtr-yo-star' + (o.starred ? ' on' : '') + '" data-yo-star="' + sid + '" title="' + (o.starred ? 'Starred — click to unstar' : 'Star this outfit') + '">' + _YO_STAR_SVG + '</button>'
           + '<div class="dtr-yo-topright">'
           +   '<button type="button" class="dtr-yo-hidebtn' + (isHid ? ' on' : '') + '" data-yo-hide="' + sid + '" title="' + (isHid ? 'Hidden — click to show' : 'Hide this outfit (shared with the editor)') + '">' + (isHid ? 'Show' : 'Hide') + '</button>'
@@ -12057,11 +12569,12 @@
           + '</div></div>';
       }
 
-      function thumbBtn(v, shownId, gKey, num, total) {
+      function thumbBtn(v, shownId, gKey, num, total, draggable) {
         var _isTop = String(_yoTopMap()[gKey]) === String(v.id);
 
         var _numBadge = (total > 1 && num) ? '<span class="dtr-yo-vnum">' + num + '</span>' : '';
-        return '<button type="button" class="dtr-yo-vthumb' + (String(v.id) === String(shownId) ? ' sel' : '') + (hid[String(v.id)] ? ' hid' : '') + '" title="' + _yoEsc((v.name || '') + _yoDatesTitle(v)) + '" data-yo-pick="' + _yoEsc(gKey) + ':' + _yoEsc(String(v.id)) + '">'
+
+        return '<button type="button"' + (draggable ? ' draggable="true"' : '') + ' class="dtr-yo-vthumb' + (String(v.id) === String(shownId) ? ' sel' : '') + (hid[String(v.id)] ? ' hid' : '') + (draggable ? ' dtr-yo-vdraggable' : '') + '" title="' + _yoEsc((v.name || '') + _yoDatesTitle(v)) + '" data-yo-pick="' + _yoEsc(gKey) + ':' + _yoEsc(String(v.id)) + '">'
           + _numBadge
           + '<span class="dtr-yo-vheart' + (_isTop ? ' on' : '') + '" role="button" tabindex="0" data-yo-top="' + _yoEsc(gKey) + ':' + _yoEsc(String(v.id)) + '" title="' + (_isTop ? 'Top variant — click to unset' : 'Make this the group’s top variant') + '">' + _YO_HEART_SVG + '</span>'
           + '<span style="background-image:url(\'' + _yoThumb(v, 150) + '\')"></span></button>';
@@ -12085,14 +12598,15 @@
         var isHid = !!hid[String(o.id)];
         var railMembers = (c && c.ms.length > 1 && !opts.noRail) ? c.ms.filter(function (v) { return _yo.showHidden || !hid[String(v.id)]; }) : [];
         var rail = railMembers.length
-          ? '<div class="dtr-yo-rail">' + railMembers.map(function (v, vi) { return thumbBtn(v, o.id, c.gKey, vi + 1, railMembers.length); }).join('') + '</div>' : '';
+          ? '<div class="dtr-yo-rail">' + railMembers.map(function (v, vi) { return thumbBtn(v, o.id, c.gKey, vi + 1, railMembers.length, opts.drag); }).join('') + '</div>' : '';
 
         var vChip = (c && c.ms.length > 1 && !opts.noRail) ? '<span class="dtr-yo-chip grp">' + c.ms.length + ' variants</span>' : '';
         var m = _yoMeta(o), itemCount = _yoVisibleWorn(o).length;
-        return '<div class="dtr-yo-card' + (isHid ? ' dtr-yo-hiddencard' : '') + '">'
+        return '<div class="dtr-yo-card' + (isHid ? ' dtr-yo-hiddencard' : '') + (opts.drag ? ' dtr-yo-draggable' : '') + '"'
+          + (opts.drag ? ' draggable="true" data-yo-card="' + _yoEsc(String(o.id)) + '" data-yo-gkey="' + _yoEsc(c ? c.gKey : '') + '" title="Drag onto another outfit to group them as variants"' : '') + '>'
           + previewHTML(o, isHid)
           + '<div class="dtr-yo-body">'
-          + '<a class="dtr-yo-name" data-yo-open="' + _yoEsc(String(o.id)) + '" href="/outfits/' + _yoEsc(String(o.id)) + '">' + _yoEsc(o.name || 'My Outfit') + '</a>'
+          + _yoNameBlock(o, false)
           + (m.line ? '<div class="dtr-yo-meta">' + _yoEsc(m.line) + '</div>' : '')
           + '<div class="dtr-yo-chips">'
           + (o.alt_style_id ? '<span class="dtr-yo-chip tok">✦ ' + _yoEsc(_yoTokLabel(o.alt_style_id)) + '</span>' : '')
@@ -12105,38 +12619,76 @@
       }
 
       function stripCardHTML(c) {
-        var o = c.shown, isHid = !!hid[String(o.id)];
+        var o = c.shown, isHid = !!hid[String(o.id)], oid = String(o.id);
         var railMembers = c.ms.filter(function (v) { return _yo.showHidden || !hid[String(v.id)]; });
-        var railHTML = (c.ms.length > 1)
-          ? '<div class="dtr-yo-strip-rail">' + railMembers.map(function (v, vi) { return thumbBtn(v, o.id, c.gKey, vi + 1, railMembers.length); }).join('') + '</div>' : '';
+        var variantsHTML = (railMembers.length > 1)
+          ? '<div class="dtr-yo-strip-vwrap"><div class="dtr-yo-veyebrow">Variants</div><div class="dtr-yo-strip-variants">' + railMembers.map(function (v, vi) { return thumbBtn(v, o.id, c.gKey, vi + 1, railMembers.length); }).join('') + '</div></div>' : '';
         var worn = _yoVisibleWorn(o);
         var os = _yoOwnSets();
-        var rows = '';
+        var sel = _yo.stripSel[oid] || {};
 
+        var tokenCard = '';
         if (o.alt_style_id) {
           var stid = String(o.alt_style_id);
           var pown = (_yoGM('dtr_ps_own', {}) || {})[stid] || {};
           var sbadge = pown.o ? '<span class="dtr-yo-ib own">Owned</span>'
             : pown.w ? '<span class="dtr-yo-ib want">In Wants</span>'
             : '<button type="button" class="dtr-yo-addwant" data-yo-addwant="' + stid + '">+ Add to Wants</button>';
-          rows += '<div class="dtr-yo-itemrow dtr-yo-stylerow"><span class="ith ith-tok">✦</span>'
-            + '<span class="inm"><span class="itn">' + _yoEsc(_yoTokLabel(o.alt_style_id)) + '</span>' + sbadge + '</span></div>';
+          var _tth = (_yo.psThumbs && _yo.psThumbs[stid]) || '';
+          tokenCard = '<div class="dtr-yo-wcard tok" title="Pet Style"><span class="dtr-yo-wcheck" aria-hidden="true"></span>'
+            + (_tth ? '<span class="dtr-yo-wthumb" style="background-image:url(\'' + _tth + '\')"></span>' : '<span class="dtr-yo-wthumb tok">✦</span>')
+            + '<span class="dtr-yo-wname">' + _yoEsc(_yoTokLabel(o.alt_style_id)) + '</span>'
+            + '<span class="dtr-yo-wbadge">' + sbadge + '</span></div>';
         }
-        rows += worn.map(function (id) {
+        var wcards = worn.map(function (id) {
           var sid = String(id);
           var nm = (_yo.itemNames && _yo.itemNames[sid]) || '';
           var th = (_yo.itemThumbs && _yo.itemThumbs[sid]) || '';
-          var badge = os.own[sid] ? '<span class="dtr-yo-ib own">Owned</span>' : (os.want[sid] ? '<span class="dtr-yo-ib want">Wishlisted</span>' : '');
-          return '<button type="button" class="dtr-yo-itemrow" data-yo-item="' + sid + '-' + _yoEsc(_yoItemSlug(nm)) + '" title="Open item page in a new tab">'
-            + '<span class="ith"' + (th ? ' style="background-image:url(\'' + th + '\')"' : '') + '></span>'
-            + '<span class="inm"><span class="itn">' + (nm ? _yoEsc(nm) : 'Item #' + _yoEsc(sid)) + '</span>' + badge + '</span></button>';
+          var owned = !!os.own[sid], wished = !!os.want[sid], isSel = !!sel[sid];
+
+          var badge = owned ? '<span class="dtr-yo-ib own">Owned</span>' : (wished ? '<span class="dtr-yo-ib want">Wishlisted</span>' : '');
+          return '<div class="dtr-yo-wcard' + (isSel ? ' sel' : '') + '" data-yo-wsel="' + oid + ':' + sid + '" data-owned="' + (owned ? '1' : '0') + '" data-wished="' + (wished ? '1' : '0') + '" title="Click to select — you can add it to a wishlist even if you own or already wishlisted it">'
+            + '<div class="dtr-card-info"><button type="button" class="dtr-info-btn" data-yo-info="' + sid + '" aria-label="Item details">?</button></div>'
+            + '<span class="dtr-yo-wcheck" aria-hidden="true"></span>'
+            + '<span class="dtr-yo-wthumb"' + (th ? ' style="background-image:url(\'' + th + '\')"' : '') + '></span>'
+            + '<span class="dtr-yo-wname">' + (nm ? _yoEsc(nm) : 'Item #' + _yoEsc(sid)) + '</span>'
+            + (function () { var vi = _yoItemVal(sid); return vi ? '<span class="dtr-yo-val dtr-yo-val-' + vi.bt + '">' + _yoEsc(vi.text) + '</span>' : ''; })()
+            + '<span class="dtr-yo-wbadge" data-yo-wbadge>' + badge + '</span></div>';
         }).join('');
         var nUsed = worn.length + (o.alt_style_id ? 1 : 0);
-        var itemsHTML = nUsed ? rows : '<div class="dtr-yo-itemempty">Just the pet — no wearables.</div>';
+        var gridInner = nUsed ? (tokenCard + wcards) : '<div class="dtr-yo-itemempty">Just the pet — no wearables.</div>';
+        var m = _yoMeta(o);
+
+        var headHTML = '<div class="dtr-yo-strip-head">'
+          + _yoNameBlock(o, true)
+          + (m.line ? '<div class="dtr-yo-meta">' + _yoEsc(m.line) + '</div>' : '')
+          + (o.alt_style_id ? '<div class="dtr-yo-chips"><span class="dtr-yo-chip tok">✦ ' + _yoEsc(_yoTokLabel(o.alt_style_id)) + '</span></div>' : '')
+          + '</div>';
+
+        var wls = _yoMyWishlists(), nSel = Object.keys(sel).length;
+        var bulkHTML = worn.length ? (
+          '<div class="dtr-yo-bulkbar" data-yo-bulkbar="' + oid + '">'
+          + '<span class="dtr-yo-wcount">' + nUsed + ' item' + (nUsed === 1 ? '' : 's') + '</span>'
+          + '<span class="dtr-yo-selcount" data-yo-selcount>' + (nSel ? (nSel + ' selected') : 'Select wearables') + '</span>'
+          + '<button type="button" class="dtr-yo-bulkbtn" data-yo-selall="' + oid + '" title="Select every wearable">Select all</button>'
+          + '<button type="button" class="dtr-yo-bulkbtn" data-yo-selall="' + oid + '" data-yo-selmode="unowned" title="Select only wearables you don’t own">Select unowned</button>'
+          + '<div class="dtr-yo-wladd-wrap">'
+          +   '<button type="button" class="dtr-yo-wladd' + (nSel ? '' : ' dis') + '" data-yo-wladd="' + oid + '"' + (nSel ? '' : ' disabled') + '>+ Add to wishlist ▾</button>'
+          +   '<div class="dtr-yo-wlmenu" data-yo-wlmenu="' + oid + '" hidden>'
+          +     (wls.length
+                  ? '<div class="dtr-yo-menuhead">Add selected to…</div>' + wls.map(function (l) { return '<button type="button" class="dtr-yo-menurow" data-yo-wlpick="' + oid + ':' + _yoEsc(String(l.id)) + '">' + _yoEsc(l.name || 'Wishlist') + '</button>'; }).join('')
+                  : '<div class="dtr-yo-menuhead">No Wants lists yet</div><div class="dtr-yo-wlnote">Make a Wants list in your closet, then come back to add these here.</div>')
+          +   '</div>'
+          + '</div>'
+          + '</div>'
+        ) : '';
         return '<div class="dtr-yo-card strip' + (isHid ? ' dtr-yo-hiddencard' : '') + '">'
-          + railHTML
-          + '<div class="dtr-yo-strip-center">' + previewHTML(o, isHid) + bodyHTML(o) + '</div>'
-          + '<div class="dtr-yo-strip-items"><h4>' + nUsed + ' wearable' + (nUsed === 1 ? '' : 's') + '</h4><div class="dtr-yo-itemlist">' + itemsHTML + '</div></div>'
+          + '<div class="dtr-yo-strip-dates">' + _yoDatesHTML(o) + '</div>'
+          + '<div class="dtr-yo-strip-main">'
+          +   '<div class="dtr-yo-strip-top"><div class="dtr-yo-strip-pet">' + previewHTML(o, isHid) + '</div><div class="dtr-yo-strip-side">' + headHTML + variantsHTML + '</div></div>'
+          +   bulkHTML
+          +   '<div class="dtr-yo-itemgrid" data-yo-wgrid="' + oid + '">' + gridInner + '</div>'
+          + '</div>'
           + '</div>';
       }
       var grid;
@@ -12158,7 +12710,7 @@
       } else if (view === 'strip') {
         grid = cards.map(stripCardHTML).join('');
       } else {
-        grid = cards.map(function (c) { return cardHTML(c.shown, c); }).join('');
+        grid = cards.map(function (c) { return cardHTML(c.shown, c, { drag: true }); }).join('');
       }
       html =
         '<div id="dtr-yo-shell">'
@@ -12187,16 +12739,159 @@
         + '</div>';
     }
     root.innerHTML = html;
+    try { if (_yoScrollY) window.scrollTo(0, _yoScrollY); } catch (_) {}
     var qEl = root.querySelector('#dtr-yo-q');
     if (qEl && _yo._qFocus) { qEl.focus(); try { qEl.setSelectionRange(_yo.q.length, _yo.q.length); } catch (_) {} }
+    var rEl = root.querySelector('.dtr-yo-rename-input');
+    if (rEl && _yo._renameFocus) { rEl.focus(); try { rEl.select(); } catch (_) {} _yo._renameFocus = false; }
+    _yoObserveThumbs(root);
   }
   function _yoWire(root) {
     root.addEventListener('input', function (e) {
       if (e.target && e.target.id === 'dtr-yo-q') { _yo.q = e.target.value; _yo._qFocus = true; _yoRender(); }
     });
 
+    root.addEventListener('mouseover', function (e) {
+      var b = e.target.closest && e.target.closest('[data-yo-info]');
+      if (b) _yoShowInfoTip(b, b.getAttribute('data-yo-info'));
+    });
+    root.addEventListener('mouseout', function (e) {
+      var b = e.target.closest && e.target.closest('[data-yo-info]');
+      if (b && !(e.relatedTarget && b.contains(e.relatedTarget))) _yoHideInfoTip();
+    });
+    root.addEventListener('keydown', function (e) {
+      var inp = e.target.closest && e.target.closest('[data-yo-rename-input]');
+      if (!inp) return;
+      if (e.key === 'Enter') { e.preventDefault(); _yoCommitRename(inp.getAttribute('data-yo-rename-input'), inp.value); }
+      else if (e.key === 'Escape') { e.preventDefault(); _yo.renaming = null; _yo._renameFocus = false; _yoRender(); }
+    });
+
+    var _yoDragSrc = null;
+
+    var _yoDragScrollDir = 0, _yoDragScrollRAF = null;
+    function _yoDragScrollStep() {
+      if (!_yoDragSrc || !_yoDragScrollDir) { _yoDragScrollRAF = null; return; }
+      window.scrollBy(0, _yoDragScrollDir * 16);
+      _yoDragScrollRAF = requestAnimationFrame(_yoDragScrollStep);
+    }
+    function _yoDragScrollStop() { _yoDragScrollDir = 0; if (_yoDragScrollRAF) { cancelAnimationFrame(_yoDragScrollRAF); _yoDragScrollRAF = null; } }
+
+    function _yoDragPill(text) {
+      var el = document.getElementById('dtr-yo-dragpill');
+      if (!el) { el = document.createElement('div'); el.id = 'dtr-yo-dragpill'; el.style.cssText = 'position:fixed;z-index:100060;background:var(--dtr-primary,#149c8e);color:#fff;font:800 11px "Nunito",sans-serif;padding:6px 12px;border-radius:999px;box-shadow:0 4px 14px rgba(20,80,60,.35);pointer-events:none;transform:translate(-50%,-160%);white-space:nowrap'; document.body.appendChild(el); }
+      el.textContent = text; el.style.display = 'block';
+    }
+    function _yoDragPillMove(x, y) { var el = document.getElementById('dtr-yo-dragpill'); if (el && el.style.display !== 'none') { el.style.left = x + 'px'; el.style.top = y + 'px'; } }
+    function _yoDragPillHide() { var el = document.getElementById('dtr-yo-dragpill'); if (el) el.style.display = 'none'; }
+    var _yoDropOK = function (card) {
+      if (!_yoDragSrc || !card) return false;
+      if (card.getAttribute('data-yo-gkey') === _yoDragSrc.gKey) return false;
+      var srcId = _yoDragSrc.single ? _yoDragSrc.vid : _yoDragSrc.oid;
+      return card.getAttribute('data-yo-card') !== srcId;
+    };
+    root.addEventListener('dragstart', function (e) {
+      var card = e.target.closest && e.target.closest('.dtr-yo-card.dtr-yo-draggable');
+      if (!card) return;
+      var _scr = card.getBoundingClientRect(), _scx = _scr.left + _scr.width / 2, _scy = _scr.top + _scr.height / 2;
+      var vth = e.target.closest && e.target.closest('.dtr-yo-vdraggable');
+      if (vth) {
+
+        var pk = vth.getAttribute('data-yo-pick') || '';
+        var vid = pk.slice(pk.lastIndexOf(':') + 1);
+        if (!vid) { e.preventDefault(); return; }
+        _yoDragSrc = { single: true, vid: vid, gKey: card.getAttribute('data-yo-gkey'), sx: _scx, sy: _scy };
+        card.classList.add('dtr-yo-dragging');
+        _yoDragPill('Moving 1 variant');
+        try { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', vid); } catch (_) {}
+        return;
+      }
+      if (e.target.closest('button, input, a')) { e.preventDefault(); return; }
+      var _gk = card.getAttribute('data-yo-gkey') || '', _n = _gk ? _gk.split(',').length : 1;
+      _yoDragSrc = { single: false, oid: card.getAttribute('data-yo-card'), gKey: _gk, sx: _scx, sy: _scy };
+      card.classList.add('dtr-yo-dragging');
+      _yoDragPill(_n + ' selected');
+      try { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', _yoDragSrc.oid); } catch (_) {}
+    });
+    document.addEventListener('dragend', function () {
+      root.querySelectorAll('.dtr-yo-dragging').forEach(function (c) { c.classList.remove('dtr-yo-dragging'); });
+      root.querySelectorAll('.dtr-yo-droptarget').forEach(function (c) { c.classList.remove('dtr-yo-droptarget'); });
+      document.body.classList.remove('dtr-yo-ungroup-armed');
+      _yoDragPillHide(); _yoDragScrollStop();
+      _yoDragSrc = null;
+    });
+    document.addEventListener('dragover', function (e) {
+      if (!_yoDragSrc) return;
+      _yoDragPillMove(e.clientX, e.clientY);
+
+      var _vh = window.innerHeight || document.documentElement.clientHeight, EDGE = 90;
+      if (e.clientY < EDGE) _yoDragScrollDir = -1;
+      else if (e.clientY > _vh - EDGE) _yoDragScrollDir = 1;
+      else _yoDragScrollDir = 0;
+      if (_yoDragScrollDir && !_yoDragScrollRAF) _yoDragScrollRAF = requestAnimationFrame(_yoDragScrollStep);
+      var card = e.target.closest && e.target.closest('.dtr-yo-card.dtr-yo-draggable');
+      if (_yoDropOK(card)) {
+        e.preventDefault();
+        try { e.dataTransfer.dropEffect = 'move'; } catch (_) {}
+        document.body.classList.remove('dtr-yo-ungroup-armed');
+        if (!card.classList.contains('dtr-yo-droptarget')) {
+          root.querySelectorAll('.dtr-yo-droptarget').forEach(function (c) { c.classList.remove('dtr-yo-droptarget'); });
+          card.classList.add('dtr-yo-droptarget');
+        }
+        return;
+      }
+
+      if (_yoDragSrc.single && !card) {
+        e.preventDefault();
+        try { e.dataTransfer.dropEffect = 'move'; } catch (_) {}
+        root.querySelectorAll('.dtr-yo-droptarget').forEach(function (c) { c.classList.remove('dtr-yo-droptarget'); });
+        document.body.classList.add('dtr-yo-ungroup-armed');
+      } else {
+        document.body.classList.remove('dtr-yo-ungroup-armed');
+      }
+    });
+    document.addEventListener('dragleave', function (e) {
+      var card = e.target.closest && e.target.closest('.dtr-yo-card');
+      if (card && !card.contains(e.relatedTarget)) card.classList.remove('dtr-yo-droptarget');
+    });
+    document.addEventListener('drop', function (e) {
+      if (!_yoDragSrc) return;
+      var card = e.target.closest && e.target.closest('.dtr-yo-card.dtr-yo-draggable');
+      document.body.classList.remove('dtr-yo-ungroup-armed');
+      _yoDragPillHide();
+
+      if (_yoDragSrc.single && !card) {
+        e.preventDefault();
+        var uvid = _yoDragSrc.vid, ux = _yoDragSrc.sx, uy = _yoDragSrc.sy;
+        _yoDragSrc = null;
+        if (!_yoUngroupVariant(uvid)) return;
+        var uvO = (_yo.outfits || []).find(function (x) { return String(x.id) === String(uvid); });
+        _yo._qFocus = false; _yoRender();
+        _yoToastAt('<span class="dtr-yo-toast-tick">✓</span><strong>' + _yoEsc((uvO && uvO.name) || 'That variant') + '</strong> is now its own outfit', ux, uy);
+        return;
+      }
+      if (!_yoDropOK(card)) return;
+      e.preventDefault();
+      var single = _yoDragSrc.single, srcId = single ? _yoDragSrc.vid : _yoDragSrc.oid, targetOid = card.getAttribute('data-yo-card');
+      var rect = card.getBoundingClientRect(), cx = rect.left + rect.width / 2, cy = rect.top + rect.height / 2;
+      card.classList.remove('dtr-yo-droptarget');
+      var ok = single ? _yoMoveVariantToGroup(srcId, targetOid) : _yoMergeGroups(srcId, targetOid);
+      _yoDragSrc = null;
+      if (!ok) return;
+      var dragO = (_yo.outfits || []).find(function (x) { return String(x.id) === String(srcId); });
+      var tgtO = (_yo.outfits || []).find(function (x) { return String(x.id) === String(targetOid); });
+      _yo._qFocus = false; _yoRender();
+      var _dn = _yoEsc((dragO && dragO.name) || (single ? 'that variant' : 'That outfit')), _tn = _yoEsc((tgtO && tgtO.name) || 'this outfit');
+      _yoToastAt(single
+        ? ('<span class="dtr-yo-toast-tick">✓</span>Moved <strong>' + _dn + '</strong> into <strong>' + _tn + '</strong>')
+        : ('<span class="dtr-yo-toast-tick">✓</span><strong>' + _dn + '</strong> is now a variant of<br><strong>' + _tn + '</strong>'), cx, cy);
+    });
+
     document.addEventListener('mousedown', function (e) {
       if (_yo.sortOpen && !(e.target.closest && (e.target.closest('#dtr-yo-sortbtn') || e.target.closest('[data-yo-sortmenu]')))) { _yo.sortOpen = false; _yoRender(); }
+
+      if (!(e.target.closest && e.target.closest('.dtr-yo-wladd-wrap'))) {
+        document.querySelectorAll('.dtr-yo-wlmenu:not([hidden])').forEach(function (m) { m.hidden = true; });
+      }
     }, true);
     root.addEventListener('click', function (e) {
       var t;
@@ -12289,6 +12984,71 @@
         else if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab('https://impress.openneo.net/items/' + seg);
         else window.open('https://impress.openneo.net/items/' + seg, '_blank');
         return;
+      }
+
+      if ((t = e.target.closest('[data-yo-info]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _yoHideInfoTip();
+        var iid = t.getAttribute('data-yo-info');
+        if (typeof window._dtrOpenItemTab === 'function') window._dtrOpenItemTab(iid);
+        else if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab('https://impress.openneo.net/items/' + iid);
+        else window.open('https://impress.openneo.net/items/' + iid, '_blank');
+        return;
+      }
+
+      if ((t = e.target.closest('[data-yo-rename]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _yo.renaming = t.getAttribute('data-yo-rename'); _yo._renameFocus = true; _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-yo-rename-save]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var rsOid = t.getAttribute('data-yo-rename-save'), rsInp = document.querySelector('[data-yo-rename-input="' + rsOid + '"]');
+        _yoCommitRename(rsOid, rsInp ? rsInp.value : ''); return;
+      }
+      if ((t = e.target.closest('[data-yo-rename-cancel]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _yo.renaming = null; _yo._renameFocus = false; _yoRender(); return;
+      }
+
+      if ((t = e.target.closest('[data-yo-selall]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var saOid = t.getAttribute('data-yo-selall'), unownedOnly = t.getAttribute('data-yo-selmode') === 'unowned';
+        var saGrid = document.querySelector('[data-yo-wgrid="' + saOid + '"]'); if (!saGrid) return;
+        _yo.stripSel[saOid] = _yo.stripSel[saOid] || {};
+        var elig = Array.prototype.filter.call(saGrid.querySelectorAll('[data-yo-wsel]'), function (c) {
+          if (unownedOnly && c.getAttribute('data-owned') === '1') return false;
+          return true;
+        });
+        var allSel = elig.length && elig.every(function (c) { return c.classList.contains('sel'); });
+        elig.forEach(function (c) {
+          var seg = c.getAttribute('data-yo-wsel'), iid = seg.slice(seg.indexOf(':') + 1);
+          if (allSel) { delete _yo.stripSel[saOid][iid]; c.classList.remove('sel'); }
+          else { _yo.stripSel[saOid][iid] = 1; c.classList.add('sel'); }
+        });
+        _yoUpdateBulkBar(saOid); return;
+      }
+      if ((t = e.target.closest('[data-yo-wladd]'))) {
+        e.preventDefault(); e.stopPropagation();
+        if (t.disabled) return;
+        var waMenu = document.querySelector('[data-yo-wlmenu="' + t.getAttribute('data-yo-wladd') + '"]'), wasOpen = waMenu && !waMenu.hidden;
+        document.querySelectorAll('.dtr-yo-wlmenu:not([hidden])').forEach(function (m) { m.hidden = true; });
+        if (waMenu && !wasOpen) waMenu.hidden = false;
+        return;
+      }
+      if ((t = e.target.closest('[data-yo-wlpick]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var wpSeg = t.getAttribute('data-yo-wlpick'), wpCi = wpSeg.indexOf(':');
+        _yoAddSelectedToWishlist(wpSeg.slice(0, wpCi), wpSeg.slice(wpCi + 1));
+        return;
+      }
+      if ((t = e.target.closest('[data-yo-wsel]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var wsSeg = t.getAttribute('data-yo-wsel'), wsCi = wsSeg.indexOf(':');
+        var wsOid = wsSeg.slice(0, wsCi), wsIid = wsSeg.slice(wsCi + 1);
+        _yo.stripSel[wsOid] = _yo.stripSel[wsOid] || {};
+        if (_yo.stripSel[wsOid][wsIid]) { delete _yo.stripSel[wsOid][wsIid]; t.classList.remove('sel'); }
+        else { _yo.stripSel[wsOid][wsIid] = 1; t.classList.add('sel'); }
+        _yoUpdateBulkBar(wsOid); return;
       }
       if ((t = e.target.closest('[data-yo-open]'))) {
         e.preventDefault(); e.stopPropagation();
@@ -35019,6 +35779,9 @@ if (!tradeLinks.length) {
     const _OE_AUTO_KEYS = new Set(['considering','speciesId','colorId','pose','altStyleId','petStateId','outfitName']);
     let _oeSavedSigById = {};
     let _oeAutoTimer = null, _oeAutoSaving = false, _oeAutoLoading = false;
+
+    let _oeAuthCount = {};
+    let _oeReachedFull = {};
     function _oeOutfitSig(wornIds, d) {
       let pose = 'HAPPY_FEM'; try { pose = OE_POSE_URLS[d.pose] || 'HAPPY_FEM'; } catch (_) {}
       const w = (wornIds || []).map(String).sort();
@@ -35033,6 +35796,9 @@ if (!tradeLinks.length) {
     try {
       OE.sub(function (s, changed) {
         try {
+
+          const _aid = s.outfitId;
+          if (_aid && _oeAuthCount[String(_aid)] != null && _oeWornIds(s.considering).length >= _oeAuthCount[String(_aid)]) _oeReachedFull[String(_aid)] = true;
           if (_oeAutoSaving || _oeAutoLoading) return;
           if (!changed || !changed.some(k => _OE_AUTO_KEYS.has(k))) return;
           const id = s.outfitId;
@@ -35040,12 +35806,23 @@ if (!tradeLinks.length) {
           if (oeActiveVar(s).locked) return;
           const sig = _oeActiveSig(s);
           if (sig === _oeSavedSigById[String(id)]) return;
+
+          if (_oeWornIds(s.considering).length === 0) return;
+          if (_oeAuthCount[String(id)] != null && _oeWornIds(s.considering).length < _oeAuthCount[String(id)] && !_oeReachedFull[String(id)]) return;
           if (_oeAutoTimer) clearTimeout(_oeAutoTimer);
           _oeAutoTimer = setTimeout(function () {
             _oeAutoTimer = null;
             const s2 = OE.get();
             if (!s2.outfitId || oeActiveVar(s2).locked) return;
             if (_oeActiveSig(s2) === _oeSavedSigById[String(s2.outfitId)]) return;
+
+            const _cand2 = _oeWornIds(s2.considering).length, _auth2 = _oeAuthCount[String(s2.outfitId)];
+            if (_cand2 === 0 || (_auth2 != null && _cand2 < _auth2 && !_oeReachedFull[String(s2.outfitId)])) {
+              try {  } catch (_) {}
+              OE.set({ saveState: 'error' });
+              setTimeout(function () { try { if (OE.get().saveState === 'error') OE.set({ saveState: 'idle' }); } catch (_) {} }, 3000);
+              return;
+            }
             _oeAutoSaving = true;
             OE.set({ saveState: 'saving' });
             oeSaveOutfit().then(function () {
@@ -35508,6 +36285,7 @@ if (!tradeLinks.length) {
       on('[data-cs-heart]', 'click', e => {
         const nm = e.currentTarget.dataset.csHeart;
         OE.set(s2 => ({ considering:s2.considering.map(x => x.name===nm ? Object.assign({},x,{loved:!x.loved}) : x) }));
+        _oeSyncStarred();
       });
       on('[data-cs-remove]', 'click', e => { e.stopPropagation(); oeRemoveFromList(e.currentTarget.dataset.csRemove); });
 
@@ -38132,6 +38910,8 @@ if (!tradeLinks.length) {
 
         const prevInp  = _card && _card.querySelector('[data-search-input]');
         const hasFocus = prevInp && document.activeElement === prevInp;
+
+        const liveVal  = hasFocus ? prevInp.value : null;
         const sel      = hasFocus ? [prevInp.selectionStart, prevInp.selectionEnd] : null;
         const prevScroll = _card && _card.querySelector('[data-results-scroll]');
         const scrollTop  = prevScroll ? prevScroll.scrollTop : 0;
@@ -38144,7 +38924,7 @@ if (!tradeLinks.length) {
         if (newScroll && scrollTop) newScroll.scrollTop = scrollTop;
         if (hasFocus) {
           const newInp = newCard.querySelector('[data-search-input]');
-          if (newInp) { newInp.focus(); if (sel) newInp.setSelectionRange(sel[0], sel[1]); }
+          if (newInp) { if (liveVal != null) newInp.value = liveVal; newInp.focus(); if (sel) try { newInp.setSelectionRange(sel[0], sel[1]); } catch (_) {} }
         }
       }
 
@@ -38368,9 +39148,9 @@ if (!tradeLinks.length) {
 
           +(applied?'<div class="dtr-oe-applied-tag">Currently Wearing</div>':'')
 
-          +'<div class="dtr-card-info"><button type=button class="dtr-info-btn" data-info-btn="'+it.id+'" data-info-slug="'+slug+'" aria-label="Item details">?</button></div>'
+          +'<div class="dtr-card-info"><button type=button tabindex=-1 class="dtr-info-btn" data-info-btn="'+it.id+'" data-info-slug="'+slug+'" aria-label="Item details">?</button></div>'
 
-          +'<div class="dtr-card-actions"><button type=button class="dtr-note-btn'+(hasNote?' has-note':'')+'" data-note-btn="'+it.id+'" aria-label="Note">'+_OE_NOTE_IMG+'</button></div>'
+          +'<div class="dtr-card-actions"><button type=button tabindex=-1 class="dtr-note-btn'+(hasNote?' has-note':'')+'" data-note-btn="'+it.id+'" aria-label="Note">'+_OE_NOTE_IMG+'</button></div>'
 
           +(it.owned?'<div class="dtr-status-overlay"><div class="dtr-ov-owned"><span>Owned</span></div></div>':'')
 
@@ -38513,9 +39293,21 @@ if (!tradeLinks.length) {
       const _zfi = card.querySelector('[data-zone-filter]');
       if (_zfi) {
         _zfi.addEventListener('click', e => e.stopPropagation());
-        _zfi.addEventListener('input', () => { const q = _zfi.value.trim().toLowerCase();
+        let _zhl = -1;
+        _zfi.addEventListener('input', () => { _zhl = -1; const q = _zfi.value.trim().toLowerCase();
           card.querySelectorAll('[data-zone-pick]').forEach(b => { const all = b.dataset.zonePick === '';
-            b.style.display = (!q || all || oeSmartMatch(b.dataset.zonePick, q)) ? 'block' : 'none'; }); });
+            b.style.boxShadow = ''; b.style.display = (!q || all || oeSmartMatch(b.dataset.zonePick, q)) ? 'block' : 'none'; }); });
+
+        _zfi.addEventListener('keydown', e => {
+          const vis = Array.from(card.querySelectorAll('[data-zone-pick]')).filter(b => b.style.display !== 'none' && b.dataset.zonePick !== '');
+          if (e.key === 'Enter') { e.preventDefault(); const pick = vis[_zhl] || vis[0]; if (pick) pick.click(); return; }
+          const down = e.key === 'ArrowDown' || (e.key === 'Tab' && !e.shiftKey), up = e.key === 'ArrowUp' || (e.key === 'Tab' && e.shiftKey);
+          if (!down && !up) return;
+          e.preventDefault(); if (!vis.length) return;
+          vis.forEach(b => b.style.boxShadow = '');
+          _zhl = down ? (_zhl + 1 >= vis.length ? 0 : _zhl + 1) : (_zhl <= 0 ? vis.length - 1 : _zhl - 1);
+          const el = vis[_zhl]; if (el) { el.style.boxShadow = 'inset 0 0 0 2px var(--dtr-primary,#149c8e)'; try { el.scrollIntoView({ block: 'nearest' }); } catch (_) {} }
+        });
         setTimeout(() => { try { _zfi.focus(); } catch (_) {} }, 0);
       }
 
@@ -38648,7 +39440,7 @@ if (!tradeLinks.length) {
         ulEl.addEventListener('click', e => {
           const heartBtn = e.target.closest('[data-heart]');
           if (heartBtn) { e.stopPropagation(); const nm = heartBtn.dataset.heart;
-            OE.set(s2 => ({ considering: s2.considering.map(x => x.name===nm ? Object.assign({},x,{loved:!x.loved}) : x) })); return; }
+            OE.set(s2 => ({ considering: s2.considering.map(x => x.name===nm ? Object.assign({},x,{loved:!x.loved}) : x) })); _oeSyncStarred(); return; }
           const rmBtn = e.target.closest('[data-remove]');
           if (rmBtn) { e.stopPropagation(); oeRemoveFromList(rmBtn.dataset.remove); return; }
           const infoBtn = e.target.closest('[data-info-btn]');
@@ -39432,46 +40224,55 @@ if (!tradeLinks.length) {
       if (!ids.length) return { worn: [], zones: [] };
       const altSnip = alt ? ',altStyleId:'+JSON.stringify(String(alt)) : '';
       const gql = 'query DTROEWornItems($ids:[ID!]!,$sp:ID!,$co:ID!){items(ids:$ids){id name thumbnailUrl isNc isPb appearanceOn(speciesId:$sp,colorId:$co'+altSnip+'){layers{zone{id label}}}}}';
-      try {
-        const res = await fetch('https://impress-2020.openneo.net/api/graphql', {
-          method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({ query: gql, variables: { ids, sp: String(sp||'1'), co: String(co||'8') } }),
-          credentials: 'omit',
-        });
-        if (!res.ok) return { worn: [], zones: [] };
-        const json = await res.json();
-        const items = (json.data && json.data.items || []).filter(Boolean);
-        const zonesMap = {};
-        const worn = [];
-        const seenWorn = new Set();
-        items.forEach(item => {
-          const layers = (item.appearanceOn && item.appearanceOn.layers) || [];
-          layers.forEach(layer => {
-            const lbl = layer.zone && layer.zone.label;
-            if (!lbl) return;
-            zonesMap[lbl] = { name: item.name, thumb: item.thumbnailUrl || '' };
-            const wkey = String(item.id) + '|' + lbl;
-            if (seenWorn.has(wkey)) return;
-            seenWorn.add(wkey);
-            worn.push({
-              id: String(item.id), name: item.name || '', zone: lbl, hue: oeZoneHue(lbl),
-              loved: true, applied: true, thumb: item.thumbnailUrl || '', thumbnailUrl: item.thumbnailUrl || '',
-              nc: !!(item.isNc),
-            });
+
+      let items = null;
+      for (let attempt = 0; attempt < 3 && items === null; attempt++) {
+        try {
+          const res = await fetch('https://impress-2020.openneo.net/api/graphql', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ query: gql, variables: { ids, sp: String(sp||'1'), co: String(co||'8') } }),
+            credentials: 'omit',
+          });
+          if (res.ok) { const json = await res.json(); items = (json.data && json.data.items || []).filter(Boolean); }
+          else void 0;
+        } catch (e) {  }
+        if (items === null && attempt < 2) await new Promise(r => setTimeout(r, 350 * (attempt + 1)));
+      }
+      if (items === null) return { worn: [], zones: [], failed: true };
+      const zonesMap = {};
+      const worn = [];
+      const seenWorn = new Set();
+      items.forEach(item => {
+        const layers = (item.appearanceOn && item.appearanceOn.layers) || [];
+        layers.forEach(layer => {
+          const lbl = layer.zone && layer.zone.label;
+          if (!lbl) return;
+          zonesMap[lbl] = { name: item.name, thumb: item.thumbnailUrl || '' };
+          const wkey = String(item.id) + '|' + lbl;
+          if (seenWorn.has(wkey)) return;
+          seenWorn.add(wkey);
+          worn.push({
+            id: String(item.id), name: item.name || '', zone: lbl, hue: oeZoneHue(lbl),
+            loved: true, applied: true, thumb: item.thumbnailUrl || '', thumbnailUrl: item.thumbnailUrl || '',
+            nc: !!(item.isNc),
           });
         });
-        const zones = Object.entries(zonesMap).map(([lbl, d]) => [lbl, d.name, oeZoneHue(lbl), d.thumb]);
-        return { worn, zones };
-      } catch (e) {  return { worn: [], zones: [] }; }
+      });
+      const zones = Object.entries(zonesMap).map(([lbl, d]) => [lbl, d.name, oeZoneHue(lbl), d.thumb]);
+      const _resolved = new Set(worn.map(x => String(x.id)));
+      return { worn, zones, incomplete: ids.some(id => !_resolved.has(id)) };
     }
 
     async function oeLoadWornItems(objectIds, force) {
       const ids = (objectIds || []).map(String).filter(Boolean);
       if (!ids.length) { if (force) OE.set({ considering: [] }); return; }
       const s = OE.get();
-      const { worn, zones } = await oeFetchWornItemDetails(ids, s.speciesId || '1', s.colorId || '8', s.altStyleId || null);
+      const det = await oeFetchWornItemDetails(ids, s.speciesId || '1', s.colorId || '8', s.altStyleId || null);
+      const worn = det.worn, zones = det.zones;
       const cur = OE.get();
+
+      if (det.failed) {  return; }
       if (force || (zones.length > 0 && (!cur.watchZones || cur.watchZones.length === 0))) {
 
         OE.set({ watchZones: zones, considering: worn });
@@ -39519,12 +40320,28 @@ if (!tradeLinks.length) {
       if (!o || o.id == null) return null;
       const poseIdx = OE_POSE_URLS.indexOf(o.pose);
       const sp = String(o.species_id), co = String(o.color_id), alt = o.alt_style_id ? String(o.alt_style_id) : null;
-      const det = await oeFetchWornItemDetails((o.item_ids && o.item_ids.worn) || [], sp, co, alt);
+      const _authWorn = ((o.item_ids && o.item_ids.worn) || []).map(String).filter(Boolean);
+      const det = await oeFetchWornItemDetails(_authWorn, sp, co, alt);
+
+      try { _oeAuthCount[String(o.id)] = _oeWornIds(det.worn).length; } catch (_) { _oeAuthCount[String(o.id)] = _authWorn.length; }
+
+      let _considering = det.worn;
+      try {
+        const _stored = _oeStarredFor(String(o.id));
+        if (_stored == null) {
+          _oeSaveStarred(String(o.id), _considering.filter(x => x && x.loved).map(x => x.id));
+        } else {
+          const _wSet = new Set(_considering.map(x => String(x.id)));
+          _considering = _considering.map(x => Object.assign({}, x, { loved: _stored.indexOf(String(x.id)) !== -1 }));
+          const _miss = _stored.filter(sid => !_wSet.has(String(sid)));
+          if (_miss.length) { const _ex = await oeFetchWornItemDetails(_miss, sp, co, alt); (_ex.worn || []).forEach(x => _considering.push(Object.assign({}, x, { loved: true, applied: false }))); }
+        }
+      } catch (_) {}
       return {
         outfitId: String(o.id), name: o.name || 'My Outfit',
         speciesId: sp, colorId: co, pose: poseIdx >= 0 ? poseIdx : 3, altStyleId: alt,
         petStateId: o.pet_state_id ? String(o.pet_state_id) : null,
-        considering: det.worn, watchZones: det.zones, tags: oeLoadTags(String(o.id)),
+        considering: _considering, watchZones: det.zones, tags: oeLoadTags(String(o.id)),
       };
     }
 
@@ -39744,8 +40561,16 @@ if (!tradeLinks.length) {
       return { id: newId ? String(newId) : (usedId || null), name: realName };
     }
 
+    const _OE_STAR_KEY = 'dtr_oe_starred';
+    function _oeAllStarred() { try { return JSON.parse(GM_getValue(_OE_STAR_KEY, '{}')) || {}; } catch (_) { return {}; } }
+    function _oeStarredFor(id) { const m = _oeAllStarred()[String(id)]; return Array.isArray(m) ? m.map(String) : null; }
+    function _oeSaveStarred(id, ids) { if (!id) return; try { const all = _oeAllStarred(); all[String(id)] = [...new Set((ids || []).map(String).filter(Boolean))]; GM_setValue(_OE_STAR_KEY, JSON.stringify(all)); } catch (_) {} }
+
+    function _oeSyncStarred(state) { try { const s = state || OE.get(); const id = oeActiveVar(s).outfitId || s.outfitId; if (id) _oeSaveStarred(id, (s.considering || []).filter(x => x && x.loved).map(x => x.id)); } catch (_) {} }
+
     function _oeWornIds(items) {
-      return [...new Set((items||[]).filter(x => x && x.applied !== false).map(x => x.id).filter(Boolean).map(String))];
+      const drawn = oeDrawnNames(items);
+      return [...new Set((items||[]).filter(x => x && x.applied !== false && drawn.has(x.name)).map(x => x.id).filter(Boolean).map(String))];
     }
 
     async function oeSaveOutfit() {
@@ -39758,6 +40583,7 @@ if (!tradeLinks.length) {
       try { _oeMarkSaved(id, _oeActiveSig(OE.get())); } catch (_) {}
       oeSaveTags(id, av.tags || []);
       oeSaveVariantGroup(oeAllOutfitIds(OE.get().variants));
+      try { _oeSaveStarred(id, (OE.get().considering || []).filter(x => x && x.loved).map(x => x.id)); } catch (_) {}
       return id;
     }
 
@@ -40288,7 +41114,7 @@ if (!tradeLinks.length) {
         } catch (err) {
           OE.set({ searchLoading: false, searchError: err.message });
         }
-      }, 220);
+      }, 380);
     }
 
     let _loadingMore = false;
@@ -40465,7 +41291,8 @@ if (!tradeLinks.length) {
         const startOff = st0.searchNextOffset || lim;
         const maxOff = Math.min(total, _OE_SORT_LOADALL_CAP);
         if (!st0.searchHasMore || startOff >= maxOff) return;
-        OE.set({ sortLoadingAll: true, searchLoading: true });
+
+        OE.set({ searchLoading: true, searchHasMore: false, sortLoadingAll: false });
         const fetchPage = (off) => st0.activeZone
           ? oeFetchZoneItems(oeZoneIdsForLabel(st0.activeZone), st0.searchQuery, off)
           : oeFetchItems(st0.searchQuery, { ncFilter: st0.searchFilter !== 'all' ? st0.searchFilter : null, offset: off });
@@ -40476,6 +41303,8 @@ if (!tradeLinks.length) {
           if (gen !== _oeSearchGen) return;
           const rs = await Promise.all(offsets.slice(i, i + CONC).map(off => fetchPage(off).catch(() => null)));
           rs.forEach(r => { ((r && r.items) || []).forEach(it => { if (!seen.has(it.id)) { seen.add(it.id); acc.push(it); } }); });
+          if (gen !== _oeSearchGen) return;
+          OE.set({ searchResults: acc.slice() });
         }
         if (gen !== _oeSearchGen) return;
         OE.set({ searchResults: acc, searchTotal: total, searchNextOffset: maxOff, searchHasMore: maxOff < total, searchLoading: false, sortLoadingAll: false });
