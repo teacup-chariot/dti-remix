@@ -6,14 +6,23 @@
 - **Your Outfits & Customize:** Your favorite variant of a look is now marked with a little golden crown that sits on top of the pet, in place of the heart — and it's one shared setting: crown a variant on either page and it shows up crowned on the other. The crowned variant is the one shown large by default.
 - **Customize:** You can flip through the Color and Species pickers with your arrow keys now — focus the field and press ↑ / ↓ to move through the options without even opening the menu, or open the menu and arrow through it (type a letter to jump to a match).
 - **Your Outfits:** In the film-strip layout, each variant thumbnail shows its name, and when a look has inactive variants a "+N inactive" chip tells you how many — click it to reveal them. (What used to be called "hidden" is now "inactive.")
+- **Closet:** When you pick items for bulk editing, they now show a clear **SELECTED** banner and candy-stripe frame — the same cue as Customize and Your Outfits — and the bar along the bottom got a soft pastel makeover.
+- **Closet:** Dragging selected items onto a list now moves the *whole stack* of each item, not just one. And when you're viewing several lists at once, it gathers every copy of an item spread across those lists into the one you drop on. Moving a big batch (over 100) shows a heads-up that it may take a minute or two.
+- **Closet:** The **+ Add Item** search box got a softer, pastel look to match the rest of the closet.
+- **Your Outfits:** Your sort choice and the Show-inactive toggle now stick — they stay how you set them across refreshes and even after logging back in.
+- **Everywhere:** Your clipboard, your trade-message draft, and your Try On Haul now stay separate per account — signing into a different Neopets account on the same browser no longer shows the previous account's staged items. And each other person's closet you browse keeps its **own** clipboard and draft, so a running "trade with this person" list never mixes with anyone else's.
 
 ### Fixes
 - **Your Outfits:** Dragging one outfit onto another to group them as variants works again — it was silently doing nothing when you dropped it. Any outfits left in a tangled grouped state from before now repair themselves automatically.
 - **Your Outfits:** Crowning a variant, or clicking to preview one, no longer reshuffles your cards or makes them jump around the page.
 - **Your Outfits:** On the film-strip wearable tiles, an item's cap value now shows as the same little pink price tag used everywhere else on the site, and the Owned / Wishlisted labels sit on the item's thumbnail instead of a mismatched tag underneath.
-- **Your Outfits:** General film-strip tidy-up — looks with no variants say so instead of leaving a blank gap, variant thumbnails are centered next to the pet, the wearable checkboxes are plain coral checkboxes, and a stray outline that showed up around the selected variant is gone.
+- **Your Outfits:** General film-strip tidy-up — looks with no variants say so instead of leaving a blank gap, variant thumbnails are centered next to the pet, the wearable checkboxes are plain coral checkboxes, and the variant you're currently viewing is clearly marked **SELECTED** with a banner and frame matching the "currently wearing" look on Customize.
 - **Customize:** Click an item's name in the search results to try it on — the name wasn't a clickable spot before.
 - **Customize:** Removing an item from the Fitting Room with the × now sticks; before, it would quietly come back after a refresh.
+- **Closet:** Your lists now sort alphabetically by name, matching DTI itself — so numeric prefixes (0.0, 0.1, 1.0…) put lists in the order you intend. Before, your public lists were shown first and private ones after, which scrambled the order.
+- **Closet:** Confirmation pop-ups (moved / added / removed) now appear right where you're working — next to your cursor, or where you dropped a drag — instead of off in a far corner. The "moved" note also tells you how many items *and* how many total copies moved, and it clears a little quicker.
+- **Customize:** The "no zones watched yet" hint moved into the Zone Map panel where it belongs — it used to float over your pet and block the toggle buttons underneath it.
+- **Closet:** The **Copy clipboard** window got a polish pass — one consistent font throughout, cleaner copy icons, the "Lebron values" option lined up on its own row, a message box that remembers the size you drag it to, and the site's soft scrollbar. It also no longer closes on you when you drag to select text past its edge.
 
 ## July 2, 2026
 
