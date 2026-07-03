@@ -34,32 +34,6 @@
           if (!w) { try { w = window.open(url, '_blank'); } catch (_) {} }
           if (!w) return;
 
-          var isPeek = /^https:\/\/impress\.openneo\.net\/items\/\d+/.test(String(url));
-          if (isPeek) {
-            try {
-              var safeP = String(url).replace(/</g, '%3C').replace(/"/g, '%22');
-              var html = '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Loading…</title>'
-                + '<style>html,body{margin:0;height:100%;background:#fdf7f0;overflow:hidden}#dtrf{position:fixed;inset:0;width:100%;height:100%;border:0}#dtrc{position:fixed;inset:0;z-index:9;background:#fdf7f0;display:flex;align-items:center;justify-content:center;font:700 13px Nunito,Arial,sans-serif;color:#c9b8a4;letter-spacing:.04em;transition:opacity .18s}</style></head><body>'
-                + '<iframe id="dtrf" src="' + safeP + '"></iframe><div id="dtrc">Loading…</div>'
-                + '<scr' + 'ipt>(function(){try{history.replaceState(null,"","' + safeP + '")}catch(e){}'
-                + 'var f=document.getElementById("dtrf"),c=document.getElementById("dtrc"),t0=Date.now();'
-                + 'var iv=setInterval(function(){var ok=false,d=null;'
-                + 'try{d=f.contentDocument}catch(e){}'
-                + 'if(d){try{'
-                + 'if(d.head&&!d.getElementById("dtrbase")){var b=d.createElement("base");b.id="dtrbase";b.target="_top";d.head.insertBefore(b,d.head.firstChild);}'
-                + 'var sh=d.getElementById("dia-shell");'
-                + 'ok=!!(sh&&sh.classList.contains("dtr-shell-ready"));'
-                + 'if(ok&&d.title)document.title=d.title;'
-                + 'if(!ok&&Date.now()-t0>12000&&d.readyState==="complete")ok=true;'
-                + '}catch(e){}}'
-                + 'if(Date.now()-t0>20000)ok=true;'
-                + 'if(ok){clearInterval(iv);c.style.opacity="0";setTimeout(function(){try{c.remove()}catch(e){}},240);}'
-                + '},40);})();</scr' + 'ipt></body></html>';
-              w.document.open(); w.document.write(html); w.document.close();
-              return;
-            } catch (_) {  }
-          }
-
           var cream = null;
           try {
             var safe = String(url).replace(/</g, '%3C').replace(/"/g, '%22');
@@ -11868,6 +11842,8 @@
     if (!document.getElementById('dtr-soon-skin')) {
       var sk = document.createElement('style'); sk.id = 'dtr-soon-skin';
       sk.textContent = [
+
+        "@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Baloo+2:wght@500;600;700&family=Poppins:wght@400;600;700&family=Quicksand:wght@500;600;700&family=Fredoka:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=Pacifico&family=Dancing+Script:wght@600;700&family=Space+Mono:wght@400;700&display=swap');",
         'body.outfits-index{background:var(--dtr-polka,#fdf7f0) #fdf7f0!important;background-attachment:fixed!important;font-family:"Nunito",Inter,Arial,sans-serif!important}',
         'body.outfits-index #main-nav{display:none!important}',
         'body.outfits-index #title,body.outfits-index #container>p,body.outfits-index #outfits{display:none!important}',
@@ -11935,8 +11911,9 @@
         '.dtr-yo-view{width:30px;height:100%;border-radius:10px;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#9a9a90;padding:0}',
         '.dtr-yo-view.on{background:var(--dtr-primary,#149c8e);color:#fff}',
 
-        '#dtr-yo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;padding-bottom:4px}',
-        '#dtr-yo-grid.strip{display:flex;flex-direction:column}',
+        '#dtr-yo-grid{display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-start;gap:12px;padding-bottom:4px}',
+        '#dtr-yo-grid:not(.strip)>.dtr-yo-card{flex:1 1 240px;max-width:340px}',
+        '#dtr-yo-grid.strip{display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;align-items:stretch}',
 
         '.dtr-yo-card{position:relative;background:#fff;border:1px solid var(--border,#e7e1d4);border-radius:16px;box-shadow:0 2px 8px rgba(60,60,55,.07);overflow:visible;display:flex;flex-direction:column;transition:box-shadow .12s}',
         '.dtr-yo-card:hover{box-shadow:0 6px 18px rgba(60,60,55,.14)}',
@@ -12080,7 +12057,8 @@
         '.dtr-yo-wladd.dis{opacity:.45;cursor:default;box-shadow:none}',
         '.dtr-yo-wlmenu{position:absolute;top:calc(100% + 6px);right:0;z-index:40;min-width:180px;max-width:250px;background:#fff;border:1px solid #ece5d6;border-radius:13px;box-shadow:0 10px 30px rgba(60,50,40,.18);padding:7px;max-height:260px;overflow-y:auto}',
         '.dtr-yo-wlnote{font:600 10px "Nunito",sans-serif;color:#b0aa9c;padding:3px 8px 5px;line-height:1.4}',
-        '.dtr-yo-itemgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}',
+        '.dtr-yo-itemgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}',
+        '.dtr-yo-itemgrid>.dtr-yo-wcard{flex:1 1 150px;max-width:200px}',
         '.dtr-yo-wcard{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:13px 9px 10px;border-radius:13px;background:#faf8f2;border:2px solid transparent;cursor:pointer;transition:background .1s,border-color .1s,box-shadow .1s}',
         '.dtr-yo-wcard:hover{background:#fff;border-color:var(--dtr-primary-line,#cfe7e0)}',
         '.dtr-yo-wcard.sel{background:#fff;border-color:var(--dtr-accent,#ff8576);box-shadow:0 3px 11px rgba(255,133,118,.2)}',
@@ -12124,15 +12102,144 @@
         '.dtr-yo-droptarget::after{content:"＋ Drop to add as a variant";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;background:rgba(231,246,242,.86);color:var(--dtr-primary,#149c8e);font:800 12.5px "Nunito",sans-serif;border-radius:14px;pointer-events:none;z-index:9}',
         'body.dtr-yo-ungroup-armed::after{content:"Drop here to make it a standalone outfit";position:fixed;left:50%;bottom:40px;transform:translateX(-50%);background:var(--dtr-accent,#ff8576);color:#fff;font:800 12px "Nunito",sans-serif;padding:10px 18px;border-radius:999px;z-index:100055;box-shadow:0 6px 20px rgba(255,133,118,.4);pointer-events:none}',
 
-        '.dtr-yo-series{grid-column:1/-1;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.85);border-radius:16px;padding:12px 13px;margin-bottom:2px}',
+        '.dtr-yo-series{flex-basis:100%;width:100%;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.85);border-radius:16px;padding:12px 13px;margin-bottom:2px}',
         '.dtr-yo-series-head{display:flex;align-items:center;gap:9px;margin:0 2px 11px}',
         '.dtr-yo-series-head .nm{font:800 12px "Nunito",sans-serif;color:#4a4a45}',
-        '.dtr-yo-series-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:11px}',
-        '.dtr-yo-flatlbl{grid-column:1/-1;font:800 9px "Nunito",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#b0aea4;margin:6px 2px 0}',
+        '.dtr-yo-series-cards{display:flex;flex-wrap:wrap;justify-content:center;gap:11px}',
+        '.dtr-yo-series-cards>.dtr-yo-card{flex:1 1 180px;max-width:300px}',
+        '.dtr-yo-flatlbl{flex-basis:100%;width:100%;font:800 9px "Nunito",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#b0aea4;margin:6px 2px 0}',
         '.dtr-yo-chip.grp{background:var(--dtr-primary-bg,#e7f6f2);color:#347f76}',
         '.dtr-yo-empty{grid-column:1/-1;text-align:center;color:#b8b3a6;font:600 13px "Nunito",sans-serif;padding:60px 0}',
         '.dtr-yo-spin{width:16px;height:16px;border-radius:50%;border:2px solid #ddd7c8;border-top-color:var(--dtr-primary,#149c8e);display:inline-block;animation:dtryospin .7s linear infinite;vertical-align:-3px;margin-right:8px}',
-        '@keyframes dtryospin{to{transform:rotate(360deg)}}'
+        '@keyframes dtryospin{to{transform:rotate(360deg)}}',
+
+        'body.outfits-index #dtr-yo-root{position:relative}',
+        '#dtr-lb-shell{position:absolute;top:14px;right:100%;margin-right:16px;width:clamp(150px,calc(50vw - 536px),240px);background:linear-gradient(160deg,#fbecf5 0%,#ecf0fb 30%,#e6f4fb 55%,#eafbf1 78%,#fdf6ea 100%);border:1px solid rgba(255,255,255,.85);border-radius:18px;box-shadow:0 6px 22px rgba(80,80,70,.08);padding:16px 13px 18px;overflow:hidden}',
+        '#dtr-lb-shell::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--dtr-stripe,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a))}',
+        '@media (max-width:1360px){#dtr-lb-shell{position:static;width:auto;margin:0 0 14px}#dtr-lb-cards{flex-direction:row;flex-wrap:wrap}.dtr-lb-bcard{width:150px}}',
+        '#dtr-lb-railhead{display:flex;align-items:center;gap:8px;margin:2px 2px 12px}',
+        '.dtr-lb-raillbl{font-family:"Baloo 2",sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4a4a45;margin-right:auto}',
+        '.dtr-lb-newbtn{border:1px solid var(--dtr-primary,#8fd6c8);background:var(--dtr-primary-bg,#e7f6f2);color:var(--dtr-primary,#149c8e);cursor:pointer;font:800 10.5px "Nunito",sans-serif;padding:7px 12px;border-radius:10px;white-space:nowrap}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-newbtn:hover,body.outfits-index #dtr-yo-root .dtr-lb-newbtn:focus{background:var(--dtr-primary,#149c8e)!important;color:#fff!important;border-color:var(--dtr-primary,#149c8e)!important}',
+        '#dtr-lb-cards{display:flex;flex-direction:column;gap:11px;padding:2px 2px 8px}',
+        '.dtr-lb-railempty{font:600 11.5px "Nunito",sans-serif;color:#b0aa9c;text-align:center;line-height:1.55;padding:18px 8px}',
+
+        '.dtr-lb-bcard{position:relative;background:#fff;border:1.5px solid var(--border,#eee6d6);border-radius:14px;padding:7px;cursor:pointer;box-shadow:0 2px 9px rgba(80,80,70,.06);transition:box-shadow .14s,border-color .14s}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-bcard:hover{box-shadow:0 6px 16px rgba(80,80,70,.14)}',
+        '.dtr-lb-bcard.active{border-color:var(--dtr-primary,#149c8e);box-shadow:inset 0 0 0 2px var(--dtr-primary,#149c8e),0 6px 16px rgba(20,156,142,.16)}',
+        '.dtr-lb-cover{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:3px;border-radius:9px;overflow:hidden;aspect-ratio:1/1;padding:5px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}',
+        '.dtr-lb-cvthumb{background-size:contain;background-repeat:no-repeat;background-position:center;border-radius:6px}',
+        '.dtr-lb-cvempty{grid-column:1/-1;display:flex;align-items:center;justify-content:center;font-size:26px;color:rgba(120,110,95,.4)}',
+        '.dtr-lb-bcard-foot{display:flex;align-items:center;gap:6px;padding:8px 4px 3px}',
+        '.dtr-lb-bname{font:800 11.5px "Nunito",sans-serif;color:#3a3a35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}',
+        '.dtr-lb-bcount{font:800 9.5px "Nunito",sans-serif;color:#347f76;background:var(--dtr-primary-bg,#e7f6f2);padding:2px 8px;border-radius:999px}',
+        '.dtr-lb-bdel{position:absolute;top:9px;right:9px;width:24px;height:24px;border-radius:50%;border:1px solid #e6b3ab;background:rgba(255,255,255,.9);color:#c0392b;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;box-shadow:0 2px 7px rgba(0,0,0,.16)!important;transition:opacity .12s}',
+        '.dtr-lb-bcard:hover .dtr-lb-bdel{opacity:1}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-bdel:hover{background:#fdecef!important;border-color:#e6b3ab!important;color:#c0392b!important}',
+        '.dtr-lb-bconfirm{position:absolute;inset:0;background:rgba(255,255,255,.95);border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:8px}',
+        '.dtr-lb-bconfirm .t{font:800 12px "Nunito",sans-serif;color:#4a4a45}',
+        '.dtr-lb-bconfirm .r{display:flex;gap:7px}',
+        '.dtr-lb-yes,.dtr-lb-no{border:none;cursor:pointer;font:800 11px "Nunito",sans-serif;padding:6px 13px;border-radius:9px}',
+        '.dtr-lb-yes{background:#e0574b;color:#fff}',
+        '.dtr-lb-no{background:#eee6d6;color:#6a655c}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-yes:hover{background:#c0392b!important;color:#fff!important}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-no:hover{background:#e2dccb!important;color:#4a4a45!important}',
+
+        '.dtr-lb-dhead{display:flex;align-items:center;gap:10px;margin:2px 2px 14px}',
+        '.dtr-lb-back{border:1px solid var(--border,#e7e1d4);background:#fff;color:#6a655c;cursor:pointer;font:800 11px "Nunito",sans-serif;padding:7px 13px;border-radius:10px}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-back:hover{background:var(--dtr-primary-bg,#e7f6f2)!important;color:var(--dtr-primary,#149c8e)!important;border-color:var(--dtr-primary,#8fd6c8)!important}',
+        '.dtr-lb-dtitle{border:none;background:transparent;cursor:pointer;font:800 18px "Baloo 2",sans-serif;color:#3a3a35;padding:3px 6px;display:inline-flex;align-items:center;gap:7px;border-radius:9px;margin-right:auto}',
+        '.dtr-lb-dtitle .dtr-lb-pencil{font-size:12px;color:#b8b3a6;opacity:0;transition:opacity .12s}',
+        '.dtr-lb-dtitle:hover .dtr-lb-pencil{opacity:1}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-dtitle:hover,body.outfits-index #dtr-yo-root .dtr-lb-dtitle:focus{background:#fff!important;color:#3a3a35!important}',
+        '.dtr-lb-brename{font:800 18px "Baloo 2",sans-serif;color:#3a3a35;border:1px solid var(--dtr-primary,#8fd6c8);border-radius:9px;padding:3px 10px;outline:none;background:#fff;min-width:200px;margin-right:auto}',
+        '.dtr-lb-count{font:800 9.5px "Nunito",sans-serif;color:#347f76;background:var(--dtr-primary-bg,#e7f6f2);padding:3px 10px;border-radius:999px}',
+        '.dtr-lb-delboard2{width:30px;height:30px;border-radius:9px;border:1px solid #e6b3ab;background:#fff;color:#c0392b;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-delboard2:hover{background:#fdecef!important;border-color:#e6b3ab!important;color:#c0392b!important}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-bdel,body.outfits-index #dtr-yo-root .dtr-lb-delboard2{color:#c0392b!important}',
+        '.dtr-lb-delboard2 svg,.dtr-lb-bdel svg{width:16px;height:16px;display:block}',
+
+        '.dtr-lb-bcard.deleting{cursor:default}',
+        '.dtr-lb-delmask2{position:absolute;inset:0;z-index:6;background:rgba(255,251,247,.95);border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;overflow:hidden}',
+        '.dtr-lb-delmask2 .t{font:800 12px "Nunito",sans-serif;color:#4a4a45}',
+        '.dtr-lb-undo{border:1px solid var(--dtr-primary,#8fd6c8);background:var(--dtr-primary-bg,#e7f6f2);color:var(--dtr-primary,#149c8e);cursor:pointer;font:800 11px "Nunito",sans-serif;padding:6px 15px;border-radius:9px}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-undo:hover{background:var(--dtr-primary,#149c8e)!important;color:#fff!important;border-color:var(--dtr-primary,#149c8e)!important}',
+        '.dtr-lb-delbar2{position:absolute;left:0;bottom:0;height:4px;background:#e8455f;border-radius:0 3px 3px 0;animation:yodelbar 5s linear forwards}',
+
+        '.dtr-lb-ddwrap{position:relative;display:inline-block}',
+        '.dtr-lb-dd{display:inline-flex;align-items:center;gap:8px;justify-content:space-between;border:1px solid var(--border,#e7e1d4);background:#fff;color:#4a4a45;border-radius:10px;height:30px;padding:0 10px;font:700 11px "Nunito",sans-serif;cursor:pointer;min-width:92px}',
+        '.dtr-lb-dd .cv{font-size:9px;color:#9a9a90}',
+        '.dtr-lb-dd.open{border-color:var(--dtr-primary,#8fd6c8)}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-dd:hover,body.outfits-index #dtr-yo-root .dtr-lb-dd:focus{border-color:var(--dtr-primary,#8fd6c8)!important;background:#fff!important;color:#4a4a45!important}',
+        '.dtr-lb-ddmenu{position:absolute;top:calc(100% + 5px);left:0;min-width:100%;background:#fff;border:1px solid var(--border,#e7e1d4);border-radius:11px;box-shadow:0 12px 28px rgba(40,40,35,.18);padding:5px;z-index:100058;max-height:300px;overflow-y:auto}',
+        '.dtr-lb-ddrow{display:block;width:100%;text-align:left;border:none;background:transparent;cursor:pointer;font-size:14px;color:#4a4a45;padding:9px 12px;border-radius:8px;white-space:nowrap;line-height:1.1}',
+        '.dtr-lb-ddrow.on{background:var(--dtr-primary-bg,#e7f6f2);color:var(--dtr-primary,#149c8e)}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-ddrow:hover{background:var(--dtr-primary-bg,#e7f6f2)!important;color:#3a3a35!important}',
+
+        '.dtr-lb-tools{background:#fbf8f1;border:1px solid var(--border,#eee6d6);border-radius:14px;padding:11px 13px;margin-bottom:14px;display:flex;flex-direction:column;gap:10px}',
+        '.dtr-lb-toolrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}',
+        '.dtr-lb-tool{display:inline-flex;align-items:center;gap:7px}',
+        '.dtr-lb-tool.grow{flex:1 1 auto}',
+        '.dtr-lb-tlbl{font:800 9.5px "Nunito",sans-serif;color:#8a857a;text-transform:uppercase;letter-spacing:.05em}',
+        '.dtr-lb-stepper{display:inline-flex;align-items:center;background:#fff;border:1px solid var(--border,#e7e1d4);border-radius:10px;overflow:hidden}',
+        '.dtr-lb-stepper button{width:28px;height:30px;border:none;background:transparent;cursor:pointer;font:800 14px "Nunito",sans-serif;color:var(--dtr-primary,#149c8e)}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-stepper button:hover{background:var(--dtr-primary-bg,#e7f6f2)!important;color:var(--dtr-primary,#149c8e)!important}',
+        '.dtr-lb-stepper b{min-width:22px;text-align:center;font:800 12px "Nunito",sans-serif;color:#4a4a45}',
+        '.dtr-lb-segbar{display:inline-flex;background:#fff;border:1px solid var(--border,#e7e1d4);border-radius:10px;padding:2px}',
+        '.dtr-lb-seg{min-width:30px;height:28px;border:none;background:transparent;cursor:pointer;border-radius:7px;font:700 13px "Nunito",sans-serif;color:#9a9a90;padding:0 6px}',
+        '.dtr-lb-seg.on{background:var(--dtr-primary,#149c8e);color:#fff}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-seg:not(.on):hover{background:var(--dtr-primary-bg,#e7f6f2)!important;color:#5a5a52!important}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-seg.on:hover{background:var(--dtr-primary,#149c8e)!important;color:#fff!important}',
+        '.dtr-lb-toggle2{border:1px solid var(--border,#e7e1d4);background:#fff;color:#7a7a72;cursor:pointer;font:800 10.5px "Nunito",sans-serif;padding:7px 13px;border-radius:10px}',
+        '.dtr-lb-toggle2.on{background:var(--dtr-primary,#149c8e);color:#fff;border-color:var(--dtr-primary,#149c8e)}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-toggle2:not(.on):hover{background:var(--dtr-primary-bg,#e7f6f2)!important;color:#5a5a52!important}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-toggle2.on:hover{background:var(--dtr-primary,#149c8e)!important;color:#fff!important}',
+        '.dtr-lb-color{width:34px;height:30px;border:1px solid var(--border,#e7e1d4);border-radius:9px;background:#fff;cursor:pointer;padding:2px}',
+        '.dtr-lb-select{border:1px solid var(--border,#e7e1d4);background:#fff;color:#4a4a45;border-radius:9px;height:30px;padding:0 8px;font:700 11px "Nunito",sans-serif;cursor:pointer}',
+        '.dtr-lb-textin{border:1px solid var(--border,#e7e1d4);background:#fff;color:#3a3a35;border-radius:9px;height:30px;padding:0 11px;font:700 12px "Nunito",sans-serif;outline:none;width:100%}',
+        '.dtr-lb-textin:focus{border-color:var(--dtr-primary,#8fd6c8)}',
+        '.dtr-lb-addbtn{border:1px solid var(--dtr-primary,#8fd6c8);background:var(--dtr-primary-bg,#e7f6f2);color:var(--dtr-primary,#149c8e);cursor:pointer;font:800 11px "Nunito",sans-serif;padding:8px 16px;border-radius:11px}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-addbtn:hover,body.outfits-index #dtr-yo-root .dtr-lb-addbtn:focus{background:var(--dtr-primary,#149c8e)!important;color:#fff!important;border-color:var(--dtr-primary,#149c8e)!important}',
+
+        'body.outfits-index #dtr-yo-shell.dtr-lb-designing{margin-right:calc(50% - 50vw + 18px)}',
+
+        '.dtr-lb-canvas{border-radius:16px;padding:22px 20px;min-height:220px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05);display:flex;flex-direction:column;overflow:hidden}',
+        '.dtr-lb-boardheader{text-align:center;font-size:26px;font-weight:800;line-height:1.15;margin-bottom:18px;word-break:break-word}',
+        '.dtr-lb-canvasgrid{display:grid;gap:16px;max-width:100%}',
+        '.dtr-lb-tile{position:relative;cursor:grab;min-width:0}',
+        '.dtr-lb-tile.dtr-lb-drop-before::after,.dtr-lb-tile.dtr-lb-drop-after::after{content:"";position:absolute;top:0;bottom:0;width:4px;border-radius:3px;background:var(--dtr-primary,#149c8e);z-index:3}',
+        '.dtr-lb-tile.dtr-lb-drop-before::after{left:-9px}',
+        '.dtr-lb-tile.dtr-lb-drop-after::after{right:-9px}',
+
+        '.dtr-lb-thumb{position:relative;overflow:hidden;background:rgba(255,255,255,.5);width:100%;aspect-ratio:1/1}',
+        '.dtr-lb-thumb img{width:100%;height:100%;object-fit:cover;display:block;cursor:pointer}',
+        '.dtr-lb-remove{position:absolute;top:5px;right:5px;width:24px;height:24px;border-radius:50%;border:1px solid #e6b3ab;background:rgba(255,255,255,.92);color:#c0392b;cursor:pointer;font:800 11px "Nunito",sans-serif;line-height:1;opacity:0;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 7px rgba(0,0,0,.18)!important;transition:opacity .12s;z-index:2}',
+        '.dtr-lb-tile:hover .dtr-lb-remove{opacity:1}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-remove:hover,body.outfits-index #dtr-yo-root .dtr-lb-remove:focus{background:#fdecef!important;border-color:#e6b3ab!important;color:#c0392b!important;box-shadow:0 2px 9px rgba(0,0,0,.24)!important}',
+        '.dtr-lb-name{margin-top:8px;text-align:center;font-size:12px;font-weight:700;color:#4a4a45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 3px}',
+
+        '.dtr-lb-empty{text-align:center;padding:46px 0}',
+        '.dtr-lb-empty-ico{font-size:34px;line-height:1;opacity:.7}',
+        '.dtr-lb-empty-t{font:800 15px "Nunito",sans-serif;margin-top:9px}',
+        '.dtr-lb-empty-s{font:600 12px "Nunito",sans-serif;margin-top:5px}',
+
+        '.dia-lb-selbanner{background:linear-gradient(90deg,rgba(28,182,166,.14),rgba(95,179,232,.14));border:1px solid var(--dtr-primary,#8fd6c8);border-radius:12px;padding:10px 15px;margin:0 2px 12px;font:700 12px "Nunito",sans-serif;color:#347f76}',
+        '#dtr-yo-grid.dia-lb-selecting .dtr-yo-card{cursor:pointer;position:relative}',
+        '#dtr-yo-grid.dia-lb-selecting .dtr-yo-vthumb{position:relative}',
+        '#dtr-yo-grid.dia-lb-selecting .dtr-yo-star,#dtr-yo-grid.dia-lb-selecting .dtr-yo-topright,#dtr-yo-grid.dia-lb-selecting .dtr-yo-preview-crown{display:none!important}',
+        '.dia-lb-check{position:absolute;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;border:2px solid var(--dtr-primary,#8fd6c8);color:var(--dtr-primary,#149c8e);opacity:0;z-index:6;box-shadow:0 2px 6px rgba(0,0,0,.14);pointer-events:none}',
+        '.dtr-yo-card>.dia-lb-check{top:8px;left:8px;width:24px;height:24px;font:800 13px "Nunito",sans-serif}',
+        '.dtr-yo-vthumb>.dia-lb-check{top:3px;left:3px;width:18px;height:18px;font:800 10px "Nunito",sans-serif}',
+        '.dtr-yo-card.dia-lb-sel>.dia-lb-check,.dtr-yo-vthumb.dia-lb-sel>.dia-lb-check{opacity:1;background:var(--dtr-primary,#149c8e);border-color:var(--dtr-primary,#149c8e);color:#fff}',
+        '.dtr-yo-card.dia-lb-sel{box-shadow:0 0 0 3px var(--dtr-primary,#149c8e),0 6px 16px rgba(20,156,142,.2)!important;border-radius:16px}',
+        '.dtr-yo-vthumb.dia-lb-sel{box-shadow:0 0 0 3px var(--dtr-primary,#149c8e)!important}',
+        '#dia-lb-selbar{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:100055;display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--border,#e7e1d4);border-radius:999px;padding:8px 10px 8px 18px;box-shadow:0 10px 30px rgba(40,40,35,.22)}',
+        '.dia-lb-selbar-n{font:800 12px "Nunito",sans-serif;color:#4a4a45}',
+        '.dia-lb-selbar-add{border:none;background:var(--dtr-primary,#149c8e);color:#fff;cursor:pointer;font:800 11.5px "Nunito",sans-serif;padding:9px 18px;border-radius:999px}',
+        '.dia-lb-selbar-add.dis{background:#d8d2c4;cursor:not-allowed}',
+        'body.outfits-index #dtr-yo-root .dia-lb-selbar-add:not(.dis):hover{background:#0f8377!important;color:#fff!important}',
+        '.dia-lb-selbar-clear,.dia-lb-selbar-cancel{border:none;background:transparent;color:#8a857a;cursor:pointer;font:800 11px "Nunito",sans-serif;padding:8px 12px;border-radius:999px}',
+        'body.outfits-index #dtr-yo-root .dia-lb-selbar-clear:hover,body.outfits-index #dtr-yo-root .dia-lb-selbar-cancel:hover{background:#f1ede3!important;color:#5a5a52!important}'
       ].join('');
       document.head.appendChild(sk);
     }
@@ -12168,11 +12275,178 @@
     sortOpen: false,
     showHidden: (function () { try { return GM_getValue('dtr_yo_showhidden', '') === '1'; } catch (_) { return false; } })(),
     sel: {}, stripSel: {}, renaming: null, delConfirm: null, itemNames: null, spco: null, err: null,
-    view: (function () { try { var v = String(GM_getValue('dtr_yo_view', 'stack')); return (v === 'strip' || v === 'flat') ? v : 'stack'; } catch (_) { return 'stack'; } })() };
+    view: (function () { try { var v = String(GM_getValue('dtr_yo_view', 'stack')); return (v === 'strip' || v === 'flat') ? v : 'stack'; } catch (_) { return 'stack'; } })(),
+
+    lbBoardRename: null, lbDelBoard: null, lbSelect: null, lbSelSet: {} };
   function _yoEsc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]; }); }
   function _yoNorm(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim(); }
   function _yoGM(key, def) { try { var v = JSON.parse(GM_getValue(key, 'null')); return v == null ? def : v; } catch (_) { return def; } }
   function _yoThumb(o, size) { var ep = Math.floor(Date.parse(o.updated_at || 0) / 1000) || 0; return 'https://outfits.openneo-assets.net/outfits/' + encodeURIComponent(String(o.id)) + '/v/' + ep + '/' + (size || 300) + '.png'; }
+
+  var _LB_COLS_MIN = 1, _LB_COLS_MAX = 8, _LB_BW_MAX = 12;
+
+  var _LB_FONTS = [['Nunito', 'Nunito'], ['"Baloo 2"', 'Baloo'], ['Poppins', 'Poppins'], ['Quicksand', 'Quicksand'], ['Fredoka', 'Fredoka'], ['"Playfair Display",serif', 'Playfair'], ['Pacifico,cursive', 'Pacifico'], ['"Dancing Script",cursive', 'Dancing'], ['"Space Mono",monospace', 'Mono']];
+  var _LB_SORTS = [['manual', 'Manual'], ['abc', 'A → Z'], ['species', 'Species'], ['created', 'Newest']];
+  function _lbDefaultCfg() { return { cols: 4, align: 'center', shape: 'square', borderColor: '#149c8e', borderWidth: 0, bg: '#faf7f0', showNames: true, font: 'Nunito', headerText: '', sort: 'manual', animate: false }; }
+  var _lbIdSeq = 1;
+  function _lbNewId() { try { return 'lb_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); } catch (_) { return 'lb_' + (_lbIdSeq++); } }
+
+  function _lbKey() { return 'dtr_lookbook::' + (typeof dtrWhoKey === 'function' ? dtrWhoKey() : 'guest'); }
+  function _lbParse(key) {
+    var d = { boards: [], activeBoardId: null, _key: key };
+    try {
+      var s = JSON.parse(GM_getValue(key, 'null'));
+      if (s && typeof s === 'object') {
+        if (Array.isArray(s.boards)) {
+          d.boards = s.boards.map(function (b) { b = b || {};
+            return { id: String(b.id || _lbNewId()), name: (typeof b.name === 'string' && b.name.trim()) ? b.name : 'Untitled board',
+              ids: Array.isArray(b.ids) ? b.ids.map(String) : [], cfg: Object.assign(_lbDefaultCfg(), (b.cfg && typeof b.cfg === 'object') ? b.cfg : {}) }; });
+          d.activeBoardId = s.activeBoardId ? String(s.activeBoardId) : null;
+        } else if (Array.isArray(s.ids)) {
+          var cfg = _lbDefaultCfg(); if (typeof s.cols === 'number') cfg.cols = Math.max(_LB_COLS_MIN, Math.min(_LB_COLS_MAX, s.cols)); if (typeof s.showNames === 'boolean') cfg.showNames = s.showNames;
+          d.boards = [{ id: _lbNewId(), name: (typeof s.title === 'string' && s.title.trim()) ? s.title : 'My Lookbook', ids: s.ids.map(String), cfg: cfg }];
+        }
+      }
+    } catch (_) {}
+    if (d.activeBoardId && !d.boards.some(function (b) { return b.id === d.activeBoardId; })) d.activeBoardId = null;
+    return d;
+  }
+  var _lb = _lbParse(_lbKey());
+
+  function _lbReloadForUser() { var k = _lbKey(); if (_lb._key !== k) _lb = _lbParse(k); }
+  function _lbSave() { try { GM_setValue(_lb._key || _lbKey(), JSON.stringify({ boards: _lb.boards, activeBoardId: _lb.activeBoardId })); } catch (_) {} }
+  function _lbActive() { return _lb.activeBoardId ? (_lb.boards.find(function (b) { return b.id === _lb.activeBoardId; }) || null) : null; }
+  function _lbBoard(id) { id = String(id); return _lb.boards.find(function (b) { return b.id === id; }) || null; }
+  function _lbNewBoard() { var b = { id: _lbNewId(), name: 'New board', ids: [], cfg: _lbDefaultCfg() }; _lb.boards.push(b); _lb.activeBoardId = b.id; _lbSave(); return b; }
+
+  function _lbDeleteBoard(id) { id = String(id); _lb.boards = _lb.boards.filter(function (b) { return b.id !== id; }); if (_lb.activeBoardId === id) _lb.activeBoardId = null; _lbSave(); }
+  function _lbOutfit(id) { return (_yo.outfits || []).find(function (o) { return String(o.id) === String(id); }); }
+  function _lbHas(b, id) { return !!b && b.ids.indexOf(String(id)) >= 0; }
+  function _lbAddMany(b, ids) { if (!b) return 0; var n = 0; (ids || []).forEach(function (id) { id = String(id); if (b.ids.indexOf(id) < 0 && _lbOutfit(id)) { b.ids.push(id); n++; } }); if (n) _lbSave(); return n; }
+  function _lbRemove(b, id) { if (!b) return; id = String(id); var i = b.ids.indexOf(id); if (i >= 0) { b.ids.splice(i, 1); _lbSave(); } }
+  function _lbReorder(b, id, targetId, after) { if (!b) return; id = String(id); targetId = String(targetId); var from = b.ids.indexOf(id); if (from < 0) return; b.ids.splice(from, 1); var to = b.ids.indexOf(targetId); if (to < 0) b.ids.push(id); else b.ids.splice(after ? to + 1 : to, 0, id); _lbSave(); }
+  function _lbSortedIds(b) {
+    var ids = b.ids.filter(function (id) { return !!_lbOutfit(id); });
+    if (ids.length !== b.ids.length) { b.ids = ids.slice(); _lbSave(); }
+    var s = b.cfg.sort;
+    if (s === 'manual' || !s) return ids;
+    var arr = ids.map(function (id) { return _lbOutfit(id); });
+    if (s === 'abc') arr.sort(function (a, z) { return String(a.name || '').localeCompare(String(z.name || '')); });
+    else if (s === 'species') arr.sort(function (a, z) { var A = _yoMeta(a), Z = _yoMeta(z); return String(A.sp || '').localeCompare(String(Z.sp || '')) || String(a.name || '').localeCompare(String(z.name || '')); });
+    else if (s === 'created') arr.sort(function (a, z) { return String(z.created_at || '').localeCompare(String(a.created_at || '')); });
+    return arr.map(function (o) { return String(o.id); });
+  }
+
+  function _lbSelCls(id) { return (_yo.lbSelect && _yo.lbSelSet[String(id)]) ? ' dia-lb-sel' : ''; }
+  function _lbSelChk() { return _yo.lbSelect ? '<span class="dia-lb-check">✓</span>' : ''; }
+  function _lbSelCount() { return Object.keys(_yo.lbSelSet || {}).length; }
+
+  function _lbHexOrDefault(v, def) { return (typeof v === 'string' && /^#[0-9a-fA-F]{6}$/.test(v)) ? v : def; }
+  function _lbCssColor(v) { return (typeof v === 'string' && /^#[0-9a-fA-F]{3,8}$/.test(v)) ? v : '#faf7f0'; }
+  function _lbCssFont(v) { for (var i = 0; i < _LB_FONTS.length; i++) if (_LB_FONTS[i][0] === v) return v; return 'Nunito'; }
+
+  function _lbFontCss(v) { return _lbCssFont(v).replace(/"/g, "'"); }
+  var _lbDelTimers = {};
+
+  var _LB_TRASH_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M10 2a1 1 0 0 0-.95.68L8.72 4H4.5a1 1 0 1 0 0 2H5l1 13.15A2 2 0 0 0 8 21h8a2 2 0 0 0 2-1.85L19 6h.5a1 1 0 1 0 0-2h-4.22l-.33-1.32A1 1 0 0 0 14 2h-4Zm-.5 7a.75.75 0 0 1 .75.75v7a.75.75 0 0 1-1.5 0v-7A.75.75 0 0 1 9.5 9Zm5 0a.75.75 0 0 1 .75.75v7a.75.75 0 0 1-1.5 0v-7a.75.75 0 0 1 .75-.75Z"/></svg>';
+  function _lbTextOn(bg) { var m = (typeof bg === 'string') && bg.match(/^#([0-9a-fA-F]{6})$/); if (!m) return '#2a2a26'; var n = parseInt(m[1], 16); var lum = 0.299 * ((n >> 16) & 255) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255); return lum > 150 ? '#2a2a26' : '#ffffff'; }
+
+  function _lbRailHTML() {
+    var cards = _lb.boards.map(function (b) {
+      var live = b.ids.filter(function (id) { return !!_lbOutfit(id); });
+      var covers = live.slice(0, 4).map(function (id) { return '<span class="dtr-lb-cvthumb" style="background-image:url(\'' + _yoThumb(_lbOutfit(id), 150) + '\')"></span>'; }).join('');
+      var isActive = _lb.activeBoardId === b.id, deleting = !!_lbDelTimers[b.id];
+      return '<div class="dtr-lb-bcard' + (isActive ? ' active' : '') + (deleting ? ' deleting' : '') + '"' + (deleting ? '' : ' data-lb-open="' + _yoEsc(b.id) + '"') + ' tabindex="0" title="Open “' + _yoEsc(b.name) + '”">'
+        + '<div class="dtr-lb-cover" style="background:' + _lbCssColor(b.cfg.bg) + '">' + (covers || '<span class="dtr-lb-cvempty">✦</span>') + '</div>'
+        + '<div class="dtr-lb-bcard-foot"><span class="dtr-lb-bname">' + _yoEsc(b.name) + '</span><span class="dtr-lb-bcount">' + live.length + '</span></div>'
+        + (deleting
+            ? '<div class="dtr-lb-delmask2"><div class="t">Deleting board…</div><button type="button" class="dtr-lb-undo" data-lb-delundo="' + _yoEsc(b.id) + '">Undo</button><div class="dtr-lb-delbar2"></div></div>'
+            : '<button type="button" class="dtr-lb-bdel" data-lb-delboard="' + _yoEsc(b.id) + '" title="Delete this board" aria-label="Delete board">' + _LB_TRASH_SVG + '</button>')
+        + '</div>';
+    }).join('');
+    return '<aside id="dtr-lb-shell">'
+      + '<div id="dtr-lb-railhead"><span class="dtr-lb-raillbl">Lookbook</span>'
+      +   '<button type="button" class="dtr-lb-newbtn" data-lb-newboard="1" title="Create a new board">+ Add Board</button></div>'
+      + '<div id="dtr-lb-cards">' + cards + (_lb.boards.length ? '' : '<div class="dtr-lb-railempty">No boards yet.<br>Make one and start collecting your favorite looks.</div>') + '</div>'
+      + '</aside>';
+  }
+
+  function _lbSelBarHTML(board) {
+    var n = _lbSelCount();
+    return '<div id="dia-lb-selbar">'
+      + '<span class="dia-lb-selbar-n">' + n + ' selected</span>'
+      + '<button type="button" class="dia-lb-selbar-add' + (n ? '' : ' dis') + '" data-lb-addcommit="1"' + (n ? '' : ' disabled') + '>Add to ' + _yoEsc(board ? board.name : 'board') + '</button>'
+      + (n ? '<button type="button" class="dia-lb-selbar-clear" data-lb-selclear="1">Clear</button>' : '')
+      + '<button type="button" class="dia-lb-selbar-cancel" data-lb-addcancel="1">Cancel</button>'
+      + '</div>';
+  }
+
+  function _lbBoardDesignerHTML(b) {
+    var cfg = b.cfg, ids = _lbSortedIds(b);
+    var MAXTILE = 220, GAP = 16;
+    var bw = Math.max(0, Math.min(_LB_BW_MAX, cfg.borderWidth || 0));
+    var alignItems = cfg.align === 'left' ? 'flex-start' : cfg.align === 'right' ? 'flex-end' : 'center';
+    var tiles = ids.map(function (id) {
+      var o = _lbOutfit(id); if (!o) return '';
+      var sid = String(o.id);
+
+      var thumbStyle = 'border-radius:' + (cfg.shape === 'circle' ? '50%' : '14px') + ';'
+        + (bw ? ('box-shadow:0 0 0 ' + bw + 'px ' + _lbCssColor(cfg.borderColor) + ';') : '');
+      return '<div class="dtr-lb-tile' + (cfg.shape === 'circle' ? ' circle' : '') + '" data-lb-tile="' + sid + '">'
+        + '<div class="dtr-lb-thumb" style="' + thumbStyle + '"><img loading="lazy" decoding="async" draggable="false" alt="" data-yo-open="' + sid + '" title="Open “' + _yoEsc(o.name || 'My Outfit') + '” in the editor" src="' + _yoThumb(o, 300) + '">'
+        +   '<button type="button" class="dtr-lb-remove" data-lb-remove="' + sid + '" title="Remove from board" aria-label="Remove from board">✕</button></div>'
+        + (cfg.showNames ? '<div class="dtr-lb-name" style="font-family:' + _lbFontCss(cfg.font) + '">' + _yoEsc(o.name || 'My Outfit') + '</div>' : '')
+        + '</div>';
+    }).join('');
+
+    var gridW = 'min(100%,' + (cfg.cols * MAXTILE + (cfg.cols - 1) * GAP) + 'px)';
+    var canvasInner = (cfg.headerText ? '<div class="dtr-lb-boardheader" style="font-family:' + _lbFontCss(cfg.font) + ';color:' + _lbTextOn(cfg.bg) + '">' + _yoEsc(cfg.headerText) + '</div>' : '')
+      + (ids.length
+          ? '<div class="dtr-lb-canvasgrid" style="grid-template-columns:repeat(' + cfg.cols + ',1fr);width:' + gridW + '">' + tiles + '</div>'
+          : '<div class="dtr-lb-empty"><div class="dtr-lb-empty-ico" style="color:' + _lbTextOn(cfg.bg) + '">✦</div><div class="dtr-lb-empty-t" style="color:' + _lbTextOn(cfg.bg) + '">This board is empty</div><div class="dtr-lb-empty-s" style="color:' + _lbTextOn(cfg.bg) + ';opacity:.75">Click <strong>+ Add Outfit</strong> to pick looks for it.</div></div>');
+    var seg = function (key, opts) { return opts.map(function (o) { return '<button type="button" class="dtr-lb-seg' + (String(cfg[key]) === String(o[0]) ? ' on' : '') + '" data-lb-cfg="' + key + ':' + _yoEsc(String(o[0])) + '" title="' + _yoEsc(o[2] || o[0]) + '">' + o[1] + '</button>'; }).join(''); };
+
+    var _lbDd = function (key, cur, opts, isFont) {
+      var open = _yo.lbDdOpen === key;
+      return '<span class="dtr-lb-ddwrap">'
+        + '<button type="button" class="dtr-lb-dd' + (open ? ' open' : '') + '" data-lb-ddtoggle="' + key + '"><span class="v"' + (isFont ? ' style="font-family:' + _lbFontCss(cur[0]) + '"' : '') + '>' + cur[1] + '</span><span class="cv">▾</span></button>'
+        + (open ? '<div class="dtr-lb-ddmenu">' + opts.map(function (o) { return '<button type="button" class="dtr-lb-ddrow' + (String(cfg[key]) === String(o[0]) ? ' on' : '') + '" data-lb-ddpick="' + key + ':' + _yoEsc(String(o[0])) + '"' + (isFont ? ' style="font-family:' + _lbFontCss(o[0]) + '"' : '') + '>' + o[1] + '</button>'; }).join('') + '</div>' : '')
+        + '</span>';
+    };
+    var fontCur = _LB_FONTS.filter(function (f) { return f[0] === cfg.font; })[0] || _LB_FONTS[0];
+    var sortCur = _LB_SORTS.filter(function (s) { return s[0] === cfg.sort; })[0] || _LB_SORTS[0];
+    var toolbar = '<div class="dtr-lb-tools">'
+      + '<div class="dtr-lb-toolrow">'
+      +   '<button type="button" class="dtr-lb-addbtn" data-lb-addstart="' + _yoEsc(b.id) + '">+ Add Outfit</button>'
+      +   '<span class="dtr-lb-tool"><span class="dtr-lb-tlbl">Per row</span><span class="dtr-lb-stepper"><button type="button" data-lb-cols="-1" aria-label="fewer">−</button><b>' + cfg.cols + '</b><button type="button" data-lb-cols="1" aria-label="more">+</button></span></span>'
+      +   '<span class="dtr-lb-tool"><span class="dtr-lb-tlbl">Align</span><span class="dtr-lb-segbar">' + seg('align', [['left', '⯇', 'Left'], ['center', '≡', 'Center'], ['right', '⯈', 'Right']]) + '</span></span>'
+      +   '<span class="dtr-lb-tool"><span class="dtr-lb-tlbl">Shape</span><span class="dtr-lb-segbar">' + seg('shape', [['square', '▢', 'Square'], ['circle', '◯', 'Circle']]) + '</span></span>'
+      +   '<button type="button" class="dtr-lb-toggle2' + (cfg.showNames ? ' on' : '') + '" data-lb-cfg="showNames:toggle">' + (cfg.showNames ? 'Names on' : 'Names off') + '</button>'
+      + '</div>'
+      + '<div class="dtr-lb-toolrow">'
+      +   '<label class="dtr-lb-tool"><span class="dtr-lb-tlbl">Backdrop</span><input type="color" class="dtr-lb-color" data-lb-color="bg" value="' + _lbHexOrDefault(cfg.bg, '#faf7f0') + '"></label>'
+      +   '<label class="dtr-lb-tool"><span class="dtr-lb-tlbl">Border</span><input type="color" class="dtr-lb-color" data-lb-color="borderColor" value="' + _lbHexOrDefault(cfg.borderColor, '#149c8e') + '"></label>'
+      +   '<span class="dtr-lb-tool"><span class="dtr-lb-tlbl">Border width</span><span class="dtr-lb-stepper"><button type="button" data-lb-bw="-1" aria-label="thinner">−</button><b>' + cfg.borderWidth + '</b><button type="button" data-lb-bw="1" aria-label="thicker">+</button></span></span>'
+      +   '<span class="dtr-lb-tool"><span class="dtr-lb-tlbl">Font</span>' + _lbDd('font', fontCur, _LB_FONTS, true) + '</span>'
+      +   '<span class="dtr-lb-tool"><span class="dtr-lb-tlbl">Sort</span>' + _lbDd('sort', sortCur, _LB_SORTS, false) + '</span>'
+      + '</div>'
+      + '<div class="dtr-lb-toolrow">'
+      +   '<label class="dtr-lb-tool grow"><span class="dtr-lb-tlbl">Header</span><input type="text" class="dtr-lb-textin" data-lb-header value="' + _yoEsc(cfg.headerText) + '" placeholder="Optional title shown on the board" maxlength="80"></label>'
+      + '</div>'
+      + '</div>';
+    return '<div id="dtr-lb-designer">'
+      + '<div class="dtr-lb-dhead">'
+      +   '<button type="button" class="dtr-lb-back" data-lb-close="1" title="Back to your outfits">‹ Outfits</button>'
+      +   (_yo.lbBoardRename === b.id
+            ? '<input id="dtr-lb-brename" class="dtr-lb-brename" value="' + _yoEsc(b.name) + '" maxlength="60">'
+            : '<button type="button" class="dtr-lb-dtitle" data-lb-rename="' + _yoEsc(b.id) + '" title="Rename board">' + _yoEsc(b.name) + '<span class="dtr-lb-pencil">✎</span></button>')
+      +   '<span class="dtr-lb-count">' + ids.length + ' look' + (ids.length === 1 ? '' : 's') + '</span>'
+      +   '<button type="button" class="dtr-lb-delboard2" data-lb-delboard="' + _yoEsc(b.id) + '" title="Delete this board">' + _LB_TRASH_SVG + '</button>'
+      + '</div>'
+      + toolbar
+      + '<div class="dtr-lb-canvas" style="background:' + _lbCssColor(cfg.bg) + ';align-items:' + alignItems + '">' + canvasInner + '</div>'
+      + '</div>';
+  }
   function _yoGql(q) {
     return fetch('https://impress-2020.openneo.net/api/graphql', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: q }) })
       .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
@@ -12764,6 +13038,7 @@
   function _yoRender() {
     var root = document.getElementById('dtr-yo-root');
     if (!root) return;
+    try { _lbReloadForUser(); } catch (_) {}
 
     try {
       var _t = Date.now();
@@ -12840,7 +13115,8 @@
 
         var _selTag = _isSel ? '<span class="dtr-yo-vsel">Selected</span>' : '';
 
-        return '<button type="button"' + (draggable ? ' draggable="true"' : '') + ' class="dtr-yo-vthumb' + (_isSel ? ' sel' : '') + (_isTop ? ' crowned' : '') + (hid[String(v.id)] ? ' hid' : '') + (draggable ? ' dtr-yo-vdraggable' : '') + '" title="' + _yoEsc((v.name || '') + _yoDatesTitle(v)) + '" data-yo-pick="' + _yoEsc(gKey) + ':' + _yoEsc(String(v.id)) + '">'
+        return '<button type="button"' + (draggable ? ' draggable="true"' : '') + ' class="dtr-yo-vthumb' + (_isSel ? ' sel' : '') + (_isTop ? ' crowned' : '') + (hid[String(v.id)] ? ' hid' : '') + (draggable ? ' dtr-yo-vdraggable' : '') + _lbSelCls(v.id) + '" title="' + _yoEsc((v.name || '') + _yoDatesTitle(v)) + '" data-yo-pick="' + _yoEsc(gKey) + ':' + _yoEsc(String(v.id)) + '">'
+          + _lbSelChk()
           + _numBadge
           + _selTag
           + '<span class="dtr-yo-vcrown' + (_isTop ? ' on' : '') + '" role="button" tabindex="0" data-yo-top="' + _yoEsc(gKey) + ':' + _yoEsc(String(v.id)) + '" title="' + (_isTop ? 'Preferred variant — click to unset' : 'Make this your preferred variant') + '">' + _YO_CROWN_SVG + '</span>'
@@ -12869,8 +13145,9 @@
 
         var vChip = (c && c.ms.length > 1 && !opts.noRail) ? '<span class="dtr-yo-chip grp">' + c.ms.length + ' variants</span>' : '';
         var m = _yoMeta(o), itemCount = _yoVisibleWorn(o).length;
-        return '<div class="dtr-yo-card' + (isHid ? ' dtr-yo-hiddencard' : '') + (opts.drag ? ' dtr-yo-draggable' : '') + '"'
+        return '<div class="dtr-yo-card' + (isHid ? ' dtr-yo-hiddencard' : '') + (opts.drag ? ' dtr-yo-draggable' : '') + _lbSelCls(o.id) + '"'
           + (opts.drag ? ' draggable="true" data-yo-card="' + _yoEsc(String(o.id)) + '" data-yo-gkey="' + _yoEsc(c ? c.gKey : '') + '" title="Drag onto another outfit to group them as variants"' : '') + '>'
+          + _lbSelChk()
           + previewHTML(o, isHid, !!(c && c.ms && c.ms.length > 1 && String(_yoTopMap()[c.gKey]) === String(o.id)))
           + '<div class="dtr-yo-body">'
           + _yoNameBlock(o, false)
@@ -12952,7 +13229,8 @@
           + '</div>'
           + '</div>'
         ) : '';
-        return '<div class="dtr-yo-card strip' + (isHid ? ' dtr-yo-hiddencard' : '') + '">'
+        return '<div class="dtr-yo-card strip' + (isHid ? ' dtr-yo-hiddencard' : '') + _lbSelCls(o.id) + '">'
+          + _lbSelChk()
           + '<div class="dtr-yo-strip-dates">' + _yoDatesHTML(o) + '</div>'
           + '<div class="dtr-yo-strip-main">'
           +   '<div class="dtr-yo-strip-top"><div class="dtr-yo-strip-pet">' + previewHTML(o, isHid, !!(c && c.ms && c.ms.length > 1 && String(_yoTopMap()[c.gKey]) === String(o.id))) + '</div><div class="dtr-yo-strip-side">' + headHTML + variantsHTML + '</div></div>'
@@ -12982,11 +13260,10 @@
       } else {
         grid = cards.map(function (c) { return cardHTML(c.shown, c, { drag: true }); }).join('');
       }
-      html =
-        '<div id="dtr-yo-shell">'
-        + '<div id="dtr-yo-head"><h1>Your Outfits</h1>'
-        + '<span class="dtr-yo-count">' + groups.length + ' outfit' + (groups.length === 1 ? '' : 's') + '</span></div>'
-        + '<div id="dtr-yo-bar">'
+
+      var _emptyGrid = '<div class="dtr-yo-empty">' + (_yo.q ? 'No outfits match “' + _yoEsc(_yo.q) + '”.' : 'No outfits yet — save one from the outfit editor and it will appear here.') + '</div>';
+      var _yoBarHTML =
+        '<div id="dtr-yo-bar">'
         + '<span class="dtr-yo-qwrap"><span class="dtr-yo-qmag"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg></span>'
         + '<input id="dtr-yo-q" value="' + _yoEsc(_yo.q) + '" placeholder="Search names, species, colors, items, tokens…"></span>'
         + '<div class="dtr-yo-selwrap">'
@@ -13004,9 +13281,19 @@
         + '<button type="button" class="dtr-yo-view' + (view === 'flat' ? ' on' : '') + '" data-yo-view="flat" title="All variants — every variant as an equal card"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg></button>'
         + '</span>'
         + '<button type="button" id="dtr-yo-togglehidden" class="dtr-yo-toggle' + (_yo.showHidden ? ' on' : '') + '">' + (_yo.showHidden ? 'Showing inactive' : 'Show inactive') + (nHiddenTotal ? ' (' + nHiddenTotal + ')' : '') + '</button>'
-        + '</div>'
-        + '<div id="dtr-yo-grid" class="' + (view === 'strip' ? 'strip' : '') + '">' + (grid || '<div class="dtr-yo-empty">' + (_yo.q ? 'No outfits match “' + _yoEsc(_yo.q) + '”.' : 'No outfits yet — save one from the outfit editor and it will appear here.') + '</div>') + '</div>'
         + '</div>';
+      var _selBoard = _yo.lbSelect ? _lbBoard(_yo.lbSelect) : null;
+      var _outfitsPane =
+        (_yo.lbSelect ? '<div class="dia-lb-selbanner"><span>Pick looks for <strong>' + _yoEsc(_selBoard ? _selBoard.name : 'your board') + '</strong> — search &amp; filters still work. Click any outfit or its variant thumb.</span></div>' : '')
+        + '<div id="dtr-yo-head"><h1>Your Outfits</h1><span class="dtr-yo-count">' + groups.length + ' outfit' + (groups.length === 1 ? '' : 's') + '</span></div>'
+        + _yoBarHTML
+        + '<div id="dtr-yo-grid" class="' + (view === 'strip' ? 'strip' : '') + (_yo.lbSelect ? ' dia-lb-selecting' : '') + '">' + (grid || _emptyGrid) + '</div>'
+        + (_yo.lbSelect ? _lbSelBarHTML(_selBoard) : '');
+      var _activeB = _lbActive();
+      var _paneHTML = _yo.lbSelect ? _outfitsPane : (_activeB ? _lbBoardDesignerHTML(_activeB) : _outfitsPane);
+
+      var _shellCls = (_activeB && !_yo.lbSelect) ? ' class="dtr-lb-designing"' : '';
+      html = _lbRailHTML() + '<div id="dtr-yo-shell"' + _shellCls + '>' + _paneHTML + '</div>';
     }
     root.innerHTML = html;
     try { if (_yoScrollY) window.scrollTo(0, _yoScrollY); } catch (_) {}
@@ -13014,6 +13301,9 @@
     if (qEl && _yo._qFocus) { qEl.focus(); try { qEl.setSelectionRange(_yo.q.length, _yo.q.length); } catch (_) {} }
     var rEl = root.querySelector('.dtr-yo-rename-input');
     if (rEl && _yo._renameFocus) { rEl.focus(); try { rEl.select(); } catch (_) {} _yo._renameFocus = false; }
+
+    var lbBr = root.querySelector('#dtr-lb-brename');
+    if (lbBr && _yo._lbRenameFocus) { lbBr.focus(); try { lbBr.select(); } catch (_) {} _yo._lbRenameFocus = false; }
     _yoObserveThumbs(root);
   }
   function _yoWire(root) {
@@ -13034,6 +13324,98 @@
       if (!inp) return;
       if (e.key === 'Enter') { e.preventDefault(); _yoCommitRename(inp.getAttribute('data-yo-rename-input'), inp.value); }
       else if (e.key === 'Escape') { e.preventDefault(); _yo.renaming = null; _yo._renameFocus = false; _yoRender(); }
+    });
+
+    function _lbCommitRename(val) {
+      var b = _lbActive(); if (b) { var v = String(val || '').trim() || 'New board'; if (v !== b.name) { b.name = v; _lbSave(); } }
+      _yo.lbBoardRename = null; _yoRender();
+    }
+    root.addEventListener('keydown', function (e) {
+      if (!(e.target && e.target.id === 'dtr-lb-brename')) return;
+      if (e.key === 'Enter') { e.preventDefault(); _lbCommitRename(e.target.value); }
+      else if (e.key === 'Escape') { e.preventDefault(); _yo.lbBoardRename = null; _yoRender(); }
+    });
+    root.addEventListener('focusout', function (e) {
+      if (e.target && e.target.id === 'dtr-lb-brename' && _yo.lbBoardRename) { _lbCommitRename(e.target.value); return; }
+      if (e.target && e.target.getAttribute && e.target.getAttribute('data-lb-header') != null) { _yoRender(); }
+    });
+
+    root.addEventListener('input', function (e) {
+      var el = e.target; if (!el || !el.getAttribute) return;
+      if (el.getAttribute('data-lb-header') != null) {
+        var b = _lbActive(); if (b) { b.cfg.headerText = el.value; _lbSave(); var hEl = root.querySelector('.dtr-lb-boardheader'); if (hEl) hEl.textContent = el.value; }
+        return;
+      }
+      if (el.classList && el.classList.contains('dtr-lb-color') && el.getAttribute('data-lb-color')) {
+        var cb = _lbActive(); if (!cb) return;
+        var key = el.getAttribute('data-lb-color'); cb.cfg[key] = el.value; _lbSave();
+        if (key === 'bg') { var cv = root.querySelector('.dtr-lb-canvas'); if (cv) cv.style.background = el.value; }
+        else if (key === 'borderColor') {
+          var bw = Math.max(0, Math.min(_LB_BW_MAX, cb.cfg.borderWidth || 0));
+          if (bw) root.querySelectorAll('.dtr-lb-thumb').forEach(function (th) { th.style.boxShadow = '0 0 0 ' + bw + 'px ' + el.value; });
+        }
+      }
+    });
+
+    root.addEventListener('change', function (e) {
+      var el = e.target; if (!el || !el.getAttribute) return;
+      if (el.classList && el.classList.contains('dtr-lb-color') && el.getAttribute('data-lb-color')) {
+        var b = _lbActive(); if (b) { b.cfg[el.getAttribute('data-lb-color')] = el.value; _lbSave(); _yoRender(); } return;
+      }
+      var sel = el.getAttribute('data-lb-select');
+      if (sel) { var b2 = _lbActive(); if (b2) { b2.cfg[sel] = el.value; _lbSave(); _yoRender(); } }
+    });
+
+    function _lbClearDropCues() { root.querySelectorAll('.dtr-lb-drop-before,.dtr-lb-drop-after').forEach(function (c) { c.classList.remove('dtr-lb-drop-before', 'dtr-lb-drop-after'); }); }
+    root.addEventListener('mousedown', function (ev) {
+      if (ev.button !== 0) return;
+      var tile = ev.target.closest && ev.target.closest('.dtr-lb-tile[data-lb-tile]');
+      if (!tile) return;
+      if (ev.target.closest('.dtr-lb-remove, button, a')) return;
+      var board = _lbActive(); if (!board) return;
+      ev.preventDefault();
+      var startX = ev.clientX, startY = ev.clientY, ghost = null, moved = false;
+      function onMove(mv) {
+        var dx = mv.clientX - startX, dy = mv.clientY - startY;
+        if (!moved && Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+        if (!moved) {
+          moved = true;
+          ghost = tile.cloneNode(true);
+          var r = tile.getBoundingClientRect();
+          ghost.style.cssText = 'position:fixed;left:' + r.left + 'px;top:' + r.top + 'px;width:' + r.width + 'px;pointer-events:none;z-index:100060;opacity:.85;box-shadow:0 10px 26px rgba(0,0,0,.28);transform:scale(1.04);transition:none';
+          ghost.querySelectorAll('.dtr-lb-remove').forEach(function (x) { x.remove(); });
+          document.body.appendChild(ghost);
+          tile.style.opacity = '.3';
+        }
+        if (!ghost) return;
+        ghost.style.left = (mv.clientX - startX + tile.getBoundingClientRect().left) + 'px';
+        ghost.style.top = (mv.clientY - startY + tile.getBoundingClientRect().top) + 'px';
+        ghost.style.display = 'none';
+        var el = document.elementFromPoint(mv.clientX, mv.clientY);
+        ghost.style.display = '';
+        _lbClearDropCues();
+        var target = el && el.closest && el.closest('.dtr-lb-tile[data-lb-tile]');
+        if (target && target !== tile) {
+          var tr = target.getBoundingClientRect();
+          target.classList.add(mv.clientX < tr.left + tr.width / 2 ? 'dtr-lb-drop-before' : 'dtr-lb-drop-after');
+        }
+      }
+      function onUp(uv) {
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup', onUp);
+        tile.style.opacity = '';
+        if (ghost) { ghost.remove(); ghost = null; }
+        _lbClearDropCues();
+        if (!moved) return;
+        var el = document.elementFromPoint(uv.clientX, uv.clientY);
+        var target = el && el.closest && el.closest('.dtr-lb-tile[data-lb-tile]');
+        if (!target || target === tile) return;
+        var tr = target.getBoundingClientRect(), after = uv.clientX >= tr.left + tr.width / 2;
+        _lbReorder(board, tile.getAttribute('data-lb-tile'), target.getAttribute('data-lb-tile'), after);
+        _yo._qFocus = false; _yoRender();
+      }
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
     });
 
     var _yoDragSrc = null;
@@ -13158,6 +13540,7 @@
 
     document.addEventListener('mousedown', function (e) {
       if (_yo.sortOpen && !(e.target.closest && (e.target.closest('#dtr-yo-sortbtn') || e.target.closest('[data-yo-sortmenu]')))) { _yo.sortOpen = false; _yoRender(); }
+      if (_yo.lbDdOpen && !(e.target.closest && e.target.closest('.dtr-lb-ddwrap'))) { _yo.lbDdOpen = null; _yoRender(); }
 
       if (!(e.target.closest && e.target.closest('.dtr-yo-wladd-wrap'))) {
         document.querySelectorAll('.dtr-yo-wlmenu:not([hidden])').forEach(function (m) { m.hidden = true; });
@@ -13165,6 +13548,19 @@
     }, true);
     root.addEventListener('click', function (e) {
       var t;
+
+      if (_yo.lbSelect && !e.target.closest('#dia-lb-selbar,#dtr-yo-bar,#dtr-yo-sortbtn,[data-yo-sortmenu],#dtr-yo-togglehidden,#dtr-lb-shell,[data-lb-addcommit],[data-lb-addcancel],[data-lb-selclear]')) {
+        var _st, _sid = null;
+        if ((_st = e.target.closest('[data-yo-pick]'))) { var _pk = _st.getAttribute('data-yo-pick'); _sid = _pk.slice(_pk.lastIndexOf(':') + 1); }
+        else if ((_st = e.target.closest('[data-yo-open]'))) { _sid = _st.getAttribute('data-yo-open'); }
+        else if ((_st = e.target.closest('[data-yo-card]'))) { _sid = _st.getAttribute('data-yo-card'); }
+        else if ((_st = e.target.closest('.dtr-yo-card'))) { var _im = _st.querySelector('[data-yo-open]'); _sid = _im ? _im.getAttribute('data-yo-open') : null; }
+        if (_sid) {
+          e.preventDefault(); e.stopPropagation(); _sid = String(_sid);
+          if (_yo.lbSelSet[_sid]) delete _yo.lbSelSet[_sid]; else _yo.lbSelSet[_sid] = 1;
+          _yo._qFocus = false; _yoRender(); return;
+        }
+      }
       if ((t = e.target.closest('#dtr-yo-sortbtn'))) {
         e.preventDefault(); e.stopPropagation();
         _yo.sortOpen = !_yo.sortOpen; _yo._qFocus = false; _yoRender(); return;
@@ -13234,6 +13630,95 @@
         _yo.view = t.getAttribute('data-yo-view');
         try { GM_setValue('dtr_yo_view', _yo.view); } catch (_) {}
         _yo._qFocus = false; _yoRender(); return;
+      }
+
+      if ((t = e.target.closest('[data-lb-newboard]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _lbNewBoard(); _yo.lbSelect = null; _yo.lbSelSet = {}; _yo.lbBoardRename = null; _yo.lbDelBoard = null;
+        _yo._qFocus = false; _yoRender(); return;
+      }
+
+      if ((t = e.target.closest('[data-lb-delundo]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var _uid = t.getAttribute('data-lb-delundo');
+        if (_lbDelTimers[_uid]) { clearTimeout(_lbDelTimers[_uid]); delete _lbDelTimers[_uid]; }
+        _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-delboard]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var _delId = t.getAttribute('data-lb-delboard');
+        if (!_lbDelTimers[_delId]) {
+          if (_lb.activeBoardId === _delId) { _lb.activeBoardId = null; _lbSave(); }
+          if (_yo.lbSelect === _delId) { _yo.lbSelect = null; _yo.lbSelSet = {}; }
+          _lbDelTimers[_delId] = setTimeout(function () { delete _lbDelTimers[_delId]; _lbDeleteBoard(_delId); try { _yoRender(); } catch (_) {} }, 5000);
+        }
+        _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-open]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _lb.activeBoardId = t.getAttribute('data-lb-open'); _lbSave();
+        _yo.lbSelect = null; _yo.lbSelSet = {}; _yo.lbBoardRename = null; _yo.lbDelBoard = null;
+        _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-close]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _lb.activeBoardId = null; _lbSave(); _yo.lbBoardRename = null; _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-rename]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _yo.lbBoardRename = t.getAttribute('data-lb-rename'); _yo._lbRenameFocus = true; _yo._qFocus = false; _yoRender(); return;
+      }
+
+      if ((t = e.target.closest('[data-lb-ddtoggle]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var _dk = t.getAttribute('data-lb-ddtoggle');
+        _yo.lbDdOpen = (_yo.lbDdOpen === _dk) ? null : _dk; _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-ddpick]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var _dp = t.getAttribute('data-lb-ddpick'), _dci = _dp.indexOf(':'), _ddb = _lbActive();
+        if (_ddb) { _ddb.cfg[_dp.slice(0, _dci)] = _dp.slice(_dci + 1); _lbSave(); }
+        _yo.lbDdOpen = null; _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-addstart]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _yo.lbSelect = t.getAttribute('data-lb-addstart'); _yo.lbSelSet = {}; _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-addcommit]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var _cb = _lbBoard(_yo.lbSelect), _added = _lbAddMany(_cb, Object.keys(_yo.lbSelSet));
+        _yo.lbSelect = null; _yo.lbSelSet = {}; _yo._qFocus = false; _yoRender();
+        if (_cb) _yoToast(_added ? ('Added ' + _added + ' to “' + _cb.name + '”') : 'Those looks are already on the board');
+        return;
+      }
+      if ((t = e.target.closest('[data-lb-addcancel]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _yo.lbSelect = null; _yo.lbSelSet = {}; _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-selclear]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _yo.lbSelSet = {}; _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-cols]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var _ab = _lbActive(); if (_ab) { var _cd = parseInt(t.getAttribute('data-lb-cols'), 10) || 0; _ab.cfg.cols = Math.max(_LB_COLS_MIN, Math.min(_LB_COLS_MAX, _ab.cfg.cols + _cd)); _lbSave(); }
+        _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-bw]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var _ab2 = _lbActive(); if (_ab2) { var _bd = parseInt(t.getAttribute('data-lb-bw'), 10) || 0; _ab2.cfg.borderWidth = Math.max(0, Math.min(_LB_BW_MAX, _ab2.cfg.borderWidth + _bd)); _lbSave(); }
+        _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-cfg]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var _ab3 = _lbActive();
+        if (_ab3) { var _seg = t.getAttribute('data-lb-cfg'), _ci = _seg.indexOf(':'), _key = _seg.slice(0, _ci), _val = _seg.slice(_ci + 1);
+          if (_val === 'toggle') _ab3.cfg[_key] = !_ab3.cfg[_key]; else _ab3.cfg[_key] = _val; _lbSave(); }
+        _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-remove]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _lbRemove(_lbActive(), t.getAttribute('data-lb-remove')); _yo._qFocus = false; _yoRender(); return;
       }
       if ((t = e.target.closest('#dtr-yo-togglehidden'))) {
         _yo.showHidden = !_yo.showHidden; _yo._qFocus = false; try { GM_setValue('dtr_yo_showhidden', _yo.showHidden ? '1' : '0'); } catch (_) {} _yoRender(); return;
@@ -13438,10 +13923,15 @@
       .dib-badge{position:absolute;left:50%;bottom:4px;transform:translateX(-50%);font:700 8px var(--f);color:#fff;background:rgba(99,66,30,.9);padding:2px 6px;border-radius:5px;white-space:nowrap;letter-spacing:.02em;}
       .dib-badge.wish{background:rgba(168,120,28,.9);}
       .dib-leb{font:800 9px var(--f);color:#3d6e12;background:#eef7da;border:1px solid #aedb5e;border-radius:6px;padding:2px 5px;margin-top:0;max-width:90px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:default;}
-      .dib-hmain{flex:1;min-width:0;}
+      .dib-hmain{flex:1;min-width:0;align-self:flex-start;}
       .dib-name{font:600 16px var(--fd);line-height:1.15;color:var(--ink);letter-spacing:.1px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
       .dib-nmtxt{min-width:0;overflow-wrap:anywhere;}
-      .dib-status{display:flex;flex-direction:column;gap:4px;margin-top:5px;}
+      .dib-zoneline{margin-top:5px;}
+      .dib-zones{display:inline-flex;align-items:center;flex-wrap:wrap;gap:5px;}
+      .dib-zones-k{text-transform:uppercase;letter-spacing:.05em;font:700 8px var(--f);color:var(--ink3);margin-right:1px;}
+      .dib-zones-load{font:700 9px var(--f);color:var(--ink3);opacity:.55;}
+      .dib-zone{background:#f5f2fb;border:1px solid var(--line);border-radius:7px;padding:2px 8px;color:var(--ink2);font:600 10px var(--f);line-height:1.3;white-space:nowrap;}
+      .dib-status{display:flex;flex-direction:column;gap:4px;margin-top:6px;}
       .dib-statline{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
       .dib-syn{font:600 11px var(--f);color:var(--ink2);}
       .dib-tp{font:800 14px var(--fd);}
@@ -13660,6 +14150,9 @@
       .dib-head{border-bottom:1px dashed var(--line);}
       .dib-ignore{border:1px solid var(--line);background:#fff;color:var(--ink2);font:600 10px var(--f);line-height:1;cursor:pointer;padding:5px 9px;border-radius:8px;transition:.1s;white-space:nowrap;}
       .dib-ignore:hover{color:var(--berry-d);border-color:var(--berry-line);background:var(--berry-bg);}
+      .dib-leaverest{margin-left:auto;margin-right:7px;border:1px solid var(--mint,#9bd8cf);background:var(--mint-bg,#e7f6f2);color:var(--mint-d,#149c8e);font:700 10px var(--f);line-height:1;cursor:pointer;padding:5px 10px;border-radius:8px;transition:.1s;white-space:nowrap;}
+      .dib-leaverest:hover{background:var(--mint-d,#149c8e);color:#fff;border-color:var(--mint-d,#149c8e);}
+      .dib-tp.kept{color:var(--mint-d,#149c8e);}
       .dib-dismissed{display:flex;align-items:center;gap:10px;padding:11px 16px;background:#fbfbfd;border:1px dashed #dcdfe6;box-shadow:none;}
       .dib-dismissed-name{font:600 13px var(--f);color:var(--ink3);text-decoration:line-through;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
       .dib-dismissed-tag{font:700 10px var(--f);color:var(--ink3);letter-spacing:.02em;flex-shrink:0;}
@@ -14569,9 +15062,11 @@
       allIds.forEach(l => { const q = parseInt(it.alloc[l], 10) || 0; if (q > 0) parts.push(`${q} in “${diaBulkEsc(nameFor(l))}”`); });
       return parts.join(', ');
     };
-    const needsAttention = it => !it.ignored && (toPlace(it) > 0 || it.save === 'error' || (it.save !== 'saved' && it.save !== 'noop' && isDirty(it)));
+
+    const needsAttention = it => !it.ignored && (it.save === 'error' || (!it.leaveRest && (toPlace(it) > 0 || (it.save !== 'saved' && it.save !== 'noop' && isDirty(it)))));
 
     const itemSettled = it => it.ignored
+      || (it.leaveRest && it.save !== 'error' && it.save !== 'saving')
       || it.save === 'saved' || it.save === 'noop'
       || (toPlace(it) === 0 && !isDirty(it) && it.save !== 'error' && it.save !== 'saving');
 
@@ -14645,8 +15140,8 @@
 
     const renderBar = () => {
       const n = model.filter(needsAttention).length;
-      const unallocItems = model.filter(it => !it.ignored && toPlace(it) > 0).length;
-      const totalUnplaced = model.reduce((s, it) => s + (it.ignored ? 0 : Math.max(0, toPlace(it))), 0);
+      const unallocItems = model.filter(it => !it.ignored && !it.leaveRest && toPlace(it) > 0).length;
+      const totalUnplaced = model.reduce((s, it) => s + ((it.ignored || it.leaveRest) ? 0 : Math.max(0, toPlace(it))), 0);
       const luTs = (() => { try { return GM_getValue(LAST_UPDATED_KEY, null); } catch (_) { return null; } })();
       const luTxt = luTs ? dibFmtDT(luTs) : null;
       const _isUpd = (luTxt && luTxt !== importedLabel);
@@ -14881,6 +15376,48 @@
       else chips.forEach(el => _dibQueueTrade(el.getAttribute('data-trade-id')));
     };
 
+    const _dibZones = {};
+    const _dibZoneChipInner = (id) => {
+      const z = _dibZones[id];
+      if (!z) return `<span class="dib-zones" data-zone-id="${id}"><span class="dib-zones-k">Occupies</span><span class="dib-zones-load">· · ·</span></span>`;
+      if (z.error || !z.zones || !z.zones.length) return '';
+      return `<span class="dib-zones has" data-zone-id="${id}"><span class="dib-zones-k">Occupies</span>${z.zones.map(l => `<span class="dib-zone">${diaBulkEsc(l)}</span>`).join('')}</span>`;
+    };
+    const _dibUpdateZoneChips = (id) => {
+      try {
+        document.querySelectorAll('.dib-zones[data-zone-id="' + id + '"]').forEach(el => {
+          const html = _dibZoneChipInner(id);
+          if (!html) { el.remove(); return; }
+          const tmp = document.createElement('span'); tmp.innerHTML = html;
+          if (tmp.firstChild) el.replaceWith(tmp.firstChild);
+        });
+      } catch (_) {}
+    };
+    const _dibFetchZones = async (rawIds) => {
+      const ids = [...new Set((rawIds || []).filter(Boolean).map(String))].filter(id => !_dibZones[id]);
+      if (!ids.length) return;
+      const OV = window._DTR_ZONE_OVERRIDE || {};
+      for (let c = 0; c < ids.length; c += 40) {
+        const chunk = ids.slice(c, c + 40);
+        try {
+          const q = `{ items(ids: ${JSON.stringify(chunk)}) { id appearanceOn(speciesId: "1", colorId: "8") { layers { zone { id label depth } } } } }`;
+          const r = await fetch('https://impress-2020.openneo.net/api/graphql', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: q }) });
+          const j = r.ok ? await r.json() : null;
+          const byId = {}; (j?.data?.items || []).forEach(it => { byId[String(it.id)] = it; });
+          chunk.forEach(id => {
+            const layers = byId[id]?.appearanceOn?.layers || [];
+            const seen = new Set(), zones = [];
+            layers.slice().sort((a, b) => (a.zone?.depth || 0) - (b.zone?.depth || 0)).forEach(l => {
+              const lbl = l.zone ? (OV[String(l.zone.id)] || l.zone.label) : null;
+              if (lbl && !seen.has(lbl)) { seen.add(lbl); zones.push(lbl); }
+            });
+            _dibZones[id] = { zones };
+            _dibUpdateZoneChips(id);
+          });
+        } catch (_) { chunk.forEach(id => { _dibZones[id] = { error: true }; _dibUpdateZoneChips(id); }); }
+      }
+    };
+
     const _dibCloseDrill = () => {
       try { document.getElementById('dib-trade-drill')?.remove(); } catch (_) {}
       try { window.removeEventListener('scroll', _dibDrillReposition, true); window.removeEventListener('resize', _dibDrillReposition); } catch (_) {}
@@ -15014,8 +15551,12 @@
       let cardCls = 'dib-card', statusHtml = '', rightHtml = '', bodyHtml = '';
       const ignoreBtn = (it.save === 'saved' || it.save === 'noop') ? '' : '<button class="dib-ignore" type="button" data-act="ignore" title="Pull this item out of the import queue — nothing is saved">Don’t import</button>';
 
+      const leaveBtn = (tp > 0 && !it.leaveRest && it.save !== 'saved' && it.save !== 'noop' && it.save !== 'saving')
+        ? `<button class="dib-leaverest" type="button" data-act="leaverest" title="Save the copies you placed and keep the other ${tp} in your Neopets inventory — clears the “to place” reminder">Done · keep ${tp} in inventory</button>` : '';
+
       if (it.expanded) {
-        const tpHtml = tp > 0 ? `<span class="dib-tp warn">${tp} to place</span>`
+        const tpHtml = (it.leaveRest && tp > 0) ? `<span class="dib-tp kept">${tp} kept in inventory</span>`
+                     : tp > 0 ? `<span class="dib-tp warn">${tp} to place</span>`
                      : tp < 0 ? `<span class="dib-tp over">${-tp} over</span>`
                      : `<span class="dib-tp ok">all placed</span>`;
         const ownPull  = it.sub.own  > 0 ? `<span class="dib-pull own">Pulled from owned: ${it.sub.own}</span>` : '';
@@ -15027,7 +15568,7 @@
             <div class="dib-statline"><span class="dib-sub">Wished: ${wished}</span>${wishPull}</div>
           </div>`;
         rightHtml = '';
-        if (tp > 0) cardCls += ' attn';
+        if (tp > 0 && !it.leaveRest) cardCls += ' attn';
 
         const stillWished = (it.save === 'saved' || it.save === 'noop') && wished > 0;
         if (wished > 0 && it._autoExpandedOnce !== true) { it.wantOpen = true; it._autoExpandedOnce = true; }
@@ -15075,7 +15616,7 @@
         bodyHtml = `
           <div class="dib-body${stillWished ? ' dib-stillwished' : ''}">
             <div class="dib-cols">
-              <div class="dib-col own"${stillWished ? ' style="position:relative;"' : ''}><div class="dib-colh own">${_ownKey}${ignoreBtn}</div>${ownBoardHtml(it, i)}${ownVeil}</div>${wFlap}
+              <div class="dib-col own"${stillWished ? ' style="position:relative;"' : ''}><div class="dib-colh own">${_ownKey}${leaveBtn}${ignoreBtn}</div>${ownBoardHtml(it, i)}${ownVeil}</div>${wFlap}
             </div>
             ${bodyVeil}
           </div>`;
@@ -15105,7 +15646,7 @@
           <div class="dib-head" data-act="toggle">
             <div class="dib-selbox ${selected.has(i) ? 'on' : ''}" data-act="select" role="checkbox" aria-checked="${selected.has(i)}"></div>
             <div class="dib-thumbwrap"><div class="dib-thumb" style="${thumb}">${badge}</div>${lebHtml}${(it.resolved && it.id) ? `<div class="dib-trades-col">${_dibTradeChipInner(it.id)}</div>` : ''}</div>
-            <div class="dib-hmain"><div class="dib-name"><span class="dib-nmtxt">${diaBulkEsc(it.name)}${nf}</span></div>${statusHtml}</div>
+            <div class="dib-hmain"><div class="dib-name"><span class="dib-nmtxt">${diaBulkEsc(it.name)}${nf}</span></div>${(it.resolved && it.id) ? `<div class="dib-zoneline">${_dibZoneChipInner(it.id)}</div>` : ''}${statusHtml}</div>
             <div class="dib-hright">${it.expanded ? '<span class="dib-synced-corner">Synced from inventory</span>' : ignoreBtn}${rightHtml}</div>
           </div>
           ${bodyHtml}
@@ -15206,9 +15747,18 @@
     const commitBatch = (it) => {
       try {
         const rem = toPlace(it);
-        if (rem > 0) batch[it.name] = rem; else delete batch[it.name];
+
+        if (rem > 0 && !it.leaveRest) batch[it.name] = rem; else delete batch[it.name];
         saveBatch(batch);
       } catch (_) {}
+    };
+
+    const leaveRestItem = (i) => {
+      const it = model[i];
+      if (it.ignored) return;
+      it.leaveRest = true;
+      if (isDirty(it)) { saveItemNow(i); }
+      else { if (it.save !== 'saved') it.save = 'noop'; commitBatch(it); renderItem(i); renderBar(); syncDoneState(); }
     };
     const saveItemNow = async (i) => {
       const it = model[i];
@@ -15245,6 +15795,7 @@
     const undoImport = async (i) => {
       const it = model[i];
       if (!closet.csrf || !slug || !it.resolved) return;
+      it.leaveRest = false;
       const prevAlloc = { ...it.alloc };
       it.alloc = { ...it.baseline };
       it.save = 'saving'; renderItem(i); renderBar();
@@ -15623,6 +16174,7 @@
       const ht = e.target.closest('[data-act="toghidden"]'); if (ht) { e.stopPropagation(); GM_setValue(SHOW_HIDDEN_KEY, !GM_getValue(SHOW_HIDDEN_KEY, false)); recomputeLists(); renderAll(); return; }
       const retry = e.target.closest('[data-act="retry"]'); if (retry) { e.stopPropagation(); collapseItem(+retry.closest('.dib-item').dataset.i); return; }
       const ig = e.target.closest('[data-act="ignore"]'); if (ig) { e.stopPropagation(); ignoreItem(+ig.closest('.dib-item').dataset.i); return; }
+      const lr = e.target.closest('[data-act="leaverest"]'); if (lr) { e.stopPropagation(); leaveRestItem(+lr.closest('.dib-item').dataset.i); return; }
       const unig = e.target.closest('[data-act="unignore"]'); if (unig) { e.stopPropagation(); unignoreItem(+unig.closest('.dib-item').dataset.i); return; }
       const undi = e.target.closest('[data-act="undo-import"]'); if (undi) { e.stopPropagation(); undoImport(+undi.closest('.dib-item').dataset.i); return; }
       const selbox = e.target.closest('[data-act="select"]'); if (selbox) { e.stopPropagation(); const i = +selbox.closest('.dib-item').dataset.i; if (selected.has(i)) selected.delete(i); else selected.add(i); renderItem(i); renderBar(); return; }
@@ -15752,6 +16304,8 @@
 
     applyGrid();
     renderAll();
+
+    try { _dibFetchZones(model.map(it => it.id)); } catch (_) {}
   }
 
   function isActiveDTISyncTab() {

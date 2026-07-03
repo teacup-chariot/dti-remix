@@ -3,6 +3,10 @@
 ## July 3, 2026
 
 ### Enhancements
+- **Lookbook (new!):** A new space beside Your Outfits for arranging your saved looks into themed boards — mood-board style collages. Make a board, hit **+ Add Outfit**, and pick the looks you want (your search and filters keep working while you pick, so you can grab exactly the variants you're after). Then make it yours: set how many pets per row, left / center / right alignment, square or circle portraits, a backdrop and border color, border thickness, a header title, a font, and how they sort. Drag the portraits to rearrange, and the board grows to fit so you always see the whole collage at once.
+- **Lookbook:** Your boards are private to your account and stay put across refreshes and logins. Deleting one gives you a few seconds to undo — and it never touches your actual saved outfits.
+- **DTI Sync:** Got more copies of an item in your inventory than you want to list? A new **"Done · keep N in inventory"** button saves the copies you placed and quietly leaves the rest in your inventory — no more being nagged to place every last one.
+- **DTI Sync:** Import cards now show which **zones** each item occupies, right under its name — the same info you get on your item cards.
 - **Your Outfits & Customize:** Your favorite variant of a look is now marked with a little golden crown that sits on top of the pet, in place of the heart — and it's one shared setting: crown a variant on either page and it shows up crowned on the other. The crowned variant is the one shown large by default.
 - **Customize:** You can flip through the Color and Species pickers with your arrow keys now — focus the field and press ↑ / ↓ to move through the options without even opening the menu, or open the menu and arrow through it (type a letter to jump to a match).
 - **Your Outfits:** In the film-strip layout, each variant thumbnail shows its name, and when a look has inactive variants a "+N inactive" chip tells you how many — click it to reveal them. (What used to be called "hidden" is now "inactive.")
@@ -13,6 +17,8 @@
 - **Everywhere:** Your clipboard, your trade-message draft, and your Try On Haul now stay separate per account — signing into a different Neopets account on the same browser no longer shows the previous account's staged items. And each other person's closet you browse keeps its **own** clipboard and draft, so a running "trade with this person" list never mixes with anyone else's.
 
 ### Fixes
+- **Your Outfits:** When the last row of outfits isn't full, the cards now center instead of clinging to the left with an empty gap on the right (in every layout).
+- **Everywhere:** Opening an item in its own tab now lands on the item's real web address — bookmarkable and refreshable — instead of leaving the address bar stuck on "about:blank."
 - **Your Outfits:** Dragging one outfit onto another to group them as variants works again — it was silently doing nothing when you dropped it. Any outfits left in a tangled grouped state from before now repair themselves automatically.
 - **Your Outfits:** Crowning a variant, or clicking to preview one, no longer reshuffles your cards or makes them jump around the page.
 - **Your Outfits:** On the film-strip wearable tiles, an item's cap value now shows as the same little pink price tag used everywhere else on the site, and the Owned / Wishlisted labels sit on the item's thumbnail instead of a mismatched tag underneath.
