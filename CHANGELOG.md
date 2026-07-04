@@ -3,6 +3,7 @@
 ## July 3, 2026 — Comparison Mode & logged-out fixes
 
 ### Enhancements
+- **Everywhere:** When a new version of DTI Remix is ready, you'll now get a little "An update landed!" card that shows what changed, with a one-click **Reload** button to jump straight onto it — no more wondering whether you're on the latest.
 - **Comparison Mode:** A new gear on the compare panel lets you hide lists you'll never trade from — anything in them stops counting as a match. Your choice sticks across every closet you visit, your lists are split into Trade Lists and Wishlists so they're easy to find, and a "+N hidden lists" toggle lets you peek at what you've tucked away.
 - **Lookbook:** Boards have a new **Edit / View** switch — View shows a board big and clean with all the editing controls out of the way.
 

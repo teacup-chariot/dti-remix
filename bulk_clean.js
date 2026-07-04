@@ -85,6 +85,15 @@
 
       setTimeout(check, 5000);
       var iv = setInterval(function () { checks++; if (shown || checks > 12) { clearInterval(iv); return; } check(); }, 45000);
+
+      try {
+
+        var _hookTgt = (typeof unsafeWindow !== 'undefined' && unsafeWindow) ? unsafeWindow : window;
+        _hookTgt.__dtrTestUpdatePrompt = function () {
+          shown = false; var _t = document.getElementById('dtr-update-toast'); if (_t) _t.remove();
+          show({ v: '99.99.99', history: [{ v: '99.99.99', label: 'Preview', notes: ['This is what the update prompt looks like.', 'A real one lists what actually changed since your version.', 'The button reloads you straight into the new build.'] }] });
+        };
+      } catch (_) {}
     } catch (_) {}
   })();
 
