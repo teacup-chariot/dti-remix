@@ -1,15 +1,33 @@
 # DTI Remix — Changelog
 
-## July 3, 2026
+## July 3, 2026 — Comparison Mode & logged-out fixes
+
+### Enhancements
+- **Comparison Mode:** A new gear on the compare panel lets you hide lists you'll never trade from — anything in them stops counting as a match. Your choice sticks across every closet you visit, your lists are split into Trade Lists and Wishlists so they're easy to find, and a "+N hidden lists" toggle lets you peek at what you've tucked away.
+- **Lookbook:** Boards have a new **Edit / View** switch — View shows a board big and clean with all the editing controls out of the way.
+
+### Fixes
+- **Comparison Mode:** Your side of a comparison now reflects your wishlist as it is right now, however an item got there — including items you wishlisted straight from an item's own page. Before, it only knew about the items from the last time you opened your own closet, so anything added elsewhere was invisible.
+- **Everywhere:** Items no longer show as Wishlisted or Owned while you're logged out — it was picking up another user's closet and treating it as yours.
+- **Everywhere:** The Try On Haul is now hidden entirely when you're signed out — no side tab, no panel, no add buttons — since it works by staging items into your own account.
+- **Your Outfits:** Visiting Your Outfits opens to your outfits again, instead of dropping you into a Lookbook board.
+- **Lookbook:** Clicking a pet in a board no longer jumps you into the editor and off the page.
+
+## July 3, 2026 — Lookbook, DTI Sync & item links
 
 ### Enhancements
 - **Lookbook (new!):** A new space beside Your Outfits for arranging your saved looks into themed boards — mood-board style collages. Make a board, hit **+ Add Outfit**, and pick the looks you want (your search and filters keep working while you pick, so you can grab exactly the variants you're after). Then make it yours: set how many pets per row, left / center / right alignment, square or circle portraits, a backdrop and border color, border thickness, a header title, a font, and how they sort. Drag the portraits to rearrange, and the board grows to fit so you always see the whole collage at once.
 - **Lookbook:** Your boards are private to your account and stay put across refreshes and logins. Deleting one gives you a few seconds to undo — and it never touches your actual saved outfits.
 - **DTI Sync:** Got more copies of an item in your inventory than you want to list? A new **"Done · keep N in inventory"** button saves the copies you placed and quietly leaves the rest in your inventory — no more being nagged to place every last one.
 - **DTI Sync:** Import cards now show which **zones** each item occupies, right under its name — the same info you get on your item cards.
-- **Your Outfits & Customize:** Your favorite variant of a look is now marked with a little golden crown that sits on top of the pet, in place of the heart — and it's one shared setting: crown a variant on either page and it shows up crowned on the other. The crowned variant is the one shown large by default.
-- **Customize:** You can flip through the Color and Species pickers with your arrow keys now — focus the field and press ↑ / ↓ to move through the options without even opening the menu, or open the menu and arrow through it (type a letter to jump to a match).
-- **Your Outfits:** In the film-strip layout, each variant thumbnail shows its name, and when a look has inactive variants a "+N inactive" chip tells you how many — click it to reveal them. (What used to be called "hidden" is now "inactive.")
+
+### Fixes
+- **Your Outfits:** When the last row of outfits isn't full, the cards now center instead of clinging to the left with an empty gap on the right (in every layout).
+- **Everywhere:** Opening an item in its own tab now lands on the item's real web address — bookmarkable and refreshable — instead of leaving the address bar stuck on "about:blank."
+
+## July 3, 2026 — Closet bulk-edit & clipboard isolation
+
+### Enhancements
 - **Closet:** When you pick items for bulk editing, they now show a clear **SELECTED** banner and candy-stripe frame — the same cue as Customize and Your Outfits — and the bar along the bottom got a soft pastel makeover.
 - **Closet:** Dragging selected items onto a list now moves the *whole stack* of each item, not just one. And when you're viewing several lists at once, it gathers every copy of an item spread across those lists into the one you drop on. Moving a big batch (over 100) shows a heads-up that it may take a minute or two.
 - **Closet:** The **+ Add Item** search box got a softer, pastel look to match the rest of the closet.
@@ -17,20 +35,27 @@
 - **Everywhere:** Your clipboard, your trade-message draft, and your Try On Haul now stay separate per account — signing into a different Neopets account on the same browser no longer shows the previous account's staged items. And each other person's closet you browse keeps its **own** clipboard and draft, so a running "trade with this person" list never mixes with anyone else's.
 
 ### Fixes
-- **Your Outfits:** When the last row of outfits isn't full, the cards now center instead of clinging to the left with an empty gap on the right (in every layout).
-- **Everywhere:** Opening an item in its own tab now lands on the item's real web address — bookmarkable and refreshable — instead of leaving the address bar stuck on "about:blank."
-- **Your Outfits:** Dragging one outfit onto another to group them as variants works again — it was silently doing nothing when you dropped it. Any outfits left in a tangled grouped state from before now repair themselves automatically.
-- **Your Outfits:** Crowning a variant, or clicking to preview one, no longer reshuffles your cards or makes them jump around the page.
-- **Your Outfits:** On the film-strip wearable tiles, an item's cap value now shows as the same little pink price tag used everywhere else on the site, and the Owned / Wishlisted labels sit on the item's thumbnail instead of a mismatched tag underneath.
-- **Your Outfits:** General film-strip tidy-up — looks with no variants say so instead of leaving a blank gap, variant thumbnails are centered next to the pet, the wearable checkboxes are plain coral checkboxes, and the variant you're currently viewing is clearly marked **SELECTED** with a banner and frame matching the "currently wearing" look on Customize.
-- **Customize:** Click an item's name in the search results to try it on — the name wasn't a clickable spot before.
-- **Customize:** Removing an item from the Fitting Room with the × now sticks; before, it would quietly come back after a refresh.
+- **Your Outfits:** The variant you're currently viewing in the film strip is clearly marked **SELECTED** again, with a banner and frame matching the "currently wearing" look on Customize.
 - **Closet:** Your lists now sort alphabetically by name, matching DTI itself — so numeric prefixes (0.0, 0.1, 1.0…) put lists in the order you intend. Before, your public lists were shown first and private ones after, which scrambled the order.
 - **Closet:** Confirmation pop-ups (moved / added / removed) now appear right where you're working — next to your cursor, or where you dropped a drag — instead of off in a far corner. The "moved" note also tells you how many items *and* how many total copies moved, and it clears a little quicker.
 - **Customize:** The "no zones watched yet" hint moved into the Zone Map panel where it belongs — it used to float over your pet and block the toggle buttons underneath it.
 - **Closet:** The **Copy clipboard** window got a polish pass — one consistent font throughout, cleaner copy icons, the "Lebron values" option lined up on its own row, a message box that remembers the size you drag it to, and the site's soft scrollbar. It also no longer closes on you when you drag to select text past its edge.
 
-## July 2, 2026
+## July 3, 2026 — Crowns, grouping & Customize
+
+### Enhancements
+- **Your Outfits & Customize:** Your favorite variant of a look is now marked with a little golden crown that sits on top of the pet, in place of the heart — and it's one shared setting: crown a variant on either page and it shows up crowned on the other. The crowned variant is the one shown large by default.
+- **Customize:** You can flip through the Color and Species pickers with your arrow keys now — focus the field and press ↑ / ↓ to move through the options without even opening the menu, or open the menu and arrow through it (type a letter to jump to a match).
+- **Your Outfits:** In the film-strip layout, each variant thumbnail shows its name, and when a look has inactive variants a "+N inactive" chip tells you how many — click it to reveal them. (What used to be called "hidden" is now "inactive.")
+
+### Fixes
+- **Your Outfits:** Dragging one outfit onto another to group them as variants works again — it was silently doing nothing when you dropped it. Any outfits left in a tangled grouped state from before now repair themselves automatically.
+- **Your Outfits:** Crowning a variant, or clicking to preview one, no longer reshuffles your cards or makes them jump around the page.
+- **Your Outfits:** On the film-strip wearable tiles, an item's cap value now shows as the same little pink price tag used everywhere else on the site, and the Owned / Wishlisted labels sit on the item's thumbnail instead of a mismatched tag underneath. Looks with no variants say so instead of leaving a blank gap, variant thumbnails are centered next to the pet, and the wearable checkboxes are plain coral checkboxes.
+- **Customize:** Click an item's name in the search results to try it on — the name wasn't a clickable spot before.
+- **Customize:** Removing an item from the Fitting Room with the × now sticks; before, it would quietly come back after a refresh.
+
+## July 2, 2026 — Your Outfits & auto-save
 
 ### Enhancements
 - **Your Outfits:** A brand-new page for browsing everything you've saved. Search your outfits by name, species, color, the items they use, or their Pet Style, and sort by when you made them, when you last changed them, name, species, color, or favorites first. Variants of the same outfit are grouped together so a look and its copies share one card, and you can switch between three layouts: stacked cards, a film strip that lists the items each outfit uses, or every variant as its own card.
@@ -69,7 +94,7 @@
 - **Closet:** The item info (?) tooltip works again after you've moved between pages.
 - **Customize:** Clicking into a text field no longer shows a harsh black outline.
 
-## July 1, 2026
+## July 1, 2026 — Zone Map & Starter Packs
 
 ### Enhancements
 - **Customize:** Dock the Zone Map — the old "Hide" button is now "Dock," and it tucks your zone tiles into a tidy grid in the panel instead of floating them over your pet. Drag them to reorder, and "Pop out" returns them to the pet with your arrangement intact.
