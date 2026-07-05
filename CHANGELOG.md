@@ -1,5 +1,18 @@
 # DTI Remix — Changelog
 
+## July 5, 2026 — Lookbook board editor, rebuilt
+
+### Enhancements
+- **Lookbook:** The board editor is rebuilt around a **left toolbar and an always-open side panel** — every control (Layout, Frames, Title, Backdrop, Floats) is right in front of you instead of tucked behind pop-up menus.
+- **Lookbook:** New **Freestyle** mode lets you **drag each pet anywhere** on the board and **resize pets one at a time**; **Grid** mode is still there for neat rows.
+- **Lookbook:** A full **Layers panel** — drag any layer to **restack** it, move your pets **in front of or behind** your decorations, **hide** a layer, or **lock** one so it can't be moved or edited by accident.
+- **Lookbook:** **Right-click** a decoration to bring it forward, send it backward, or jump it to the very front or back.
+- **Lookbook:** **Click a pet to select it** (shift-click to grab several), **edit the title** from its panel or by **double-clicking** it on the board, and **set an exact canvas size in pixels**.
+
+### Fixes
+- **Lookbook:** The **delete button** on board thumbnails is a clean round icon again.
+- **Everywhere:** The **"an update landed" prompt** now shows on the homepage too (it was being hidden there), and reads more comfortably.
+
 ## July 4, 2026 — Lookbook board editor & Customize safety
 
 ### Enhancements

@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  window.__DTR_META = {"v":"10.607.0","history":[{"v":"10.607.0","label":"Lookbook board editor + Your Outfits & Customize fixes","notes":["Lookbook boards are now a full editor. Arrange your saved looks in a grid — set how many per row, plus their size and spacing — and pick a frame shape (rounded, circle, arch, hex and more) with an optional border and soft shadow.","Style the whole board: show or hide pet names and give them their own font, size and colour; add and style the title the same way; set a background colour or drop in a background image; and add decorations by dropping in any item as art (in front of or behind your pets).","Nothing on a board changes by accident — every edit stays a draft until you hit Save. You can Clone a board to spin off a variation, and download the finished collage as an image.","Your Outfits: sorting A→Z now uses a look's crowned variant name, so it lands where you expect; the delete button is back; and a look that jumps position after you crown or group a variant now scrolls into view so you never lose track of it.","Customize: opening a custom that someone shared with you no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own Save keeps a copy."]},{"v":"10.597.5","label":"Closet & search fixes","notes":["Fixed an error that could break some closet pages (links without a name in the URL)","Item search now flags when the Hide-locked-zones setting is hiding matches, with a one-click Show them"]},{"v":"10.596.6","label":"Comparison Mode & logged-out fixes","notes":["Comparison Mode: hide lists you never trade from, and it now matches your live wishlist however an item was added","Fixed items wrongly showing as Wishlisted or Owned while logged out","Try On Haul is now hidden entirely when you are logged out","Your Outfits opens to your outfits again, not a Lookbook board"]},{"v":"10.592.1","label":"Lookbook, DTI Sync & item links","notes":["Lookbook (new!): arrange your saved looks into themed boards","DTI Sync: keep some copies in your inventory, and see each item's zones on the cards"]},{"v":"10.587.10","label":"Closet bulk-edit","notes":["Bulk-move whole stacks, and gather copies spread across several lists","Your clipboard, drafts and Try On Haul are now separate per account"]}]};
+  window.__DTR_META = {"v":"10.608.0","history":[{"v":"10.608.0","label":"Lookbook board editor, rebuilt","notes":["The Lookbook board editor is rebuilt: a left toolbar and an always-open side panel put every control in front of you, instead of behind pop-up menus.","New Freestyle mode — drag each pet anywhere, resize them one at a time, and place the title wherever you like. Grid mode is still there for tidy rows.","A real Layers panel: drag to restack, put pets in front of or behind your decorations, hide or lock any layer, and right-click a decoration to send it forward or back.","Click a pet to select it (shift-click for several), and type an exact canvas size in pixels."]},{"v":"10.607.0","label":"Lookbook board editor + Your Outfits & Customize fixes","notes":["Lookbook boards are now a full editor. Arrange your saved looks in a grid — set how many per row, plus their size and spacing — and pick a frame shape (rounded, circle, arch, hex and more) with an optional border and soft shadow.","Style the whole board: show or hide pet names and give them their own font, size and colour; add and style the title the same way; set a background colour or drop in a background image; and add decorations by dropping in any item as art (in front of or behind your pets).","Nothing on a board changes by accident — every edit stays a draft until you hit Save. You can Clone a board to spin off a variation, and download the finished collage as an image.","Your Outfits: sorting A→Z now uses a look's crowned variant name, so it lands where you expect; the delete button is back; and a look that jumps position after you crown or group a variant now scrolls into view so you never lose track of it.","Customize: opening a custom that someone shared with you no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own Save keeps a copy."]},{"v":"10.597.5","label":"Closet & search fixes","notes":["Fixed an error that could break some closet pages (links without a name in the URL)","Item search now flags when the Hide-locked-zones setting is hiding matches, with a one-click Show them"]},{"v":"10.596.6","label":"Comparison Mode & logged-out fixes","notes":["Comparison Mode: hide lists you never trade from, and it now matches your live wishlist however an item was added","Fixed items wrongly showing as Wishlisted or Owned while logged out","Try On Haul is now hidden entirely when you are logged out","Your Outfits opens to your outfits again, not a Lookbook board"]},{"v":"10.592.1","label":"Lookbook, DTI Sync & item links","notes":["Lookbook (new!): arrange your saved looks into themed boards","DTI Sync: keep some copies in your inventory, and see each item's zones on the cards"]},{"v":"10.587.10","label":"Closet bulk-edit","notes":["Bulk-move whole stacks, and gather copies spread across several lists","Your clipboard, drafts and Try On Haul are now separate per account"]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -31,20 +31,24 @@
         css.textContent = [
           '#dtr-update-toast{position:fixed;right:18px;bottom:18px;z-index:2147483000;font-family:Nunito,Inter,system-ui,sans-serif;animation:dtrUpdIn .3s cubic-bezier(.2,.8,.3,1)}',
           '@keyframes dtrUpdIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}',
-          '#dtr-update-toast .dtr-upd-card{position:relative;width:312px;max-width:calc(100vw - 32px);background:linear-gradient(135deg,#fbecf5 0%,#ecf0fb 30%,#e9f5fb 55%,#eafbf1 80%,#fdf6ea 100%);border:1px solid rgba(255,255,255,.92);border-radius:16px;box-shadow:0 16px 40px rgba(70,60,80,.28);padding:15px 15px 14px;overflow:hidden}',
+          '#dtr-update-toast .dtr-upd-card{position:relative;display:flex;flex-direction:column;width:344px;max-width:calc(100vw - 32px);max-height:min(74vh,600px);background:linear-gradient(135deg,#fbecf5 0%,#ecf0fb 30%,#e9f5fb 55%,#eafbf1 80%,#fdf6ea 100%);border:1px solid rgba(255,255,255,.92);border-radius:16px;box-shadow:0 16px 40px rgba(70,60,80,.28);padding:16px 16px 15px;overflow:hidden}',
           '#dtr-update-toast .dtr-upd-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a)}',
-          '#dtr-update-toast .dtr-upd-x{position:absolute;top:9px;right:10px;border:none;background:none;color:#b3a9a0;font-size:18px;line-height:1;cursor:pointer;padding:2px}',
+          '#dtr-update-toast .dtr-upd-x{position:absolute;top:9px;right:10px;border:none;background:none;color:#b3a9a0;font-size:19px;line-height:1;cursor:pointer;padding:2px;z-index:1}',
           '#dtr-update-toast .dtr-upd-x:hover{color:#7a716a}',
-          '#dtr-update-toast .dtr-upd-h{font:800 14.5px/1.2 Nunito,sans-serif;color:#46463f;margin:2px 0 2px}',
-          '#dtr-update-toast .dtr-upd-sub{font:600 10.5px/1.4 Nunito,sans-serif;color:#8a8378;margin:0 0 10px}',
-          '#dtr-update-toast .dtr-upd-grp{margin:0 0 7px}',
-          '#dtr-update-toast .dtr-upd-grplbl{font:800 8.5px/1 Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#c2487c;margin:0 0 4px}',
-          '#dtr-update-toast .dtr-upd-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px}',
-          '#dtr-update-toast .dtr-upd-list li{position:relative;padding-left:15px;font:600 10.5px/1.35 Nunito,sans-serif;color:#4a4a45}',
-          '#dtr-update-toast .dtr-upd-list li::before{content:"\\2726";position:absolute;left:0;top:1px;color:#5fb3e8;font-size:9px}',
-          '#dtr-update-toast .dtr-upd-reload{display:block;width:100%;margin:11px 0 0;border:none;border-radius:11px;background:linear-gradient(135deg,#5fb3e8,#5bb6a8);color:#fff;font:800 12.5px/1 Nunito,sans-serif;letter-spacing:.02em;padding:12px;cursor:pointer;box-shadow:0 4px 12px rgba(91,182,168,.4);transition:transform .12s,box-shadow .12s}',
+          '#dtr-update-toast .dtr-upd-h{flex:none;font:800 16px/1.2 Nunito,sans-serif;color:#46463f;margin:2px 0 3px}',
+          '#dtr-update-toast .dtr-upd-sub{flex:none;font:600 11.5px/1.4 Nunito,sans-serif;color:#8a8378;margin:0 0 9px}',
+          '#dtr-update-toast .dtr-upd-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;padding-right:8px;margin-right:-8px}',
+          '#dtr-update-toast .dtr-upd-scroll::-webkit-scrollbar{width:7px}',
+          '#dtr-update-toast .dtr-upd-scroll::-webkit-scrollbar-thumb{background:rgba(150,140,160,.4);border-radius:7px}',
+          '#dtr-update-toast .dtr-upd-scroll::-webkit-scrollbar-track{background:transparent}',
+          '#dtr-update-toast .dtr-upd-grp{margin:0 0 9px}',
+          '#dtr-update-toast .dtr-upd-grplbl{font:800 9.5px/1.1 Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#c2487c;margin:0 0 5px}',
+          '#dtr-update-toast .dtr-upd-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px}',
+          '#dtr-update-toast .dtr-upd-list li{position:relative;padding-left:17px;font:600 12.5px/1.45 Nunito,sans-serif;color:#46463f}',
+          '#dtr-update-toast .dtr-upd-list li::before{content:"\\2726";position:absolute;left:0;top:2px;color:#5fb3e8;font-size:10px}',
+          '#dtr-update-toast .dtr-upd-reload{flex:none;display:block;width:100%;margin:12px 0 0;border:none;border-radius:11px;background:linear-gradient(135deg,#5fb3e8,#5bb6a8);color:#fff;font:800 14px/1 Nunito,sans-serif;letter-spacing:.02em;padding:13px;cursor:pointer;box-shadow:0 4px 12px rgba(91,182,168,.4);transition:transform .12s,box-shadow .12s}',
           '#dtr-update-toast .dtr-upd-reload:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(91,182,168,.5)}',
-          '#dtr-update-toast .dtr-upd-hint{text-align:center;font:600 9px/1.3 Nunito,sans-serif;color:#a79f94;margin-top:7px}'
+          '#dtr-update-toast .dtr-upd-hint{flex:none;text-align:center;font:600 10px/1.3 Nunito,sans-serif;color:#a79f94;margin-top:8px}'
         ].join('');
         (document.head || document.documentElement).appendChild(css);
         var wrap = document.createElement('div'); wrap.id = 'dtr-update-toast';
@@ -52,7 +56,7 @@
           + '<button type="button" class="dtr-upd-x" aria-label="Dismiss">×</button>'
           + '<div class="dtr-upd-h">✨ An update landed!</div>'
           + '<div class="dtr-upd-sub">Here’s what’s new since your last refresh:</div>'
-          + notesHtml
+          + '<div class="dtr-upd-scroll">' + notesHtml + '</div>'
           + '<button type="button" class="dtr-upd-reload">Reload now to update</button>'
           + '<div class="dtr-upd-hint">or press <b>' + combo + '</b></div>'
           + '</div>';
@@ -89,9 +93,13 @@
       try {
 
         var _hookTgt = (typeof unsafeWindow !== 'undefined' && unsafeWindow) ? unsafeWindow : window;
-        _hookTgt.__dtrTestUpdatePrompt = function () {
+        _hookTgt.__dtrTestUpdatePrompt = function (n) {
           shown = false; var _t = document.getElementById('dtr-update-toast'); if (_t) _t.remove();
-          show({ v: '99.99.99', history: [{ v: '99.99.99', label: 'Preview', notes: ['This is what the update prompt looks like.', 'A real one lists what actually changed since your version.', 'The button reloads you straight into the new build.'] }] });
+
+          var real = (window.__DTR_META && window.__DTR_META.history) || [];
+          var pick = real.slice(0, (n && n > 0) ? n : 1).map(function (h) { return { v: '999.0.0', label: h.label, notes: h.notes }; });
+          if (!pick.length) pick = [{ v: '999.0.0', label: 'Preview', notes: ['This is what the update prompt looks like.', 'A real one lists what actually changed since your version.', 'The button reloads you straight into the new build.'] }];
+          show({ v: '999.0.0', history: pick });
         };
       } catch (_) {}
     } catch (_) {}
@@ -3641,7 +3649,7 @@
 
     const CSS = [
 
-      'html.dia-hp-preactive body > *:not(#dia-hp-nav):not(#dia-hp-page):not(style):not(script):not(footer):not(.dtr-note-popover):not(.dia-ui-tooltip):not(.dia-zone-tooltip):not(#dtr-color-picker):not(#dia-focus-overlay):not(#dia-tryon-save-modal):not(.dtr-move-menu):not(#dia-ps-pop):not(#dia-ps-dim):not(.dia-ps-tip):not(.dia-ps-toast):not(#dia-ps-import):not(#dia-ps-board):not(#dia-ps-board-copy):not(#dia-ps-board-collage){display:none!important}',
+      'html.dia-hp-preactive body > *:not(#dia-hp-nav):not(#dia-hp-page):not(style):not(script):not(footer):not(.dtr-note-popover):not(.dia-ui-tooltip):not(.dia-zone-tooltip):not(#dtr-color-picker):not(#dia-focus-overlay):not(#dia-tryon-save-modal):not(.dtr-move-menu):not(#dia-ps-pop):not(#dia-ps-dim):not(.dia-ps-tip):not(.dia-ps-toast):not(#dia-ps-import):not(#dia-ps-board):not(#dia-ps-board-copy):not(#dia-ps-board-collage):not(#dtr-update-toast){display:none!important}',
       'html.dia-hp-preactive body{background:#ece9e1!important}',
 
       'html.dia-itemv2-preactive body{background:#f3efe7!important}',
@@ -12468,6 +12476,7 @@
         '.dtr-lb-bname{font:800 11.5px "Nunito",sans-serif;color:#3a3a35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}',
         '.dtr-lb-bcount{font:800 9.5px "Nunito",sans-serif;color:#347f76;background:var(--dtr-primary-bg,#e7f6f2);padding:2px 8px;border-radius:999px}',
         '.dtr-lb-bdel{position:absolute;top:9px;right:9px;width:24px;height:24px;border-radius:50%;border:1px solid #e6b3ab;background:rgba(255,255,255,.9);color:#c0392b;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;box-shadow:0 2px 7px rgba(0,0,0,.16)!important;transition:opacity .12s}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-bdel{box-sizing:border-box!important;width:24px!important;height:24px!important;min-width:0!important;min-height:0!important;padding:0!important;flex:0 0 auto;border-radius:50%!important}',
         '.dtr-lb-bcard:hover .dtr-lb-bdel{opacity:1}',
         'body.outfits-index #dtr-yo-root .dtr-lb-bdel:hover{background:#fdecef!important;border-color:#e6b3ab!important;color:#c0392b!important}',
         '.dtr-lb-bconfirm{position:absolute;inset:0;background:rgba(255,255,255,.95);border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:8px}',
@@ -12520,6 +12529,33 @@
         '.dtr-lb-export svg{display:block}',
 
         '.dtr-lb-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 2px 12px;padding:9px 11px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.9);border-radius:14px;box-shadow:0 3px 12px rgba(80,80,70,.05)}',
+        '.dtr-lb-subbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 2px 12px}',
+        '.dtr-lb-canvassize{display:inline-flex;align-items:center;gap:5px;font:700 11px "Nunito",sans-serif;color:#8a8478;padding:3px 9px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.9);border-radius:9px}',
+        '.dtr-lb-szlbl{font:800 9px "Nunito",sans-serif;text-transform:uppercase;letter-spacing:.05em;color:#b0a89c}',
+        '.dtr-lb-szx,.dtr-lb-szpx{color:#b0a89c}',
+        '.dtr-lb-szin{width:52px;border:1px solid var(--dtr-primary-line,#cfe8e2);border-radius:7px;padding:3px 5px;font:700 11px "Nunito",sans-serif;color:#4a4a45;background:#fff;text-align:center;-moz-appearance:textfield}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-szin:focus{outline:none;border-color:var(--dtr-primary,#149c8e);box-shadow:0 0 0 2px var(--dtr-primary-bg,#e7f6f2)}',
+        '.dtr-lb-szin::-webkit-outer-spin-button,.dtr-lb-szin::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}',
+        '#dtr-lb-ctxmenu{position:fixed;z-index:2147483000;background:#fff;border:1px solid var(--dtr-primary-line,#bfe6e0);border-radius:12px;box-shadow:0 12px 30px rgba(40,40,35,.22);padding:5px;display:flex;flex-direction:column;min-width:174px}',
+        '#dtr-lb-ctxmenu button{display:flex;align-items:center;gap:10px;border:none;background:transparent;cursor:pointer;padding:8px 10px;border-radius:8px;font:700 12px "Nunito",sans-serif;color:#4a4a45;text-align:left;width:100%}',
+        'body.outfits-index #dtr-yo-root #dtr-lb-ctxmenu button:hover{background:var(--dtr-primary-bg,#e7f6f2)!important;color:var(--dtr-primary,#149c8e)!important}',
+        '#dtr-lb-ctxmenu .ic{width:16px;text-align:center;font-size:14px;color:var(--dtr-primary,#149c8e);flex:0 0 auto}',
+        '#dtr-lb-ctxmenu .dtr-lb-ctxhd{padding:5px 10px 6px;font:800 10px "Nunito",sans-serif;text-transform:uppercase;letter-spacing:.05em;color:#a89fb4;border-bottom:1px solid #f0ecf4;margin-bottom:3px;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
+        '.dtr-lb-stagebar{display:flex;justify-content:flex-end;align-items:center;margin:0 0 6px}',
+        '.dtr-lb-work{display:flex;align-items:flex-start;gap:12px;margin:0 2px}',
+        '.dtr-lb-rail{flex:0 0 auto;display:flex;flex-direction:column;gap:5px;padding:7px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.9);border-radius:15px;box-shadow:0 3px 12px rgba(80,80,70,.05)}',
+        '.dtr-lb-railbtn{display:flex;flex-direction:column;align-items:center;gap:3px;width:60px;padding:8px 4px;border:none;background:transparent;border-radius:11px;cursor:pointer;color:#6a6270;transition:background .12s,color .12s}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-railbtn:hover{background:#fff!important;color:var(--dtr-primary,#149c8e)!important}',
+        '.dtr-lb-railbtn.on{background:var(--dtr-primary,#149c8e);color:#fff;box-shadow:0 4px 12px rgba(20,156,142,.3)}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-railbtn.on:hover{background:var(--dtr-primary,#149c8e)!important;color:#fff!important}',
+        '.dtr-lb-railico{display:flex;align-items:center;justify-content:center;height:21px}',
+        '.dtr-lb-raillbl{font:700 9.5px "Nunito",sans-serif;letter-spacing:.01em}',
+        '.dtr-lb-inspector{flex:0 0 288px;width:288px;display:flex;flex-direction:column;gap:10px;max-height:calc(100vh - 128px);overflow-y:auto;overflow-x:hidden;padding:2px}',
+        '.dtr-lb-insp-sec{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.9);border-radius:15px;box-shadow:0 3px 12px rgba(80,80,70,.05);padding:11px 12px}',
+        '.dtr-lb-insp-hd{display:flex;align-items:center;justify-content:space-between;font:800 11.5px "Nunito",sans-serif;color:#8a8296;text-transform:uppercase;letter-spacing:.05em;margin:0 0 9px}',
+        '.dtr-lb-insp-x{border:none;background:transparent;cursor:pointer;color:#a49cb4;font-size:18px;line-height:1;padding:0 3px;border-radius:6px}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-insp-x:hover{color:var(--dtr-primary,#149c8e)!important;background:var(--dtr-primary-bg,#e7f6f2)!important}',
+        '.dtr-lb-insp-body{display:flex;flex-direction:column;gap:8px}',
         '.dtr-lb-tbtn{display:inline-flex;align-items:center;gap:7px;border:none;background:rgba(244,239,229,.92);color:#5a5a52;cursor:pointer;font:800 10.5px "Nunito",sans-serif;padding:8px 13px;border-radius:999px}',
         '.dtr-lb-tbtn .cv{font-size:8px;color:#9a9a90}',
         '.dtr-lb-tbtn.open{background:var(--dtr-primary,#149c8e);color:#fff}',
@@ -12542,7 +12578,7 @@
         '.dtr-lb-pop-body{padding:11px 13px 13px;overflow-y:auto;max-height:min(60vh,540px);display:flex;flex-direction:column;gap:8px;scrollbar-width:thin}',
 
         '#dtr-lb-pop .dtr-lb-stepper,#dtr-lb-pop .dtr-lb-segbar,#dtr-lb-pop .dtr-lb-fq,#dtr-lb-pop .dtr-lb-fontbtn,#dtr-lb-pop .dtr-lb-tbtn,#dtr-lb-pop .dtr-lb-auto{background:#f5f6f4}',
-        '.dtr-lb-stage{min-width:0;margin-top:2px}',
+        '.dtr-lb-stage{flex:1 1 auto;min-width:0;margin-top:0}',
         '.dtr-lb-prow{display:flex;align-items:center;gap:8px;min-height:28px}',
         '.dtr-lb-prow.dis{opacity:.4;pointer-events:none}',
         '.dtr-lb-plbl{font:800 9.5px "Nunito",sans-serif;color:#8a857a;text-transform:uppercase;letter-spacing:.05em;flex:0 0 62px}',
@@ -12647,32 +12683,47 @@
         '.dtr-lb-fitem img{width:30px;height:30px;border-radius:7px;flex:0 0 auto;background:#fff}',
         '.dtr-lb-fitem span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
 
-        '#dtr-lb-pop.dtr-lb-pop-wide{width:326px}',
-        '.dtr-lb-lyrlist{display:flex;flex-direction:column;gap:2px;background:#f7f8f6;border:1px solid rgba(20,156,142,.10);border-radius:12px;padding:4px}',
-        '.dtr-lb-lyr{display:flex;align-items:center;gap:7px;padding:5px 7px;border-radius:9px;background:#fff;cursor:pointer;box-shadow:0 1px 2px rgba(60,60,55,.04)}',
-        'body.outfits-index #dtr-yo-root .dtr-lb-lyr:hover{background:var(--dtr-primary-bg,#e7f6f2)!important}',
-        '.dtr-lb-lyr.sel{background:var(--dtr-primary-bg,#e7f6f2);box-shadow:inset 0 0 0 1.5px var(--dtr-primary,#8fd6c8)}',
+        '#dtr-lb-pop.dtr-lb-pop-wide{width:332px}',
+        '.dtr-lb-lyrlist{display:flex;flex-direction:column;gap:4px;background:linear-gradient(150deg,#fbeef6,#eef1fb 45%,#eafaf4 100%);border:1px solid rgba(255,255,255,.9);border-radius:15px;padding:6px;box-shadow:inset 0 1px 3px rgba(120,110,130,.07)}',
+        '.dtr-lb-lyr{display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:12px;background:rgba(255,255,255,.82);cursor:pointer;box-shadow:0 1px 3px rgba(90,80,100,.08);transition:box-shadow .13s,transform .1s,background .13s}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-lyr:hover{background:#fff!important;box-shadow:0 3px 11px rgba(90,80,100,.15)!important}',
+        '.dtr-lb-lyr.sel{background:#fff;box-shadow:0 0 0 2px var(--dtr-primary,#149c8e),0 4px 13px rgba(20,156,142,.2)}',
         '.dtr-lb-lyr.hid{opacity:.5}',
-        '.dtr-lb-lyr.divider{background:transparent;cursor:default;padding:6px 7px 3px;box-shadow:none}',
-        'body.outfits-index #dtr-yo-root .dtr-lb-lyr.divider:hover{background:transparent!important}',
-        '.dtr-lb-lyr-ic{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:15px;flex:0 0 auto}',
-        '.dtr-lb-lyr-th{width:28px;height:28px;border-radius:7px;background:#fff center/contain no-repeat;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}',
-        '.dtr-lb-lyr-th.txt{font:800 14px "Baloo 2",sans-serif;color:#6a655c}',
-        '.dtr-lb-lyr-nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:700 11.5px "Nunito",sans-serif;color:#4a4a45}',
-        '.dtr-lb-lyr.divider .dtr-lb-lyr-nm{font-weight:800;color:#6a655c;text-transform:uppercase;letter-spacing:.04em;font-size:10px}',
-        '.dtr-lb-lyr-sub{display:block;font:600 9px "Nunito",sans-serif;color:#a09a8c;text-transform:none;letter-spacing:0}',
-        '.dtr-lb-lyr-eye,.dtr-lb-lyr-anim{border:none;background:transparent;cursor:pointer;width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;color:#8a857a;flex:0 0 auto;padding:0}',
-        'body.outfits-index #dtr-yo-root .dtr-lb-lyr-eye:hover,body.outfits-index #dtr-yo-root .dtr-lb-lyr-anim:hover{background:#fff!important;color:var(--dtr-primary,#149c8e)!important}',
+        '.dtr-lb-lyr.dragsrc{opacity:.32}',
+        '.dtr-lb-lyr.drop-above{box-shadow:inset 0 3px 0 0 var(--dtr-primary,#149c8e)!important}',
+        '.dtr-lb-lyr.drop-below{box-shadow:inset 0 -3px 0 0 var(--dtr-primary,#149c8e)!important}',
+        '.dtr-lb-lyr.divider{background:transparent;cursor:default;padding:7px 9px 3px;box-shadow:none}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-lyr.divider:hover{background:transparent!important;box-shadow:none!important}',
+        '.dtr-lb-lyr-grip{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:19px;height:28px;color:#c6bed4;cursor:grab;border-radius:6px;transition:color .12s,background .12s}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-lyr-grip:hover{color:var(--dtr-primary,#149c8e)!important;background:var(--dtr-primary-bg,#e7f6f2)!important}',
+        '.dtr-lb-lyr.dragsrc .dtr-lb-lyr-grip{color:var(--dtr-primary,#149c8e)}',
+        '.dtr-lb-lyr-ic{width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:16px;flex:0 0 auto}',
+        '.dtr-lb-lyr-th{width:32px;height:32px;border-radius:8px;background:#fff center/contain no-repeat;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07);flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}',
+        '.dtr-lb-lyr-th.txt{font:800 15px "Baloo 2",sans-serif;color:var(--dtr-primary,#149c8e)}',
+        '.dtr-lb-lyr-nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:700 12.5px "Nunito",sans-serif;color:#4a4a45}',
+        '.dtr-lb-lyr.divider .dtr-lb-lyr-nm{font-weight:800;color:#8a7f92;text-transform:uppercase;letter-spacing:.05em;font-size:10.5px}',
+        '.dtr-lb-lyr-sub{display:block;font:600 9.5px "Nunito",sans-serif;color:#b0a8bc;text-transform:none;letter-spacing:0}',
+        '.dtr-lb-lyr-eye{border:none;background:transparent;cursor:pointer;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9a92aa;flex:0 0 auto;padding:0;transition:background .12s,color .12s}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-lyr-eye:hover{background:var(--dtr-primary-bg,#e7f6f2)!important;color:var(--dtr-primary,#149c8e)!important}',
         '.dtr-lb-lyr-eye svg{display:block}',
-        '.dtr-lb-lyr-anim{font:800 13px "Nunito",sans-serif}',
-        '.dtr-lb-lyr-anim.on{color:var(--dtr-accent,#ff8576)}',
-        'body.outfits-index #dtr-yo-root .dtr-lb-lyr-anim.on:hover{color:var(--dtr-accent,#ff8576)!important}',
-        '.dtr-lb-lyr-mv{display:flex;flex-direction:column;flex:0 0 auto}',
-        '.dtr-lb-lyr-mv button{border:none;background:transparent;cursor:pointer;width:22px;height:14px;padding:0;line-height:1;font-size:11px;color:#9a9a90;border-radius:5px}',
-        'body.outfits-index #dtr-yo-root .dtr-lb-lyr-mv button:hover{background:#fff!important;color:var(--dtr-primary,#149c8e)!important}',
+        '.dtr-lb-lyr-lock{border:none;background:transparent;cursor:pointer;width:26px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#b3aabf;flex:0 0 auto;padding:0;opacity:0;transition:opacity .12s,background .12s,color .12s}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-lyr:hover .dtr-lb-lyr-lock{opacity:1}',
+        '.dtr-lb-lyr-lock.on{opacity:1;color:var(--dtr-accent,#ff8576)}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-lyr-lock:hover{background:var(--dtr-primary-bg,#e7f6f2)!important;color:var(--dtr-primary,#149c8e)!important}',
+        '.dtr-lb-lyr-lock svg{display:block}',
+        '.dtr-lb-lyr.locked{background:rgba(255,255,255,.6)}',
+        '.dtr-lb-lyr.locked .dtr-lb-lyr-nm{color:#9a92a6}',
+        '.dtr-lb-lyr-mv{display:flex;flex-direction:column;flex:0 0 auto;gap:2px}',
+        '.dtr-lb-lyr-mv button{border:none;background:var(--dtr-primary-bg,#e7f6f2);cursor:pointer;width:27px;height:19px;padding:0;line-height:1;font-size:13px;color:var(--dtr-primary,#149c8e);border-radius:6px;transition:background .12s,color .12s}',
+        'body.outfits-index #dtr-yo-root .dtr-lb-lyr-mv button:hover{background:var(--dtr-primary,#149c8e)!important;color:#fff!important}',
         '.dtr-lb-tile{position:absolute;cursor:grab;transition:left .22s,top .22s,width .22s,height .22s}',
         '.dtr-lb-canvas.noanim .dtr-lb-tile{transition:none}',
         '.dtr-lb-canvas.free .dtr-lb-tile{transition:none;cursor:move}',
+        '.dtr-lb-tile.sel .dtr-lb-frame{box-shadow:0 0 0 3px var(--dtr-primary,#149c8e),0 4px 14px rgba(20,156,142,.28)}',
+        '.dtr-lb-tile.sel .dtr-lb-name{color:var(--dtr-primary,#149c8e)}',
+        '.dtr-lb-preszh{position:absolute;width:16px;height:16px;border-radius:50%;background:var(--dtr-primary,#149c8e);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.28);cursor:nwse-resize;z-index:6;opacity:0;transition:opacity .12s}',
+        '.dtr-lb-tile:hover .dtr-lb-preszh{opacity:1}',
+        '.dtr-lb-canvas.dtr-lb-dragging .dtr-lb-preszh{opacity:0}',
 
         '.dtr-lb-rz{position:absolute;z-index:40;background:transparent}',
         '.dtr-lb-rz.e{top:8%;bottom:8%;right:-5px;width:11px;cursor:ew-resize}',
@@ -13118,9 +13169,10 @@
       var petIds = ids.filter(function (id) { return !_lbIsBlank(id); });
       petIds.forEach(function (id, i) {
         var pp = b.pos && b.pos[id], cx, cy;
+        var pw = Math.max(40, Math.round(tw * ((pp && isFinite(pp.s) && pp.s > 0) ? pp.s : 1)));
         if (pp && isFinite(pp.x) && isFinite(pp.y)) { cx = pp.x; cy = pp.y; }
         else { var col = i % cols, row = Math.floor(i / cols); cx = pad + tw / 2 + col * (tw + gap); cy = tilesY + tw / 2 + row * (blockH + gap); }
-        tiles.push({ id: id, x: Math.round(cx - tw / 2), y: Math.round(cy - tw / 2), w: tw, h: blockH, free: true, cx: Math.round(cx), cy: Math.round(cy) });
+        tiles.push({ id: id, x: Math.round(cx - pw / 2), y: Math.round(cy - pw / 2), w: pw, h: pw + nameH, free: true, cx: Math.round(cx), cy: Math.round(cy) });
       });
     } else {
       for (var r0 = 0; r0 < n; r0 += cols) {
@@ -13210,28 +13262,50 @@
   function _lbPopHTML(b, key) {
     var cfg = b.cfg;
     if (key === 'layers') return _lbLayersHTML(b);
-    if (key === 'layout') return ''
-      + '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Per row</span><span class="dtr-lb-stepper"><button type="button" data-lb-cols="-1" aria-label="fewer per row">−</button><b>' + Math.max(_LB_COLS_MIN, Math.min(_LB_COLS_MAX, parseInt(cfg.cols, 10) || 4)) + '</b><button type="button" data-lb-cols="1" aria-label="more per row">+</button></span></span>'
-      + '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Align</span>' + _lbRowSeg(cfg, 'align', [['left', 'Left'], ['center', 'Center'], ['right', 'Right']]) + '</span>'
-      + _lbRowRng(cfg, 'Pet size', 'thumb') + _lbRowRng(cfg, 'Spacing', 'gap') + _lbRowRng(cfg, 'Width', 'canvasW')
-      + '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Ratio</span>' + _lbRowSeg(cfg, 'canvasR', _LB_RATIOS) + '</span>'
-      + '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Sort</span>' + _lbRowSeg(cfg, 'sort', _LB_SORTS) + '</span>'
-      + '<div class="dtr-lb-phint">Drag pets on the board to arrange by hand — Manual order is never re-shuffled.</div>';
+    if (key === 'layout') {
+      var _free = cfg.layout === 'free';
+      var _arr = '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Arrange</span><span class="dtr-lb-segbar">'
+        + '<button type="button" class="dtr-lb-seg' + (_free ? '' : ' on') + '" data-lb-setlayout="grid">Grid</button>'
+        + '<button type="button" class="dtr-lb-seg' + (_free ? ' on' : '') + '" data-lb-setlayout="free">Freestyle</button>'
+        + '</span></span>';
+      if (_free) return _arr
+        + _lbRowRng(cfg, 'Pet size', 'thumb') + _lbRowRng(cfg, 'Width', 'canvasW')
+        + '<div class="dtr-lb-phint">Freestyle — drag each pet anywhere on the board (dragging one brings it to the front), and drag the title to place it. Pet size sets them all; per-pet resize is coming next.</div>';
+      return _arr
+        + '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Per row</span><span class="dtr-lb-stepper"><button type="button" data-lb-cols="-1" aria-label="fewer per row">−</button><b>' + Math.max(_LB_COLS_MIN, Math.min(_LB_COLS_MAX, parseInt(cfg.cols, 10) || 4)) + '</b><button type="button" data-lb-cols="1" aria-label="more per row">+</button></span></span>'
+        + '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Align</span>' + _lbRowSeg(cfg, 'align', [['left', 'Left'], ['center', 'Center'], ['right', 'Right']]) + '</span>'
+        + _lbRowRng(cfg, 'Pet size', 'thumb') + _lbRowRng(cfg, 'Spacing', 'gap') + _lbRowRng(cfg, 'Width', 'canvasW')
+        + '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Ratio</span>' + _lbRowSeg(cfg, 'canvasR', _LB_RATIOS) + '</span>'
+        + '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Sort</span>' + _lbRowSeg(cfg, 'sort', _LB_SORTS) + '</span>'
+        + '<div class="dtr-lb-phint">Drag pets on the board to arrange by hand — Manual order is never re-shuffled.</div>';
+    }
     if (key === 'frames') return ''
       + '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Shape</span>' + _lbRowSeg(cfg, 'shape', _LB_SHAPES) + '</span>'
       + _lbRowRng(cfg, 'Corners', 'radius', !(cfg.shape === 'rounded' || cfg.shape === 'arch')) + _lbRowRng(cfg, 'Border', 'borderWidth')
       + _lbRowCol(cfg, 'Color', 'borderColor', false) + _lbRowSw(cfg, 'Soft shadow', 'shadow');
     if (key === 'title') return _lbRowSw(cfg, 'Show the title', 'showTitle')
-      + (cfg.showTitle ? (_lbRowFont(cfg, 'titleFont') + _lbRowRng(cfg, 'Size', 'titleSize') + _lbRowCol(cfg, 'Color', 'titleColor', true)
+      + (cfg.showTitle ? ('<input type="text" class="dtr-lb-fq" data-lb-titlefield="1" maxlength="60" value="' + _yoEsc(b.name) + '" placeholder="Board title…">'
+      + _lbRowFont(cfg, 'titleFont') + _lbRowRng(cfg, 'Size', 'titleSize') + _lbRowCol(cfg, 'Color', 'titleColor', true)
       + '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Align</span>' + _lbRowSeg(cfg, 'titleAlign', [['left', 'Left'], ['center', 'Center'], ['right', 'Right']]) + '</span>'
       + '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Position</span><button type="button" class="dtr-lb-tbtn" data-lb-titlecenter="1" title="Reset the title back to its default spot">↺ Re-center</button></span>'
-      + '<div class="dtr-lb-phint">The title is the board’s name — <b>click it on the board to rename</b>, or <b>drag it anywhere</b>. Re-center undoes a drag.</div>') : '');
+      + '<div class="dtr-lb-phint">Type your title above. On the board, <b>drag it anywhere</b> or <b>double-click it</b> to edit in place. Re-center undoes a drag.</div>') : '');
+    if (key === 'pet') {
+      var _selp = Object.keys(_yo.lbSelPets || {}).filter(function (id) { return (b.ids || []).indexOf(id) >= 0; });
+      if (!_selp.length) return '<div class="dtr-lb-phint">Click a pet on the board to select it. Shift-click to select several.</div>';
+      if (_selp.length === 1) {
+        var _po = _lbOutfit(_selp[0]);
+        return '<div class="dtr-lb-phint"><b>' + _yoEsc(_po ? _lbPetName(b, _po) : 'Pet') + '</b> selected. '
+          + (cfg.layout === 'free' ? 'Drag it to move, or its corner handle to resize. ' : 'Switch to Freestyle to move &amp; resize it freely. ')
+          + 'Click its name on the board to rename.</div>'
+          + '<button type="button" class="dtr-lb-elbtn del" data-lb-petremove="1">Remove from board</button>';
+      }
+      return '<div class="dtr-lb-phint"><b>' + _selp.length + ' pets</b> selected. Shift-click a pet to add or remove it; drag any one to move it (Freestyle).</div>'
+        + '<button type="button" class="dtr-lb-elbtn del" data-lb-petremove="1">Remove ' + _selp.length + ' from board</button>';
+    }
     if (key === 'names') return _lbRowSw(cfg, 'Show names', 'showNames')
       + (cfg.showNames ? (_lbRowFont(cfg, 'nameFont') + _lbRowRng(cfg, 'Size', 'nameSize') + _lbRowCol(cfg, 'Color', 'nameColor', true)) : '');
     if (key === 'background') return _lbRowCol(cfg, 'Color', 'bg', false)
-      + _lbRowImgZone(cfg, 'bg', 'Drop an image here<br>or click to browse')
-      + (cfg.bgImg ? '<span class="dtr-lb-prow"><span class="dtr-lb-plbl">Fit</span>' + _lbRowSeg(cfg, 'bgFit', _LB_FITS) + '</span>' : '')
-      + '<div class="dtr-lb-phint">You can also drop an image straight onto the board.</div>';
+      + '<div class="dtr-lb-phint">Pick a background colour for the board.</div>';
     if (key === 'header') return _lbRowSw(cfg, 'Header band', 'hdBand')
       + (cfg.hdBand ? (
           _lbRowRng(cfg, 'Height', 'hdH')
@@ -13242,7 +13316,6 @@
         : '<div class="dtr-lb-phint">Turn this on for a header band across the top — a coloured strip for a title banner or word-art.</div>');
     if (key === 'decor') {
       return '<button type="button" class="dtr-lb-elbtn" data-lb-addtext="1">+ Add text</button>'
-        + '<label class="dtr-lb-drop" data-lb-dropimg="elem">Drop an image here<br>or click to browse<input type="file" accept="image/*" data-lb-file="elem" hidden></label>'
         + '<div class="dtr-lb-sech2">Floats — any DTI item as art</div>'
         + '<input type="text" class="dtr-lb-fq" data-lb-fq="1" value="' + _yoEsc(_yo.lbFq || '') + '" placeholder="Search any item…">'
         + '<div class="dtr-lb-fres" data-lb-fres="1"></div>'
@@ -13280,8 +13353,17 @@
       + '<b class="dtr-lb-pval" data-lb-elrangeval="' + field + '">' + val + '</b></label>';
   }
 
-  var _LB_EYE_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>';
-  var _LB_EYEOFF_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 5.1A9.8 9.8 0 0 1 12 5c6.5 0 10 7 10 7a15.6 15.6 0 0 1-3 3.6M6.2 6.2A15.4 15.4 0 0 0 2 12s3.5 7 10 7a9.5 9.5 0 0 0 4-.86"/></svg>';
+  var _LB_EYE_SVG = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/></svg>';
+  var _LB_EYEOFF_SVG = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16"/><path d="M9.8 5.2A9.3 9.3 0 0 1 12 5c6 0 9.5 7 9.5 7a15.3 15.3 0 0 1-2.9 3.5M6.1 6.5A15 15 0 0 0 2.5 12s3.5 7 9.5 7a8.9 8.9 0 0 0 3.6-.76"/></svg>';
+  var _LB_LOCK_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2.2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>';
+  var _LB_UNLOCK_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2.2"/><path d="M8 10.5V7a4 4 0 0 1 7.6-1.7"/></svg>';
+
+  var _LB_TI_LAYOUT = '<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg>';
+  var _LB_TI_FRAMES = '<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.4"/><circle cx="8.5" cy="10" r="1.6"/><path d="M4 17l4.5-4 3.5 3 3-2.5 5 4.5"/></svg>';
+  var _LB_TI_TITLE = '<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 6.5h14M12 6.5v12"/></svg>';
+  var _LB_TI_NAMES = '<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M20.5 13.3l-7.2 7.2a1.9 1.9 0 0 1-2.7 0l-6.1-6.1a1.9 1.9 0 0 1-.5-1.3V6.4A1.9 1.9 0 0 1 5.9 4.5h6.6a1.9 1.9 0 0 1 1.35.56l6.65 6.64a1.9 1.9 0 0 1 0 2.6Z"/><circle cx="8.7" cy="8.7" r="1.4"/></svg>';
+  var _LB_TI_BG = '<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3.5s6 6.6 6 10.4a6 6 0 0 1-12 0C6 10.1 12 3.5 12 3.5Z"/></svg>';
+  var _LB_TI_FLOATS = '<svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12 2.6l1.9 5.6 5.6 1.9-5.6 1.9L12 17.6l-1.9-5.6L4.5 10.1l5.6-1.9Z"/></svg>';
 
   function _lbLayerRows(b) {
     var front = [], back = [];
@@ -13298,7 +13380,7 @@
     var back = [], front = [];
     (b.elems || []).forEach(function (e) { (e.layer === 'back' ? back : front).push(e); });
     var flat = back.concat([null]).concat(front);
-    var i = -1; for (var k = 0; k < flat.length; k++) { if (flat[k] && flat[k].id === id) { i = k; break; } }
+    var i = -1, _pets = (id === '__pets'); for (var k = 0; k < flat.length; k++) { if (_pets ? flat[k] === null : (flat[k] && flat[k].id === id)) { i = k; break; } }
     if (i < 0) return false;
     var j = i + (dir === 'up' ? 1 : -1);
     if (j < 0 || j >= flat.length) return false;
@@ -13308,34 +13390,123 @@
     b.elems = nb.concat(nf);
     return true;
   }
+  function _lbMoveExtreme(b, id, dir) { var g = 0; while (_lbMoveLayer(b, id, dir) && g++ < 300) {} }
+
+  function _lbCloseCtx() { var m = document.getElementById('dtr-lb-ctxmenu'); if (m) m.remove(); document.removeEventListener('mousedown', _lbCtxAway, true); }
+  function _lbCtxAway(e) { var m = document.getElementById('dtr-lb-ctxmenu'); if (m && !(m.contains && m.contains(e.target))) _lbCloseCtx(); }
+  function _lbShowElemCtx(x, y, id) {
+    _lbCloseCtx();
+    var b = _lbActive(); if (!b) return;
+    var _ce = (b.elems || []).find(function (x2) { return x2.id === id; });
+    var _cn = _ce ? (_ce.name || (_ce.kind === 'text' ? (_ce.text || 'Text') : _ce.kind === 'image' ? 'Image' : 'Float')) : 'Layer';
+    var m = document.createElement('div'); m.id = 'dtr-lb-ctxmenu';
+    m.innerHTML = '<div class="dtr-lb-ctxhd">' + _yoEsc(_cn) + '</div>'
+      + [['front', 'Bring to front', '⤒'], ['up', 'Bring forward', '↑'], ['down', 'Send backward', '↓'], ['back', 'Send to back', '⤓']]
+      .map(function (o) { return '<button type="button" data-lb-ctx="' + o[0] + '"><span class="ic">' + o[2] + '</span>' + o[1] + '</button>'; }).join('');
+    (document.getElementById('dtr-yo-root') || document.body).appendChild(m);
+    var mw = m.offsetWidth, mh = m.offsetHeight;
+    m.style.left = Math.max(6, Math.min(x, window.innerWidth - mw - 8)) + 'px';
+    m.style.top = Math.max(6, Math.min(y, window.innerHeight - mh - 8)) + 'px';
+    m.addEventListener('click', function (e) {
+      var btn = e.target.closest && e.target.closest('[data-lb-ctx]'); if (!btn) return;
+      var dir = btn.getAttribute('data-lb-ctx'), bb = _lbActive();
+      if (bb) { if (dir === 'front') _lbMoveExtreme(bb, id, 'up'); else if (dir === 'back') _lbMoveExtreme(bb, id, 'down'); else _lbMoveLayer(bb, id, dir); _lbSave(); }
+      _lbCloseCtx(); _yo._qFocus = false; _yoRender();
+    });
+    document.addEventListener('mousedown', _lbCtxAway, true);
+  }
   function _lbLayersHTML(b) {
     var rows = _lbLayerRows(b);
     var nPets = _lbSortedIds(b).filter(function (id) { return !_lbIsBlank(id); }).length;
     var body = rows.map(function (r) {
-      if (r.t === 'pets') return '<div class="dtr-lb-lyr divider"><span class="dtr-lb-lyr-ic">🐾</span><span class="dtr-lb-lyr-nm">Pets<span class="dtr-lb-lyr-sub">' + nPets + ' on the board</span></span></div>';
-      if (r.t === 'bg') return '<div class="dtr-lb-lyr divider bg"><span class="dtr-lb-lyr-ic">' + (b.cfg.bgImg ? '🖼️' : '🎨') + '</span><span class="dtr-lb-lyr-nm">Background<span class="dtr-lb-lyr-sub">' + (b.cfg.bgImg ? 'image' : 'color') + '</span></span></div>';
+      if (r.t === 'pets') return '<div class="dtr-lb-lyr divider pets" data-lb-lyrpets="1" title="Drag to move your pets up or down the stack">'
+        + '<span class="dtr-lb-lyr-grip" data-lb-lyrgrip title="Drag to reorder" aria-hidden="true">' + _LB_GRIP_DOTS + '</span>'
+        + '<span class="dtr-lb-lyr-ic">🐾</span><span class="dtr-lb-lyr-nm">Pets<span class="dtr-lb-lyr-sub">' + nPets + ' on the board</span></span>'
+        + '<span class="dtr-lb-lyr-mv"><button type="button" data-lb-lyrmove="__pets:up" title="Bring pets forward" aria-label="Move pets forward">▴</button><button type="button" data-lb-lyrmove="__pets:down" title="Send pets backward" aria-label="Move pets backward">▾</button></span>'
+        + '</div>';
+      if (r.t === 'bg') return '<div class="dtr-lb-lyr divider bg"><span class="dtr-lb-lyr-ic">🎨</span><span class="dtr-lb-lyr-nm">Background</span></div>';
       var e = r.e, sel = _yo.lbSelEl === e.id;
       var th = e.kind === 'text' ? '<span class="dtr-lb-lyr-th txt" style="font-family:' + _lbFontCss(e.font || 'Nunito') + '">T</span>'
         : e.kind === 'image' ? '<span class="dtr-lb-lyr-th" data-lb-lyrimg="' + _yoEsc(e.id) + '" data-lb-lyrboard="' + _yoEsc(b.id) + '"></span>'
         : '<span class="dtr-lb-lyr-th" style="background-image:url(\'' + _yoEsc((e.urls && e.urls[0]) || e.url || '') + '\')"></span>';
       var nm = e.kind === 'text' ? (e.text || 'Text') : (e.name || (e.kind === 'image' ? 'Image' : 'Float'));
-      return '<div class="dtr-lb-lyr' + (sel ? ' sel' : '') + (e.hidden ? ' hid' : '') + '" data-lb-lyrsel="' + _yoEsc(e.id) + '" title="Click to edit this layer">'
+      return '<div class="dtr-lb-lyr' + (sel ? ' sel' : '') + (e.hidden ? ' hid' : '') + (e.locked ? ' locked' : '') + '" data-lb-lyrsel="' + _yoEsc(e.id) + '" title="' + (e.locked ? 'Locked — unlock to edit or drag it on the board' : 'Drag to restack · click to edit') + '">'
+        + '<span class="dtr-lb-lyr-grip" data-lb-lyrgrip title="Drag to reorder" aria-hidden="true">' + _LB_GRIP_DOTS + '</span>'
         + '<button type="button" class="dtr-lb-lyr-eye" data-lb-lyrhide="' + _yoEsc(e.id) + '" title="' + (e.hidden ? 'Show' : 'Hide') + ' this layer" aria-label="Toggle visibility">' + (e.hidden ? _LB_EYEOFF_SVG : _LB_EYE_SVG) + '</button>'
         + th
         + '<span class="dtr-lb-lyr-nm">' + _yoEsc(nm) + '</span>'
-        + (e.kind === 'float' ? '<button type="button" class="dtr-lb-lyr-anim' + (e.anim ? ' on' : '') + '" data-lb-lyranim="' + _yoEsc(e.id) + '" title="' + (e.anim ? 'Animates in an animated export' : 'Play this item’s animation (in animated exports)') + '" aria-label="Toggle animation">✦</button>' : '')
+        + '<button type="button" class="dtr-lb-lyr-lock' + (e.locked ? ' on' : '') + '" data-lb-lyrlock="' + _yoEsc(e.id) + '" title="' + (e.locked ? 'Unlock this layer' : 'Lock this layer') + '" aria-label="Toggle lock">' + (e.locked ? _LB_LOCK_SVG : _LB_UNLOCK_SVG) + '</button>'
         + '<span class="dtr-lb-lyr-mv"><button type="button" data-lb-lyrmove="' + _yoEsc(e.id) + ':up" title="Bring forward" aria-label="Move forward">▴</button><button type="button" data-lb-lyrmove="' + _yoEsc(e.id) + ':down" title="Send backward" aria-label="Move backward">▾</button></span>'
         + '</div>';
     }).join('');
-    var hint = (b.elems && b.elems.length)
-      ? '<div class="dtr-lb-phint">Top = front. Use ▴▾ to move a layer forward or back — cross the <b>Pets</b> line to put it in front of or behind your pets. The eye hides a layer; ✦ flags a float to play its animation in animated exports.</div>'
-      : '<div class="dtr-lb-phint">No decorations yet. Add floats, text or images from <b>Decor ✦</b> and they’ll stack here — top of the list is closest to the front.</div>';
+    var hint = (b.elems && b.elems.length) ? ''
+      : '<div class="dtr-lb-phint">No decorations yet — add floats or text from <b>Floats ✦</b> and they stack here.</div>';
     return '<div class="dtr-lb-lyrlist">' + body + '</div>' + hint;
+  }
+
+  function _lbApplyLayerOrder(list, b) {
+    var rows = [].slice.call(list.querySelectorAll('.dtr-lb-lyr'));
+    var petsIdx = -1;
+    for (var i = 0; i < rows.length; i++) { if (rows[i].classList.contains('divider') && !rows[i].classList.contains('bg')) { petsIdx = i; break; } }
+    var byId = {}; (b.elems || []).forEach(function (e) { byId[e.id] = e; });
+    var front = [], back = [];
+    rows.forEach(function (rr, idx) {
+      var id = rr.getAttribute('data-lb-lyrsel'); if (!id) return;
+      var e = byId[id]; if (!e) return;
+      if (petsIdx >= 0 && idx < petsIdx) { e.layer = 'front'; front.push(e); } else { e.layer = 'back'; back.push(e); }
+    });
+    front.reverse(); back.reverse();
+    b.elems = back.concat(front);
+    _lbSave(); _yo._qFocus = false; _yoRender();
+  }
+
+  function _lbWireLayerDrag(list, b) {
+    if (!list || list._dtrDragWired) return; list._dtrDragWired = true;
+    function clearInd() { [].forEach.call(list.querySelectorAll('.drop-above,.drop-below'), function (r) { r.classList.remove('drop-above', 'drop-below'); }); }
+    list.addEventListener('mousedown', function (e) {
+      if (e.button !== 0) return;
+      var grip = e.target.closest && e.target.closest('[data-lb-lyrgrip]'); if (!grip) return;
+      var row = grip.closest('.dtr-lb-lyr'); if (!row || (!row.getAttribute('data-lb-lyrsel') && !row.hasAttribute('data-lb-lyrpets'))) return;
+      e.preventDefault(); e.stopPropagation();
+      var startX = e.clientX, startY = e.clientY, ox = 0, oy = 0, ghost = null, moved = false, ref = null;
+      var bgRow = list.querySelector('.dtr-lb-lyr.divider.bg');
+      function onMove(mv) {
+        var dx = mv.clientX - startX, dy = mv.clientY - startY;
+        if (!moved && Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+        if (!moved) {
+          moved = true;
+          var r = row.getBoundingClientRect(); ox = r.left; oy = r.top;
+          ghost = row.cloneNode(true); ghost.removeAttribute('data-lb-lyrsel');
+          ghost.style.cssText = 'position:fixed;left:' + ox + 'px;top:' + oy + 'px;width:' + r.width + 'px;margin:0;pointer-events:none;z-index:2147483000;opacity:.94;background:#fff;border-radius:12px;box-shadow:0 12px 28px rgba(80,70,95,.32);transform:scale(1.03);transition:none';
+          document.body.appendChild(ghost);
+          row.classList.add('dragsrc');
+        }
+        ghost.style.left = (ox + dx) + 'px'; ghost.style.top = (oy + dy) + 'px';
+        ghost.style.display = 'none';
+        var el = document.elementFromPoint(mv.clientX, mv.clientY);
+        ghost.style.display = '';
+        clearInd(); ref = null;
+        var tgt = el && el.closest && el.closest('.dtr-lb-lyr');
+        if (tgt && tgt !== row && list.contains(tgt)) {
+          var tr = tgt.getBoundingClientRect();
+          if (tgt === bgRow) { tgt.classList.add('drop-above'); ref = bgRow; }
+          else if (mv.clientY > tr.top + tr.height / 2) { tgt.classList.add('drop-below'); ref = tgt.nextSibling; }
+          else { tgt.classList.add('drop-above'); ref = tgt; }
+        }
+      }
+      function onUp() {
+        document.removeEventListener('mousemove', onMove); document.removeEventListener('mouseup', onUp);
+        if (ghost) { ghost.remove(); ghost = null; }
+        row.classList.remove('dragsrc'); clearInd();
+        if (moved && ref !== row && ref !== row.nextSibling) { try { list.insertBefore(row, ref); } catch (_) {} _lbApplyLayerOrder(list, b); }
+      }
+      document.addEventListener('mousemove', onMove); document.addEventListener('mouseup', onUp);
+    });
   }
 
   var _lbFSeq = 0, _lbFqT = null;
   function _lbFloatSearch() {
-    var box = document.querySelector('#dtr-lb-pop [data-lb-fres]'); if (!box) return;
+    var box = document.querySelector('#dtr-lb-pop [data-lb-fres], .dtr-lb-inspector [data-lb-fres]'); if (!box) return;
     var q = String(_yo.lbFq || '').trim(), seq = ++_lbFSeq;
     if (!q) { box.innerHTML = '<div class="dtr-lb-phint">Type to search any item — backgrounds, foregrounds, trinkets, anything.</div>'; return; }
     box.innerHTML = '<div class="dtr-lb-phint">Searching…</div>';
@@ -13345,7 +13516,7 @@
       .then(function (j) {
         if (seq !== _lbFSeq) return;
         var items = ((((j || {}).data || {}).itemSearch) || {}).items || [];
-        var box2 = document.querySelector('#dtr-lb-pop [data-lb-fres]'); if (!box2) return;
+        var box2 = document.querySelector('#dtr-lb-pop [data-lb-fres], .dtr-lb-inspector [data-lb-fres]'); if (!box2) return;
         box2.innerHTML = items.length ? items.map(function (it2) {
           return '<button type="button" class="dtr-lb-fitem" data-lb-fadd="' + _yoEsc(String(it2.id)) + '" data-lb-fname="' + _yoEsc(it2.name || '') + '"><img src="' + _yoEsc(it2.thumbnailUrl || '') + '" alt="" loading="lazy"><span>' + _yoEsc(it2.name || '') + '</span></button>';
         }).join('') : '<div class="dtr-lb-phint">Nothing matched “' + _yoEsc(q) + '”.</div>';
@@ -13366,8 +13537,7 @@
         text: '', font: 'Nunito', size: 26, color: '', url: Ls[0].imageUrlV2,
         urls: Ls.map(function (l2) { return l2.imageUrlV2; }), name: itemName || '' };
       b.elems.push(e6); _lbSave();
-      _yo.lbSelEl = e6.id; _yo.lbPop = 'elem';
-      _yo._qFocus = false; _yoRender();
+      _yo.lbSelEl = e6.id;      _yo._qFocus = false; _yoRender();
       _yoToast('Added “' + (itemName || 'item') + '” — drag it into place');
     });
   }
@@ -13405,8 +13575,8 @@
       document.removeEventListener('mousemove', mm); document.removeEventListener('mouseup', mu);
       el.classList.remove('dtr-lb-moving');
       if (!moved) {
-        if (kind === 'title') { _yo.lbTitleEdit = true; _yo._lbTitleFocus = true; _yo._qFocus = false; _yoRender(); }
-        else if (kind === 'elem') { _yo.lbSelEl = eObj.id; try { el.classList.add('sel'); } catch (_) {} _lbShowPop('elem', el); }
+        if (kind === 'elem') { _yo.lbSelEl = eObj.id; _yo.lbSelPets = {}; _yo._qFocus = false; _yoRender(); }
+
         return;
       }
       _lbSave(); _yo._qFocus = false; _yoRender();
@@ -13432,7 +13602,7 @@
     function mu() {
       document.removeEventListener('mousemove', mm); document.removeEventListener('mouseup', mu);
       tile.classList.remove('dtr-lb-lifted'); cv.classList.remove('dtr-lb-dragging');
-      if (!moved) return;
+      if (!moved) { _lbSelectPet(board, id, ev.shiftKey); return; }
       board.pos = board.pos || {};
       board.pos[id] = { x: Math.round(cx0 + lastX), y: Math.round(cy0 + lastY) };
       var fi = board.ids.indexOf(id); if (fi >= 0) { board.ids.splice(fi, 1); board.ids.push(id); }
@@ -13441,12 +13611,43 @@
     document.addEventListener('mousemove', mm); document.addEventListener('mouseup', mu);
   }
 
+  function _lbSelectPet(board, id, additive) {
+    _yo.lbSelEl = null;
+    if (!_yo.lbSelPets || typeof _yo.lbSelPets !== 'object') _yo.lbSelPets = {};
+    if (additive) { if (_yo.lbSelPets[id]) delete _yo.lbSelPets[id]; else _yo.lbSelPets[id] = true; }
+    else { _yo.lbSelPets = {}; _yo.lbSelPets[id] = true; }
+    _yo._qFocus = false; _yoRender();
+  }
+
   function _lbToFree(b) {
     var lay = _lbLayout(b);
     b.pos = b.pos || {};
     lay.tiles.forEach(function (t) { if (!_lbIsBlank(t.id)) b.pos[String(t.id)] = { x: Math.round(t.x + t.w / 2), y: Math.round(t.y + t.w / 2) }; });
     if (!(parseInt(b.cfg.canvasH, 10) > 0)) b.cfg.canvasH = _lbClampN('canvasH', Math.round(lay.H));
     b.cfg.layout = 'free';
+  }
+
+  function _lbFreeTileResize(ev, root, board, cv, id) {
+    ev.preventDefault(); ev.stopPropagation();
+    var lay = _lbLayout(board), cvr = cv.getBoundingClientRect();
+    var s = (cvr.width || lay.W) / lay.W, tw = _lbClampN('thumb', board.cfg.thumb);
+    var t = null; for (var i = 0; i < lay.tiles.length; i++) { if (String(lay.tiles[i].id) === String(id)) { t = lay.tiles[i]; break; } }
+    if (!t) return;
+    var cx = t.cx, cy = t.cy, moved = false;
+    board.pos = board.pos || {}; if (!board.pos[id]) board.pos[id] = { x: cx, y: cy };
+    function mm(mv) {
+      var half = Math.max((mv.clientX - cvr.left) / s - cx, (mv.clientY - cvr.top) / s - cy);
+      var neww = Math.max(40, Math.min(tw * 4, Math.round(half * 2)));
+      if (!moved && Math.abs(neww - t.w) < 3) return;
+      moved = true;
+      board.pos[id].s = neww / tw;
+      _lbLiveLayout(root);
+    }
+    function mu() {
+      document.removeEventListener('mousemove', mm); document.removeEventListener('mouseup', mu);
+      if (moved) { _lbSave(); _yo._qFocus = false; _yoRender(); }
+    }
+    document.addEventListener('mousemove', mm); document.addEventListener('mouseup', mu);
   }
 
   function _lbResizeDrag(ev, root, board, cv, dir) {
@@ -13495,6 +13696,7 @@
     root.appendChild(p);
 
     if (key === 'layers') p.querySelectorAll('[data-lb-lyrimg]').forEach(function (thm) { var d = _lbImgGet(thm.getAttribute('data-lb-lyrboard'), 'el_' + thm.getAttribute('data-lb-lyrimg')); if (d) thm.style.backgroundImage = "url('" + d + "')"; });
+    if (key === 'layers') { var _ll = p.querySelector('.dtr-lb-lyrlist'); if (_ll) _lbWireLayerDrag(_ll, b); }
     var pw = p.offsetWidth, ph = p.offsetHeight;
     if (floating) {
       var fx = Math.max(6, Math.min(_yo.lbPopXY.x, window.innerWidth - pw - 6));
@@ -13557,11 +13759,12 @@
           ? '<input id="dtr-lb-nickin" class="dtr-lb-nick-in" maxlength="40" data-lb-nickin="' + sid + '" value="' + _yoEsc(disp) + '" placeholder="' + _yoEsc(o.name || 'My Outfit') + '" style="font-family:' + _lbFontCss(cfg.nameFont) + ';font-size:' + ns + 'px">'
           : '<div class="dtr-lb-name' + (view ? '' : ' editable') + '"' + (view ? '' : ' data-lb-nick="' + sid + '" title="Rename on this board (originally “' + _yoEsc(o.name || 'My Outfit') + '”)"') + ' style="' + nStyle + '">' + _yoEsc(disp) + '</div>';
       }
-      return '<div class="dtr-lb-tile' + (view ? ' view' : '') + '"' + (view ? '' : ' data-lb-tile="' + sid + '"') + ' style="left:' + t.x + 'px;top:' + t.y + 'px;width:' + t.w + 'px;height:' + t.h + 'px">'
+      return '<div class="dtr-lb-tile' + (view ? ' view' : '') + (!view && !_yo.lbSelEl && _yo.lbSelPets && _yo.lbSelPets[sid] ? ' sel' : '') + '"' + (view ? '' : ' data-lb-tile="' + sid + '"') + ' style="left:' + t.x + 'px;top:' + t.y + 'px;width:' + t.w + 'px;height:' + t.h + 'px">'
         + '<div class="dtr-lb-frame" style="' + _lbFrameCss(cfg, t.w) + '"><span class="dtr-lb-ring" style="' + _lbRingCss(cfg) + '"></span><div class="dtr-lb-fclip" style="' + _lbFclipCss(cfg) + '">'
         +   '<img class="dtr-lb-art" loading="lazy" decoding="async" draggable="false" alt="" title="' + _yoEsc(o.name || 'My Outfit') + '" src="' + _yoThumb(o, 300) + '" style="' + _lbFrameShapeCss(cfg, false) + '">'
         + '</div></div>'
         + nameBlock
+        + (!view && cfg.layout === 'free' ? '<span class="dtr-lb-preszh" data-lb-preszh="' + sid + '" title="Drag to resize this pet" style="left:' + (t.w - 9) + 'px;top:' + (t.w - 9) + 'px"></span>' : '')
         + (view ? '' : '<button type="button" class="dtr-lb-remove" data-lb-remove="' + sid + '" title="Remove from board" aria-label="Remove from board">' + _LB_X_SVG + '</button>')
         + '</div>';
     }).join('');
@@ -13573,17 +13776,17 @@
         var base = 'left:' + (e2.x || 0) + 'px;top:' + (e2.y || 0) + 'px;transform:' + tf + ';filter:saturate(' + (e2.sat != null ? e2.sat : 100) + '%);opacity:' + ((e2.opacity != null ? e2.opacity : 100) / 100) + ';';
         if (e2.kind === 'text') {
           var tc2 = /^#/.test(e2.color || '') ? e2.color : _lbAutoText(cfg);
-          return '<div class="dtr-lb-elem text' + (view ? '' : ' editable') + (sel ? ' sel' : '') + '"' + (view ? '' : ' data-lb-el="' + _yoEsc(e2.id) + '"') + ' style="' + base + 'font-family:' + _lbFontCss(e2.font || 'Nunito') + ';font-size:' + (parseInt(e2.size, 10) || 26) + 'px;color:' + tc2 + ';' + _lbTextShadowCss(cfg, e2.color) + '">' + _yoEsc(e2.text || 'Your text') + '</div>';
+          return '<div class="dtr-lb-elem text' + ((view || e2.locked) ? '' : ' editable') + (sel ? ' sel' : '') + (e2.locked ? ' locked' : '') + '"' + (view ? '' : ' data-lb-el="' + _yoEsc(e2.id) + '"') + ' style="' + base + 'font-family:' + _lbFontCss(e2.font || 'Nunito') + ';font-size:' + (parseInt(e2.size, 10) || 26) + 'px;color:' + tc2 + ';' + _lbTextShadowCss(cfg, e2.color) + '">' + _yoEsc(e2.text || 'Your text') + '</div>';
         }
         if (e2.kind === 'float') {
 
           var us = (Array.isArray(e2.urls) && e2.urls.length) ? e2.urls : (e2.url ? [e2.url] : []);
           var w2 = parseInt(e2.w, 10) || 280;
-          return '<div class="dtr-lb-elem imgs' + (view ? '' : ' editable') + (sel ? ' sel' : '') + '"' + (view ? '' : ' data-lb-el="' + _yoEsc(e2.id) + '"') + ' style="' + base + 'width:' + w2 + 'px;height:' + w2 + 'px">'
+          return '<div class="dtr-lb-elem imgs' + ((view || e2.locked) ? '' : ' editable') + (sel ? ' sel' : '') + (e2.locked ? ' locked' : '') + '"' + (view ? '' : ' data-lb-el="' + _yoEsc(e2.id) + '"') + ' style="' + base + 'width:' + w2 + 'px;height:' + w2 + 'px">'
             + us.map(function (u2) { return '<img src="' + _yoEsc(u2) + '" alt="" draggable="false" style="position:absolute;inset:0;width:100%;height:100%">'; }).join('')
             + '</div>';
         }
-        return '<img class="dtr-lb-elem img' + (view ? '' : ' editable') + (sel ? ' sel' : '') + '"' + (view ? '' : ' data-lb-el="' + _yoEsc(e2.id) + '"') + ' draggable="false" alt="" data-lb-elimg="' + _yoEsc(e2.id) + '" style="' + base + 'width:' + (parseInt(e2.w, 10) || 280) + 'px">';
+        return '<img class="dtr-lb-elem img' + ((view || e2.locked) ? '' : ' editable') + (sel ? ' sel' : '') + (e2.locked ? ' locked' : '') + '"' + (view ? '' : ' data-lb-el="' + _yoEsc(e2.id) + '"') + ' draggable="false" alt="" data-lb-elimg="' + _yoEsc(e2.id) + '" style="' + base + 'width:' + (parseInt(e2.w, 10) || 280) + 'px">';
       }).join('');
     };
     var titleHtml = '';
@@ -13592,37 +13795,36 @@
       var tStyle = 'top:' + lay.title.y + 'px;left:' + lay.title.x + 'px;width:' + lay.innerW + 'px;text-align:' + _tAlign + ';font-family:' + _lbFontCss(cfg.titleFont) + ';font-size:' + lay.title.size + 'px;color:' + titleCol + ';' + _lbTextShadowCss(cfg, cfg.titleColor);
       titleHtml = (!view && _yo.lbTitleEdit)
         ? '<input id="dtr-lb-titlein" class="dtr-lb-title-in" maxlength="60" value="' + _yoEsc(b.name) + '" style="' + tStyle + '">'
-        : '<div class="dtr-lb-title' + (view ? '' : ' editable') + '"' + (view ? '' : ' data-lb-titleedit="1" role="button" tabindex="0" title="Click to rename this board"') + ' style="' + tStyle + '">' + _yoEsc(b.name) + '</div>';
+        : '<div class="dtr-lb-title' + (view ? '' : ' editable') + '"' + (view ? '' : ' data-lb-titleedit="1" role="button" tabindex="0" title="Double-click to edit"') + ' style="' + tStyle + '">' + _yoEsc(b.name) + '</div>';
     }
-
     var guidesHtml = '';
-    if (!view && cfg.guides !== false) {
-      var gb = function (x2, y2, w2, h2, lbl) { return '<div class="dtr-lb-guide" style="left:' + x2 + 'px;top:' + y2 + 'px;width:' + w2 + 'px;height:' + h2 + 'px"><span>' + lbl + '</span></div>'; };
-
-      if (lay.title) guidesHtml += gb(lay.title.x - 6, lay.title.y - 4, lay.innerW + 12, Math.round(lay.title.size * 1.3) + 8, 'Title · click to rename · drag to move');
-      if (lay.tiles.length) {
-        var gbot = lay.tilesY;
-        lay.tiles.forEach(function (t2) { if (t2.y + t2.h > gbot) gbot = t2.y + t2.h; });
-        guidesHtml += gb(lay.pad - 8, lay.tilesY - 8, lay.innerW + 16, gbot - lay.tilesY + 16, 'Pets');
-      }
-    }
     var emptyHtml = ids.length ? '' : '<div class="dtr-lb-empty" style="top:' + lay.tilesY + 'px;color:' + _lbAutoText(cfg) + '">'
       + '<div class="dtr-lb-empty-ico">✦</div><div class="dtr-lb-empty-t">This board is empty</div>'
       + (view ? '' : '<button type="button" class="dtr-lb-empty-add" data-lb-addstart="' + _yoEsc(b.id) + '">+ Add Outfit</button>')
       + '</div>';
-    var canvas = '<div class="dtr-lb-cwrap"><div class="dtr-lb-canvas' + (view ? ' view' : '') + '" style="width:' + lay.W + 'px;height:' + lay.H + 'px;background-color:' + _lbCssColor(cfg.bg) + '">'
+    var canvas = '<div class="dtr-lb-cwrap"><div class="dtr-lb-canvas' + (view ? ' view' : '') + (cfg.layout === 'free' ? ' free' : '') + '" style="width:' + lay.W + 'px;height:' + lay.H + 'px;background-color:' + _lbCssColor(cfg.bg) + '">'
       + elemHtml('back')
       + titleHtml + tilesHtml + elemHtml('front') + guidesHtml + emptyHtml
       + '</div></div>';
 
-    var groups = [['layout', 'Layout'], ['frames', 'Frames'], ['title', 'Title'], ['names', 'Pet names'], ['background', 'Background'], ['decor', 'Floats ✦']];
-    var toolbar = '<div class="dtr-lb-toolbar">'
+    var tool = _yo.lbTool || 'layout';
+    var selEl = _yo.lbSelEl ? (b.elems || []).find(function (x) { return x.id === _yo.lbSelEl; }) : null;
+    var selPetIds = selEl ? [] : Object.keys(_yo.lbSelPets || {}).filter(function (id) { return (b.ids || []).indexOf(id) >= 0; });
+    var hasPetSel = selPetIds.length > 0;
+    var activeKey = selEl ? 'elem' : (hasPetSel ? 'pet' : tool);
+    var activeTitle = selEl ? ((selEl.kind === 'text' ? 'Text' : selEl.kind === 'image' ? 'Image' : 'Float') + ' selected') : (hasPetSel ? (selPetIds.length > 1 ? selPetIds.length + ' pets selected' : 'Pet selected') : _lbPopTitle(tool, b));
+    var sizeCtl = '<span class="dtr-lb-canvassize" title="Canvas size — type your own"><span class="dtr-lb-szlbl">Size</span><input type="number" class="dtr-lb-szin" data-lb-szin="w" value="' + lay.W + '" min="200" max="4000" aria-label="Canvas width in px"><span class="dtr-lb-szx">×</span><input type="number" class="dtr-lb-szin" data-lb-szin="h" value="' + lay.H + '" min="120" max="4000" aria-label="Canvas height in px"><span class="dtr-lb-szpx">px</span></span>';
+    var subbar = '<div class="dtr-lb-subbar">'
       + '<button type="button" class="dtr-lb-addbtn" data-lb-addstart="' + _yoEsc(b.id) + '">+ Add Outfit</button>'
       + '<button type="button" class="dtr-lb-tbtn" data-lb-addblank="1" title="Insert an empty spacer cell — drag it anywhere to make a gap">+ Spacer</button>'
-      + '<span class="dtr-lb-tsep"></span>'
-      + groups.map(function (g) { return '<button type="button" class="dtr-lb-tbtn' + (_yo.lbPop === g[0] ? ' open' : '') + '" data-lb-pop="' + g[0] + '">' + g[1] + '<span class="cv">▾</span></button>'; }).join('')
-      + '<span class="dtr-lb-tsep"></span>'
-      + _lbRowSw(cfg, 'Guides', 'guides')
+      + '</div>';
+    var railTools = [['layout', 'Layout', _LB_TI_LAYOUT], ['frames', 'Frames', _LB_TI_FRAMES], ['title', 'Title', _LB_TI_TITLE], ['names', 'Names', _LB_TI_NAMES], ['background', 'Backdrop', _LB_TI_BG], ['decor', 'Floats', _LB_TI_FLOATS]];
+    var rail = '<div class="dtr-lb-rail">' + railTools.map(function (rt) {
+      return '<button type="button" class="dtr-lb-railbtn' + (!selEl && !hasPetSel && tool === rt[0] ? ' on' : '') + '" data-lb-tool="' + rt[0] + '" title="' + rt[1] + '"><span class="dtr-lb-railico">' + rt[2] + '</span><span class="dtr-lb-raillbl">' + rt[1] + '</span></button>';
+    }).join('') + '</div>';
+    var inspector = '<div class="dtr-lb-inspector">'
+      + '<div class="dtr-lb-insp-sec"><div class="dtr-lb-insp-hd">Layers</div><div class="dtr-lb-insp-body">' + _lbLayersHTML(b) + '</div></div>'
+      + '<div class="dtr-lb-insp-sec"><div class="dtr-lb-insp-hd">' + _yoEsc(activeTitle) + ((selEl || hasPetSel) ? '<button type="button" class="dtr-lb-insp-x" data-lb-eldeselect="1" title="Deselect" aria-label="Deselect">×</button>' : '') + '</div><div class="dtr-lb-insp-body">' + _lbPopHTML(b, activeKey) + '</div></div>'
       + '</div>';
 
     var dirty = _lbIsDirty();
@@ -13649,8 +13851,12 @@
       +   '<button type="button" class="dtr-lb-export" data-lb-export="1" title="Download this board as a crisp image">' + _LB_DL_SVG + '<span>Export</span></button>'
       +   '<button type="button" class="dtr-lb-delbtn" data-lb-delboard="' + _yoEsc(b.id) + '" title="Delete this board (with a 5-second undo)">' + _LB_TRASH_SVG + '<span>Delete</span></button>'
       + '</div>'
-      + toolbar
-      + '<div class="dtr-lb-stage">' + canvas + '</div>'
+      + (view ? '' : subbar)
+      + '<div class="dtr-lb-work">'
+      +   (view ? '' : rail)
+      +   '<div class="dtr-lb-stage">' + (view ? '' : '<div class="dtr-lb-stagebar">' + sizeCtl + '</div>') + canvas + '</div>'
+      +   (view ? '' : inspector)
+      + '</div>'
       + '</div>';
   }
 
@@ -13710,6 +13916,8 @@
   function _lbLiveLayout(root, fixedScale) {
     var b = _lbActive(); if (!b) return;
     var cfg = b.cfg, lay = _lbLayout(b);
+    var _wI = root.querySelector('[data-lb-szin="w"]'); if (_wI && document.activeElement !== _wI) _wI.value = lay.W;
+    var _hI = root.querySelector('[data-lb-szin="h"]'); if (_hI && document.activeElement !== _hI) _hI.value = lay.H;
     var cv = root.querySelector('.dtr-lb-canvas'); if (!cv) return;
     cv.style.width = lay.W + 'px'; cv.style.height = lay.H + 'px';
     var ns = _lbClampN('nameSize', cfg.nameSize);
@@ -13782,11 +13990,12 @@
     var hi = root.querySelector('.dtr-lb-hdimg'); if (hi) { var hd = _lbImgGet(b.id, 'hd'); if (hd) hi.src = hd; }
     _lbFitCanvas(root);
 
-    if (_yo.lbPop) {
-      var pb = _yo.lbPop === 'elem'
-        ? root.querySelector('.dtr-lb-elem[data-lb-el="' + (_yo.lbSelEl || '') + '"]')
-        : root.querySelector('[data-lb-pop="' + _yo.lbPop + '"]');
-      if (pb || (_yo.lbPopDetached && _yo.lbPopXY)) _lbShowPop(_yo.lbPop, pb); else _lbClosePop();
+    var _stray = document.getElementById('dtr-lb-pop'); if (_stray) _stray.remove(); _yo.lbPop = null;
+    var _insp = root.querySelector('.dtr-lb-inspector');
+    if (_insp) {
+      _insp.querySelectorAll('[data-lb-lyrimg]').forEach(function (thm) { var d = _lbImgGet(thm.getAttribute('data-lb-lyrboard'), 'el_' + thm.getAttribute('data-lb-lyrimg')); if (d) thm.style.backgroundImage = "url('" + d + "')"; });
+      var _ll = _insp.querySelector('.dtr-lb-lyrlist'); if (_ll) _lbWireLayerDrag(_ll, b);
+      if (_insp.querySelector('[data-lb-fres]')) _lbFloatSearch();
     }
     root.querySelectorAll('.dtr-lb-pv').forEach(function (pv) { var d2 = _lbImgGet(b.id, pv.getAttribute('data-lb-pv')); if (d2) pv.src = d2; });
     root.querySelectorAll('[data-lb-elimg]').forEach(function (ei) { var d3 = _lbImgGet(b.id, 'el_' + ei.getAttribute('data-lb-elimg')); if (d3) ei.src = d3; });
@@ -13822,8 +14031,7 @@
           var e7 = { id: _lbNewId(), kind: 'image', x: Math.round(lay3.W / 2), y: Math.round(Math.min(lay3.H - 90, lay3.tilesY + 140)), w: Math.min(360, cw), rot: 0, flipH: false, opacity: 100, sat: 100, layer: 'front', text: '', font: 'Nunito', size: 26, color: '', url: '', name: '' };
           _lbImgSet(b.id, 'el_' + e7.id, data);
           b.elems.push(e7); _lbSave();
-          _yo.lbSelEl = e7.id; _yo.lbPop = 'elem';
-          _yo._qFocus = false; _yoRender();
+          _yo.lbSelEl = e7.id;          _yo._qFocus = false; _yoRender();
           _yoToast('Image added — drag it into place');
           return;
         }
@@ -15098,6 +15306,14 @@
       if (e.target && e.target.id === 'dtr-lb-titlein' && _yo.lbTitleEdit) { _lbCommitTitle(e.target.value); return; }
       if (e.target && e.target.id === 'dtr-lb-nickin' && _yo.lbNickEdit) { _lbCommitNick(e.target.getAttribute('data-lb-nickin'), e.target.value); return; }
     });
+    root.addEventListener('dblclick', function (e) {
+      var tt = e.target.closest && e.target.closest('.dtr-lb-title.editable');
+      if (tt && _yo.lbView !== 'view') { e.preventDefault(); _yo.lbTitleEdit = true; _yo._lbTitleFocus = true; _yo._qFocus = false; _yoRender(); }
+    });
+    root.addEventListener('contextmenu', function (e) {
+      var el = e.target.closest && e.target.closest('.dtr-lb-elem[data-lb-el]');
+      if (el && _yo.lbView !== 'view') { e.preventDefault(); _lbShowElemCtx(e.clientX, e.clientY, el.getAttribute('data-lb-el')); }
+    });
 
     root.addEventListener('input', function (e) {
       var el = e.target; if (!el || !el.getAttribute) return;
@@ -15108,6 +15324,17 @@
         if (v2 && v2 !== tb2.name) {
           tb2.name = v2; _lbSave();
           var rn = root.querySelector('.dtr-lb-bcard.active .dtr-lb-bname'); if (rn) rn.textContent = v2;
+        }
+        return;
+      }
+
+      if (el.getAttribute('data-lb-titlefield') != null) {
+        var tbf = _lbActive(); if (!tbf) return;
+        var vf = String(el.value || '').trim();
+        if (vf && vf !== tbf.name) {
+          tbf.name = vf; _lbSave();
+          var rnf = root.querySelector('.dtr-lb-bcard.active .dtr-lb-bname'); if (rnf) rnf.textContent = vf;
+          var tEl = root.querySelector('.dtr-lb-title'); if (tEl) tEl.textContent = vf;
         }
         return;
       }
@@ -15188,6 +15415,11 @@
       var el = e.target; if (!el || !el.getAttribute) return;
       var fk = el.getAttribute('data-lb-file');
       if (fk) { var f = el.files && el.files[0]; el.value = ''; if (f) _lbSetImage(fk, f); return; }
+      if (el.getAttribute('data-lb-szin')) {
+        var szb = _lbActive();
+        if (szb) { var vv = Math.max(120, Math.min(4000, parseInt(el.value, 10) || 0)); if (el.getAttribute('data-lb-szin') === 'w') szb.cfg.canvasW = Math.max(200, vv); else szb.cfg.canvasH = vv; _lbSave(); }
+        _yo._qFocus = false; _yoRender(); return;
+      }
       if (el.getAttribute('data-lb-range') || el.getAttribute('data-lb-size')) {
         var cvn2 = root.querySelector('.dtr-lb-canvas'); if (cvn2) cvn2.classList.remove('noanim');
         _yo._qFocus = false; _yoRender(); return;
@@ -15243,6 +15475,8 @@
       if (freeEl && _yo.lbView !== 'view') { _lbFreeDrag(ev, root, board, cv, freeEl); return; }
       var tile = ev.target.closest && ev.target.closest('.dtr-lb-tile[data-lb-tile]');
       if (!tile) return;
+      var rzP = ev.target.closest && ev.target.closest('[data-lb-preszh]');
+      if (rzP && board.cfg.layout === 'free' && _yo.lbView !== 'view') { _lbFreeTileResize(ev, root, board, cv, rzP.getAttribute('data-lb-preszh')); return; }
       if (ev.target.closest('.dtr-lb-remove, button, a, input, .dtr-lb-name')) return;
       ev.preventDefault();
       if (board.cfg.layout === 'free') { _lbFreeTileDrag(ev, root, board, cv, tile); return; }
@@ -15279,7 +15513,7 @@
         cv.classList.remove('dtr-lb-dragging');
         tile.classList.remove('dtr-lb-lifted');
         tile.style.transform = '';
-        if (!moved) return;
+        if (!moved) { _lbSelectPet(board, dragId, ev.shiftKey); return; }
         if (curIdx !== from) {
           var ids = board.ids.slice(), fi = ids.indexOf(dragId);
           if (fi >= 0) { ids.splice(fi, 1); ids.splice(curIdx, 0, dragId); board.ids = ids; _lbSave(); }
@@ -15567,8 +15801,7 @@
           _tb.elems = _tb.elems || [];
           var _te = { id: _lbNewId(), kind: 'text', x: Math.round(_tl.W / 2), y: Math.round(Math.min(_tl.H - 60, _tl.tilesY + 120)), w: 280, rot: 0, flipH: false, opacity: 100, sat: 100, layer: 'front', text: 'Your text', font: '"Baloo 2"', size: 28, color: '', url: '', name: '' };
           _tb.elems.push(_te); _lbSave();
-          _yo.lbSelEl = _te.id; _yo.lbPop = 'elem';
-        }
+          _yo.lbSelEl = _te.id;        }
         _yo._qFocus = false; _yoRender(); return;
       }
       if ((t = e.target.closest('[data-lb-fadd]'))) {
@@ -15599,6 +15832,20 @@
         _yo.lbSelEl = null; _lbClosePop(); _yo._qFocus = false; _yoRender(); return;
       }
 
+      if ((t = e.target.closest('[data-lb-tool]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _yo.lbTool = t.getAttribute('data-lb-tool'); _yo.lbSelEl = null; _yo.lbSelPets = {}; _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-eldeselect]'))) {
+        e.preventDefault(); e.stopPropagation();
+        _yo.lbSelEl = null; _yo.lbSelPets = {}; _yo._qFocus = false; _yoRender(); return;
+      }
+      if ((t = e.target.closest('[data-lb-petremove]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var _prb = _lbActive();
+        if (_prb) { var _rm = Object.keys(_yo.lbSelPets || {}); _prb.ids = (_prb.ids || []).filter(function (id) { return _rm.indexOf(id) < 0; }); if (_prb.pos) _rm.forEach(function (id) { delete _prb.pos[id]; }); _lbSave(); }
+        _yo.lbSelPets = {}; _yo._qFocus = false; _yoRender(); return;
+      }
       if ((t = e.target.closest('[data-lb-lyrmove]'))) {
         e.preventDefault(); e.stopPropagation();
         var _mv = t.getAttribute('data-lb-lyrmove'), _mi = _mv.lastIndexOf(':'), _mb = _lbActive();
@@ -15617,11 +15864,18 @@
         if (_ane) { _ane.anim = !_ane.anim; _lbSave(); }
         _yo._qFocus = false; _yoRender(); return;
       }
+      if ((t = e.target.closest('[data-lb-lyrlock]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var _lkb = _lbActive(), _lke = _lkb && (_lkb.elems || []).find(function (x14) { return x14.id === t.getAttribute('data-lb-lyrlock'); });
+        if (_lke) { _lke.locked = !_lke.locked; if (_lke.locked && _yo.lbSelEl === _lke.id) _yo.lbSelEl = null; _lbSave(); }
+        _yo._qFocus = false; _yoRender(); return;
+      }
       if ((t = e.target.closest('[data-lb-lyrsel]'))) {
         e.preventDefault(); e.stopPropagation();
         var _lid = t.getAttribute('data-lb-lyrsel'), _lsb = _lbActive();
         var _lse = _lsb && (_lsb.elems || []).find(function (x13) { return x13.id === _lid; });
-        _yo.lbSelEl = _lid;
+        if (_lse && _lse.locked) return;
+        _yo.lbSelEl = _lid; _yo.lbSelPets = {};
         _yo.lbPop = (_lse && !_lse.hidden) ? 'elem' : 'layers';
         _yo._qFocus = false; _yoRender(); return;
       }
@@ -20002,7 +20256,7 @@
       s.textContent = `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap');
         body.dia-hp-active{font-family:'Inter',-apple-system,sans-serif!important;background:#ece9e1!important;-webkit-font-smoothing:antialiased}
-        body.dia-hp-active>*:not(#dia-hp-nav):not(#dia-hp-page):not(style):not(script):not(footer):not(.dtr-note-popover):not(.dia-ui-tooltip):not(.dia-zone-tooltip):not(#dtr-color-picker):not(#dia-focus-overlay):not(#dia-tryon-save-modal):not(.dtr-move-menu):not(#dia-ps-pop):not(#dia-ps-dim):not(.dia-ps-tip):not(.dia-ps-toast):not(#dia-ps-import):not(#dia-ps-board):not(#dia-ps-board-copy):not(#dia-ps-board-collage){display:none!important}
+        body.dia-hp-active>*:not(#dia-hp-nav):not(#dia-hp-page):not(style):not(script):not(footer):not(.dtr-note-popover):not(.dia-ui-tooltip):not(.dia-zone-tooltip):not(#dtr-color-picker):not(#dia-focus-overlay):not(#dia-tryon-save-modal):not(.dtr-move-menu):not(#dia-ps-pop):not(#dia-ps-dim):not(.dia-ps-tip):not(.dia-ps-toast):not(#dia-ps-import):not(#dia-ps-board):not(#dia-ps-board-copy):not(#dia-ps-board-collage):not(#dtr-update-toast){display:none!important}
         body.dia-hp-active #outfit-forms,body.dia-hp-active #sections,body.dia-hp-active #pet-preview{visibility:hidden!important;pointer-events:none!important;position:absolute!important;width:0!important;height:0!important;overflow:hidden!important;}
         #dia-hp-nav{padding:6px 12px;display:flex;align-items:center;gap:0;font-family:Arial,Helvetica,sans-serif;background:#f8f7f2;border:1px solid #a8d4c4;border-radius:10px;margin:4px auto 8px;width:fit-content;max-width:calc(100% - 32px);box-sizing:border-box;overflow:visible}
         #dia-hp-nav-left{display:flex;align-items:center;gap:0}
