@@ -1,5 +1,18 @@
 # DTI Remix — Changelog
 
+## July 4, 2026 — Lookbook board editor & Customize safety
+
+### Enhancements
+- **Lookbook:** Your boards now have a proper editor with a safety net — every change stays a **draft until you hit Save**, so nothing gets altered by accident. Alongside Save there's **Discard** (roll back to your last save) and **Clone** (spin a board off into a new variation).
+- **Lookbook:** Dress up a board with **decorations** — drop in any Neopets item as art and place it in front of or behind your pets. Plus more frame shapes (arch, hexagon and more) with an optional border and soft shadow, and independent fonts, sizes and colors for the title and the pet names.
+- **Lookbook:** **Download your finished board as an image**, ready to share. And the little board cards in the sidebar now show a real mini-preview of each board's design, so you can tell them apart at a glance.
+
+### Fixes
+- **Your Outfits:** Sorting A→Z now places a look by the name of its **crowned** variant, so it lands where you'd expect — before, adding a differently-named variant could bounce the whole look to the wrong spot. When a look does jump position after you crown or group a variant, the page now **scrolls to it and gives it a glow** so you never lose track of it.
+- **Your Outfits:** The **delete** button on a look shows up reliably again (it was sometimes rendering blank).
+- **Your Outfits:** **Select unowned** on a look's items now selects *only* the ones you don't own, and clears any owned ones you'd already picked — before, it left them selected.
+- **Customize:** Opening a custom that **someone shared with you** no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own **Save** keeps a copy, just like starting from scratch.
+
 ## July 3, 2026 — Comparison Mode & logged-out fixes
 
 ### Enhancements
