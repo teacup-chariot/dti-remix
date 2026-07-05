@@ -1,5 +1,24 @@
 # DTI Remix — Changelog
 
+## July 5, 2026 (evening) — Homepage feed, one settings cog & List Management
+
+### Enhancements
+- **Homepage:** The right column is now a real feed with three tabs — **Customs** shows your recent customizations as thumbnails (with any variants tucked under each look; click one to jump back into it), **Imports** tracks your in-progress import, and **What's New** shows the latest release notes.
+- **Homepage:** A new **General notes** tile gives you a little notepad that saves as you type, and the redundant color-and-species tile has been retired.
+- **Everywhere:** There's now **one settings cog**, at the left end of the header (the brand link is now "Home"). It holds the theme picker, a **Quickstart pet** (with an optional **starter pack**) and full **List Management**.
+- **Everywhere:** **List Management** lets you rename any of your lists right from the cog (that's the real name everyone sees), set them Private, Public or Trading, give them a **nickname only you see**, and choose whether each list counts as a match in Comparison Mode — with a clear red warning when it's excluded.
+- **Everywhere:** A **+ New Custom** button in the header jumps straight into a fresh customization with your Quickstart pet — and applies your chosen starter pack automatically.
+- **Everywhere:** **Animated previews** is now one global setting that every preview follows, and on Customize you can **lock** a custom's Animated/Still state so it always opens the way you saved it.
+- **Try On Haul:** **Star your preferred tab** (Preview or Custom Preview) and the haul always opens there, from any page. One merged item list with sorting by recently added, recently released, or name — plus a direction flip.
+- **Items:** The item page has a quick **naked-pet preview**: pick a color and species, click through pet portraits (star your favorites to pin them first), and see the item worn — animated too.
+
+### Fixes
+- **Try On Haul:** Clicking items in the Preview tab now actually dresses the preview pet (and clicking again undresses it); the stale "Previewing with…" label no longer lingers; the side tab's blurry vertical text is crisp now.
+- **Items:** The pet preview sits on a clean white background so colors read true, the trade activity panel got the pastel treatment, the Save button no longer floats in empty space, and the panels stay attached when switching preview modes.
+- **Import:** The "Place & Review" bar no longer shifts around when you select items, and it now says plainly whether it will place **ALL** unsorted copies or **only** the selected items'.
+- **Your Outfits:** The Lookbook is a slim filmstrip parked on the left at every window size, and the board editor's tools now line up with the canvas.
+- **Everywhere:** Opening DTI Remix pages from Neopets (like the inventory export) no longer flashes the old green site on the way in.
+
 ## July 5, 2026 — Lookbook board editor, rebuilt
 
 ### Enhancements
