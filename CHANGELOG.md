@@ -1,5 +1,23 @@
 # DTI Remix — Changelog
 
+## July 6, 2026 — Customize polish, a bigger board editor & a variants-safety fix
+
+### Enhancements
+- **Customize:** The pet preview is **bigger**, and the color/species/mood and appearance/pet-name rows are tidier — Mood sits next to Species, and Appearance and Pet Name share one centered line.
+- **Lookbook:** Opening a board now gives you a **full-width working canvas** — the board list tucks away while you edit (use "‹ Outfits" to go back), the tool rail runs the full height, and new boards start square.
+- **Items:** The item's info card and your Owned/Wanted lists now sit on the same soft iridescent background as the trade panel.
+- **Try On Haul:** Lighter and cleaner — when you switch tabs, the hidden Preview tab stops animating in the background, so only the tab you're using does the heavy work.
+- **Details:** When you export a Compare collage, your **crowned variant is now marked** with a gold ring and crown.
+- **Everywhere:** Owned/Wishlisted status now **refreshes itself** when you browse items — no more reopening your closet to clear a stale "Wishlisted."
+
+### Fixes
+- **Your Outfits:** Your saved **variant groups no longer reset** themselves into separate customs — the most important fix in this update.
+- **Customize:** Your **starter pack now actually loads** into the Fitting Room when you start a new custom (items that don't fit the pet's body show flagged so you can still see them).
+- **Customize:** Animation now **reliably plays** after you save or refresh (it was showing "Animated" but sitting still), the **Custom Preview** now follows the global Animated toggle, the **Layers** button on variant cards works again, and the crown icon sits straight.
+- **Customize:** The settings dropdowns use the proper styled look (not the plain grey/green one), **Variants** sits back under the pet instead of floating low, and the item search reflows so cards stay usable on smaller windows — with a **Clear** button that resets the search and zone filter.
+- **Customize (Fitting Room):** Clicking an item to try it on **keeps your scroll position**, the star moved so you stop accidentally starring items, and "Can't wear" items no longer hide their buttons.
+- **Try On Haul:** On a short screen the haul now opens **fully visible and centered**, so you can always reach its draggable header.
+
 ## July 5, 2026 (evening) — Homepage feed, one settings cog & List Management
 
 ### Enhancements
