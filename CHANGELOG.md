@@ -1,5 +1,40 @@
 # DTI Remix — Changelog
 
+<!-- ── UNRELEASED: running draft, updated as features land in preview. At push: date the heading,
+     give it a theme label, final copy-edit (net effect only — collapse superseded churn), and move
+     on. Never delete items from here except when the feature itself was removed before shipping. ── -->
+## Unreleased (in preview — becomes the next push's entry)
+
+_(nothing yet — next session's work lands here)_
+
+## July 7, 2026 — Neoboards Active Box, import tools & a big polish pass
+
+### Enhancements
+- **Customize:** The **variants strip can now be collapsed** — click the VARIANTS header to tuck the cards away and get straight to your item list (it remembers your choice, and a little summary shows how many variants are tucked away). Especially handy on half-screen windows.
+- **Customize:** New **Neoboards Active Box** viewfinder (Beta!) in the frame picker — see exactly which square of your custom shows up in your board avatar. Built from real measured data for every species and color family (including Baby, Maraquan, Mutant, 8-bit, Origami and Invisible bodies); Pet Styles show a close approximation for now.
+- **Homepage:** When the Newest Wearables grid has nothing to show — a brand-new week, or your filters hiding everything — it now says so warmly: *"Looks like you've caught up! Try adjusting your filters or check back tomorrow."*
+
+- **Import:** A new **Try-On Preview** panel parks beside the import list — **click any item's thumbnail** to see just that item on a pet, then click the next thumbnail to swap it. Make your keep-or-skip calls without ever opening the Try On Haul.
+- **Customize:** The Active Box viewfinder now knows the **real crop for 9 Pet Styles** — and it grows on its own: load a pet by name wearing an unknown style and a one-click **"Send it in"** shares it (just the pet name + style) so that style's exact box can ship for everyone in a future update.
+- **Closet:** **Bulk Remove is fast now** — items dim instantly, a little counter shows progress, and removals run several-at-a-time instead of one… by… one (it used to look frozen for many seconds).
+- **Import:** When you scroll to the bottom with work left, a friendly **"You're almost done"** card tells you how many items still need attention and walks you to each one — the finished summary appears the moment the last one is settled.
+- **Import:** The two card buttons match now: **"Skip import"** (renamed from "Don't import", in a calm red) throws away that item's edits and skips it, and **"Done · keep N in inventory"** only appears once you've placed at least one copy with more left over.
+- **Import:** Item zones read as normal text under a small OCCUPIES label — same as the item page — instead of a lavender badge.
+- **Items:** The **Infinite Closet search page** (`/items?q=…`) finally joined the reskin — our header, a proper search pill, konpeito item cards and pagination, no more green.
+
+<!-- HELD FOR A LATER PUSH (needs the loader + more work — hidden from users this push):
+- **Import:** New **Import from Pets** — the neolodge page grows an "Import pets → DTI" button that reads all your pets and imports what each is wearing, in one go. -->
+
+- **Everywhere:** Squashed a bug where our styling briefly bled onto Neopets' own pages; the reskin is now strictly DTI-only.
+- **Homepage:** If you have an unfinished import, the right panel now opens on the **Imports** tab so you can pick up where you left off.
+- **Customize / Import:** The Try-On Preview got a pass — a **collapse** button (just pet + dropdowns), the dropdowns match the Customize style, the item name reads teal, the scrollbar no longer clips the pet, switching pets no longer flickers, and the Tab hint sits out of the way.
+- **Import:** The Try-On Preview now starts on **your preferred pet** (from the settings cog) and **remembers your pet** as you preview item after item — no more resetting to a Blue Aisha every click.
+
+### Fixes
+- **Items:** The item page **scrolls again** — it was cutting off with no scrollbar, leaving the pet preview at the bottom unreachable.
+- **Customize:** Your **starter pack no longer piles onto real pets** — starting a custom from a pet's name loads just that pet's look; packs only apply to fresh, naked customs.
+- **Customize:** The Active Box viewfinder is honest about **Pet Styles** now: each style has its own crop (we measured!), so instead of drawing a wrong box it says the style isn't supported yet.
+
 ## July 6, 2026 — Customize polish, a bigger board editor & a variants-safety fix
 
 ### Enhancements
