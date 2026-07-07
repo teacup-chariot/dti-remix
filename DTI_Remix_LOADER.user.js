@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         DTI Remix
-// @version      1.1.0
+// @version      1.6.0
 // @namespace    dti-remix
 // @description  DTI Remix — a full accessible reskin of Neopets Dress to Impress. Tiny loader: shows an instant cover (kills the cold-load flash), then runs the full reskin from GitHub (downloaded once, cached, auto-updates in the background).
 // @author       teacup-chariot
@@ -8,6 +8,10 @@
 // @match        *://*.neopets.com/safetydeposit.phtml*
 // @match        *://*.neopets.com/stylingchamber*
 // @match        *://*.neopets.com/gallery/*
+// @match        *://*.neopets.com/closet.phtml*
+// @match        *://*.neopets.com/quickstock.phtml*
+// @match        *://*.neopets.com/quickref.phtml*
+// @match        *://*.neopets.com/neolodge.phtml*
 // @match        *://impress.openneo.net/items*
 // @match        https://impress.openneo.net/items
 // @match        https://impress.openneo.net/items?*
@@ -19,8 +23,11 @@
 // @grant        GM_deleteValue
 // @grant        GM_addStyle
 // @grant        GM_xmlhttpRequest
+// @grant        GM_listValues
 // @grant        unsafeWindow
 // @connect      raw.githubusercontent.com
+// @connect      localhost
+// @connect      127.0.0.1
 // @run-at       document-start
 // @updateURL    https://raw.githubusercontent.com/teacup-chariot/dti-remix/main/DTI_Remix_LOADER.user.js
 // @downloadURL  https://raw.githubusercontent.com/teacup-chariot/dti-remix/main/DTI_Remix_LOADER.user.js
@@ -43,7 +50,14 @@
         (p === '/' || p === '') ? 'home' :
         (/^\/user\/\d+[^/]*\/closet/.test(p) || /^\/your-outfits\b/.test(p)) ? 'closet' :
         /^\/outfits\//.test(p) ? 'outfit' : '';
-      if (!route) return;
+      // v1.2: EVERY impress page gets the cover — the old list left bare /items, /users/…, etc.
+      // uncovered, so those cold loads (and new tabs) still green-flashed. Generic routes reveal as
+      // soon as the reskin's early CSS is in place (or the page finishes loading, whichever first).
+      // Neopets pages are matched by this loader too and must NEVER be covered.
+      if (!route) {
+        if (location.hostname !== 'impress.openneo.net') return;
+        route = 'any';
+      }
       var st = document.createElement('style');
       st.id = 'dtr-cold-cover-css';
       st.textContent = 'html.dtr-cold-cover::before{content:"";position:fixed;inset:0;width:100vw;height:100vh;z-index:2147483646;background:#fdf7f0;opacity:var(--dtr-cover-op,1);transition:opacity 0.18s ease-out;pointer-events:none;}';
@@ -64,6 +78,7 @@
         if (route === 'home') return !!document.getElementById('dia-hp-page');
         if (route === 'closet') return !!document.getElementById('dia-closet-v2-root');
         if (route === 'outfit') return !!document.getElementById('dtr-outfit-editor');
+        if (route === 'any') return (!!document.getElementById('dia-critical-early-css') && document.readyState !== 'loading') || document.readyState === 'complete';
         return document.readyState === 'complete';
       };
       var iv = setInterval(function () {
@@ -146,5 +161,31 @@
     });
   }
 
-  loadFromGitHub();
+  // ── PREVIEW MODE (DEV ONLY) ── Try the local dev helper (localhost:8731) FIRST so edits show on
+  // refresh before anything touches GitHub. Gated behind a dev flag so ordinary users NEVER ping
+  // localhost. The flag is checked in GM storage FIRST (cross-origin — set once, works on BOTH
+  // impress.openneo.net AND neopets.com; bulk.js mirrors localStorage→GM on the impress side), with
+  // per-origin localStorage as a fallback for the very first set.
+  var devPreview = false;
+  try {
+    var gmDev = GM_getValue('dtr_dev', 0);
+    devPreview = (gmDev === 1 || gmDev === true || gmDev === '1') || (localStorage.getItem('dtr_dev') === '1');
+  } catch (_) { try { devPreview = (localStorage.getItem('dtr_dev') === '1'); } catch (__) {} }
+  if (devPreview) {
+    try {
+      GM_xmlhttpRequest({
+        method: 'GET', url: 'http://localhost:8731/bulk.js', timeout: 3000,
+        onload: function (res) {
+          if (res && res.status >= 200 && res.status < 300 && res.responseText) {
+            console.log('%c[DTR] PREVIEW MODE — running bulk.js from your local dev helper (not GitHub)', 'color:#3a7a5e;font-weight:700');
+            runBulk(res.responseText);
+          } else { loadFromGitHub(); }
+        },
+        onerror: function () { loadFromGitHub(); },
+        ontimeout: function () { loadFromGitHub(); },
+      });
+    } catch (e) { loadFromGitHub(); }
+  } else {
+    loadFromGitHub();
+  }
 })();

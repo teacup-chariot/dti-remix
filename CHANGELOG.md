@@ -5,7 +5,14 @@
      on. Never delete items from here except when the feature itself was removed before shipping. ── -->
 ## Unreleased (in preview — becomes the next push's entry)
 
-_(nothing yet — next session's work lands here)_
+### Enhancements
+- **Import (new!):** Bring items into DTI from more places — import what your **pets** are wearing, or everything in your **Safe Deposit Box** or your **Closet**. Each becomes its own resumable import, tracked on your homepage, so no single import gets overwhelming. (Look for the "→ DTI Sync" panel on those Neopets pages.)
+
+### Fixes
+- **Customize:** The frame options on the pet preview — rounded, circle, and the new **Active View** viewfinder — are back on hover. They were vanishing on a fresh custom.
+- **Customize:** The Color, Species, Mood and Appearance dropdowns now share one clean teal chevron (and the doubled-up arrow on Color/Species is gone).
+- **Item page:** Animated items no longer show a faint duplicate of themselves beside the moving copy.
+- **Everywhere:** The header's candy stripe now wraps the top corners cleanly, and the nav no longer spills onto a second line on narrower pages.
 
 ## July 7, 2026 — Neoboards Active Box, import tools & a big polish pass
 

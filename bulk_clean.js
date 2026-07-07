@@ -3579,22 +3579,6 @@
       addToggle('oe:hires', 'Hi-res mode', 'Crisper SVG layers (heavier)', gmBool('dtr_oe_hires'));
       addToggle('oe:hidelocked', 'Hide locked-zone items', 'When zone lock is engaged, filter out search results that cannot be applied', gmBool('dtr_oe_hide_locked'));
 
-      (function () {
-        let slog = {};
-        try { slog = (window.__DTR_ABOX_LOG_GET && window.__DTR_ABOX_LOG_GET()) || JSON.parse(GM_getValue('dtr_style_pet_log', '{}')) || {}; } catch (_) {}
-        const n = Object.keys(slog).length;
-        if (!n) return;
-        const row = document.createElement('div');
-        row.className = 'dib-pill-opt';
-        row.innerHTML = '<span class="dib-opt-lbl">Copy Active-Box style log (' + n + ')<span class="dia-gear-hint">Pet names logged for Pet Styles that don’t have a viewfinder box yet — send this along to get them added.</span></span>';
-        row.addEventListener('click', function (e) {
-          e.stopPropagation();
-          try { navigator.clipboard.writeText(JSON.stringify(slog, null, 1)); } catch (_) {}
-          const l = row.querySelector('.dib-opt-lbl');
-          if (l) l.firstChild.textContent = 'Copied! (' + n + ') ';
-        });
-        at.appendChild(row);
-      })();
     }
 
     at = colR;
@@ -4292,9 +4276,11 @@
     try {
       if (location.hostname === 'impress.openneo.net' &&
           location.pathname === '/items' &&
-          /[?&]dti_sync=bulk(?:&|$)/.test(location.search) &&
-          !document.getElementById('dia-bulk-root')) {
-        diaInitBulkSync();
+          /[?&]dti_sync=bulk(?:&|$)/.test(location.search)) {
+
+        const _br = document.getElementById('dia-bulk-root');
+        if (_br && (_br.dataset.dtrSrc || '') !== _dtrImportSrc()) _br.remove();
+        if (!document.getElementById('dia-bulk-root')) diaInitBulkSync();
       }
     } catch (_) {}
   });
@@ -4804,7 +4790,10 @@
 
       'html #dia-hp-nav,html body #dia-closet-v2-root #dia-hp-nav,html #dia-bulk-root #dia-hp-nav,html body #dtr-outfit-editor #dia-hp-nav,html body #dia-shell #dia-hp-nav{position:relative!important;display:flex!important;align-items:center!important;flex-wrap:wrap;gap:0!important;background:#fff!important;border:1px solid #efe7da!important;border-radius:14px!important;box-shadow:0 4px 14px -6px rgba(110,128,150,.35)!important;padding:8px 12px 6px!important;width:fit-content;max-width:calc(100% - 16px)!important;box-sizing:border-box;overflow:visible!important;font-family:"Nunito",-apple-system,sans-serif!important;}',
 
-      'html #dia-hp-nav::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:14px 14px 0 0;background:var(--dtr-stripe,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a));pointer-events:none;}',
+      'html #dia-hp-nav::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:6px;border-radius:14px 14px 0 0;background:var(--dtr-stripe,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a));pointer-events:none;}',
+
+      'html #dia-hp-nav .dia-ql-stack{display:inline-flex!important;flex-direction:column;align-items:center;justify-content:center;line-height:1.02;gap:0;vertical-align:middle;}',
+      'html #dia-hp-nav .dia-ql-stack>span{font-size:8.5px!important;font-weight:800!important;letter-spacing:.01em;white-space:nowrap;}',
 
       'html #dia-hp-nav,html #dia-bulk-root #dia-hp-nav,html body #dtr-outfit-editor #dia-hp-nav,html body #dia-shell #dia-hp-nav,html body #container>#dia-hp-nav{margin:8px auto!important;}',
       'html #dia-hp-nav .dia-ql,html body #dia-closet-v2-root #dia-hp-nav .dia-ql,html #dia-bulk-root #dia-hp-nav .dia-ql,html body #dtr-outfit-editor #dia-hp-nav .dia-ql,html body #dia-shell #dia-hp-nav .dia-ql{color:#6c6776!important;font:400 12px/1 "Nunito",sans-serif!important;padding:5px 8px!important;border-radius:6px!important;white-space:nowrap;text-decoration:none!important;background:none;border:none;cursor:pointer;}',
@@ -10853,13 +10842,19 @@
     return `<button class="dia-seen-checkmark" type="button" data-seen-href="${safeText(href)}" title="Hold 3 seconds to mark unseen" aria-label="Hold 3 seconds to mark unseen">✓</button>`;
   }
 
-  function saveBatch(batch) {
-    GM_setValue(STORE_KEY, JSON.stringify({ savedAt: Date.now(), items: batch }));
+  const DTR_IMPORT_SOURCES = ['pets', 'sdb', 'closet', 'gallery'];
+  function _dtrImportSrc() {
+    try { const s = new URLSearchParams(location.search).get('src') || ''; return DTR_IMPORT_SOURCES.indexOf(s) > -1 ? s : ''; } catch (_) { return ''; }
+  }
+  function _dtrSrcSuffix(src) { const s = src == null ? _dtrImportSrc() : src; return s ? '__' + s : ''; }
+
+  function saveBatch(batch, src) {
+    GM_setValue(STORE_KEY + _dtrSrcSuffix(src), JSON.stringify({ savedAt: Date.now(), items: batch }));
   }
 
-  function loadBatch() {
+  function loadBatch(src) {
     try {
-      const raw = GM_getValue(STORE_KEY, null);
+      const raw = GM_getValue(STORE_KEY + _dtrSrcSuffix(src), null);
       if (!raw) return null;
       const parsed = JSON.parse(raw);
 
@@ -10871,23 +10866,24 @@
   }
 
   const LAST_UPDATED_KEY = 'neo_dti_last_updated';
-  function diaImportState() {
+  function diaImportState(src) {
     try {
-      const raw = GM_getValue(STORE_KEY, null);
+      const raw = GM_getValue(STORE_KEY + _dtrSrcSuffix(src), null);
       if (!raw) return null;
       const parsed = JSON.parse(raw);
       if (Date.now() - parsed.savedAt > 7 * 24 * 60 * 60 * 1000) return null;
       const count = Object.keys(parsed.items || {}).length;
       if (!count) return null;
-      return { count, savedAt: parsed.savedAt || null, lastUpdated: GM_getValue(LAST_UPDATED_KEY, null) || parsed.savedAt || null };
+      return { count, savedAt: parsed.savedAt || null, lastUpdated: GM_getValue(LAST_UPDATED_KEY + _dtrSrcSuffix(src), null) || parsed.savedAt || null };
     } catch (_) { return null; }
   }
-  function diaTouchImport() { try { GM_setValue(LAST_UPDATED_KEY, Date.now()); } catch (_) {} }
-  function diaClearImport() {
-    try { GM_deleteValue(STORE_KEY); } catch (_) {}
-    try { GM_deleteValue(PENDING_SYNC_KEY); } catch (_) {}
-    try { GM_deleteValue(BATCH_TS_KEY); } catch (_) {}
-    try { GM_deleteValue(LAST_UPDATED_KEY); } catch (_) {}
+  function diaTouchImport(src) { try { GM_setValue(LAST_UPDATED_KEY + _dtrSrcSuffix(src), Date.now()); } catch (_) {} }
+  function diaClearImport(src) {
+    const sfx = _dtrSrcSuffix(src);
+    try { GM_deleteValue(STORE_KEY + sfx); } catch (_) {}
+    if (!sfx) { try { GM_deleteValue(PENDING_SYNC_KEY); } catch (_) {} }
+    try { GM_deleteValue(BATCH_TS_KEY + sfx); } catch (_) {}
+    try { GM_deleteValue(LAST_UPDATED_KEY + sfx); } catch (_) {}
   }
 
   function readJSON(key, fallback) {
@@ -11532,7 +11528,7 @@
             "#dia-ps-chip .dia-ps-chip-x{flex:none;width:16px;height:16px;padding:0;border:none;border-radius:50%;background:rgba(20,156,142,.22);color:var(--dtr-primary,#149c8e);font:700 13px/16px Nunito,Arial,sans-serif;text-align:center;cursor:pointer}",
             "#dia-ps-chip .dia-ps-chip-x:hover{background:var(--dtr-primary,#149c8e);color:#fff}",
             "#dia-ps-input{flex:1 1 40px;min-width:0;font:600 12.5px Nunito,Arial,sans-serif;color:#a8a89e;padding:1px 0;cursor:pointer;pointer-events:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
-            "#dia-ps-field .dia-ps-fieldcaret{flex:none;color:var(--dtr-primary,#149c8e);font-size:11px;opacity:.65;margin-left:1px;pointer-events:none}",
+            "#dia-ps-field .dia-ps-fieldcaret{flex:none;color:var(--dtr-primary,#149c8e);opacity:1;margin-left:1px;pointer-events:none;display:flex;align-items:center}",
             "#dia-ps-x{display:none;flex:none;width:19px;height:19px;padding:0;border:none;border-radius:50%;background:#ece7dd;color:#7a7a72;font-size:14px;line-height:1;cursor:pointer;align-items:center;justify-content:center}",
             "#dia-ps-x.on{display:flex}",
             "#dia-ps-x:hover{background:var(--dtr-primary,#149c8e);color:#fff}",
@@ -12506,7 +12502,7 @@
             +   '<span id="dia-ps-chip"></span>'
             +   '<span id="dia-ps-input" class="dia-ps-fieldlbl">Add a Pet Style (optional)</span>'
             +   '<button id="dia-ps-x" type="button" aria-label="Clear Pet Style" title="Clear Pet Style">×</button>'
-            +   '<span class="dia-ps-fieldcaret" aria-hidden="true">▾</span>'
+            +   '<span class="dia-ps-fieldcaret" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>'
             + '</div>';
           (cfg.fieldHost || $('dia-hp-scratch-left') || scratch).appendChild(row);
 
@@ -13004,9 +13000,27 @@
   }
 
   async function _dtrPetWornIds(name) {
-    const csrf = (document.querySelector('meta[name="csrf-token"]') || {}).content || '';
-    for (let att = 0; att < 3; att++) {
+    for (let att = 0; att < 4; att++) {
       try {
+        const r = await fetch('https://impress-2020.openneo.net/api/graphql', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: 'query($n:String!){petOnNeopetsDotCom(petName:$n){wornItems{id name}}}', variables: { n: name } }),
+        });
+        if (r.ok) {
+          const j = await r.json().catch(() => null);
+          const pet = j && j.data && j.data.petOnNeopetsDotCom;
+          if (pet && Array.isArray(pet.wornItems)) {
+            const items = pet.wornItems.filter(w => w && w.id);
+            return { ids: items.map(w => String(w.id)), items };
+          }
+        }
+      } catch (_) {}
+      if (att < 3) await new Promise(rs => setTimeout(rs, 700 * (att + 1)));
+    }
+
+    try {
+      if (location.hostname === 'impress.openneo.net') {
+        const csrf = (document.querySelector('meta[name="csrf-token"]') || {}).content || '';
         const fd = new FormData(); fd.append('name', name);
         const r = await fetch('/pets/load', { method: 'POST', headers: { 'X-CSRF-Token': csrf, 'Accept': 'application/json' }, body: fd });
         if (r.status === 404) return { notFound: true };
@@ -13014,28 +13028,34 @@
           const j = await r.json().catch(() => null);
           if (j && j.query) { const q = new URLSearchParams(j.query); return { ids: q.getAll('objects[]').map(String).filter(Boolean) }; }
         }
-      } catch (_) {}
-      if (att < 2) await new Promise(rs => setTimeout(rs, 500 * (att + 1)));
-    }
+      }
+    } catch (_) {}
     return null;
   }
 
-  async function _dtrResolvePetsToItems(names, onProgress) {
+  async function _dtrResolvePetsToItems(names, onProgress, shouldStop) {
     const ids = new Set();
+    const namesById = {};
+    const countById = {};
+
     const failed = [];
     let done = 0, next = 0;
     const worker = async () => {
       while (next < names.length) {
+        if (shouldStop && shouldStop()) return;
         const nm = names[next++];
         const res = await _dtrPetWornIds(nm);
-        if (res && res.ids) res.ids.forEach(id => ids.add(id));
+        if (res && res.ids) {
+          [...new Set(res.ids)].forEach(id => { ids.add(id); countById[id] = (countById[id] || 0) + 1; });
+          (res.items || []).forEach(w => { if (w && w.id && w.name) namesById[String(w.id)] = w.name; });
+        }
         else if (!res) failed.push(nm);
         done++;
         try { onProgress && onProgress(done, names.length, nm, !!res); } catch (_) {}
       }
     };
     await Promise.all(Array.from({ length: Math.min(4, names.length) }, worker));
-    return { ids: [...ids], failed };
+    return { ids: [...ids], namesById, countById, failed };
   }
 
   function _dtrPetsImportModal(initialNames) {
@@ -13083,9 +13103,12 @@
     const close = () => ov.remove();
     const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
     const renderChips = () => {
-      chipsEl.innerHTML = pets.map((p, i) => '<span class="dtr-pim-chip ' + (p.state === 'err' ? 'err' : p.state === 'load' ? 'load' : '') + '"><b>' + esc(p.name) + '</b>'
-        + (p.state === 'load' ? ' …' : p.state === 'ok' ? ' · ' + p.ids.length : p.state === 'err' ? ' ✗' : '')
-        + '<button class="x" data-i="' + i + '" aria-label="Remove">✕</button></span>').join('');
+
+      chipsEl.innerHTML = pets.map((p, i) => '<span class="dtr-pim-chip ' + (p.state === 'err' ? 'err' : p.state === 'load' ? 'load' : '') + '"'
+        + (p.state === 'err' ? ' title="Couldn’t load this pet — try again later or remove it"' : p.state === 'ok' ? ' title="Wearing ' + p.ids.length + ' item' + (p.ids.length !== 1 ? 's' : '') + ' DTI can import"' : ' title="Loading what this pet is wearing…"')
+        + '><b>' + esc(p.name) + '</b>'
+        + (p.state === 'load' ? ' …' : p.state === 'ok' ? ' · ' + p.ids.length + ' item' + (p.ids.length !== 1 ? 's' : '') : ' · failed')
+        + '<button class="x" data-i="' + i + '" aria-label="Remove ' + esc(p.name) + '">✕</button></span>').join('');
       const anyOk = pets.some(p => p.state === 'ok' && p.ids.length);
       goBtn.disabled = !anyOk || goBtn.dataset.busy === '1';
     };
@@ -13137,16 +13160,17 @@
       const names = Object.values(byId).map(it => it.name).filter(Boolean);
       if (!names.length) { statusEl.textContent = 'Couldn’t resolve those items — try again.'; goBtn.dataset.busy = ''; goBtn.disabled = false; goBtn.textContent = 'Import their items'; return; }
 
-      const batch = loadBatch() || {};
+      const batch = loadBatch('pets') || {};
       names.forEach(n => { if (!(n in batch)) batch[n] = 1; });
-      saveBatch(batch);
+      saveBatch(batch, 'pets');
       const added = {}; names.forEach(n => { added[n] = 1; });
       recordImport(added);
-      try { GM_setValue(BATCH_TS_KEY, Date.now()); } catch (_) {}
-      diaTouchImport();
+      try { GM_setValue(BATCH_TS_KEY + _dtrSrcSuffix('pets'), Date.now()); } catch (_) {}
+      diaTouchImport('pets');
       statusEl.textContent = 'Imported ' + names.length + ' items — opening your import…';
       close();
-      window.dtrNav ? window.dtrNav('/items?dti_sync=bulk') : (location.href = '/items?dti_sync=bulk');
+      const _pu = '/items?dti_sync=bulk&src=pets';
+      window.dtrNav ? window.dtrNav(_pu) : (location.href = _pu);
     });
     setTimeout(() => inp.focus(), 30);
   }
@@ -13180,7 +13204,8 @@
       tab.title = 'Send all ' + names.length + ' of your pets to DTI Remix and import what they’re wearing';
       tab.addEventListener('click', () => {
         try { GM_setValue(DTR_PETS_QUEUE_KEY, JSON.stringify({ ts: Date.now(), names: _dtrHarvestPetNames() })); } catch (_) {}
-        const url = 'https://impress.openneo.net/?dtr_import_pets=1';
+
+        const url = 'https://impress.openneo.net/items?dti_sync=bulk&src=pets&dtr_import_pets=1';
         if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab(url); else window.open(url, '_blank');
       });
       document.body.appendChild(tab);
@@ -13192,18 +13217,806 @@
   }
   try { _dtrPetsHarvestNeolodge(); } catch (_) {}
 
+  const DTR_SDB_QUEUE_KEY = 'dtr_sdb_import_queue';
+  const DTR_SDB_PROGRESS_KEY = 'dtr_sdb_harvest';
+
+  function _dtrSdbFindSelects() {
+    const out = { cat: null, per: null, sort: null };
+    Array.from(document.querySelectorAll('select')).forEach(s => {
+      const vals = Array.from(s.options || []).map(o => o.value);
+      if (!out.cat  && vals.indexOf('wearables') > -1) out.cat = s;
+      if (!out.per  && vals.indexOf('90') > -1 && vals.indexOf('30') > -1) out.per = s;
+      if (!out.sort && vals.indexOf('rarity_desc') > -1) out.sort = s;
+    });
+    return out;
+  }
+
+  function _dtrSdbReadPage() {
+    const rows = [];
+    document.querySelectorAll('.sdb-item-cell').forEach(cell => {
+      const nmEl = cell.querySelector('.sdb-item-name');
+      const name = nmEl ? (nmEl.textContent || '').trim() : '';
+      if (!name || name.indexOf('{{') > -1) return;
+      const meta = ((cell.querySelector('.sdb-item-meta') || {}).textContent) || '';
+      if (meta.indexOf('{{') > -1) return;
+      const isNC = /neocash/i.test(meta);
+      let qty = 1, got = false;
+      const qEl = cell.querySelector('.sdb-item-qty-mobile');
+      if (qEl) { const m = (qEl.textContent || '').match(/\d+/); if (m) { qty = parseInt(m[0], 10) || 1; got = true; } }
+      if (!got) { const tr = cell.closest('tr'); const tc = tr && tr.querySelector('.sdb-qty-cell'); if (tc) { const m = (tc.textContent || '').match(/\d+/); if (m) qty = parseInt(m[0], 10) || 1; } }
+      rows.push({ name: name, qty: qty, isNC: isNC });
+    });
+    return rows;
+  }
+  function _dtrSdbPageInfo() {
+
+    let cur = 0, total = 0;
+    document.querySelectorAll('.sdb-pagination-btn.active').forEach(el => { if (!cur) { const v = parseInt(el.textContent, 10); if (v) cur = v; } });
+    document.querySelectorAll('.sdb-pagination-jump-total').forEach(el => { if (!total) { const m = (el.textContent || '').match(/\d+/); if (m) total = parseInt(m[0], 10) || 0; } });
+    if (!cur || !total) {
+      document.querySelectorAll('.sdb-pagination-jump .np-stepper-input').forEach(inp => {
+        if (!cur)   { const v = parseInt(inp.value, 10); if (v) cur = v; }
+        if (!total) { const v = parseInt(inp.getAttribute('max'), 10); if (v) total = v; }
+      });
+    }
+    return { cur: cur, total: total };
+  }
+
+  function _dtrSdbHarvest() {
+    if (!/neopets\.com$/.test(location.hostname.replace(/^www\./, ''))) return;
+    if (!/\/safetydeposit\.phtml/.test(location.pathname)) return;
+
+    let state = null;
+    try { state = JSON.parse(GM_getValue(DTR_SDB_PROGRESS_KEY, '') || 'null'); } catch (_) {}
+    if (!state || typeof state !== 'object') state = {};
+    if (!state.byName || typeof state.byName !== 'object') state.byName = {};
+    if (!Array.isArray(state.pages)) state.pages = [];
+    if (typeof state.ncOnly !== 'boolean') state.ncOnly = true;
+    const save = () => { try { state.ts = Date.now(); GM_setValue(DTR_SDB_PROGRESS_KEY, JSON.stringify(state)); } catch (_) {} };
+
+    const injectCss = () => {
+      if (document.getElementById('dtr-sdb-style')) return;
+      const st = document.createElement('style'); st.id = 'dtr-sdb-style';
+      st.textContent = [
+        '#dtr-sdb-panel{position:fixed;right:16px;bottom:16px;z-index:2147483000;width:322px;max-height:84vh;overflow:auto;background:#fff;border-radius:16px;box-shadow:0 14px 40px -8px rgba(30,40,60,.4);box-sizing:border-box;font-family:"Nunito","Inter",Arial,sans-serif;color:#3a3a44;}',
+        '#dtr-sdb-panel *{box-sizing:border-box;}',
+        '#dtr-sdb-panel .sdbp-hd{position:relative;padding:15px 16px 12px;}',
+        '#dtr-sdb-panel .sdbp-hd::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:16px 16px 0 0;background:linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%);}',
+        '#dtr-sdb-panel .sdbp-title{font:800 14px/1.2 Nunito,sans-serif;color:#2a2a33;margin:4px 0 3px;}',
+        '#dtr-sdb-panel .sdbp-sub{font:600 11px/1.4 Nunito,sans-serif;color:#8a8a95;}',
+        '#dtr-sdb-panel .sdbp-x{position:absolute;top:12px;right:12px;width:22px;height:22px;border:none;border-radius:50%;background:#f0f0f3;color:#7a7a85;font:700 12px Nunito;cursor:pointer;line-height:1;}',
+        '#dtr-sdb-panel .sdbp-body{padding:0 16px 15px;}',
+        '#dtr-sdb-panel .sdbp-sec{margin-top:13px;}',
+        '#dtr-sdb-panel .sdbp-lbl{font:800 9px/1 Nunito,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#b0b0ba;margin-bottom:6px;}',
+        '#dtr-sdb-panel .sdbp-chk{display:flex;align-items:center;gap:7px;font:700 11.5px/1.3 Nunito,sans-serif;color:#4a4a55;padding:3px 0;}',
+        '#dtr-sdb-panel .sdbp-chk .ic{flex:none;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 10px Nunito;color:#fff;}',
+        '#dtr-sdb-panel .sdbp-chk.ok .ic{background:#3aa88f;}',
+        '#dtr-sdb-panel .sdbp-chk.no .ic{background:#e0a02e;}',
+        '#dtr-sdb-panel .sdbp-chk.no{color:#8a7030;}',
+        '#dtr-sdb-panel .sdbp-toggle{display:flex;gap:4px;background:#f2f2f5;border-radius:10px;padding:3px;}',
+        '#dtr-sdb-panel .sdbp-toggle button{flex:1;border:none;border-radius:8px;padding:7px 4px;font:800 10.5px/1.2 Nunito,sans-serif;color:#7a7a85;background:transparent;cursor:pointer;}',
+        '#dtr-sdb-panel .sdbp-toggle button.on{background:#fff;color:#159c8c;box-shadow:0 1px 4px rgba(0,0,0,.1);}',
+        '#dtr-sdb-panel .sdbp-prog{background:#f5faf9;border:1px solid #e0efec;border-radius:12px;padding:10px 12px;margin-top:13px;}',
+        '#dtr-sdb-panel .sdbp-prog .big{font:800 20px Nunito,sans-serif;color:#159c8c;}',
+        '#dtr-sdb-panel .sdbp-prog .cap{font:700 11px Nunito,sans-serif;color:#6a6a75;}',
+        '#dtr-sdb-panel .sdbp-hint{font:600 11px/1.45 Nunito,sans-serif;color:#6a6a75;margin-top:11px;}',
+        '#dtr-sdb-panel .sdbp-hint b{color:#159c8c;}',
+        '#dtr-sdb-panel .sdbp-send{width:100%;margin-top:13px;border:none;border-radius:11px;padding:11px;font:800 12.5px Nunito,sans-serif;color:#fff;background:#159c8c;cursor:pointer;}',
+        '#dtr-sdb-panel .sdbp-send:disabled{background:#c8ccd2;cursor:default;}',
+        '#dtr-sdb-panel .sdbp-reset{width:100%;margin-top:6px;border:none;background:transparent;color:#a0a0aa;font:700 10.5px Nunito,sans-serif;cursor:pointer;padding:4px;}',
+        '#dtr-sdb-panel .sdbp-npwarn{background:#fdecea;border:1.5px solid #e0574a;color:#b23524;border-radius:12px;padding:10px 12px;margin-top:11px;font:800 11.5px/1.45 Nunito,sans-serif;}',
+        '#dtr-sdb-panel .sdbp-npwarn b{color:#8f2114;}',
+        '#dtr-sdb-panel .sdbp-prog.sdbp-flash{animation:sdbpFlash 1.1s ease;}',
+        '@keyframes sdbpFlash{0%{background:#d3f3ec;border-color:#3fc7b1;box-shadow:0 0 0 3px rgba(63,199,177,.4);}100%{background:#f5faf9;border-color:#e0efec;box-shadow:0 0 0 0 rgba(63,199,177,0);}}',
+        '#dtr-sdb-tab{position:fixed;right:0;top:44%;transform:translateY(-50%);z-index:2147482999;background:#159c8c;color:#fff;border:none;border-radius:10px 0 0 10px;padding:13px 7px;font:800 9px/1 Nunito,sans-serif;letter-spacing:.06em;writing-mode:vertical-rl;text-transform:uppercase;cursor:pointer;box-shadow:-3px 0 12px rgba(0,0,0,.16);}'
+      ].join('');
+      (document.head || document.documentElement).appendChild(st);
+    };
+
+    let panel = null, observer = null, captureTimer = null, pollIv = null, lastSig = '', flashPages = -1;
+
+    const capture = () => {
+      const sel = _dtrSdbFindSelects();
+
+      if (!(sel.cat && sel.cat.value === 'wearables')) { render(); return; }
+      const info = _dtrSdbPageInfo();
+      const rows = _dtrSdbReadPage();
+      if (!rows.length) { render(); return; }
+      rows.forEach(r => {
+        const prev = state.byName[r.name];
+        if (!prev || r.qty > prev.qty) state.byName[r.name] = { qty: r.qty, isNC: r.isNC };
+        else if (r.isNC) prev.isNC = true;
+      });
+      if (info.cur && state.pages.indexOf(info.cur) < 0) state.pages.push(info.cur);
+      save();
+      render();
+    };
+    const scheduleCapture = () => { if (captureTimer) clearTimeout(captureTimer); captureTimer = setTimeout(capture, 350); };
+
+    const render = () => {
+      if (!panel) return;
+      const sel = _dtrSdbFindSelects();
+      const catOk  = !!(sel.cat  && sel.cat.value === 'wearables');
+      const perOk  = !!(sel.per  && sel.per.value === '90');
+      const sortOk = !!(sel.sort && sel.sort.value === 'rarity_desc');
+      const info = _dtrSdbPageInfo();
+      const names = Object.keys(state.byName);
+      const ncCount = names.filter(n => state.byName[n].isNC).length;
+      const shown = state.ncOnly ? ncCount : names.length;
+      const pageRows = _dtrSdbReadPage();
+      const pageNC = pageRows.filter(r => r.isNC).length;
+      const chk = (ok, txt) => '<div class="sdbp-chk ' + (ok ? 'ok' : 'no') + '"><span class="ic">' + (ok ? '✓' : '!') + '</span>' + txt + '</div>';
+
+      const crossed = state.ncOnly && sortOk && (names.length > ncCount || (pageRows.length > 0 && pageNC < pageRows.length));
+      let hint;
+      if (!catOk) hint = 'Set <b>Category → Wearables</b> on the page above to begin.';
+      else hint = 'Click Neopets’ <b>Next ›</b> to load the next page — each page captures automatically.';
+      panel.querySelector('.sdbp-body').innerHTML =
+        '<div class="sdbp-sec"><div class="sdbp-lbl">What to import</div>'
+        + '<div class="sdbp-toggle" data-sdb-toggle>'
+        + '<button data-nc="1" class="' + (state.ncOnly ? 'on' : '') + '">NC only</button>'
+        + '<button data-nc="0" class="' + (state.ncOnly ? '' : 'on') + '">NC + NP</button>'
+        + '</div></div>'
+        + '<div class="sdbp-sec"><div class="sdbp-lbl">Set these filters above</div>'
+        + chk(catOk, 'Category: Wearables')
+        + chk(sortOk, 'Sort by: Rarity (High–Low)')
+        + chk(perOk, 'Show 90 per page')
+        + '</div>'
+        + '<div class="sdbp-prog"><span class="big">' + shown + '</span> <span class="cap">item' + (shown !== 1 ? 's' : '') + ' captured' + (state.ncOnly && names.length !== ncCount ? ' (' + names.length + ' seen)' : '') + '</span>'
+        + '<div class="cap" style="margin-top:4px">Pages read: ' + state.pages.length + (info.total ? ' of ' + info.total : '') + (info.cur ? ' · on page ' + info.cur : '') + '</div></div>'
+        + (crossed
+            ? '<div class="sdbp-npwarn">✓ All your NC wearables are synced!<br>Everything past here is NP — no need to keep paging, just hit <b>Send</b> below.</div>'
+            : '<div class="sdbp-hint">' + hint + '</div>')
+        + '<button class="sdbp-send" data-sdb-send' + (shown ? '' : ' disabled') + '>Send ' + shown + ' item' + (shown !== 1 ? 's' : '') + ' to DTI →</button>'
+        + '<button class="sdbp-reset" data-sdb-reset>Start over</button>';
+
+      const _prog = panel.querySelector('.sdbp-prog');
+      if (_prog) {
+        if (flashPages >= 0 && state.pages.length > flashPages) { _prog.classList.remove('sdbp-flash'); void _prog.offsetWidth; _prog.classList.add('sdbp-flash'); }
+        flashPages = state.pages.length;
+      }
+    };
+
+    const doSend = () => {
+      const names = Object.keys(state.byName);
+      const items = names
+        .filter(n => state.ncOnly ? state.byName[n].isNC : true)
+        .map(n => ({ name: n, qty: state.byName[n].qty || 1, isNC: !!state.byName[n].isNC }));
+      if (!items.length) return;
+      try { GM_setValue(DTR_SDB_QUEUE_KEY, JSON.stringify({ ts: Date.now(), items: items })); } catch (_) {}
+      const url = 'https://impress.openneo.net/items?dti_sync=bulk&src=sdb&dtr_import_sdb=1';
+      if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab(url); else window.open(url, '_blank');
+    };
+
+    const hidePanel = () => {
+      try { if (observer) observer.disconnect(); } catch (_) {} observer = null;
+      try { if (pollIv) clearInterval(pollIv); } catch (_) {} pollIv = null;
+      try { if (panel) panel.remove(); } catch (_) {} panel = null;
+      if (!document.getElementById('dtr-sdb-tab')) {
+        const tab = document.createElement('button'); tab.id = 'dtr-sdb-tab'; tab.type = 'button';
+        tab.textContent = 'SDB → DTI';
+        tab.addEventListener('click', () => { try { tab.remove(); } catch (_) {} build(); });
+        document.body.appendChild(tab);
+      }
+    };
+
+    const build = () => {
+      if (document.getElementById('dtr-sdb-panel')) return;
+      if (!document.querySelector('.sdb-item-cell')) return;
+      const tab = document.getElementById('dtr-sdb-tab'); if (tab) tab.remove();
+      injectCss();
+      panel = document.createElement('div'); panel.id = 'dtr-sdb-panel';
+      panel.innerHTML = '<div class="sdbp-hd"><button class="sdbp-x" data-sdb-hide title="Hide">✕</button>'
+        + '<div class="sdbp-title">SDB → DTI Sync</div>'
+        + '<div class="sdbp-sub">Read your wearables page by page, then send them to DTI Remix to sort into your lists.</div></div>'
+        + '<div class="sdbp-body"></div>';
+      document.body.appendChild(panel);
+      render();
+      capture();
+      try {
+        const host = document.querySelector('.sdb-table') || (document.querySelector('.sdb-item-cell') || {}).parentNode || document.body;
+        observer = new MutationObserver(scheduleCapture);
+
+        observer.observe(host, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['src'] });
+      } catch (_) {}
+
+      lastSig = '';
+      if (pollIv) clearInterval(pollIv);
+      pollIv = setInterval(() => {
+        if (!panel) return;
+        const info = _dtrSdbPageInfo();
+        const first = (((document.querySelector('.sdb-item-name') || {}).textContent) || '').trim();
+        const sig = info.cur + '|' + first;
+        if (sig !== lastSig) { lastSig = sig; capture(); }
+      }, 700);
+      panel.addEventListener('click', e => {
+        const tg = e.target.closest('[data-nc]');
+        if (tg) { state.ncOnly = tg.getAttribute('data-nc') === '1'; save(); render(); return; }
+        if (e.target.closest('[data-sdb-send]')) { doSend(); return; }
+        if (e.target.closest('[data-sdb-reset]')) { state.byName = {}; state.pages = []; save(); render(); return; }
+        if (e.target.closest('[data-sdb-hide]')) { hidePanel(); return; }
+      });
+    };
+
+    document.addEventListener('change', () => { try { if (panel) render(); } catch (_) {} }, true);
+
+    build();
+    let n = 0; const iv = setInterval(() => { build(); if (++n > 30 || document.getElementById('dtr-sdb-panel')) clearInterval(iv); }, 400);
+    document.addEventListener('DOMContentLoaded', build, { once: true });
+  }
+  try { _dtrSdbHarvest(); } catch (_) {}
+
+  const DTR_CLOSET_QUEUE_KEY = 'dtr_closet_import_queue';
+  const DTR_CLOSET_PROGRESS_KEY = 'dtr_closet_harvest';
+
+  function _dtrClosetReadPage() {
+    const rows = [];
+    document.querySelectorAll('.closet-list-item').forEach(cell => {
+      const nmEl = cell.querySelector('.closet-list-item-name');
+      const name = nmEl ? (nmEl.textContent || '').trim() : '';
+      if (!name || name.indexOf('{{') > -1) return;
+      const rar = (((cell.querySelector('.closet-rarity-text-list') || {}).textContent) || '');
+      if (rar.indexOf('{{') > -1) return;
+
+      let desc = '', qtyTxt = '', sib = cell.nextElementSibling;
+      while (sib && !sib.classList.contains('closet-list-item')) {
+        if (!desc) { desc = sib.classList.contains('closet-list-desc') ? (sib.textContent || '') : ((sib.querySelector && (sib.querySelector('.closet-list-desc') || {}).textContent) || ''); }
+        if (!qtyTxt) { qtyTxt = sib.classList.contains('closet-list-qty-col') ? (sib.textContent || '') : ((sib.querySelector && (sib.querySelector('.closet-list-qty-col') || {}).textContent) || ''); }
+        sib = sib.nextElementSibling;
+      }
+      const isNC = /\b500\b/.test(rar) || !!cell.querySelector('.nc-icon');
+      const isPB = /paint\s*brush/i.test(desc);
+      const cat = isNC ? 'nc' : (isPB ? 'pb' : 'np');
+      let qty = 1; const m = qtyTxt.match(/\d+/); if (m) qty = parseInt(m[0], 10) || 1;
+      rows.push({ name: name, qty: qty, cat: cat });
+    });
+    return rows;
+  }
+  function _dtrClosetPageInfo() {
+    let cur = 0, total = 0;
+    document.querySelectorAll('.closet-pagination-btn').forEach(el => {
+      const v = parseInt(el.textContent, 10);
+      if (el.classList.contains('active') && v) cur = v;
+      if (v && v > total) total = v;
+    });
+    if (!cur) { const inp = document.querySelector('.closet-pagination .np-stepper-input'); if (inp) cur = parseInt(inp.value, 10) || 0; }
+    return { cur: cur, total: total };
+  }
+  function _dtrClosetPerPageOk() {
+    const sel = document.querySelector('select.closet-dropdown--perpage');
+    return !!(sel && String(sel.value) === '90');
+  }
+
+  function _dtrClosetHarvest() {
+    if (!/neopets\.com$/.test(location.hostname.replace(/^www\./, ''))) return;
+    if (!/\/closet\.phtml/.test(location.pathname)) return;
+
+    let state = null;
+    try { state = JSON.parse(GM_getValue(DTR_CLOSET_PROGRESS_KEY, '') || 'null'); } catch (_) {}
+    if (!state || typeof state !== 'object') state = {};
+    if (!state.byName || typeof state.byName !== 'object') state.byName = {};
+    if (!Array.isArray(state.pages)) state.pages = [];
+    if (!state.cats || typeof state.cats !== 'object') state.cats = { nc: true, np: true, pb: true };
+    const save = () => { try { state.ts = Date.now(); GM_setValue(DTR_CLOSET_PROGRESS_KEY, JSON.stringify(state)); } catch (_) {} };
+
+    const injectCss = () => {
+      if (document.getElementById('dtr-closet-style')) return;
+      const st = document.createElement('style'); st.id = 'dtr-closet-style';
+      st.textContent = [
+        '#dtr-closet-panel{position:fixed;right:16px;bottom:16px;z-index:2147483000;width:322px;max-height:84vh;overflow:auto;background:#fff;border-radius:16px;box-shadow:0 14px 40px -8px rgba(30,40,60,.4);box-sizing:border-box;font-family:"Nunito","Inter",Arial,sans-serif;color:#3a3a44;}',
+        '#dtr-closet-panel *{box-sizing:border-box;}',
+        '#dtr-closet-panel .clp-hd{position:relative;padding:15px 16px 12px;}',
+        '#dtr-closet-panel .clp-hd::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:16px 16px 0 0;background:linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%);}',
+        '#dtr-closet-panel .clp-title{font:800 14px/1.2 Nunito,sans-serif;color:#2a2a33;margin:4px 0 3px;}',
+        '#dtr-closet-panel .clp-sub{font:600 11px/1.4 Nunito,sans-serif;color:#8a8a95;}',
+        '#dtr-closet-panel .clp-x{position:absolute;top:12px;right:12px;width:22px;height:22px;border:none;border-radius:50%;background:#f0f0f3;color:#7a7a85;font:700 12px Nunito;cursor:pointer;line-height:1;}',
+        '#dtr-closet-panel .clp-body{padding:0 16px 15px;}',
+        '#dtr-closet-panel .clp-sec{margin-top:13px;}',
+        '#dtr-closet-panel .clp-lbl{font:800 9px/1 Nunito,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#b0b0ba;margin-bottom:6px;}',
+        '#dtr-closet-panel .clp-chk{display:flex;align-items:center;gap:9px;font:700 12px/1.3 Nunito,sans-serif;color:#4a4a55;padding:5px 0;cursor:pointer;}',
+        '#dtr-closet-panel .clp-chk .box{flex:none;width:18px;height:18px;border-radius:6px;border:2px solid #cfd4d8;display:flex;align-items:center;justify-content:center;font:800 11px Nunito;color:#fff;}',
+        '#dtr-closet-panel .clp-chk.on .box{background:#159c8c;border-color:#159c8c;}',
+        '#dtr-closet-panel .clp-chk .ct{margin-left:auto;font:800 11px Nunito;color:#9a9aa2;}',
+        '#dtr-closet-panel .clp-setchk{display:flex;align-items:center;gap:7px;font:700 11.5px/1.3 Nunito,sans-serif;color:#4a4a55;padding:3px 0;}',
+        '#dtr-closet-panel .clp-setchk .ic{flex:none;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 10px Nunito;color:#fff;}',
+        '#dtr-closet-panel .clp-setchk.ok .ic{background:#3aa88f;}',
+        '#dtr-closet-panel .clp-setchk.no{color:#8a7030;}',
+        '#dtr-closet-panel .clp-setchk.no .ic{background:#e0a02e;}',
+        '#dtr-closet-panel .clp-prog{background:#f5faf9;border:1px solid #e0efec;border-radius:12px;padding:10px 12px;margin-top:13px;}',
+        '#dtr-closet-panel .clp-prog .big{font:800 20px Nunito,sans-serif;color:#159c8c;}',
+        '#dtr-closet-panel .clp-prog .cap{font:700 11px Nunito,sans-serif;color:#6a6a75;}',
+        '#dtr-closet-panel .clp-prog.clp-flash{animation:clpFlash 1.1s ease;}',
+        '@keyframes clpFlash{0%{background:#d3f3ec;border-color:#3fc7b1;box-shadow:0 0 0 3px rgba(63,199,177,.4);}100%{background:#f5faf9;border-color:#e0efec;box-shadow:0 0 0 0 rgba(63,199,177,0);}}',
+        '#dtr-closet-panel .clp-hint{font:600 11px/1.45 Nunito,sans-serif;color:#6a6a75;margin-top:11px;}',
+        '#dtr-closet-panel .clp-hint b{color:#159c8c;}',
+        '#dtr-closet-panel .clp-send{width:100%;margin-top:13px;border:none;border-radius:11px;padding:11px;font:800 12.5px Nunito,sans-serif;color:#fff;background:#159c8c;cursor:pointer;}',
+        '#dtr-closet-panel .clp-send:disabled{background:#c8ccd2;cursor:default;}',
+        '#dtr-closet-panel .clp-reset{width:100%;margin-top:6px;border:none;background:transparent;color:#a0a0aa;font:700 10.5px Nunito,sans-serif;cursor:pointer;padding:4px;}',
+        '#dtr-closet-tab{position:fixed;right:0;top:52%;transform:translateY(-50%);z-index:2147482999;background:#159c8c;color:#fff;border:none;border-radius:10px 0 0 10px;padding:13px 7px;font:800 9px/1 Nunito,sans-serif;letter-spacing:.06em;writing-mode:vertical-rl;text-transform:uppercase;cursor:pointer;box-shadow:-3px 0 12px rgba(0,0,0,.16);}'
+      ].join('');
+      (document.head || document.documentElement).appendChild(st);
+    };
+
+    let panel = null, observer = null, captureTimer = null, pollIv = null, lastSig = '', flashPages = -1, dismissed = false;
+    const CAT_LBL = { nc: 'NC', np: 'NP', pb: 'PB clothes' };
+
+    const capture = () => {
+      const rows = _dtrClosetReadPage();
+      if (!rows.length) { render(); return; }
+      const info = _dtrClosetPageInfo();
+      rows.forEach(r => {
+        const prev = state.byName[r.name];
+        const qty = prev ? Math.max(prev.qty, r.qty) : r.qty;
+        state.byName[r.name] = { qty: qty, cat: r.cat };
+      });
+      if (info.cur && state.pages.indexOf(info.cur) < 0) state.pages.push(info.cur);
+      save();
+      render();
+    };
+    const scheduleCapture = () => { if (captureTimer) clearTimeout(captureTimer); captureTimer = setTimeout(capture, 350); };
+
+    const counts = () => {
+      const c = { nc: 0, np: 0, pb: 0 };
+      Object.keys(state.byName).forEach(n => { const cat = state.byName[n].cat; if (c[cat] != null) c[cat]++; });
+      return c;
+    };
+    const chosenCount = () => { const c = counts(); let t = 0; ['nc', 'np', 'pb'].forEach(k => { if (state.cats[k]) t += c[k]; }); return t; };
+
+    const render = () => {
+      if (!panel) return;
+      const info = _dtrClosetPageInfo();
+      const c = counts();
+      const shown = chosenCount();
+      const perOk = _dtrClosetPerPageOk();
+      const chk = (k) => '<div class="clp-chk ' + (state.cats[k] ? 'on' : '') + '" data-cat="' + k + '"><span class="box">' + (state.cats[k] ? '✓' : '') + '</span>' + CAT_LBL[k] + '<span class="ct">' + c[k] + '</span></div>';
+      const hint = perOk
+        ? 'You’re set — click Neopets’ <b>Next ›</b> to page through. Each page captures automatically.'
+        : 'Set <b>Display per page → 90</b> above first, so it’s far fewer pages to click through.';
+      panel.querySelector('.clp-body').innerHTML =
+        '<div class="clp-sec"><div class="clp-lbl">What to import</div>'
+        + chk('nc') + chk('np') + chk('pb')
+        + '</div>'
+        + '<div class="clp-sec"><div class="clp-lbl">Set this above</div>'
+        + '<div class="clp-setchk ' + (perOk ? 'ok' : 'no') + '"><span class="ic">' + (perOk ? '✓' : '!') + '</span>Show 90 per page</div></div>'
+        + '<div class="clp-prog"><span class="big">' + shown + '</span> <span class="cap">item' + (shown !== 1 ? 's' : '') + ' to import</span>'
+        + '<div class="cap" style="margin-top:4px">Pages read: ' + state.pages.length + (info.total ? ' of ' + info.total : '') + (info.cur ? ' · on page ' + info.cur : '') + '</div></div>'
+        + '<div class="clp-hint">' + hint + '</div>'
+        + '<button class="clp-send" data-send' + (shown ? '' : ' disabled') + '>Send ' + shown + ' item' + (shown !== 1 ? 's' : '') + ' to DTI →</button>'
+        + '<button class="clp-reset" data-reset>Start over</button>';
+      const prog = panel.querySelector('.clp-prog');
+      if (prog) {
+        if (flashPages >= 0 && state.pages.length > flashPages) { prog.classList.remove('clp-flash'); void prog.offsetWidth; prog.classList.add('clp-flash'); }
+        flashPages = state.pages.length;
+      }
+    };
+
+    const doSend = () => {
+      const items = Object.keys(state.byName)
+        .filter(n => state.cats[state.byName[n].cat])
+        .map(n => ({ name: n, qty: state.byName[n].qty || 1, cat: state.byName[n].cat }));
+      if (!items.length) return;
+      try { GM_setValue(DTR_CLOSET_QUEUE_KEY, JSON.stringify({ ts: Date.now(), items: items })); } catch (_) {}
+      const url = 'https://impress.openneo.net/items?dti_sync=bulk&src=closet&dtr_import_closet=1';
+      if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab(url); else window.open(url, '_blank');
+    };
+
+    const hidePanel = () => {
+      dismissed = true;
+      try { if (observer) observer.disconnect(); } catch (_) {} observer = null;
+      try { if (pollIv) clearInterval(pollIv); } catch (_) {} pollIv = null;
+      try { if (panel) panel.remove(); } catch (_) {} panel = null;
+      try { const t = document.getElementById('dtr-closet-tab'); if (t) t.remove(); } catch (_) {}
+    };
+
+    const build = () => {
+      if (dismissed) return;
+      if (document.getElementById('dtr-closet-panel')) return;
+      if (!document.querySelector('.closet-list-item')) return;
+      const tab = document.getElementById('dtr-closet-tab'); if (tab) tab.remove();
+      injectCss();
+      panel = document.createElement('div'); panel.id = 'dtr-closet-panel';
+      panel.innerHTML = '<div class="clp-hd"><button class="clp-x" data-hide title="Hide">✕</button>'
+        + '<div class="clp-title">Closet → DTI Sync</div>'
+        + '<div class="clp-sub">Read your closet page by page, tick which kinds to import, then send them to DTI Remix.</div></div>'
+        + '<div class="clp-body"></div>';
+      document.body.appendChild(panel);
+      render();
+      capture();
+      try {
+        const host = document.querySelector('.closet-list') || (document.querySelector('.closet-list-item') || {}).parentNode || document.body;
+        observer = new MutationObserver(scheduleCapture);
+        observer.observe(host, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['src'] });
+      } catch (_) {}
+      lastSig = '';
+      if (pollIv) clearInterval(pollIv);
+      pollIv = setInterval(() => {
+        if (!panel) return;
+        const info = _dtrClosetPageInfo();
+        const first = (((document.querySelector('.closet-list-item-name') || {}).textContent) || '').trim();
+        const sig = info.cur + '|' + first;
+        if (sig !== lastSig) { lastSig = sig; capture(); }
+      }, 700);
+      panel.addEventListener('click', e => {
+        const cat = e.target.closest('[data-cat]');
+        if (cat) { const k = cat.getAttribute('data-cat'); state.cats[k] = !state.cats[k]; save(); render(); return; }
+        if (e.target.closest('[data-send]')) { doSend(); return; }
+        if (e.target.closest('[data-reset]')) { state.byName = {}; state.pages = []; save(); render(); return; }
+        if (e.target.closest('[data-hide]')) { hidePanel(); return; }
+      });
+    };
+
+    document.addEventListener('change', () => { try { if (panel) render(); } catch (_) {} }, true);
+
+    build();
+    let n = 0; const iv = setInterval(() => { build(); if (dismissed || ++n > 30 || document.getElementById('dtr-closet-panel')) clearInterval(iv); }, 400);
+    document.addEventListener('DOMContentLoaded', build, { once: true });
+  }
+  try { _dtrClosetHarvest(); } catch (_) {}
+
+  const DTR_GALLERY_QUEUE_KEY = 'dtr_gallery_import_queue';
+  function _dtrGalleryViewAll() { try { return new URLSearchParams(location.search).get('view') === 'all'; } catch (_) { return false; } }
+  function _dtrGalleryReadItems() {
+    const out = [], seen = new Set();
+
+    const _norm = s => String(s || '').toLowerCase().replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+    let psIdx = {};
+    try { psIdx = JSON.parse(GM_getValue('dtr_ps_nameidx', '{}')) || {}; } catch (_) {}
+    const add = (raw) => {
+      const name = String(raw || '').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+      if (!name || name.indexOf('{{') > -1 || seen.has(name)) return;
+      if (psIdx[_norm(name)]) return;
+      seen.add(name); out.push({ name: name, qty: 1 });
+    };
+
+    const helpers = document.querySelectorAll('a.ssw-helper[data-item]');
+    if (helpers.length) helpers.forEach(a => add(a.getAttribute('data-item')));
+    else document.querySelectorAll('img.itemimg').forEach(img => {
+      let name = '', sib = img.nextElementSibling, guard = 0;
+      while (sib && !name && guard++ < 8) { if (sib.tagName === 'B') name = (sib.textContent || '').trim(); sib = sib.nextElementSibling; }
+      if (!name) { const cell = img.closest('td,li'); const b = cell && cell.querySelector('b'); if (b) name = (b.textContent || '').trim(); }
+      add(name);
+    });
+    return out;
+  }
+  function _dtrGalleryHarvest() {
+    if (!/neopets\.com$/.test(location.hostname.replace(/^www\./, ''))) return;
+    if (!/\/gallery\//.test(location.pathname)) return;
+    let ncOnly = true;
+    try { ncOnly = GM_getValue('dtr_gallery_nc_only', true) !== false; } catch (_) {}
+    let panel = null, dismissed = false, pollIv = null;
+    const injectCss = () => {
+      if (document.getElementById('dtr-gallery-style')) return;
+      const st = document.createElement('style'); st.id = 'dtr-gallery-style';
+      st.textContent = [
+        '#dtr-gallery-panel{position:fixed;right:16px;bottom:16px;z-index:2147483000;width:320px;background:#fff;border-radius:16px;box-shadow:0 14px 40px -8px rgba(30,40,60,.4);box-sizing:border-box;font-family:"Nunito","Inter",Arial,sans-serif;color:#3a3a44;}',
+        '#dtr-gallery-panel *{box-sizing:border-box;}',
+        '#dtr-gallery-panel .glp-hd{position:relative;padding:15px 16px 12px;}',
+        '#dtr-gallery-panel .glp-hd::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:16px 16px 0 0;background:linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%);}',
+        '#dtr-gallery-panel .glp-title{font:800 14px/1.2 Nunito,sans-serif;color:#2a2a33;margin:4px 0 3px;}',
+        '#dtr-gallery-panel .glp-sub{font:600 11px/1.4 Nunito,sans-serif;color:#8a8a95;}',
+        '#dtr-gallery-panel .glp-x{position:absolute;top:12px;right:12px;width:22px;height:22px;border:none;border-radius:50%;background:#f0f0f3;color:#7a7a85;font:700 12px Nunito;cursor:pointer;line-height:1;}',
+        '#dtr-gallery-panel .glp-body{padding:0 16px 15px;}',
+        '#dtr-gallery-panel .glp-lbl{font:800 9px/1 Nunito,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#b0b0ba;margin:13px 0 6px;}',
+        '#dtr-gallery-panel .glp-setchk{display:flex;align-items:center;gap:7px;font:700 11.5px/1.35 Nunito,sans-serif;color:#4a4a55;}',
+        '#dtr-gallery-panel .glp-setchk .ic{flex:none;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 10px Nunito;color:#fff;}',
+        '#dtr-gallery-panel .glp-setchk.ok .ic{background:#3aa88f;}',
+        '#dtr-gallery-panel .glp-setchk.no{color:#8a7030;}',
+        '#dtr-gallery-panel .glp-setchk.no .ic{background:#e0a02e;}',
+        '#dtr-gallery-panel .glp-toggle{display:flex;gap:4px;background:#f2f2f5;border-radius:10px;padding:3px;}',
+        '#dtr-gallery-panel .glp-toggle button{flex:1;border:none;border-radius:8px;padding:7px 4px;font:800 10.5px Nunito,sans-serif;color:#7a7a85;background:transparent;cursor:pointer;}',
+        '#dtr-gallery-panel .glp-toggle button.on{background:#fff;color:#159c8c;box-shadow:0 1px 4px rgba(0,0,0,.1);}',
+        '#dtr-gallery-panel .glp-prog{background:#f5faf9;border:1px solid #e0efec;border-radius:12px;padding:10px 12px;margin-top:13px;}',
+        '#dtr-gallery-panel .glp-prog .big{font:800 20px Nunito,sans-serif;color:#159c8c;}',
+        '#dtr-gallery-panel .glp-prog .cap{font:700 11px Nunito,sans-serif;color:#6a6a75;}',
+        '#dtr-gallery-panel .glp-hint{font:600 11px/1.45 Nunito,sans-serif;color:#6a6a75;margin-top:11px;}',
+        '#dtr-gallery-panel .glp-hint b{color:#159c8c;}',
+        '#dtr-gallery-panel .glp-send{width:100%;margin-top:13px;border:none;border-radius:11px;padding:11px;font:800 12.5px Nunito,sans-serif;color:#fff;background:#159c8c;cursor:pointer;}',
+        '#dtr-gallery-panel .glp-send:disabled{background:#c8ccd2;cursor:default;}',
+
+        'body:has(#dtr-gallery-panel) #dtr-token-pill{display:none!important;}'
+      ].join('');
+      (document.head || document.documentElement).appendChild(st);
+    };
+    const render = () => {
+      if (!panel) return;
+      const viewAll = _dtrGalleryViewAll();
+      const n = _dtrGalleryReadItems().length;
+      panel.querySelector('.glp-body').innerHTML =
+        '<div class="glp-lbl">Show everything first</div>'
+        + '<div class="glp-setchk ' + (viewAll ? 'ok' : 'no') + '"><span class="ic">' + (viewAll ? '✓' : '!') + '</span>' + (viewAll ? 'All items shown' : 'Click “View All Items” on the page') + '</div>'
+        + '<div class="glp-lbl">What to import</div>'
+        + '<div class="glp-toggle" data-toggle><button data-nc="1" class="' + (ncOnly ? 'on' : '') + '">NC only</button><button data-nc="0" class="' + (ncOnly ? '' : 'on') + '">NC &amp; NP</button></div>'
+        + '<div class="glp-prog"><span class="big">' + n + '</span> <span class="cap">item' + (n !== 1 ? 's' : '') + ' in view</span></div>'
+        + '<div class="glp-hint">' + (viewAll ? (ncOnly ? 'We’ll keep only the NeoCash items (checked against DTI).' : 'We’ll import every item DTI recognises.') : 'Click <b>View All Items</b> on the page so nothing is missed, then Send.') + '</div>'
+        + '<button class="glp-send" data-send' + (n ? '' : ' disabled') + '>Send to DTI →</button>';
+    };
+    const doSend = () => {
+      const items = _dtrGalleryReadItems();
+      if (!items.length) return;
+      try { GM_setValue(DTR_GALLERY_QUEUE_KEY, JSON.stringify({ ts: Date.now(), items: items, ncOnly: ncOnly })); } catch (_) {}
+      const url = 'https://impress.openneo.net/items?dti_sync=bulk&src=gallery&dtr_import_gallery=1';
+      if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab(url); else window.open(url, '_blank');
+    };
+    const build = () => {
+      if (dismissed || document.getElementById('dtr-gallery-panel')) return;
+      if (!document.querySelector('a.ssw-helper[data-item], img.itemimg')) return;
+      injectCss();
+      panel = document.createElement('div'); panel.id = 'dtr-gallery-panel';
+      panel.innerHTML = '<div class="glp-hd"><button class="glp-x" data-hide title="Hide">✕</button>'
+        + '<div class="glp-title">Gallery → DTI Sync</div>'
+        + '<div class="glp-sub">Show all your gallery items, choose NC or NC &amp; NP, then send them to DTI Remix.</div></div>'
+        + '<div class="glp-body"></div>';
+      document.body.appendChild(panel);
+      render();
+      if (pollIv) clearInterval(pollIv);
+      let last = '';
+      pollIv = setInterval(() => { if (!panel) return; const sig = document.querySelectorAll('a.ssw-helper[data-item]').length + '/' + document.querySelectorAll('img.itemimg').length + '|' + _dtrGalleryViewAll(); if (sig !== last) { last = sig; render(); } }, 700);
+      panel.addEventListener('click', e => {
+        const tg = e.target.closest('[data-nc]');
+        if (tg) { ncOnly = tg.getAttribute('data-nc') === '1'; try { GM_setValue('dtr_gallery_nc_only', ncOnly); } catch (_) {} render(); return; }
+        if (e.target.closest('[data-send]')) { doSend(); return; }
+        if (e.target.closest('[data-hide]')) { dismissed = true; try { if (pollIv) clearInterval(pollIv); } catch (_) {} try { if (panel) panel.remove(); } catch (_) {} panel = null; return; }
+      });
+    };
+    build();
+    let n = 0; const iv = setInterval(() => { build(); if (dismissed || ++n > 30 || document.getElementById('dtr-gallery-panel')) clearInterval(iv); }, 400);
+    document.addEventListener('DOMContentLoaded', build, { once: true });
+  }
+
+  var _dtrPetsBgPending = false;
+
+  function _dtrPetsBgImport(names) {
+    if (location.hostname !== 'impress.openneo.net') return;
+    if (document.getElementById('dtr-petbg-panel')) return;
+    if (!document.getElementById('dtr-petbg-css')) {
+      const st = document.createElement('style'); st.id = 'dtr-petbg-css';
+      st.textContent = [
+        '#dtr-petbg-panel{position:fixed;right:16px;bottom:16px;z-index:2147483647;width:300px;background:#fff;border-radius:16px;box-shadow:0 14px 40px -8px rgba(20,40,40,.35);padding:15px 16px 13px;box-sizing:border-box;font-family:"Nunito",Arial,sans-serif;overflow:hidden;transition:opacity .5s ease;}',
+        '#dtr-petbg-panel::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--dtr-stripe,linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%));}',
+        '.dtr-pbg-h{display:flex;align-items:center;gap:8px;margin:2px 0 5px;}',
+        '.dtr-pbg-title{flex:1;font:800 13.5px "Baloo 2","Nunito",sans-serif;color:#564f60;}',
+        '.dtr-pbg-x{flex:none;border:none;background:#f2efe7;color:#948fa0;width:22px;height:22px;border-radius:50%;cursor:pointer;font:700 11px/1 sans-serif;padding:0;}',
+        '.dtr-pbg-x:hover{background:#eae6db;color:#564f60;}',
+        '.dtr-pbg-status{font:600 11.5px/1.5 "Nunito",sans-serif;color:#948fa0;min-height:17px;}',
+        '.dtr-pbg-bar{height:6px;border-radius:999px;background:#f0ece2;margin:9px 0 2px;overflow:hidden;}',
+        '.dtr-pbg-fill{height:100%;width:0%;border-radius:999px;background:var(--dtr-scroll-a,#5fb3e8);transition:width .25s ease;}',
+        '#dtr-petbg-panel.done .dtr-pbg-fill{background:var(--dtr-primary,#149c8e);}',
+        '#dtr-petbg-panel.done .dtr-pbg-status{color:#564f60;}',
+        '.dtr-pbg-foot{display:none;margin-top:9px;}',
+        '#dtr-petbg-panel.canretry .dtr-pbg-foot{display:block;}',
+        '.dtr-pbg-retry{border:none;border-radius:999px;background:var(--dtr-primary-bg,#dbf5f1);color:var(--dtr-primary,#149c8e);font:800 11px "Nunito",sans-serif;padding:6px 14px;cursor:pointer;}'
+      ].join('');
+      document.head.appendChild(st);
+    }
+    const panel = document.createElement('div'); panel.id = 'dtr-petbg-panel';
+    panel.innerHTML = '<div class="dtr-pbg-h"><span class="dtr-pbg-title">Importing from your pets</span><button class="dtr-pbg-x" type="button" aria-label="Dismiss">✕</button></div>'
+      + '<div class="dtr-pbg-status"></div>'
+      + '<div class="dtr-pbg-bar"><div class="dtr-pbg-fill"></div></div>'
+      + '<div class="dtr-pbg-foot"><button class="dtr-pbg-retry" type="button">Retry failed pets</button></div>';
+    (document.documentElement || document.body).appendChild(panel);
+    const statusEl = panel.querySelector('.dtr-pbg-status'), fillEl = panel.querySelector('.dtr-pbg-fill');
+    const setBar = f => { fillEl.style.width = Math.round(f * 100) + '%'; };
+    let fadeTimer = null, cancelled = false, running = false;
+
+    panel.querySelector('.dtr-pbg-x').addEventListener('click', () => {
+      if (running) {
+        cancelled = true;
+        _dtrPetsBgPending = false;
+        if (location.pathname === '/items' && /[?&]dti_sync=bulk(?:&|$)/.test(location.search) && _dtrImportSrc() === 'pets' && document.querySelector('#dia-bulk-wrap .dib-empty')) {
+          try { const r = document.getElementById('dia-bulk-root'); if (r) r.remove(); diaInitBulkSync(); } catch (_) {}
+        }
+      }
+      panel.remove();
+    });
+    const run = async (list, isRetry) => {
+      panel.classList.remove('done', 'canretry');
+      if (fadeTimer) { clearTimeout(fadeTimer); fadeTimer = null; panel.style.opacity = ''; }
+      running = true;
+      statusEl.textContent = 'Reading your pets… 0/' + list.length;
+      setBar(0.04);
+      const res = await _dtrResolvePetsToItems(list, (d, t) => { statusEl.textContent = 'Reading your pets… ' + d + '/' + t; setBar(0.04 + 0.66 * (d / t)); }, () => cancelled);
+      if (cancelled) { running = false; return; }
+      let addedCount = 0, addedCopies = 0, resolvedCount = 0;
+      if (res.ids.length) {
+        setBar(0.78);
+
+        const nameOf = Object.assign({}, res.namesById);
+        const missing = res.ids.filter(id => !nameOf[id]);
+        if (missing.length) {
+          statusEl.textContent = 'Matching ' + missing.length + ' item' + (missing.length !== 1 ? 's' : '') + ' on DTI…';
+          const byId = await _dtrResolveItemNames(missing);
+          Object.keys(byId).forEach(id => { if (byId[id] && byId[id].name) nameOf[id] = byId[id].name; });
+        }
+        if (cancelled) { running = false; return; }
+
+        const countByName = {};
+        res.ids.forEach(id => { const nm = nameOf[id]; if (nm) countByName[nm] = (countByName[nm] || 0) + (res.countById[id] || 1); });
+        const itemNames = Object.keys(countByName);
+        resolvedCount = itemNames.length;
+        if (itemNames.length) {
+
+          const batch = loadBatch('pets') || {};
+          const added = {};
+          itemNames.forEach(n => {
+            const want = countByName[n];
+            const have = parseInt(batch[n], 10) || 0;
+            const nextQ = isRetry ? have + want : Math.max(have, want);
+            if (nextQ > have) { batch[n] = nextQ; added[n] = nextQ - have; addedCount++; addedCopies += nextQ - have; }
+          });
+          if (addedCount) {
+            saveBatch(batch, 'pets');
+            recordImport(added);
+            try { GM_setValue(BATCH_TS_KEY + _dtrSrcSuffix('pets'), Date.now()); } catch (_) {}
+            diaTouchImport('pets');
+          }
+        }
+      }
+      _dtrPetsBgPending = false;
+      running = false;
+      setBar(1);
+      panel.classList.add('done');
+
+      const onBulkPage = location.pathname === '/items' && /[?&]dti_sync=bulk(?:&|$)/.test(location.search) && _dtrImportSrc() === 'pets';
+      if (onBulkPage && (addedCount || document.querySelector('#dia-bulk-wrap .dib-empty'))) {
+        try { const r = document.getElementById('dia-bulk-root'); if (r) r.remove(); diaInitBulkSync(); } catch (_) {}
+      }
+      const bits = [];
+      if (addedCount) bits.push('✓ Added ' + addedCount + ' item' + (addedCount !== 1 ? 's' : '') + ' from your pets to the import below.');
+      else if (resolvedCount) bits.push('✓ Everything your pets are wearing is already in this import.');
+      else if (!res.failed.length) bits.push('Your pets aren’t wearing any items DTI knows about.');
+      if (res.failed.length) {
+        const shown = res.failed.slice(0, 4).join(', ') + (res.failed.length > 4 ? '…' : '');
+        bits.push('Couldn’t read ' + res.failed.length + ' pet' + (res.failed.length !== 1 ? 's' : '') + ' (' + shown + ').');
+        panel.classList.add('canretry');
+        panel.querySelector('.dtr-pbg-retry').onclick = () => run(res.failed.slice());
+      } else {
+
+        fadeTimer = setTimeout(() => { panel.style.opacity = '0'; setTimeout(() => { try { panel.remove(); } catch (_) {} }, 600); }, 9000);
+      }
+      statusEl.textContent = bits.join(' ');
+    };
+    run(names.map(n => String(n).trim()).filter(Boolean));
+  }
+
   function _dtrPetsQueueHandoff() {
     if (location.hostname !== 'impress.openneo.net') return;
+    if (location.pathname !== '/items' || !/[?&]dti_sync=bulk(?:&|$)/.test(location.search)) return;
+    if (_dtrImportSrc() !== 'pets') return;
     let q = null;
     try { q = JSON.parse(GM_getValue(DTR_PETS_QUEUE_KEY, '') || 'null'); } catch (_) {}
     if (!q || !Array.isArray(q.names) || !q.names.length) return;
     if (Date.now() - (q.ts || 0) > 5 * 60 * 1000) { try { GM_deleteValue(DTR_PETS_QUEUE_KEY); } catch (_) {} return; }
     try { GM_deleteValue(DTR_PETS_QUEUE_KEY); } catch (_) {}
-    const open = () => { try { _dtrPetsImportModal(q.names); } catch (_) {} };
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => setTimeout(open, 400));
-    else setTimeout(open, 400);
+    _dtrPetsBgPending = true;
+    const start = () => { try { _dtrPetsBgImport(q.names); } catch (_) {} };
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => setTimeout(start, 250));
+    else setTimeout(start, 250);
   }
   try { _dtrPetsQueueHandoff(); } catch (_) {}
+
+  function _dtrSdbQueueHandoff() {
+    if (location.hostname !== 'impress.openneo.net') return;
+    if (location.pathname !== '/items' || !/[?&]dti_sync=bulk(?:&|$)/.test(location.search)) return;
+    if (_dtrImportSrc() !== 'sdb') return;
+    let q = null;
+    try { q = JSON.parse(GM_getValue(DTR_SDB_QUEUE_KEY, '') || 'null'); } catch (_) {}
+    if (!q || !Array.isArray(q.items) || !q.items.length) return;
+    if (Date.now() - (q.ts || 0) > 5 * 60 * 1000) { try { GM_deleteValue(DTR_SDB_QUEUE_KEY); } catch (_) {} return; }
+    try { GM_deleteValue(DTR_SDB_QUEUE_KEY); } catch (_) {}
+    const batch = loadBatch('sdb') || {};
+    const added = {};
+    q.items.forEach(it => {
+      const n = ((it && it.name) || '').trim();
+      if (!n) return;
+      const want = parseInt(it.qty, 10) || 1;
+      const have = parseInt(batch[n], 10) || 0;
+      const next = Math.max(have, want);
+      if (next > have) { batch[n] = next; added[n] = next - have; }
+    });
+    if (Object.keys(added).length) {
+      saveBatch(batch, 'sdb');
+      try { recordImport(added); } catch (_) {}
+      try { GM_setValue(BATCH_TS_KEY + _dtrSrcSuffix('sdb'), Date.now()); } catch (_) {}
+      diaTouchImport('sdb');
+    }
+
+    const rebuild = () => {
+      if (!(location.pathname === '/items' && /[?&]dti_sync=bulk(?:&|$)/.test(location.search) && _dtrImportSrc() === 'sdb')) return;
+      const r = document.getElementById('dia-bulk-root');
+      if (r) { try { r.remove(); } catch (_) {} try { diaInitBulkSync(); } catch (_) {} }
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => setTimeout(rebuild, 60));
+    else setTimeout(rebuild, 60);
+  }
+  try { _dtrSdbQueueHandoff(); } catch (_) {}
+
+  function _dtrClosetQueueHandoff() {
+    if (location.hostname !== 'impress.openneo.net') return;
+    if (location.pathname !== '/items' || !/[?&]dti_sync=bulk(?:&|$)/.test(location.search)) return;
+    if (_dtrImportSrc() !== 'closet') return;
+    let q = null;
+    try { q = JSON.parse(GM_getValue(DTR_CLOSET_QUEUE_KEY, '') || 'null'); } catch (_) {}
+    if (!q || !Array.isArray(q.items) || !q.items.length) return;
+    if (Date.now() - (q.ts || 0) > 5 * 60 * 1000) { try { GM_deleteValue(DTR_CLOSET_QUEUE_KEY); } catch (_) {} return; }
+    try { GM_deleteValue(DTR_CLOSET_QUEUE_KEY); } catch (_) {}
+    const batch = loadBatch('closet') || {};
+    const added = {};
+    q.items.forEach(it => {
+      const n = ((it && it.name) || '').trim();
+      if (!n) return;
+      const want = parseInt(it.qty, 10) || 1;
+      const have = parseInt(batch[n], 10) || 0;
+      const next = Math.max(have, want);
+      if (next > have) { batch[n] = next; added[n] = next - have; }
+    });
+    if (Object.keys(added).length) {
+      saveBatch(batch, 'closet');
+      try { recordImport(added); } catch (_) {}
+      try { GM_setValue(BATCH_TS_KEY + _dtrSrcSuffix('closet'), Date.now()); } catch (_) {}
+      diaTouchImport('closet');
+    }
+    const rebuild = () => {
+      if (!(location.pathname === '/items' && /[?&]dti_sync=bulk(?:&|$)/.test(location.search) && _dtrImportSrc() === 'closet')) return;
+      const r = document.getElementById('dia-bulk-root');
+      if (r) { try { r.remove(); } catch (_) {} try { diaInitBulkSync(); } catch (_) {} }
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => setTimeout(rebuild, 60));
+    else setTimeout(rebuild, 60);
+  }
+  try { _dtrClosetQueueHandoff(); } catch (_) {}
+
+  var _dtrGalleryBgPending = false;
+  function _dtrGalleryQueueHandoff() {
+    if (location.hostname !== 'impress.openneo.net') return;
+    if (location.pathname !== '/items' || !/[?&]dti_sync=bulk(?:&|$)/.test(location.search)) return;
+    if (_dtrImportSrc() !== 'gallery') return;
+    let q = null;
+    try { q = JSON.parse(GM_getValue(DTR_GALLERY_QUEUE_KEY, '') || 'null'); } catch (_) {}
+    if (!q || !Array.isArray(q.items) || !q.items.length) return;
+    if (Date.now() - (q.ts || 0) > 5 * 60 * 1000) { try { GM_deleteValue(DTR_GALLERY_QUEUE_KEY); } catch (_) {} return; }
+    try { GM_deleteValue(DTR_GALLERY_QUEUE_KEY); } catch (_) {}
+    const buildBatch = (keep) => {
+      const batch = loadBatch('gallery') || {};
+      const added = {};
+      keep.forEach(it => {
+        const nm = ((it && it.name) || '').trim(); if (!nm) return;
+        const want = parseInt(it.qty, 10) || 1;
+        const have = parseInt(batch[nm], 10) || 0;
+        const next = Math.max(have, want);
+        if (next > have) { batch[nm] = next; added[nm] = next - have; }
+      });
+      if (Object.keys(added).length) {
+        saveBatch(batch, 'gallery');
+        try { recordImport(added); } catch (_) {}
+        try { GM_setValue(BATCH_TS_KEY + _dtrSrcSuffix('gallery'), Date.now()); } catch (_) {}
+        diaTouchImport('gallery');
+      }
+    };
+    const rebuild = () => {
+      if (!(location.pathname === '/items' && /[?&]dti_sync=bulk(?:&|$)/.test(location.search) && _dtrImportSrc() === 'gallery')) return;
+      const r = document.getElementById('dia-bulk-root'); if (r) { try { r.remove(); } catch (_) {} try { diaInitBulkSync(); } catch (_) {} }
+    };
+    if (!q.ncOnly) {
+      buildBatch(q.items);
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => setTimeout(rebuild, 60)); else setTimeout(rebuild, 60);
+      return;
+    }
+
+    _dtrGalleryBgPending = true;
+    const run = async () => {
+      try {
+        const names = q.items.map(i => i.name);
+        const resolved = await diaBulkResolveItems(names, (d, t) => {
+          const e = document.querySelector('#dia-bulk-wrap .dib-empty'); if (e) e.textContent = 'Finding your NC items… ' + d + '/' + t;
+        });
+        buildBatch(q.items.filter(it => { const r = resolved[it.name]; return r && r.nc; }));
+      } catch (_) {}
+      _dtrGalleryBgPending = false;
+      rebuild();
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => setTimeout(run, 80)); else setTimeout(run, 80);
+  }
 
   function diaBulkListKey(side, name) {
     return `${side}:${String(name || '').toLowerCase().trim()}`;
@@ -13331,12 +14144,26 @@
     return out;
   }
 
+  const DTR_RESOLVE_CACHE_KEY = 'dtr_item_resolve_cache';
   async function diaBulkResolveItems(names, onProgress) {
     const result = {};
     const norm = s => String(s || '').toLowerCase().replace(/\s+/g, ' ').trim();
-    let done = 0;
-    const queue = [...names];
 
+    let cache = {};
+    try { cache = JSON.parse(GM_getValue(DTR_RESOLVE_CACHE_KEY, '') || '{}') || {}; } catch (_) { cache = {}; }
+    const toFetch = [];
+    names.forEach(name => {
+      const c = cache[norm(name)];
+      if (c && c.id) result[name] = { id: String(c.id), slug: c.slug || '', thumb: c.thumb || '' };
+      else toFetch.push(name);
+    });
+    const total = toFetch.length;
+    if (!total) return result;
+
+    let done = 0, dirty = false;
+    const queue = [...toFetch];
+
+    const _sleep = ms => new Promise(r => setTimeout(r, ms));
     const worker = async () => {
       while (queue.length) {
         const name = queue.shift();
@@ -13348,21 +14175,36 @@
             const hit = items.find(i => norm(i.name) === norm(name)) ||
                         (items.length === 1 ? items[0] : null);
             if (hit) {
-              result[name] = {
+              const rec = {
                 id: String(hit.id),
                 slug: hit.name ? norm(hit.name).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') : '',
                 thumb: hit.thumbnail_url || hit.thumbnail || '',
+                nc: !!hit['nc?'],
+                pb: !!hit['pb?'],
               };
+              result[name] = rec;
+              cache[norm(name)] = rec; dirty = true;
             }
           }
         } catch (_) {  }
         done++;
-        onProgress && onProgress(done, names.length);
+        onProgress && onProgress(done, total);
+        if (queue.length) await _sleep(8);
       }
     };
 
-    await Promise.all(Array.from({ length: Math.min(6, names.length) }, worker));
+    await Promise.all(Array.from({ length: Math.min(8, total) }, worker));
+    if (dirty) { try { GM_setValue(DTR_RESOLVE_CACHE_KEY, JSON.stringify(cache)); } catch (_) {} }
     return result;
+  }
+
+  function diaBulkResolveCached(names) {
+    const norm = s => String(s || '').toLowerCase().replace(/\s+/g, ' ').trim();
+    let cache = {};
+    try { cache = JSON.parse(GM_getValue(DTR_RESOLVE_CACHE_KEY, '') || '{}') || {}; } catch (_) { cache = {}; }
+    const out = {};
+    (names || []).forEach(n => { const c = cache[norm(n)]; if (c && c.id) out[n] = { id: String(c.id), slug: c.slug || '', thumb: c.thumb || '', nc: !!c.nc, pb: !!c.pb }; });
+    return out;
   }
 
   async function diaBulkSaveItem(slug, item, allListIds, csrf) {
@@ -13417,9 +14259,9 @@
           ${greeting
             ? `<span class="dia-nav-greeting">Hey, <strong>${greeting}</strong> &middot; <span class="dia-pts">${pts} pts</span></span>
                <div class="dia-ql-divider"></div>
-               <a class="dia-ql dia-ql-newcustom" href="/outfits/new" data-dtr-newcustom title="Jump straight into a fresh customization with your Quickstart pet (set it in the ⚙ menu)">+ New Custom</a>
+               <a class="dia-ql dia-ql-newcustom" href="/outfits/new" data-dtr-newcustom title="Jump straight into a fresh customization with your Quickstart pet (set it in the ⚙ menu)"><span class="dia-ql-stack"><span>+ New</span><span>Custom</span></span></a>
                <a class="dia-ql" href="${itemsHref}">Items</a>
-               <button type="button" class="dia-ql dia-ql-psboard" data-ps-board>Pet Styles</button>
+               <button type="button" class="dia-ql dia-ql-psboard" data-ps-board><span class="dia-ql-stack"><span>Pet</span><span>Styles</span></span></button>
                <a class="dia-ql" href="https://impress.openneo.net/your-outfits">Outfits</a>
                <a class="dia-ql" href="/users/edit">Settings</a>
                <div class="dia-ql-divider"></div>
@@ -16176,7 +17018,10 @@
   function _qpStackHTML(layers, size) {
     return (layers || []).slice().sort(function (a, b) { return ((a.zone && a.zone.depth) || 0) - ((b.zone && b.zone.depth) || 0); })
       .map(function (l) {
-        return l.imageUrlV2 ? '<img src="' + l.imageUrlV2 + '" alt="" draggable="false" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:' + (((l.zone && l.zone.depth) || 0) + 1) + '">' : '';
+        if (!l.imageUrlV2) return '';
+
+        var mv = l.canvasMovieLibraryUrl ? ' data-qp-mv="' + l.canvasMovieLibraryUrl + '"' : '';
+        return '<img src="' + l.imageUrlV2 + '" alt="" draggable="false" loading="lazy"' + mv + ' style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:' + (((l.zone && l.zone.depth) || 0) + 1) + '">';
       }).join('');
   }
 
@@ -16236,6 +17081,8 @@
       st.disposers.splice(0).forEach(function (d) { try { d && d(); } catch (_) {} });
       st.ticks.splice(0);
       Array.prototype.slice.call(stage.querySelectorAll('canvas')).forEach(function (c) { c.remove(); });
+
+      Array.prototype.slice.call(stage.querySelectorAll('img[data-qp-mv]')).forEach(function (im) { im.style.visibility = ''; });
     }
     function syncAnimUI() {
       animTog.classList.toggle('on', st.animated);
@@ -16260,6 +17107,8 @@
               stage.appendChild(cv);
               return CORE.mountMovieLayer(cw, cv, l.canvasMovieLibraryUrl, st.ticks).then(function (dispose) {
                 if (gen !== st.gen) { try { dispose && dispose(); } catch (_) {} cv.remove(); return; }
+
+                try { Array.prototype.slice.call(stage.querySelectorAll('img[data-qp-mv="' + l.canvasMovieLibraryUrl + '"]')).forEach(function (im) { im.style.visibility = 'hidden'; }); } catch (_) {}
                 if (dispose) st.disposers.push(dispose);
               }).catch(function (err) { cv.remove();  });
             }).catch(function (err) {  });
@@ -17960,6 +18809,14 @@
       /* CENTERED (header pass): zero top padding — the nav's own 8px margin is the only top offset */
       #dia-bulk-wrap{max-width:1040px;margin:0 auto;padding:0 18px 70px;}
       #dib-list{display:flex;flex-direction:column;align-items:center;}
+      .dib-pager{display:flex;align-items:center;justify-content:center;gap:14px;padding:12px 0;flex-wrap:wrap;}
+      .dib-pager:empty{display:none;}
+      .dib-pg-btn{border:none;border-radius:11px;padding:9px 18px;font:800 12.5px "Nunito",sans-serif;color:#fff;background:var(--dtr-primary,#149c8e);cursor:pointer;box-shadow:0 2px 8px rgba(20,156,142,.22);}
+      .dib-pg-btn:disabled{background:#cfd4d8;box-shadow:none;cursor:default;}
+      .dib-pg-info{font:800 12px "Nunito",sans-serif;color:#8a8a95;letter-spacing:.01em;}
+      .dib-act-pagenote{margin-top:5px;font:700 11px "Nunito",sans-serif;color:#8a8a95;}
+      .dib-act-pagenote strong{color:var(--dtr-primary,#149c8e);}
+      .dib-act-badge.done{background:#dff3ec !important;color:#178a70 !important;}
       #dib-top{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:0;width:fit-content;max-width:100%;margin:0 auto 14px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);}
       #dib-gridbox:empty{display:none;}
       #dib-bar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:11px 15px;}
@@ -19117,6 +19974,7 @@
 
     const root = document.createElement('div');
     root.id = 'dia-bulk-root';
+    root.dataset.dtrSrc = _dtrImportSrc();
     root.innerHTML = `<div id="dia-bulk-wrap"><div class="dib-empty">Loading your imported items…</div></div>`;
     document.documentElement.appendChild(root);
     const wrap = root.querySelector('#dia-bulk-wrap');
@@ -19157,23 +20015,37 @@
         + '</div>';
       return;
     }
+
+    const _dibSrc = _dtrImportSrc();
+    const _dibSrcLabel = _dibSrc === 'pets' ? 'Pets' : _dibSrc === 'sdb' ? 'SDB' : _dibSrc === 'closet' ? 'Closet' : _dibSrc === 'gallery' ? 'Gallery' : 'Inventory';
     const batch = loadBatch() || {};
     const names = Object.keys(batch);
     if (!names.length) {
-      wrap.innerHTML = `<div class="dib-empty">No imported items found.<br>Run Quick Export from your Neopets inventory first.</div>`;
+
+      wrap.innerHTML = _dtrPetsBgPending
+        ? `<div class="dib-empty">Reading what your pets are wearing…<br>Their items will appear here in a moment.</div>`
+        : _dtrGalleryBgPending
+        ? `<div class="dib-empty">Finding your NC items…<br>They’ll appear here in a moment.</div>`
+        : (_dibSrc === 'pets'
+          ? `<div class="dib-empty">No pets import in progress.<br>Use the “Import pets → DTI” tab at the NeoLodge to start one.</div>`
+          : _dibSrc === 'sdb'
+          ? `<div class="dib-empty">No SDB import in progress.<br>Use the “SDB → DTI Sync” panel on your Neopets SDB to start one.</div>`
+          : _dibSrc === 'closet'
+          ? `<div class="dib-empty">No Closet import in progress.<br>Use the “Closet → DTI Sync” panel on your Neopets closet to start one.</div>`
+          : _dibSrc === 'gallery'
+          ? `<div class="dib-empty">No Gallery import in progress.<br>Use the “Gallery → DTI Sync” panel on your Neopets gallery to start one.</div>`
+          : `<div class="dib-empty">No imported items found.<br>Run Quick Export from your Neopets inventory first.</div>`);
       return;
     }
 
     const slug = diaBulkUserSlug();
 
-    const [closet, resolved, lebron] = await Promise.all([
+    const [closet, lebron] = await Promise.all([
       diaBulkLoadCloset(slug).catch(() => ({ listMeta: {}, itemQty: {}, csrf: null, allListIds: [] })),
-      diaBulkResolveItems(names, (d, t) => {
-        const e = wrap.querySelector('.dib-empty');
-        if (e) e.textContent = `Looking up items on DTI… ${d}/${t}`;
-      }).catch(() => ({})),
       fetch('https://lebron-values.netlify.app/item_values.json').then(r => r.ok ? r.json() : null).catch(() => null),
     ]);
+
+    const resolved = diaBulkResolveCached(names);
 
     let allOwnIds  = Object.entries(closet.listMeta).filter(([, m]) => !m.wanted).map(([id]) => id);
     let allWantIds = Object.entries(closet.listMeta).filter(([, m]) =>  m.wanted).map(([id]) => id);
@@ -19220,7 +20092,7 @@
     const BOARD_MIN_W = 4;
     const BOARD_MAX_W = 16;
     const applyGrid = () => { root.style.setProperty('--u', U + 'px'); };
-    const importedTs = (() => { try { return GM_getValue(BATCH_TS_KEY, null); } catch (_) { return null; } })();
+    const importedTs = (() => { try { return GM_getValue(BATCH_TS_KEY + _dtrSrcSuffix(), null); } catch (_) { return null; } })();
     const importedLabel = importedTs ? dibFmtDT(importedTs) : null;
 
     const model = names.map(name => {
@@ -19238,12 +20110,24 @@
         current, alloc, origOwned,
         baseline: { ...current },
         resolved: !!id,
+        pending: !id,
         added: {},
         sub: { own: 0, wish: 0 },
         expanded: true,
         save: 'idle',
       };
     });
+
+    const _hydrate = (it, meta) => {
+      it.id = String(meta.id); it.slug = meta.slug || ''; it.thumb = meta.thumb || '';
+      const cur = (it.id && closet.itemQty[it.id]) ? { ...closet.itemQty[it.id] } : {};
+
+      const touched = Object.values(it.alloc || {}).some(v => (parseInt(v, 10) || 0) > 0);
+      it.current = cur; it.baseline = { ...cur };
+      if (!touched) it.alloc = { ...cur };
+      it.origOwned = allOwnIds.reduce((sm, lid) => sm + (cur[lid] || 0), 0);
+      it.resolved = true; it.pending = false;
+    };
 
     const haulId = (() => { try { return String(GM_getValue(dtrQaKey('dtr_qa_list_id'), '') || ''); } catch (_) { return ''; } })();
     const isHaul = lid => !!haulId && String(lid) === haulId;
@@ -19309,7 +20193,9 @@
         <div id="dib-gridbox"></div>
       </div>
       <div id="dib-empty-done" class="dib-empty" style="display:none;"></div>
+      <div id="dib-pager-top" class="dib-pager"></div>
       <div id="dib-list"></div>
+      <div id="dib-pager-bot" class="dib-pager"></div>
       <div id="dib-unresolved-foot" style="display:none;"></div>`;
     const topEl = wrap.querySelector('#dib-top');
     const barEl = wrap.querySelector('#dib-bar');
@@ -19323,6 +20209,69 @@
       listEl.appendChild(d);
       return d;
     });
+
+    const pagerTop = wrap.querySelector('#dib-pager-top');
+    const pagerBot = wrap.querySelector('#dib-pager-bot');
+    const DIB_PAGE = 60;
+    let dibPage = 0;
+    const dibPageCount = () => Math.max(1, Math.ceil(model.length / DIB_PAGE));
+    const dibPageOf = (i) => Math.floor(i / DIB_PAGE);
+
+    const currentScope = () => {
+      if (selected.size) return [...selected];
+      const s = dibPage * DIB_PAGE, e = Math.min(model.length, s + DIB_PAGE), a = [];
+      for (let i = s; i < e; i++) a.push(i);
+      return a;
+    };
+    let _nextUnsortedPage = -1;
+    function renderPager() {
+      if (!pagerTop) return;
+      const pc = dibPageCount();
+      if (pc <= 1) { pagerTop.innerHTML = ''; pagerBot.innerHTML = ''; return; }
+      if (dibPage >= pc) dibPage = pc - 1;
+      const s = dibPage * DIB_PAGE, e = Math.min(model.length, s + DIB_PAGE);
+      const html = '<button class="dib-pg-btn" data-pg="prev"' + (dibPage <= 0 ? ' disabled' : '') + '>‹ Prev</button>'
+        + '<span class="dib-pg-info">' + (s + 1) + '–' + e + ' of ' + model.length + '  ·  page ' + (dibPage + 1) + ' / ' + pc + '</span>'
+        + '<button class="dib-pg-btn" data-pg="next"' + (dibPage >= pc - 1 ? ' disabled' : '') + '>Next ›</button>';
+      pagerTop.innerHTML = html; pagerBot.innerHTML = html;
+    }
+    function gotoPage(p, scrollTop) {
+      const np = Math.max(0, Math.min(dibPageCount() - 1, p));
+      if (np === dibPage) return;
+      dibPage = np; renderAll(); resolvePage();
+      if (scrollTop !== false) { try { (pagerTop || listEl).scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (_) {} }
+    }
+
+    function dibEnsurePage(i) { const p = dibPageOf(i); if (p === dibPage) return false; dibPage = p; renderAll(); resolvePage(); return true; }
+    [pagerTop, pagerBot].forEach(pg => pg && pg.addEventListener('click', e => {
+      const b = e.target.closest('[data-pg]'); if (!b) return;
+      gotoPage(b.getAttribute('data-pg') === 'prev' ? dibPage - 1 : dibPage + 1);
+    }));
+
+    async function resolvePage() {
+      const s = dibPage * DIB_PAGE, e = Math.min(model.length, s + DIB_PAGE);
+      const pend = [];
+      for (let i = s; i < e; i++) if (!model[i].resolved) pend.push(model[i].name);
+      if (!pend.length) return;
+      let got = {};
+      try { got = (await diaBulkResolveItems(pend)) || {}; } catch (_) { got = {}; }
+      const ns = dibPage * DIB_PAGE, ne = Math.min(model.length, ns + DIB_PAGE);
+      const newIds = [];
+      for (let i = 0; i < model.length; i++) {
+        const it = model[i];
+        if (it.resolved) continue;
+        if (got[it.name]) {
+          _hydrate(it, got[it.name]); newIds.push(it.id);
+          if (i >= ns && i < ne) renderItem(i);
+        } else if (pend.indexOf(it.name) > -1) {
+          it.pending = false;
+          if (i >= ns && i < ne) renderItem(i);
+        }
+      }
+      renderBar();
+      try { syncDoneState(); } catch (_) {}
+      if (newIds.length) { try { _dibFetchZones(newIds); } catch (_) {} }
+    }
 
     const hiddenCount = () => {
       const hidden = readJSON(HIDDEN_KEY, {});
@@ -19356,15 +20305,27 @@
         ? `<span class="dib-chip ${showHidden ? 'on' : ''}" data-act="showhidden">${showHidden ? `Hide ${hc} hidden list${hc !== 1 ? 's' : ''}` : `Display ${hc} hidden list${hc !== 1 ? 's' : ''}`}</span>`
         : '';
       barEl.innerHTML = `
-        <span class="dib-kbtitle"><span class="dib-kbname">Inventory → DTI Sync<i class="dib-syncdot"></i></span><span class="dib-kbtag"></span></span>
+        <span class="dib-kbtitle"><span class="dib-kbname">${_dibSrcLabel} → DTI Sync<i class="dib-syncdot"></i></span><span class="dib-kbtag"></span></span>
         ${left}
       `;
       gridboxEl.innerHTML = '';
 
       const selCount = selected.size;
-      const scopeIdx = selCount ? [...selected] : model.map((_, i) => i);
+      const scopeIdx = currentScope();
       const scopeCopies = scopeIdx.reduce((s, i) => s + Math.max(0, toPlace(model[i])), 0);
-      if (selCount > 0 || unallocItems > 0) {
+      const _pc = dibPageCount();
+      const _otherUnplaced = Math.max(0, totalUnplaced - scopeCopies);
+
+      _nextUnsortedPage = -1;
+      if (_otherUnplaced > 0 && _pc > 1) {
+        for (let k = 1; k <= _pc; k++) {
+          const p = (dibPage + k) % _pc, s2 = p * DIB_PAGE, e2 = Math.min(model.length, s2 + DIB_PAGE);
+          let has = false;
+          for (let i = s2; i < e2; i++) { const it = model[i]; if (!it.ignored && !it.leaveRest && toPlace(it) > 0) { has = true; break; } }
+          if (has) { _nextUnsortedPage = p; break; }
+        }
+      }
+      if (selCount > 0 || scopeCopies > 0) {
         const pendId = findPendingId();
         const allOwn = diaBulkAllLists(closet.listMeta).own;
         const pendVisible = pendId && allOwn.some(l => l.listId === pendId);
@@ -19382,14 +20343,29 @@
 
         const msg = selCount
           ? `Place <strong>only</strong> the <strong>${selCount}</strong> selected item${selCount !== 1 ? 's' : ''}’ unsorted cop${scopeCopies !== 1 ? 'ies' : 'y'} (<strong>${scopeCopies}</strong>) into:`
-          : `Place <strong>ALL</strong> unsorted copies (<strong>${totalUnplaced}</strong>) into:`;
+          : (_pc > 1
+              ? `Place <strong>this page’s</strong> unsorted copies (<strong>${scopeCopies}</strong>) into:`
+              : `Place <strong>ALL</strong> unsorted copies (<strong>${scopeCopies}</strong>) into:`);
+        const pageNote = (!selCount && _pc > 1)
+          ? `<div class="dib-act-pagenote">Page <strong>${dibPage + 1}</strong> of <strong>${_pc}</strong> — sorted one page at a time${_otherUnplaced > 0 ? `; <strong>${_otherUnplaced}</strong> more cop${_otherUnplaced !== 1 ? 'ies' : 'y'} wait on other pages.` : ` (last page with items).`}</div>`
+          : '';
         actionEl.style.display = '';
         topEl && topEl.classList.add('has-action');
         actionEl.innerHTML = `
           <div class="dib-act-msg"><span class="dib-act-badge">Unsorted copies found!</span>${msg}${selCount ? ` <span class="dib-act-clear" data-act="clearsel">clear selection</span>` : ''}</div>
+          ${pageNote}
           <div class="dib-act-ctl">
             <select class="dib-balloc-sel" data-act="balloc-sel">${pendOpt}${ownOpts}</select>
             <button class="dib-balloc-go" type="button" data-act="balloc-go"${scopeCopies ? '' : ' disabled'}>Place &amp; Review</button>
+          </div>`;
+      } else if (!selCount && _nextUnsortedPage > -1) {
+
+        actionEl.style.display = '';
+        topEl && topEl.classList.add('has-action');
+        actionEl.innerHTML = `
+          <div class="dib-act-msg"><span class="dib-act-badge done">This page is sorted ✓</span> <strong>${_otherUnplaced}</strong> cop${_otherUnplaced !== 1 ? 'ies' : 'y'} on other pages still need placing — keep going page by page.</div>
+          <div class="dib-act-ctl">
+            <button class="dib-balloc-go" type="button" data-act="nextunsorted">Go to next unsorted page →</button>
           </div>`;
       } else {
         actionEl.style.display = 'none';
@@ -19715,6 +20691,8 @@
 
     const renderItem = (i) => {
       const it = model[i];
+
+      if (i < dibPage * DIB_PAGE || i >= dibPage * DIB_PAGE + DIB_PAGE) { itemEls[i].style.display = 'none'; itemEls[i].innerHTML = ''; return; }
       if (it.ignored) {
         itemEls[i].style.display = '';
         itemEls[i].innerHTML = `
@@ -19838,14 +20816,14 @@
         }
       }
 
-      const nf = it.resolved ? '' : ` <span style="color:#c0392b;font:600 11px Inter;">(not found on DTI)</span>`;
+      const nf = it.resolved ? '' : (it.pending ? ` <span style="color:#8a8a95;font:600 11px Inter;">(looking up…)</span>` : ` <span style="color:#c0392b;font:600 11px Inter;">(not found on DTI)</span>`);
       itemEls[i].innerHTML = `
         <div class="${cardCls}${selected.has(i) ? ' sel' : ''}">
           <div class="dib-head" data-act="toggle">
             <div class="dib-selbox ${selected.has(i) ? 'on' : ''}" data-act="select" role="checkbox" aria-checked="${selected.has(i)}"></div>
             <div class="dib-thumbwrap"><div class="dib-thumb${it.id ? ' dib-thumb-try' : ''}${_dibTryOnIdx === i && it.id ? ' dtr-previewing' : ''}" style="${thumb}"${it.id ? ' data-act="tryon" title="Preview this item on a pet — replaces the previous preview"' : ''}>${badge}</div>${lebHtml}${(it.resolved && it.id) ? `<div class="dib-trades-col">${_dibTradeChipInner(it.id)}</div>` : ''}</div>
             <div class="dib-hmain"><div class="dib-name"><span class="dib-nmtxt">${diaBulkEsc(it.name)}${nf}</span></div>${(it.resolved && it.id) ? `<div class="dib-zoneline">${_dibZoneChipInner(it.id)}</div>` : ''}${statusHtml}</div>
-            <div class="dib-hright">${it.expanded ? '<span class="dib-synced-corner">Synced from inventory</span>' : ignoreBtn}${rightHtml}</div>
+            <div class="dib-hright">${it.expanded ? `<span class="dib-synced-corner">Synced from ${_dibSrcLabel.toLowerCase()}</span>` : ignoreBtn}${rightHtml}</div>
           </div>
           ${bodyHtml}
         </div>`;
@@ -19879,6 +20857,7 @@
       const nxt = idxs.find(i => i > _dibAttnCursor);
       const i = (nxt != null) ? nxt : idxs[0];
       _dibAttnCursor = i;
+      dibEnsurePage(i);
       dibActiveItem = String(i); dibApplyEditingGlow();
       if (!model[i].expanded) expandItem(i);
       itemEls[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -19980,7 +20959,10 @@
         const d = _dibDock();
         d.style.display = '';
         _dibPlaceDock(d);
-        _dibMountQp(d, null, '');
+        if (_dibTryOnIdx != null) return;
+        const ai = parseInt(dibActiveItem, 10);
+        if (!isNaN(ai) && model[ai] && model[ai].id) dibTryOn(ai, true);
+        else _dibMountQp(d, null, '');
       } catch (_) {}
     }, 60);
     const syncDoneState = () => {
@@ -20024,7 +21006,12 @@
       try { wrap.querySelectorAll('#dib-list .dib-wflyout.open').forEach(fly => { const it = fly.closest('.dib-item'); if (it) _dibCapTray(it); }); } catch (_) {}
     };
     const renderAll = () => {
-      model.forEach((_, i) => renderItem(i));
+      const _ps = dibPage * DIB_PAGE, _pe = Math.min(model.length, _ps + DIB_PAGE);
+      model.forEach((_, i) => {
+        if (i >= _ps && i < _pe) renderItem(i);
+        else { itemEls[i].style.display = 'none'; itemEls[i].innerHTML = ''; }
+      });
+      renderPager();
       renderBar();
       syncCardWidths();
       capOpenTrays();
@@ -20205,9 +21192,10 @@
       return id;
     };
 
-    const unallocatedPlan = () => model
-      .map((it, i) => ({ i, copies: toPlace(it) }))
-      .filter(p => p.copies > 0 && (!selected.size || selected.has(p.i)));
+    const unallocatedPlan = () => {
+      const sc = new Set(currentScope());
+      return model.map((it, i) => ({ i, copies: toPlace(it) })).filter(p => p.copies > 0 && sc.has(p.i));
+    };
 
     let modalBusy = false;
     const closeSendModal = () => {
@@ -20215,8 +21203,19 @@
       document.getElementById('dib-modal-back')?.remove();
     };
 
-    const openSendModal = (target) => {
+    const openSendModal = async (target) => {
       if (document.getElementById('dib-modal-back')) return;
+
+      const _scope = currentScope();
+      const _unres = _scope.map(i => model[i]).filter(it => !it.resolved).map(it => it.name);
+      if (_unres.length) {
+        dibShowToast('Looking up ' + _unres.length + ' item' + (_unres.length !== 1 ? 's' : '') + ' on DTI…');
+        let _got = {};
+        try { _got = (await diaBulkResolveItems(_unres)) || {}; } catch (_) {}
+        model.forEach(it => { if (!it.resolved && _got[it.name]) _hydrate(it, _got[it.name]); });
+        renderAll();
+        if (document.getElementById('dib-modal-back')) return;
+      }
       const plan = unallocatedPlan();
       if (!plan.length) return;
       const totalCopies = plan.reduce((s, p) => s + p.copies, 0);
@@ -20584,8 +21583,8 @@
       let nx = cur, found = false;
       for (let step = 0; step < n; step++) {
         nx += dir; if (nx < 0) nx = n - 1; if (nx >= n) nx = 0;
-        const el = itemEls[nx];
-        if (nx !== cur && el && el.style.display !== 'none' && !model[nx].ignored
+
+        if (nx !== cur && !model[nx].ignored
             && (!anyAttn || needsAttention(model[nx]))) { found = true; break; }
       }
       if (!found) return;
@@ -20594,6 +21593,7 @@
       collapseItem(cur);
       dibActiveItem = String(nx);
       _dibAttnCursor = nx;
+      dibEnsurePage(nx);
       if (!model[nx].expanded) expandItem(nx);
       dibApplyEditingGlow();
       itemEls[nx].scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -20625,6 +21625,8 @@
       if (a.dataset.act === 'balloc-go') {
         const sel = actionEl.querySelector('.dib-balloc-sel');
         openSendModal(sel ? sel.value : '__PENDING__');
+      } else if (a.dataset.act === 'nextunsorted') {
+        if (_nextUnsortedPage > -1) gotoPage(_nextUnsortedPage);
       } else if (a.dataset.act === 'clearsel') {
         selected.clear(); renderAll();
       }
@@ -20632,8 +21634,9 @@
 
     applyGrid();
     renderAll();
+    resolvePage();
 
-    try { _dibFetchZones(model.map(it => it.id)); } catch (_) {}
+    try { _dibFetchZones(model.map(it => it.id).filter(Boolean)); } catch (_) {}
   }
 
   function isActiveDTISyncTab() {
@@ -22637,6 +23640,16 @@
         .dia-imp-cancel:hover{border-color:#cfc8bb}
         .dia-imp-clear-go{flex:1;height:28px;background:#5fb3e8;border:none;border-radius:7px;color:#fff;font:500 11px Inter,sans-serif;cursor:pointer;transition:opacity .15s}
         .dia-imp-clear-go:hover{opacity:.85}
+        /* Kill DTI's native GREEN button:hover/:focus/:active state on the import tiles — its
+           "#container button:hover" out-specifies a bare class, so pin via the #dia-hp-right-panel id
+           (beats it) + appearance:none. */
+        #dia-hp-right-panel .dia-imp-resume,#dia-hp-right-panel .dia-imp-clear,#dia-hp-right-panel .dia-imp-cancel,#dia-hp-right-panel .dia-imp-clear-go,#dia-hp-right-panel .dia-imp-pets{appearance:none!important;-webkit-appearance:none!important}
+        #dia-hp-right-panel .dia-imp-resume,#dia-hp-right-panel .dia-imp-clear-go{background:#5fb3e8!important;color:#fff!important;border:none!important}
+        #dia-hp-right-panel .dia-imp-resume:hover,#dia-hp-right-panel .dia-imp-resume:focus,#dia-hp-right-panel .dia-imp-resume:active,#dia-hp-right-panel .dia-imp-clear-go:hover,#dia-hp-right-panel .dia-imp-clear-go:focus,#dia-hp-right-panel .dia-imp-clear-go:active{background:#3d97d4!important;color:#fff!important;opacity:1!important}
+        #dia-hp-right-panel .dia-imp-clear{background:#fafaf7!important;color:#b3a896!important}
+        #dia-hp-right-panel .dia-imp-clear:hover,#dia-hp-right-panel .dia-imp-clear:focus{background:#fafaf7!important;border-color:#d8b0a4!important;color:#c0654b!important}
+        #dia-hp-right-panel .dia-imp-cancel{background:#fafaf7!important;color:#777!important}
+        #dia-hp-right-panel .dia-imp-cancel:hover,#dia-hp-right-panel .dia-imp-cancel:focus{background:#fafaf7!important;border-color:#cfc8bb!important;color:#777!important}
         /* Item typeahead dropdown */
         .dia-feat-ta{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:40;background:#fff;border:1px solid #d8e0d2;border-radius:9px;box-shadow:0 8px 24px rgba(40,60,40,.14);overflow:hidden;display:none}
         .dia-feat-ta.show{display:block}
@@ -22853,14 +23866,13 @@
           <div id="dia-hp-right-panel">
             <div class="dia-rp-inner">
             <div class="dia-rp-tabs">
-              <button type="button" class="dia-rp-tab${diaImportState()?'':' on'}" data-rp-tab="customs">Customs</button>
-              <button type="button" class="dia-rp-tab${diaImportState()?' on':''}" data-rp-tab="imports">Imports</button>
+              <button type="button" class="dia-rp-tab${(diaImportState()||diaImportState('pets')||diaImportState('sdb')||diaImportState('closet')||diaImportState('gallery'))?'':' on'}" data-rp-tab="customs">Customs</button>
+              <button type="button" class="dia-rp-tab${(diaImportState()||diaImportState('pets')||diaImportState('sdb')||diaImportState('closet')||diaImportState('gallery'))?' on':''}" data-rp-tab="imports">Imports</button>
               <button type="button" class="dia-rp-tab" data-rp-tab="news">What’s New</button>
             </div>
-            <div class="dia-rp-pane${diaImportState()?'':' on'}" data-rp-pane="customs"><div class="dia-rp-loading">Loading your recent customs…</div></div>
-            <div class="dia-rp-pane${diaImportState()?' on':''}" data-rp-pane="imports">
+            <div class="dia-rp-pane${(diaImportState()||diaImportState('pets')||diaImportState('sdb')||diaImportState('closet')||diaImportState('gallery'))?'':' on'}" data-rp-pane="customs"><div class="dia-rp-loading">Loading your recent customs…</div></div>
+            <div class="dia-rp-pane${(diaImportState()||diaImportState('pets')||diaImportState('sdb')||diaImportState('closet')||diaImportState('gallery'))?' on':''}" data-rp-pane="imports">
               <div id="dia-hp-import-feat" class="dia-import-feat"></div>
-              <div class="dia-rp-note">Gallery, SDB and Closet imports are on the way — each will track here as its own tile so no single import gets overwhelming.</div>
             </div>
             <div class="dia-rp-pane" data-rp-pane="news"></div>
             </div>
@@ -23656,21 +24668,36 @@
         const dy = Math.floor(h / 24); return dy + ' day' + (dy !== 1 ? 's' : '') + ' ago';
       };
       const featEl = document.getElementById('dia-hp-import-feat');
+      let _impClearSrc = '';
       const renderImportFeat = () => {
         if (!featEl) return;
-        const st = diaImportState();
-        if (st) {
-          featEl.innerHTML = `
-            <div class="dia-imp-head"><span class="dia-imp-dot live"></span><p class="dia-imp-title">1 unfinished import</p></div>
+
+        const inv = diaImportState();
+        const pets = diaImportState('pets');
+        const sdb = diaImportState('sdb');
+        const clo = diaImportState('closet');
+        const gal = diaImportState('gallery');
+        const TRASH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>';
+        const tile = (st, label, sfx) => `
+            <div class="dia-imp-head"><span class="dia-imp-dot live"></span><p class="dia-imp-title">${label}</p></div>
             <div class="dia-imp-count"><span class="dia-imp-count-n">${st.count}</span> item${st.count !== 1 ? 's' : ''} to sort</div>
             <div class="dia-imp-stats">
               <div class="dia-imp-stat"><span class="dia-imp-stat-k">Started</span><span class="dia-imp-stat-v">${_fmtWhen(st.savedAt)}</span></div>
               <div class="dia-imp-stat"><span class="dia-imp-stat-k">Updated</span><span class="dia-imp-stat-v">${_fmtAgo(st.lastUpdated)}</span></div>
             </div>
             <div class="dia-imp-ctrl">
-              <button class="dia-imp-resume" id="dia-hp-imp-resume" type="button">Resume import</button>
-              <button class="dia-imp-clear" id="dia-hp-imp-clear" type="button" aria-label="Clear import" title="Clear import"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6M14 11v6"></path><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg></button>
+              <button class="dia-imp-resume" id="dia-hp-imp-resume${sfx}" type="button">Resume import</button>
+              <button class="dia-imp-clear" id="dia-hp-imp-clear${sfx}" type="button" aria-label="Clear import" title="Clear import">${TRASH}</button>
             </div>`;
+        if (inv || pets || sdb || clo || gal) {
+          const _multi = [inv, pets, sdb, clo, gal].filter(Boolean).length > 1;
+          const parts = [];
+          if (inv) parts.push(tile(inv, _multi ? 'Inventory import' : '1 unfinished import', ''));
+          if (pets) parts.push(tile(pets, 'Pets import', '-pets'));
+          if (sdb) parts.push(tile(sdb, 'SDB import', '-sdb'));
+          if (clo) parts.push(tile(clo, 'Closet import', '-closet'));
+          if (gal) parts.push(tile(gal, 'Gallery import', '-gallery'));
+          featEl.innerHTML = parts.join('<div style="border-top:1px dashed var(--line,#efe7da);margin:12px 0"></div>');
         } else {
           featEl.innerHTML = `
             <div class="dia-imp-head"><span class="dia-imp-dot"></span><p class="dia-imp-title">No imports in progress</p></div>
@@ -23680,10 +24707,11 @@
             </div>`;
         }
       };
-      const renderImportConfirm = () => {
+      const renderImportConfirm = (src) => {
         if (!featEl) return;
+        _impClearSrc = src || '';
         featEl.innerHTML = `
-            <div class="dia-imp-head"><span class="dia-imp-dot live"></span><p class="dia-imp-title">Clear this import?</p></div>
+            <div class="dia-imp-head"><span class="dia-imp-dot live"></span><p class="dia-imp-title">Clear this ${_impClearSrc === 'pets' ? 'pets ' : _impClearSrc === 'sdb' ? 'SDB ' : _impClearSrc === 'closet' ? 'Closet ' : _impClearSrc === 'gallery' ? 'Gallery ' : ''}import?</p></div>
             <p class="dia-imp-meta">Your synced items and sorting progress will be removed.<br>Your actual DTI lists aren’t touched.</p>
             <div class="dia-imp-ctrl">
               <button class="dia-imp-cancel" id="dia-hp-imp-cancel" type="button">Cancel</button>
@@ -23692,16 +24720,32 @@
       };
       renderImportFeat();
       featEl?.addEventListener('click', e => {
-        if (e.target.closest('#dia-hp-imp-resume')) {
+        if (e.target.closest('#dia-hp-imp-resume-pets')) {
+          window.dtrNav('/items?dti_sync=bulk&src=pets');
+        } else if (e.target.closest('#dia-hp-imp-resume-sdb')) {
+          window.dtrNav('/items?dti_sync=bulk&src=sdb');
+        } else if (e.target.closest('#dia-hp-imp-resume-closet')) {
+          window.dtrNav('/items?dti_sync=bulk&src=closet');
+        } else if (e.target.closest('#dia-hp-imp-resume-gallery')) {
+          window.dtrNav('/items?dti_sync=bulk&src=gallery');
+        } else if (e.target.closest('#dia-hp-imp-resume')) {
           window.dtrNav('/items?dti_sync=bulk');
         } else if (e.target.closest('#dia-hp-imp-import')) {
           window.open('https://www.neopets.com/inventory.phtml', '_blank');
+        } else if (e.target.closest('#dia-hp-imp-clear-pets')) {
+          renderImportConfirm('pets');
+        } else if (e.target.closest('#dia-hp-imp-clear-sdb')) {
+          renderImportConfirm('sdb');
+        } else if (e.target.closest('#dia-hp-imp-clear-closet')) {
+          renderImportConfirm('closet');
+        } else if (e.target.closest('#dia-hp-imp-clear-gallery')) {
+          renderImportConfirm('gallery');
         } else if (e.target.closest('#dia-hp-imp-clear')) {
-          renderImportConfirm();
+          renderImportConfirm('');
         } else if (e.target.closest('#dia-hp-imp-cancel')) {
           renderImportFeat();
         } else if (e.target.closest('#dia-hp-imp-confirm')) {
-          diaClearImport();
+          diaClearImport(_impClearSrc);
           renderImportFeat();
         } else if (e.target.closest('#dia-hp-imp-pets')) {
           try { window._dtrPetsImportModal && window._dtrPetsImportModal(); } catch (_) {}
@@ -42875,7 +43919,7 @@ if (!tradeLinks.length) {
 
       const oLock = !!oeActiveVar(s).locked;
 
-      const _zmOnNow = s.zoneMapDocked !== true;
+      const _zmOnNow = s.zoneMapDocked !== true && (s.pinnedZones || []).length > 0;
       const cr = s.frameShape === 'square' ? '4px' : (s.frameShape === 'circle' && !_zmOnNow) ? '50%' : '16px';
 
       function fsBtn(active) {
@@ -43073,8 +44117,10 @@ if (!tradeLinks.length) {
 
         +(function(){
           const _lbl = t => '<span style="font:800 8.5px Nunito,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#b0b0a6;padding-left:3px">'+t+'</span>';
-          const _selCss = 'appearance:none;-webkit-appearance:none;width:100%;box-sizing:border-box;padding:11px 24px 11px 12px;border:none;outline:none;background:#f4f1e8;border-radius:12px;font:700 13px Nunito,sans-serif;color:#4a4a45;cursor:pointer';
-          const _chev = '<span style="position:absolute;right:11px;top:50%;transform:translateY(-50%);color:#a6a69e;pointer-events:none;font-size:11px">▾</span>';
+
+          const _selCss = 'appearance:none;-webkit-appearance:none;width:100%;box-sizing:border-box;padding:11px 24px 11px 12px;border:none;outline:none;background:#f4f1e8!important;border-radius:12px;font:700 13px Nunito,sans-serif;color:#4a4a45;cursor:pointer';
+
+          const _chev = '<span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--dtr-primary,#149c8e);pointer-events:none;display:flex"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>';
 
           return '<div style="display:flex;flex-wrap:wrap;gap:8px;margin:16px auto 0;width:100%;max-width:680px;align-items:flex-end;justify-content:center">'
             +'<div style="display:flex;flex-direction:column;gap:5px;width:100px;flex:none">'+_lbl('Color')
@@ -43084,7 +44130,7 @@ if (!tradeLinks.length) {
             +(s.altStyleId ? '' :
               '<div style="display:flex;flex-direction:column;gap:5px;width:118px;flex:none">'+_lbl('Mood')
               +'<div style="position:relative"><button data-pose-toggle title="" style="display:inline-flex;align-items:center;justify-content:space-between;gap:5px;width:100%;box-sizing:border-box;padding:11px 12px;border-radius:12px;border:none;background:#f4f1e8;cursor:pointer;font:700 12px Nunito,sans-serif;color:#5a5a52;white-space:nowrap">'
-              +(['Happy','Sad','Sick'][s.pose % 3])+' <span style="color:#b0b0a6;font-size:10px">▾</span></button>'+posePanel+'</div></div>')
+              +(['Happy','Sad','Sick'][s.pose % 3])+' <span style="display:inline-flex;color:var(--dtr-primary,#149c8e)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>'+posePanel+'</div></div>')
             +'</div>'
 
             +'<div style="display:flex;gap:8px;margin:10px auto 0;width:100%;max-width:680px;align-items:flex-end">'
@@ -45679,7 +46725,9 @@ if (!tradeLinks.length) {
       const s = OE.get();
 
       const _shown = s.zoneMapDocked !== true;
-      try { canvas.style.borderRadius = _shown ? '16px' : (s.frameShape === 'square' ? '4px' : s.frameShape === 'circle' ? '50%' : '16px'); } catch (_) {}
+
+      const _tilesUp = _shown && (s.pinnedZones || []).length > 0;
+      try { canvas.style.borderRadius = _tilesUp ? '16px' : (s.frameShape === 'square' ? '4px' : s.frameShape === 'circle' ? '50%' : '16px'); } catch (_) {}
       if (!_shown) { host.style.display = 'none'; host.innerHTML = ''; oeRenderZoneDock(); return; }
       host.style.display = '';
 
