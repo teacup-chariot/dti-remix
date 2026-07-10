@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  window.__DTR_META = {"v":"10.628.4","history":[{"v":"10.628.4","label":"Neoboards Active Box, import tools & a big polish pass","ts":"July 7, 2026 · 2:47 AM PT","notes":["New Neoboards Active Box viewfinder (Beta) in the Customize frame picker — see exactly which square of your custom shows up in your board avatar, from real measured data for every species and colour family (Baby, Maraquan, Mutant, 8-bit, Origami, Invisible).","The Active Box learns new Pet Styles from the community: styled pets show a close approximation for now, but load a pet by name wearing a style we don’t have yet and one click shares it (just the pet name + style) so its exact box can ship for everyone in a later update.","Customize: the variants strip can now be collapsed — click the VARIANTS header to tuck the cards away and get straight to your item list; it remembers your choice.","Import: a Try-On Preview parks beside the import list — click any item card (or Tab through them) to see it on your preferred pet, which it now remembers as you go.","Import: a “you’re almost done” guide appears when items still need sorting and walks you through each; the finished summary shows only once everything is settled.","Import: cleaner card buttons — Skip import (a calm red) discards and skips an item, and Done · keep N in inventory only shows once you’ve placed a copy with leftovers. Item zones now read as plain text under an OCCUPIES label.","Items: the Infinite Closet search page joined the reskin — our header, a proper search pill, konpeito cards and pagination.","Closet: Bulk Remove is fast now, with a progress counter, instead of freezing for several seconds.","Homepage: a warm empty state on Newest Wearables when nothing matches, and the panel opens to your Imports tab when you have one unfinished.","Fixes: the item page scrolls again (it was cutting off the pet preview); starter packs no longer pile onto real pets (they only apply to fresh, naked customs); the Active Box is honest about Pet Styles (it says a style is not supported yet rather than drawing a wrong box); and our styling no longer briefly bleeds onto Neopets’ own pages."]},{"v":"10.620.0","label":"Customize polish, board editor & a variants-safety fix","ts":"July 6, 2026 · 7:12 AM PT","notes":["Customize is smoother: your starter pack now loads into the Fitting Room on a new custom, animation reliably plays after you save or refresh (and follows the header Animated toggle everywhere), the pet preview is bigger, and the Layers button on variant cards opens properly again.","A big fix: your saved variant groups on Your Outfits no longer reset themselves into separate customs.","Lookbook boards now open into a full-width canvas — the board list tucks away while you edit so you get a proper working area, and new boards start square.","Try On Haul is cleaner and lighter: the hidden Preview tab no longer animates in the background, and the panel always opens fully on-screen on smaller windows.","Owned/Wishlisted status stays fresh automatically — no more reopening your closet to clear a stale Wishlisted flag."]},{"v":"10.613.0","label":"Homepage feed, one settings cog & List Management","ts":"July 5, 2026 · evening PT","notes":["New homepage feed: the right column now shows your recent Customs as thumbnails (variants tucked under each look), your in-progress Imports, and a What’s New tab.","One settings cog (top-left) now holds everything: theme, a Quickstart pet + starter pack for the new + New Custom button, and full List Management — rename lists, set Private/Public/Trading, add nicknames, and choose what counts in Comparison Mode.","Animation now follows one global default, and you can lock a custom’s Animated/Still state so it always opens the way you saved it.","Try On Haul: star your preferred tab and it always opens there; clicking items in the Preview tab now dresses the preview pet properly."]},{"v":"10.608.0","label":"Lookbook board editor, rebuilt","ts":"July 5, 2026 · 12:40 AM PT","notes":["The Lookbook board editor is rebuilt: a left toolbar and an always-open side panel put every control in front of you, instead of behind pop-up menus.","New Freestyle mode — drag each pet anywhere, resize them one at a time, and place the title wherever you like. Grid mode is still there for tidy rows.","A real Layers panel: drag to restack, put pets in front of or behind your decorations, hide or lock any layer, and right-click a decoration to send it forward or back.","Click a pet to select it (shift-click for several), and type an exact canvas size in pixels."]},{"v":"10.607.0","label":"Lookbook board editor + Your Outfits & Customize fixes","notes":["Lookbook boards are now a full editor. Arrange your saved looks in a grid — set how many per row, plus their size and spacing — and pick a frame shape (rounded, circle, arch, hex and more) with an optional border and soft shadow.","Style the whole board: show or hide pet names and give them their own font, size and colour; add and style the title the same way; set a background colour or drop in a background image; and add decorations by dropping in any item as art (in front of or behind your pets).","Nothing on a board changes by accident — every edit stays a draft until you hit Save. You can Clone a board to spin off a variation, and download the finished collage as an image.","Your Outfits: sorting A→Z now uses a look's crowned variant name, so it lands where you expect; the delete button is back; and a look that jumps position after you crown or group a variant now scrolls into view so you never lose track of it.","Customize: opening a custom that someone shared with you no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own Save keeps a copy."]},{"v":"10.597.5","label":"Closet & search fixes","notes":["Fixed an error that could break some closet pages (links without a name in the URL)","Item search now flags when the Hide-locked-zones setting is hiding matches, with a one-click Show them"]},{"v":"10.596.6","label":"Comparison Mode & logged-out fixes","notes":["Comparison Mode: hide lists you never trade from, and it now matches your live wishlist however an item was added","Fixed items wrongly showing as Wishlisted or Owned while logged out","Try On Haul is now hidden entirely when you are logged out","Your Outfits opens to your outfits again, not a Lookbook board"]},{"v":"10.592.1","label":"Lookbook, DTI Sync & item links","notes":["Lookbook (new!): arrange your saved looks into themed boards","DTI Sync: keep some copies in your inventory, and see each item's zones on the cards"]},{"v":"10.587.10","label":"Closet bulk-edit","notes":["Bulk-move whole stacks, and gather copies spread across several lists","Your clipboard, drafts and Try On Haul are now separate per account"]}]};
+  window.__DTR_META = {"v":"10.646.2","history":[{"v":"10.646.2","label":"The big import tune-up: your sorting sticks — plus type-in counts, stragglers & a calmer look","ts":"July 10, 2026 · 5:24 AM PT","notes":["Your sorting is safe now: every assignment is stored the instant you make it, survives refreshes, and finishes saving itself. Saves are verified against DTI and retried, a red banner appears if anything fails, and the import pauses honestly if you’re not logged in.","Fixed the maddening “1 more to place” that dragged you back to items you’d already sorted — placed means placed.","Anything you miss while paging gathers in a Stragglers section at the end of the last page, and “Place all” there finishes the whole import. (The “Take me to the next one” button that yanked you up the page is retired.)","Type a quantity straight into any stepper — click the number and type. Backspace to zero works too.","Arrange your import list tiles your way: drag by the ⠿ grip, leave gaps, tiles never shove each other, drop on a tile to swap.","One steady count in the header — copies, items and pages for the whole import — and a tidier, balanced layout.","Item names are links to their item pages, Offering/Seeking counts load fast and open where you clicked, and preview images that time out retry themselves.","Items with “&” in their name import properly, and items Neopets spells differently than DTI (like “Cloud Face Paint”) now match up.","Unfinished imports no longer quietly disappear after a week, and re-running an import mid-way only adds genuinely new copies.","Everywhere: DTI’s native green hover can no longer sneak onto buttons or links, plus a pile of Customize and item-page fixes (frame options restored, clean teal chevrons, no more doubled animated items)."]},{"v":"10.628.4","label":"Neoboards Active Box, import tools & a big polish pass","ts":"July 7, 2026 · 2:47 AM PT","notes":["New Neoboards Active Box viewfinder (Beta) in the Customize frame picker — see exactly which square of your custom shows up in your board avatar, from real measured data for every species and colour family (Baby, Maraquan, Mutant, 8-bit, Origami, Invisible).","The Active Box learns new Pet Styles from the community: styled pets show a close approximation for now, but load a pet by name wearing a style we don’t have yet and one click shares it (just the pet name + style) so its exact box can ship for everyone in a later update.","Customize: the variants strip can now be collapsed — click the VARIANTS header to tuck the cards away and get straight to your item list; it remembers your choice.","Import: a Try-On Preview parks beside the import list — click any item card (or Tab through them) to see it on your preferred pet, which it now remembers as you go.","Import: a “you’re almost done” guide appears when items still need sorting and walks you through each; the finished summary shows only once everything is settled.","Import: cleaner card buttons — Skip import (a calm red) discards and skips an item, and Done · keep N in inventory only shows once you’ve placed a copy with leftovers. Item zones now read as plain text under an OCCUPIES label.","Items: the Infinite Closet search page joined the reskin — our header, a proper search pill, konpeito cards and pagination.","Closet: Bulk Remove is fast now, with a progress counter, instead of freezing for several seconds.","Homepage: a warm empty state on Newest Wearables when nothing matches, and the panel opens to your Imports tab when you have one unfinished.","Fixes: the item page scrolls again (it was cutting off the pet preview); starter packs no longer pile onto real pets (they only apply to fresh, naked customs); the Active Box is honest about Pet Styles (it says a style is not supported yet rather than drawing a wrong box); and our styling no longer briefly bleeds onto Neopets’ own pages."]},{"v":"10.620.0","label":"Customize polish, board editor & a variants-safety fix","ts":"July 6, 2026 · 7:12 AM PT","notes":["Customize is smoother: your starter pack now loads into the Fitting Room on a new custom, animation reliably plays after you save or refresh (and follows the header Animated toggle everywhere), the pet preview is bigger, and the Layers button on variant cards opens properly again.","A big fix: your saved variant groups on Your Outfits no longer reset themselves into separate customs.","Lookbook boards now open into a full-width canvas — the board list tucks away while you edit so you get a proper working area, and new boards start square.","Try On Haul is cleaner and lighter: the hidden Preview tab no longer animates in the background, and the panel always opens fully on-screen on smaller windows.","Owned/Wishlisted status stays fresh automatically — no more reopening your closet to clear a stale Wishlisted flag."]},{"v":"10.613.0","label":"Homepage feed, one settings cog & List Management","ts":"July 5, 2026 · evening PT","notes":["New homepage feed: the right column now shows your recent Customs as thumbnails (variants tucked under each look), your in-progress Imports, and a What’s New tab.","One settings cog (top-left) now holds everything: theme, a Quickstart pet + starter pack for the new + New Custom button, and full List Management — rename lists, set Private/Public/Trading, add nicknames, and choose what counts in Comparison Mode.","Animation now follows one global default, and you can lock a custom’s Animated/Still state so it always opens the way you saved it.","Try On Haul: star your preferred tab and it always opens there; clicking items in the Preview tab now dresses the preview pet properly."]},{"v":"10.608.0","label":"Lookbook board editor, rebuilt","ts":"July 5, 2026 · 12:40 AM PT","notes":["The Lookbook board editor is rebuilt: a left toolbar and an always-open side panel put every control in front of you, instead of behind pop-up menus.","New Freestyle mode — drag each pet anywhere, resize them one at a time, and place the title wherever you like. Grid mode is still there for tidy rows.","A real Layers panel: drag to restack, put pets in front of or behind your decorations, hide or lock any layer, and right-click a decoration to send it forward or back.","Click a pet to select it (shift-click for several), and type an exact canvas size in pixels."]},{"v":"10.607.0","label":"Lookbook board editor + Your Outfits & Customize fixes","notes":["Lookbook boards are now a full editor. Arrange your saved looks in a grid — set how many per row, plus their size and spacing — and pick a frame shape (rounded, circle, arch, hex and more) with an optional border and soft shadow.","Style the whole board: show or hide pet names and give them their own font, size and colour; add and style the title the same way; set a background colour or drop in a background image; and add decorations by dropping in any item as art (in front of or behind your pets).","Nothing on a board changes by accident — every edit stays a draft until you hit Save. You can Clone a board to spin off a variation, and download the finished collage as an image.","Your Outfits: sorting A→Z now uses a look's crowned variant name, so it lands where you expect; the delete button is back; and a look that jumps position after you crown or group a variant now scrolls into view so you never lose track of it.","Customize: opening a custom that someone shared with you no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own Save keeps a copy."]},{"v":"10.597.5","label":"Closet & search fixes","notes":["Fixed an error that could break some closet pages (links without a name in the URL)","Item search now flags when the Hide-locked-zones setting is hiding matches, with a one-click Show them"]},{"v":"10.596.6","label":"Comparison Mode & logged-out fixes","notes":["Comparison Mode: hide lists you never trade from, and it now matches your live wishlist however an item was added","Fixed items wrongly showing as Wishlisted or Owned while logged out","Try On Haul is now hidden entirely when you are logged out","Your Outfits opens to your outfits again, not a Lookbook board"]},{"v":"10.592.1","label":"Lookbook, DTI Sync & item links","notes":["Lookbook (new!): arrange your saved looks into themed boards","DTI Sync: keep some copies in your inventory, and see each item's zones on the cards"]},{"v":"10.587.10","label":"Closet bulk-edit","notes":["Bulk-move whole stacks, and gather copies spread across several lists","Your clipboard, drafts and Try On Haul are now separate per account"]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -124,7 +124,7 @@
         'dtr_oe_starter_packs','dtr_quickstart_pack','dtr_anim_locks','dtr_yo_top','dtr_yo_sort','dtr_yo_view',
         'dtr_yo_showhidden','dtr_style_pet_log','dtr_cv2_starred','dtr_cv2_groupby','dtr_cv2_cmp_ownsort2',
         'dtr_cond_lists','dtr_wl_state','dtr_ps_own','dtr_toh_pintab','dtr_toh_sort','dtr_toh_sortdir','dtr_toh_source'];
-      var ABSENT = ' __dtr_absent__';
+      var ABSENT = '\0__dtr_absent__';
       var collect = function () {
         var data = {}, seen = {};
         MANIFEST.forEach(function (k) { var v = GM_getValue(k, ABSENT); if (v !== ABSENT) { data[k] = v; seen[k] = 1; } });
@@ -371,6 +371,44 @@
       setTimeout(function () { clearInterval(iv); drop(); }, 6000);
     } catch (_dtrColdCoverErr) {}
   })();
+
+  function _dtrStripNativeStates() {
+    if (location.hostname !== 'impress.openneo.net') return;
+    const STATE = /:(hover|focus|active|focus-within|focus-visible)\b/i;
+    const strip = (group) => {
+      const rules = group.cssRules;
+      if (!rules) return;
+      for (let i = rules.length - 1; i >= 0; i--) {
+        const r = rules[i];
+        if (r.cssRules) { try { strip(r); } catch (_) {} continue; }
+        const sel = r.selectorText || '';
+        if (!sel || !STATE.test(sel)) continue;
+        const parts = sel.split(',');
+        const keep = parts.filter(p => !STATE.test(p));
+        if (keep.length === parts.length) continue;
+        const body = r.style ? r.style.cssText : '';
+        try {
+          group.deleteRule(i);
+          if (keep.length && body) group.insertRule(keep.join(',') + '{' + body + '}', i);
+        } catch (_) {}
+      }
+    };
+    try {
+      for (const sheet of document.styleSheets) {
+        try {
+          if (!sheet.href || sheet.__dtrStripped) continue;
+          strip(sheet);
+          sheet.__dtrStripped = true;
+        } catch (_) {}
+      }
+    } catch (_) {}
+  }
+  try {
+    document.addEventListener('DOMContentLoaded', _dtrStripNativeStates);
+    window.addEventListener('load', _dtrStripNativeStates);
+    ['turbo:load', 'turbo:render'].forEach(ev => document.addEventListener(ev, _dtrStripNativeStates));
+    _dtrStripNativeStates();
+  } catch (_) {}
 
   const DIB_THEME_KEY = 'dib-theme';
 
@@ -4260,7 +4298,11 @@
   }
   document.addEventListener('click', e => {
     const item = e.target.closest && e.target.closest('.dib-item');
-    if (item && item.dataset && item.dataset.i != null) { dibActiveItem = item.dataset.i; dibApplyEditingGlow(); }
+    if (item && item.dataset && item.dataset.i != null) {
+      dibActiveItem = item.dataset.i;
+
+      setTimeout(dibApplyEditingGlow, 0);
+    }
   }, true);
 
   const DTR_HTML_OVERLAYS = [
@@ -10858,11 +10900,44 @@
       if (!raw) return null;
       const parsed = JSON.parse(raw);
 
-      if (Date.now() - parsed.savedAt > 7 * 24 * 60 * 60 * 1000) return null;
       return parsed.items;
     } catch (_) {
       return null;
     }
+  }
+
+  function _dibDoneMap(src) {
+    try { return JSON.parse(GM_getValue(STORE_KEY + '_done' + _dtrSrcSuffix(src), '') || '{}') || {}; } catch (_) { return {}; }
+  }
+  function _dibDoneBump(name, delta, src) {
+    if (!delta || !name) return;
+    try {
+      const m = _dibDoneMap(src);
+      const next = Math.max(0, (parseInt(m[name], 10) || 0) + delta);
+      if (next > 0) m[name] = next; else delete m[name];
+      GM_setValue(STORE_KEY + '_done' + _dtrSrcSuffix(src), JSON.stringify(m));
+    } catch (_) {}
+  }
+  function _dibDoneClear(src) { try { GM_deleteValue(STORE_KEY + '_done' + _dtrSrcSuffix(src)); } catch (_) {} }
+
+  function _dibPendMap(src) { try { return JSON.parse(GM_getValue(STORE_KEY + '_pend' + _dtrSrcSuffix(src), '') || '{}') || {}; } catch (_) { return {}; } }
+  function _dibPendWrite(m, src) { try { GM_setValue(STORE_KEY + '_pend' + _dtrSrcSuffix(src), JSON.stringify(m)); } catch (_) {} }
+  function _dibPendClear(src) { try { GM_deleteValue(STORE_KEY + '_pend' + _dtrSrcSuffix(src)); } catch (_) {} }
+
+  function _dibNormName(s) {
+    let v = String(s == null ? '' : s);
+    try { if (typeof _dtrDecodeEntities === 'function') v = _dtrDecodeEntities(v); } catch (_) {}
+    return v.replace(/\s+/g, ' ').trim();
+  }
+
+  function _dibFilterDoneTotals(items, src) {
+    const done = _dibDoneMap(src);
+    const out = {};
+    Object.keys(items || {}).forEach(n => {
+      const left = Math.max(0, (parseInt(items[n], 10) || 1) - (parseInt(done[n], 10) || 0));
+      if (left > 0) out[n] = left;
+    });
+    return out;
   }
 
   const LAST_UPDATED_KEY = 'neo_dti_last_updated';
@@ -10871,7 +10946,7 @@
       const raw = GM_getValue(STORE_KEY + _dtrSrcSuffix(src), null);
       if (!raw) return null;
       const parsed = JSON.parse(raw);
-      if (Date.now() - parsed.savedAt > 7 * 24 * 60 * 60 * 1000) return null;
+
       const count = Object.keys(parsed.items || {}).length;
       if (!count) return null;
       return { count, savedAt: parsed.savedAt || null, lastUpdated: GM_getValue(LAST_UPDATED_KEY + _dtrSrcSuffix(src), null) || parsed.savedAt || null };
@@ -10884,6 +10959,9 @@
     if (!sfx) { try { GM_deleteValue(PENDING_SYNC_KEY); } catch (_) {} }
     try { GM_deleteValue(BATCH_TS_KEY + sfx); } catch (_) {}
     try { GM_deleteValue(LAST_UPDATED_KEY + sfx); } catch (_) {}
+
+    _dibDoneClear(src);
+    _dibPendClear(src);
   }
 
   function readJSON(key, fallback) {
@@ -13235,7 +13313,7 @@
     const rows = [];
     document.querySelectorAll('.sdb-item-cell').forEach(cell => {
       const nmEl = cell.querySelector('.sdb-item-name');
-      const name = nmEl ? (nmEl.textContent || '').trim() : '';
+      const name = nmEl ? _dtrDecodeEntities((nmEl.textContent || '').trim()) : '';
       if (!name || name.indexOf('{{') > -1) return;
       const meta = ((cell.querySelector('.sdb-item-meta') || {}).textContent) || '';
       if (meta.indexOf('{{') > -1) return;
@@ -13365,8 +13443,8 @@
         + '<div class="sdbp-prog"><span class="big">' + shown + '</span> <span class="cap">item' + (shown !== 1 ? 's' : '') + ' captured' + (state.ncOnly && names.length !== ncCount ? ' (' + names.length + ' seen)' : '') + '</span>'
         + '<div class="cap" style="margin-top:4px">Pages read: ' + state.pages.length + (info.total ? ' of ' + info.total : '') + (info.cur ? ' · on page ' + info.cur : '') + '</div></div>'
         + (crossed
-            ? '<div class="sdbp-npwarn">✓ All your NC wearables are synced!<br>Everything past here is NP — no need to keep paging, just hit <b>Send</b> below.</div>'
-            : '<div class="sdbp-hint">' + hint + '</div>')
+            ? '<div class="sdbp-npwarn">✓ That looks like all your NC wearables — everything past here is NP.<br>Nothing has been sent yet: hit <b>Send</b> below to move these ' + ncCount + ' NC item' + (ncCount !== 1 ? 's' : '') + ' to DTI, then sort them there. (Switch to <b>NC + NP</b> above if you also want the NeoPoint items — those keep going on later pages.)</div>'
+            : '<div class="sdbp-hint">' + hint + '<br><span class="cap">Read <b>every page</b> before sending — each page only captures while it’s on screen. Nothing is imported until you hit Send.</span></div>')
         + '<button class="sdbp-send" data-sdb-send' + (shown ? '' : ' disabled') + '>Send ' + shown + ' item' + (shown !== 1 ? 's' : '') + ' to DTI →</button>'
         + '<button class="sdbp-reset" data-sdb-reset>Start over</button>';
 
@@ -13453,7 +13531,7 @@
     const rows = [];
     document.querySelectorAll('.closet-list-item').forEach(cell => {
       const nmEl = cell.querySelector('.closet-list-item-name');
-      const name = nmEl ? (nmEl.textContent || '').trim() : '';
+      const name = nmEl ? _dtrDecodeEntities((nmEl.textContent || '').trim()) : '';
       if (!name || name.indexOf('{{') > -1) return;
       const rar = (((cell.querySelector('.closet-rarity-text-list') || {}).textContent) || '');
       if (rar.indexOf('{{') > -1) return;
@@ -13569,9 +13647,10 @@
       const shown = chosenCount();
       const perOk = _dtrClosetPerPageOk();
       const chk = (k) => '<div class="clp-chk ' + (state.cats[k] ? 'on' : '') + '" data-cat="' + k + '"><span class="box">' + (state.cats[k] ? '✓' : '') + '</span>' + CAT_LBL[k] + '<span class="ct">' + c[k] + '</span></div>';
-      const hint = perOk
+      const hint = (perOk
         ? 'You’re set — click Neopets’ <b>Next ›</b> to page through. Each page captures automatically.'
-        : 'Set <b>Display per page → 90</b> above first, so it’s far fewer pages to click through.';
+        : 'Set <b>Display per page → 90</b> above first, so it’s far fewer pages to click through.')
+        + '<br><span class="cap">Read <b>every page</b> before sending — each page only captures while it’s on screen. Nothing is imported until you hit Send.</span>';
       panel.querySelector('.clp-body').innerHTML =
         '<div class="clp-sec"><div class="clp-lbl">What to import</div>'
         + chk('nc') + chk('np') + chk('pb')
@@ -13837,8 +13916,11 @@
 
           const batch = loadBatch('pets') || {};
           const added = {};
+          const done = _dibDoneMap('pets');
           itemNames.forEach(n => {
-            const want = countByName[n];
+            const want = isRetry ? countByName[n]
+                                 : Math.max(0, countByName[n] - (parseInt(done[n], 10) || 0));
+            if (!want) return;
             const have = parseInt(batch[n], 10) || 0;
             const nextQ = isRetry ? have + want : Math.max(have, want);
             if (nextQ > have) { batch[n] = nextQ; added[n] = nextQ - have; addedCount++; addedCopies += nextQ - have; }
@@ -13906,10 +13988,12 @@
     try { GM_deleteValue(DTR_SDB_QUEUE_KEY); } catch (_) {}
     const batch = loadBatch('sdb') || {};
     const added = {};
+    const done = _dibDoneMap('sdb');
     q.items.forEach(it => {
-      const n = ((it && it.name) || '').trim();
+      const n = _dibNormName((it && it.name) || '');
       if (!n) return;
-      const want = parseInt(it.qty, 10) || 1;
+      const want = Math.max(0, (parseInt(it.qty, 10) || 1) - (parseInt(done[n], 10) || 0));
+      if (!want) return;
       const have = parseInt(batch[n], 10) || 0;
       const next = Math.max(have, want);
       if (next > have) { batch[n] = next; added[n] = next - have; }
@@ -13919,6 +14003,8 @@
       try { recordImport(added); } catch (_) {}
       try { GM_setValue(BATCH_TS_KEY + _dtrSrcSuffix('sdb'), Date.now()); } catch (_) {}
       diaTouchImport('sdb');
+
+      try {  } catch (_) {}
     }
 
     const rebuild = () => {
@@ -13942,10 +14028,12 @@
     try { GM_deleteValue(DTR_CLOSET_QUEUE_KEY); } catch (_) {}
     const batch = loadBatch('closet') || {};
     const added = {};
+    const done = _dibDoneMap('closet');
     q.items.forEach(it => {
-      const n = ((it && it.name) || '').trim();
+      const n = _dibNormName((it && it.name) || '');
       if (!n) return;
-      const want = parseInt(it.qty, 10) || 1;
+      const want = Math.max(0, (parseInt(it.qty, 10) || 1) - (parseInt(done[n], 10) || 0));
+      if (!want) return;
       const have = parseInt(batch[n], 10) || 0;
       const next = Math.max(have, want);
       if (next > have) { batch[n] = next; added[n] = next - have; }
@@ -13979,9 +14067,11 @@
     const buildBatch = (keep) => {
       const batch = loadBatch('gallery') || {};
       const added = {};
+      const done = _dibDoneMap('gallery');
       keep.forEach(it => {
-        const nm = ((it && it.name) || '').trim(); if (!nm) return;
-        const want = parseInt(it.qty, 10) || 1;
+        const nm = _dibNormName((it && it.name) || ''); if (!nm) return;
+        const want = Math.max(0, (parseInt(it.qty, 10) || 1) - (parseInt(done[nm], 10) || 0));
+        if (!want) return;
         const have = parseInt(batch[nm], 10) || 0;
         const next = Math.max(have, want);
         if (next > have) { batch[nm] = next; added[nm] = next - have; }
@@ -14032,7 +14122,7 @@
   function dibStepperHtml(o, extraClass) {
     return `
           <div class="dib-numtile${extraClass ? ' ' + extraClass : ''}">
-            <div class="dib-num${o.numClass || ''}">${o.q}</div>
+            <input class="dib-num${o.numClass || ''}" type="text" inputmode="numeric" value="${o.q}" aria-label="Quantity — type a number, or use minus and plus" />
             <div class="dib-side l${o.disableDec ? ' disabled' : ''}" data-act="dec" aria-label="decrease"><span class="dib-g">−</span></div>
             <div class="dib-side r" data-act="inc" aria-label="increase"><span class="dib-g">+</span></div>
           </div>`;
@@ -14154,7 +14244,7 @@
     const toFetch = [];
     names.forEach(name => {
       const c = cache[norm(name)];
-      if (c && c.id) result[name] = { id: String(c.id), slug: c.slug || '', thumb: c.thumb || '' };
+      if (c && c.id) result[name] = { id: String(c.id), slug: c.slug || '', thumb: c.thumb || '', nc: ('nc' in c ? !!c.nc : undefined), pb: ('pb' in c ? !!c.pb : undefined) };
       else toFetch.push(name);
     });
     const total = toFetch.length;
@@ -14167,13 +14257,34 @@
     const worker = async () => {
       while (queue.length) {
         const name = queue.shift();
+
+        const cleanName = _dtrDecodeEntities(name);
         try {
-          const resp = await fetch('/items.json?q=' + encodeURIComponent(name));
-          if (resp.ok) {
+
+          const _squash = s => norm(_dtrDecodeEntities(s)).replace(/[^a-z0-9]/g, '');
+          const _tryQuery = async (q, allowSole) => {
+            const resp = await fetch('/items.json?q=' + encodeURIComponent(q));
+            if (!resp.ok) return null;
             const data = await resp.json();
             const items = Array.isArray(data) ? data : (data.items || []);
-            const hit = items.find(i => norm(i.name) === norm(name)) ||
-                        (items.length === 1 ? items[0] : null);
+            let h = items.find(i => norm(i.name) === norm(cleanName)) || (allowSole && items.length === 1 ? items[0] : null);
+            if (!h) {
+              const sq = _squash(cleanName);
+              const sqHits = items.filter(i => _squash(i.name) === sq);
+              if (sqHits.length === 1) h = sqHits[0];
+            }
+            return h || null;
+          };
+          {
+            let hit = await _tryQuery(cleanName, true);
+            if (!hit && cleanName.indexOf(' ') > -1) {
+              const words = cleanName.split(' ').filter(Boolean);
+              for (let w = 0; !hit && w < words.length - 1 && w < 4; w++) {
+                const variant = words.slice(0, w).concat(words[w] + words[w + 1]).concat(words.slice(w + 2)).join(' ');
+                try { hit = await _tryQuery(variant, false); } catch (_) {}
+              }
+              if (hit) { try {  } catch (_) {} }
+            }
             if (hit) {
               const rec = {
                 id: String(hit.id),
@@ -14203,7 +14314,7 @@
     let cache = {};
     try { cache = JSON.parse(GM_getValue(DTR_RESOLVE_CACHE_KEY, '') || '{}') || {}; } catch (_) { cache = {}; }
     const out = {};
-    (names || []).forEach(n => { const c = cache[norm(n)]; if (c && c.id) out[n] = { id: String(c.id), slug: c.slug || '', thumb: c.thumb || '', nc: !!c.nc, pb: !!c.pb }; });
+    (names || []).forEach(n => { const c = cache[norm(n)]; if (c && c.id) out[n] = { id: String(c.id), slug: c.slug || '', thumb: c.thumb || '', nc: ('nc' in c ? !!c.nc : undefined), pb: ('pb' in c ? !!c.pb : undefined) }; });
     return out;
   }
 
@@ -14216,12 +14327,28 @@
       if (listId === 'true' || listId === 'false') return;
       body.set('quantity[' + listId + ']', String(item.alloc[listId] || 0));
     });
-    const resp = await fetch(formAction, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-CSRF-Token': csrf },
-      body: body.toString(),
-    });
-    if (!resp.ok) throw new Error('save failed ' + resp.status);
+    let lastErr;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const resp = await fetch(formAction, {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-CSRF-Token': csrf },
+          body: body.toString(),
+        });
+
+        if (/\/(users\/)?sign_in|\/login|\/account\/login/i.test(resp.url || '')) throw new Error('not signed in');
+        if (!resp.ok) throw new Error('save failed ' + resp.status);
+
+        try {  } catch (_) {}
+        return;
+      } catch (e) {
+        lastErr = e;
+        try {  } catch (_) {}
+        if (attempt < 2) await new Promise(r => setTimeout(r, 450 * (attempt + 1)));
+      }
+    }
+    throw lastErr || new Error('save failed');
   }
 
   function diaBulkEsc(s) {
@@ -17025,6 +17152,23 @@
       }).join('');
   }
 
+  document.addEventListener('error', function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== 'IMG' || !img.closest || !img.closest('.dtr-qp')) return;
+    var n = img._dtrRetry || 0;
+    if (n >= 2) { img.style.visibility = 'hidden'; return; }
+    img._dtrRetry = n + 1;
+    var base = img.getAttribute('data-dtr-src0') || img.getAttribute('src') || '';
+    if (!base) return;
+    if (!img.getAttribute('data-dtr-src0')) img.setAttribute('data-dtr-src0', base);
+    setTimeout(function () {
+      if (!img.isConnected) return;
+      img.style.visibility = '';
+      try { img.removeAttribute('src'); } catch (_) {}
+      img.src = n === 0 ? base : (base + (base.indexOf('?') > -1 ? '&' : '?') + 'dtrr=' + Date.now());
+    }, n === 0 ? 600 : 1600);
+  }, true);
+
   function _qpMount(host, opts) {
     opts = opts || {};
     if (host._qp && host._qp.destroy) { try { host._qp.destroy(); } catch (_) {} }
@@ -18812,8 +18956,14 @@
       .dib-pager{display:flex;align-items:center;justify-content:center;gap:14px;padding:12px 0;flex-wrap:wrap;}
       .dib-pager:empty{display:none;}
       .dib-pg-btn{border:none;border-radius:11px;padding:9px 18px;font:800 12.5px "Nunito",sans-serif;color:#fff;background:var(--dtr-primary,#149c8e);cursor:pointer;box-shadow:0 2px 8px rgba(20,156,142,.22);}
+      .dib-pg-btn:hover:not(:disabled){background:var(--dtr-primary-d,#10857a);}
       .dib-pg-btn:disabled{background:#cfd4d8;box-shadow:none;cursor:default;}
       .dib-pg-info{font:800 12px "Nunito",sans-serif;color:#8a8a95;letter-spacing:.01em;}
+      .dib-pgsize{display:inline-flex;align-items:center;gap:6px;font:800 12px "Nunito",sans-serif;color:#8a8a95;letter-spacing:.01em;}
+      /* Pager size select wears the SAME cream picklist as the gear dropdowns (user rule — the old
+         teal pill read as "weird green"). Only sizing is local; colors come from the global skin. */
+      .dib-pgsize-sel{appearance:none!important;-webkit-appearance:none!important;border:none!important;border-radius:10px!important;padding:6px 26px 6px 12px!important;min-height:0!important;font:800 12px "Nunito",sans-serif!important;color:#4a4a45!important;background:#f4f1e8 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="%23a6a69e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 10px center!important;background-size:10px 6px!important;cursor:pointer!important;box-shadow:none!important;}
+      .dib-pgsize-sel:hover{filter:brightness(.98);}
       .dib-act-pagenote{margin-top:5px;font:700 11px "Nunito",sans-serif;color:#8a8a95;}
       .dib-act-pagenote strong{color:var(--dtr-primary,#149c8e);}
       .dib-act-badge.done{background:#dff3ec !important;color:#178a70 !important;}
@@ -18862,9 +19012,17 @@
       .dib-badge{position:absolute;left:50%;bottom:4px;transform:translateX(-50%);font:700 8px var(--f);color:#fff;background:rgba(99,66,30,.9);padding:2px 6px;border-radius:5px;white-space:nowrap;letter-spacing:.02em;}
       .dib-badge.wish{background:rgba(168,120,28,.9);}
       .dib-leb{font:800 9px var(--f);color:#3d6e12;background:#eef7da;border:1px solid #aedb5e;border-radius:6px;padding:2px 5px;margin-top:0;max-width:90px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:default;}
+      .dib-leb.dib-leb-np{color:#2b6cb0;background:#e8f2fd;border-color:#a9cef0;letter-spacing:.06em;}
       .dib-hmain{flex:1;min-width:0;align-self:flex-start;}
       .dib-name{font:600 16px var(--fd);line-height:1.15;color:var(--ink);letter-spacing:.1px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+      /* Hard sans-serif family so a webfont that hasn't loaded (or a var that failed to resolve) can NEVER
+         fall back to the browser's serif default (user: "times new roman ass font"). */
+      .dib-name,.dib-nmtxt{font-family:'Nunito','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif!important;}
       .dib-nmtxt{min-width:0;overflow-wrap:anywhere;}
+      /* Friendly "not on DTI yet" / "looking up" note under the item name (soft, never alarm-red). */
+      .dib-nf{margin-top:5px;font:600 11.5px/1.45 'Nunito','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#b0742a;background:#fdf3e2;border:1px solid #f2dcae;border-radius:9px;padding:6px 10px;max-width:340px;}
+      .dib-nf strong{color:#8a5518;font-weight:800;}
+      .dib-nf.looking{color:#8a8a95;background:#f4f4f7;border-color:#e6e6ec;}
       .dib-zoneline{margin-top:5px;}
       /* Zone info = the CANONICAL item-page OCCUPIES style (quiet micro-label + plain ink text,
          #dia-zones-inline) — NOT a badge. Multiple zones read as a comma list. */
@@ -18960,6 +19118,18 @@
       .dib-colh.want{color:var(--tea-d);} .dib-colh.want::before{background:var(--tea);}
       .dib-key-n{font-weight:600;color:var(--ink3);text-transform:none;letter-spacing:0;}
       .dib-colh .dib-ignore{margin-left:auto;text-transform:none;letter-spacing:0;}
+      /* OWNED label stacks: "OWNED · N lists" on top, the "+N hidden" toggle on its own line under it */
+      .dib-ownkeycol{display:flex;flex-direction:column;align-items:flex-start;gap:2px;}
+      .dib-ownkeyrow{display:inline-flex;align-items:center;gap:6px;}
+      .dib-ownkeycol .dib-hidtog{margin-left:0;align-self:flex-start;}
+      /* Item name links to its item page — soft underline, grape on hover. It's a REAL <a>, so DTI's
+         native link CSS (green hover/visited) tries to skin it: force EVERY chrome prop !important
+         (same lesson as the stepper <input> — no native rule may win, ever). The anchor sits INLINE
+         inside .dib-nmtxt so its hitbox is exactly the text glyphs — the flexified anchor's box used
+         to cover the whole two-line rectangle (user: accidental opens). */
+      .dib-nmtxt .dib-nmlink{display:inline;}
+      .dib-nmlink,.dib-nmlink:visited{color:inherit!important;cursor:pointer;background:none!important;text-decoration:underline!important;text-decoration-color:#d9d0ea!important;text-underline-offset:2px;text-decoration-thickness:1px;outline:none!important;}
+      .dib-nmlink:hover,.dib-nmlink:focus,.dib-nmlink:active{color:var(--grape-d,#6d5bb8)!important;background:none!important;text-decoration-color:currentColor!important;box-shadow:none!important;}
       .dib-hidtog{margin-left:5px;cursor:pointer;font:inherit;text-transform:none;letter-spacing:0;vertical-align:middle;appearance:none;-webkit-appearance:none;outline:none;}
       .dib-hidtog:not(.on){background:none!important;border:none!important;box-shadow:none!important;padding:0;font-style:italic;font-weight:600;color:var(--grape-d);text-decoration:underline;text-underline-offset:2px;}
       .dib-hidtog:not(.on):hover{color:var(--grape);}
@@ -18969,6 +19139,18 @@
       .dib-tile-hidden:hover{opacity:.85;}
       /* OWNED tiles */
       .dib-owngrid{display:grid;grid-template-columns:repeat(4,118px);gap:7px;align-content:start;}
+      /* Invisible slot-grid (#14): tiles sit in wrapper cells at their own {x,y}; empty slots are
+         real cells that stay collapsed until a drag starts, then light up as drop targets. Holes
+         the user leaves are preserved (nothing packs or bumps). */
+      .dib-slotwrap{display:flex;min-width:0;}
+      .dib-slotwrap>.dib-cell{flex:1 1 auto;min-width:0;}
+      .dib-slot{min-height:0;border-radius:14px;transition:background .1s,outline-color .1s;}
+      .dib-slot-spare{display:none;}
+      .dib-slotgrid.dib-dragging .dib-slot-spare{display:block;}
+      .dib-card.dib-dragroom{max-width:none!important;}   /* width cap lifts while the drag grid is widened */
+      .dib-slotgrid.dib-dragging .dib-slot{min-height:88px;outline:2px dashed var(--mint-line);outline-offset:-3px;background:rgba(255,255,255,.45);}
+      .dib-slotgrid .dib-slot.dropinto{background:var(--mint-bg);outline:2px dashed var(--mint-d);outline-offset:-3px;}
+      .dib-slotgrid .dib-cell.dropinto{border-color:var(--grape);box-shadow:0 0 0 2px var(--grape) inset;}
       .dib-cell{display:flex;flex-direction:column;user-select:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:5px 5px 6px;transition:transform .1s,box-shadow .12s,border-color .12s;}
       .dib-cell.dib-tile{cursor:default;}
       .dib-cell.dib-tile:hover{border-color:#dcd3f2;box-shadow:0 4px 12px rgba(96,72,150,.10);}
@@ -18985,21 +19167,27 @@
       .dib-nm{font:600 10px/1.2 var(--f);color:var(--ink);text-align:center;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow-wrap:anywhere;}
       .dib-vis{font:700 7px/1.3 var(--f);padding:1px 5px;border-radius:5px;letter-spacing:.04em;}
       .dib-vis.public{background:var(--mint-bg);color:var(--mint-d);} .dib-vis.private{background:#efeaf7;color:var(--ink2);} .dib-vis.trading{background:#fff2dc;color:#c98a18;}
-      .dib-numtile{position:relative;height:46px;flex-shrink:0;margin-top:6px;border:1px solid var(--line);border-radius:11px;background:#faf8ff;overflow:hidden;transition:.12s;}
-      .dib-cell.has .dib-numtile{border-color:var(--mint-line);background:var(--mint-bg);box-shadow:0 0 0 3px rgba(47,191,155,.12);}
-      .dib-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 24px var(--fd);color:var(--ink3);pointer-events:none;z-index:1;}
-      .dib-cell.has .dib-num{color:var(--mint-d);}
-      .dib-side{position:absolute;top:0;bottom:0;width:50%;z-index:2;display:flex;align-items:center;cursor:pointer;font:500 22px var(--fd);color:var(--mint);}
-      .dib-side.l{left:0;justify-content:flex-start;padding-left:10px;}
-      .dib-side.r{right:0;justify-content:flex-end;padding-right:10px;}
-      .dib-side .dib-g{opacity:0;transition:opacity .07s;}
-      .dib-side:hover{background:rgba(47,191,155,.12);}
-      .dib-side:hover .dib-g{opacity:1;}
+      /* Compact stepper pill: [ −  │  N  │  + ] — segments split by thin DIVIDERS (user: "don't put a box,
+         just use dividers"), the number a chrome-less typeable field. Neutral number color (the old --ink3
+         read olive-green in the milk-tea theme — user: "why is it dark green"); the pill tint carries state. */
+      .dib-numtile{display:flex;align-items:stretch;height:34px;flex-shrink:0;margin-top:6px;border:1px solid var(--line);border-radius:10px;background:#faf8ff;overflow:hidden;transition:.12s;}
+      .dib-cell.has .dib-numtile{border-color:var(--mint-line);background:var(--mint-bg);}
+      .dib-numtile:focus-within{border-color:#b8b2c8;}
+      /* NOTE: this is a real <input> now, so DTI's native form-input CSS (border, green :focus box-shadow,
+         text color) tries to skin it. Force EVERY chrome property with !important so no external rule wins. */
+      .dib-num{order:2;flex:1 1 0;min-width:0;box-sizing:border-box;text-align:center;font:700 17px var(--fd);color:#a6a6b0!important;background:transparent!important;border:none!important;outline:none!important;box-shadow:none!important;border-radius:0!important;padding:0 2px!important;margin:0!important;cursor:text;-moz-appearance:textfield;appearance:textfield;}
+      .dib-num::-webkit-inner-spin-button,.dib-num::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
+      .dib-num:focus,.dib-num:focus-visible,.dib-num:active{outline:none!important;box-shadow:none!important;border:none!important;background:transparent!important;}
+      .dib-cell.has .dib-num,.dib-wrow.has .dib-num{color:#3a3a42!important;}
+      .dib-side{flex:0 0 30px;display:flex;align-items:center;justify-content:center;cursor:pointer;font:600 18px var(--fd);color:var(--mint-d,#149c8e);transition:background .1s;user-select:none;}
+      .dib-side.l{order:1;border-right:1px solid var(--line);}
+      .dib-side.r{order:3;border-left:1px solid var(--line);}
+      .dib-cell.has .dib-side.l,.dib-cell.has .dib-side.r,.dib-wrow.has .dib-side.l,.dib-wrow.has .dib-side.r{border-color:var(--mint-line);}
+      .dib-side .dib-g{line-height:1;}
+      .dib-side:hover{background:rgba(47,191,155,.14);}
       .dib-side:active{background:rgba(47,191,155,.26);}
-      .dib-cell:not(.has) .dib-side.l{cursor:default;}
-      .dib-cell:not(.has) .dib-side.l:hover{background:transparent;}
-      .dib-cell:not(.has) .dib-side.l:hover .dib-g{opacity:0;}
-      .dib-cell:not(.has) .dib-side.l:active{background:transparent;}
+      .dib-cell:not(.has) .dib-side.l,.dib-wrow:not(.has) .dib-side.l{cursor:default;color:#c7c7cf;}
+      .dib-cell:not(.has) .dib-side.l:hover,.dib-wrow:not(.has) .dib-side.l:hover{background:transparent;}
       /* WANTED rows */
       .dib-wlist{display:flex;flex-direction:column;gap:9px;}
       .dib-wrow{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:7px 12px;transition:.12s;}
@@ -19014,12 +19202,6 @@
          colored with the OWNED mint tokens so the two sides match. */
       .dib-wrow .dib-numtile{width:104px;flex-shrink:0;margin-top:0;}
       .dib-wrow.has .dib-numtile{border-color:var(--mint-line);background:var(--mint-bg);}
-      .dib-wrow.has .dib-num{color:var(--mint-d);}
-      .dib-wrow.has .dib-side.l,.dib-wrow.has .dib-side.r{border-color:var(--mint-line);}
-      .dib-wrow:not(.has) .dib-side.l{cursor:default;}
-      .dib-wrow:not(.has) .dib-side.l:hover{background:transparent;}
-      .dib-wrow:not(.has) .dib-side.l:hover .dib-g{opacity:0;}
-      .dib-wrow:not(.has) .dib-side.l .dib-g{opacity:.3;}
       /* Drag handles (⠿) — hidden until the tile/row is hovered; the grip is the ONLY drag-start point. */
       .dib-grip{flex-shrink:0;color:var(--ink3);font-size:11px;line-height:1;letter-spacing:-1px;cursor:grab;opacity:0;transition:opacity .08s;}
       .dib-grip:active{cursor:grabbing;}
@@ -19114,16 +19296,11 @@
       .dib-vis.trading{color:#b9760a;background:#fff3df;}
       .dib-vis.private{color:#7f8694;background:#eef0f4;}
       .dib-nm{font:600 10px/1.2 var(--f);color:var(--ink);}
-      /* compact 3-segment stepper: [− N +] */
-      .dib-numtile{height:42px;margin-top:5px;border-radius:9px;border:1px solid var(--line);background:#fff;overflow:hidden;box-shadow:none;}
-      .dib-cell.has .dib-numtile{border-color:var(--mint-line);background:var(--mint-bg);box-shadow:none;}
-      .dib-num{font:400 18px var(--fnum);letter-spacing:-.5px;}
-      .dib-side{width:36px;}
-      .dib-side.l{left:0;justify-content:center;padding:0;border-right:1px solid var(--line);}
-      .dib-side.r{right:0;justify-content:center;padding:0;border-left:1px solid var(--line);}
-      .dib-cell.has .dib-side.l,.dib-cell.has .dib-side.r{border-color:var(--mint-line);}
-      .dib-side .dib-g{opacity:1;font:500 22px var(--fd);}
-      .dib-cell:not(.has) .dib-side.l .dib-g{opacity:.3;}
+      /* compact 3-segment stepper — final size + DM-Mono number on the flex/divider base above (no inner box) */
+      .dib-numtile{height:32px;margin-top:5px;border-radius:9px;background:#fff;}
+      .dib-num{font:500 16px var(--fnum);letter-spacing:-.3px;}
+      .dib-side{flex-basis:32px;}
+      .dib-side .dib-g{font:500 19px var(--fd);}
       .dib-wrow{border-radius:9px;}
       .dib-wpen{flex-shrink:0;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font:700 9px/1 var(--f);color:var(--ink3);background:transparent;border:1px solid transparent;border-radius:6px;cursor:pointer;opacity:0;transition:opacity .1s,color .1s,background .1s;}
       .dib-wrow:hover .dib-wpen{opacity:1;}
@@ -19179,6 +19356,11 @@
       /* 1.3 almost-done prompt: sits at the BOTTOM of the list where the user expects the summary —
          the summary itself is withheld until every item is resolved. */
       #dib-unresolved-foot{max-width:560px;margin:18px auto 8px;text-align:center;background:var(--card,#fff);border:1px solid var(--line,#efe7da);border-radius:16px;padding:18px 20px;box-shadow:var(--sh);}
+      /* Stragglers — the gathered not-fully-sorted cards after the last page's items */
+      #dib-stragglers{width:100%;display:flex;flex-direction:column;align-items:center;margin-top:22px;padding-top:16px;border-top:2px dashed var(--berry-line,#f0cdd6);}
+      .dib-strag-head{max-width:560px;text-align:center;margin-bottom:14px;}
+      .dib-strag-title{font:800 15px var(--f);color:var(--berry-d,#c0566c);}
+      .dib-strag-sub{margin-top:4px;font:600 11.5px var(--f);color:var(--ink3,#9aa0a8);}
       .dib-uf-head{font:800 15px var(--f);color:var(--ink,#3a3a3a);}
       .dib-uf-sub{margin-top:4px;font:600 11.5px var(--f);color:var(--ink3,#9aa0a8);}
       .dib-uf-btn{margin-top:11px;border:none !important;background:var(--mint-d,#149c8e) !important;color:#fff !important;font:700 11px var(--f) !important;padding:8px 17px;border-radius:999px !important;cursor:pointer;transition:.12s;-webkit-appearance:none;appearance:none;text-shadow:none !important;box-shadow:none !important;}
@@ -19197,6 +19379,16 @@
       .dib-td-collapse{flex:none;border:none;background:var(--dtr-primary-bg,#dbf5f1);color:var(--dtr-primary,#149c8e);width:22px;height:22px;border-radius:7px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;transition:.12s;}
       .dib-td-collapse:hover{background:var(--dtr-primary,#149c8e);color:#fff;}
       .dib-td-collapse svg{transition:transform .18s ease;}
+      /* live-preview power toggle (persistent opt-out for slower computers) */
+      .dib-td-power{flex:none;border:none;background:var(--dtr-primary-bg,#dbf5f1);color:var(--dtr-primary,#149c8e);width:22px;height:22px;border-radius:7px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;transition:.12s;}
+      .dib-td-power:hover{background:var(--dtr-primary,#149c8e);color:#fff;}
+      #dib-tryon-dock.dib-td-off .dib-td-power{background:#f3ede1;color:#a08a63;}
+      #dib-tryon-dock.dib-td-off .dib-td-power:hover{background:#e7ddca;}
+      #dib-tryon-dock.dib-td-off .dib-td-hint{display:none;}
+      .dib-td-offmsg{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:180px;padding:22px 16px;text-align:center;font:800 12px var(--f);color:var(--ink3,#9aa0a8);}
+      .dib-td-offsub{font:600 10px/1.5 var(--f);color:var(--ink3,#bcc1cc);max-width:200px;}
+      .dib-td-on{margin-top:6px;border:none;background:var(--dtr-primary,#149c8e);color:#fff;font:700 11px var(--f);padding:8px 16px;border-radius:999px;cursor:pointer;transition:.12s;}
+      .dib-td-on:hover{filter:brightness(1.07);}
       #dib-tryon-dock.dib-td-collapsed .dtr-qp-thumbs{display:none;}
       /* the "Remove worn items" clear button is pointless here (single item at a time) */
       #dib-tryon-dock .dtr-qp-clear{display:none!important;}
@@ -19246,9 +19438,11 @@
       html[data-dib-theme=konpeito] #dib-toast{background:rgba(43,179,196,.95);}
       .dib-act-ctl{display:flex;align-items:center;flex-wrap:wrap;gap:8px;flex:0 0 auto;margin-left:auto;}
       .dib-act-lbl{font:600 11px var(--f);color:var(--ink2);}
-      .dib-balloc-sel{appearance:none;-webkit-appearance:none;-moz-appearance:none;font:600 13px var(--f);color:var(--ink);background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239bb3ab' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center;background-size:12px;border:1px solid var(--line);border-radius:10px;padding:9px 32px 9px 13px;max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;transition:border-color .12s,box-shadow .12s;}
-      .dib-balloc-sel:hover{border-color:var(--mint-line);}
-      .dib-balloc-sel:focus{outline:none;border-color:var(--grape);box-shadow:0 0 0 3px var(--mint-bg);}
+      /* Destination-list select = the SAME cream picklist as the gear dropdowns (user rule — no
+         white outline boxes, no teal/green tints). Only layout is local. */
+      .dib-balloc-sel{appearance:none!important;-webkit-appearance:none!important;-moz-appearance:none!important;font:700 12.5px "Nunito",sans-serif!important;color:#4a4a45!important;background:#f4f1e8 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="%23a6a69e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 10px center!important;background-size:10px 6px!important;border:none!important;border-radius:12px!important;padding:9px 30px 9px 13px!important;max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;box-shadow:none!important;}
+      .dib-balloc-sel:hover{filter:brightness(.98);}
+      .dib-balloc-sel:focus{outline:none!important;}
       .dib-gear{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:none;background:transparent;box-shadow:none;cursor:pointer;font-size:15px;line-height:1;padding:0;margin-left:4px;color:#6c6776;transition:transform .1s;}
       .dib-gear:hover{transform:scale(1.1);}
       .dib-set-row{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:1px solid #eee;}
@@ -19321,17 +19515,29 @@
       html[data-dib-theme=konpeito] #dib-action{position:static;background:transparent!important;border:none!important;border-top:none!important;box-shadow:none!important;padding:6px 16px 8px 0!important;flex-direction:column!important;align-items:flex-end!important;gap:6px!important;}
       html[data-dib-theme=konpeito] .dib-act-msg{flex:none!important;width:auto!important;text-align:right;}
       html[data-dib-theme=konpeito] .dib-act-ctl{margin-left:0!important;}
-      html[data-dib-theme=konpeito] #dib-bar{position:relative;overflow:visible;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:3px!important;padding:11px 16px 10px 64px!important;border:none!important;box-shadow:none!important;background:transparent!important;}
+      /* position:STATIC (not relative) so the absolutely-placed IMPORTED stamp + boba icon anchor to
+         the CARD (#dib-top, position:relative) — "top right" must mean the card's corner, not the
+         title column's. The bar is the card's first child at 0,0, so the boba's coords don't move. */
+      html[data-dib-theme=konpeito] #dib-bar{position:static;overflow:visible;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:3px!important;padding:11px 16px 10px 64px!important;border:none!important;box-shadow:none!important;background:transparent!important;}
       html[data-dib-theme=konpeito] #dib-top{overflow:visible;border:1px solid #efe7da!important;box-shadow:0 4px 14px -6px rgba(110,128,150,.35)!important;background:linear-gradient(180deg,#fff,#fdfaf3)!important;flex-direction:row!important;align-items:center!important;flex-wrap:wrap;gap:4px 22px;}
+      /* Header = a true 2×2 grid (user plan): top row title↔message, bottom row chip↔controls.
+         Both columns stretch to the card height with space-between, equal 12px vertical padding,
+         so the two sides share baselines instead of floating at unrelated heights. The IMPORTED
+         stamp lives in the top pager row now — decorative metadata out of the card. */
+      html[data-dib-theme=konpeito] #dib-bar{align-self:stretch;justify-content:space-between;gap:8px!important;padding:12px 16px 12px 64px!important;}
+      html[data-dib-theme=konpeito] #dib-top.has-action #dib-action{align-self:stretch;justify-content:space-between!important;gap:8px!important;padding:12px 16px 12px 0!important;}
+      #dib-foot-stamp{display:flex;justify-content:center;margin:6px 0 22px;opacity:.7;}
+      #dib-foot-stamp:empty{display:none;}
+      #dib-foot-stamp .dib-datewrap{align-items:center!important;transform:scale(.92);}
       html[data-dib-theme=konpeito] #dib-top::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;border-radius:16px 16px 0 0;background:var(--dtr-stripe);}
-      html[data-dib-theme=konpeito] #dib-bar::before{content:'';position:absolute;left:14px;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:12px;background:#93e3bf url("data:image/png;base64,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59DrBZ1+n2Gny20r+zk0u8DF02fxnQHF9oByu8901HQNZ1k5eitLr7mDeO8yj3zusTdc6Pa3s81N/4vveU905PkdeuzBY3DsmH8lxdMfRRMAuH79enNxcXHHlz/58X270+a7zj76uSw4891ZUe7MLl+KaoXaRI0Ww5y832fY3eZif8tsm9JmVpmq19kzNceutM1IStaKAb1On+FwTD4asWtuyS9OTYfEWLJmjKnVSF3C6umLv9nJs60d99zJ3vtew/Lth7PGvr1/7WutE/tG1PsbvlTVra6uzi8tLV17yb+9heHwu8sLl/5OWO/AVp/rFy6zdeos/WdO4lG2+13UVCPDFCXGB1TAG8WKxRqLGIOJE+rNJs3paWZedyetW/Yxc+dR2LF4QETO/sEz6PHjQrXVO/w3E8JXLKl74gn7xBNPcOjNb10pi9F9ZW9w+/aVaz7v9OzW9TW2L12VtVOndXn3rt27j956v+l0nREjasDbithpJ4/u0aC1mlk9d+F961dXn02mmmbm8P4ws39FF285JGurW//sMz/xH6+/8R07ZLxzp977nvfot+J/DpJvQgDySm1u8vu7KbLPjy9dnQs+iHdIYSsBRL5inXh82Zqfc77Vfnsk0W/z3+j6/wDIY+5qqOEDqgAAAABJRU5ErkJggg==") center/auto 40px no-repeat;box-shadow:0 1px 3px rgba(0,0,0,.16);}
+      html[data-dib-theme=konpeito] #dib-bar::before{content:'';position:absolute;left:14px;bottom:12px;width:46px;height:46px;border-radius:12px;background:#93e3bf url("data:image/png;base64,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59DrBZ1+n2Gny20r+zk0u8DF02fxnQHF9oByu8901HQNZ1k5eitLr7mDeO8yj3zusTdc6Pa3s81N/4vveU905PkdeuzBY3DsmH8lxdMfRRMAuH79enNxcXHHlz/58X270+a7zj76uSw4891ZUe7MLl+KaoXaRI0Ww5y832fY3eZif8tsm9JmVpmq19kzNceutM1IStaKAb1On+FwTD4asWtuyS9OTYfEWLJmjKnVSF3C6umLv9nJs60d99zJ3vtew/Lth7PGvr1/7WutE/tG1PsbvlTVra6uzi8tLV17yb+9heHwu8sLl/5OWO/AVp/rFy6zdeos/WdO4lG2+13UVCPDFCXGB1TAG8WKxRqLGIOJE+rNJs3paWZedyetW/Yxc+dR2LF4QETO/sEz6PHjQrXVO/w3E8JXLKl74gn7xBNPcOjNb10pi9F9ZW9w+/aVaz7v9OzW9TW2L12VtVOndXn3rt27j956v+l0nREjasDbithpJ4/u0aC1mlk9d+F961dXn02mmmbm8P4ws39FF285JGurW//sMz/xH6+/8R07ZLxzp977nvfot+J/DpJvQgDySm1u8vu7KbLPjy9dnQs+iHdIYSsBRL5inXh82Zqfc77Vfnsk0W/z3+j6/wDIY+5qqOEDqgAAAABJRU5ErkJggg==") center/auto 40px no-repeat;box-shadow:0 1px 3px rgba(0,0,0,.16);}
       html[data-dib-theme=konpeito] #dib-bar::after{content:none;}
       html[data-dib-theme=konpeito] .dib-act-badge{display:none!important;}
-      html[data-dib-theme=konpeito] #dib-bar .dib-datewrap{display:flex;flex-direction:column;gap:2px;align-items:flex-start;line-height:1.18;}
+      html[data-dib-theme=konpeito] #dia-bulk-wrap .dib-datewrap{display:flex;flex-direction:column;gap:2px;align-items:flex-start;line-height:1.18;}
       html[data-dib-theme=konpeito] .dib-kbtitle{display:flex;flex-direction:column;gap:2px;}
       html[data-dib-theme=konpeito] .dib-kbname{display:flex;align-items:center;gap:8px;font:800 15px/1.05 var(--fd);color:#564f60;}
       html[data-dib-theme=konpeito] .dib-kb24{font:800 9px/1 var(--f);color:#fff;background:var(--dtr-pink2,#ff8fb0);border-radius:7px;padding:3px 6px;letter-spacing:.02em;}
-      html[data-dib-theme=konpeito] .dib-kbtag{position:absolute;left:-22px;bottom:-14px;z-index:7;width:58px;height:58px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2092%2092%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22s%22%20x%3D%22-25%25%22%20y%3D%22-25%25%22%20width%3D%22150%25%22%20height%3D%22150%25%22%3E%3CfeDropShadow%20dx%3D%220%22%20dy%3D%222%22%20stdDeviation%3D%222%22%20flood-color%3D%22%23000%22%20flood-opacity%3D%220.22%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cg%20transform%3D%22rotate%28-9%2046%2046%29%22%20filter%3D%22url%28%23s%29%22%3E%3Cg%20fill%3D%22%23ffffff%22%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%2252%22%20height%3D%2252%22%20rx%3D%2212%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%2252%22%20height%3D%2252%22%20rx%3D%2212%22%20transform%3D%22rotate%2845%2046%2046%29%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23ff7a5c%22%3E%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%2210%22%2F%3E%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%2210%22%20transform%3D%22rotate%2845%2046%2046%29%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2246%22%20y%3D%2243%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22900%22%20font-size%3D%2213%22%20fill%3D%22%23fff%22%3ENEW%3C%2Ftext%3E%3Ctext%20x%3D%2246%22%20y%3D%2256%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22900%22%20font-size%3D%2213%22%20fill%3D%22%23fff%22%3EHAUL%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E") center/contain no-repeat;}
+      html[data-dib-theme=konpeito] .dib-kbtag{position:absolute;left:-22px;bottom:-26px;z-index:7;width:58px;height:58px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2092%2092%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22s%22%20x%3D%22-25%25%22%20y%3D%22-25%25%22%20width%3D%22150%25%22%20height%3D%22150%25%22%3E%3CfeDropShadow%20dx%3D%220%22%20dy%3D%222%22%20stdDeviation%3D%222%22%20flood-color%3D%22%23000%22%20flood-opacity%3D%220.22%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cg%20transform%3D%22rotate%28-9%2046%2046%29%22%20filter%3D%22url%28%23s%29%22%3E%3Cg%20fill%3D%22%23ffffff%22%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%2252%22%20height%3D%2252%22%20rx%3D%2212%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2220%22%20width%3D%2252%22%20height%3D%2252%22%20rx%3D%2212%22%20transform%3D%22rotate%2845%2046%2046%29%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23ff7a5c%22%3E%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%2210%22%2F%3E%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%2244%22%20height%3D%2244%22%20rx%3D%2210%22%20transform%3D%22rotate%2845%2046%2046%29%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%2246%22%20y%3D%2243%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22900%22%20font-size%3D%2213%22%20fill%3D%22%23fff%22%3ENEW%3C%2Ftext%3E%3Ctext%20x%3D%2246%22%20y%3D%2256%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22900%22%20font-size%3D%2213%22%20fill%3D%22%23fff%22%3EHAUL%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E") center/contain no-repeat;}
       html[data-dib-theme=konpeito] .dib-kbtag-t{color:#fff;font-weight:900;font-size:8px;line-height:1;text-align:center;font-family:'Mochiy Pop P One','M PLUS Rounded 1c',ui-rounded,sans-serif;text-shadow:0 1px 1px rgba(0,0,0,.2);letter-spacing:.02em;}
       html[data-dib-theme=konpeito] .dib-syncdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#34c759;animation:dibSyncPulse 1.8s ease-out infinite;}
       @keyframes dibSyncPulse{0%{box-shadow:0 0 0 0 rgba(52,199,89,.55);}70%{box-shadow:0 0 0 6px rgba(52,199,89,0);}100%{box-shadow:0 0 0 0 rgba(52,199,89,0);}}
@@ -19343,15 +19549,15 @@
       html[data-dib-theme=konpeito] .dib-barcode{display:none;}
       html[data-dib-theme=konpeito] .dib-balloc-go{background:var(--dtr-scroll-a,#5fb3e8)!important;}
       html[data-dib-theme=konpeito] .dib-balloc-go:hover{background:var(--dtr-primary,#3d97d4)!important;filter:none!important;}
-      html[data-dib-theme=konpeito] #dib-bar .dib-impd{font:600 10px/1 var(--f);color:#948fa0;}
-      html[data-dib-theme=konpeito] #dib-bar .dib-dlabel{font:800 8.5px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;color:#8a8392;}
-      html[data-dib-theme=konpeito] #dib-bar .dib-dbars{display:block;width:108px;height:19px;margin:2px 0 1px;opacity:.6;background:repeating-linear-gradient(90deg,#564f60 0 1px,transparent 1px 3px,#564f60 3px 5px,transparent 5px 6px,#564f60 6px 8px,transparent 8px 11px);}
+      html[data-dib-theme=konpeito] #dia-bulk-wrap .dib-impd{font:600 10px/1 var(--f);color:#948fa0;}
+      html[data-dib-theme=konpeito] #dia-bulk-wrap .dib-dlabel{font:800 8.5px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;color:#8a8392;}
+      html[data-dib-theme=konpeito] #dia-bulk-wrap .dib-dbars{display:block;width:108px;height:19px;margin:2px 0 1px;opacity:.6;background:repeating-linear-gradient(90deg,#564f60 0 1px,transparent 1px 3px,#564f60 3px 5px,transparent 5px 6px,#564f60 6px 8px,transparent 8px 11px);}
       html[data-dib-theme=konpeito] .dib-dbarsWrap{position:relative;display:inline-block;}
       html[data-dib-theme=konpeito] .dib-dstamp{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;align-items:center;justify-content:center;margin:0;}
       html[data-dib-theme=konpeito] .dib-dstamp span{background:rgba(255,255,255,.74);padding:1px 5px;border-radius:3px;font:700 8.5px/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.05em;color:#2f2b35;}
-      html[data-dib-theme=konpeito] #dib-bar .dib-ddate{font:600 10px/1 ui-monospace,'SF Mono',Menlo,Consolas,monospace;letter-spacing:.18em;color:#564f60;}
-      html[data-dib-theme=konpeito] #dib-bar .dib-dtime{display:none;}
-      html[data-dib-theme=konpeito] #dib-bar .dib-lupd::before{content:none;}
+      html[data-dib-theme=konpeito] #dia-bulk-wrap .dib-ddate{font:600 10px/1 ui-monospace,'SF Mono',Menlo,Consolas,monospace;letter-spacing:.18em;color:#564f60;}
+      html[data-dib-theme=konpeito] #dia-bulk-wrap .dib-dtime{display:none;}
+      html[data-dib-theme=konpeito] #dia-bulk-wrap .dib-lupd::before{content:none;}
       html[data-dib-theme=konpeito] .dib-card{border-radius:18px;}
       html[data-dib-theme=konpeito] .dib-card:hover{box-shadow:0 6px 18px -8px rgba(110,128,150,.4);}
       @keyframes dibFridgeGlow{0%,100%{box-shadow:0 0 16px 3px rgba(167,139,250,.42);}50%{box-shadow:0 0 30px 7px rgba(167,139,250,.66);}}
@@ -20018,7 +20224,27 @@
 
     const _dibSrc = _dtrImportSrc();
     const _dibSrcLabel = _dibSrc === 'pets' ? 'Pets' : _dibSrc === 'sdb' ? 'SDB' : _dibSrc === 'closet' ? 'Closet' : _dibSrc === 'gallery' ? 'Gallery' : 'Inventory';
+
+    const _srcKeepShort = _dibSrc === 'sdb' ? 'in your SDB' : _dibSrc === 'closet' ? 'in your closet' : _dibSrc === 'gallery' ? 'in your gallery' : _dibSrc === 'pets' ? 'on your pets' : 'in your inventory';
+    const _srcKeepLong = _dibSrc === 'sdb' ? 'in your Safety Deposit Box' : _dibSrc === 'closet' ? 'in your closet' : _dibSrc === 'gallery' ? 'in your gallery' : _dibSrc === 'pets' ? 'on your pets' : 'in your Neopets inventory';
     const batch = loadBatch() || {};
+
+    try {
+      const fixKeys = (m) => {
+        let changed = false;
+        Object.keys(m).forEach(k => {
+          const dk = _dibNormName(k);
+          if (dk === k) return;
+          m[dk] = (typeof m[dk] === 'number' && typeof m[k] === 'number') ? Math.max(m[dk], m[k]) : (m[dk] != null ? m[dk] : m[k]);
+          try {  } catch (_) {}
+          delete m[k]; changed = true;
+        });
+        return changed;
+      };
+      if (fixKeys(batch)) saveBatch(batch);
+      const _dm = _dibDoneMap(); if (fixKeys(_dm)) GM_setValue(STORE_KEY + '_done' + _dtrSrcSuffix(), JSON.stringify(_dm));
+      const _pm = _dibPendMap(); if (fixKeys(_pm)) _dibPendWrite(_pm);
+    } catch (_) {}
     const names = Object.keys(batch);
     if (!names.length) {
 
@@ -20044,6 +20270,16 @@
       diaBulkLoadCloset(slug).catch(() => ({ listMeta: {}, itemQty: {}, csrf: null, allListIds: [] })),
       fetch('https://lebron-values.netlify.app/item_values.json').then(r => r.ok ? r.json() : null).catch(() => null),
     ]);
+
+    if (!slug || !closet.csrf) {
+      try {  } catch (_) {}
+      wrap.innerHTML = `<div class="dib-empty" style="max-width:560px;">
+          <div style="font:800 16px var(--f,'Nunito',sans-serif);color:#c0566c;margin-bottom:8px;">DTI can’t verify your login</div>
+          <div style="font:600 12.5px/1.6 var(--f,'Nunito',sans-serif);">Your import is safe and waiting — but nothing you sort can be <strong>saved</strong> right now, so sorting is paused instead of quietly losing your work.<br><br>
+          <a href="https://impress.openneo.net/users/sign_in" style="font-weight:800;">Log in to DTI</a>, then come back and refresh this page.</div>
+        </div>`;
+      return;
+    }
 
     const resolved = diaBulkResolveCached(names);
 
@@ -20085,22 +20321,39 @@
         return 'auto';
       } catch (_) { return 'auto'; }
     })();
-    const U = 54;
-    const TILE_GAP = 4;
-    const DEF_W = 2, DEF_H = 2;
-    const MIN_W = 2, MIN_H = 2;
-    const BOARD_MIN_W = 4;
-    const BOARD_MAX_W = 16;
-    const applyGrid = () => { root.style.setProperty('--u', U + 'px'); };
+    const SLOT_MAX_COLS = 4;
     const importedTs = (() => { try { return GM_getValue(BATCH_TS_KEY + _dtrSrcSuffix(), null); } catch (_) { return null; } })();
     const importedLabel = importedTs ? dibFmtDT(importedTs) : null;
 
+    const _dibStampHTML = () => {
+      const luTs = (() => { try { return GM_getValue(LAST_UPDATED_KEY, null); } catch (_) { return null; } })();
+      const luTxt = luTs ? dibFmtDT(luTs) : null;
+      const _isUpd = (luTxt && luTxt !== importedLabel);
+      const _fmt = _isUpd ? luTxt : importedLabel;
+      const _word = _isUpd ? 'Updated' : 'Imported';
+      let _dp = '', _tp = '';
+      if (_fmt) { const _sp = String(_fmt).split(' | '); _dp = _sp[0] || _fmt; _tp = _sp[1] || ''; }
+      return _fmt
+        ? `<span class="dib-datewrap"><span class="dib-dlabel">${_word}</span><span class="dib-dbarsWrap"><span class="dib-dbars"></span><span class="dib-dstamp"><span>${diaBulkEsc(_dp)}${_tp ? ' ' + diaBulkEsc(_tp) : ''}</span></span></span></span>`
+        : '';
+    };
+
+    const _pendRestore = _dibPendMap();
+    try { const _pk = Object.keys(_pendRestore); if (_pk.length) void 0; } catch (_) {}
     const model = names.map(name => {
       const meta = resolved[name] || {};
       const id = meta.id || null;
       const current = (id && closet.itemQty[id]) ? { ...closet.itemQty[id] } : {};
       const alloc = { ...current };
       const origOwned = allOwnIds.reduce((s, lid) => s + (current[lid] || 0), 0);
+
+      const p = _pendRestore[name];
+      if (p && p.a) {
+        Object.keys(p.a).forEach(lid => {
+          const d = (parseInt(p.a[lid], 10) || 0) - (parseInt((p.c || {})[lid], 10) || 0);
+          if (d) alloc[lid] = Math.max(0, (parseInt(alloc[lid], 10) || 0) + d);
+        });
+      }
       return {
         name, id,
         slug: meta.slug || '',
@@ -20111,8 +20364,9 @@
         baseline: { ...current },
         resolved: !!id,
         pending: !id,
-        added: {},
-        sub: { own: 0, wish: 0 },
+        added: (p && p.ad) || {},
+        sub: (p && p.sb) || { own: 0, wish: 0 },
+        leaveRest: !!(p && p.lr),
         expanded: true,
         save: 'idle',
       };
@@ -20120,11 +20374,21 @@
 
     const _hydrate = (it, meta) => {
       it.id = String(meta.id); it.slug = meta.slug || ''; it.thumb = meta.thumb || '';
+      it.nc = meta.nc; it.pb = meta.pb;
       const cur = (it.id && closet.itemQty[it.id]) ? { ...closet.itemQty[it.id] } : {};
 
       const touched = Object.values(it.alloc || {}).some(v => (parseInt(v, 10) || 0) > 0);
       it.current = cur; it.baseline = { ...cur };
-      if (!touched) it.alloc = { ...cur };
+      if (!touched) { it.alloc = { ...cur }; }
+      else {
+
+        const ph = it.alloc;
+        it.alloc = { ...cur };
+        Object.keys(ph).forEach(lid => {
+          const d = parseInt(ph[lid], 10) || 0;
+          if (d > 0) it.alloc[lid] = (parseInt(it.alloc[lid], 10) || 0) + d;
+        });
+      }
       it.origOwned = allOwnIds.reduce((sm, lid) => sm + (cur[lid] || 0), 0);
       it.resolved = true; it.pending = false;
     };
@@ -20196,7 +20460,8 @@
       <div id="dib-pager-top" class="dib-pager"></div>
       <div id="dib-list"></div>
       <div id="dib-pager-bot" class="dib-pager"></div>
-      <div id="dib-unresolved-foot" style="display:none;"></div>`;
+      <div id="dib-unresolved-foot" style="display:none;"></div>
+      <div id="dib-foot-stamp"></div>`;
     const topEl = wrap.querySelector('#dib-top');
     const barEl = wrap.querySelector('#dib-bar');
     const actionEl = wrap.querySelector('#dib-action');
@@ -20212,7 +20477,13 @@
 
     const pagerTop = wrap.querySelector('#dib-pager-top');
     const pagerBot = wrap.querySelector('#dib-pager-bot');
-    const DIB_PAGE = 60;
+
+    const DIB_PAGE_SIZES = [30, 60, 90, 120];
+    const dibReadPageSize = () => {
+      let v = 60; try { v = parseInt(GM_getValue('dtr_dib_pagesize', '60'), 10); } catch (_) {}
+      return DIB_PAGE_SIZES.indexOf(v) >= 0 ? v : 60;
+    };
+    let DIB_PAGE = dibReadPageSize();
     let dibPage = 0;
     const dibPageCount = () => Math.max(1, Math.ceil(model.length / DIB_PAGE));
     const dibPageOf = (i) => Math.floor(i / DIB_PAGE);
@@ -20221,19 +20492,32 @@
       if (selected.size) return [...selected];
       const s = dibPage * DIB_PAGE, e = Math.min(model.length, s + DIB_PAGE), a = [];
       for (let i = s; i < e; i++) a.push(i);
+
+      _dibStragglers.forEach(i => { if (i < s || i >= e) a.push(i); });
       return a;
     };
     let _nextUnsortedPage = -1;
+    const dibPageSizeHTML = () => '<span class="dib-pgsize">Show <select class="dib-pgsize-sel" aria-label="Items per page">'
+      + DIB_PAGE_SIZES.map(n => '<option value="' + n + '"' + (n === DIB_PAGE ? ' selected' : '') + '>' + n + '</option>').join('')
+      + '</select> per page</span>';
     function renderPager() {
       if (!pagerTop) return;
       const pc = dibPageCount();
-      if (pc <= 1) { pagerTop.innerHTML = ''; pagerBot.innerHTML = ''; return; }
       if (dibPage >= pc) dibPage = pc - 1;
-      const s = dibPage * DIB_PAGE, e = Math.min(model.length, s + DIB_PAGE);
-      const html = '<button class="dib-pg-btn" data-pg="prev"' + (dibPage <= 0 ? ' disabled' : '') + '>‹ Prev</button>'
-        + '<span class="dib-pg-info">' + (s + 1) + '–' + e + ' of ' + model.length + '  ·  page ' + (dibPage + 1) + ' / ' + pc + '</span>'
-        + '<button class="dib-pg-btn" data-pg="next"' + (dibPage >= pc - 1 ? ' disabled' : '') + '>Next ›</button>';
-      pagerTop.innerHTML = html; pagerBot.innerHTML = html;
+
+      const sizeSel = dibPageSizeHTML();
+      let nav = '';
+      if (pc > 1) {
+        const s = dibPage * DIB_PAGE, e = Math.min(model.length, s + DIB_PAGE);
+        nav = '<button class="dib-pg-btn" data-pg="prev"' + (dibPage <= 0 ? ' disabled' : '') + '>‹ Prev</button>'
+          + '<span class="dib-pg-info">' + (s + 1) + '–' + e + ' of ' + model.length + '  ·  page ' + (dibPage + 1) + ' / ' + pc + '</span>'
+          + '<button class="dib-pg-btn" data-pg="next"' + (dibPage >= pc - 1 ? ' disabled' : '') + '>Next ›</button>';
+      }
+      pagerTop.innerHTML = nav + sizeSel;
+      pagerBot.innerHTML = nav;
+
+      const _fs = wrap.querySelector('#dib-foot-stamp');
+      if (_fs) _fs.innerHTML = _dibStampHTML();
     }
     function gotoPage(p, scrollTop) {
       const np = Math.max(0, Math.min(dibPageCount() - 1, p));
@@ -20242,16 +20526,57 @@
       if (scrollTop !== false) { try { (pagerTop || listEl).scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (_) {} }
     }
 
-    function dibEnsurePage(i) { const p = dibPageOf(i); if (p === dibPage) return false; dibPage = p; renderAll(); resolvePage(); return true; }
+    function dibEnsurePage(i) { if (_dibStragglers.has(i)) return false; const p = dibPageOf(i); if (p === dibPage) return false; dibPage = p; renderAll(); resolvePage(); return true; }
+
+    let _dibStragglers = new Set();
+    const _dibSyncStragglers = () => {
+      const host = listEl.querySelector('#dib-stragglers');
+
+      if (host) {
+        Array.prototype.slice.call(host.querySelectorAll(':scope > .dib-item'))
+          .map(el => +el.dataset.i).sort((a, b) => b - a)
+          .forEach(i => { const ref = itemEls[i + 1]; listEl.insertBefore(itemEls[i], (ref && ref.parentNode === listEl) ? ref : host); });
+      }
+      _dibStragglers = new Set();
+      const pc = dibPageCount(), lastStart = (pc - 1) * DIB_PAGE;
+      if (pc < 2 || dibPage !== pc - 1) { if (host) host.style.display = 'none'; return; }
+      const idxs = [];
+      for (let i = 0; i < lastStart; i++) if (needsAttention(model[i])) idxs.push(i);
+      if (!idxs.length) { if (host) host.style.display = 'none'; return; }
+      let h = host;
+      if (!h) {
+        h = document.createElement('div');
+        h.id = 'dib-stragglers';
+        h.innerHTML = '<div class="dib-strag-head"><div class="dib-strag-title"></div><div class="dib-strag-sub"></div></div>';
+      }
+      h.style.display = '';
+      listEl.appendChild(h);
+      const pgs = idxs.map(dibPageOf), p0 = Math.min.apply(null, pgs) + 1, p1 = Math.max.apply(null, pgs) + 1;
+      h.querySelector('.dib-strag-title').textContent = 'Stragglers · ' + idxs.length + ' left';
+      h.querySelector('.dib-strag-sub').textContent = 'Found ' + idxs.length + ' item' + (idxs.length !== 1 ? 's' : '') + ' on ' + (p0 === p1 ? 'page ' + p0 : 'pages ' + p0 + '–' + p1) + ' that ' + (idxs.length !== 1 ? 'weren’t' : 'wasn’t') + ' fully sorted — finish ' + (idxs.length !== 1 ? 'them' : 'it') + ' here. These are the same cards as before, so nothing is counted twice.';
+      idxs.forEach(i => { h.appendChild(itemEls[i]); _dibStragglers.add(i); });
+    };
     [pagerTop, pagerBot].forEach(pg => pg && pg.addEventListener('click', e => {
       const b = e.target.closest('[data-pg]'); if (!b) return;
       gotoPage(b.getAttribute('data-pg') === 'prev' ? dibPage - 1 : dibPage + 1);
+    }));
+
+    [pagerTop, pagerBot].forEach(pg => pg && pg.addEventListener('change', e => {
+      const sel = e.target.closest('.dib-pgsize-sel'); if (!sel) return;
+      const n = parseInt(sel.value, 10); if (DIB_PAGE_SIZES.indexOf(n) < 0 || n === DIB_PAGE) return;
+      const firstIdx = dibPage * DIB_PAGE;
+      try { GM_setValue('dtr_dib_pagesize', String(n)); } catch (_) {}
+      DIB_PAGE = n;
+      dibPage = Math.floor(firstIdx / DIB_PAGE);
+      renderAll(); resolvePage();
     }));
 
     async function resolvePage() {
       const s = dibPage * DIB_PAGE, e = Math.min(model.length, s + DIB_PAGE);
       const pend = [];
       for (let i = s; i < e; i++) if (!model[i].resolved) pend.push(model[i].name);
+
+      _dibStragglers.forEach(i => { if ((i < s || i >= e) && !model[i].resolved) pend.push(model[i].name); });
       if (!pend.length) return;
       let got = {};
       try { got = (await diaBulkResolveItems(pend)) || {}; } catch (_) { got = {}; }
@@ -20262,10 +20587,12 @@
         if (it.resolved) continue;
         if (got[it.name]) {
           _hydrate(it, got[it.name]); newIds.push(it.id);
-          if (i >= ns && i < ne) renderItem(i);
+          if ((i >= ns && i < ne) || _dibStragglers.has(i)) renderItem(i);
+
+          if (it.save !== 'saving' && it.save !== 'saved' && it.save !== 'noop' && (toPlace(it) === 0 || it.leaveRest) && isDirty(it)) saveItemNow(i);
         } else if (pend.indexOf(it.name) > -1) {
           it.pending = false;
-          if (i >= ns && i < ne) renderItem(i);
+          if ((i >= ns && i < ne) || _dibStragglers.has(i)) renderItem(i);
         }
       }
       renderBar();
@@ -20287,33 +20614,33 @@
       const n = model.filter(needsAttention).length;
       const unallocItems = model.filter(it => !it.ignored && !it.leaveRest && toPlace(it) > 0).length;
       const totalUnplaced = model.reduce((s, it) => s + ((it.ignored || it.leaveRest) ? 0 : Math.max(0, toPlace(it))), 0);
-      const luTs = (() => { try { return GM_getValue(LAST_UPDATED_KEY, null); } catch (_) { return null; } })();
-      const luTxt = luTs ? dibFmtDT(luTs) : null;
-      const _isUpd = (luTxt && luTxt !== importedLabel);
-      const _fmt = _isUpd ? luTxt : importedLabel;
-      const _word = _isUpd ? 'Updated' : 'Imported';
-      let _dp = '', _tp = '';
-      if (_fmt) { const _sp = String(_fmt).split(' | '); _dp = _sp[0] || _fmt; _tp = _sp[1] || ''; }
-      const left = _fmt
-        ? `<span class="dib-datewrap"><span class="dib-dlabel">${_word}</span><span class="dib-dbarsWrap"><span class="dib-dbars"></span><span class="dib-dstamp"><span>${diaBulkEsc(_dp)}${_tp ? ' ' + diaBulkEsc(_tp) : ''}</span></span></span></span>`
-        : `<span class="dib-datewrap"><span class="dib-dlabel">Imported items</span></span>`;
-      const att = n
-        ? `<span class="dib-count" data-act="goto">${n} item${n !== 1 ? 's' : ''} need attention</span>`
-        : `<span class="dib-count clear">all caught up</span>`;
+
+      const _pc = dibPageCount();
+
+      const _errN = model.filter(it => it.save === 'error').length;
+      const errChip = _errN
+        ? `<span class="dib-count" style="background:#fdecec!important;border-color:#f0bfc4!important;color:#b8434f!important;">⚠ ${_errN} item${_errN !== 1 ? 's' : ''} FAILED to save — check you’re logged in to DTI, then Retry from the card${_errN !== 1 ? 's' : ''}</span>`
+        : '';
+
+      const att = totalUnplaced > 0
+        ? `<span class="dib-count" data-act="goto" title="Every page counted — click to jump to the next page that needs sorting">${totalUnplaced} cop${totalUnplaced !== 1 ? 'ies' : 'y'} to place · ${unallocItems} item${unallocItems !== 1 ? 's' : ''}${_pc > 1 ? ` · ${_pc} pages` : ''}</span>`
+        : n
+          ? `<span class="dib-count" data-act="goto">${n} item${n !== 1 ? 's' : ''} need attention</span>`
+          : `<span class="dib-count clear">all caught up</span>`;
       const hc = hiddenCount();
       const hiddenChip = hc
         ? `<span class="dib-chip ${showHidden ? 'on' : ''}" data-act="showhidden">${showHidden ? `Hide ${hc} hidden list${hc !== 1 ? 's' : ''}` : `Display ${hc} hidden list${hc !== 1 ? 's' : ''}`}</span>`
         : '';
       barEl.innerHTML = `
         <span class="dib-kbtitle"><span class="dib-kbname">${_dibSrcLabel} → DTI Sync<i class="dib-syncdot"></i></span><span class="dib-kbtag"></span></span>
-        ${left}
+        ${errChip}
+        ${att}
       `;
       gridboxEl.innerHTML = '';
 
       const selCount = selected.size;
       const scopeIdx = currentScope();
-      const scopeCopies = scopeIdx.reduce((s, i) => s + Math.max(0, toPlace(model[i])), 0);
-      const _pc = dibPageCount();
+      const scopeCopies = scopeIdx.reduce((s, i) => { const it = model[i]; return s + ((it.ignored || it.leaveRest) ? 0 : Math.max(0, toPlace(it))); }, 0);
       const _otherUnplaced = Math.max(0, totalUnplaced - scopeCopies);
 
       _nextUnsortedPage = -1;
@@ -20346,14 +20673,11 @@
           : (_pc > 1
               ? `Place <strong>this page’s</strong> unsorted copies (<strong>${scopeCopies}</strong>) into:`
               : `Place <strong>ALL</strong> unsorted copies (<strong>${scopeCopies}</strong>) into:`);
-        const pageNote = (!selCount && _pc > 1)
-          ? `<div class="dib-act-pagenote">Page <strong>${dibPage + 1}</strong> of <strong>${_pc}</strong> — sorted one page at a time${_otherUnplaced > 0 ? `; <strong>${_otherUnplaced}</strong> more cop${_otherUnplaced !== 1 ? 'ies' : 'y'} wait on other pages.` : ` (last page with items).`}</div>`
-          : '';
+
         actionEl.style.display = '';
         topEl && topEl.classList.add('has-action');
         actionEl.innerHTML = `
           <div class="dib-act-msg"><span class="dib-act-badge">Unsorted copies found!</span>${msg}${selCount ? ` <span class="dib-act-clear" data-act="clearsel">clear selection</span>` : ''}</div>
-          ${pageNote}
           <div class="dib-act-ctl">
             <select class="dib-balloc-sel" data-act="balloc-sel">${pendOpt}${ownOpts}</select>
             <button class="dib-balloc-go" type="button" data-act="balloc-go"${scopeCopies ? '' : ' disabled'}>Place &amp; Review</button>
@@ -20401,41 +20725,8 @@
       });
     };
 
-    const clampN = (v, a, b) => Math.max(a, Math.min(b, v));
     const readBoard = () => { const o = readJSON(BOARD_KEY, {}); return o.own || {}; };
     const writeBoard = (own) => { const o = readJSON(BOARD_KEY, {}); o.own = own; writeJSON(BOARD_KEY, o); };
-    const rectCells = (p) => { const s = []; for (let yy = p.y; yy < p.y + p.h; yy++) for (let xx = p.x; xx < p.x + p.w; xx++) s.push(xx + ',' + yy); return s; };
-    const areaFree = (placeMap, exceptKey, p) => {
-      if (p.x < 0 || p.y < 0 || p.w < 1 || p.h < 1) return false;
-      const occ = new Set();
-      for (const k in placeMap) { if (k === exceptKey) continue; rectCells(placeMap[k]).forEach(c => occ.add(c)); }
-      return rectCells(p).every(c => !occ.has(c));
-    };
-    const computeBoard = () => {
-      const stored = readBoard();
-      const place = {}; const occ = new Set(); const auto = [];
-      lists.own.forEach(l => {
-        const p = stored[l.key];
-        if (p && Number.isFinite(p.x) && Number.isFinite(p.y) && p.w >= 1 && p.h >= 1) {
-          const cells = rectCells(p);
-          if (cells.every(c => !occ.has(c))) { place[l.key] = { x: p.x, y: p.y, w: p.w, h: p.h }; cells.forEach(c => occ.add(c)); return; }
-        }
-        auto.push(l.key);
-      });
-      const scanCols = Math.max(BOARD_MIN_W, DEF_W * 3);
-      auto.forEach(k => {
-        for (let y = 0; y < 400 && !place[k]; y++) {
-          for (let x = 0; x + DEF_W <= scanCols; x++) {
-            const cand = { x, y, w: DEF_W, h: DEF_H };
-            if (rectCells(cand).every(c => !occ.has(c))) { place[k] = cand; rectCells(cand).forEach(c => occ.add(c)); break; }
-          }
-        }
-        if (!place[k]) place[k] = { x: 0, y: 0, w: DEF_W, h: DEF_H };
-      });
-      let cols = BOARD_MIN_W, rows = 1;
-      Object.values(place).forEach(p => { cols = Math.max(cols, p.x + p.w); rows = Math.max(rows, p.y + p.h); });
-      return { place, cols, rows };
-    };
 
     const ownCols = (n) => {
       if (n <= 1) return 1;
@@ -20448,15 +20739,58 @@
       }
       return best;
     };
-    const ownBoardHtml = (it, i) => `<div class="dib-owngrid" data-side="own" style="grid-template-columns:repeat(${ownCols(lists.own.length)},118px)">${lists.own.map(l => tileHtml(it, i, l)).join('')}</div>`;
-    const placeTile = (key, p) => {
-      const { place } = computeBoard();
-      if (!areaFree(place, key, p)) return false;
+    const computeSlots = () => {
       const stored = readBoard();
-      stored[key] = { x: p.x, y: p.y, w: p.w, h: p.h };
+      let cols = ownCols(lists.own.length);
+      const bykey = {}, occ = new Set(), auto = [];
+      lists.own.forEach(l => {
+        const p = stored[l.key];
+        const x = (p && Number.isFinite(p.x)) ? Math.floor(p.x) : -1;
+        const y = (p && Number.isFinite(p.y)) ? Math.floor(p.y) : -1;
+        if (x >= 0 && x < SLOT_MAX_COLS && y >= 0 && y < 400 && !occ.has(x + ',' + y)) {
+          bykey[l.key] = { x, y }; occ.add(x + ',' + y); cols = Math.max(cols, x + 1);
+        } else auto.push(l.key);
+      });
+      auto.forEach(k => {
+        for (let y = 0; y < 400; y++) for (let x = 0; x < cols; x++) {
+          if (!occ.has(x + ',' + y)) { bykey[k] = { x, y }; occ.add(x + ',' + y); return; }
+        }
+      });
+      let rows = 1;
+      Object.keys(bykey).forEach(k => { rows = Math.max(rows, bykey[k].y + 1); });
+      return { bykey, cols, rows };
+    };
+
+    const moveSlot = (key, x, y) => {
+      const { bykey } = computeSlots();
+      const from = bykey[key];
+      if (!from || x < 0 || x >= SLOT_MAX_COLS || y < 0 || y > 400) return;
+      const stored = readBoard();
+      Object.keys(bykey).forEach(k => { stored[k] = { x: bykey[k].x, y: bykey[k].y }; });
+      const occupant = Object.keys(bykey).find(k => k !== key && bykey[k].x === x && bykey[k].y === y);
+      if (occupant) stored[occupant] = { x: from.x, y: from.y };
+      stored[key] = { x, y };
       writeBoard(stored);
       renderAll();
-      return true;
+    };
+    const ownBoardHtml = (it, i) => {
+      const { bykey, cols, rows } = computeSlots();
+
+      const dragCols = Math.min(SLOT_MAX_COLS, cols + 1);
+      const at = {};
+      Object.keys(bykey).forEach(k => { at[bykey[k].x + ',' + bykey[k].y] = k; });
+      const cells = [];
+      for (let y = 0; y <= rows; y++) {
+        for (let x = 0; x < dragCols; x++) {
+          const key = at[x + ',' + y];
+          const l = key ? lists.own.find(o => o.key === key) : null;
+          if (l) { cells.push(`<div class="dib-slotwrap" style="grid-column:${x + 1};grid-row:${y + 1};">${tileHtml(it, i, l)}</div>`); continue; }
+
+          const spare = x >= cols || y >= rows;
+          cells.push(`<div class="dib-slot${spare ? ' dib-slot-spare' : ''}" data-slot-x="${x}" data-slot-y="${y}" data-side="own" style="grid-column:${x + 1};grid-row:${y + 1};"></div>`);
+        }
+      }
+      return `<div class="dib-owngrid dib-slotgrid" data-side="own" data-cols="${cols}" data-dragcols="${dragCols}" style="grid-template-columns:repeat(${cols},118px)">${cells.join('')}</div>`;
     };
     const resetBoard = () => { writeBoard({}); renderAll(); };
 
@@ -20476,7 +20810,7 @@
 
     const _dibTrades = {};
     const _dibTradeQ = [];
-    let _dibTradeBusy = false;
+    let _dibTradeActive = 0;
     const _dibParseRows = (doc) => {
       const out = [];
       doc.querySelectorAll('table.trades-table tr').forEach(tr => {
@@ -20499,23 +20833,37 @@
       });
       return { offering, seeking };
     };
+
+    const _DIB_TRADE_POOL = 3;
+    const _DIB_TRADE_GAP = 150;
+    const _dibTradeRetried = {};
     const _dibFetchTradePage = async (id, type) => {
-      const resp = await fetch('/items/' + id + '/trades/' + type, { credentials: 'include', headers: { 'Accept': 'text/html' } });
-      if (!resp.ok) throw new Error('trades ' + resp.status);
-      const doc = new DOMParser().parseFromString(await resp.text(), 'text/html');
-      return { counts: _dibParseCounts(doc), rows: _dibParseRows(doc) };
+      const ctl = ('AbortController' in window) ? new AbortController() : null;
+      const tm = ctl ? setTimeout(() => { try { ctl.abort(); } catch (_) {} }, 12000) : null;
+      try {
+        const resp = await fetch('/items/' + id + '/trades/' + type, { credentials: 'include', headers: { 'Accept': 'text/html' }, signal: ctl ? ctl.signal : undefined });
+        if (!resp.ok) throw new Error('trades ' + resp.status);
+        const doc = new DOMParser().parseFromString(await resp.text(), 'text/html');
+        return { counts: _dibParseCounts(doc), rows: _dibParseRows(doc) };
+      } finally { if (tm) clearTimeout(tm); }
     };
     const _dibPumpTradeQ = () => {
-      if (_dibTradeBusy || !_dibTradeQ.length) return;
-      const id = _dibTradeQ.shift();
-      if (_dibTrades[id]) { _dibPumpTradeQ(); return; }
-      _dibTradeBusy = true;
-      _dibFetchTradePage(id, 'offering')
-        .then(r => { _dibTrades[id] = { offering: r.counts.offering, seeking: r.counts.seeking, offeringRows: r.rows }; })
-        .catch(() => { _dibTrades[id] = { error: true }; })
-        .then(() => { _dibUpdateTradeChips(id); setTimeout(() => { _dibTradeBusy = false; _dibPumpTradeQ(); }, 450); });
+      while (_dibTradeActive < _DIB_TRADE_POOL && _dibTradeQ.length) {
+        const id = _dibTradeQ.shift();
+        if (_dibTrades[id]) continue;
+        _dibTradeActive++;
+        _dibFetchTradePage(id, 'offering')
+          .then(r => { _dibTrades[id] = { offering: r.counts.offering, seeking: r.counts.seeking, offeringRows: r.rows }; })
+          .catch(() => {
+            if (!_dibTradeRetried[id]) { _dibTradeRetried[id] = true; _dibTradeQ.push(id); }
+            else _dibTrades[id] = { error: true };
+          })
+          .then(() => { _dibUpdateTradeChips(id); setTimeout(() => { _dibTradeActive = Math.max(0, _dibTradeActive - 1); _dibPumpTradeQ(); }, _DIB_TRADE_GAP); });
+      }
     };
-    const _dibQueueTrade = (id) => { if (id && !_dibTrades[id] && _dibTradeQ.indexOf(id) < 0) { _dibTradeQ.push(id); _dibPumpTradeQ(); } };
+    const _dibQueueTrade = (id) => {
+      if (id && !_dibTrades[id] && _dibTradeQ.indexOf(id) < 0) { _dibTradeQ.push(id); _dibPumpTradeQ(); }
+    };
     const _dibTradeChipInner = (id) => {
       const t = _dibTrades[id];
       if (!t) return `<span class="dib-trades" data-trade-id="${id}"><span class="dib-trades-k">Trades</span> <span class="dib-trades-load">· · ·</span></span>`;
@@ -20606,15 +20954,34 @@
       const more = rows.length > shown ? `<button type="button" class="dib-drill-more" data-drill-more>Show more (${rows.length - shown} more)</button>` : '';
       return body + more;
     };
+
+    const _dibFindChip = (pop) => {
+      const a = pop._anchor;
+      if (a && a.isConnected) return a;
+      const fresh = pop._tradeId
+        ? document.querySelector('.dib-trade-side[data-trade-side="' + pop._tradeSide + '"][data-trade-id="' + pop._tradeId + '"]')
+        : null;
+      if (fresh) pop._anchor = fresh;
+      return pop._anchor;
+    };
     const _dibPositionDrill = (pop, anchor) => {
       try {
+        anchor = _dibFindChip(pop) || anchor;
         const r = anchor.getBoundingClientRect();
 
-        const card = anchor.closest('.dib-card');
-        const cl = card ? card.getBoundingClientRect().left : r.left;
+        try {  } catch (_) {}
         const w = Math.min(280, window.innerWidth - 24);
         pop.style.width = w + 'px';
-        let left = Math.max(12, Math.min(cl, window.innerWidth - w - 12));
+
+        if (!r.width && !r.height) {
+          pop.style.left = '50%'; pop.style.top = '28%'; pop.style.transform = 'translateX(-50%)';
+          pop.style.bottom = 'auto';
+          pop.style.maxHeight = Math.round(0.46 * window.innerHeight) + 'px';
+          return;
+        }
+        pop.style.transform = 'none';
+
+        let left = Math.max(12, Math.min(r.left, window.innerWidth - w - 12));
         pop.style.left = Math.round(left) + 'px';
 
         const margin = 12;
@@ -20628,16 +20995,18 @@
           pop.style.bottom = Math.round(window.innerHeight - r.top + 6) + 'px'; pop.style.top = 'auto';
           pop.style.maxHeight = Math.max(140, Math.min(cap, spaceAbove)) + 'px';
         }
-      } catch (_) {}
+      } catch (err) { try {  } catch (_) {} }
     };
 
     function _dibDrillReposition() {
       const pop = document.getElementById('dib-trade-drill');
       if (!pop || !pop._anchor) return;
-      const a = pop._anchor;
-      if (!a.isConnected) { _dibCloseDrill(); return; }
+      const a = _dibFindChip(pop);
+      if (!a || !a.isConnected) { _dibCloseDrill(); return; }
       const ar = a.getBoundingClientRect();
-      if (ar.bottom < 4 || ar.top > window.innerHeight - 4) { _dibCloseDrill(); return; }
+      if (ar.width || ar.height) {
+        if (ar.bottom < 4 || ar.top > window.innerHeight - 4) { _dibCloseDrill(); return; }
+      }
       _dibPositionDrill(pop, a);
     }
     const _dibOpenTradeDrill = async (id, sideType, anchor) => {
@@ -20646,6 +21015,8 @@
       let rows = sideType === 'offering' ? t.offeringRows : t.seekingRows;
       const pop = document.createElement('div');
       pop.id = 'dib-trade-drill'; pop.className = 'dib-trade-drill';
+
+      pop.style.left = '50%'; pop.style.top = '28%'; pop.style.transform = 'translateX(-50%)';
       pop.dataset.shown = '15';
       const title = sideType === 'offering' ? 'Offering this' : 'Seeking this';
       pop.innerHTML = `<div class="dib-drill-head"><span>${title}</span><span class="dib-drill-sub">most recently active first</span></div>`
@@ -20654,7 +21025,10 @@
       (root || document.body).appendChild(pop);
       pop._rows = rows || null;
       pop._anchor = anchor;
+      pop._tradeId = String(id); pop._tradeSide = sideType;
       _dibPositionDrill(pop, anchor);
+
+      try { requestAnimationFrame(() => _dibDrillReposition()); } catch (_) {}
       window.addEventListener('scroll', _dibDrillReposition, true);
       window.addEventListener('resize', _dibDrillReposition);
       setTimeout(() => document.addEventListener('mousedown', _dibDrillOutside, true), 0);
@@ -20692,7 +21066,7 @@
     const renderItem = (i) => {
       const it = model[i];
 
-      if (i < dibPage * DIB_PAGE || i >= dibPage * DIB_PAGE + DIB_PAGE) { itemEls[i].style.display = 'none'; itemEls[i].innerHTML = ''; return; }
+      if ((i < dibPage * DIB_PAGE || i >= dibPage * DIB_PAGE + DIB_PAGE) && !_dibStragglers.has(i)) { itemEls[i].style.display = 'none'; itemEls[i].innerHTML = ''; return; }
       if (it.ignored) {
         itemEls[i].style.display = '';
         itemEls[i].innerHTML = `
@@ -20717,8 +21091,11 @@
                 : /buyable/i.test(_lvDisp) ? 'Buyable'
                 : _lvDisp.slice(0, 11).replace(/\s+$/, '') + '…';
       }
-      const lebHtml = _lvDisp
-        ? `<div class="dib-leb"${_lvFull !== _lvDisp ? ' data-tip="' + diaBulkEsc(_lvFull) + '"' : ''}>${diaBulkEsc(_lvDisp)}</div>` : '';
+
+      const lebHtml = (it.nc === false)
+        ? `<div class="dib-leb dib-leb-np">NP</div>`
+        : (_lvDisp
+          ? `<div class="dib-leb"${_lvFull !== _lvDisp ? ' data-tip="' + diaBulkEsc(_lvFull) + '"' : ''}>${diaBulkEsc(_lvDisp)}</div>` : '');
       const thumb = it.thumb ? `background-image:url('${diaBulkEsc(it.thumb)}')` : '';
       const badge = (wished > 0 && owned === 0) ? `<span class="dib-badge wish">Wished</span>`
                   : (owned > 0 ? `<span class="dib-badge">Owned</span>` : '');
@@ -20728,10 +21105,10 @@
 
       const _allocated = Object.values(it.alloc || {}).reduce((s, v) => s + (parseInt(v, 10) || 0), 0);
       const leaveBtn = (tp > 0 && _allocated > 0 && !it.leaveRest && it.save !== 'saved' && it.save !== 'noop' && it.save !== 'saving')
-        ? `<button class="dib-leaverest" type="button" data-act="leaverest" title="Save the ${_allocated === 1 ? 'copy' : 'copies'} you placed and keep the other ${tp} in your Neopets inventory — clears the “to place” reminder">Done · keep ${tp} in inventory</button>` : '';
+        ? `<button class="dib-leaverest" type="button" data-act="leaverest" title="Save the ${_allocated === 1 ? 'copy' : 'copies'} you placed and keep the other ${tp} ${_srcKeepLong} — clears the “to place” reminder">Done · keep ${tp} ${_srcKeepShort}</button>` : '';
 
       if (it.expanded) {
-        const tpHtml = (it.leaveRest && tp > 0) ? `<span class="dib-tp kept">${tp} kept in inventory</span>`
+        const tpHtml = (it.leaveRest && tp > 0) ? `<span class="dib-tp kept">${tp} kept ${_srcKeepShort}</span>`
                      : tp > 0 ? `<span class="dib-tp warn">${tp} to place</span>`
                      : tp < 0 ? `<span class="dib-tp over">${-tp} over</span>`
                      : `<span class="dib-tp ok">all placed</span>`;
@@ -20766,7 +21143,10 @@
         const _hidN = _hidOwn + _allLists.want.filter(l => l.hidden && !isHaul(l.listId)).length;
         const _visN = _allOwn.length - _hidOwn;
         const _showHid = !!GM_getValue(SHOW_HIDDEN_KEY, false);
-        const _ownKey = 'OWNED<span class="dib-key-n">\u00b7 ' + _visN + ' list' + (_visN!==1?'s':'') + '</span>' + (_hidN > 0 ? '<button class="dib-hidtog' + (_showHid?' on':'') + '" type="button" data-act="toghidden">' + (_showHid ? 'Collapse Hidden lists' : ('+' + _hidN + ' hidden')) + '</button>' : '');
+
+        const _ownKey = '<span class="dib-ownkeycol"><span class="dib-ownkeyrow">OWNED<span class="dib-key-n">\u00b7 ' + _visN + ' list' + (_visN!==1?'s':'') + '</span></span>'
+          + (_hidN > 0 ? '<button class="dib-hidtog' + (_showHid?' on':'') + '" type="button" data-act="toghidden">' + (_showHid ? 'Collapse Hidden lists' : ('+' + _hidN + ' hidden')) + '</button>' : '')
+          + '</span>';
 
         let veilHtml = '';
         if (it.save === 'saving' || it.save === 'saved' || it.save === 'noop' || it.save === 'error') {
@@ -20816,17 +21196,26 @@
         }
       }
 
-      const nf = it.resolved ? '' : (it.pending ? ` <span style="color:#8a8a95;font:600 11px Inter;">(looking up…)</span>` : ` <span style="color:#c0392b;font:600 11px Inter;">(not found on DTI)</span>`);
+      const nfNote = it.resolved ? '' : (it.pending
+        ? `<div class="dib-nf looking">Looking this up on DTI…</div>`
+        : `<div class="dib-nf">Looks like this item hasn’t been uploaded to DTI yet. To log it, please <strong>model it for us on a pet</strong>!</div>`);
       itemEls[i].innerHTML = `
         <div class="${cardCls}${selected.has(i) ? ' sel' : ''}">
           <div class="dib-head" data-act="toggle">
             <div class="dib-selbox ${selected.has(i) ? 'on' : ''}" data-act="select" role="checkbox" aria-checked="${selected.has(i)}"></div>
             <div class="dib-thumbwrap"><div class="dib-thumb${it.id ? ' dib-thumb-try' : ''}${_dibTryOnIdx === i && it.id ? ' dtr-previewing' : ''}" style="${thumb}"${it.id ? ' data-act="tryon" title="Preview this item on a pet — replaces the previous preview"' : ''}>${badge}</div>${lebHtml}${(it.resolved && it.id) ? `<div class="dib-trades-col">${_dibTradeChipInner(it.id)}</div>` : ''}</div>
-            <div class="dib-hmain"><div class="dib-name"><span class="dib-nmtxt">${diaBulkEsc(it.name)}${nf}</span></div>${(it.resolved && it.id) ? `<div class="dib-zoneline">${_dibZoneChipInner(it.id)}</div>` : ''}${statusHtml}</div>
+            <div class="dib-hmain"><div class="dib-name">${(it.resolved && it.id)
+              ? `<span class="dib-nmtxt"><a class="dib-nmlink" href="https://impress.openneo.net/items/${it.id}${it.slug ? '-' + diaBulkEsc(it.slug) : ''}" title="Open this item’s page in a new tab">${diaBulkEsc(it.name)}</a></span>`
+              : `<span class="dib-nmtxt">${diaBulkEsc(it.name)}</span>`}</div>${nfNote}${(it.resolved && it.id) ? `<div class="dib-zoneline">${_dibZoneChipInner(it.id)}</div>` : ''}${statusHtml}</div>
             <div class="dib-hright">${it.expanded ? `<span class="dib-synced-corner">Synced from ${_dibSrcLabel.toLowerCase()}</span>` : ignoreBtn}${rightHtml}</div>
           </div>
           ${bodyHtml}
         </div>`;
+
+      try {
+        const _tc = itemEls[i].querySelector('.dib-trades[data-trade-id]:not(.has):not(.err)');
+        if (_tc) { if (_dibTradeObs) _dibTradeObs.observe(_tc); else _dibQueueTrade(_tc.getAttribute('data-trade-id')); }
+      } catch (_) {}
     };
 
     const syncCardWidths = () => {
@@ -20850,19 +21239,6 @@
       } catch (_) {}
     };
 
-    let _dibAttnCursor = -1;
-    const gotoNextUnresolved = () => {
-      const idxs = model.map((it, i) => (needsAttention(it) ? i : -1)).filter(i => i > -1);
-      if (!idxs.length) return;
-      const nxt = idxs.find(i => i > _dibAttnCursor);
-      const i = (nxt != null) ? nxt : idxs[0];
-      _dibAttnCursor = i;
-      dibEnsurePage(i);
-      dibActiveItem = String(i); dibApplyEditingGlow();
-      if (!model[i].expanded) expandItem(i);
-      itemEls[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
-    };
-
     let _dibTryOnIdx = null;
     const _dibDock = () => {
       let d = document.getElementById('dib-tryon-dock');
@@ -20871,7 +21247,9 @@
       d.id = 'dib-tryon-dock';
 
       d.innerHTML = '<div class="dib-td-head"><span class="dib-td-title">Try-On Preview</span><span class="dib-td-item"></span>'
-        + '<button type="button" class="dib-td-collapse" title="Collapse — hide the pet portraits">'
+        + '<button type="button" class="dib-td-power" title="Turn live preview off — stops rendering the pet (faster on slower computers)" aria-pressed="false">'
+        + '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9"/><path d="M6.5 7.5a8 8 0 1 0 11 0"/></svg></button>'
+        + '<button type="button" class="dib-td-collapse" title="Collapse — hide the pet portraits (also pauses rendering)">'
         + '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></button></div>'
         + '<div class="dib-td-hint">Click any item card or use the Tab key to navigate through the list. The focused item is automatically applied.</div>'
         + '<div class="dib-td-body"><div class="dib-td-host"></div></div>';
@@ -20880,6 +21258,21 @@
       d.querySelector('.dib-td-collapse').addEventListener('click', () => {
         const on = d.classList.toggle('dib-td-collapsed');
         try { GM_setValue('dtr_dib_collapsed', on ? '1' : '0'); } catch (_) {}
+        if (on) _dibTeardownQp(d); else if (!_dibPreviewOff()) _dibRemountCurrent(d);
+      });
+
+      d.querySelector('.dib-td-power').addEventListener('click', () => {
+        const nowOff = !_dibPreviewOff();
+        try { GM_setValue('dtr_dib_preview_off', nowOff ? '1' : '0'); } catch (_) {}
+        _dibApplyPreviewMode(d);
+        if (!nowOff && !d.classList.contains('dib-td-collapsed')) _dibRemountCurrent(d);
+      });
+
+      d.querySelector('.dib-td-host').addEventListener('click', (e) => {
+        if (!e.target.closest('.dib-td-on')) return;
+        try { GM_setValue('dtr_dib_preview_off', '0'); } catch (_) {}
+        _dibApplyPreviewMode(d);
+        if (!d.classList.contains('dib-td-collapsed')) _dibRemountCurrent(d);
       });
       d.style.display = 'none';
 
@@ -20887,7 +21280,7 @@
         const head = d.querySelector('.dib-td-head');
         let sx = 0, sy = 0, ox = 0, oy = 0, dragging = false;
         head.addEventListener('pointerdown', (e) => {
-          if (e.target.closest('.dib-td-close') || e.target.closest('.dib-td-collapse')) return;
+          if (e.target.closest('.dib-td-close') || e.target.closest('.dib-td-collapse') || e.target.closest('.dib-td-power')) return;
           const r = d.getBoundingClientRect();
           dragging = true; sx = e.clientX; sy = e.clientY; ox = r.left; oy = r.top;
           d.style.top = r.top + 'px'; d.style.transform = 'none';
@@ -20903,6 +21296,7 @@
         head.addEventListener('pointerup', () => { if (dragging) { dragging = false; d.__dtrDragged = true; } });
       })();
       wrap.appendChild(d);
+      try { _dibApplyPreviewMode(d); } catch (_) {}
       return d;
     };
 
@@ -20920,7 +21314,44 @@
     try { _dibPetSp = String(GM_getValue('dtr_hp_species', '') || '') || null; } catch (_) {}
     try { _dibPetCo = String(GM_getValue('dtr_hp_color', '') || '') || null; } catch (_) {}
 
+    const _dibPreviewOff = () => { try { return GM_getValue('dtr_dib_preview_off', '0') === '1'; } catch (_) { return false; } };
+
+    const _dibTeardownQp = (d) => {
+      try {
+        const host = d.querySelector('.dib-td-host');
+        if (host && host._qp && host._qp.destroy) { host._qp.destroy(); }
+        if (host) host.innerHTML = '';
+      } catch (_) {}
+    };
+
+    const _dibRemountCurrent = (d) => {
+      const i = _dibTryOnIdx;
+      if (i != null && model[i] && model[i].id) _dibMountQp(d, model[i].id, model[i].name);
+      else _dibMountQp(d, null, '');
+    };
+
+    const _dibApplyPreviewMode = (d) => {
+      const off = _dibPreviewOff();
+      d.classList.toggle('dib-td-off', off);
+      const pw = d.querySelector('.dib-td-power');
+      if (pw) { pw.setAttribute('aria-pressed', off ? 'true' : 'false'); pw.title = off ? 'Turn live preview back on' : 'Turn live preview off — stops rendering the pet (faster on slower computers)'; }
+      if (off) {
+        _dibTeardownQp(d);
+        const host = d.querySelector('.dib-td-host');
+        if (host) host.innerHTML = '<div class="dib-td-offmsg">Live preview is off.<br><span class="dib-td-offsub">Kept off so slower computers stay snappy while you sort.</span><button type="button" class="dib-td-on">Turn on live preview</button></div>';
+        const li = d.querySelector('.dib-td-item'); if (li) li.textContent = '';
+      }
+    };
+
     const _dibMountQp = (d, itemId, label) => {
+
+      if (_dibPreviewOff()) { _dibApplyPreviewMode(d); return; }
+
+      if (d.classList.contains('dib-td-collapsed')) {
+        _dibTeardownQp(d);
+        const li = d.querySelector('.dib-td-item'); if (li) li.textContent = label || '';
+        return;
+      }
       try {
         const host = d.querySelector('.dib-td-host');
         window.__DTR_QP.mount(host, Object.assign(
@@ -20971,14 +21402,22 @@
       const foot = wrap.querySelector('#dib-unresolved-foot');
       if (foot) {
         const n = model.filter(needsAttention).length;
-        const showFoot = !allDone && model.length > 0 && n > 0;
+        const _pc = dibPageCount();
+        const onLast = dibPage >= _pc - 1;
+        const showFoot = !allDone && model.length > 0 && n > 0 && _pc > 1 && !onLast;
         foot.style.display = showFoot ? 'block' : 'none';
         foot.innerHTML = showFoot
-          ? `<div class="dib-uf-head">You’re almost done!</div>`
-            + `<div class="dib-uf-sub"><strong>${n} unresolved item${n !== 1 ? 's' : ''}</strong> still need${n === 1 ? 's' : ''} attention — the summary appears once everything is settled.</div>`
-            + `<button type="button" class="dib-uf-btn" data-act="goto">Take me to the next one ↑</button>`
-            + `<div class="dib-uf-hint">Click it again to cycle through every unresolved item. Tab / Shift+Tab also hop straight to items needing attention.</div>`
+          ? `<div class="dib-uf-head">${n} item${n !== 1 ? 's' : ''} still need${n === 1 ? 's' : ''} attention!</div>`
+            + `<div class="dib-uf-sub">The items you’ve sorted are already saved, so you can come back to finish this import at any time.</div>`
+            + `<div class="dib-uf-sub">Keep going with <strong>Next ›</strong> — anything you miss gathers in a <strong>Stragglers</strong> section on the last page.</div>`
           : '';
+      }
+
+      const _sh = listEl.querySelector('#dib-stragglers');
+      if (_sh && _sh.style.display !== 'none' && _dibStragglers.size) {
+        const left = [..._dibStragglers].filter(i => needsAttention(model[i])).length;
+        const t = _sh.querySelector('.dib-strag-title');
+        if (t) t.textContent = left ? ('Stragglers · ' + left + ' left') : 'Stragglers · all sorted ✓';
       }
       const ed = wrap.querySelector('#dib-empty-done');
       if (ed) {
@@ -20987,6 +21426,11 @@
       }
       listEl.style.display = allDone ? 'none' : '';
       topEl.style.display = allDone ? 'none' : '';
+
+      if (pagerTop) pagerTop.style.display = allDone ? 'none' : '';
+      if (pagerBot) pagerBot.style.display = allDone ? 'none' : '';
+      const _fsEl = wrap.querySelector('#dib-foot-stamp');
+      if (_fsEl) _fsEl.style.display = allDone ? 'none' : '';
       if (allDone && !root.__dibAllDone) {
 
         try { diaClearImport(); } catch (_) {}
@@ -21006,9 +21450,10 @@
       try { wrap.querySelectorAll('#dib-list .dib-wflyout.open').forEach(fly => { const it = fly.closest('.dib-item'); if (it) _dibCapTray(it); }); } catch (_) {}
     };
     const renderAll = () => {
+      _dibSyncStragglers();
       const _ps = dibPage * DIB_PAGE, _pe = Math.min(model.length, _ps + DIB_PAGE);
       model.forEach((_, i) => {
-        if (i >= _ps && i < _pe) renderItem(i);
+        if ((i >= _ps && i < _pe) || _dibStragglers.has(i)) renderItem(i);
         else { itemEls[i].style.display = 'none'; itemEls[i].innerHTML = ''; }
       });
       renderPager();
@@ -21034,10 +21479,9 @@
       recomputeLists(); renderAll();
     };
 
-    const step = (i, lid, side, d) => {
-      const it = model[i];
+    const stepCore = (it, lid, side, d) => {
       const cur = parseInt(it.alloc[lid], 10) || 0;
-      if (d < 0 && cur <= 0) return;
+      if (d < 0 && cur <= 0) return false;
       const orig = parseInt(it.current[lid], 10) || 0;
       const sk = side === 'want' ? 'wish' : 'own';
       it.alloc[lid] = cur + d;
@@ -21048,25 +21492,73 @@
         if ((it.added[lid] || 0) > 0) it.added[lid]--;
         else it.sub[sk]++;
       }
+      return true;
+    };
+
+    const _dibPendSave = (it) => {
+      try {
+        const m = _dibPendMap();
+        if (!it.ignored && it.save !== 'saved' && it.save !== 'noop' && (isDirty(it) || it.leaveRest)) {
+          m[it.name] = { a: it.alloc, c: it.current, ad: it.added, sb: it.sub, lr: it.leaveRest ? 1 : 0 };
+        } else delete m[it.name];
+        _dibPendWrite(m);
+      } catch (_) {}
+    };
+    const _dibAfterAlloc = (i) => {
+      const it = model[i];
+      _dibPendSave(it);
       renderItem(i); renderBar();
 
-      if (it.save !== 'saving' && toPlace(it) === 0 && isDirty(it)) saveItemNow(i);
+      if (it.resolved && it.save !== 'saving' && toPlace(it) === 0 && isDirty(it)) saveItemNow(i);
+    };
+    const step = (i, lid, side, d) => {
+      if (!stepCore(model[i], lid, side, d)) return;
+      _dibAfterAlloc(i);
+    };
+
+    const setQty = (i, lid, side, target) => {
+      const it = model[i];
+      target = Math.max(0, Math.min(999, parseInt(target, 10) || 0));
+      let cur = parseInt(it.alloc[lid], 10) || 0;
+      if (cur === target) return;
+      let guard = 0;
+      while (cur !== target && guard++ < 2000) {
+        if (!stepCore(it, lid, side, cur < target ? 1 : -1)) break;
+        cur = parseInt(it.alloc[lid], 10) || 0;
+      }
+      _dibAfterAlloc(i);
     };
 
     const commitBatch = (it) => {
       try {
         const rem = toPlace(it);
 
-        if (rem > 0 && !it.leaveRest) batch[it.name] = rem; else delete batch[it.name];
+        const keep = rem > 0 && !it.leaveRest;
+
+        const prev = (it.name in batch) ? (parseInt(batch[it.name], 10) || 0) : 0;
+        _dibDoneBump(it.name, prev - (keep ? rem : 0));
+        if (keep) batch[it.name] = rem; else delete batch[it.name];
         saveBatch(batch);
-      } catch (_) {}
+        try {  } catch (_) {}
+
+        try { const pm = _dibPendMap(); if (pm[it.name] != null) { delete pm[it.name]; _dibPendWrite(pm); } } catch (_) {}
+
+        try {
+          const back = loadBatch() || {};
+          const want = keep ? String(rem) : undefined;
+          const got = (it.name in back) ? String(back[it.name]) : undefined;
+          if (want !== got) void 0;
+        } catch (_) {}
+      } catch (e) { try {  } catch (_) {} }
     };
 
     const leaveRestItem = (i) => {
       const it = model[i];
       if (it.ignored) return;
       it.leaveRest = true;
-      if (isDirty(it)) { saveItemNow(i); }
+      _dibPendSave(it);
+      if (isDirty(it) && it.resolved) { saveItemNow(i); }
+      else if (isDirty(it)) { renderItem(i); renderBar(); }
       else { if (it.save !== 'saved') it.save = 'noop'; commitBatch(it); renderItem(i); renderBar(); syncDoneState(); }
     };
     const saveItemNow = async (i) => {
@@ -21098,6 +21590,7 @@
       const tp = toPlace(it);
       if (tp > 0) { it.save = 'unfinished'; renderItem(i); renderBar(); return; }
       if (!isDirty(it)) { it.save = 'noop'; renderItem(i); renderBar(); syncDoneState(); return; }
+      if (!it.resolved) return;
       saveItemNow(i);
     };
 
@@ -21139,13 +21632,16 @@
       it.ignored = true;
       it._batchQty = (it.name in batch) ? batch[it.name] : it.inv;
       if (selected.has(i)) selected.delete(i);
-      try { delete batch[it.name]; saveBatch(batch); diaTouchImport(); } catch (_) {}
+
+      try { _dibDoneBump(it.name, parseInt(it._batchQty, 10) || 0); delete batch[it.name]; saveBatch(batch); diaTouchImport(); } catch (_) {}
+      _dibPendSave(it);
       renderAll();
     };
     const unignoreItem = (i) => {
       const it = model[i];
       it.ignored = false;
-      try { batch[it.name] = it._batchQty != null ? it._batchQty : it.inv; saveBatch(batch); diaTouchImport(); } catch (_) {}
+      const restored = it._batchQty != null ? it._batchQty : it.inv;
+      try { _dibDoneBump(it.name, -(parseInt(restored, 10) || 0)); batch[it.name] = restored; saveBatch(batch); diaTouchImport(); } catch (_) {}
       renderAll();
     };
 
@@ -21194,7 +21690,8 @@
 
     const unallocatedPlan = () => {
       const sc = new Set(currentScope());
-      return model.map((it, i) => ({ i, copies: toPlace(it) })).filter(p => p.copies > 0 && sc.has(p.i));
+
+      return model.map((it, i) => ({ i, copies: (it.ignored || it.leaveRest) ? 0 : toPlace(it) })).filter(p => p.copies > 0 && sc.has(p.i));
     };
 
     let modalBusy = false;
@@ -21285,6 +21782,7 @@
           const it = model[p.i];
           it.alloc[destId] = (parseInt(it.alloc[destId], 10) || 0) + p.copies;
           it.added[destId] = (it.added[destId] || 0) + p.copies;
+          _dibPendSave(it);
         });
 
         const queue = plan.map(p => p.i);
@@ -21316,7 +21814,7 @@
             done++; setProg();
           }
         };
-        await Promise.all(Array.from({ length: Math.min(3, total) }, worker));
+        await Promise.all(Array.from({ length: Math.min(5, total) }, worker));
 
         modalBusy = false;
         if (!failed.length) selected.clear();
@@ -21426,8 +21924,9 @@
 
     const reTarget = (e) => {
       if (!dragKey) return null;
-      const tiles = Array.prototype.slice.call(listEl.querySelectorAll(`[data-side="${dragSide}"][data-key]`))
-        .filter(el => (el.classList.contains('dib-cell') || el.classList.contains('dib-wrow')) && el.dataset.key !== dragKey);
+
+      const tiles = Array.prototype.slice.call(listEl.querySelectorAll(`[data-side="${dragSide}"][data-key], .dib-slot[data-side="${dragSide}"]`))
+        .filter(el => (el.classList.contains('dib-cell') || el.classList.contains('dib-wrow') || el.classList.contains('dib-slot')) && el.dataset.key !== dragKey);
       if (!tiles.length) return null;
       let best = null, bestD = Infinity;
       for (const el of tiles) {
@@ -21454,15 +21953,32 @@
       dragKey = t.dataset.key; dragSide = t.dataset.side;
       try { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', dragKey); } catch (_) {}
       t.classList.add('dragging');
+
+      if (dragSide === 'own') listEl.querySelectorAll('.dib-slotgrid').forEach(g => {
+        g.classList.add('dib-dragging');
+        g.style.gridTemplateColumns = 'repeat(' + (g.getAttribute('data-dragcols') || '4') + ',118px)';
+        const c = g.closest('.dib-card'); if (c) c.classList.add('dib-dragroom');
+      });
     });
     listEl.addEventListener('dragend', () => {
       dragKey = null; dragSide = null; _dibGripDown = false;
-      listEl.querySelectorAll('.dragging,.dropbefore,.dropafter').forEach(el => el.classList.remove('dragging', 'dropbefore', 'dropafter'));
+      listEl.querySelectorAll('.dragging,.dropbefore,.dropafter,.dropinto').forEach(el => el.classList.remove('dragging', 'dropbefore', 'dropafter', 'dropinto'));
+      listEl.querySelectorAll('.dib-slotgrid.dib-dragging').forEach(g => {
+        g.classList.remove('dib-dragging');
+        g.style.gridTemplateColumns = 'repeat(' + (g.getAttribute('data-cols') || '4') + ',118px)';
+        const c = g.closest('.dib-card'); if (c) c.classList.remove('dib-dragroom');
+      });
     });
     listEl.addEventListener('dragover', e => {
       const t = reTarget(e); if (!t) return;
       e.preventDefault();
       try { e.dataTransfer.dropEffect = 'move'; } catch (_) {}
+      if (dragSide === 'own') {
+
+        listEl.querySelectorAll('.dropinto').forEach(el => el.classList.remove('dropinto'));
+        t.classList.add('dropinto');
+        return;
+      }
       const before = _dibDropBefore(t, e);
       listEl.querySelectorAll('.dropbefore,.dropafter').forEach(el => el.classList.remove('dropbefore', 'dropafter'));
       t.classList.add(before ? 'dropbefore' : 'dropafter');
@@ -21470,25 +21986,56 @@
     listEl.addEventListener('drop', e => {
       const t = reTarget(e); if (!t) return;
       e.preventDefault();
+      const k = dragKey, side = dragSide; dragKey = null; dragSide = null;
+      if (side === 'own') {
+        if (t.classList.contains('dib-slot')) { moveSlot(k, +t.dataset.slotX, +t.dataset.slotY); return; }
+        const { bykey } = computeSlots();
+        const tp = t.dataset.key ? bykey[t.dataset.key] : null;
+        if (tp && t.dataset.key !== k) moveSlot(k, tp.x, tp.y);
+        return;
+      }
 
       const before = _dibDropBefore(t, e);
-      const k = dragKey, side = dragSide; dragKey = null; dragSide = null;
       reorderList(side, k, t.dataset.key, before);
     });
 
+    listEl.addEventListener('focusin', e => { const n = e.target.closest('.dib-num'); if (n && n.select) { try { n.select(); } catch (_) {} } });
+    listEl.addEventListener('keydown', e => {
+      const n = e.target.closest('.dib-num'); if (!n) return;
+      if (e.key === 'Enter') { e.preventDefault(); n.blur(); }
+      else if (e.key === 'Escape') { e.preventDefault(); const t = n.closest('[data-list]'); if (t) n.value = String(parseInt(model[+t.dataset.i].alloc[t.dataset.list], 10) || 0); n.blur(); }
+    });
+    listEl.addEventListener('change', e => {
+      const n = e.target.closest('.dib-num'); if (!n) return;
+      const t = n.closest('[data-list]'); if (!t) return;
+      const i = +t.dataset.i, lid = t.dataset.list;
+      const raw = String(n.value).trim();
+      if (raw !== '' && !/^\d+$/.test(raw)) { n.value = String(parseInt(model[i].alloc[lid], 10) || 0); return; }
+      if (raw === '') n.value = '0';
+      setQty(i, lid, t.dataset.side, raw === '' ? 0 : parseInt(raw, 10));
+    });
     listEl.addEventListener('click', e => {
 
+      const _idxOf = (el) => { const n = el.closest('.dib-item') || el.closest('[data-i]'); return (n && n.dataset && n.dataset.i != null) ? +n.dataset.i : -1; };
+      const nml = e.target.closest('.dib-nmlink');
+      if (nml) {
+        e.preventDefault(); e.stopPropagation();
+        const u = nml.getAttribute('href');
+
+        if (u) { if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab(u); else window.open(u, '_blank'); }
+        return;
+      }
       const sd = e.target.closest('.dib-side');
-      if (sd) { const t = sd.closest('[data-list]'); step(+t.dataset.i, t.dataset.list, t.dataset.side, sd.dataset.act === 'dec' ? -1 : 1); return; }
-      const menu = e.target.closest('[data-act="listmenu"]'); if (menu) { e.stopPropagation(); const c = menu.closest('[data-key]'); openListModal(c.dataset.side, c.dataset.key); return; }
+      if (sd) { const t = sd.closest('[data-list]'); if (t) step(+t.dataset.i, t.dataset.list, t.dataset.side, sd.dataset.act === 'dec' ? -1 : 1); return; }
+      const menu = e.target.closest('[data-act="listmenu"]'); if (menu) { e.stopPropagation(); const c = menu.closest('[data-key]'); if (c) openListModal(c.dataset.side, c.dataset.key); return; }
       const ht = e.target.closest('[data-act="toghidden"]'); if (ht) { e.stopPropagation(); GM_setValue(SHOW_HIDDEN_KEY, !GM_getValue(SHOW_HIDDEN_KEY, false)); recomputeLists(); renderAll(); return; }
-      const retry = e.target.closest('[data-act="retry"]'); if (retry) { e.stopPropagation(); collapseItem(+retry.closest('.dib-item').dataset.i); return; }
-      const ton = e.target.closest('[data-act="tryon"]'); if (ton) { e.stopPropagation(); dibTryOn(+ton.closest('.dib-item').dataset.i); return; }
-      const ig = e.target.closest('[data-act="ignore"]'); if (ig) { e.stopPropagation(); ignoreItem(+ig.closest('.dib-item').dataset.i); return; }
-      const lr = e.target.closest('[data-act="leaverest"]'); if (lr) { e.stopPropagation(); leaveRestItem(+lr.closest('.dib-item').dataset.i); return; }
-      const unig = e.target.closest('[data-act="unignore"]'); if (unig) { e.stopPropagation(); unignoreItem(+unig.closest('.dib-item').dataset.i); return; }
-      const undi = e.target.closest('[data-act="undo-import"]'); if (undi) { e.stopPropagation(); undoImport(+undi.closest('.dib-item').dataset.i); return; }
-      const selbox = e.target.closest('[data-act="select"]'); if (selbox) { e.stopPropagation(); const i = +selbox.closest('.dib-item').dataset.i; if (selected.has(i)) selected.delete(i); else selected.add(i); renderItem(i); renderBar(); return; }
+      const retry = e.target.closest('[data-act="retry"]'); if (retry) { e.stopPropagation(); const i = _idxOf(retry); if (i > -1) collapseItem(i); return; }
+      const ton = e.target.closest('[data-act="tryon"]'); if (ton) { e.stopPropagation(); const i = _idxOf(ton); if (i > -1) dibTryOn(i); return; }
+      const ig = e.target.closest('[data-act="ignore"]'); if (ig) { e.stopPropagation(); const i = _idxOf(ig); if (i > -1) ignoreItem(i); return; }
+      const lr = e.target.closest('[data-act="leaverest"]'); if (lr) { e.stopPropagation(); const i = _idxOf(lr); if (i > -1) leaveRestItem(i); return; }
+      const unig = e.target.closest('[data-act="unignore"]'); if (unig) { e.stopPropagation(); const i = _idxOf(unig); if (i > -1) unignoreItem(i); return; }
+      const undi = e.target.closest('[data-act="undo-import"]'); if (undi) { e.stopPropagation(); const i = _idxOf(undi); if (i > -1) undoImport(i); return; }
+      const selbox = e.target.closest('[data-act="select"]'); if (selbox) { e.stopPropagation(); const i = _idxOf(selbox); if (i < 0) return; if (selected.has(i)) selected.delete(i); else selected.add(i); renderItem(i); renderBar(); return; }
       const wt = e.target.closest('[data-act="wtoggle"]');
       if (wt) {
         e.stopPropagation();
@@ -21515,7 +22062,7 @@
         }
         return;
       }
-      const head = e.target.closest('.dib-head'); if (head) { toggleItem(+head.closest('.dib-item').dataset.i); syncCardWidths(); return; }
+      const head = e.target.closest('.dib-head'); if (head) { const i = _idxOf(head); if (i > -1) { toggleItem(i); syncCardWidths(); } return; }
     });
 
     const moveList = (side, key, dir) => {
@@ -21570,34 +22117,60 @@
       };
     } catch (_) {}
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key !== 'Tab') return;
-      if (dibActiveItem == null || !document.getElementById('dia-bulk-root')) return;
-      const ae = document.activeElement;
-      if (ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName)) return;
-      const cur = parseInt(dibActiveItem, 10);
-      if (isNaN(cur) || !model[cur]) return;
-      const dir = e.shiftKey ? -1 : 1, n = model.length;
-
+    const _dibFocusQty = (i, listId) => {
+      if (i == null || listId == null || !itemEls[i]) return false;
+      let sel; try { sel = '[data-list="' + (window.CSS && CSS.escape ? CSS.escape(String(listId)) : String(listId)) + '"] .dib-num'; } catch (_) { sel = null; }
+      const f = sel && itemEls[i].querySelector(sel);
+      if (f) { try { f.focus(); f.select && f.select(); } catch (_) {} return true; }
+      return false;
+    };
+    const _dibMoveToItem = (cur, dir) => {
+      const n = model.length;
       const anyAttn = model.some(needsAttention);
       let nx = cur, found = false;
-      for (let step = 0; step < n; step++) {
+      for (let s = 0; s < n; s++) {
         nx += dir; if (nx < 0) nx = n - 1; if (nx >= n) nx = 0;
 
-        if (nx !== cur && !model[nx].ignored
-            && (!anyAttn || needsAttention(model[nx]))) { found = true; break; }
+        if (nx !== cur && !model[nx].ignored && (!anyAttn || needsAttention(model[nx]))) { found = true; break; }
       }
       if (!found) return;
-      e.preventDefault();
-
       collapseItem(cur);
       dibActiveItem = String(nx);
-      _dibAttnCursor = nx;
       dibEnsurePage(nx);
       if (!model[nx].expanded) expandItem(nx);
       dibApplyEditingGlow();
       itemEls[nx].scrollIntoView({ behavior: 'smooth', block: 'center' });
-      dibShowToast(e.shiftKey ? '↑ Previous item' : '↓ Next item');
+      dibShowToast(dir < 0 ? '↑ Previous item' : '↓ Next item');
+    };
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      if (!document.getElementById('dia-bulk-root')) return;
+      const ae = document.activeElement;
+      const dir = e.shiftKey ? -1 : 1;
+      const numIn = (ae && ae.classList && ae.classList.contains('dib-num')) ? ae : null;
+      if (numIn) {
+        const card = numIn.closest('.dib-item'); if (!card) return;
+        const cur = parseInt(card.dataset.i, 10); if (isNaN(cur) || !model[cur]) return;
+        const fields = Array.prototype.slice.call(card.querySelectorAll('.dib-num'));
+        const nextIdx = fields.indexOf(numIn) + dir;
+        e.preventDefault();
+        if (nextIdx >= 0 && nextIdx < fields.length) {
+          const tgtList = fields[nextIdx].closest('[data-list]') && fields[nextIdx].closest('[data-list]').dataset.list;
+          numIn.blur();
+          if (_dibFocusQty(cur, tgtList)) return;
+        }
+
+        numIn.blur();
+        _dibMoveToItem(cur, dir);
+        return;
+      }
+
+      if (dibActiveItem == null) return;
+      if (ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName)) return;
+      const cur = parseInt(dibActiveItem, 10);
+      if (isNaN(cur) || !model[cur]) return;
+      e.preventDefault();
+      _dibMoveToItem(cur, dir);
     }, true);
     gridboxEl.addEventListener('click', e => {
       if (e.target.closest('[data-act="boardreset"]')) resetBoard();
@@ -21610,12 +22183,11 @@
         recomputeLists();
         renderAll();
       } else if (a.dataset.act === 'goto') {
-        gotoNextUnresolved();
-      }
-    });
 
-    wrap.querySelector('#dib-unresolved-foot')?.addEventListener('click', e => {
-      if (e.target.closest('[data-act="goto"]')) gotoNextUnresolved();
+        const sh = listEl.querySelector('#dib-stragglers');
+        if (sh && sh.style.display !== 'none') { try { sh.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (_) {} }
+        else if (_nextUnsortedPage > -1) gotoPage(_nextUnsortedPage);
+      }
     });
     actionEl.addEventListener('change', e => {
       const bs = e.target.closest('.dib-balloc-sel'); if (bs) { bulkTarget = bs.value; }
@@ -21632,9 +22204,28 @@
       }
     });
 
-    applyGrid();
+    try {
+      const _uw = (typeof unsafeWindow !== 'undefined' && unsafeWindow) || window;
+      _uw.__DTR_DUMP = (q) => {
+        const ql = String(q || '').toLowerCase();
+        const f = (o) => Object.entries(o || {}).filter(([k]) => !ql || k.toLowerCase().indexOf(ql) > -1);
+
+        return 'dumped — copy the [DTR DUMP] lines';
+      };
+    } catch (_) {}
     renderAll();
     resolvePage();
+
+    setTimeout(() => {
+      try {
+        model.forEach((it, i) => {
+          if (!it.ignored && it.resolved && it.save === 'idle' && isDirty(it) && (toPlace(it) === 0 || it.leaveRest)) {
+            try {  } catch (_) {}
+            saveItemNow(i);
+          }
+        });
+      } catch (_) {}
+    }, 500);
 
     try { _dibFetchZones(model.map(it => it.id).filter(Boolean)); } catch (_) {}
   }
@@ -30606,6 +31197,32 @@ const previewBody = previewCard.querySelector('#dia-preview-body');
             setTimeout(alignTiles, 20);
           });
 
+          const _numIn = wrap.querySelector('.dib-num');
+          if (_numIn) {
+            _numIn.addEventListener('focus', () => { try { _numIn.select(); } catch (_) {} });
+            _numIn.addEventListener('keydown', ev => {
+              if (ev.key === 'Enter') { ev.preventDefault(); _numIn.blur(); }
+              else if (ev.key === 'Escape') { ev.preventDefault(); _numIn.value = String(currentQty); _numIn.blur(); }
+            });
+            _numIn.addEventListener('change', () => {
+              const raw = String(_numIn.value).trim();
+              if (raw !== '' && !/^\d+$/.test(raw)) { _numIn.value = String(currentQty); return; }
+              const target = raw === '' ? 0 : Math.max(0, Math.min(999, parseInt(raw, 10)));
+              if (target === currentQty) { _numIn.value = String(currentQty); return; }
+              if (target > currentQty && qty !== null && (target - currentQty) > remaining && !overAllocConfirmed) {
+                if (!confirm('You have used all copies from your inventory. Add anyway?')) { _numIn.value = String(currentQty); return; }
+                overAllocConfirmed = true;
+              }
+              while (currentQty < target) { currentQty++; if (currentQty <= originalQty && totalSubtracted > 0) totalSubtracted--; else addedThisSession++; }
+              while (currentQty > target) { currentQty--; if (addedThisSession > 0) addedThisSession--; else totalSubtracted++; }
+              input.value = currentQty;
+              recalcRemaining();
+              updateSummaryBar();
+              render();
+              setTimeout(alignTiles, 20);
+            });
+          }
+
           wrap.querySelector('[data-dtr="nick"]').addEventListener('click', () => {
 
             if (document.getElementById('dib-lm-back')) return;
@@ -38784,6 +39401,19 @@ if (!tradeLinks.length) {
     document.getElementById('dia-sync-complete-close')?.addEventListener('click', () => el.remove());
   }
 
+  function _dtrDecodeEntities(s) {
+    s = String(s == null ? '' : s);
+    if (s.indexOf('&') < 0) return s;
+    try {
+      if (typeof document !== 'undefined' && document.createElement) {
+        const ta = document.createElement('textarea');
+        ta.innerHTML = s;
+        return ta.value;
+      }
+    } catch (_) {}
+
+    return s.replace(/&amp;/g, '&').replace(/&#0*39;|&apos;|&rsquo;|&#8217;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+  }
   function _dtrStripTokens(found) {
     try {
       const idx = JSON.parse(GM_getValue('dtr_ps_nameidx', '{}')) || {};
@@ -38813,7 +39443,7 @@ if (!tradeLinks.length) {
 
         if (!imgDiv) return;
 
-        const name = imgDiv.dataset.itemname;
+        const name = _dtrDecodeEntities(imgDiv.dataset.itemname);
 
         if (!name) return;
 
@@ -38826,7 +39456,7 @@ if (!tradeLinks.length) {
     }
 
     document.querySelectorAll('.lazy.item-img[data-itemset="nc"][data-itemname]').forEach(imgDiv => {
-      const name = imgDiv.dataset.itemname;
+      const name = _dtrDecodeEntities(imgDiv.dataset.itemname);
 
       if (!name) return;
 
@@ -39086,6 +39716,7 @@ if (!tradeLinks.length) {
       function launchItems(items) {
         if (launchLocked || launchedThisPage) return;
 
+        items = _dibFilterDoneTotals(items);
         const names = Object.keys(items);
 
         if (!names.length) return;
@@ -39256,6 +39887,7 @@ if (!tradeLinks.length) {
       function quickExport(items) {
         if (launchLocked || launchedThisPage) return;
 
+        items = _dibFilterDoneTotals(items);
         const names = Object.keys(items);
         if (!names.length) return;
 

@@ -3,16 +3,45 @@
 <!-- ── UNRELEASED: running draft, updated as features land in preview. At push: date the heading,
      give it a theme label, final copy-edit (net effect only — collapse superseded churn), and move
      on. Never delete items from here except when the feature itself was removed before shipping. ── -->
-## Unreleased (in preview — becomes the next push's entry)
+## July 10, 2026 — The big import tune-up
 
 ### Enhancements
-- **Import (new!):** Bring items into DTI from more places — import what your **pets** are wearing, or everything in your **Safe Deposit Box** or your **Closet**. Each becomes its own resumable import, tracked on your homepage, so no single import gets overwhelming. (Look for the "→ DTI Sync" panel on those Neopets pages.)
+<!-- HELD FOR A LATER PUSH (needs the new loader — hidden from users this push):
+- **Import (new!):** Bring items into DTI from more places — import what your **pets** are wearing, or everything in your **Safe Deposit Box** or your **Closet**. Each becomes its own resumable import, tracked on your homepage, so no single import gets overwhelming. (Look for the "→ DTI Sync" panel on those Neopets pages.) -->
+- **Import & Items:** You can now **type a quantity** straight into any stepper instead of tapping − and + over and over — just click the number and type. The stepper is also cleaner now: a compact − N + split by dividers.
+- **Import:** New **items-per-page setting** (30 / 60 / 90 / 120) on the import list — drop it lower if a big import feels sluggish on your computer, and it remembers your choice.
+- **Import:** You can now **turn the live pet preview off**. Collapsing the Try-On Preview (or its new power button) fully stops it rendering — not just hides it — so sorting stays smooth on slower machines.
+- **Import:** **Smoother keyboard sorting** — Tab now moves between an item's list boxes and then to the next item that still needs attention, instead of tabbing through every little button and scrolling the page.
+- **Import:** **NP items** now show the blue **NP** price tag on their cards, matching the homepage.
+- **Import:** **Arrange your list tiles your way** — drag a tile by its ⠿ grip to any open spot on the invisible grid. Leave gaps, cluster your favorites, whatever suits you: tiles never shove each other around, and dropping onto another tile simply swaps the two. Every item card follows your layout.
+- **Import:** The header now shows **one steady count** — copies to place, items, and pages, across the *whole* import — so "did I miss something on another page?" always has an answer. It only ever ticks down as you sort.
+- **Import:** No more bouncing back up the list. Anything you miss while paging through now gathers in a **Stragglers** section at the end of the last page — the same cards, same counts, just waiting for you there — and "Place all" on that page finishes them too. (The "Take me to the next one" button, which yanked you back up the page, is retired.)
 
 ### Fixes
+- **Import:** Unfinished imports **no longer quietly disappear after a week** — they stay on your homepage until you finish or trash them.
+- **Import:** Fixed the maddening **"1 more to place"** that pulled you back to items you'd already sorted — placing copies on an item that was still *looking up* could quietly un-count your placement once the lookup finished. Placed means placed now.
+- **Import:** **Your sorting survives a refresh, period.** Assignments used to live only in memory until an item fully saved — so refreshing could quietly lose a handful of items per page (ones still looking up, partially placed, or mid-save). Every assignment is now stored the moment you make it, restored after a refresh, and finishes saving itself.
+- **Import:** If you're **not logged in to DTI**, the import now says so and pauses instead of letting you sort into the void, and a red banner appears the moment any save fails.
+- **Import:** Item names with **"&"** no longer display as "&amp;" (old imports are cleaned up automatically).
+- **Import:** Items that Neopets and DTI **spell differently** (like "Cloud Face Paint" vs "Cloud Facepaint") now match up instead of claiming the item isn't on DTI.
+- **Import:** A tidier header — one steady count on the left, the placing controls neatly on the right, and the import date tucked quietly at the bottom of the page.
+- **Import:** **Re-importing mid-import no longer duplicates your work.** While an import is open, re-running the export (or re-sending from the source) only adds genuinely new copies — everything you've already placed, kept, or skipped stays put. Once you finish or trash an import, the books close, and your next import is a fresh, complete look at your stuff.
+- **Import:** The **Offering / Seeking** popup now opens right at the button you clicked, instead of way off to the left.
+- **Import & Items:** Preview images that time out now **retry themselves** — no more broken-image icons or missing pieces in the Try-On Preview.
+- **Import:** **Your first click actually works now.** Clicking a stepper, Skip, or a trade count on a card you hadn't focused yet was quietly swallowed (the card refreshed itself mid-click) — this same bug threw the Offering popup into the far corner of the screen.
+- **Import:** **Item names are links** — click one to open that item's page in a new tab.
+- **Import:** The **"+N hidden" lists toggle** sits on its own line under "OWNED · N lists" instead of crowding beside it.
+- **Import:** **Items with "&" in their name now import.** Names like "Black & White Candle Stick Foreground" were quietly failing to match on DTI because of how Neopets encodes the name — fixed (apostrophes and other special characters too).
+- **Import:** **Your sorting sticks after a refresh.** If your DTI login had quietly expired mid-import, saves *looked* successful but weren't actually saving, so items came back unsorted. Saves are now verified, retried after a hiccup, and never fooled by a silent login redirect.
+- **Import:** **Skipped items stay skipped** — "Place all" was scooping items you'd hit **Skip import** on right back into your lists.
+- **Import:** **Bulk placing is faster.**
+- **Import:** The **Offering / Seeking** trade counts on item cards no longer get stuck on "…" — they load for every item as it scrolls into view.
+- **Import:** Items that **aren't on DTI yet** now show a friendly, helpful note — *"Looks like this item hasn't been uploaded to DTI yet… please model it for us on a pet!"* — instead of a scary red "not found." (And item names no longer occasionally rendered in a serif font.)
 - **Customize:** The frame options on the pet preview — rounded, circle, and the new **Active View** viewfinder — are back on hover. They were vanishing on a fresh custom.
 - **Customize:** The Color, Species, Mood and Appearance dropdowns now share one clean teal chevron (and the doubled-up arrow on Color/Species is gone).
 - **Item page:** Animated items no longer show a faint duplicate of themselves beside the moving copy.
 - **Everywhere:** The header's candy stripe now wraps the top corners cleanly, and the nav no longer spills onto a second line on narrower pages.
+- **Everywhere:** DTI's native **green hover** can no longer sneak onto any of the reskin's buttons or links — it's now removed at the source instead of patched spot by spot.
 
 ## July 7, 2026 — Neoboards Active Box, import tools & a big polish pass
 
