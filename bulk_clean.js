@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  window.__DTR_META = {"v":"10.646.2","history":[{"v":"10.646.2","label":"The big import tune-up: your sorting sticks — plus type-in counts, stragglers & a calmer look","ts":"July 10, 2026 · 5:24 AM PT","notes":["Your sorting is safe now: every assignment is stored the instant you make it, survives refreshes, and finishes saving itself. Saves are verified against DTI and retried, a red banner appears if anything fails, and the import pauses honestly if you’re not logged in.","Fixed the maddening “1 more to place” that dragged you back to items you’d already sorted — placed means placed.","Anything you miss while paging gathers in a Stragglers section at the end of the last page, and “Place all” there finishes the whole import. (The “Take me to the next one” button that yanked you up the page is retired.)","Type a quantity straight into any stepper — click the number and type. Backspace to zero works too.","Arrange your import list tiles your way: drag by the ⠿ grip, leave gaps, tiles never shove each other, drop on a tile to swap.","One steady count in the header — copies, items and pages for the whole import — and a tidier, balanced layout.","Item names are links to their item pages, Offering/Seeking counts load fast and open where you clicked, and preview images that time out retry themselves.","Items with “&” in their name import properly, and items Neopets spells differently than DTI (like “Cloud Face Paint”) now match up.","Unfinished imports no longer quietly disappear after a week, and re-running an import mid-way only adds genuinely new copies.","Everywhere: DTI’s native green hover can no longer sneak onto buttons or links, plus a pile of Customize and item-page fixes (frame options restored, clean teal chevrons, no more doubled animated items)."]},{"v":"10.628.4","label":"Neoboards Active Box, import tools & a big polish pass","ts":"July 7, 2026 · 2:47 AM PT","notes":["New Neoboards Active Box viewfinder (Beta) in the Customize frame picker — see exactly which square of your custom shows up in your board avatar, from real measured data for every species and colour family (Baby, Maraquan, Mutant, 8-bit, Origami, Invisible).","The Active Box learns new Pet Styles from the community: styled pets show a close approximation for now, but load a pet by name wearing a style we don’t have yet and one click shares it (just the pet name + style) so its exact box can ship for everyone in a later update.","Customize: the variants strip can now be collapsed — click the VARIANTS header to tuck the cards away and get straight to your item list; it remembers your choice.","Import: a Try-On Preview parks beside the import list — click any item card (or Tab through them) to see it on your preferred pet, which it now remembers as you go.","Import: a “you’re almost done” guide appears when items still need sorting and walks you through each; the finished summary shows only once everything is settled.","Import: cleaner card buttons — Skip import (a calm red) discards and skips an item, and Done · keep N in inventory only shows once you’ve placed a copy with leftovers. Item zones now read as plain text under an OCCUPIES label.","Items: the Infinite Closet search page joined the reskin — our header, a proper search pill, konpeito cards and pagination.","Closet: Bulk Remove is fast now, with a progress counter, instead of freezing for several seconds.","Homepage: a warm empty state on Newest Wearables when nothing matches, and the panel opens to your Imports tab when you have one unfinished.","Fixes: the item page scrolls again (it was cutting off the pet preview); starter packs no longer pile onto real pets (they only apply to fresh, naked customs); the Active Box is honest about Pet Styles (it says a style is not supported yet rather than drawing a wrong box); and our styling no longer briefly bleeds onto Neopets’ own pages."]},{"v":"10.620.0","label":"Customize polish, board editor & a variants-safety fix","ts":"July 6, 2026 · 7:12 AM PT","notes":["Customize is smoother: your starter pack now loads into the Fitting Room on a new custom, animation reliably plays after you save or refresh (and follows the header Animated toggle everywhere), the pet preview is bigger, and the Layers button on variant cards opens properly again.","A big fix: your saved variant groups on Your Outfits no longer reset themselves into separate customs.","Lookbook boards now open into a full-width canvas — the board list tucks away while you edit so you get a proper working area, and new boards start square.","Try On Haul is cleaner and lighter: the hidden Preview tab no longer animates in the background, and the panel always opens fully on-screen on smaller windows.","Owned/Wishlisted status stays fresh automatically — no more reopening your closet to clear a stale Wishlisted flag."]},{"v":"10.613.0","label":"Homepage feed, one settings cog & List Management","ts":"July 5, 2026 · evening PT","notes":["New homepage feed: the right column now shows your recent Customs as thumbnails (variants tucked under each look), your in-progress Imports, and a What’s New tab.","One settings cog (top-left) now holds everything: theme, a Quickstart pet + starter pack for the new + New Custom button, and full List Management — rename lists, set Private/Public/Trading, add nicknames, and choose what counts in Comparison Mode.","Animation now follows one global default, and you can lock a custom’s Animated/Still state so it always opens the way you saved it.","Try On Haul: star your preferred tab and it always opens there; clicking items in the Preview tab now dresses the preview pet properly."]},{"v":"10.608.0","label":"Lookbook board editor, rebuilt","ts":"July 5, 2026 · 12:40 AM PT","notes":["The Lookbook board editor is rebuilt: a left toolbar and an always-open side panel put every control in front of you, instead of behind pop-up menus.","New Freestyle mode — drag each pet anywhere, resize them one at a time, and place the title wherever you like. Grid mode is still there for tidy rows.","A real Layers panel: drag to restack, put pets in front of or behind your decorations, hide or lock any layer, and right-click a decoration to send it forward or back.","Click a pet to select it (shift-click for several), and type an exact canvas size in pixels."]},{"v":"10.607.0","label":"Lookbook board editor + Your Outfits & Customize fixes","notes":["Lookbook boards are now a full editor. Arrange your saved looks in a grid — set how many per row, plus their size and spacing — and pick a frame shape (rounded, circle, arch, hex and more) with an optional border and soft shadow.","Style the whole board: show or hide pet names and give them their own font, size and colour; add and style the title the same way; set a background colour or drop in a background image; and add decorations by dropping in any item as art (in front of or behind your pets).","Nothing on a board changes by accident — every edit stays a draft until you hit Save. You can Clone a board to spin off a variation, and download the finished collage as an image.","Your Outfits: sorting A→Z now uses a look's crowned variant name, so it lands where you expect; the delete button is back; and a look that jumps position after you crown or group a variant now scrolls into view so you never lose track of it.","Customize: opening a custom that someone shared with you no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own Save keeps a copy."]},{"v":"10.597.5","label":"Closet & search fixes","notes":["Fixed an error that could break some closet pages (links without a name in the URL)","Item search now flags when the Hide-locked-zones setting is hiding matches, with a one-click Show them"]},{"v":"10.596.6","label":"Comparison Mode & logged-out fixes","notes":["Comparison Mode: hide lists you never trade from, and it now matches your live wishlist however an item was added","Fixed items wrongly showing as Wishlisted or Owned while logged out","Try On Haul is now hidden entirely when you are logged out","Your Outfits opens to your outfits again, not a Lookbook board"]},{"v":"10.592.1","label":"Lookbook, DTI Sync & item links","notes":["Lookbook (new!): arrange your saved looks into themed boards","DTI Sync: keep some copies in your inventory, and see each item's zones on the cards"]},{"v":"10.587.10","label":"Closet bulk-edit","notes":["Bulk-move whole stacks, and gather copies spread across several lists","Your clipboard, drafts and Try On Haul are now separate per account"]}]};
+  window.__DTR_META = {"v":"10.648.25","history":[{"v":"10.648.25","label":"Meet Preferred Traders — plus a big item-page glow-up","ts":"July 10, 2026 · 6:01 PM PT","notes":["New: Preferred Traders! Star the traders you love — from any item’s Trade Activity, the sign on their closet, or by username in the ⚙ menu. Then let DTI Remix do the legwork: check which of them have the items on your wishlists and outfits, or flip an item’s Trade Activity to Seeking to see who’d love it as a gift. Clicking a match opens their closet straight into Comparison Mode.","The item page got a full refresh: Trade Activity sits on the left and always matches your lists’ height, statuses are soft pills, every confirmation shares one gentle toast style, and tooltips stopped covering what you’re reading.","Clipboard fix: when a trader both owns and wants the same item, adding it from their wishlist no longer lands on the wrong side. The item-card buttons are neatly stacked now, and the clipboard button stays lit on items you’ve added — click again to remove.","Your Outfits: item names and pictures now load reliably, and big collections load much more gently.","The header always fits on one row, every import panel has its own Past imports log (CSV export where you can see it), and the pet-style tagger became a tidy side tab like everything else.","Plus: the animation lock now confirms itself (“Animated” or “Static”), Starter Pack search stays open while you add items, and un-starring anything gives you a few seconds to Undo."]},{"v":"10.646.2","label":"The big import tune-up: your sorting sticks — plus type-in counts, stragglers & a calmer look","ts":"July 10, 2026 · 5:24 AM PT","notes":["Your sorting is safe now: every assignment is stored the instant you make it, survives refreshes, and finishes saving itself. Saves are verified against DTI and retried, a red banner appears if anything fails, and the import pauses honestly if you’re not logged in.","Fixed the maddening “1 more to place” that dragged you back to items you’d already sorted — placed means placed.","Anything you miss while paging gathers in a Stragglers section at the end of the last page, and “Place all” there finishes the whole import. (The “Take me to the next one” button that yanked you up the page is retired.)","Type a quantity straight into any stepper — click the number and type. Backspace to zero works too.","Arrange your import list tiles your way: drag by the ⠿ grip, leave gaps, tiles never shove each other, drop on a tile to swap.","One steady count in the header — copies, items and pages for the whole import — and a tidier, balanced layout.","Item names are links to their item pages, Offering/Seeking counts load fast and open where you clicked, and preview images that time out retry themselves.","Items with “&” in their name import properly, and items Neopets spells differently than DTI (like “Cloud Face Paint”) now match up.","Unfinished imports no longer quietly disappear after a week, and re-running an import mid-way only adds genuinely new copies.","Everywhere: DTI’s native green hover can no longer sneak onto buttons or links, plus a pile of Customize and item-page fixes (frame options restored, clean teal chevrons, no more doubled animated items)."]},{"v":"10.628.4","label":"Neoboards Active Box, import tools & a big polish pass","ts":"July 7, 2026 · 2:47 AM PT","notes":["New Neoboards Active Box viewfinder (Beta) in the Customize frame picker — see exactly which square of your custom shows up in your board avatar, from real measured data for every species and colour family (Baby, Maraquan, Mutant, 8-bit, Origami, Invisible).","The Active Box learns new Pet Styles from the community: styled pets show a close approximation for now, but load a pet by name wearing a style we don’t have yet and one click shares it (just the pet name + style) so its exact box can ship for everyone in a later update.","Customize: the variants strip can now be collapsed — click the VARIANTS header to tuck the cards away and get straight to your item list; it remembers your choice.","Import: a Try-On Preview parks beside the import list — click any item card (or Tab through them) to see it on your preferred pet, which it now remembers as you go.","Import: a “you’re almost done” guide appears when items still need sorting and walks you through each; the finished summary shows only once everything is settled.","Import: cleaner card buttons — Skip import (a calm red) discards and skips an item, and Done · keep N in inventory only shows once you’ve placed a copy with leftovers. Item zones now read as plain text under an OCCUPIES label.","Items: the Infinite Closet search page joined the reskin — our header, a proper search pill, konpeito cards and pagination.","Closet: Bulk Remove is fast now, with a progress counter, instead of freezing for several seconds.","Homepage: a warm empty state on Newest Wearables when nothing matches, and the panel opens to your Imports tab when you have one unfinished.","Fixes: the item page scrolls again (it was cutting off the pet preview); starter packs no longer pile onto real pets (they only apply to fresh, naked customs); the Active Box is honest about Pet Styles (it says a style is not supported yet rather than drawing a wrong box); and our styling no longer briefly bleeds onto Neopets’ own pages."]},{"v":"10.620.0","label":"Customize polish, board editor & a variants-safety fix","ts":"July 6, 2026 · 7:12 AM PT","notes":["Customize is smoother: your starter pack now loads into the Fitting Room on a new custom, animation reliably plays after you save or refresh (and follows the header Animated toggle everywhere), the pet preview is bigger, and the Layers button on variant cards opens properly again.","A big fix: your saved variant groups on Your Outfits no longer reset themselves into separate customs.","Lookbook boards now open into a full-width canvas — the board list tucks away while you edit so you get a proper working area, and new boards start square.","Try On Haul is cleaner and lighter: the hidden Preview tab no longer animates in the background, and the panel always opens fully on-screen on smaller windows.","Owned/Wishlisted status stays fresh automatically — no more reopening your closet to clear a stale Wishlisted flag."]},{"v":"10.613.0","label":"Homepage feed, one settings cog & List Management","ts":"July 5, 2026 · evening PT","notes":["New homepage feed: the right column now shows your recent Customs as thumbnails (variants tucked under each look), your in-progress Imports, and a What’s New tab.","One settings cog (top-left) now holds everything: theme, a Quickstart pet + starter pack for the new + New Custom button, and full List Management — rename lists, set Private/Public/Trading, add nicknames, and choose what counts in Comparison Mode.","Animation now follows one global default, and you can lock a custom’s Animated/Still state so it always opens the way you saved it.","Try On Haul: star your preferred tab and it always opens there; clicking items in the Preview tab now dresses the preview pet properly."]},{"v":"10.608.0","label":"Lookbook board editor, rebuilt","ts":"July 5, 2026 · 12:40 AM PT","notes":["The Lookbook board editor is rebuilt: a left toolbar and an always-open side panel put every control in front of you, instead of behind pop-up menus.","New Freestyle mode — drag each pet anywhere, resize them one at a time, and place the title wherever you like. Grid mode is still there for tidy rows.","A real Layers panel: drag to restack, put pets in front of or behind your decorations, hide or lock any layer, and right-click a decoration to send it forward or back.","Click a pet to select it (shift-click for several), and type an exact canvas size in pixels."]},{"v":"10.607.0","label":"Lookbook board editor + Your Outfits & Customize fixes","notes":["Lookbook boards are now a full editor. Arrange your saved looks in a grid — set how many per row, plus their size and spacing — and pick a frame shape (rounded, circle, arch, hex and more) with an optional border and soft shadow.","Style the whole board: show or hide pet names and give them their own font, size and colour; add and style the title the same way; set a background colour or drop in a background image; and add decorations by dropping in any item as art (in front of or behind your pets).","Nothing on a board changes by accident — every edit stays a draft until you hit Save. You can Clone a board to spin off a variation, and download the finished collage as an image.","Your Outfits: sorting A→Z now uses a look's crowned variant name, so it lands where you expect; the delete button is back; and a look that jumps position after you crown or group a variant now scrolls into view so you never lose track of it.","Customize: opening a custom that someone shared with you no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own Save keeps a copy."]},{"v":"10.597.5","label":"Closet & search fixes","notes":["Fixed an error that could break some closet pages (links without a name in the URL)","Item search now flags when the Hide-locked-zones setting is hiding matches, with a one-click Show them"]},{"v":"10.596.6","label":"Comparison Mode & logged-out fixes","notes":["Comparison Mode: hide lists you never trade from, and it now matches your live wishlist however an item was added","Fixed items wrongly showing as Wishlisted or Owned while logged out","Try On Haul is now hidden entirely when you are logged out","Your Outfits opens to your outfits again, not a Lookbook board"]},{"v":"10.592.1","label":"Lookbook, DTI Sync & item links","notes":["Lookbook (new!): arrange your saved looks into themed boards","DTI Sync: keep some copies in your inventory, and see each item's zones on the cards"]},{"v":"10.587.10","label":"Closet bulk-edit","notes":["Bulk-move whole stacks, and gather copies spread across several lists","Your clipboard, drafts and Try On Haul are now separate per account"]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -424,12 +424,10 @@
     if (!window.__dtrTohBlurMinWired) {
       window.__dtrTohBlurMinWired = true;
       const _bmIds = ['dia-hp-tryon-panel','dtr-tophat','dia-tryon-picker-drawer','dia-hp-wl-panel','dia-tryon-save-modal','dia-cv2-haul-panel','dia-tryon-tab','dia-hp-wl-tab','dia-clipboard-tab'];
-      const _bmOpen = () => {
-        const tp = document.getElementById('dia-hp-tryon-panel');
-        if (tp && tp.style.display !== 'none' && document.body.contains(tp)) return true;
-        const th = document.getElementById('dtr-tophat');
-        return !!(th && th.style.display !== 'none' && document.body.contains(th));
-      };
+      const _bmOpen = () => ['dia-hp-tryon-panel', 'dtr-tophat', 'dia-hp-wl-panel', 'dia-cv2-haul-panel'].some(id => {
+        const el = document.getElementById(id);
+        return !!(el && el.style.display !== 'none' && document.body.contains(el));
+      });
       const _bmInside = (t) => {
         if (!t) return false;
         if (t.closest && t.closest('.dtr-move-menu, .dia-wl-tip, #dtr-haul-toast, .cv2-haul-movepop, .cv2-move-toast, .dia-status-menu, .dia-status-popover, [class*="haul"], [class*="tryon"], [class*="tophat"], .dtr-card-btn, .dtr-card-actions, .dia-icon-img')) return true;
@@ -3625,8 +3623,81 @@
     addToggle('lst:showhidden', 'Show hidden lists', 'Display lists you’ve hidden', gmBool('neo_dti_show_hidden'));
     const ls = document.createElement('div'); ls.className = 'dib-pill-opt dia-gear-act'; ls.setAttribute('data-gear-act', 'reset-lists'); ls.innerHTML = '<span class="dib-opt-lbl">Reset all lists<span class="dia-gear-hint">Restore order, clear nicknames, unhide all</span></span>'; at.appendChild(ls);
     addSep();
-    addSubhead('Your Lists');
+
+    (function () {
+      if (document.getElementById('dia-gear-flyout-css')) return;
+      const st = document.createElement('style'); st.id = 'dia-gear-flyout-css';
+      st.textContent = [
+        '.dia-gearwrap{position:relative;}',
+        '.dia-gearwrap #dia-gear-flyout{display:none;position:absolute;z-index:100001;width:340px;max-height:min(68vh,560px);background:#fff;border:1px solid #efe7da;border-radius:14px;box-shadow:0 18px 50px rgba(40,60,50,.25);flex-direction:column;overflow:hidden;font-family:"Nunito",Inter,sans-serif;}',
+        '.dia-gearwrap.open #dia-gear-flyout{display:flex;}',
+        '.dia-gearwrap #dia-gear-flyout .gf-head{flex-shrink:0;padding:11px 14px 9px;font:800 10px/1 "Nunito",sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#b0688a;border-bottom:1px solid #f4efe6;}',
+        '.dia-gearwrap #dia-gear-flyout .gf-body{overflow-y:auto;min-height:0;padding:10px 12px 12px;scrollbar-width:thin;}',
+        '.dia-gear-flyrow{cursor:pointer;display:flex;align-items:center;gap:6px;}',
+        '.dia-gear-flyrow .gf-arrow{margin-left:auto;color:#b0aea4;font:800 15px/1 "Nunito",sans-serif;flex-shrink:0;}',
+        '.dia-gear-flyrow:hover .gf-arrow{color:#149c8e;}',
+        '.dia-gear-flyrow .gf-count{display:inline-block;font:800 9px/1 "Nunito",sans-serif;color:#0f7f73;background:#dbf5f1;border-radius:999px;padding:2px 7px;margin-left:5px;vertical-align:1px;}',
+        '.gf-pt-row{display:flex;align-items:center;gap:8px;padding:7px 10px;border:1px solid #f0e9dd;border-radius:10px;margin-bottom:6px;background:#fff;}',
+        '.gf-pt-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left;border:none;background:none;padding:0;font:700 12px "Nunito",sans-serif;color:#149c8e;cursor:pointer;}',
+        '.gf-pt-name:hover{text-decoration:underline;}',
+        '.gf-pt-name[disabled]{color:#948fa0;cursor:default;text-decoration:none;}',
+        '.gf-pt-star{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:none !important;background:#fff7e0 !important;border-radius:50%;padding:0 !important;margin:0;cursor:pointer;box-shadow:inset 0 0 0 1.5px #ecd9a0 !important;outline:none !important;transition:transform .12s;line-height:0;}',
+        '.gf-pt-star img{width:15px;height:15px;display:block;margin:auto;pointer-events:none;}',
+        '.gf-pt-star:hover{background:#fdf0c6 !important;transform:scale(1.1);}',
+        '.gf-pt-add{display:flex;align-items:center;gap:6px;margin:0 0 9px;padding:4px;border:1px solid rgba(255,255,255,.95);border-radius:12px;background:linear-gradient(160deg,#fbecf5 0%,#ecf0fb 30%,#e6f4fb 55%,#eafbf1 78%,#fdf6ea 100%);box-shadow:0 2px 8px rgba(80,80,70,.07);}',
+        '.gf-pt-add-in{flex:1;min-width:0;border:none !important;background:none !important;font:600 11.5px "Nunito",sans-serif !important;color:#564f60 !important;padding:6px 8px !important;outline:none !important;box-shadow:none !important;border-radius:8px !important;}',
+        '.gf-pt-add-in:focus{background:#fff !important;}',
+        '.gf-pt-add-go{flex-shrink:0;border:none !important;background:#dbf5f1 !important;color:#0f7f73 !important;border-radius:999px !important;font:800 10.5px "Nunito",sans-serif !important;padding:6px 13px !important;cursor:pointer;box-shadow:none !important;outline:none !important;}',
+        '.gf-pt-add-go:hover{background:#c9efe8 !important;}',
+        '.gf-pt-add-go[disabled]{opacity:.6;cursor:default;}',
+        '.gf-pt-add-msg{font:600 10.5px/1.4 "Nunito",sans-serif;color:#c2487c;margin:-3px 0 8px 3px;}',
+        '#dia-gear-flyout .dia-gear-note{max-width:none !important;width:100% !important;box-sizing:border-box !important;text-align:center !important;padding:2px 4px 9px !important;}',
+        '.gf-pt-row{position:relative;}',
+        '.gf-pt-undo{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 10px;background:rgba(255,251,244,.97);border-radius:10px;z-index:2;}',
+        '.gf-pt-undo span{font:700 11px "Nunito",sans-serif;color:#948fa0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}',
+        '.gf-pt-undo button{border:none;background:#dbf5f1;color:#0f7f73;border-radius:999px;font:800 10.5px "Nunito",sans-serif;padding:5px 12px;cursor:pointer;flex-shrink:0;}',
+        '.gf-pt-undo button:hover{background:#c9efe8;}',
+
+        '.gf-pt-name{background:none !important;border:none !important;box-shadow:none !important;outline:none !important;}',
+        '.gf-pt-name:hover,.gf-pt-name:focus,.gf-pt-name:active{background:none !important;color:#0f7f73 !important;box-shadow:none !important;outline:none !important;text-decoration:underline !important;}',
+        '.gf-pt-star:focus,.gf-pt-star:active{background:#fdf3d9 !important;box-shadow:none !important;outline:none !important;}',
+        '.dia-gear-flyrow .dia-gear-hint{white-space:normal !important;overflow:visible !important;text-overflow:clip !important;line-height:1.4 !important;}'
+      ].join('');
+      document.head.appendChild(st);
+    })();
+    const _gfWrap = menu.closest('.dia-gearwrap') || menu.parentNode;
+    const _gfClose = () => { const f = document.getElementById('dia-gear-flyout'); if (f) f.remove(); };
+    _gfClose();
+    const _gfOpen = (row, title, fill) => {
+      _gfClose();
+      const f = document.createElement('div'); f.id = 'dia-gear-flyout'; f.dataset.for = title;
+      f.innerHTML = '<div class="gf-head">' + title + '</div><div class="gf-body"></div>';
+      _gfWrap.appendChild(f);
+      fill(f.querySelector('.gf-body'));
+      const wr = _gfWrap.getBoundingClientRect(), mr = menu.getBoundingClientRect(), rr = row.getBoundingClientRect();
+      let lx = mr.right - wr.left + 8;
+      if (mr.right + 8 + 340 > window.innerWidth - 8) lx = Math.max(8 - wr.left, mr.left - wr.left - 348);
+      f.style.left = lx + 'px';
+      let ty = rr.top - wr.top;
+      const fh = f.offsetHeight;
+      if (rr.top + fh > window.innerHeight - 8) ty = Math.max(8 - wr.top, window.innerHeight - 8 - fh - wr.top);
+      f.style.top = ty + 'px';
+    };
+    const addFlyRow = (label, hint, count, fill) => {
+      const r = document.createElement('div');
+      r.className = 'dib-pill-opt dia-gear-flyrow';
+      r.innerHTML = '<span class="dib-opt-lbl">' + label + (count != null ? '<span class="gf-count">' + count + '</span>' : '') + '<span class="dia-gear-hint">' + hint + '</span></span><span class="gf-arrow">›</span>';
+      r.addEventListener('click', ev => {
+        ev.stopPropagation();
+        const f = document.getElementById('dia-gear-flyout');
+        if (f && f.dataset.for === label) { _gfClose(); return; }
+        _gfOpen(r, label, fill);
+      });
+      at.appendChild(r);
+    };
     let mc = null; try { mc = JSON.parse(GM_getValue('dtr_my_lists_cache', 'null')); } catch (_) {}
+    const _fillYourLists = (host) => {
+      const prevAt = at; at = host;
     if (!mc || !mc.slug || !Array.isArray(mc.lists) || !mc.lists.length) {
       addNote('Open your own closet once to sync your lists here.');
     } else {
@@ -3725,6 +3796,95 @@
         arr.forEach(addListCard);
       });
     }
+      at = prevAt;
+    };
+    const _fillPreferred = (host) => {
+      const prevAt = at; at = host;
+      const escP = (x) => String(x == null ? '' : x).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+
+      const addWrap = document.createElement('div'); addWrap.className = 'gf-pt-add';
+      addWrap.innerHTML = '<input class="gf-pt-add-in" placeholder="+ Add by username…" aria-label="Add a Preferred Trader by username"><button type="button" class="gf-pt-add-go">Add</button>';
+      const addMsg = document.createElement('div'); addMsg.className = 'gf-pt-add-msg'; addMsg.hidden = true;
+      host.appendChild(addWrap); host.appendChild(addMsg);
+      const _ptIn = addWrap.querySelector('.gf-pt-add-in'), _ptGo = addWrap.querySelector('.gf-pt-add-go');
+      const _ptSubmit = () => {
+        const q = (_ptIn.value || '').trim();
+        if (!q || _ptGo.disabled) return;
+        _ptGo.disabled = true; _ptGo.textContent = '…'; addMsg.hidden = true;
+        fetch('https://impress-2020.openneo.net/api/graphql', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: 'query($n:String!){userByName(name:$n){id username}}', variables: { n: q } }) })
+          .then(r => r.ok ? r.json() : null).catch(() => null)
+          .then(j => {
+            _ptGo.disabled = false; _ptGo.textContent = 'Add';
+            const u = j && j.data && j.data.userByName;
+            if (!u || !u.id) { addMsg.textContent = 'Couldn’t find a DTI user named “' + q + '”.'; addMsg.hidden = false; return; }
+            const uname = u.username || q;
+            const favs2 = getDIASection('favoriteOwners', {}) || {};
+            const k2 = makeOwnerKey(uname);
+            if (favs2[k2]) { addMsg.textContent = uname + ' is already a Preferred Trader.'; addMsg.hidden = false; return; }
+            const _slug = String(uname).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            favs2[k2] = { name: uname, href: location.origin + '/user/' + u.id + (_slug ? '-' + _slug : '') + '/closet' };
+            setDIASection('favoriteOwners', favs2);
+            host.innerHTML = '';
+            _fillPreferred(host);
+          });
+      };
+      _ptGo.addEventListener('click', ev => { ev.stopPropagation(); _ptSubmit(); });
+      _ptIn.addEventListener('keydown', ev => { ev.stopPropagation(); if (ev.key === 'Enter') { ev.preventDefault(); _ptSubmit(); } });
+      _ptIn.addEventListener('click', ev => ev.stopPropagation());
+      const favs = getDIASection('favoriteOwners', {}) || {};
+
+      try {
+        let _healed = false;
+        Object.keys(favs).forEach(k => {
+          const v = favs[k];
+          if (v && typeof v === 'object' && /\/lists$/.test(v.href || '')) { v.href = v.href.replace(/\/lists$/, '/closet'); _healed = true; }
+        });
+        if (_healed) setDIASection('favoriteOwners', favs);
+      } catch (_) {}
+      const keys = Object.keys(favs).filter(k => favs[k]).sort();
+      if (!keys.length) {
+        addNote('No Preferred Traders yet! Add one by username above, double-click the star next to a trader’s name on any item’s Trade Activity, or hit the star on their closet sign.');
+      } else {
+        addNote('Click a name to open their lists. The ★ checks on your wishlists and outfits scan these traders.');
+        keys.forEach(k => {
+          const v = favs[k];
+          const nm = (v && typeof v === 'object' && v.name) || k;
+          const href = (v && typeof v === 'object' && v.href) || '';
+
+          const row = document.createElement('div'); row.className = 'gf-pt-row';
+          row.innerHTML = '<button type="button" class="gf-pt-name" title="' + (href ? 'Open ' + escP(nm) + '’s lists' : 'Their link fills in automatically the next time they appear in a Trade Activity you view') + '">' + escP(nm) + '</button>'
+            + '<button type="button" class="gf-pt-star" title="Unstar — remove from Preferred Traders" aria-label="Unstar ' + escP(nm) + '"><img class="dia-icon-img" src="' + DIA_ICON_STAR + '" alt=""></button>';
+          row.querySelector('.gf-pt-name').addEventListener('click', ev => {
+            ev.stopPropagation();
+            const h2 = String(href || '').replace(/\/lists$/, '/closet');
+            if (h2) { if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab(h2); else window.open(h2, '_blank'); }
+          });
+          row.querySelector('.gf-pt-star').addEventListener('click', ev => {
+            ev.stopPropagation();
+            if (row.dataset.pend) return;
+            row.dataset.pend = '1';
+            const cover = document.createElement('div');
+            cover.className = 'gf-pt-undo';
+            cover.innerHTML = '<span>Removed ' + escP(nm) + '</span><button type="button">Undo</button>';
+            row.appendChild(cover);
+            const tid = setTimeout(() => {
+              try { const f2 = getDIASection('favoriteOwners', {}) || {}; delete f2[k]; setDIASection('favoriteOwners', f2); } catch (_) {}
+              try { row.remove(); } catch (_) {}
+            }, 5000);
+            cover.querySelector('button').addEventListener('click', e2 => {
+              e2.stopPropagation(); clearTimeout(tid); cover.remove(); delete row.dataset.pend;
+            });
+          });
+          host.appendChild(row);
+        });
+      }
+      at = prevAt;
+    };
+    addFlyRow('Your Lists', 'Rename, nicknames & visibility', (mc && Array.isArray(mc.lists)) ? mc.lists.length : null, _fillYourLists);
+    (function () {
+      let nFav = 0; try { const fv = getDIASection('favoriteOwners', {}) || {}; nFav = Object.keys(fv).filter(k => fv[k]).length; } catch (_) {}
+      addFlyRow('Preferred Traders', 'Your starred traders', nFav, _fillPreferred);
+    })();
 
     at = menu;
     addSep();
@@ -3932,6 +4092,9 @@
       K + " #dia-hp-newest-grid li.object .dtr-info-btn," + K + " #dia-hp-page #newest-modeled-items li.object .dtr-info-btn{background:#fff!important;border:1.5px solid var(--dtr-accent,#ff8576)!important;color:#b03e30!important;}",
       K + " #dia-hp-newest-grid li.object .dtr-info-btn:hover," + K + " #dia-hp-page #newest-modeled-items li.object .dtr-info-btn:hover{background:#ffe7e3!important;border-color:var(--dtr-accent,#f06a59)!important;color:#97352a!important;box-shadow:0 0 0 3px rgba(255,133,118,.3)!important;}",
       K + " #dia-closet-v2-root .dtr-info-btn, html[data-dib-theme=\"konpeito\"] #dia-closet-v2-root .dtr-info-btn{background:#fff!important;border:1.5px solid var(--dtr-accent,#ff8576)!important;color:#b03e30!important;}",
+
+      "html[data-dib-theme=\"konpeito\"] #dtr-yo-root .dtr-info-btn{background:#fff!important;border:1.5px solid var(--dtr-accent,#ff8576)!important;color:#b03e30!important;font:800 12px/1 \"Nunito\",sans-serif!important;box-shadow:none!important;}",
+      "html[data-dib-theme=\"konpeito\"] #dtr-yo-root .dtr-info-btn:hover{background:#ffe7e3!important;border-color:var(--dtr-accent,#f06a59)!important;}",
       K + " #dia-closet-v2-root .dtr-info-btn:hover, html[data-dib-theme=\"konpeito\"] #dia-closet-v2-root .dtr-info-btn:hover{background:#ffe7e3!important;border-color:var(--dtr-accent,#f06a59)!important;color:#97352a!important;box-shadow:0 0 0 3px rgba(255,133,118,.3)!important;}",
       "html[data-dib-theme=\"konpeito\"] #dia-closet-v2-root .dtr-card-btn{background:#fff!important;border:1.5px solid var(--dtr-accent,#ff8576)!important;}",
       "html[data-dib-theme=\"konpeito\"] #dia-closet-v2-root .dtr-card-btn:hover{background:#ffe7e3!important;border-color:var(--dtr-accent,#f06a59)!important;box-shadow:0 0 0 3px rgba(255,133,118,.3)!important;}",
@@ -4401,7 +4564,9 @@
         }
       } catch (_) {}
 
-      if (u.origin !== location.origin || /^\/outfits\//.test(u.pathname) || /^\/outfits\//.test(location.pathname)) { location.href = u.href; return; }
+      if (u.origin !== location.origin || /^\/outfits\//.test(u.pathname) || /^\/outfits\//.test(location.pathname)
+        || (/^\/your-outfits\b/.test(u.pathname) && /^\/items\/\d+/.test(location.pathname))
+      ) { location.href = u.href; return; }
       let T = null;
       try { T = (typeof unsafeWindow !== 'undefined' && unsafeWindow && unsafeWindow.Turbo) || (typeof window !== 'undefined' && window.Turbo) || null; } catch (_) {}
       if (T && typeof T.visit === 'function') { T.visit(u.href); return; }
@@ -4830,7 +4995,7 @@
       '.dia-ui-tooltip{position:fixed;z-index:2147483647;width:auto;min-width:60px;max-width:min(260px,calc(100vw - 24px));padding:8px 9px;border-radius:6px;border:1px solid #d4ae3a;background:#fffdf5;color:#4f3b00;font:600 11px/1.3 Inter,Arial,Helvetica,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,0.08);white-space:normal;text-align:center;pointer-events:none;text-shadow:none;-webkit-font-smoothing:antialiased;opacity:0;visibility:hidden;transition:opacity .07s ease}',
       '.dia-ui-tooltip.show{opacity:1;visibility:visible}',
 
-      'html #dia-hp-nav,html body #dia-closet-v2-root #dia-hp-nav,html #dia-bulk-root #dia-hp-nav,html body #dtr-outfit-editor #dia-hp-nav,html body #dia-shell #dia-hp-nav{position:relative!important;display:flex!important;align-items:center!important;flex-wrap:wrap;gap:0!important;background:#fff!important;border:1px solid #efe7da!important;border-radius:14px!important;box-shadow:0 4px 14px -6px rgba(110,128,150,.35)!important;padding:8px 12px 6px!important;width:fit-content;max-width:calc(100% - 16px)!important;box-sizing:border-box;overflow:visible!important;font-family:"Nunito",-apple-system,sans-serif!important;}',
+      'html #dia-hp-nav,html body #dia-closet-v2-root #dia-hp-nav,html #dia-bulk-root #dia-hp-nav,html body #dtr-outfit-editor #dia-hp-nav,html body #dia-shell #dia-hp-nav{position:relative!important;display:flex!important;align-items:center!important;flex-wrap:nowrap!important;gap:0!important;background:#fff!important;border:1px solid #efe7da!important;border-radius:14px!important;box-shadow:0 4px 14px -6px rgba(110,128,150,.35)!important;padding:7px 12px!important;width:fit-content;max-width:calc(100% - 16px)!important;box-sizing:border-box;overflow:visible!important;font-family:"Nunito",-apple-system,sans-serif!important;}',
 
       'html #dia-hp-nav::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:6px;border-radius:14px 14px 0 0;background:var(--dtr-stripe,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a));pointer-events:none;}',
 
@@ -4845,17 +5010,25 @@
 
       'html #dia-hp-nav button.dia-ql{-webkit-appearance:none;appearance:none;letter-spacing:0!important;text-shadow:none!important;margin:0;}',
       'html #dia-hp-nav .dia-nav-greeting,html body #dia-closet-v2-root #dia-hp-nav .dia-nav-greeting,html #dia-bulk-root #dia-hp-nav .dia-nav-greeting,html body #dtr-outfit-editor #dia-hp-nav .dia-nav-greeting,html body #dia-shell #dia-hp-nav .dia-nav-greeting{color:#6c6776!important;font-family:"Nunito",sans-serif!important;font-size:12px!important;}',
+
+      'html #dia-hp-nav .dia-nav-greeting{display:inline-flex!important;flex-direction:column!important;align-items:center!important;line-height:1.3!important;flex:0 0 auto!important;}',
+      'html #dia-hp-nav .dia-pts-sep{display:none!important;}',
+      'html #dia-hp-nav .dia-nav-greeting .dia-greet-l1{display:block!important;white-space:nowrap!important;}',
+      'html #dia-hp-nav .dia-nav-greeting .dia-pts{display:block!important;white-space:nowrap!important;font-size:10px!important;}',
+      '@media (max-width:960px){html #dia-hp-nav .dia-ql{padding:5px 6px!important;font-size:11px!important;}html #dia-hp-nav .dia-nav-greeting{font-size:11px!important;}html #dia-hp-nav .dia-ql-divider{margin:0 3px!important;}}',
+      '@media (max-width:820px){html #dia-hp-nav{padding:6px 8px!important;}html #dia-hp-nav .dia-ql{padding:4px 4px!important;font-size:10px!important;letter-spacing:0!important;}html #dia-hp-nav .dia-nav-greeting{font-size:10px!important;}html #dia-hp-nav .dia-ql-stack>span{font-size:7.5px!important;}}',
       'html #dia-hp-nav .dia-nav-greeting strong,html body #dia-closet-v2-root #dia-hp-nav .dia-nav-greeting strong,html #dia-bulk-root #dia-hp-nav .dia-nav-greeting strong,html body #dtr-outfit-editor #dia-hp-nav .dia-nav-greeting strong,html body #dia-shell #dia-hp-nav .dia-nav-greeting strong{color:#564f60!important;font-family:"Nunito",sans-serif!important;font-weight:800!important;}',
       'html #dia-hp-nav .dia-pts,html body #dia-closet-v2-root #dia-hp-nav .dia-pts,html #dia-bulk-root #dia-hp-nav .dia-pts,html body #dtr-outfit-editor #dia-hp-nav .dia-pts,html body #dia-shell #dia-hp-nav .dia-pts{color:var(--dtr-primary,#149c8e)!important;}',
       'html #dia-hp-nav .dia-ql-divider,html body #dia-closet-v2-root #dia-hp-nav .dia-ql-divider,html #dia-bulk-root #dia-hp-nav .dia-ql-divider,html body #dtr-outfit-editor #dia-hp-nav .dia-ql-divider,html body #dia-shell #dia-hp-nav .dia-ql-divider{width:1px;height:16px;background:#efe7da!important;margin:0 7px;flex:none;}',
       'html #dia-hp-nav .dia-logout,html body #dia-closet-v2-root #dia-hp-nav .dia-logout,html #dia-bulk-root #dia-hp-nav .dia-logout,html body #dtr-outfit-editor #dia-hp-nav .dia-logout,html body #dia-shell #dia-hp-nav .dia-logout{background:#fff2cd!important;border:1px solid #ffe2a8!important;color:#b9760a!important;border-radius:8px!important;padding:4px 9px!important;font-weight:700!important;}',
 
-      'html #dia-hp-nav #dia-hp-nav-left,html #dia-hp-nav #dia-hp-nav-right{display:flex!important;align-items:center!important;flex-wrap:wrap;gap:0;}',
+      'html #dia-hp-nav #dia-hp-nav-left,html #dia-hp-nav #dia-hp-nav-right{display:flex!important;align-items:center!important;flex-wrap:nowrap!important;gap:0;min-width:0;}',
+      'html #dia-hp-nav #dia-hp-nav-left{flex:0 0 auto!important;}',
       'html #dia-hp-nav #dia-hp-nav-right{margin-left:auto;}',
       'html #dia-hp-nav .dia-more{position:relative;display:inline-flex;}',
       'html #dia-hp-nav .dia-more-menu{position:absolute;top:calc(100% + 5px);left:0;display:none;flex-direction:column;min-width:154px;background:#fff;border:1px solid #efe7da;border-radius:10px;box-shadow:0 10px 26px rgba(0,0,0,0.14);padding:4px;z-index:2147483647;}',
       'html #dia-hp-nav .dia-more.open .dia-more-menu{display:flex;}',
-      'html #dia-hp-nav .dib-gear{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:none;background:transparent;box-shadow:none;cursor:pointer;font-size:15px;line-height:1;padding:0;margin-left:4px;color:#6c6776;transition:transform .1s;}',
+      'html #dia-hp-nav .dib-gear{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:none;background:transparent;box-shadow:none;cursor:pointer;font-size:15px;line-height:1;padding:0;margin:0 -4px 0 0;color:#6c6776;transition:transform .1s;}',
       'html #dia-hp-nav .dib-gear:hover{transform:scale(1.1);}',
 
       'html #dia-hp-nav .dia-gearwrap{position:relative;display:inline-flex;}',
@@ -5319,6 +5492,14 @@
         "#dia-closet-v2-root .cv2-sign-link{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(58,34,10,.62);box-shadow:0 1px 2px rgba(40,22,6,.5),inset 0 0 0 1.5px rgba(255,219,110,.55);color:#ffd23d;text-decoration:none;transition:color .15s,transform .12s,background .15s;}",
         "#dia-closet-v2-root .cv2-sign-link svg{width:13px;height:13px;display:block;stroke-width:2.5;filter:drop-shadow(0 1px 0 rgba(40,22,6,.55));}",
         "#dia-closet-v2-root .cv2-sign-link:hover{color:#fff0b8;background:rgba(58,34,10,.8);transform:translateY(-1px) scale(1.08);}",
+
+        "#dia-closet-v2-root button.cv2-sign-link{border:none;cursor:pointer;padding:0;margin:0;appearance:none;-webkit-appearance:none;font:inherit;line-height:1;}",
+        "#dia-closet-v2-root .cv2-sign-fav.on{color:#ffd23d;background:rgba(58,34,10,.85);box-shadow:0 1px 2px rgba(40,22,6,.5),inset 0 0 0 1.5px #ffd23d,0 0 9px rgba(255,210,61,.6);}",
+
+        "#dia-closet-v2-root .cv2-sign-fav .cv2-sign-fav-ic{width:13px;height:13px;display:block;filter:grayscale(1) brightness(2.6) contrast(.55);opacity:.8;}",
+        "#dia-closet-v2-root .cv2-sign-fav.on{background:#fff !important;box-shadow:0 1px 2px rgba(40,22,6,.5),inset 0 0 0 1.5px #ffd23d,0 0 9px rgba(255,210,61,.6) !important;}",
+        "#dia-closet-v2-root .cv2-sign-fav.on:hover{background:#fff7e0 !important;}",
+        "#dia-closet-v2-root .cv2-sign-fav.on .cv2-sign-fav-ic{filter:none;opacity:1;width:14px;height:14px;}",
         "@keyframes cv2-sign-sway{0%,100%{transform:rotate(-0.8deg);}50%{transform:rotate(0.8deg);}}",
         "@keyframes cv2-sign-tw{0%,100%{opacity:.45;transform:scale(.82);}50%{opacity:1;transform:scale(1.06);}}",
         "#dia-closet-v2-root .cv2-logo{font-family:var(--fd);font-weight:800;font-size:18px;color:var(--ink);text-decoration:none;letter-spacing:-.01em;}",
@@ -5922,10 +6103,16 @@
         "#dia-closet-v2-root .cv2-fly-grid li.object.cv2-in-haul .cv2-haul-add{display:flex;background:#3a7a5e;box-shadow:0 0 0 2px rgba(58,122,94,.4),0 0 13px rgba(58,122,94,.6);}",
         "#dia-closet-v2-root .cv2-fly-grid li.object.cv2-in-haul .cv2-haul-add:hover{background:#2f6650;box-shadow:0 0 0 3px rgba(58,122,94,.5),0 0 18px rgba(58,122,94,.75);}",
         "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-haul-add svg{width:14px;height:14px;display:block;pointer-events:none;}",
-        "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add{display:none;position:absolute;bottom:28px;left:50%;transform:translateX(calc(-50% + 32px));width:26px;height:26px;border-radius:50%;background:#d4537e;color:#fff;border:2px solid #fff;align-items:center;justify-content:center;cursor:pointer;padding:0 !important;box-shadow:0 2px 6px rgba(0,0,0,0.2);transition:all .15s;z-index:10;}",
+
+        "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add{display:none;position:absolute;bottom:58px;left:50%;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;background:#5fb3e8;color:#fff;border:2px solid #fff;align-items:center;justify-content:center;cursor:pointer;padding:0 !important;box-shadow:0 2px 6px rgba(0,0,0,0.2);transition:all .15s;z-index:10;}",
+        "#dia-closet-v2-root .cv2-fly-grid li.object.cv2-in-clip .cv2-clip-add{display:flex;}",
+
+        "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add.cv2-clip-success svg{display:none;}",
+        "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add.cv2-clip-success::after{content:'\\2713';color:#fff;font:800 12px/1 Inter,sans-serif;}",
         "#dia-closet-v2-root .cv2-fly-grid li.object:hover .cv2-clip-add{display:flex;}",
-        "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add:hover{background:#b23a6a;transform:translateX(calc(-50% + 32px)) scale(1.15);box-shadow:0 0 0 3px rgba(212,83,126,0.4),0 0 12px rgba(212,83,126,0.4);}",
-        "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add.cv2-clip-added{background:#9d4e86;box-shadow:0 0 0 2px rgba(157,78,134,.4),0 0 12px rgba(157,78,134,.5);}",
+        "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add:hover{background:#4aa4de;transform:translateX(-50%) scale(1.15);box-shadow:0 0 0 3px rgba(95,179,232,0.4),0 0 12px rgba(95,179,232,0.4);}",
+        "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add.cv2-clip-added{background:#3d97d4;box-shadow:0 0 0 2px rgba(95,179,232,.45),0 0 12px rgba(95,179,232,.6);}",
+        "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add.cv2-clip-added:hover{background:#2f86c4;box-shadow:0 0 0 3px rgba(95,179,232,.5),0 0 16px rgba(95,179,232,.75);}",
         "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add svg{width:14px;height:14px;display:block;pointer-events:none;}",
 
         "body.cv2-visitor-guest #dia-clipboard-tab,body.cv2-visitor-guest #dia-staging-panel{display:none !important;}",
@@ -6283,16 +6470,22 @@
               if (_nl) { var _nm2 = (_nl.getAttribute('href') || '').match(/[?&]recipient=([^&]+)/); if (_nm2) _neoUser = decodeURIComponent(_nm2[1]); }
               if (!_neoUser) { var _ul = document.querySelector('a[href*="userlookup.phtml?user="]'); if (_ul) { var _um = (_ul.getAttribute('href') || '').match(/[?&]user=([^&]+)/); if (_um) _neoUser = decodeURIComponent(_um[1]); } }
             } catch (_e) {}
-            var _links = '';
+            var _mailLook = '';
             if (_neoUser) {
               var _enu = encodeURIComponent(_neoUser);
               var _MAIL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7.5 8.5 5.5 8.5-5.5"/></svg>';
               var _LOOK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg>';
-              _links = '<div class=cv2-sign-links>'
-                + '<a class=cv2-sign-link href="https://www.neopets.com/neomessages.phtml?type=send&recipient=' + _enu + '" target="_blank" rel="noopener noreferrer" title="Neomail ' + esc(_neoUser) + '" aria-label="Neomail ' + esc(_neoUser) + '">' + _MAIL + '</a>'
-                + '<a class=cv2-sign-link href="https://www.neopets.com/userlookup.phtml?user=' + _enu + '" target="_blank" rel="noopener noreferrer" title="' + esc(_neoUser) + '\u2019s lookup" aria-label="' + esc(_neoUser) + '\u2019s lookup">' + _LOOK + '</a>'
-                + '</div>';
+              _mailLook = '<a class=cv2-sign-link href="https://www.neopets.com/neomessages.phtml?type=send&recipient=' + _enu + '" target="_blank" rel="noopener noreferrer" title="Neomail ' + esc(_neoUser) + '" aria-label="Neomail ' + esc(_neoUser) + '">' + _MAIL + '</a>'
+                + '<a class=cv2-sign-link href="https://www.neopets.com/userlookup.phtml?user=' + _enu + '" target="_blank" rel="noopener noreferrer" title="' + esc(_neoUser) + '\u2019s lookup" aria-label="' + esc(_neoUser) + '\u2019s lookup">' + _LOOK + '</a>';
             }
+
+            var _favKey2 = makeOwnerKey(_cv2OwnerName);
+            var _isFav2 = false; try { _isFav2 = !!(getDIASection('favoriteOwners', {}) || {})[_favKey2]; } catch (_e) {}
+            var _STAR2 = '<img class="dia-icon-img cv2-sign-fav-ic" src="' + DIA_ICON_STAR + '" alt="">';
+            var _links = '<div class=cv2-sign-links>' + _mailLook
+              + '<button type="button" class="cv2-sign-link cv2-sign-fav' + (_isFav2 ? ' on' : '') + '" data-fav-owner="' + esc(_cv2OwnerName) + '" title="'
+              + (_isFav2 ? esc(_cv2OwnerName) + ' is a Preferred Trader \u2014 click to remove' : 'Make ' + esc(_cv2OwnerName) + ' a Preferred Trader') + '" aria-pressed="' + (_isFav2 ? 'true' : 'false') + '">' + _STAR2 + '</button>'
+              + '</div>';
             return '<div class="cv2-sign cv2-sign-visit">' + _ROD + '<div class=cv2-sign-hang><span class=cv2-sign-cords><i></i><i></i></span>'
               + '<div class=cv2-sign-board>' + _spk + '<div class=cv2-sign-top>Visiting</div>'
               + '<div class=cv2-sign-name>' + esc(_cv2OwnerName) + '\u2019s Closet</div>'
@@ -6304,6 +6497,43 @@
             + '<div class=cv2-sign-board>' + _spk + '<div class=cv2-sign-top>Editing</div><div class=cv2-sign-name>Your Closet</div>'
             + '<div class=cv2-sign-stripe></div></div></div></div>';
         };
+
+        if (!window.__cv2SignFavWired) {
+          window.__cv2SignFavWired = true;
+          document.addEventListener('click', function (e) {
+            var b = e.target.closest && e.target.closest('#dia-closet-v2-root .cv2-sign-fav');
+            if (!b) return;
+            e.preventDefault(); e.stopPropagation();
+            try {
+              var nm = b.getAttribute('data-fav-owner') || '';
+              if (!nm) return;
+              var key = makeOwnerKey(nm);
+              var favs = getDIASection('favoriteOwners', {}) || {};
+              var _hadFav = favs[key];
+              if (_hadFav) delete favs[key];
+              else {
+                var slugM = location.pathname.match(/\/user\/(\d+(?:-[^\/]+)?)/);
+                favs[key] = { name: nm, href: slugM ? (location.origin + '/user/' + slugM[1] + '/closet') : '' };
+              }
+              setDIASection('favoriteOwners', favs);
+              if (_hadFav && typeof window._dtrUndoToast === 'function') {
+                window._dtrUndoToast('Removed ' + nm + ' from your Preferred Traders', function () {
+                  try {
+                    var f3 = getDIASection('favoriteOwners', {}) || {};
+                    f3[key] = _hadFav; setDIASection('favoriteOwners', f3);
+                    b.classList.add('on'); b.setAttribute('aria-pressed', 'true');
+                    b.title = nm + ' is a Preferred Trader — click to remove';
+                  } catch (_) {}
+                });
+              }
+              var on = !!favs[key];
+              b.classList.toggle('on', on);
+              b.setAttribute('aria-pressed', on ? 'true' : 'false');
+              b.title = on ? nm + ' is a Preferred Trader — click to remove' : 'Make ' + nm + ' a Preferred Trader';
+              try { _cv2MiniToast(on ? ('★ ' + nm + ' is now a Preferred Trader') : ('Removed ' + nm + ' from your Preferred Traders')); } catch (_e) {}
+            } catch (_e) {}
+          }, true);
+        }
         root.innerHTML = '<div class=cv2-navwrap>' + navHtml + '</div><div class=cv2-layout><div class=cv2-lists>' + _cv2OwnerSignHtml() + '<div class=cv2-colhead><span>' + _cv2OwnLbl + '</span><span class=cv2-colhead-btns><button type=button class=cv2-viewtoggle><svg class=ico-grid viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><svg class=ico-rows viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="5" rx="1"/><rect x="3" y="14.5" width="18" height="5" rx="1"/></svg></button>' + _cv2NewBtnHtml(1) + '</span></div><div class=cv2-lists-scroll>' + _cv2NewUserHintHtml + own.map(card).join('') + '<div class=cv2-colhead style="margin-top:18px"><span>' + _cv2WantLbl + '</span>' + _cv2NewBtnHtml(0) + '</div>' + want.map(card).join('') + '</div></div><div class=cv2-flyout id=cv2-flyout><div class=cv2-fly-empty>Click a list to see its items.</div></div><div class=cv2-rightrail>' + _cv2LegacyRailHtml + '<div class=cv2-filter-rail id=cv2-filter-rail></div></div></div>';
         try { _cv2EnrichItems(); } catch (_) {}
 
@@ -6505,10 +6735,11 @@
         var NC_ICON = 'https://impress.openneo.net/assets/nc-0d399de5fe3e09ec5d8c2c7ec0dcc48dd1c14242477d4fdd180d489a6b138a8f.png';
         var slug = nm.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
         var _inHaul = _cv2HaulHas(it.id, _cv2Visitor ? 'othercloset' : 'mycloset');
+        var _inClip = false; try { _inClip = _cv2ClipIds().has(String(it.id)); } catch (_e) {}
         var _hangerSvg = "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'><path d='M12 9V7.2a2 2 0 1 1 2.6 1.9'/><path d='M12 9 4.2 15a1 1 0 0 0 .6 1.8h14.4a1 1 0 0 0 .6-1.8L12 9z'/></svg>";
         var _hanger = '<button type=button class="cv2-haul-add" data-item-id="' + it.id + '" data-item-name="' + esc(nm) + '">' + _hangerSvg + '</button>';
         var _clipTextSvg = "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'><path d='M9 5H7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2V7a2 2 0 0 0 -2 -2h-2'/><path d='M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z'/><path d='M9 12h6'/><path d='M9 16h6'/></svg>";
-        var _clipAdd = '<button type=button class="cv2-clip-add" data-item-id="' + it.id + '" data-item-name="' + esc(nm) + '" title="Add to clipboard">' + _clipTextSvg + '</button>';
+        var _clipAdd = '<button type=button class="cv2-clip-add' + (_inClip ? ' cv2-clip-added' : '') + '" data-item-id="' + it.id + '" data-item-name="' + esc(nm) + '" title="Add to clipboard">' + _clipTextSvg + '</button>';
         var _wishBadge = '';
 
         if (_cv2Scope === 'all') {
@@ -6521,7 +6752,7 @@
           }
 
         }
-        return '<li class="object' + (_inHaul ? ' cv2-in-haul' : '') + '" data-item-id="' + it.id + '">'
+        return '<li class="object' + (_inHaul ? ' cv2-in-haul' : '') + (_inClip ? ' cv2-in-clip' : '') + '" data-item-id="' + it.id + '">'
           + _hanger
           + _clipAdd
           + _wishBadge
@@ -6760,6 +6991,26 @@
         var head = fly.querySelector('.cv2-fly-head');
         if (_cv2Scope === 'cur' && head && _cv2ActiveList) {
           var cnt = head.querySelector('.cv2-fly-count'); if (cnt) cnt.textContent = _cv2SortedItems.length + ' items';
+
+          try {
+            var _fcOld = head.querySelector('.cv2-favcheck-btn');
+            var _fcOn = !_cv2Visitor && _cv2ActiveList.ownsOrWantsItems === 'WANTS' && typeof window._dtrFavCheck === 'function';
+            if (_fcOld && !_fcOn) _fcOld.remove();
+            if (!_fcOld && _fcOn) {
+              var _fcB = document.createElement('button');
+              _fcB.type = 'button'; _fcB.className = 'cv2-favcheck-btn';
+              _fcB.innerHTML = '<img src="' + DIA_ICON_STAR + '" alt="" style="width:13px;height:13px;display:inline-block;vertical-align:-2px;margin-right:4px;" class="dia-icon-img">Check Preferred Traders’ Lists';
+              _fcB.title = 'See which of your Preferred Traders have items from this wishlist';
+              _fcB.style.cssText = 'align-self:flex-start;margin-top:7px;display:inline-flex;align-items:center;gap:5px;border:none;border-radius:999px;background:#fdf3d9;color:#9a7200;font:800 10px "Nunito",sans-serif;letter-spacing:.02em;padding:5px 11px;cursor:pointer;';
+              _fcB.addEventListener('mouseenter', function () { _fcB.style.background = '#fbecc4'; });
+              _fcB.addEventListener('mouseleave', function () { _fcB.style.background = '#fdf3d9'; });
+              _fcB.addEventListener('click', function () {
+                var L = _cv2ActiveList; if (!L) return;
+                window._dtrFavCheck((L.items || []).map(function (x) { return { id: x.id, name: x.name, thumbnailUrl: x.thumbnailUrl }; }), L.name);
+              });
+              (head.querySelector('.cv2-fly-title-wrap') || head).appendChild(_fcB);
+            }
+          } catch (_) {}
           var old = document.getElementById('cv2-fly-grid'); if (old) old.remove();
           var emp = fly.querySelector('.cv2-fly-empty'); if (emp) emp.remove();
           if (_cv2SortedItems.length) fly.insertAdjacentHTML('beforeend', '<div class=cv2-fly-grid id=cv2-fly-grid></div>');
@@ -6964,6 +7215,29 @@
         else { try { var _aid = _cv2ActiveList ? String(_cv2ActiveList.id) : null; if (_aid) showFlyout(_aid); else if (typeof _cv2RebuildView === 'function') _cv2RebuildView(); } catch (_) {} }
         try { _cv2LockSave(); } catch (_) {}
       });
+
+      (function () {
+        let tries = 0;
+        const iv = setInterval(() => {
+          tries++;
+          try {
+            let intent = null;
+            try { intent = JSON.parse(GM_getValue('dtr_cmp_intent', '') || 'null'); } catch (_) {}
+            if (!intent || Date.now() - (intent.ts || 0) > 60000) { if (intent) { try { GM_deleteValue('dtr_cmp_intent'); } catch (_) {} } clearInterval(iv); return; }
+            if (!document.getElementById('dia-closet-v2-root') || !_cv2Visitor || !_cv2Lists.length) { if (tries > 40) clearInterval(iv); return; }
+            try { GM_deleteValue('dtr_cmp_intent'); } catch (_) {}
+            clearInterval(iv);
+            if (!_cv2LoggedIn() || _cv2CompareMode) return;
+            _cv2CompareMode = true; _cv2CmpCogOpen = false; _cv2CmpShowHidden = false;
+            _cv2Scope = 'all'; try { if (_cv2MultiSel) _cv2MultiSel.clear(); } catch (_) {} _cv2ActiveList = null;
+            try { _cv2SetGroupBy(true); } catch (_) {}
+            try { _cv2RenderRail(); } catch (_) {}
+            try { _cv2RenderCompare(); } catch (_) {}
+            try { _cv2SyncListHighlight(); } catch (_) {}
+            try { _cv2LockSave(); } catch (_) {}
+          } catch (_) { clearInterval(iv); }
+        }, 300);
+      })();
       document.addEventListener('click', function (e) {
         if (!e.target.closest) return;
         var _mxBtn = e.target.closest('#dia-closet-v2-root .cv2-mbn-x');
@@ -7181,8 +7455,9 @@
             + '</div>';
         }
         var grid = function (arr) { return '<div class="cv2-fly-grid cv2-cmp-grid">' + arr.map(function (it) { return itemTile(it); }).join('') + '</div>'; };
-        var col = function (title, total, bodyHtml) {
-          return '<div class=cv2-cmp-col><div class=cv2-cmp-head>' + title + ' <span class=cv2-cmp-ct>(' + total + ')</span></div><div class=cv2-cmp-scroll>' + bodyHtml + '</div></div>';
+
+        var col = function (title, total, bodyHtml, side) {
+          return '<div class=cv2-cmp-col data-cmp-side="' + side + '"><div class=cv2-cmp-head>' + title + ' <span class=cv2-cmp-ct>(' + total + ')</span></div><div class=cv2-cmp-scroll>' + bodyHtml + '</div></div>';
         };
         var leftBody, rightBody;
         if (!grouped) {
@@ -7256,8 +7531,8 @@
         var barHTML = '<div class=cv2-cmp-bar><span class=cv2-cmp-bar-t>Comparison \u2014 build an offer</span></div>';
         fly.innerHTML = barHTML + note + revealHTML
           + '<div class=cv2-cmp>'
-          + col(nm + ' owns &amp; you want', leftN, leftBody)
-          + col(nm + ' wants &amp; you own', rightN, rightBody)
+          + col(nm + ' owns &amp; you want', leftN, leftBody, 'seeking')
+          + col(nm + ' wants &amp; you own', rightN, rightBody, 'trading')
           + '</div>';
 
         try { var _op = document.getElementById('cv2-cmp-cogpop'); if (_op) _op.remove(); } catch (_) {}
@@ -7341,11 +7616,36 @@
           el.style.bottom = 'auto'; el.style.transform = 'none';
         } catch (_) {}
       };
+
+      var _cv2ClipIdsCache = null, _cv2ClipIdsCacheT = 0;
+      const _cv2ClipIds = () => {
+        if (_cv2ClipIdsCache && Date.now() - _cv2ClipIdsCacheT < 400) return _cv2ClipIdsCache;
+        var s = new Set();
+        try {
+          var d = _clipGet();
+          ['trading', 'seeking'].forEach(function (k) { (d[k] || []).forEach(function (r) { if (r && r.itemId) s.add(String(r.itemId)); }); });
+        } catch (_) {}
+        _cv2ClipIdsCache = s; _cv2ClipIdsCacheT = Date.now();
+        return s;
+      };
+      const _cv2SyncClipMarks = () => {
+        try {
+          _cv2ClipIdsCache = null;
+          var ids = _cv2ClipIds();
+          document.querySelectorAll('#dia-closet-v2-root .cv2-fly-grid li.object[data-item-id]').forEach(function (li) {
+            var on = ids.has(String(li.getAttribute('data-item-id')));
+            li.classList.toggle('cv2-in-clip', on);
+            var b = li.querySelector('.cv2-clip-add');
+            if (b) { b.classList.toggle('cv2-clip-added', on); b.title = on ? 'Remove from clipboard' : 'Add to clipboard'; }
+          });
+        } catch (_) {}
+      };
       const _cv2MiniToast = (html) => {
         try {
           document.querySelectorAll('.cv2-mini-toast').forEach(function (t) { t.remove(); });
           var t = document.createElement('div'); t.className = 'cv2-mini-toast';
-          t.style.cssText = 'position:fixed;left:50%;bottom:128px;transform:translateX(-50%);background:#fff;border:1.5px solid var(--cv2-toast-line,#cfe7df);border-radius:999px;box-shadow:0 8px 28px rgba(40,60,50,.2);padding:10px 16px;z-index:100002;font:600 12.5px/1.3 var(--cv2-toast-font,Inter,sans-serif);color:var(--cv2-toast-ink,#1c6b4e);max-width:90vw;transition:opacity .3s;';
+
+          t.style.cssText = 'position:fixed;left:50%;bottom:128px;transform:translateX(-50%);background:#fff;border:1.5px solid #efe7da;border-radius:999px;box-shadow:0 8px 28px rgba(40,60,50,.18);padding:9px 16px;z-index:100002;font:700 12px/1.3 "Nunito",Inter,sans-serif;color:#564f60;max-width:90vw;transition:opacity .3s;';
           t.innerHTML = html;
           document.body.appendChild(t);
           _cv2PlaceNearPtr(t);
@@ -7359,11 +7659,11 @@
           var listName = L ? L.name : 'list';
           if (!document.getElementById('cv2-add-toast-css')) {
             var st = document.createElement('style'); st.id = 'cv2-add-toast-css';
-            st.textContent = ".cv2-add-toast{position:fixed;left:50%;top:70px;transform:translateX(-50%);display:flex;align-items:center;gap:11px;background:#fff;border:2px solid var(--dtr-primary,#2d9b77);border-radius:14px;box-shadow:0 8px 30px rgba(20,156,142,.28);padding:11px 15px;z-index:100003;max-width:90vw;transition:opacity .3s;font-family:'Nunito',Inter,sans-serif;}"
-              + ".cv2-add-toast img{width:42px;height:42px;object-fit:contain;border-radius:8px;background:#f5f3ee;flex-shrink:0;}"
-              + ".cv2-add-toast .t{font:700 13px/1.25 'Nunito',sans-serif;color:var(--dtr-primary,#1c6b4e);}"
-              + ".cv2-add-toast .s{font:500 11px/1.3 'Nunito',sans-serif;color:#564f60;margin-top:2px;}"
-              + "html[data-dib-theme=konpeito] .cv2-add-toast{border-color:var(--dtr-primary,#149c8e);} html[data-dib-theme=konpeito] .cv2-add-toast .t{color:var(--dtr-primary,#149c8e);}";
+
+            st.textContent = ".cv2-add-toast{position:fixed;left:50%;top:70px;transform:translateX(-50%);display:flex;align-items:center;gap:9px;background:#fff;border:1.5px solid #cfe7df;border-radius:999px;box-shadow:0 8px 28px rgba(40,60,50,.2);padding:7px 16px 7px 8px;z-index:100003;max-width:90vw;transition:opacity .3s;font-family:'Nunito',Inter,sans-serif;}"
+              + ".cv2-add-toast img{width:26px;height:26px;object-fit:contain;border-radius:7px;background:#f5f3ee;flex-shrink:0;}"
+              + ".cv2-add-toast .t{font:700 12px/1.25 'Nunito',sans-serif;color:#564f60;}"
+              + ".cv2-add-toast .s{font:600 10.5px/1.3 'Nunito',sans-serif;color:#948fa0;margin-top:1px;}";
             document.head.appendChild(st);
           }
           document.querySelectorAll('.cv2-add-toast').forEach(function (t) { t.remove(); });
@@ -8240,7 +8540,10 @@
           var meta = null;
           (_cv2Lists || []).some(function (l) { var f = (l.items || []).find(function (x) { return String(x.id) === String(id); }); if (f) { meta = f; return true; } return false; });
           if (meta) _cv2DragMeta[String(id)] = { name: meta.name, thumbnailUrl: meta.thumbnailUrl, isNc: meta.isNc };
-          var side = _cv2SrcSideForDrag([id]); if (side !== 'trading' && side !== 'seeking') side = 'seeking';
+
+          var tile = document.querySelector('#dia-closet-v2-root li.object.cv2-selected[data-item-id="' + id + '"]')
+                  || document.querySelector('#dia-closet-v2-root li.object[data-item-id="' + id + '"]');
+          var side = _cv2SrcSideForDrag([id], tile); if (side !== 'trading' && side !== 'seeking') side = 'seeking';
           bySide[side].push(String(id));
         });
         var total = 0;
@@ -8897,7 +9200,7 @@
       const _copyIconClip = '<svg width="15" height="15" viewBox="0 0 16 16" style="display:block;"><rect x="5" y="1" width="9.5" height="9.5" rx="2.6" fill="currentColor" opacity=".4"/><rect x="1.5" y="4.8" width="9.5" height="9.5" rx="2.6" fill="currentColor"/></svg>';
       let _cv2ClipUndo = null;
       let _cv2ClipUndoTimer = null;
-      const _cv2ClipSkinExtras = "#dia-staging-panel{position:fixed;transform:translateY(12px);opacity:0;visibility:hidden;will-change:transform,opacity;transition:transform .24s cubic-bezier(.22,.61,.36,1),opacity .24s ease,visibility 0s linear .24s;border-radius:14px;display:flex;flex-direction:column;box-shadow:0 8px 28px rgba(0,0,0,.16);}#dia-staging-panel.open{transform:translateY(0);opacity:1;visibility:visible;transition:transform .24s cubic-bezier(.22,.61,.36,1),opacity .24s ease,visibility 0s;}#dia-staging-panel #dia-staging-body{overflow-y:auto;min-height:0;}#dia-staging-panel.dia-collapsed #dia-staging-body{display:none;}#dia-staging-panel .dia-staging-col.cv2-clip-drop-hover{background:rgba(45,155,119,0.12);}#dia-staging-panel .dia-staging-col:last-child{border-right:none !important;}.dia-staging-copyboth{font:600 9px/1 Inter,sans-serif;border:1px solid var(--dtr-primary,#2d9b77);background:var(--dtr-primary,#2d9b77);color:#fff;border-radius:6px;padding:3px 9px;cursor:pointer;}.dia-staging-copyboth:hover{opacity:.9;}#dia-clipboard-tab,#dia-tryon-tab{position:fixed;z-index:9098;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:32px;padding:12px 0;background:#fff;border:1px solid #dceee8;border-left:none;border-radius:0 8px 8px 0;box-shadow:3px 0 10px rgba(0,0,0,0.07);cursor:pointer;transition:background .15s;user-select:none;}#dia-clipboard-tab .dia-tab-label,#dia-tryon-tab .dia-tab-label{writing-mode:vertical-rl;font:700 8px/1 Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;}#dia-tryon-tab .dtr-hanger{width:15px;height:15px;color:var(--dtr-primary,#149c8e);flex-shrink:0;display:block;margin:0 auto;transform:translateX(2px);}#dia-clipboard-tab .dia-tab-count,#dia-tryon-tab .dia-tab-count{font:700 9px/1 Inter,Arial,sans-serif;border-radius:8px;padding:2px 3px;min-width:14px;text-align:center;}#dia-clipboard-tab:hover{background:var(--dtr-primary-bg,#eaf5f0);}#dia-clipboard-tab.open{background:var(--dtr-primary-bg,#eaf5f0);border-color:#a8d4c4;}#dia-clipboard-tab .dia-tab-label{color:#3a7a5e;}#dia-clipboard-tab .dia-tab-count{color:#1e4f3e;background:var(--dtr-primary-bg,#eaf5f0);}#dia-clipboard-tab.has-items{background:linear-gradient(135deg,#ddc9f2,#efe4fb);border-color:#b48fe0;box-shadow:3px 0 18px rgba(140,110,200,0.4);}#dia-clipboard-tab.has-items .dia-tab-count{color:#5b3a8a;background:#e3d4f7;}#dia-tryon-tab{border-color:#efe7da;}#dia-tryon-tab:hover{background:var(--dtr-primary-bg,#f1fbf9);}#dia-tryon-tab.open{background:var(--dtr-primary-bg,#f1fbf9);border-color:var(--dtr-mint,#5bb6a8);}#dia-tryon-tab .dia-tab-label{color:var(--dtr-primary,#149c8e);}#dia-tryon-tab .dia-tab-count{color:var(--dtr-primary,#149c8e);background:var(--dtr-primary-bg,#dbf5f1);}#dia-tryon-tab.has-items{border-color:var(--dtr-mint,#5bb6a8);}#dia-staging-panel .dia-staging-col{min-width:0;}#dia-staging-panel .dia-staging-row-name{white-space:normal;overflow-wrap:anywhere;}#dia-staging-panel .dia-staging-row-thumb{display:block;}#dia-staging-panel .dtr-status-overlay{position:absolute;inset:0;display:flex;border-radius:5px;overflow:hidden;pointer-events:none;}#dia-staging-panel .dtr-status-overlay>div{flex:1;display:flex;align-items:center;justify-content:center;}#dia-staging-panel .dtr-status-overlay .dtr-ov-owned{background:rgba(160,125,85,0.34);}#dia-staging-panel .dtr-status-overlay .dtr-ov-wishlisted{background:linear-gradient(135deg,rgba(156,148,196,0.48),rgba(188,150,180,0.46));}#dia-staging-panel .dia-staging-row-thumb{width:54px !important;height:54px !important;border-radius:7px !important;}#dia-staging-panel .dia-staging-row-name-col{justify-content:center;}#dia-staging-panel .dtr-status-overlay span{color:#fff;font:700 7px/1.15 Inter,sans-serif;text-align:center;padding:1px 2px;border-radius:3px;text-shadow:0 1px 1px rgba(0,0,0,0.45);letter-spacing:.02em;}#dia-staging-panel .dtr-status-overlay .dtr-ov-owned span{background:rgba(110,75,35,0.66);}#dia-staging-panel .dtr-status-overlay .dtr-ov-wishlisted span{background:rgba(140,132,168,0.72);}body.cv2-closet #dia-hp-tryon-panel{width:440px !important;height:560px !important;max-height:86vh !important;}body.cv2-closet #dia-hp-wl-panel{width:400px !important;height:560px !important;max-height:86vh !important;}body.cv2-closet #dia-tryon-picker-drawer{width:180px !important;height:560px !important;max-height:86vh !important;}body.cv2-closet #dtr-tophat{width:440px !important;}#dia-staging-panel .dia-staging-row-val-note{max-width:118px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}body.dtr-toh-dim #dia-clipboard-tab,body.dtr-toh-dim #dia-tryon-tab{opacity:.6 !important;filter:saturate(.9) !important;transition:opacity .2s ease,filter .2s ease;}#dia-clipboard-tab{background:#fff;border-color:#f3c0d4;}#dia-clipboard-tab .dia-tab-label{color:#d44e86;}#dia-clipboard-tab .dia-tab-count{color:#b23a6a;background:#ffe3ee;}#dia-clipboard-tab .dtr-clip-ic{width:15px;height:15px;color:#d44e86;flex-shrink:0;display:block;margin:0 auto;}#dia-clipboard-tab:hover{background:#fff2f7;}#dia-clipboard-tab.open{background:#fff2f7;border-color:#ee9cbf;}#dia-clipboard-tab.has-items{background:linear-gradient(135deg,#ffd0e2,#ffe4ef);border-color:#ee9cbf;box-shadow:3px 0 18px rgba(220,90,140,0.32);}#dia-clipboard-tab.has-items .dia-tab-label,#dia-clipboard-tab.has-items .dtr-clip-ic{color:#c23a6e;}#dia-clipboard-tab.has-items .dia-tab-count{color:#a52e5d;background:#ffd4e6;}#dia-staging-header .cv2-clip-htitle-ic{width:14px;height:14px;color:#d44e86;flex-shrink:0;display:block;}";
+      const _cv2ClipSkinExtras = "#dia-staging-panel{position:fixed;transform:translateY(12px);opacity:0;visibility:hidden;will-change:transform,opacity;transition:transform .24s cubic-bezier(.22,.61,.36,1),opacity .24s ease,visibility 0s linear .24s;border-radius:14px;display:flex;flex-direction:column;box-shadow:0 8px 28px rgba(0,0,0,.16);}#dia-staging-panel.open{transform:translateY(0);opacity:1;visibility:visible;transition:transform .24s cubic-bezier(.22,.61,.36,1),opacity .24s ease,visibility 0s;}#dia-staging-panel #dia-staging-body{overflow-y:auto;min-height:0;}#dia-staging-panel.dia-collapsed #dia-staging-body{display:none;}#dia-staging-panel .dia-staging-col.cv2-clip-drop-hover{background:rgba(45,155,119,0.12);}#dia-staging-panel .dia-staging-col:last-child{border-right:none !important;}.dia-staging-copyboth{font:600 9px/1 Inter,sans-serif;border:1px solid var(--dtr-primary,#2d9b77);background:var(--dtr-primary,#2d9b77);color:#fff;border-radius:6px;padding:3px 9px;cursor:pointer;}.dia-staging-copyboth:hover{opacity:.9;}#dia-clipboard-tab,#dia-tryon-tab{position:fixed;z-index:9098;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:32px;padding:12px 0;background:#fff;border:1px solid #dceee8;border-left:none;border-radius:0 8px 8px 0;box-shadow:3px 0 10px rgba(0,0,0,0.07);cursor:pointer;transition:background .15s;user-select:none;}#dia-clipboard-tab .dia-tab-label,#dia-tryon-tab .dia-tab-label{writing-mode:vertical-rl;font:700 8px/1 Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;}#dia-tryon-tab .dtr-hanger{width:15px;height:15px;color:var(--dtr-primary,#149c8e);flex-shrink:0;display:block;margin:0 auto;}#dia-clipboard-tab .dia-tab-count,#dia-tryon-tab .dia-tab-count{font:700 9px/1 Inter,Arial,sans-serif;border-radius:8px;padding:2px 3px;min-width:14px;text-align:center;}#dia-clipboard-tab:hover{background:var(--dtr-primary-bg,#eaf5f0);}#dia-clipboard-tab.open{background:var(--dtr-primary-bg,#eaf5f0);border-color:#a8d4c4;}#dia-clipboard-tab .dia-tab-label{color:#3a7a5e;}#dia-clipboard-tab .dia-tab-count{color:#1e4f3e;background:var(--dtr-primary-bg,#eaf5f0);}#dia-clipboard-tab.has-items{background:linear-gradient(135deg,#ddc9f2,#efe4fb);border-color:#b48fe0;box-shadow:3px 0 18px rgba(140,110,200,0.4);}#dia-clipboard-tab.has-items .dia-tab-count{color:#5b3a8a;background:#e3d4f7;}#dia-tryon-tab{border-color:#efe7da;}#dia-tryon-tab:hover{background:var(--dtr-primary-bg,#f1fbf9);}#dia-tryon-tab.open{background:var(--dtr-primary-bg,#f1fbf9);border-color:var(--dtr-mint,#5bb6a8);}#dia-tryon-tab .dia-tab-label{color:var(--dtr-primary,#149c8e);}#dia-tryon-tab .dia-tab-count{color:var(--dtr-primary,#149c8e);background:var(--dtr-primary-bg,#dbf5f1);}#dia-tryon-tab.has-items{border-color:var(--dtr-mint,#5bb6a8);}#dia-staging-panel .dia-staging-col{min-width:0;}#dia-staging-panel .dia-staging-row-name{white-space:normal;overflow-wrap:anywhere;}#dia-staging-panel .dia-staging-row-thumb{display:block;}#dia-staging-panel .dtr-status-overlay{position:absolute;inset:0;display:flex;border-radius:5px;overflow:hidden;pointer-events:none;}#dia-staging-panel .dtr-status-overlay>div{flex:1;display:flex;align-items:center;justify-content:center;}#dia-staging-panel .dtr-status-overlay .dtr-ov-owned{background:rgba(160,125,85,0.34);}#dia-staging-panel .dtr-status-overlay .dtr-ov-wishlisted{background:linear-gradient(135deg,rgba(156,148,196,0.48),rgba(188,150,180,0.46));}#dia-staging-panel .dia-staging-row-thumb{width:54px !important;height:54px !important;border-radius:7px !important;}#dia-staging-panel .dia-staging-row-name-col{justify-content:center;}#dia-staging-panel .dtr-status-overlay span{color:#fff;font:700 7px/1.15 Inter,sans-serif;text-align:center;padding:1px 2px;border-radius:3px;text-shadow:0 1px 1px rgba(0,0,0,0.45);letter-spacing:.02em;}#dia-staging-panel .dtr-status-overlay .dtr-ov-owned span{background:rgba(110,75,35,0.66);}#dia-staging-panel .dtr-status-overlay .dtr-ov-wishlisted span{background:rgba(140,132,168,0.72);}body.cv2-closet #dia-hp-tryon-panel{width:440px !important;height:560px !important;max-height:86vh !important;}body.cv2-closet #dia-hp-wl-panel{width:400px !important;height:560px !important;max-height:86vh !important;}body.cv2-closet #dia-tryon-picker-drawer{width:180px !important;height:560px !important;max-height:86vh !important;}body.cv2-closet #dtr-tophat{width:440px !important;}#dia-staging-panel .dia-staging-row-val-note{max-width:118px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}body.dtr-toh-dim #dia-clipboard-tab,body.dtr-toh-dim #dia-tryon-tab{opacity:.6 !important;filter:saturate(.9) !important;transition:opacity .2s ease,filter .2s ease;}#dia-clipboard-tab{background:#fff;border-color:#f3c0d4;}#dia-clipboard-tab .dia-tab-label{color:#d44e86;}#dia-clipboard-tab .dia-tab-count{color:#b23a6a;background:#ffe3ee;}#dia-clipboard-tab .dtr-clip-ic{width:15px;height:15px;color:#d44e86;flex-shrink:0;display:block;margin:0 auto;}#dia-clipboard-tab:hover{background:#fff2f7;}#dia-clipboard-tab.open{background:#fff2f7;border-color:#ee9cbf;}#dia-clipboard-tab.has-items{background:linear-gradient(135deg,#ffd0e2,#ffe4ef);border-color:#ee9cbf;box-shadow:3px 0 18px rgba(220,90,140,0.32);}#dia-clipboard-tab.has-items .dia-tab-label,#dia-clipboard-tab.has-items .dtr-clip-ic{color:#c23a6e;}#dia-clipboard-tab.has-items .dia-tab-count{color:#a52e5d;background:#ffd4e6;}#dia-staging-header .cv2-clip-htitle-ic{width:14px;height:14px;color:#d44e86;flex-shrink:0;display:block;}";
       const _cv2ClipPos = () => { try { return JSON.parse(localStorage.getItem('dia_staging_pos_v4')) || null; } catch (_) { return null; } };
       const _cv2ClipMount = () => {
         var root = document.getElementById('dia-closet-v2-root');
@@ -9286,6 +9589,8 @@
           + ''
           + '</div></div>';
         _cv2ClipFit();
+
+        try { _cv2SyncClipMarks(); } catch (_) {}
       };
       const _cv2OwnedWanted = (iid, qm) => {
         var per = (qm || {})[String(iid)] || {}; var owned = 0, wanted = 0;
@@ -9297,11 +9602,21 @@
         return { owned: owned, wanted: wanted };
       };
 
-      const _cv2SrcSideForDrag = (ids) => {
+      const _cv2SrcSideForDrag = (ids, srcEl) => {
 
         var inv = _cv2Visitor;
         var sideFor = function (isWant) { return inv ? (isWant ? 'trading' : 'seeking') : (isWant ? 'seeking' : 'trading'); };
         try {
+          if (srcEl && srcEl.closest) {
+            var _cmpCol = srcEl.closest('.cv2-cmp-col[data-cmp-side]');
+            if (_cmpCol) return _cmpCol.getAttribute('data-cmp-side');
+            var _srcSec = srcEl.closest('.cv2-grp-sec[data-grp-list]');
+            if (_srcSec) {
+              var _slid = String(_srcSec.getAttribute('data-grp-list'));
+              var SL = (_cv2Lists || []).find(function (l) { return String(l.id) === _slid; });
+              if (SL) return sideFor(SL.ownsOrWantsItems === 'WANTS');
+            }
+          }
           if (!_cv2CompareMode) {
             if (_cv2Scope === 'own') return sideFor(false);
             if (_cv2Scope === 'want') return sideFor(true);
@@ -10123,8 +10438,14 @@
       document.addEventListener('mouseover', function (e) {
         var t = e.target.closest && e.target.closest('#dia-staging-panel [data-dia-clip-tip]');
         if (!t) return;
+
+        var _tipRaw = t.getAttribute('data-dia-clip-tip') || '';
+        var _tipTxt = _tipRaw.replace(/<[^>]*>/g, '').trim();
+        var _shownTxt = (t.textContent || '').trim();
+        var _trunc = t.scrollWidth > t.clientWidth + 1;
+        if (!_trunc && (_tipTxt === _shownTxt || _shownTxt.indexOf(_tipTxt) === 0)) return;
         var _tp = _cv2Tip();
-        _tp.innerHTML = t.getAttribute('data-dia-clip-tip');
+        _tp.innerHTML = _tipRaw;
         _tp.classList.add('show');
         var r = t.getBoundingClientRect();
         var tw = _tp.offsetWidth, th = _tp.offsetHeight;
@@ -10138,12 +10459,12 @@
         if (!document.getElementById('cv2-move-toast-css')) {
           var _ts = document.createElement('style'); _ts.id = 'cv2-move-toast-css';
           _ts.textContent =
-            '.cv2-move-toast{position:fixed;background:#fff;border:2px solid var(--dtr-mint,#5bb6a8);border-radius:14px;box-shadow:0 8px 30px rgba(20,156,142,.28);padding:14px 16px;display:flex;align-items:center;gap:13px;z-index:999999;font-family:\'Nunito\',sans-serif;animation:cv2-mtin .18s ease;}'
+            '.cv2-move-toast{position:fixed;background:#fff;border:1.5px solid #efe7da;border-radius:999px;box-shadow:0 8px 28px rgba(40,60,50,.18);padding:8px 16px 8px 10px;display:flex;align-items:center;gap:10px;z-index:999999;font-family:\'Nunito\',sans-serif;color:#564f60;animation:cv2-mtin .18s ease;}'
             + '.cv2-mt-thumbs{display:flex;gap:6px;flex-shrink:0;}'
-            + '.cv2-mt-thumb{width:46px;height:46px;object-fit:contain;border-radius:8px;background:#f5f3ee;}'
+            + '.cv2-mt-thumb{width:26px;height:26px;object-fit:contain;border-radius:7px;background:#f5f3ee;}'
             + '.cv2-mt-info{flex:1;min-width:0;}'
-            + '.cv2-mt-title{font:700 15px/1.25 \'Nunito\',sans-serif;color:var(--dtr-primary,#1c6b4e);}'
-            + '.cv2-mt-sub{font:500 12px/1.3 \'Nunito\',sans-serif;color:#564f60;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}'
+            + '.cv2-mt-title{font:700 12px/1.25 \'Nunito\',sans-serif;color:#564f60;}'
+            + '.cv2-mt-sub{font:600 10.5px/1.3 \'Nunito\',sans-serif;color:#948fa0;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}'
             + '.cv2-mt-undo{font:600 12px/1 \'Nunito\',sans-serif;color:var(--dtr-primary,#149c8e);background:transparent;border:1.5px solid var(--dtr-primary,#149c8e);border-radius:8px;padding:7px 13px;cursor:pointer;flex-shrink:0;white-space:nowrap;transition:background .12s,color .12s;}'
             + '.cv2-mt-undo:hover{background:var(--dtr-primary,#149c8e);color:#fff;}'
             + '@keyframes cv2-mtin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}';
@@ -10371,6 +10692,7 @@
         if (_cv2HaulHas(iid, _hsrc)) {
           _cv2HaulRemove(iid, _hsrc);
           if (li) li.classList.remove('cv2-in-haul');
+          try { _cv2MiniToast('Removed from Try On Haul'); } catch (_e) {}
           _cv2HaulSyncCount(); _cv2HaulRenderPanel();
 
           var _rpR = document.getElementById('dia-hp-wl-panel'); if (_rpR) { try { window._hpWlViewerLoaded = false; _rpR.dispatchEvent(new CustomEvent('dtr-wl-load')); } catch (_e) {} }
@@ -10383,6 +10705,7 @@
         hb.classList.add('cv2-haul-loading');
         _cv2HaulAdd(_meta, _hsrc, _cv2Visitor ? null : _cv2HaulOriginType(iid));
         if (li) li.classList.add('cv2-in-haul');
+        try { _cv2MiniToast('Added to Try On Haul'); } catch (_e) {}
         _cv2HaulSyncCount(); _cv2HaulRenderPanel();
 
         var _rp = document.getElementById('dia-hp-wl-panel'); if (_rp) { try { window._hpWlViewerLoaded = false; _rp.dispatchEvent(new CustomEvent('dtr-wl-load')); } catch (_e) {} }
@@ -10399,10 +10722,26 @@
         e.preventDefault(); e.stopPropagation();
         var iid = cb.getAttribute('data-item-id'); var nm = cb.getAttribute('data-item-name') || '';
         var li = cb.closest('li.object');
+        var _wasInClip = false; try { _wasInClip = _cv2ClipIds().has(String(iid)); } catch (_e) {}
+        if (_wasInClip) {
+
+          try {
+            var _cd = _clipGet();
+            ['trading', 'seeking'].forEach(function (k) { _cd[k] = (_cd[k] || []).filter(function (r) { return !(r && String(r.itemId) === String(iid)); }); });
+            _clipSet(_cd); _cv2RenderClip();
+          } catch (_e) {}
+          try { _cv2MiniToast('Removed from clipboard'); } catch (_e) {}
+          return;
+        }
         try { var _m = _cv2HaulLookupItem(iid) || {}; _cv2DragMeta[String(iid)] = { name: _m.name || nm, thumbnailUrl: _m.thumbnailUrl || ((li && li.querySelector('img')) ? li.querySelector('img').src : ''), isNc: !!_m.isNc }; } catch (_e) {}
-        var side = _cv2SrcSideForDrag([iid]);
+        var side = _cv2SrcSideForDrag([iid], cb);
         _cv2AddToClip([iid], side);
-        if (cb) cb.classList.add('cv2-clip-added');
+        if (cb) {
+          cb.classList.add('cv2-clip-added');
+
+          cb.classList.add('cv2-clip-success');
+          setTimeout(function () { try { cb.classList.remove('cv2-clip-success'); } catch (_e) {} }, 900);
+        }
         var _p = document.getElementById('dia-staging-panel'); if (_p) { _p.classList.add('open'); var _t = document.getElementById('dia-clipboard-tab'); if (_t) _t.classList.add('open'); if (typeof _cv2ClipFit === 'function') _cv2ClipFit(); }
         try { _cv2MiniToast('Added to clipboard'); } catch (_e) {}
       }, true);
@@ -11765,7 +12104,7 @@
             "#dia-ps-tkhead .dia-ps-help{margin-left:2px}",
             "#dia-ps-pop .dia-ps-help:hover{filter:brightness(.96)}",
             ".dia-ps-tip{position:fixed;z-index:100001;max-width:262px;background:#33403a;color:#fff;font:600 11.5px/1.5 Nunito,Arial,sans-serif;padding:9px 12px;border-radius:10px;box-shadow:0 8px 26px rgba(0,0,0,.32);pointer-events:none;display:none}",
-            ".dia-ps-toast{position:fixed;z-index:100002;transform:translateX(-50%);background:var(--dtr-primary,#149c8e);color:#fff;font:800 12px Nunito,Arial,sans-serif;padding:8px 15px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.3);pointer-events:none;display:none;white-space:nowrap}",
+            ".dia-ps-toast{position:fixed;z-index:100002;transform:translateX(-50%);background:#fff;border:1.5px solid #efe7da;color:#564f60;font:700 12px Nunito,Arial,sans-serif;padding:9px 16px;border-radius:999px;box-shadow:0 8px 28px rgba(40,60,50,.18);pointer-events:none;display:none;white-space:nowrap}",
 
             "#dia-ps-grid .dia-ps-dim .dia-ps-tile-thumb::before{content:'';position:absolute;inset:0;border-radius:8px;background:rgba(160,125,85,.28);pointer-events:none;z-index:2}",
             "#dia-ps-prog{flex:0 0 auto;padding:0 13px 7px;font:600 10.5px Nunito,Arial,sans-serif;color:#a0988a}",
@@ -12369,10 +12708,10 @@
             "#dia-ps-board .dia-psb-blank-h{font:800 16px Nunito,Arial,sans-serif;color:#5a5a52;margin-bottom:8px}",
             "#dia-ps-board .dia-psb-blank-p{font:600 12.5px Nunito,Arial,sans-serif;color:#8f8f85;line-height:1.55;max-width:460px;margin:0 auto}",
 
-            "#dia-ps-board li.object .cv2-clip-add{display:none;position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;background:#d4537e;color:#fff;border:2px solid #fff;align-items:center;justify-content:center;cursor:pointer;padding:0!important;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:all .15s;z-index:10}",
+            "#dia-ps-board li.object .cv2-clip-add{display:none;position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;background:#5fb3e8;color:#fff;border:2px solid #fff;align-items:center;justify-content:center;cursor:pointer;padding:0!important;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:all .15s;z-index:10}",
             "#dia-ps-board li.object:hover .cv2-clip-add{display:flex}",
-            "#dia-ps-board li.object .cv2-clip-add:hover{background:#b23a6a;transform:translateX(-50%) scale(1.15);box-shadow:0 0 0 3px rgba(212,83,126,.4),0 0 12px rgba(212,83,126,.4)}",
-            "#dia-ps-board li.object .cv2-clip-add.cv2-clip-added{background:#9d4e86;box-shadow:0 0 0 2px rgba(157,78,134,.4),0 0 12px rgba(157,78,134,.5)}",
+            "#dia-ps-board li.object .cv2-clip-add:hover{background:#4aa4de;transform:translateX(-50%) scale(1.15);box-shadow:0 0 0 3px rgba(95,179,232,.4),0 0 12px rgba(95,179,232,.4)}",
+            "#dia-ps-board li.object .cv2-clip-add.cv2-clip-added{background:#3d97d4;box-shadow:0 0 0 2px rgba(95,179,232,.45),0 0 12px rgba(95,179,232,.6)}",
             "#dia-ps-board li.object .cv2-clip-add svg{width:14px;height:14px;display:block;pointer-events:none}",
 
             "#dia-ps-board .dia-psb-clip{flex:none;border-top:1px solid var(--dtr-primary-line,#ece6db);background:#f7f3ea;max-height:56%;display:flex;flex-direction:column;min-height:0}",
@@ -12891,9 +13230,10 @@
     const th = tooltip.offsetHeight || 40;
     let left = rect.left + rect.width / 2 - tw / 2;
     left = Math.min(window.innerWidth - tw - margin, Math.max(margin, left));
-    let top = rect.bottom + gap;
-    if (top + th > window.innerHeight - margin) top = rect.top - th - gap;
-    if (top < margin) top = Math.max(margin, window.innerHeight - th - margin);
+
+    let top = rect.top - th - gap;
+    if (top < margin) top = rect.bottom + gap;
+    if (top + th > window.innerHeight - margin) top = Math.max(margin, window.innerHeight - th - margin);
     tooltip.style.left = left + 'px';
     tooltip.style.top = top + 'px';
   }
@@ -13020,13 +13360,13 @@
     const h = readJSON(IMPORT_HISTORY_KEY, []);
     return Array.isArray(h) ? h : [];
   }
-  function recordImport(items) {
+  function recordImport(items, src) {
     try {
       const names = Object.keys(items || {});
       if (!names.length) return;
       const total = names.reduce((s, n) => s + (parseInt(items[n], 10) || 0), 0);
       const hist = loadImportHistory();
-      hist.unshift({ ts: Date.now(), items: { ...items }, count: names.length, total });
+      hist.unshift({ ts: Date.now(), src: src || '', items: { ...items }, count: names.length, total });
       if (hist.length > 50) hist.length = 50;
       writeJSON(IMPORT_HISTORY_KEY, hist);
     } catch (_) {}
@@ -13040,10 +13380,11 @@
   function importHistoryToCSV() {
     const hist = loadImportHistory();
     const q = c => '"' + String(c == null ? '' : c).replace(/"/g, '""') + '"';
-    const rows = [['Import date', 'Item', 'Quantity'].map(q).join(',')];
+    const rows = [['Import date', 'Source', 'Item', 'Quantity'].map(q).join(',')];
     hist.forEach(e => {
       const d = new Date(e.ts).toLocaleString();
-      Object.keys(e.items).forEach(n => rows.push([d, n, e.items[n]].map(q).join(',')));
+      const s = (DTR_IMPORT_SRC_META[e.src] || {}).label || e.src || '';
+      Object.keys(e.items).forEach(n => rows.push([d, s, n, e.items[n]].map(q).join(',')));
     });
     return rows.join('\r\n');
   }
@@ -13060,6 +13401,324 @@
       setTimeout(() => URL.revokeObjectURL(url), 2000);
     } catch (_) {}
   }
+
+  const DTR_IMPORT_SRC_META = {
+    inventory: { label: 'Inventory', fg: '#0f7f73', bg: '#dbf5f1' },
+    sdb:       { label: 'SDB',       fg: '#2f6fae', bg: '#e3f0fc' },
+    closet:    { label: 'Closet',    fg: '#3a8a7c', bg: '#e4f5f1' },
+    gallery:   { label: 'Gallery',   fg: '#9a7200', bg: '#fdf3d9' },
+    pets:      { label: 'Pets',      fg: '#c2487c', bg: '#ffe9f1' },
+    styles:    { label: 'Pet Styles', fg: '#7d5fb0', bg: '#efe6f8' }
+  };
+  const _DTR_ET_IC_SVG = '<svg class="dtr-et-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="m8 9 4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>';
+  const _DTR_HIST_CLOCK_SVG = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+
+  const _DTR_SEEN_EYE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" style="width:13px;height:13px;display:block;pointer-events:none" aria-hidden="true"><path d="M4.2 10c2.3 3 4.9 4.5 7.8 4.5s5.5-1.5 7.8-4.5"/><path d="M12 14.8v2.5"/><path d="M7 13.7 5.6 15.8"/><path d="M17 13.7l1.4 2.1"/></svg>';
+
+  try { window._DTR_SEEN_EYE_SVG = _DTR_SEEN_EYE_SVG; } catch (_) {}
+  function _dtrEdgeTabCss() {
+    if (document.getElementById('dtr-edgetab-style')) return;
+    const st = document.createElement('style'); st.id = 'dtr-edgetab-style';
+    st.textContent = [
+      '.dtr-edgetab{position:fixed;top:50%;right:0;transform:translateY(-50%);z-index:2147482999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:34px;padding:12px 0;margin:0;appearance:none;-webkit-appearance:none;background:#fff;border:1px solid #efe7da;border-right:none;border-radius:10px 0 0 10px;box-shadow:-3px 0 12px rgba(80,80,70,.1);cursor:pointer;transition:background .15s;user-select:none;font-family:"Nunito","Inter",Arial,sans-serif;line-height:normal;text-align:center;}',
+      '.dtr-edgetab:hover{background:#f1fbf9;}',
+      '.dtr-edgetab.open{background:#f1fbf9;border-color:#5bb6a8;}',
+      '.dtr-edgetab .dtr-et-ic{width:15px;height:15px;color:#149c8e;flex-shrink:0;display:block;margin:0 auto;}',
+      '.dtr-edgetab .dtr-et-label{writing-mode:vertical-rl;font:800 8.5px/1 "Nunito","Inter",sans-serif;color:#149c8e;letter-spacing:.08em;text-transform:uppercase;max-height:112px;overflow:hidden;text-overflow:ellipsis;}',
+      '.dtr-edgetab .dtr-et-count{font:800 10px/1 "Nunito","Inter",sans-serif;color:#149c8e;background:#dbf5f1;border-radius:8px;padding:2px 4px;min-width:16px;text-align:center;}'
+    ].join('');
+    (document.head || document.documentElement).appendChild(st);
+  }
+
+  function _dtrEdgeTabHTML(label, count) {
+    return _DTR_ET_IC_SVG + '<span class="dtr-et-label">' + label + '</span>'
+      + (count ? '<span class="dtr-et-count">' + count + '</span>' : '');
+  }
+  function _dtrMkEdgeTab(id, label, count, title) {
+    _dtrEdgeTabCss();
+    const tab = document.createElement('button');
+    tab.id = id; tab.type = 'button'; tab.className = 'dtr-edgetab';
+    if (title) tab.title = title;
+    tab.innerHTML = _dtrEdgeTabHTML(label, count);
+    return tab;
+  }
+
+  function _dtrHistCss() {
+    if (document.getElementById('dtr-hist-style')) return;
+    const st = document.createElement('style'); st.id = 'dtr-hist-style';
+    st.textContent = [
+      '.dtr-hist-wrap{background:linear-gradient(160deg,#fbecf5 0%,#ecf0fb 30%,#e6f4fb 55%,#eafbf1 78%,#fdf6ea 100%);border:1px solid rgba(255,255,255,.95);border-radius:14px;padding:10px;}',
+      '.dtr-hist-row{background:#fff;border:1px solid rgba(255,255,255,.95);border-radius:12px;padding:9px 11px;margin-bottom:8px;box-shadow:0 2px 10px rgba(80,80,70,.07);}',
+      '.dtr-hist-row:last-of-type{margin-bottom:0;}',
+      '.dtr-hist-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px;}',
+      '.dtr-hist-date{font:800 10.5px "Nunito","Inter",sans-serif;color:#564f60;}',
+      '.dtr-hist-src{font:800 8px/1 "Nunito","Inter",sans-serif;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:3px 7px;flex-shrink:0;}',
+      '.dtr-hist-meta{display:flex;align-items:center;gap:6px;flex-shrink:0;}',
+      '.dtr-hist-sum{font:700 9px "Nunito","Inter",sans-serif;color:#948fa0;white-space:nowrap;}',
+      '.dtr-hist-del{display:inline-flex;align-items:center;justify-content:center;border:none;background:none;color:#cf9aa6;cursor:pointer;padding:2px;border-radius:6px;line-height:0;}',
+      '.dtr-hist-del:hover{background:#fdeef2;color:#c2487c;}',
+      '.dtr-hist-items{display:grid;grid-template-columns:auto 1fr;column-gap:8px;row-gap:4px;align-items:baseline;margin-top:2px;}',
+      '.dtr-hist-qty{font:800 10px/1.4 "Nunito","Inter",sans-serif;color:#149c8e;text-align:right;white-space:nowrap;}',
+      '.dtr-hist-name{font:600 10.5px/1.4 "Nunito","Inter",sans-serif;color:#564f60;min-width:0;overflow-wrap:anywhere;}',
+      '.dtr-hist-csv{display:block;width:100%;box-sizing:border-box;background:#dbf5f1;color:#0f7f73;border:none;border-radius:999px;padding:9px;font:800 11px "Nunito","Inter",sans-serif;cursor:pointer;margin:0 0 9px;}',
+      '.dtr-hist-csv:hover{background:#c9efe8;}',
+      '.dtr-hist-empty{font:600 11px "Nunito","Inter",sans-serif;color:#948fa0;text-align:center;padding:22px 0;}'
+    ].join('');
+    (document.head || document.documentElement).appendChild(st);
+  }
+  function _dtrHistHTML(srcFilter) {
+    _dtrHistCss();
+
+    const hist = loadImportHistory().filter(e => !srcFilter || e.src === srcFilter);
+    if (!hist.length) {
+      const lbl = srcFilter && DTR_IMPORT_SRC_META[srcFilter] ? DTR_IMPORT_SRC_META[srcFilter].label : '';
+      return '<div class="dtr-hist-empty">No ' + (lbl ? lbl + ' ' : '') + 'imports logged yet.</div>';
+    }
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const rows = hist.map(e => {
+      const d = new Date(e.ts).toLocaleString();
+      const m = DTR_IMPORT_SRC_META[e.src];
+      const badge = m ? '<span class="dtr-hist-src" style="color:' + m.fg + ';background:' + m.bg + ';">' + m.label + '</span>' : '';
+      const lines = Object.keys(e.items).map(n => '<span class="dtr-hist-qty">×' + e.items[n] + '</span><span class="dtr-hist-name">' + esc(n) + '</span>').join('');
+      return '<div class="dtr-hist-row"><div class="dtr-hist-head"><span class="dtr-hist-date">' + d + '</span>' + badge
+        + '<span class="dtr-hist-meta"><span class="dtr-hist-sum">' + e.count + ' item' + (e.count !== 1 ? 's' : '') + ' · ' + e.total + ' total</span>'
+        + '<button class="dtr-hist-del" type="button" data-del-ts="' + e.ts + '" title="Delete this log" aria-label="Delete this log"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button></span></div>'
+        + '<div class="dtr-hist-items">' + lines + '</div></div>';
+    }).join('');
+    return '<button class="dtr-hist-csv" type="button">Export all to CSV</button><div class="dtr-hist-wrap">' + rows + '</div>';
+  }
+
+  function _dtrUndoToast(msg, onUndo) {
+    try {
+      document.querySelectorAll('.dtr-undo-toast').forEach(t => t.remove());
+      const t = document.createElement('div');
+      t.className = 'dtr-undo-toast';
+      t.style.cssText = 'position:fixed;left:50%;bottom:96px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid #efe7da;border-radius:999px;box-shadow:0 8px 28px rgba(40,60,50,.18);padding:8px 10px 8px 16px;z-index:2147483100;font:700 12px/1.3 "Nunito",Inter,sans-serif;color:#564f60;max-width:90vw;transition:opacity .3s;';
+      const sp = document.createElement('span'); sp.textContent = msg;
+      const b = document.createElement('button'); b.type = 'button'; b.textContent = 'Undo';
+      b.style.cssText = 'border:none;background:#dbf5f1;color:#0f7f73;border-radius:999px;font:800 11px "Nunito",sans-serif;padding:6px 14px;cursor:pointer;flex-shrink:0;';
+      b.addEventListener('click', () => { try { if (onUndo) onUndo(); } catch (_) {} t.remove(); });
+      t.appendChild(sp); t.appendChild(b);
+      document.body.appendChild(t);
+      setTimeout(() => { try { t.style.opacity = '0'; } catch (_) {} }, 4600);
+      setTimeout(() => { try { t.remove(); } catch (_) {} }, 5000);
+    } catch (_) {}
+  }
+  try { window._dtrUndoToast = _dtrUndoToast; } catch (_) {}
+
+  function _dtrHistClick(e, rerender) {
+    const del = e.target.closest && e.target.closest('.dtr-hist-del');
+    if (del) { deleteImportEntry(del.getAttribute('data-del-ts')); if (rerender) rerender(); return true; }
+    if (e.target.closest && e.target.closest('.dtr-hist-csv')) { downloadImportCSV(); return true; }
+    return false;
+  }
+
+  try {
+    window._dtrMkEdgeTab = _dtrMkEdgeTab; window._dtrEdgeTabCss = _dtrEdgeTabCss;
+    window._dtrHistHTML = _dtrHistHTML; window._dtrHistClick = _dtrHistClick;
+    window._dtrRecordImport = recordImport; window._DTR_HIST_CLOCK_SVG = _DTR_HIST_CLOCK_SVG;
+  } catch (_) {}
+
+  let _dtrFavChkCache = {};
+  async function _dtrFavUserLists(userId) {
+    const c = _dtrFavChkCache[userId];
+    if (c && Date.now() - c.ts < 5 * 60 * 1000) return c;
+    const q = 'query($id:ID!){user(id:$id){closetLists{name description ownsOrWantsItems items{id name thumbnailUrl}}}}';
+    const r = await fetch('https://impress-2020.openneo.net/api/graphql', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: q, variables: { id: userId } }) });
+    const j = await r.json();
+    const lists = (((j || {}).data || {}).user || {}).closetLists || [];
+    const owns = {}, wants = {};
+    lists.forEach(l => {
+      if (!l) return;
+      const tgt = (l.ownsOrWantsItems === 'WANTS') ? wants : owns;
+      (l.items || []).forEach(it => { if (it && it.id && !tgt[String(it.id)]) tgt[String(it.id)] = { id: it.id, name: it.name, thumbnailUrl: it.thumbnailUrl, listName: l.name || '', listDesc: l.description || '' }; });
+    });
+    const entry = { ts: Date.now(), owns, wants };
+    _dtrFavChkCache[userId] = entry;
+    return entry;
+  }
+  async function _dtrFavOwnsItems(userId) { return (await _dtrFavUserLists(userId)).owns; }
+
+  async function _dtrFavResolveUser(name) {
+    try {
+      const r = await fetch('https://impress-2020.openneo.net/api/graphql', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: 'query($n:String!){userByName(name:$n){id username}}', variables: { n: String(name) } }) });
+      const j = r.ok ? await r.json() : null;
+      const u = j && j.data && j.data.userByName;
+      return (u && u.id) ? { id: String(u.id), username: u.username || String(name) } : null;
+    } catch (_) { return null; }
+  }
+
+  function _dtrFavHeal(key, u) {
+    try {
+      const favs = getDIASection('favoriteOwners', {}) || {};
+      if (!favs[key]) return '';
+      const slug = String(u.username).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      const href = location.origin + '/user/' + u.id + (slug ? '-' + slug : '') + '/closet';
+      favs[key] = { name: u.username, href };
+      setDIASection('favoriteOwners', favs);
+      return href;
+    } catch (_) { return ''; }
+  }
+  function _dtrFavChkCss() {
+    if (document.getElementById('dtr-favchk-css')) return;
+    const st = document.createElement('style'); st.id = 'dtr-favchk-css';
+    st.textContent = [
+      "#dtr-favchk-bd{position:fixed;inset:0;z-index:2147483000;background:rgba(40,36,30,.42);display:flex;align-items:center;justify-content:center;padding:24px;font-family:'Nunito','Inter',Arial,sans-serif;}",
+      "#dtr-favchk{position:relative;width:min(620px,calc(100vw - 40px));max-height:min(78vh,720px);background:#fff;border:1px solid #efe7da;border-radius:16px;box-shadow:0 18px 60px rgba(0,0,0,.28);display:flex;flex-direction:column;overflow:hidden;}",
+      "#dtr-favchk::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;z-index:3;background:linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a);}",
+      "#dtr-favchk .fvk-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:16px 18px 11px;border-bottom:1px solid #f4efe6;}",
+      "#dtr-favchk .fvk-title{font:700 16px/1.2 'Baloo 2','Nunito',sans-serif;color:#564f60;}",
+      "#dtr-favchk .fvk-sub{font:600 11px/1.4 'Nunito',sans-serif;color:#948fa0;margin-top:2px;}",
+      "#dtr-favchk .fvk-x{flex-shrink:0;width:28px;height:28px;border:none;background:#f4f1e8;border-radius:50%;color:#7a7a72;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;}",
+      "#dtr-favchk .fvk-x:hover{background:#ff8576;color:#fff;}",
+      "#dtr-favchk .fvk-body{flex:1;min-height:0;overflow-y:auto;padding:12px 16px 16px;background:linear-gradient(160deg,#fbecf5 0%,#ecf0fb 30%,#e6f4fb 55%,#eafbf1 78%,#fdf6ea 100%);}",
+      "#dtr-favchk .fvk-status{font:700 11.5px/1.5 'Nunito',sans-serif;color:#6c6776;padding:4px 2px 10px;}",
+      "#dtr-favchk .fvk-row{background:#fff;border:1px solid rgba(255,255,255,.95);border-radius:13px;padding:10px 12px;margin-bottom:9px;box-shadow:0 2px 10px rgba(80,80,70,.07);}",
+      "#dtr-favchk .fvk-rowhead{display:flex;align-items:center;gap:8px;}",
+      "#dtr-favchk .fvk-views{display:flex;gap:6px;margin:2px 0 10px;}",
+      "#dtr-favchk .fvk-view{border:none !important;background:#fff !important;color:#6c6776 !important;font:800 10.5px 'Nunito',sans-serif !important;padding:6px 13px !important;border-radius:999px !important;cursor:pointer !important;box-shadow:0 1px 4px rgba(80,80,70,.08) !important;outline:none !important;}",
+      "#dtr-favchk .fvk-view.on{background:var(--dtr-primary,#149c8e) !important;color:#fff !important;}",
+      "#dtr-favchk .fvk-ithumb{width:26px;height:26px;border-radius:7px;object-fit:contain;background:#faf8f2;flex-shrink:0;}",
+      "#dtr-favchk .fvk-iname{font:800 12px 'Nunito',sans-serif;color:#2a4a3a;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;}",
+      "#dtr-favchk .fvk-name{font:800 12.5px 'Nunito',sans-serif !important;color:#149c8e !important;text-decoration:none !important;cursor:pointer !important;background:none !important;border:none !important;border-radius:0 !important;padding:0 !important;margin:0 !important;box-shadow:none !important;outline:none !important;line-height:1.3 !important;}",
+      "#dtr-favchk .fvk-name:hover,#dtr-favchk .fvk-name:focus,#dtr-favchk .fvk-name:active{text-decoration:underline !important;background:none !important;color:#0f7f73 !important;box-shadow:none !important;}",
+      "#dtr-favchk .fvk-ct{font:800 9.5px/1 'Nunito',sans-serif;color:#0f7f73;background:#dbf5f1;border-radius:999px;padding:3px 8px;}",
+      "#dtr-favchk .fvk-it2{display:flex;align-items:center;gap:9px;width:100% !important;background:none !important;border:none !important;border-radius:9px !important;padding:6px 7px !important;margin:3px 0 0 !important;font:700 11px 'Nunito',sans-serif !important;color:#564f60 !important;cursor:pointer !important;text-align:left !important;box-shadow:none !important;outline:none !important;}",
+      "#dtr-favchk .fvk-it2:hover,#dtr-favchk .fvk-it2:focus{background:#f1fbf9 !important;box-shadow:none !important;}",
+      "#dtr-favchk .fvk-it2 img,#dtr-favchk .fvk-it2 .fvk-it2-ph{width:30px;height:30px;border-radius:8px;object-fit:contain;background:#faf8f2;flex-shrink:0;}",
+      "#dtr-favchk .fvk-it2-t{display:flex;flex-direction:column;min-width:0;gap:1px;}",
+      "#dtr-favchk .fvk-it2-name{font:700 11.5px 'Nunito',sans-serif;color:#2a4a3a;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}",
+      "#dtr-favchk .fvk-it2:hover .fvk-it2-name{color:#149c8e;}",
+      "#dtr-favchk .fvk-it2-list{font:600 10px/1.35 'Nunito',sans-serif;color:#948fa0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}",
+      "#dtr-favchk .fvk-note{font:600 10.5px/1.55 'Nunito',sans-serif;color:#948fa0;padding:6px 2px 0;}",
+      "#dtr-favchk .fvk-empty{font:600 12px/1.6 'Nunito',sans-serif;color:#6c6776;text-align:center;padding:26px 12px;}"
+    ].join('');
+    (document.head || document.documentElement).appendChild(st);
+  }
+  const _dtrFavChkEsc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  window._dtrFavCheck = async function (wantItems, title) {
+    _dtrFavChkCss();
+    try { document.getElementById('dtr-favchk-bd')?.remove(); } catch (_) {}
+    const bd = document.createElement('div'); bd.id = 'dtr-favchk-bd';
+    bd.innerHTML = '<div id="dtr-favchk"><div class="fvk-top"><div><div class="fvk-title">Do my Preferred Traders have these?</div>'
+      + '<div class="fvk-sub">Checking your Preferred Traders against ' + (title ? '“' + _dtrFavChkEsc(title) + '”' : 'these items') + '</div></div>'
+      + '<button class="fvk-x" type="button" aria-label="Close">✕</button></div>'
+      + '<div class="fvk-body"><div class="fvk-status">Getting ready…</div><div class="fvk-list"></div></div></div>';
+    document.body.appendChild(bd);
+    bd.addEventListener('click', e => { if (e.target === bd || e.target.closest('.fvk-x')) bd.remove(); });
+    const statusEl = bd.querySelector('.fvk-status');
+    const listEl = bd.querySelector('.fvk-list');
+
+    const wanted = (wantItems || []).filter(x => x && x.id);
+    const favs = getDIASection('favoriteOwners', {});
+    const entries = Object.keys(favs).filter(k => favs[k]).map(k => {
+      const v = favs[k];
+      const href = (v && typeof v === 'object' && v.href) || '';
+      return { key: k, name: (v && typeof v === 'object' && v.name) || k, href, id: (String(href).match(/\/user\/(\d+)/) || [])[1] || '' };
+    });
+    if (!entries.length) {
+      statusEl.remove();
+      listEl.innerHTML = '<div class="fvk-empty">You haven’t added any Preferred Traders yet!<br>On any item’s Trade Activity, double-click the <img src="' + DIA_ICON_STAR + '" alt="" style="width:13px;height:13px;display:inline-block;vertical-align:-2px;" class="dia-icon-img"> next to a trader’s name — then this check can scan their trade lists for you.</div>';
+      return;
+    }
+    if (!wanted.length) {
+      statusEl.remove();
+      listEl.innerHTML = '<div class="fvk-empty">There are no items to check here.</div>';
+      return;
+    }
+    const results = [];
+    const unresolved = [];
+    let done = 0;
+    statusEl.textContent = 'Checking your Preferred Traders… 0/' + entries.length;
+    const queue = entries.slice();
+    const worker = async () => {
+      while (queue.length) {
+        const e = queue.shift();
+        try {
+          if (!e.id) {
+            const u = await _dtrFavResolveUser(e.name);
+            if (u) { e.id = u.id; e.href = _dtrFavHeal(e.key, u) || e.href; e.name = u.username; }
+            else { unresolved.push(e); done++; continue; }
+          }
+          const owned = await _dtrFavOwnsItems(e.id);
+          results.push({ ...e, matches: wanted.filter(w => owned[String(w.id)]).map(w => owned[String(w.id)]) });
+        } catch (_) { results.push({ ...e, matches: null }); }
+        done++; statusEl.textContent = 'Checking your Preferred Traders… ' + done + '/' + entries.length;
+      }
+    };
+    await Promise.all(Array.from({ length: Math.min(3, queue.length) }, worker));
+    const legacy = unresolved;
+    if (!document.body.contains(bd)) return;
+
+    const hits = results.filter(r => r.matches && r.matches.length).sort((a, b) => b.matches.length - a.matches.length);
+    const misses = results.filter(r => r.matches && !r.matches.length);
+    const errs = results.filter(r => r.matches === null);
+    statusEl.textContent = hits.length
+      ? hits.length + ' of your Preferred Traders ha' + (hits.length === 1 ? 's' : 've') + ' items from this list:'
+      : 'Checked ' + results.length + ' Preferred Trader' + (results.length === 1 ? '' : 's') + ' — zero matches found in their public trade lists.';
+
+    let _fvkView = 'trader'; try { _fvkView = GM_getValue('dtr_favchk_view', 'trader') === 'item' ? 'item' : 'trader'; } catch (_) {}
+    const notesHTML =
+      (misses.length ? '<div class="fvk-note">Nothing from this list: ' + misses.map(r => _dtrFavChkEsc(r.name)).join(', ') + '</div>' : '')
+      + (errs.length ? '<div class="fvk-note">Couldn’t check: ' + errs.map(r => _dtrFavChkEsc(r.name)).join(', ') + ' (try again in a minute)</div>' : '')
+      + (legacy.length ? '<div class="fvk-note">Couldn’t find ' + (legacy.length === 1 ? 'a DTI user named ' : 'DTI users named ') + legacy.map(r => '“' + _dtrFavChkEsc(r.name) + '”').join(', ') + ' — maybe renamed or deleted?</div>' : '');
+    const rowsByTrader = () => hits.map(r =>
+      '<div class="fvk-row"><div class="fvk-rowhead"><button type="button" class="fvk-name" data-href="' + _dtrFavChkEsc(r.href) + '">' + _dtrFavChkEsc(r.name) + '</button>'
+      + '<span class="fvk-ct">' + r.matches.length + ' match' + (r.matches.length === 1 ? '' : 'es') + '</span></div>'
+      + r.matches.map(m =>
+          '<button type="button" class="fvk-it2" data-owner-href="' + _dtrFavChkEsc(r.href) + '" title="Open ' + _dtrFavChkEsc(r.name) + '’s closet in Comparison Mode">'
+          + (m.thumbnailUrl ? '<img src="' + _dtrFavChkEsc(m.thumbnailUrl) + '" alt="">' : '<span class="fvk-it2-ph"></span>')
+          + '<span class="fvk-it2-t"><span class="fvk-it2-name">' + _dtrFavChkEsc(m.name) + '</span>'
+          + (m.listName ? '<span class="fvk-it2-list">in “' + _dtrFavChkEsc(m.listName) + '”' + (m.listDesc ? ' — ' + _dtrFavChkEsc(String(m.listDesc).slice(0, 90)) : '') + '</span>' : '')
+          + '</span></button>'
+        ).join('') + '</div>'
+    ).join('');
+    const rowsByItem = () => {
+      const byItem = new Map();
+      hits.forEach(r => r.matches.forEach(m => {
+        const k = String(m.id);
+        if (!byItem.has(k)) byItem.set(k, { m, traders: [] });
+        byItem.get(k).traders.push({ r, m });
+      }));
+      return [...byItem.values()]
+        .sort((a, b) => String(a.m.name).toLowerCase().localeCompare(String(b.m.name).toLowerCase()))
+        .map(({ m, traders }) =>
+          '<div class="fvk-row"><div class="fvk-rowhead">'
+          + (m.thumbnailUrl ? '<img class="fvk-ithumb" src="' + _dtrFavChkEsc(m.thumbnailUrl) + '" alt="">' : '')
+          + '<span class="fvk-iname">' + _dtrFavChkEsc(m.name) + '</span>'
+          + '<span class="fvk-ct">' + traders.length + ' trader' + (traders.length === 1 ? '' : 's') + '</span></div>'
+          + traders.map(t =>
+              '<button type="button" class="fvk-it2" data-owner-href="' + _dtrFavChkEsc(t.r.href) + '" title="Open ' + _dtrFavChkEsc(t.r.name) + '’s closet in Comparison Mode">'
+              + '<img src="' + DIA_ICON_STAR + '" alt="" style="width:15px;height:15px;flex:none;margin:0 4px;">'
+              + '<span class="fvk-it2-t"><span class="fvk-it2-name">' + _dtrFavChkEsc(t.r.name) + '</span>'
+              + (t.m.listName ? '<span class="fvk-it2-list">in “' + _dtrFavChkEsc(t.m.listName) + '”</span>' : '')
+              + '</span></button>'
+            ).join('') + '</div>'
+        ).join('');
+    };
+    const renderResults = () => {
+      listEl.innerHTML =
+        (hits.length ? '<div class="fvk-views"><button type="button" class="fvk-view' + (_fvkView === 'trader' ? ' on' : '') + '" data-fvk-view="trader">By trader</button><button type="button" class="fvk-view' + (_fvkView === 'item' ? ' on' : '') + '" data-fvk-view="item">By item</button></div>' : '')
+        + (_fvkView === 'item' ? rowsByItem() : rowsByTrader())
+        + notesHTML;
+    };
+    renderResults();
+    const _cmpGo = (href) => {
+      const h = String(href || '').replace(/\/lists$/, '/closet');
+      if (!h) return;
+      try { GM_setValue('dtr_cmp_intent', JSON.stringify({ ts: Date.now() })); } catch (_) {}
+      if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab(h); else window.open(h, '_blank');
+    };
+    listEl.addEventListener('click', e => {
+      const vb = e.target.closest('[data-fvk-view]');
+      if (vb) { _fvkView = vb.getAttribute('data-fvk-view') === 'item' ? 'item' : 'trader'; try { GM_setValue('dtr_favchk_view', _fvkView); } catch (_) {} renderResults(); return; }
+      const nm = e.target.closest('.fvk-name');
+      if (nm && nm.dataset.href) { _cmpGo(nm.dataset.href); return; }
+      const it = e.target.closest('.fvk-it2');
+      if (it && it.dataset.ownerHref) { _cmpGo(it.dataset.ownerHref); }
+    });
+  };
 
   async function _dtrResolveItemNames(ids) {
 
@@ -13242,7 +13901,7 @@
       names.forEach(n => { if (!(n in batch)) batch[n] = 1; });
       saveBatch(batch, 'pets');
       const added = {}; names.forEach(n => { added[n] = 1; });
-      recordImport(added);
+      recordImport(added, 'pets');
       try { GM_setValue(BATCH_TS_KEY + _dtrSrcSuffix('pets'), Date.now()); } catch (_) {}
       diaTouchImport('pets');
       statusEl.textContent = 'Imported ' + names.length + ' items — opening your import…';
@@ -13270,28 +13929,81 @@
   function _dtrPetsHarvestNeolodge() {
     if (!/neopets\.com$/.test(location.hostname.replace(/^www\./, '')) ) return;
     if (!/\/neolodge\.phtml/.test(location.pathname)) return;
-    const inject = () => {
 
-      if (!document.body || document.getElementById('dtr-petharvest-tab')) return;
+    let panel = null;
+    const injectCss = () => {
+      if (document.getElementById('dtr-pets-style')) return;
+      const st = document.createElement('style'); st.id = 'dtr-pets-style';
+      st.textContent = [
+        '#dtr-pets-panel{position:fixed;right:16px;bottom:16px;z-index:2147483000;width:316px;max-height:84vh;overflow:auto;background:#fff;border-radius:16px;box-shadow:0 14px 40px -8px rgba(30,40,60,.4);box-sizing:border-box;font-family:"Nunito","Inter",Arial,sans-serif;color:#3a3a44;}',
+        '#dtr-pets-panel *{box-sizing:border-box;}',
+        '#dtr-pets-panel .ptp-hd{position:relative;padding:15px 16px 12px;}',
+        '#dtr-pets-panel .ptp-hd::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:16px 16px 0 0;background:linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%);}',
+        '#dtr-pets-panel .ptp-title{font:800 14px/1.2 Nunito,sans-serif;color:#2a2a33;margin:4px 0 3px;}',
+        '#dtr-pets-panel .ptp-sub{font:600 11px/1.4 Nunito,sans-serif;color:#8a8a95;}',
+        '#dtr-pets-panel .ptp-x{position:absolute;top:12px;right:12px;width:22px;height:22px;border:none;border-radius:50%;background:#f0f0f3;color:#7a7a85;font:700 12px Nunito;cursor:pointer;line-height:1;}',
+        '#dtr-pets-panel .ptp-clock{position:absolute;top:10px;right:40px;display:flex;align-items:center;color:#948fa0;cursor:pointer;border:none;background:none;padding:4px 6px;border-radius:8px;}',
+        '#dtr-pets-panel .ptp-clock:hover{background:#f6f3ec;color:#564f60;}',
+        '#dtr-pets-panel .ptp-clock.on{background:#dbf5f1;color:#0f7f73;}',
+        '#dtr-pets-panel .ptp-body{padding:0 16px 15px;}',
+        '#dtr-pets-panel .ptp-prog{background:#f5faf9;border:1px solid #e0efec;border-radius:12px;padding:10px 12px;margin-top:13px;}',
+        '#dtr-pets-panel .ptp-prog .big{font:800 20px Nunito,sans-serif;color:#159c8c;}',
+        '#dtr-pets-panel .ptp-prog .cap{font:700 11px Nunito,sans-serif;color:#6a6a75;}',
+        '#dtr-pets-panel .ptp-hint{font:600 11px/1.45 Nunito,sans-serif;color:#6a6a75;margin-top:11px;}',
+        '#dtr-pets-panel .ptp-send{width:100%;margin-top:13px;border:none;border-radius:11px;padding:11px;font:800 12.5px Nunito,sans-serif;color:#fff;background:#159c8c;cursor:pointer;}',
+        '#dtr-pets-panel .ptp-send:disabled{background:#c8ccd2;cursor:default;}',
+        '#dtr-pets-panel .ptp-hist{display:none;padding:0 16px 15px;}',
+        '#dtr-pets-panel.showhist .ptp-body{display:none;}',
+        '#dtr-pets-panel.showhist .ptp-hist{display:block;}'
+      ].join('');
+      (document.head || document.documentElement).appendChild(st);
+    };
+    const doSend = () => {
+      try { GM_setValue(DTR_PETS_QUEUE_KEY, JSON.stringify({ ts: Date.now(), names: _dtrHarvestPetNames() })); } catch (_) {}
+
+      const url = 'https://impress.openneo.net/items?dti_sync=bulk&src=pets&dtr_import_pets=1';
+      if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab(url); else window.open(url, '_blank');
+    };
+    const showTab = () => {
+
+      if (!document.body || document.getElementById('dtr-petharvest-tab') || document.getElementById('dtr-pets-panel')) return;
       const names = _dtrHarvestPetNames();
       if (!names.length) return;
-      const tab = document.createElement('button');
-      tab.id = 'dtr-petharvest-tab'; tab.type = 'button';
-      tab.style.cssText = 'position:fixed;top:44%;right:0;transform:translateY(-50%);z-index:2147483000;display:flex;flex-direction:column;align-items:center;gap:5px;width:40px;padding:13px 0;background:#fff;border:1px solid #efe7da;border-right:none;border-radius:10px 0 0 10px;box-shadow:-3px 0 12px rgba(80,80,70,.12);cursor:pointer;font-family:"Nunito","Inter",Arial,sans-serif;';
-      tab.innerHTML = '<span style="writing-mode:vertical-rl;font:800 8.5px/1 Nunito,Inter,sans-serif;color:#c25a45;letter-spacing:.08em;text-transform:uppercase">Import pets → DTI</span><span style="font:800 10px/1 Nunito,sans-serif;color:#c25a45;background:#ffe6e1;border-radius:8px;padding:2px 4px;min-width:16px;text-align:center">' + names.length + '</span>';
-      tab.title = 'Send all ' + names.length + ' of your pets to DTI Remix and import what they’re wearing';
-      tab.addEventListener('click', () => {
-        try { GM_setValue(DTR_PETS_QUEUE_KEY, JSON.stringify({ ts: Date.now(), names: _dtrHarvestPetNames() })); } catch (_) {}
-
-        const url = 'https://impress.openneo.net/items?dti_sync=bulk&src=pets&dtr_import_pets=1';
-        if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab(url); else window.open(url, '_blank');
-      });
+      const tab = _dtrMkEdgeTab('dtr-petharvest-tab', 'Pets → DTI', names.length, 'Import what your ' + names.length + ' pets are wearing into DTI Remix');
+      tab.addEventListener('click', () => { try { tab.remove(); } catch (_) {} build(); });
       document.body.appendChild(tab);
     };
-    inject();
+    const build = () => {
+      if (document.getElementById('dtr-pets-panel')) return;
+      injectCss();
+      const names = _dtrHarvestPetNames();
+      panel = document.createElement('div'); panel.id = 'dtr-pets-panel';
+      panel.innerHTML = '<div class="ptp-hd"><button class="ptp-x" data-hide title="Hide">✕</button>'
+        + '<button class="ptp-clock" data-hist type="button" title="Past imports" aria-label="Past imports">' + _DTR_HIST_CLOCK_SVG + '</button>'
+        + '<div class="ptp-title">Pets → DTI Sync</div>'
+        + '<div class="ptp-sub">Import everything your pets are wearing into DTI Remix, ready to sort into your lists.</div></div>'
+        + '<div class="ptp-body">'
+        + '<div class="ptp-prog"><span class="big">' + names.length + '</span> <span class="cap">pet' + (names.length !== 1 ? 's' : '') + ' spotted here</span></div>'
+        + '<div class="ptp-hint">DTI reads each pet’s outfit on its own side — nothing is sent to Neopets.</div>'
+        + '<button class="ptp-send" data-send' + (names.length ? '' : ' disabled') + '>Import ' + names.length + ' pet' + (names.length !== 1 ? 's’' : '’s') + ' outfits →</button>'
+        + '</div><div class="ptp-hist"></div>';
+      document.body.appendChild(panel);
+      panel.addEventListener('click', e => {
+        if (e.target.closest('[data-send]')) { doSend(); return; }
+        if (e.target.closest('[data-hide]')) { try { panel.remove(); } catch (_) {} panel = null; showTab(); return; }
+        if (e.target.closest('[data-hist]')) {
+          const on = panel.classList.toggle('showhist');
+          panel.querySelector('.ptp-clock').classList.toggle('on', on);
+          if (on) panel.querySelector('.ptp-hist').innerHTML = _dtrHistHTML('pets');
+          return;
+        }
+        if (_dtrHistClick(e, () => { const h = panel.querySelector('.ptp-hist'); if (h) h.innerHTML = _dtrHistHTML('pets'); })) return;
+      });
+    };
+    showTab();
 
-    let n = 0; const iv = setInterval(() => { inject(); if (++n > 25 || document.getElementById('dtr-petharvest-tab')) clearInterval(iv); }, 400);
-    document.addEventListener('DOMContentLoaded', inject, { once: true });
+    let n = 0; const iv = setInterval(() => { showTab(); if (++n > 25 || document.getElementById('dtr-petharvest-tab')) clearInterval(iv); }, 400);
+    document.addEventListener('DOMContentLoaded', showTab, { once: true });
   }
   try { _dtrPetsHarvestNeolodge(); } catch (_) {}
 
@@ -13386,7 +14098,12 @@
         '#dtr-sdb-panel .sdbp-npwarn b{color:#8f2114;}',
         '#dtr-sdb-panel .sdbp-prog.sdbp-flash{animation:sdbpFlash 1.1s ease;}',
         '@keyframes sdbpFlash{0%{background:#d3f3ec;border-color:#3fc7b1;box-shadow:0 0 0 3px rgba(63,199,177,.4);}100%{background:#f5faf9;border-color:#e0efec;box-shadow:0 0 0 0 rgba(63,199,177,0);}}',
-        '#dtr-sdb-tab{position:fixed;right:0;top:44%;transform:translateY(-50%);z-index:2147482999;background:#159c8c;color:#fff;border:none;border-radius:10px 0 0 10px;padding:13px 7px;font:800 9px/1 Nunito,sans-serif;letter-spacing:.06em;writing-mode:vertical-rl;text-transform:uppercase;cursor:pointer;box-shadow:-3px 0 12px rgba(0,0,0,.16);}'
+        '#dtr-sdb-panel .sdbp-clock{position:absolute;top:10px;right:40px;display:flex;align-items:center;color:#948fa0;cursor:pointer;border:none;background:none;padding:4px 6px;border-radius:8px;}',
+        '#dtr-sdb-panel .sdbp-clock:hover{background:#f6f3ec;color:#564f60;}',
+        '#dtr-sdb-panel .sdbp-clock.on{background:#dbf5f1;color:#0f7f73;}',
+        '#dtr-sdb-panel .sdbp-hist{display:none;padding:0 16px 15px;}',
+        '#dtr-sdb-panel.showhist .sdbp-body{display:none;}',
+        '#dtr-sdb-panel.showhist .sdbp-hist{display:block;}'
       ].join('');
       (document.head || document.documentElement).appendChild(st);
     };
@@ -13466,16 +14183,31 @@
       if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab(url); else window.open(url, '_blank');
     };
 
+    const tabCount = () => {
+      const names = Object.keys(state.byName);
+      const nc = names.filter(n => state.byName[n].isNC).length;
+      return state.ncOnly ? nc : names.length;
+    };
+    const showTab = () => {
+      if (!document.body) return;
+      if (document.getElementById('dtr-sdb-tab') || document.getElementById('dtr-sdb-panel')) return;
+      const tab = _dtrMkEdgeTab('dtr-sdb-tab', 'SDB → DTI', tabCount(), 'Import your Safe Deposit Box wearables into DTI Remix');
+      tab.addEventListener('click', () => {
+        try { tab.remove(); } catch (_) {}
+        build();
+
+        if (!document.getElementById('dtr-sdb-panel')) {
+          let m = 0; const biv = setInterval(() => { build(); if (++m > 30 || document.getElementById('dtr-sdb-panel')) clearInterval(biv); }, 400);
+        }
+      });
+      document.body.appendChild(tab);
+    };
+
     const hidePanel = () => {
       try { if (observer) observer.disconnect(); } catch (_) {} observer = null;
       try { if (pollIv) clearInterval(pollIv); } catch (_) {} pollIv = null;
       try { if (panel) panel.remove(); } catch (_) {} panel = null;
-      if (!document.getElementById('dtr-sdb-tab')) {
-        const tab = document.createElement('button'); tab.id = 'dtr-sdb-tab'; tab.type = 'button';
-        tab.textContent = 'SDB → DTI';
-        tab.addEventListener('click', () => { try { tab.remove(); } catch (_) {} build(); });
-        document.body.appendChild(tab);
-      }
+      showTab();
     };
 
     const build = () => {
@@ -13485,9 +14217,10 @@
       injectCss();
       panel = document.createElement('div'); panel.id = 'dtr-sdb-panel';
       panel.innerHTML = '<div class="sdbp-hd"><button class="sdbp-x" data-sdb-hide title="Hide">✕</button>'
+        + '<button class="sdbp-clock" data-sdb-hist type="button" title="Past imports" aria-label="Past imports">' + _DTR_HIST_CLOCK_SVG + '</button>'
         + '<div class="sdbp-title">SDB → DTI Sync</div>'
         + '<div class="sdbp-sub">Read your wearables page by page, then send them to DTI Remix to sort into your lists.</div></div>'
-        + '<div class="sdbp-body"></div>';
+        + '<div class="sdbp-body"></div><div class="sdbp-hist"></div>';
       document.body.appendChild(panel);
       render();
       capture();
@@ -13513,14 +14246,21 @@
         if (e.target.closest('[data-sdb-send]')) { doSend(); return; }
         if (e.target.closest('[data-sdb-reset]')) { state.byName = {}; state.pages = []; save(); render(); return; }
         if (e.target.closest('[data-sdb-hide]')) { hidePanel(); return; }
+        if (e.target.closest('[data-sdb-hist]')) {
+          const on = panel.classList.toggle('showhist');
+          panel.querySelector('.sdbp-clock').classList.toggle('on', on);
+          if (on) panel.querySelector('.sdbp-hist').innerHTML = _dtrHistHTML('sdb');
+          return;
+        }
+        if (_dtrHistClick(e, () => { const h = panel.querySelector('.sdbp-hist'); if (h) h.innerHTML = _dtrHistHTML('sdb'); })) return;
       });
     };
 
     document.addEventListener('change', () => { try { if (panel) render(); } catch (_) {} }, true);
 
-    build();
-    let n = 0; const iv = setInterval(() => { build(); if (++n > 30 || document.getElementById('dtr-sdb-panel')) clearInterval(iv); }, 400);
-    document.addEventListener('DOMContentLoaded', build, { once: true });
+    showTab();
+    let n = 0; const iv = setInterval(() => { showTab(); if (++n > 30 || document.getElementById('dtr-sdb-tab') || document.getElementById('dtr-sdb-panel')) clearInterval(iv); }, 400);
+    document.addEventListener('DOMContentLoaded', showTab, { once: true });
   }
   try { _dtrSdbHarvest(); } catch (_) {}
 
@@ -13610,7 +14350,12 @@
         '#dtr-closet-panel .clp-send{width:100%;margin-top:13px;border:none;border-radius:11px;padding:11px;font:800 12.5px Nunito,sans-serif;color:#fff;background:#159c8c;cursor:pointer;}',
         '#dtr-closet-panel .clp-send:disabled{background:#c8ccd2;cursor:default;}',
         '#dtr-closet-panel .clp-reset{width:100%;margin-top:6px;border:none;background:transparent;color:#a0a0aa;font:700 10.5px Nunito,sans-serif;cursor:pointer;padding:4px;}',
-        '#dtr-closet-tab{position:fixed;right:0;top:52%;transform:translateY(-50%);z-index:2147482999;background:#159c8c;color:#fff;border:none;border-radius:10px 0 0 10px;padding:13px 7px;font:800 9px/1 Nunito,sans-serif;letter-spacing:.06em;writing-mode:vertical-rl;text-transform:uppercase;cursor:pointer;box-shadow:-3px 0 12px rgba(0,0,0,.16);}'
+        '#dtr-closet-panel .clp-clock{position:absolute;top:10px;right:40px;display:flex;align-items:center;color:#948fa0;cursor:pointer;border:none;background:none;padding:4px 6px;border-radius:8px;}',
+        '#dtr-closet-panel .clp-clock:hover{background:#f6f3ec;color:#564f60;}',
+        '#dtr-closet-panel .clp-clock.on{background:#dbf5f1;color:#0f7f73;}',
+        '#dtr-closet-panel .clp-hist{display:none;padding:0 16px 15px;}',
+        '#dtr-closet-panel.showhist .clp-body{display:none;}',
+        '#dtr-closet-panel.showhist .clp-hist{display:block;}'
       ].join('');
       (document.head || document.documentElement).appendChild(st);
     };
@@ -13679,25 +14424,38 @@
       if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab(url); else window.open(url, '_blank');
     };
 
+    const showTab = () => {
+      if (!document.body) return;
+      if (document.getElementById('dtr-closet-tab') || document.getElementById('dtr-closet-panel')) return;
+      const tab = _dtrMkEdgeTab('dtr-closet-tab', 'Closet → DTI', chosenCount(), 'Import your Neopets closet wearables into DTI Remix');
+      tab.addEventListener('click', () => {
+        try { tab.remove(); } catch (_) {}
+        build();
+        if (!document.getElementById('dtr-closet-panel')) {
+          let m = 0; const biv = setInterval(() => { build(); if (++m > 30 || document.getElementById('dtr-closet-panel')) clearInterval(biv); }, 400);
+        }
+      });
+      document.body.appendChild(tab);
+    };
+
     const hidePanel = () => {
-      dismissed = true;
       try { if (observer) observer.disconnect(); } catch (_) {} observer = null;
       try { if (pollIv) clearInterval(pollIv); } catch (_) {} pollIv = null;
       try { if (panel) panel.remove(); } catch (_) {} panel = null;
-      try { const t = document.getElementById('dtr-closet-tab'); if (t) t.remove(); } catch (_) {}
+      showTab();
     };
 
     const build = () => {
-      if (dismissed) return;
       if (document.getElementById('dtr-closet-panel')) return;
       if (!document.querySelector('.closet-list-item')) return;
       const tab = document.getElementById('dtr-closet-tab'); if (tab) tab.remove();
       injectCss();
       panel = document.createElement('div'); panel.id = 'dtr-closet-panel';
       panel.innerHTML = '<div class="clp-hd"><button class="clp-x" data-hide title="Hide">✕</button>'
+        + '<button class="clp-clock" data-hist type="button" title="Past imports" aria-label="Past imports">' + _DTR_HIST_CLOCK_SVG + '</button>'
         + '<div class="clp-title">Closet → DTI Sync</div>'
         + '<div class="clp-sub">Read your closet page by page, tick which kinds to import, then send them to DTI Remix.</div></div>'
-        + '<div class="clp-body"></div>';
+        + '<div class="clp-body"></div><div class="clp-hist"></div>';
       document.body.appendChild(panel);
       render();
       capture();
@@ -13721,14 +14479,21 @@
         if (e.target.closest('[data-send]')) { doSend(); return; }
         if (e.target.closest('[data-reset]')) { state.byName = {}; state.pages = []; save(); render(); return; }
         if (e.target.closest('[data-hide]')) { hidePanel(); return; }
+        if (e.target.closest('[data-hist]')) {
+          const on = panel.classList.toggle('showhist');
+          panel.querySelector('.clp-clock').classList.toggle('on', on);
+          if (on) panel.querySelector('.clp-hist').innerHTML = _dtrHistHTML('closet');
+          return;
+        }
+        if (_dtrHistClick(e, () => { const h = panel.querySelector('.clp-hist'); if (h) h.innerHTML = _dtrHistHTML('closet'); })) return;
       });
     };
 
     document.addEventListener('change', () => { try { if (panel) render(); } catch (_) {} }, true);
 
-    build();
-    let n = 0; const iv = setInterval(() => { build(); if (dismissed || ++n > 30 || document.getElementById('dtr-closet-panel')) clearInterval(iv); }, 400);
-    document.addEventListener('DOMContentLoaded', build, { once: true });
+    showTab();
+    let n = 0; const iv = setInterval(() => { showTab(); if (++n > 30 || document.getElementById('dtr-closet-tab') || document.getElementById('dtr-closet-panel')) clearInterval(iv); }, 400);
+    document.addEventListener('DOMContentLoaded', showTab, { once: true });
   }
   try { _dtrClosetHarvest(); } catch (_) {}
 
@@ -13791,8 +14556,14 @@
         '#dtr-gallery-panel .glp-hint b{color:#159c8c;}',
         '#dtr-gallery-panel .glp-send{width:100%;margin-top:13px;border:none;border-radius:11px;padding:11px;font:800 12.5px Nunito,sans-serif;color:#fff;background:#159c8c;cursor:pointer;}',
         '#dtr-gallery-panel .glp-send:disabled{background:#c8ccd2;cursor:default;}',
+        '#dtr-gallery-panel .glp-clock{position:absolute;top:10px;right:40px;display:flex;align-items:center;color:#948fa0;cursor:pointer;border:none;background:none;padding:4px 6px;border-radius:8px;}',
+        '#dtr-gallery-panel .glp-clock:hover{background:#f6f3ec;color:#564f60;}',
+        '#dtr-gallery-panel .glp-clock.on{background:#dbf5f1;color:#0f7f73;}',
+        '#dtr-gallery-panel .glp-hist{display:none;padding:0 16px 15px;}',
+        '#dtr-gallery-panel.showhist .glp-body{display:none;}',
+        '#dtr-gallery-panel.showhist .glp-hist{display:block;}',
 
-        'body:has(#dtr-gallery-panel) #dtr-token-pill{display:none!important;}'
+        'body:has(#dtr-gallery-panel) #dtr-token-pill,body:has(#dtr-gallery-panel) #dtr-ps-panel{display:none!important;}'
       ].join('');
       (document.head || document.documentElement).appendChild(st);
     };
@@ -13816,15 +14587,36 @@
       const url = 'https://impress.openneo.net/items?dti_sync=bulk&src=gallery&dtr_import_gallery=1';
       if (typeof window._dtrOpenTab === 'function') window._dtrOpenTab(url); else window.open(url, '_blank');
     };
+
+    const showTab = () => {
+      if (!document.body) return;
+      if (document.getElementById('dtr-gallery-tab') || document.getElementById('dtr-gallery-panel')) return;
+      const tab = _dtrMkEdgeTab('dtr-gallery-tab', 'Gallery → DTI', _dtrGalleryReadItems().length, 'Import your gallery items into DTI Remix');
+      tab.addEventListener('click', () => {
+        try { tab.remove(); } catch (_) {}
+        build();
+        if (!document.getElementById('dtr-gallery-panel')) {
+          let m = 0; const biv = setInterval(() => { build(); if (++m > 30 || document.getElementById('dtr-gallery-panel')) clearInterval(biv); }, 400);
+        }
+      });
+      document.body.appendChild(tab);
+    };
+    const hidePanel = () => {
+      try { if (pollIv) clearInterval(pollIv); } catch (_) {} pollIv = null;
+      try { if (panel) panel.remove(); } catch (_) {} panel = null;
+      showTab();
+    };
     const build = () => {
-      if (dismissed || document.getElementById('dtr-gallery-panel')) return;
+      if (document.getElementById('dtr-gallery-panel')) return;
       if (!document.querySelector('a.ssw-helper[data-item], img.itemimg')) return;
+      const tab = document.getElementById('dtr-gallery-tab'); if (tab) tab.remove();
       injectCss();
       panel = document.createElement('div'); panel.id = 'dtr-gallery-panel';
       panel.innerHTML = '<div class="glp-hd"><button class="glp-x" data-hide title="Hide">✕</button>'
+        + '<button class="glp-clock" data-hist type="button" title="Past imports" aria-label="Past imports">' + _DTR_HIST_CLOCK_SVG + '</button>'
         + '<div class="glp-title">Gallery → DTI Sync</div>'
         + '<div class="glp-sub">Show all your gallery items, choose NC or NC &amp; NP, then send them to DTI Remix.</div></div>'
-        + '<div class="glp-body"></div>';
+        + '<div class="glp-body"></div><div class="glp-hist"></div>';
       document.body.appendChild(panel);
       render();
       if (pollIv) clearInterval(pollIv);
@@ -13834,12 +14626,19 @@
         const tg = e.target.closest('[data-nc]');
         if (tg) { ncOnly = tg.getAttribute('data-nc') === '1'; try { GM_setValue('dtr_gallery_nc_only', ncOnly); } catch (_) {} render(); return; }
         if (e.target.closest('[data-send]')) { doSend(); return; }
-        if (e.target.closest('[data-hide]')) { dismissed = true; try { if (pollIv) clearInterval(pollIv); } catch (_) {} try { if (panel) panel.remove(); } catch (_) {} panel = null; return; }
+        if (e.target.closest('[data-hide]')) { hidePanel(); return; }
+        if (e.target.closest('[data-hist]')) {
+          const on = panel.classList.toggle('showhist');
+          panel.querySelector('.glp-clock').classList.toggle('on', on);
+          if (on) panel.querySelector('.glp-hist').innerHTML = _dtrHistHTML('gallery');
+          return;
+        }
+        if (_dtrHistClick(e, () => { const h = panel.querySelector('.glp-hist'); if (h) h.innerHTML = _dtrHistHTML('gallery'); })) return;
       });
     };
-    build();
-    let n = 0; const iv = setInterval(() => { build(); if (dismissed || ++n > 30 || document.getElementById('dtr-gallery-panel')) clearInterval(iv); }, 400);
-    document.addEventListener('DOMContentLoaded', build, { once: true });
+    showTab();
+    let n = 0; const iv = setInterval(() => { showTab(); if (++n > 30 || document.getElementById('dtr-gallery-tab') || document.getElementById('dtr-gallery-panel')) clearInterval(iv); }, 400);
+    document.addEventListener('DOMContentLoaded', showTab, { once: true });
   }
 
   var _dtrPetsBgPending = false;
@@ -13927,7 +14726,7 @@
           });
           if (addedCount) {
             saveBatch(batch, 'pets');
-            recordImport(added);
+            recordImport(added, 'pets');
             try { GM_setValue(BATCH_TS_KEY + _dtrSrcSuffix('pets'), Date.now()); } catch (_) {}
             diaTouchImport('pets');
           }
@@ -14000,7 +14799,7 @@
     });
     if (Object.keys(added).length) {
       saveBatch(batch, 'sdb');
-      try { recordImport(added); } catch (_) {}
+      try { recordImport(added, 'sdb'); } catch (_) {}
       try { GM_setValue(BATCH_TS_KEY + _dtrSrcSuffix('sdb'), Date.now()); } catch (_) {}
       diaTouchImport('sdb');
 
@@ -14040,7 +14839,7 @@
     });
     if (Object.keys(added).length) {
       saveBatch(batch, 'closet');
-      try { recordImport(added); } catch (_) {}
+      try { recordImport(added, 'closet'); } catch (_) {}
       try { GM_setValue(BATCH_TS_KEY + _dtrSrcSuffix('closet'), Date.now()); } catch (_) {}
       diaTouchImport('closet');
     }
@@ -14078,7 +14877,7 @@
       });
       if (Object.keys(added).length) {
         saveBatch(batch, 'gallery');
-        try { recordImport(added); } catch (_) {}
+        try { recordImport(added, 'gallery'); } catch (_) {}
         try { GM_setValue(BATCH_TS_KEY + _dtrSrcSuffix('gallery'), Date.now()); } catch (_) {}
         diaTouchImport('gallery');
       }
@@ -14384,7 +15183,7 @@
         </div>
         <div id="dia-hp-nav-right">
           ${greeting
-            ? `<span class="dia-nav-greeting">Hey, <strong>${greeting}</strong> &middot; <span class="dia-pts">${pts} pts</span></span>
+            ? `<span class="dia-nav-greeting"><span class="dia-greet-l1">Hey, <strong>${greeting}</strong></span><span class="dia-pts"><span class="dia-pts-sep">&middot;</span>${pts} pts</span></span>
                <div class="dia-ql-divider"></div>
                <a class="dia-ql dia-ql-newcustom" href="/outfits/new" data-dtr-newcustom title="Jump straight into a fresh customization with your Quickstart pet (set it in the ⚙ menu)"><span class="dia-ql-stack"><span>+ New</span><span>Custom</span></span></a>
                <a class="dia-ql" href="${itemsHref}">Items</a>
@@ -14406,7 +15205,7 @@
                  </div>
                </div>
                <div class="dia-ql-divider"></div>
-               <a class="dia-ql dia-logout" href="${logoutHref}">Log out</a>`
+               <a class="dia-ql dia-logout" href="${logoutHref}"><span class="dia-ql-stack"><span>Log</span><span>out</span></span></a>`
             : `<a class="dia-ql" href="/users/sign_in">Log in</a>`
           }
         </div>`;
@@ -14480,7 +15279,7 @@
         '.dtr-yo-menu{position:absolute;top:calc(100% + 6px);right:0;z-index:60;width:196px;max-height:340px;overflow-y:auto;' + _YO_MENU + '}',
         '.dtr-yo-menuhead{' + _YO_MENU_HEAD + '}',
         '.dtr-yo-menurow{' + _YO_MENU_ROW + '}',
-        '.dtr-yo-menurow:hover{background:#f6f3ec}',
+        'body.outfits-index #dtr-yo-root .dtr-yo-menurow:hover,body.outfits-index #dtr-yo-root .dtr-yo-menurow:focus{background:#f6f3ec!important;color:#564f60!important;}',
         '.dtr-yo-menurow.on{background:#f4f1e8;color:#3a3a35;font-weight:800}',
 
         '.dtr-yo-toggle{padding:0 12px;height:44px;box-sizing:border-box;border-radius:12px;cursor:pointer;font:700 12px "Nunito",sans-serif;background:#fff;border:1.5px solid var(--border,#e7e1d4);color:#7a7a72;display:inline-flex;align-items:center;gap:5px}',
@@ -14612,6 +15411,8 @@
         '.dtr-yo-addwant{border:1.5px solid #d9c9ef;background:#f6f0fc;color:#7d5fb0;font:800 7.5px "Nunito",sans-serif;letter-spacing:.03em;text-transform:uppercase;padding:3px 9px;border-radius:999px;cursor:pointer}',
         '.dtr-yo-addwant:hover{background:#efe4fb}',
 
+        '.dtr-yo-favchk.dis{opacity:.45;cursor:default;pointer-events:auto}',
+
         '.dtr-yo-itemrow{display:flex;align-items:center;gap:9px;padding:5px 7px;border-radius:10px;background:#faf8f2;border:1px solid transparent;cursor:pointer;text-align:left;width:100%;transition:background .1s,border-color .1s}',
         '.dtr-yo-itemrow:hover{background:#fff;border-color:var(--dtr-primary-line,#cfe7e0)}',
         '.dtr-yo-itemrow .ith{width:34px;height:34px;border-radius:8px;flex:none;background:#fff center/contain no-repeat;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}',
@@ -14635,7 +15436,7 @@
         'body.outfits-index #dtr-yo-root .dtr-yo-bulkbtn:hover{background:var(--dtr-primary-bg,#e7f6f2)!important;color:var(--dtr-primary,#149c8e)!important;filter:brightness(.95)!important}',
         '.dtr-yo-wladd-wrap{position:relative;margin-left:auto}',
         '.dtr-yo-wladd{font:800 10.5px "Nunito",sans-serif;color:#fff;background:var(--dtr-accent,#ff8576);border:none;padding:6px 13px;border-radius:999px;cursor:pointer;box-shadow:0 2px 8px rgba(255,133,118,.32);transition:filter .1s}',
-        '.dtr-yo-wladd:hover{filter:brightness(1.05)}',
+        'body.outfits-index #dtr-yo-root .dtr-yo-wladd:hover,body.outfits-index #dtr-yo-root .dtr-yo-wladd:focus,body.outfits-index #dtr-yo-root .dtr-yo-wladd:active{background:var(--dtr-accent,#ff8576)!important;color:#fff!important;border:none!important;box-shadow:0 2px 8px rgba(255,133,118,.32)!important;filter:brightness(1.05)!important;}',
         '.dtr-yo-wladd.dis{opacity:.45;cursor:default;box-shadow:none}',
         '.dtr-yo-wlmenu{position:absolute;top:calc(100% + 6px);right:0;z-index:40;min-width:180px;max-width:250px;background:#fff;border:1px solid #ece5d6;border-radius:13px;box-shadow:0 10px 30px rgba(60,50,40,.18);padding:7px;max-height:260px;overflow-y:auto}',
         '.dtr-yo-wlnote{font:600 10px "Nunito",sans-serif;color:#b0aa9c;padding:3px 8px 5px;line-height:1.4}',
@@ -16710,25 +17511,48 @@
         if (missing.length) {
           var chunks = []; for (var i = 0; i < missing.length; i += 120) chunks.push(missing.slice(i, i + 120));
 
-          Promise.all(chunks.map(function (ch) {
+          var _yoFetchChunk = function (ch, attempt) {
             return fetch('https://impress-2020.openneo.net/api/graphql', {
               method: 'POST', headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ query: 'query($ids:[ID!]!){items(ids:$ids){id name thumbnailUrl isNc allOccupiedZones{id depth}}}', variables: { ids: ch.map(String) } }),
-            }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
-          })).then(function (results) {
-            var got = 0;
-            results.forEach(function (j) { (((j || {}).data || {}).items || []).forEach(function (it) { if (it && it.id) { got++; cacheNames[String(it.id)] = it.name || ''; if (it.thumbnailUrl) cacheThumbs[String(it.id)] = it.thumbnailUrl; cacheZones[String(it.id)] = (it.allOccupiedZones || []).map(function (z) { return { i: String(z.id), d: z.depth || 0 }; }); cacheNc[String(it.id)] = !!it.isNc; } }); });
+            }).then(function (r) {
+              if (!r.ok) { try {  } catch (_) {} return null; }
+              return r.json().catch(function (e) { try {  } catch (_) {} return null; });
+            }).catch(function (e) { try {  } catch (_) {} return null; })
+              .then(function (j) {
+                if (j && j.errors) { try {  } catch (_) {} }
+                if ((j && j.data && j.data.items) || attempt >= 3) return j;
+                return new Promise(function (rs) { setTimeout(rs, 900 * attempt); }).then(function () { return _yoFetchChunk(ch, attempt + 1); });
+              });
+          };
+          try {  } catch (_) {}
+
+          var _yoGot = 0, _yoQi = 0;
+          var _yoApplyChunk = function (j) {
+            var before = _yoGot;
+            (((j || {}).data || {}).items || []).forEach(function (it) { if (it && it.id) { _yoGot++; cacheNames[String(it.id)] = it.name || ''; if (it.thumbnailUrl) cacheThumbs[String(it.id)] = it.thumbnailUrl; cacheZones[String(it.id)] = (it.allOccupiedZones || []).map(function (z) { return { i: String(z.id), d: z.depth || 0 }; }); cacheNc[String(it.id)] = !!it.isNc; } });
+            if (_yoGot === before) return;
             try { GM_setValue('dtr_item_names', JSON.stringify(cacheNames)); } catch (_) {}
             try { GM_setValue('dtr_item_thumbs', JSON.stringify(cacheThumbs)); } catch (_) {}
             try { GM_setValue('dtr_item_zones', JSON.stringify(cacheZones)); } catch (_) {}
             try { GM_setValue('dtr_item_nc', JSON.stringify(cacheNc)); } catch (_) {}
             _yo.itemNames = cacheNames; _yo.itemThumbs = cacheThumbs; _yo.itemZones = cacheZones; _yo.itemNc = cacheNc;
-            try {  } catch (_) {}
             _yoRender();
+          };
+          var _yoWorker = function () {
+            if (_yoQi >= chunks.length) return Promise.resolve();
+            var ch = chunks[_yoQi++];
+            return _yoFetchChunk(ch, 1).then(function (j) { _yoApplyChunk(j); return _yoWorker(); });
+          };
+          Promise.all([_yoWorker(), _yoWorker(), _yoWorker()]).then(function () {
+            try {
+
+              if (!_yoGot && missing.length) void 0;
+            } catch (_) {}
           });
-        }
+        } else { _yoRender(); try {  } catch (_) {} }
       })
-      .catch(function (e) { _yo.err = String(e && e.message || e); _yoRender(); });
+      .catch(function (e) { try {  } catch (_) {} _yo.err = String(e && e.message || e); _yoRender(); });
   }
 
   function _yoGroups() {
@@ -16926,6 +17750,13 @@
     var bar = document.querySelector('[data-yo-bulkbar="' + oid + '"]'); if (!bar) return;
     var cnt = bar.querySelector('[data-yo-selcount]'); if (cnt) cnt.textContent = n ? (n + ' selected') : 'Select wearables';
     var addBtn = bar.querySelector('[data-yo-wladd]'); if (addBtn) { addBtn.disabled = !n; addBtn.classList.toggle('dis', !n); }
+
+    var fkBtn = bar.querySelector('[data-yo-favchk]');
+    if (fkBtn) {
+      fkBtn.disabled = !n; fkBtn.classList.toggle('dis', !n);
+      fkBtn.title = n ? 'Scan your Preferred Traders’ lists for the selected items'
+        : 'Select at least 1 item (or use Select all / Select unowned), then click to scan your Preferred Traders’ lists for them';
+    }
   }
 
   async function _yoAddSelectedToWishlist(oid, listId) {
@@ -17919,6 +18750,9 @@
           + '<span class="dtr-yo-selcount" data-yo-selcount>' + (nSel ? (nSel + ' selected') : 'Select wearables') + '</span>'
           + '<button type="button" class="dtr-yo-bulkbtn" data-yo-selall="' + oid + '" title="Select every wearable">Select all</button>'
           + '<button type="button" class="dtr-yo-bulkbtn" data-yo-selall="' + oid + '" data-yo-selmode="unowned" title="Select only wearables you don’t own">Select unowned</button>'
+          + '<button type="button" class="dtr-yo-bulkbtn dtr-yo-favchk' + (nSel ? '' : ' dis') + '" data-yo-favchk="' + oid + '"' + (nSel ? '' : ' disabled')
+          +   ' title="' + (nSel ? 'Scan your Preferred Traders’ lists for the selected items' : 'Select at least 1 item (or use Select all / Select unowned), then click to scan your Preferred Traders’ lists for them') + '"'
+          +   ' style="background:#fdf3d9;color:#9a7200;"><img src="' + DIA_ICON_STAR + '" alt="" style="width:13px;height:13px;display:inline-block;vertical-align:-2px;margin-right:4px;" class="dia-icon-img">Check Preferred Traders’ Lists</button>'
           + '<div class="dtr-yo-wladd-wrap">'
           +   '<button type="button" class="dtr-yo-wladd' + (nSel ? '' : ' dis') + '" data-yo-wladd="' + oid + '"' + (nSel ? '' : ' disabled') + '>+ Add to wishlist ▾</button>'
           +   '<div class="dtr-yo-wlmenu" data-yo-wlmenu="' + oid + '" hidden>'
@@ -18822,6 +19656,20 @@
         _yo.renaming = null; _yo._renameFocus = false; _yoRender(); return;
       }
 
+      if ((t = e.target.closest('[data-yo-favchk]'))) {
+        e.preventDefault(); e.stopPropagation();
+        var fcOid = t.getAttribute('data-yo-favchk');
+        var fcSel = (_yo.stripSel && _yo.stripSel[fcOid]) || {};
+        var fcIds = Object.keys(fcSel);
+        if (!fcIds.length) return;
+        var fcItems = fcIds.map(function (iid) {
+          return { id: iid, name: (_yo.itemNames && _yo.itemNames[iid]) || ('Item #' + iid), thumbnailUrl: (_yo.itemThumbs && _yo.itemThumbs[iid]) || '' };
+        });
+        var fcCard = t.closest('.dtr-yo-card');
+        var fcTitleEl = fcCard && fcCard.querySelector('.dtr-yo-namewrap, .dtr-yo-name');
+        if (typeof window._dtrFavCheck === 'function') window._dtrFavCheck(fcItems, ((fcTitleEl && fcTitleEl.textContent) || 'this outfit').trim());
+        return;
+      }
       if ((t = e.target.closest('[data-yo-selall]'))) {
         e.preventDefault(); e.stopPropagation();
         var saOid = t.getAttribute('data-yo-selall'), unownedOnly = t.getAttribute('data-yo-selmode') === 'unowned';
@@ -19830,7 +20678,8 @@
          Offering/Seeking grape "active" pair: a hollow star pill that fills amber when pressed. */
       #dia-shell .dia-trade-fav-toggle{background:var(--card) !important;border-color:var(--line) !important;color:var(--ink2) !important;}
       #dia-shell .dia-trade-fav-toggle:hover{background:#fff6da !important;border-color:#e2c25a !important;color:#7a5b12 !important;}
-      #dia-shell .dia-trade-fav-toggle[aria-pressed="true"]{background:#ffe9a8 !important;border-color:#d9a92e !important;color:#6b4e0c !important;box-shadow:inset 0 0 0 1px #f3d680 !important;}
+      #dia-shell .dia-trade-fav-toggle[aria-pressed="true"]{background:#ffe9a8 !important;border-color:#d9a92e !important;color:#6b4e0c !important;box-shadow:none !important;}
+      #dia-shell .dia-trade-fav-toggle:focus,#dia-shell .dia-trade-fav-toggle:focus-visible,#dia-shell .dia-trade-fav-toggle:active{outline:none !important;box-shadow:none !important;}
       #dia-shell .dia-trade-list{display:none;}
       #dia-shell .dia-trade-list.active{display:block;}
       #dia-shell .dia-trade-list + .dia-trade-list.active{margin-top:6px;}
@@ -19862,7 +20711,8 @@
       #dia-shell .dia-show-more{font:700 11px var(--f) !important;color:var(--grape-d) !important;background:var(--mint-bg) !important;border:1px solid var(--mint-line) !important;border-radius:999px !important;padding:6px 14px !important;margin:8px auto 0 !important;display:block !important;cursor:pointer !important;}
       #dia-shell.dtr-x .x{}
       #dia-shell #dia-trade-lists.dtr-fav-only .dia-trade-card:not(.dtr-fav-row){display:none !important;}
-      #dia-shell #dia-trade-lists.dtr-fav-only .dia-trade-empty{display:none !important;}
+      /* the fav-only EMPTY STATE must stay visible (the old blanket hide left a broken-looking void) */
+      #dia-shell #dia-trade-lists.dtr-fav-only .dia-trade-empty:not(.dtr-fav-empty){display:none !important;}
       /* ── 10.12.1 hotfix layer: silence the legacy tile CSS under the new dib markup ── */
       #dia-item-card-v2 [data-list-key]{min-width:0 !important;min-height:0 !important;height:auto !important;}
       #dia-item-card-v2 [data-list-key]::before, #dia-item-card-v2 [data-list-key]::after{content:none !important;display:none !important;}
@@ -19997,7 +20847,7 @@
       #dtr-thumb-hanger:hover{filter:brightness(1.07) !important;transform:translateX(-50%) scale(1.05) !important;}
       #dtr-thumb-hanger.in-haul{background:var(--grape-d,#3a7a5e) !important;box-shadow:0 0 0 2px rgba(58,122,94,.4),0 2px 8px rgba(0,0,0,.22) !important;}
       /* haul confirmation toast */
-      #dtr-haul-toast{position:fixed !important;left:50% !important;bottom:26px !important;transform:translateX(-50%) translateY(12px) !important;z-index:99999 !important;background:var(--ink,#1a2e28) !important;color:#fff !important;font:700 12px/1 var(--f) !important;padding:11px 18px !important;border-radius:999px !important;box-shadow:0 8px 26px rgba(0,0,0,.28) !important;opacity:0 !important;pointer-events:none !important;transition:opacity .2s,transform .2s !important;}
+      #dtr-haul-toast{position:fixed !important;left:50% !important;bottom:26px !important;transform:translateX(-50%) translateY(12px) !important;z-index:99999 !important;background:#fff !important;color:#564f60 !important;border:1.5px solid #efe7da !important;font:700 12px/1.3 "Nunito",var(--f) !important;padding:9px 16px !important;border-radius:999px !important;box-shadow:0 8px 28px rgba(40,60,50,.18) !important;opacity:0 !important;pointer-events:none !important;transition:opacity .2s,transform .2s !important;}
       #dtr-haul-toast.show{opacity:1 !important;transform:translateX(-50%) translateY(0) !important;}
       #dtr-item-haul-btn.in-haul{background:var(--card) !important;color:var(--mint-d) !important;border:1.5px solid var(--mint-d) !important;box-shadow:none !important;}
       /* 10.271: the item note no longer lives inline in the title row — it is the thumbnail overlay below.
@@ -20006,7 +20856,8 @@
       /* 10.271: item-note button overlays the thumbnail TOP-LEFT corner, styled 1:1 with the closet/
          homepage card note button (.dtr-card-btn) — mint chip, normalized icon, gold has-note + glow.
          Top-LEFT (not -right) so it doesn't crowd the title that sits to the right of the 96px thumb. */
-      html.dia-itemv2 #dia-item-card-v2 #dtr-thumb-imgwrap .dia-title-note-wrap.dtr-thumb-note{position:absolute !important;top:3px !important;right:3px !important;left:auto !important;margin:0 !important;z-index:7 !important;}
+      /* note quill hangs HALF OFF the thumb corner — the same partial overlap item cards use */
+      html.dia-itemv2 #dia-item-card-v2 #dtr-thumb-imgwrap .dia-title-note-wrap.dtr-thumb-note{position:absolute !important;top:-9px !important;right:-9px !important;left:auto !important;margin:0 !important;z-index:7 !important;}
       html.dia-itemv2 #dia-item-card-v2 .dia-title-note-wrap.dtr-thumb-note .dia-item-note-btn{width:26px !important;height:26px !important;border-radius:999px !important;background:var(--dtr-primary-bg,#eaf5f0) !important;border:1px solid #a8d4c4 !important;box-shadow:0 1px 3px rgba(0,0,0,.12) !important;padding:0 !important;cursor:pointer !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;transition:background .12s ease,border-color .12s ease,box-shadow .12s ease !important;}
       html.dia-itemv2 #dia-item-card-v2 .dia-title-note-wrap.dtr-thumb-note .dia-item-note-btn img{width:16px !important;height:16px !important;opacity:.5 !important;filter:grayscale(.3) saturate(.6) brightness(.95) !important;transition:opacity .12s ease,filter .12s ease,transform .12s ease !important;}
       html.dia-itemv2 #dia-item-card-v2 .dia-title-note-wrap.dtr-thumb-note .dia-item-note-btn:hover{background:#c8ede0 !important;border-color:#6ab89a !important;box-shadow:0 2px 6px rgba(0,0,0,.15) !important;}
@@ -20080,13 +20931,22 @@
       html.dia-itemv2 #dia-item-card-v2{background:linear-gradient(160deg,#fbecf5 0%,#ecf0fb 30%,#e6f4fb 55%,#eafbf1 78%,#fdf6ea 100%) !important;border:1px solid rgba(255,255,255,.95) !important;border-radius:16px !important;box-shadow:0 3px 12px rgba(80,80,70,.05) !important;padding:14px 16px !important;margin:0 !important;}
       html.dia-itemv2 #dtr-header-split #dia-work-card{background:linear-gradient(160deg,#fbecf5 0%,#ecf0fb 30%,#e6f4fb 55%,#eafbf1 78%,#fdf6ea 100%) !important;border:1px solid rgba(255,255,255,.95) !important;border-radius:16px !important;box-shadow:0 3px 12px rgba(80,80,70,.05) !important;padding:12px 16px 14px !important;margin:0 !important;}
       html.dia-itemv2 #dtr-header-split #dia-trades-panel{border-radius:16px !important;}
-      /* Try On Haul tab RIDES the preview card's right edge — the HOMEPAGE tab verbatim (white,
-         gold hanger + vertical label + count pill), mirrored to stick out rightward */
-      #dtr-qp-tohtab{position:absolute;top:26px;right:-33px;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:32px;padding:12px 0;background:#fff;border:1px solid #e8dfc8;border-left:none;border-radius:0 8px 8px 0;box-shadow:3px 0 10px rgba(0,0,0,0.07);cursor:pointer;transition:background .15s;user-select:none;}
-      #dtr-qp-tohtab:hover{background:#fdf8ec;}
-      #dtr-qp-tohtab .dia-wl-tab-label{writing-mode:vertical-rl;font:800 9px/1 "Nunito",Arial,sans-serif;color:#b89428;letter-spacing:0.1em;text-transform:uppercase;max-height:84px;overflow:hidden;text-overflow:ellipsis;-webkit-font-smoothing:antialiased;}
-      #dtr-qp-tohtab .dtr-hanger{width:15px;height:15px;color:#b89428;flex-shrink:0;display:block;margin:0 auto;}
-      #dtr-qp-tohtab .dia-wl-tab-count{font:700 9px/1 Inter,Arial,sans-serif;color:#7a5c00;background:#fdf0c0;border-radius:8px;padding:2px 3px;min-width:14px;text-align:center;}
+      /* Try On Haul tab RIDES the preview card's right edge — the CLOSET edge tab verbatim (white,
+         TEAL hanger + vertical label + mint count pill), mirrored to stick out rightward. The old
+         gold/glow treatment is retired everywhere (user: the slim teal tab is canonical). */
+      /* NO translateZ/layer tricks here — a layer rasterized on the card's fractional x-offset
+         renders FAT + blurry. The real fix is the JS pixel-snap below (_qpTohtabSnap): #dia-shell
+         is auto-centered, so the card (and this tab) can land on a half-pixel; the snap nudges the
+         tab back onto whole device pixels, which is why the fixed-position homepage tab was always
+         crisp while this one wasn't. */
+      #dtr-qp-tohtab{position:absolute;top:26px;right:-33px;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:32px;padding:12px 0;background:#fff;border:1px solid #efe7da;border-left:none;border-radius:0 8px 8px 0;box-shadow:3px 0 10px rgba(0,0,0,0.07);cursor:pointer;transition:background .15s;user-select:none;}
+      #dtr-qp-tohtab:hover{background:var(--dtr-primary-bg,#f1fbf9);}
+      /* label = the HOMEPAGE tab's rule verbatim (user: that one renders correctly) — the blur was
+         never the font, it was the fractional position (see the snap note above). Font experiments
+         tried + rejected: 700 8px Inter (too thin/sharp), no-smoothing Nunito (fringy at rest). */
+      #dtr-qp-tohtab .dia-wl-tab-label{writing-mode:vertical-rl;font:800 9px/1 "Nunito",Arial,sans-serif;color:var(--dtr-primary,#149c8e);letter-spacing:0.1em;text-transform:uppercase;max-height:84px;overflow:hidden;text-overflow:ellipsis;-webkit-font-smoothing:antialiased;}
+      #dtr-qp-tohtab .dtr-hanger{width:15px;height:15px;color:var(--dtr-primary,#149c8e);flex-shrink:0;display:block;margin:0 auto;}
+      #dtr-qp-tohtab .dia-wl-tab-count{font:700 9px/1 Inter,Arial,sans-serif;color:var(--dtr-primary,#149c8e);background:var(--dtr-primary-bg,#dbf5f1);border-radius:8px;padding:2px 3px;min-width:14px;text-align:center;}
       #dtr-qp-card{overflow:visible;}
       html.dia-itemv2 #item-contributors{display:none !important;}
       html.dia-itemv2 footer{display:none !important;}
@@ -20171,6 +21031,55 @@
       #dia-item-card-v2 #dia-summary-bar strong{color:var(--mint-d) !important;}
       #dia-item-card-v2 #dia-reset-icon{background:none !important;border:none !important;color:var(--ink3) !important;border-radius:0 !important;padding:0 2px !important;font-size:13px !important;cursor:pointer !important;box-shadow:none !important;}
       #dia-item-card-v2 #dia-reset-icon:hover{color:var(--ink2) !important;border-color:var(--ink3) !important;}
+
+      /* ── ITEM PAGE REFINEMENT (10.648, user review) ─────────────────────────────────────────── */
+      /* (3) FREE-FLOATING cards: the outer shell is pure layout — no surface, border, or shadow of
+         its own. Each card (item info, lists, trades, preview) floats directly on the wallpaper.
+         #dtr-header-split was the "invisible container with a line where they connect": its base
+         rule (~22230) paints a card bg + BORDER + shadow around both columns, and the older
+         override cleared only the bg — the border stayed and drew the seam. */
+      html.dia-itemv2 #dia-shell{background:none !important;border:none !important;box-shadow:none !important;}
+      html.dia-itemv2 #dtr-header-split{background:transparent !important;border:none !important;box-shadow:none !important;border-radius:0 !important;overflow:visible !important;}
+      /* (1)+(2) Trade Activity = LEFT sidebar at EQUAL HEIGHT with the main column. The row
+         stretches; the panel's content is absolutely inset so the panel contributes no intrinsic
+         height — the item-info + lists column alone sets the row height (dynamic as lists are shown
+         or hidden), and the trades stream scrolls inside whatever height that gives it. */
+      html.dia-itemv2 #dtr-header-split{align-items:stretch !important;}
+      html.dia-itemv2 #dtr-header-split #dia-trades-panel{position:relative !important;top:auto !important;align-self:stretch !important;overflow:hidden !important;max-height:none !important;min-height:300px !important;padding:0 !important;}
+      html.dia-itemv2 #dia-trades-panel #dia-trades-inner{position:absolute;inset:0;display:flex;flex-direction:column;padding:14px 16px;box-sizing:border-box;min-height:0;}
+      html.dia-itemv2 #dia-trades-panel #dia-trades-inner #dia-trades-body{flex:1 1 auto;min-height:0;}
+      html.dia-itemv2 #dtr-header-split #dia-trades-panel #dia-trade-lists{max-height:none !important;}
+      @media (max-width: 1010px){
+        /* stacked layout: trades go BELOW the lists again, sized naturally */
+        html.dia-itemv2 #dtr-header-split #dia-trades-panel{position:static !important;order:2;overflow:visible !important;min-height:0 !important;padding:14px 16px !important;}
+        html.dia-itemv2 #dia-trades-panel #dia-trades-inner{position:static;padding:0;}
+        html.dia-itemv2 #dtr-header-split #dia-trades-panel #dia-trade-lists{max-height:min(360px,55vh) !important;}
+      }
+      /* (6) FLAT thumb frame — the beveled fill + heavy drop shadow read "3D"; nothing else does that */
+      html.dia-itemv2 #dia-item-card-v2 #dtr-thumb-imgwrap{background:#fff !important;border:1px solid var(--line,#efe7da) !important;box-shadow:0 2px 8px rgba(80,80,70,.08) !important;}
+      /* (4) value/NC tag under the thumb: truly centered, wraps when long (e.g. "Dyeworks thru July 15") */
+      html.dia-itemv2 #dia-item-card-v2 #dtr-leb-row{display:flex !important;justify-content:center !important;margin:8px auto 0 !important;max-width:100% !important;text-align:center !important;}
+      html.dia-itemv2 #dia-item-card-v2 #dtr-leb-row .dib-leb, html.dia-itemv2 #dia-item-card-v2 #dia-lebron-link{white-space:normal !important;height:auto !important;line-height:1.35 !important;text-align:center !important;max-width:100% !important;box-sizing:border-box !important;align-self:center !important;margin:0 !important;}
+      /* Offering | Seeking read as ONE segmented control (they are mutually exclusive); the
+         Preferred-Traders chip separates to the right as a FILTER that composes with either. */
+      #dia-shell #dia-trade-tabs{align-items:center !important;}
+      #dia-shell .dia-trade-tab[data-filter="offering"]{border-radius:999px 0 0 999px !important;}
+      #dia-shell .dia-trade-tab[data-filter="seeking"]{border-radius:0 999px 999px 0 !important;margin-left:-6px !important;border-left:none !important;}
+      #dia-shell .dia-trade-fav-toggle{margin-left:auto !important;}
+      #dia-shell .dia-trade-fav-toggle img{background:#fff !important;border-radius:50% !important;padding:2px !important;box-sizing:content-box !important;box-shadow:0 0 0 1px rgba(0,0,0,.07) !important;}
+      /* (7) status pill — soft konpeito pill, not a hard-bordered box; tone pastels stay, chrome goes */
+      #dia-shell .dia-status-trigger{border:none !important;border-radius:999px !important;font:800 10px var(--f,'Nunito',sans-serif) !important;padding:4px 10px !important;min-height:0 !important;box-shadow:none !important;line-height:1.4 !important;}
+      #dia-shell .dia-status-trigger:not(.has-status){background:var(--mint-bg,#dbf5f1) !important;color:var(--mint-d,#149c8e) !important;}
+      #dia-shell .dia-status-trigger:not(.has-status):hover{background:#c9efe8 !important;}
+      #dia-shell .dia-status-trigger .dia-status-trigger-empty{color:inherit !important;font-weight:800 !important;}
+      /* (7) status menu — konpeito card + pill-shaped options (tone pastels kept as soft fills) */
+      .dia-status-menu{border:1px solid var(--line,#efe7da) !important;border-radius:14px !important;background:#fff !important;box-shadow:0 12px 34px rgba(40,60,50,.18) !important;padding:8px !important;}
+      .dia-status-menu .dia-status-menu-input{border:1px solid var(--mint-line,#a6e4dc) !important;border-radius:999px !important;background:#fcfbf8 !important;font:600 11.5px var(--f,'Nunito',sans-serif) !important;color:var(--ink,#564f60) !important;padding:6px 12px !important;height:auto !important;box-shadow:none !important;outline:none !important;}
+      .dia-status-menu .dia-status-menu-input:focus{border-color:var(--mint-d,#149c8e) !important;box-shadow:0 0 0 3px var(--mint-bg,#dbf5f1) !important;}
+      .dia-status-option{border:none !important;border-radius:999px !important;margin:3px 1px !important;padding:6px 12px !important;font:700 11px var(--f,'Nunito',sans-serif) !important;box-shadow:none !important;}
+      .dia-status-option:hover{filter:brightness(.97);}
+      .dia-status-unassign{border:none !important;border-radius:999px !important;margin:1px 1px 5px !important;padding:6px 12px !important;font:700 11px var(--f,'Nunito',sans-serif) !important;background:#f6f3ec !important;color:var(--ink2,#6c6776) !important;box-shadow:none !important;}
+      .dia-status-unassign:hover{background:#eee9df !important;}
     `;
     document.head.appendChild(st);
   }
@@ -22663,49 +23572,43 @@
             border-radius: 8px 0 0 8px; box-shadow: -3px 0 10px rgba(0,0,0,0.07);
             cursor: pointer; transition: background 0.15s; user-select: none;
           }
-          #${WL_TAB_ID}:hover { background: #fdf8ec; }
-          #${WL_TAB_ID}.open { background: #fdf8ec; border-color: #d4ae3a; }
+          /* Slim TEAL edge tab (the canonical Try On Haul tab style — the old gold/glow is retired) */
+          #${WL_TAB_ID}:hover { background: var(--dtr-primary-bg,#f1fbf9); }
+          #${WL_TAB_ID}.open { background: var(--dtr-primary-bg,#f1fbf9); border-color: var(--dtr-mint,#5bb6a8); }
           #${WL_TAB_ID} .dia-wl-tab-label {
             writing-mode: vertical-rl; font: 800 9px/1 "Nunito",Arial,sans-serif;
-            color: #b89428; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--dtr-primary,#149c8e); letter-spacing: 0.1em; text-transform: uppercase;
             max-height: 84px; overflow: hidden; text-overflow: ellipsis;
             -webkit-font-smoothing: antialiased;
           }
           /* docked to the right edge of the page's right-most container (homepage) — mirrored so it
              sticks out RIGHTWARD from the container instead of floating at the viewport edge */
           #${WL_TAB_ID}.dia-wl-tab-docked {
-            border-radius: 0 8px 8px 0; border: 1px solid #e8dfc8; border-left: none;
+            border-radius: 0 8px 8px 0; border: 1px solid #efe7da; border-left: none;
             box-shadow: 3px 0 10px rgba(0,0,0,0.07);
           }
-          #${WL_TAB_ID}.dia-wl-tab-docked.open { border-color: #d4ae3a; border-left: none; }
+          #${WL_TAB_ID}.dia-wl-tab-docked.open { border-color: var(--dtr-mint,#5bb6a8); border-left: none; }
           #${WL_TAB_ID} .dtr-hanger {
-            width: 15px; height: 15px; color: #b89428; flex-shrink: 0; display: block;
+            width: 15px; height: 15px; color: var(--dtr-primary,#149c8e); flex-shrink: 0; display: block;
             margin: 0 auto; transform: translateX(2px);
           }
-          #${WL_TAB_ID}.unconfigured .dtr-hanger { color: #9a7200; }
           #${WL_TAB_ID} .dia-wl-tab-count {
-            font: 700 9px/1 Inter,Arial,sans-serif; color: #7a5c00;
-            background: #fdf0c0; border-radius: 8px; padding: 2px 3px;
+            font: 700 9px/1 Inter,Arial,sans-serif; color: var(--dtr-primary,#149c8e);
+            background: var(--dtr-primary-bg,#dbf5f1); border-radius: 8px; padding: 2px 3px;
             min-width: 14px; text-align: center;
           }
           #${WL_TAB_ID} .dia-wl-tab-cog {
             background: none; border: none; cursor: pointer; font-size: 13px;
-            color: #b89428; padding: 2px; line-height: 1; opacity: 0.7;
+            color: var(--dtr-primary,#149c8e); padding: 2px; line-height: 1; opacity: 0.7;
             transition: opacity 0.15s;
           }
           #${WL_TAB_ID}:hover .dia-wl-tab-cog, #${WL_TAB_ID}.open .dia-wl-tab-cog { opacity: 1; }
-          /* Unconfigured state — glowing CTA */
+          /* Unconfigured state — calm mint-border CTA (the gold glow animation is retired: no fuzz) */
           #${WL_TAB_ID}.unconfigured {
-            width: 36px; background: linear-gradient(135deg, #fff8dc, #fdf0c0);
-            border-color: #f0c800; border-width: 1.5px;
-            animation: dia-wl-glow 2s ease-in-out infinite;
+            width: 36px; border-color: var(--dtr-mint,#5bb6a8); border-width: 1.5px;
           }
-          #${WL_TAB_ID}.unconfigured .dia-wl-tab-label { color: #9a7200; font-size: 7px; }
-          #${WL_TAB_ID}.unconfigured .dia-wl-tab-cog { opacity: 1; color: #9a7200; }
-          @keyframes dia-wl-glow {
-            0%, 100% { box-shadow: -3px 0 10px rgba(210,170,0,0.25); border-color: #f0c800; }
-            50%       { box-shadow: -3px 0 20px rgba(210,170,0,0.55), -1px 0 8px rgba(210,170,0,0.3); border-color: #d4a800; }
-          }
+          #${WL_TAB_ID}.unconfigured .dia-wl-tab-label { color: var(--dtr-primary,#149c8e); font-size: 7px; }
+          #${WL_TAB_ID}.unconfigured .dia-wl-tab-cog { opacity: 1; color: var(--dtr-primary,#149c8e); }
           #${WL_PANEL_ID} .dia-wl-onboarding {
             padding: 12px 14px 10px; font: 400 11px/1.6 Inter,Arial,sans-serif; color: #666;
             flex-shrink: 0;
@@ -29168,14 +30071,7 @@
           max-width: 100%;
         }
 
-        .dia-list-link::after {
-          content: ' ↗';
-          display: inline;
-          font-size: 8px;
-          line-height: 1;
-          opacity: 0.58;
-          text-decoration: none !important;
-        }
+        /* the trailing ↗ glyph after list names is RETIRED (user: ugly, and links are obvious) */
 
         .dia-list-link:hover,
         .dia-list-link:focus {
@@ -30423,7 +31319,8 @@ border-color: #bd9516;
             tooltip.classList.add('show');
             const rect = more.getBoundingClientRect();
             tooltip.style.left = Math.min(window.innerWidth - tip.offsetWidth - 8, Math.max(8, rect.left)) + 'px';
-            tooltip.style.top = Math.max(12, rect.bottom + 6) + 'px';
+            const _nth = tooltip.offsetHeight || 40;
+            tooltip.style.top = (rect.top - _nth - 6 < 12 ? rect.bottom + 6 : rect.top - _nth - 6) + 'px';
           });
 
           more.addEventListener('mouseleave', () => {
@@ -30703,6 +31600,7 @@ border-color: #bd9516;
       tradesPanel.id = 'dia-trades-panel';
 
       tradesPanel.innerHTML = `
+        <div id="dia-trades-inner">
         <div id="dia-trades-head">
           <div id="dia-trades-title">Trade activity</div>
         </div>
@@ -30710,6 +31608,7 @@ border-color: #bd9516;
         <div id="dia-trades-body">
           <div id="dia-trade-tabs"></div>
           <div id="dia-trade-lists"></div>
+        </div>
         </div>
       `;
 
@@ -30752,8 +31651,8 @@ border-color: #bd9516;
 
       const headerSplit = document.createElement('div');
       headerSplit.id = 'dtr-header-split';
-      headerSplit.appendChild(mainCol);
       headerSplit.appendChild(tradesPanel);
+      headerSplit.appendChild(mainCol);
       headerShell.appendChild(headerSplit);
 
       try {
@@ -30770,6 +31669,20 @@ border-color: #bd9516;
           qpCard.querySelector('#dtr-qp-tohtab').addEventListener('click', () => {
             try { const h = document.getElementById('dtr-thumb-hanger'); if (h) h.click(); } catch (_) {}
           });
+
+          const _qpTohtabSnap = () => {
+            try {
+              const t = qpCard.querySelector('#dtr-qp-tohtab'); if (!t) return;
+              t.style.transform = '';
+              const r = t.getBoundingClientRect();
+              const dx = Math.round(r.left) - r.left, dy = Math.round(r.top) - r.top;
+              if (dx || dy) t.style.transform = 'translate(' + dx.toFixed(3) + 'px,' + dy.toFixed(3) + 'px)';
+            } catch (_) {}
+          };
+          setTimeout(_qpTohtabSnap, 200);
+          setTimeout(_qpTohtabSnap, 2900);
+          let _qpSnapT = 0;
+          window.addEventListener('resize', () => { clearTimeout(_qpSnapT); _qpSnapT = setTimeout(_qpTohtabSnap, 150); });
           setTimeout(() => { try { _qpMount(qpCard.querySelector('.dtr-qp-host'), { itemId: qpItemId }); } catch (e) {  } }, 60);
         }
       } catch (_) {}
@@ -31771,7 +32684,7 @@ const previewBody = previewCard.querySelector('#dia-preview-body');
               const tone = getStatusColor(opt);
               const visualClass = statusVisualClassName(opt);
               return `
-                <div class="dia-status-option ${selected ? 'selected' : ''} ${visualClass}" role="button" tabindex="0" data-status="${safeText(opt)}" style="border-left: 3px solid ${STATUS_COLOR_THEMES[tone] ? STATUS_COLOR_THEMES[tone].dot : '#d9bd42'} !important;">
+                <div class="dia-status-option ${selected ? 'selected' : ''} ${visualClass}" role="button" tabindex="0" data-status="${safeText(opt)}">
                   <span class="dia-status-option-check">${selected ? '✓' : ''}</span>
                   <span class="dia-status-option-name" title="${safeText(opt)}">${safeText(opt)}</span>
                   <button class="dia-status-delete-btn" type="button" data-delete-status="${safeText(opt)}" title="Delete status"><svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="3" width="8" height="7" rx="1" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M3.5 5v3M6.5 5v3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M0.5 3h9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M3.5 3V1.5h3V3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -32047,7 +32960,80 @@ const previewBody = previewCard.querySelector('#dia-preview-body');
         }
 
         return rows;
-      };      const renderTradeTable = (list, rows, visibleCount, tabType) => {
+      };
+
+      if (!window.__dtrPtCmpWired) {
+        window.__dtrPtCmpWired = true;
+        document.addEventListener('click', function (e) {
+          const a = e.target.closest && e.target.closest('a.dtr-pt-cmp-link');
+          if (!a) return;
+          try { GM_setValue('dtr_cmp_intent', JSON.stringify({ ts: Date.now() })); } catch (_) {}
+        }, true);
+      }
+      const _favPanelSeq = {};
+      const renderFavTradePanel = (list, tabType) => {
+        const seq = (_favPanelSeq[tabType] = (_favPanelSeq[tabType] || 0) + 1);
+        const entries = Object.keys(favoriteOwners).filter(k => favoriteOwners[k]).map(k => {
+          const v = favoriteOwners[k];
+          const href = (v && typeof v === 'object' && v.href) || '';
+          return { key: k, name: (v && typeof v === 'object' && v.name) || k, href, uid: (String(href).match(/\/user\/(\d+)/) || [])[1] || '' };
+        });
+        if (!entries.length) {
+          list.innerHTML = '<div class="dia-trade-empty dtr-fav-empty">No Preferred Traders yet!<br>Double-click the <img src="' + DIA_ICON_STAR + '" alt="" style="width:13px;height:13px;display:inline-block;vertical-align:-2px;" class="dia-icon-img"> next to a trader’s name to add them.</div>';
+          return;
+        }
+        list.innerHTML = '<div class="dia-trade-empty dtr-fav-empty">Checking your Preferred Traders… 0/' + entries.length + '</div>';
+        const found = [], errs = [], unresolved = [];
+        let doneN = 0;
+        const queue = entries.slice();
+        const worker = async () => {
+          while (queue.length) {
+            const e = queue.shift();
+            try {
+              if (!e.uid) {
+
+                const u = await _dtrFavResolveUser(e.name);
+                if (u) { e.uid = u.id; e.href = _dtrFavHeal(e.key, u) || e.href; e.name = u.username; }
+                else { unresolved.push(e); doneN++; continue; }
+              }
+              const sides = await _dtrFavUserLists(e.uid);
+              const hit = (tabType === 'seeking' ? sides.wants : sides.owns)[String(itemId)];
+              if (hit) found.push({ e, hit });
+            } catch (_) { errs.push(e); }
+            doneN++;
+            const el = list.querySelector('.dtr-fav-empty');
+            if (el && seq === _favPanelSeq[tabType]) el.textContent = 'Checking your Preferred Traders… ' + doneN + '/' + entries.length;
+          }
+        };
+        const legacyNote = unresolved.length ? '<div class="dia-trade-empty dtr-fav-empty" style="padding:7px 8px;font-size:10px;">Couldn’t find ' + (unresolved.length === 1 ? 'a DTI user named ' : 'DTI users named ') + unresolved.map(x => '“' + safeText(x.name) + '”').join(', ') + ' — maybe renamed or deleted?</div>' : '';
+        Promise.all([worker(), worker(), worker()]).then(() => {
+          if (seq !== _favPanelSeq[tabType] || !list.isConnected) return;
+          const root = list.closest('#dia-trade-lists');
+          if (!root || !root.classList.contains('dtr-fav-only')) return;
+          if (!found.length) {
+            list.innerHTML = '<div class="dia-trade-empty dtr-fav-empty">None of your Preferred Traders are ' + (tabType === 'seeking' ? 'seeking' : 'offering') + ' this item.'
+              + (errs.length ? '<br><span style="font-size:10px;opacity:.85;">Couldn’t check: ' + errs.map(x => safeText(x.name)).join(', ') + '</span>' : '') + '</div>' + legacyNote;
+            return;
+          }
+          found.sort((a, b) => a.e.name.toLowerCase().localeCompare(b.e.name.toLowerCase()));
+          list.innerHTML = '<div class="dia-trade-scroll">' + found.map(({ e, hit }) =>
+            '<div class="dia-trade-card dtr-stream-row dtr-fav-row" style="padding:10px 12px;">'
+            + '<div class="dia-trade-info"><div class="dia-trader-main"><div class="dia-trader-line" style="display:flex;align-items:center;gap:7px;">'
+            + '<img class="dia-icon-img" src="' + DIA_ICON_STAR + '" alt="" style="width:15px;height:15px;flex:none;">'
+            + (e.href ? '<a class="dia-owner-name favorite-owner dtr-pt-cmp-link" href="' + safeText(e.href) + '" target="_blank" rel="noopener" title="Open ' + safeText(e.name) + '’s closet in Comparison Mode">' + safeText(e.name) + '</a>' : '<span class="dia-owner-name favorite-owner">' + safeText(e.name) + '</span>')
+            + '</div>'
+            + (hit.listName ? '<div class="dia-list-row"><span class="dia-list-link" style="cursor:default;" data-full-title="' + safeText(hit.listName) + '">in “' + safeText(hit.listName) + '”</span></div>' : '')
+            + '</div></div></div>'
+          ).join('') + '</div>' + legacyNote;
+        });
+      };
+      const renderTradeTable = (list, rows, visibleCount, tabType) => {
+
+        const _listsRoot = list.closest('#dia-trade-lists');
+        if (_listsRoot && _listsRoot.classList.contains('dtr-fav-only')) {
+          renderFavTradePanel(list, tabType);
+          return;
+        }
         const visibleRows = rows.slice(0, visibleCount);
 
         if (!visibleRows.length) {
@@ -32106,6 +33092,8 @@ const previewBody = previewCard.querySelector('#dia-preview-body');
                             class="dia-favorite-owner ${favoriteOwners[ownerKey] ? 'active' : ''}"
                             type="button"
                             data-owner-key="${safeText(ownerKey)}"
+                            data-owner-name="${safeText(row.owner)}"
+                            data-owner-href="${safeText(row.ownerHref || '')}"
                           >
                             <img class="dia-icon-img" src="data:image/png;base64,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" alt="">
                           </button>
@@ -32204,6 +33192,7 @@ const previewBody = previewCard.querySelector('#dia-preview-body');
             link.removeAttribute('title');
 
             const isTruncated = link.scrollWidth > link.clientWidth + 1;
+            if (!isTruncated) return;
             const fullName = link.dataset.fullTitle || link.textContent.replace('↗', '').trim();
             const href = link.getAttribute('href') || '';
             _diaListTipActive = link;
@@ -32214,7 +33203,8 @@ const previewBody = previewCard.querySelector('#dia-preview-body');
               const centeredLeft = rect.left + (rect.width / 2) - (tooltipWidth / 2);
               const clampedLeft = Math.min(window.innerWidth - tooltipWidth - 12, Math.max(12, centeredLeft));
               tooltip.style.left = clampedLeft + 'px';
-              tooltip.style.top = Math.max(12, rect.bottom + 8) + 'px';
+              const th = tooltip.offsetHeight || 40;
+              tooltip.style.top = (rect.top - th - 8 < 12 ? rect.bottom + 8 : rect.top - th - 8) + 'px';
             };
 
             const render = desc => {
@@ -32370,6 +33360,14 @@ const previewBody = previewCard.querySelector('#dia-preview-body');
         list.querySelectorAll('.dia-favorite-owner').forEach(star => {
           star.removeAttribute('title');
 
+          try {
+            const k0 = star.dataset.ownerKey;
+            if (favoriteOwners[k0] === true && star.dataset.ownerHref) {
+              favoriteOwners[k0] = { name: star.dataset.ownerName || k0, href: star.dataset.ownerHref };
+              setDIASection('favoriteOwners', favoriteOwners);
+            }
+          } catch (_) {}
+
           star.addEventListener('click', e => {
             e.preventDefault();
             e.stopPropagation();
@@ -32380,11 +33378,19 @@ const previewBody = previewCard.querySelector('#dia-preview-body');
             e.stopPropagation();
 
             const ownerKey = star.dataset.ownerKey;
-            favoriteOwners[ownerKey] = !favoriteOwners[ownerKey];
 
-            if (!favoriteOwners[ownerKey]) delete favoriteOwners[ownerKey];
+            const _wasFav = favoriteOwners[ownerKey];
+            if (_wasFav) delete favoriteOwners[ownerKey];
+            else favoriteOwners[ownerKey] = { name: star.dataset.ownerName || ownerKey, href: star.dataset.ownerHref || '' };
 
             setDIASection('favoriteOwners', favoriteOwners);
+            if (_wasFav && typeof window._dtrUndoToast === 'function') {
+              window._dtrUndoToast('Removed ' + (star.dataset.ownerName || ownerKey) + ' from your Preferred Traders', function () {
+                favoriteOwners[ownerKey] = _wasFav;
+                setDIASection('favoriteOwners', favoriteOwners);
+                try { renderTradeTable(list, rows, visibleCount, tabType); } catch (_) {}
+              });
+            }
 
             const pageScrollX = window.scrollX;
             const pageScrollY = window.scrollY;
@@ -32622,12 +33628,12 @@ if (!tradeLinks.length) {
         const seekL = listsEl.querySelector('.dia-trade-list[data-tab-type="seeking"]');
 
         let activePrimary = (activeTradeTab === 'seeking') ? 'seeking' : 'offering';
-        let favOnly = !!GM_getValue(TRADE_FAV_KEY, false);
+
+        let favOnly = false;
 
         const applyTradeFilter = () => {
           activeTradeTab = activePrimary;
           GM_setValue(TRADE_TAB_KEY, activePrimary);
-          GM_setValue(TRADE_FAV_KEY, favOnly);
 
           tabsEl.querySelectorAll('.dia-trade-tab[data-filter]').forEach(t => {
             t.classList.toggle('active', t.dataset.filter === activePrimary);
@@ -32645,13 +33651,17 @@ if (!tradeLinks.length) {
             const show = tt === activePrimary;
             l.classList.toggle('active', show);
             if (!show) return;
-            if (l.dataset.loaded !== 'true') loadTradeList(l, l.dataset.href, tt === 'offering', tt);
+            if (l.dataset.loaded !== 'true') { loadTradeList(l, l.dataset.href, tt === 'offering', tt); return; }
+
+            const cached = readJSON(l.dataset.rowsKey, []);
+            if (cached.length) renderTradeTable(l, cached, parseInt(l.dataset.visibleCount || '15', 10) || 15, tt);
           });
         };
 
         const setPrimary = (side) => {
           if (side !== 'offering' && side !== 'seeking') return;
           activePrimary = side;
+
           applyTradeFilter();
         };
 
@@ -32684,8 +33694,8 @@ if (!tradeLinks.length) {
         favChip.type = 'button';
         favChip.className = 'dia-trade-tab dia-trade-fav-toggle';
         favChip.setAttribute('aria-pressed', 'false');
-        favChip.title = 'Show only favorited traders on the active side';
-        favChip.textContent = '★ Favorites';
+        favChip.title = 'Show only your Preferred Traders on the active side — on Seeking, that’s who WANTS this item (gifting!)';
+        favChip.innerHTML = '<img src="' + DIA_ICON_STAR + '" alt="" style="width:13px;height:13px;display:inline-block;vertical-align:-2px;margin-right:4px;" class="dia-icon-img">Preferred Traders';
         favChip.addEventListener('click', toggleFav);
         tabsEl.appendChild(favChip);
 
@@ -39727,6 +40737,7 @@ if (!tradeLinks.length) {
 
         saveBatch(items);
         savePendingSync(names);
+        recordImport(items, 'inventory');
 
         (function () {
           var _su = 'https://impress.openneo.net/items?q=' + encodeForDTI(names[0]);
@@ -39897,7 +40908,7 @@ if (!tradeLinks.length) {
 
         saveBatch(items);
         savePendingSync(names);
-        recordImport(items);
+        recordImport(items, 'inventory');
         try { GM_setValue(BATCH_TS_KEY, Date.now()); } catch (_) {}
         diaTouchImport();
 
@@ -39913,10 +40924,11 @@ if (!tradeLinks.length) {
 
         st.textContent = `
           #neo-dti-sync-tab{position:fixed;top:50%;right:0;transform:translateY(-50%);z-index:9098;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:34px;padding:12px 0;background:#fff;border:1px solid #efe7da;border-right:none;border-radius:10px 0 0 10px;box-shadow:-3px 0 12px rgba(80,80,70,.1);cursor:pointer;transition:background .15s;user-select:none;font-family:'Nunito','Inter',Arial,sans-serif;}
-          #neo-dti-sync-tab:hover{background:#fff3f1;}
-          #neo-dti-sync-tab.open{background:#fff3f1;border-color:#ffb3a7;}
-          #neo-dti-sync-tab .ndst-label{writing-mode:vertical-rl;font:800 8px/1 'Nunito','Inter',sans-serif;color:#c25a45;letter-spacing:.08em;text-transform:uppercase;max-height:96px;overflow:hidden;text-overflow:ellipsis;}
-          #neo-dti-sync-tab .ndst-count{font:800 9px/1 'Nunito','Inter',sans-serif;color:#c25a45;background:#ffe6e1;border-radius:8px;padding:2px 3px;min-width:14px;text-align:center;}
+          #neo-dti-sync-tab:hover{background:#f1fbf9;}
+          #neo-dti-sync-tab.open{background:#f1fbf9;border-color:#5bb6a8;}
+          #neo-dti-sync-tab .dtr-et-ic{width:15px;height:15px;color:#149c8e;flex-shrink:0;display:block;margin:0 auto;}
+          #neo-dti-sync-tab .ndst-label{writing-mode:vertical-rl;font:800 8px/1 'Nunito','Inter',sans-serif;color:#149c8e;letter-spacing:.08em;text-transform:uppercase;max-height:96px;overflow:hidden;text-overflow:ellipsis;}
+          #neo-dti-sync-tab .ndst-count{font:800 9px/1 'Nunito','Inter',sans-serif;color:#149c8e;background:#dbf5f1;border-radius:8px;padding:2px 3px;min-width:14px;text-align:center;}
           #neo-dti-sync-panel{position:fixed;top:50%;right:34px;transform:translateY(-50%);z-index:9097;width:316px;max-height:82vh;overflow:auto;background:#fff;border:1px solid #efe7da;border-radius:14px;box-shadow:-8px 0 28px rgba(80,80,70,.16);padding:0 16px 16px;display:none;font-family:'Nunito','Inter',Arial,sans-serif;color:#564f60;}
           #neo-dti-sync-panel.open{display:block;}
           .ndsp-top{position:sticky;top:0;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:14px 0 10px;margin-bottom:2px;border-bottom:1px solid #f4efe6;}
@@ -39924,7 +40936,7 @@ if (!tradeLinks.length) {
           .ndsp-title{font:700 16px 'Baloo 2','Nunito',sans-serif;color:#564f60;}
           .ndsp-clock{display:flex;align-items:center;color:#948fa0;cursor:pointer;border:none;background:none;padding:4px 6px;border-radius:8px;}
           .ndsp-clock:hover{background:#f6f3ec;color:#564f60;}
-          .ndsp-clock.on{background:#ffe6e1;color:#c25a45;}
+          .ndsp-clock.on{background:#dbf5f1;color:#0f7f73;}
           .ndsp-ready{font:600 12px 'Nunito','Inter',sans-serif;color:#948fa0;margin:12px 0 10px;}
           .ndsp-go{display:block;width:100%;box-sizing:border-box;background:#ff8576;color:#fff;border:none;border-radius:12px;padding:13px;font:800 13px 'Nunito','Inter',sans-serif;cursor:pointer;box-shadow:0 3px 10px rgba(255,133,118,.3);transition:filter .12s;}
           .ndsp-go:hover{filter:brightness(.97);}
@@ -39935,35 +40947,15 @@ if (!tradeLinks.length) {
           #neo-dti-sync-panel .ndsp-hist{display:none;padding-top:6px;}
           #neo-dti-sync-panel.showhist .ndsp-main{display:none;}
           #neo-dti-sync-panel.showhist .ndsp-hist{display:block;}
-          .ndsp-hist-row{border:1px solid #efe7da;border-radius:12px;padding:9px 11px;margin-bottom:8px;box-shadow:0 2px 8px rgba(60,60,55,.05);}
-          .ndsp-hist-date{font:800 10.5px 'Nunito','Inter',sans-serif;color:#564f60;}
-          .ndsp-hist-sum{font:700 9px 'Nunito','Inter',sans-serif;color:#948fa0;white-space:nowrap;}
-          .ndsp-hist-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;}
-          .ndsp-hist-meta{display:flex;align-items:center;gap:6px;flex-shrink:0;}
-          .ndsp-hist-del{display:inline-flex;align-items:center;justify-content:center;border:none;background:none;color:#cf9aa6;cursor:pointer;padding:2px;border-radius:6px;line-height:0;}
-          .ndsp-hist-del:hover{background:#fdeef2;color:#c2487c;}
-          .ndsp-hist-items{display:grid;grid-template-columns:auto 1fr;column-gap:8px;row-gap:4px;align-items:baseline;margin-top:3px;}
-          .ndsp-hist-qty{font:800 10px/1.4 'Nunito','Inter',sans-serif;color:#c25a45;text-align:right;white-space:nowrap;}
-          .ndsp-hist-name{font:600 10.5px/1.4 'Nunito','Inter',sans-serif;color:#564f60;min-width:0;overflow-wrap:anywhere;}
-          .ndsp-export{display:block;width:100%;box-sizing:border-box;background:#f6f3ec;color:#347f76;border:1px solid #efe7da;border-radius:10px;padding:9px;font:800 11px 'Nunito','Inter',sans-serif;cursor:pointer;margin-top:2px;}
-          .ndsp-export:hover{background:#eee9df;}
-          .ndsp-hist-empty{font:600 11px 'Nunito','Inter',sans-serif;color:#b0aea4;text-align:center;padding:22px 0;}
         `;
         document.head.appendChild(st);
+        _dtrHistCss();
       }
 
       let _syncItems = {};
 
       function buildHistoryHTML() {
-        const hist = loadImportHistory();
-        if (!hist.length) return `<div class="ndsp-hist-empty">No imports logged yet.</div>`;
-        const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-        const rows = hist.map(e => {
-          const d = new Date(e.ts).toLocaleString();
-          const lines = Object.keys(e.items).map(n => `<span class="ndsp-hist-qty">×${e.items[n]}</span><span class="ndsp-hist-name">${esc(n)}</span>`).join('');
-          return `<div class="ndsp-hist-row"><div class="ndsp-hist-head"><span class="ndsp-hist-date">${d}</span><span class="ndsp-hist-meta"><span class="ndsp-hist-sum">${e.count} item${e.count !== 1 ? 's' : ''} · ${e.total} total</span><button class="ndsp-hist-del" type="button" data-del-ts="${e.ts}" title="Delete this log" aria-label="Delete this log"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></button></span></div><div class="ndsp-hist-items">${lines}</div></div>`;
-        }).join('');
-        return rows + `<button class="ndsp-export" type="button">Export all to CSV</button>`;
+        return _dtrHistHTML('inventory');
       }
 
       function refreshSyncPanel() {
@@ -39996,7 +40988,7 @@ if (!tradeLinks.length) {
 
         const tab = document.createElement('div');
         tab.id = 'neo-dti-sync-tab';
-        tab.innerHTML = `<span class="ndst-label">Sync to DTI</span><span class="ndst-count">${count}</span>`;
+        tab.innerHTML = _DTR_ET_IC_SVG + `<span class="ndst-label">Sync to DTI</span><span class="ndst-count">${count}</span>`;
         document.body.appendChild(tab);
 
         const panel = document.createElement('div');
@@ -40028,12 +41020,7 @@ if (!tradeLinks.length) {
         panel.addEventListener('click', e => {
           if (e.target.closest('.ndsp-go')) { if (!launchedThisPage) quickExport(_syncItems); }
           else if (e.target.closest('.ndsp-dismiss')) { panel.classList.remove('open', 'showhist'); tab.classList.remove('open'); }
-          else if (e.target.closest('.ndsp-export')) { downloadImportCSV(); }
-          else if (e.target.closest('.ndsp-hist-del')) {
-            deleteImportEntry(e.target.closest('.ndsp-hist-del').dataset.delTs);
-            const histEl = panel.querySelector('.ndsp-hist');
-            if (histEl) histEl.innerHTML = buildHistoryHTML();
-          }
+          else _dtrHistClick(e, () => { const histEl = panel.querySelector('.ndsp-hist'); if (histEl) histEl.innerHTML = buildHistoryHTML(); });
         });
 
         refreshSyncPanel();
@@ -40720,7 +41707,7 @@ if (!tradeLinks.length) {
       check.type = 'button';
       check.className = 'dia-visited-status-check';
 
-      check.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;display:block;pointer-events:none"><path d="M2.4 12s3.4-6.8 9.6-6.8S21.6 12 21.6 12s-3.4 6.8-9.6 6.8S2.4 12 2.4 12z"/><circle cx="12" cy="12" r="3.1"/></svg>';
+      check.innerHTML = window._DTR_SEEN_EYE_SVG || '';
       check.title = 'Seen. Double-click to hide until next visit.';
       check.setAttribute('aria-label', 'Seen. Double-click to hide until next visit.');
       holder.appendChild(check);
@@ -40823,7 +41810,9 @@ if (!tradeLinks.length) {
         border: none !important;
         border-radius: 5px !important;
         background: transparent !important;
-        color: var(--ink3) !important;
+        /* fallbacks matter: on pages without the konpeito tokens var(--ink3) resolved to NOTHING,
+           so the eye inherited heavy black — the "really old clunky" look */
+        color: var(--ink3, #a9a2b5) !important;
         opacity: .85 !important;
         cursor: pointer !important;
         vertical-align: middle !important;
@@ -40834,7 +41823,7 @@ if (!tradeLinks.length) {
 
       .dia-visited-status-check:hover,
       .dia-visited-status-check.dia-visited-holding {
-        color: var(--mint-d) !important;
+        color: var(--mint-d, #149c8e) !important;
         opacity: 1 !important;
         filter: none !important;
       }
@@ -41290,7 +42279,7 @@ if (!tradeLinks.length) {
         button = document.createElement('button');
         button.type = 'button';
         button.className = 'dia-visited-status-check';
-        button.textContent = '✓';
+        button.innerHTML = window._DTR_SEEN_EYE_SVG || '';
         button.title = 'Seen. Double-click to hide until next visit.';
         button.setAttribute('aria-label', 'Seen. Double-click to hide until next visit.');
         holder.appendChild(button);
@@ -41386,7 +42375,9 @@ if (!tradeLinks.length) {
         border: none !important;
         border-radius: 5px !important;
         background: transparent !important;
-        color: var(--ink3) !important;
+        /* fallbacks matter: on pages without the konpeito tokens var(--ink3) resolved to NOTHING,
+           so the eye inherited heavy black — the "really old clunky" look */
+        color: var(--ink3, #a9a2b5) !important;
         opacity: .85 !important;
         cursor: pointer !important;
         vertical-align: middle !important;
@@ -41397,7 +42388,7 @@ if (!tradeLinks.length) {
 
       .dia-visited-status-check:hover,
       .dia-visited-status-check.dia-visited-holding {
-        color: var(--mint-d) !important;
+        color: var(--mint-d, #149c8e) !important;
         opacity: 1 !important;
         filter: none !important;
       }
@@ -41930,7 +42921,7 @@ if (!tradeLinks.length) {
     const check = document.createElement('button');
     check.type = 'button';
     check.className = 'dia-visited-status-check';
-    check.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="6"/><circle cx="12" cy="12" r="3"/></svg>';
+    check.innerHTML = window._DTR_SEEN_EYE_SVG || '';
     check.setAttribute('aria-label', 'Seen. Double-click to hide until next visit.');
     check.dataset.href = normalizeHref(href);
     const ts = formatVisitedTime(href);
@@ -41948,7 +42939,7 @@ if (!tradeLinks.length) {
     }
     check.type = 'button';
     check.className = 'dia-visited-status-check';
-    check.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="6"/><circle cx="12" cy="12" r="3"/></svg>';
+    check.innerHTML = window._DTR_SEEN_EYE_SVG || '';
     check.setAttribute('aria-label', 'Seen. Double-click to hide until next visit.');
     check.dataset.href = normalizeHref(href);
     const ts = formatVisitedTime(href);
@@ -43384,7 +44375,7 @@ if (!tradeLinks.length) {
           +   '<span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);color:#b0b0a6;pointer-events:none;font-size:9px">▾</span>'
           + '</div>'
           + '<div style="position:relative;flex:1;min-width:0">'
-          +   '<input data-cs-search value="'+(s.csQuery||'').replace(/"/g,'&quot;')+'" placeholder="Search this list" style="width:100%;box-sizing:border-box;height:44px;padding:0 26px 0 30px;border:1.5px solid var(--border);border-radius:12px;font:600 12.5px Nunito,sans-serif;color:#4a4a45;background:#fff">'
+          +   '<input data-cs-search value="'+(s.csQuery||'').replace(/"/g,'&quot;')+'" placeholder="Search" style="width:100%;box-sizing:border-box;height:44px;padding:0 26px 0 30px;border:1.5px solid var(--border);border-radius:12px;font:600 12.5px Nunito,sans-serif;color:#4a4a45;background:#fff">'
           +   '<span style="position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#b0b0a6;pointer-events:none;display:flex"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.2-4.2"/></svg></span>'
           +   (s.csQuery ? '<button data-cs-search-clear title="Clear" style="position:absolute;right:9px;top:50%;transform:translateY(-50%);width:18px;height:18px;border-radius:50%;border:none;background:#e8e5dc;color:#7a7a70;font-size:10px;line-height:1;cursor:pointer">✕</button>' : '')
           + '</div>'
@@ -43703,8 +44694,8 @@ if (!tradeLinks.length) {
         + '</div>'
 
         + '<div style="display:flex;gap:8px;margin-top:10px">'
-        + '<button data-pack-fitting style="flex:1;padding:10px;border-radius:12px;border:none;background:'+S+'16;color:#5d8467;font:700 12px Nunito,sans-serif;cursor:pointer;text-align:center" title="Add all '+eligCount+' to the Fitting Room (not worn) — click them on later">＋ Add to Fitting Room ('+eligCount+')</button>'
-        + '<button data-pack-apply style="flex:1;padding:10px;border-radius:12px;border:none;background:'+S+';color:#fff;font:700 12px Nunito,sans-serif;cursor:pointer;text-align:center">Apply to pet ('+eligCount+')</button>'
+        + '<button data-pack-fitting style="flex:1;padding:10px;border-radius:12px;border:none;background:'+S+'16;color:#5d8467;font:700 12px Nunito,sans-serif;cursor:pointer;text-align:center" title="Add all '+eligCount+' to the Fitting Room (not worn) — click them on later">＋ Add to Fitting Room only ('+eligCount+')</button>'
+        + '<button data-pack-apply style="flex:1;padding:10px;border-radius:12px;border:none;background:'+S+';color:#fff;font:700 12px Nunito,sans-serif;cursor:pointer;text-align:center">＋ Add to Fitting Room & pet ('+eligCount+')</button>'
         + '</div>')
         + '</div></div>';
 
@@ -43884,9 +44875,9 @@ if (!tradeLinks.length) {
               return Object.assign({}, p, { items: [...(p.items||[]), { id:String(item.id), name:item.name, thumb:item.thumb||'', nc:!!item.nc }] });
             });
             oeSavePacks(packs);
-            return { packs, packSearchResults: [], packQuery: '' };
+
+            return { packs };
           });
-          const qi = wrap.querySelector('[data-pack-query]'); if (qi) qi.value = '';
         })
       );
 
@@ -44728,7 +45719,7 @@ if (!tradeLinks.length) {
         +'<span data-anim-track style="position:relative;width:30px;height:17px;border-radius:999px;background:'+(s.animated?'rgba(255,255,255,.5)':'rgba(255,255,255,.3)')+';display:inline-block">'
         +'<span data-anim-knob style="position:absolute;top:2px;left:'+(s.animated?'15px':'2px')+';width:13px;height:13px;border-radius:50%;background:#fff;transition:left .18s;box-shadow:0 1px 2px rgba(0,0,0,.25);display:block"></span>'
         +'</span>'
-        +'<span data-anim-label>'+(s.animated?'Animated':'Still')+'</span>'
+        +'<span data-anim-label>'+(s.animated?'Animated':'Static')+'</span>'
         +'</button>'
 
         +(function(){
@@ -44924,7 +45915,7 @@ if (!tradeLinks.length) {
         const label = btn.querySelector('[data-anim-label]');
         if (track) track.style.background = next ? 'rgba(255,255,255,.5)' : 'rgba(255,255,255,.3)';
         if (knob)  knob.style.left = next ? '15px' : '2px';
-        if (label) label.textContent = next ? 'Animated' : 'Still';
+        if (label) label.textContent = next ? 'Animated' : 'Static';
       });
 
       onOne('[data-anim-lock]', 'click', e => {
@@ -44942,6 +45933,20 @@ if (!tradeLinks.length) {
           OE.set({ animLockPending: on ? (OE.get().animated ? 1 : 0) : null });
         }
         btn.style.background = on ? '#e8a13a' : 'rgba(70,75,80,.45)';
+
+        try {
+          document.querySelectorAll('.dtr-anim-toast').forEach(t => t.remove());
+          const _tt = document.createElement('div');
+          _tt.className = 'dtr-anim-toast';
+          _tt.style.cssText = 'position:fixed;z-index:2147483100;background:#fff;border:1.5px solid #efe7da;border-radius:999px;box-shadow:0 8px 28px rgba(40,60,50,.18);padding:7px 13px;font:700 11.5px "Nunito",Inter,sans-serif;color:#564f60;transition:opacity .3s;pointer-events:none;white-space:nowrap;';
+          _tt.textContent = on ? ('Locked animation state as ' + (OE.get().animated ? 'Animated' : 'Static')) : 'Animation lock removed';
+          document.body.appendChild(_tt);
+          const _r = btn.getBoundingClientRect(), _w = _tt.offsetWidth, _h = _tt.offsetHeight;
+          _tt.style.left = Math.max(8, Math.min(window.innerWidth - _w - 8, _r.left + _r.width / 2 - _w / 2)) + 'px';
+          _tt.style.top = Math.max(8, (_r.top - _h - 8 < 8 ? _r.bottom + 8 : _r.top - _h - 8)) + 'px';
+          setTimeout(() => { try { _tt.style.opacity = '0'; } catch (_) {} }, 2000);
+          setTimeout(() => { try { _tt.remove(); } catch (_) {} }, 2400);
+        } catch (_) {}
         btn.title = on ? (oid ? 'Animation state locked for this outfit — click to unlock (follows the global default again)' : 'Will lock this animation state when the outfit saves — click to cancel')
                        : 'Lock this outfit’s animation state so the global default never changes it' + (oid ? '' : ' (applies when the outfit saves)');
         btn.innerHTML = on
@@ -49430,9 +50435,9 @@ if (!tradeLinks.length) {
       return 'page';
     }
     function matchTokens() {
-      var idx = readIdx(), counts = {}, ids = [], copies = 0;
-      scrapeNames(true).forEach(function (nm) { var id = idx[norm(nm)]; if (id) { id = String(id); if (counts[id] == null) ids.push(id); counts[id] = (counts[id] || 0) + 1; copies++; } });
-      return { ids: ids, counts: counts, copies: copies, hasIdx: Object.keys(idx).length > 0, anyItems: out_anyItems() };
+      var idx = readIdx(), counts = {}, ids = [], copies = 0, names = {};
+      scrapeNames(true).forEach(function (nm) { var id = idx[norm(nm)]; if (id) { id = String(id); if (counts[id] == null) { ids.push(id); names[id] = String(nm).trim(); } counts[id] = (counts[id] || 0) + 1; copies++; } });
+      return { ids: ids, counts: counts, copies: copies, names: names, hasIdx: Object.keys(idx).length > 0, anyItems: out_anyItems() };
     }
     function out_anyItems() { return scrapeNames(true).length > 0; }
     function tagOwned(counts) {
@@ -49449,38 +50454,113 @@ if (!tradeLinks.length) {
       try { GM_setValue('dtr_ps_own', JSON.stringify(own)); } catch (_) {}
       return added;
     }
-    var pill = null, done = false, obs = null, shown = false;
 
-    var CX = '<button type="button" class="dtr-tp-x" aria-label="Dismiss" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);border:none;background:transparent;color:rgba(255,255,255,.9);font:900 22px Arial,Helvetica,sans-serif;line-height:1;cursor:pointer;padding:0 4px">×</button>';
-    function ensurePill() {
-      if (pill && document.body && document.body.contains(pill)) return pill;
-      pill = document.createElement('div'); pill.id = 'dtr-token-pill';
-      var up = !!(document.getElementById('neo-dti-mode-selector') || document.getElementById('neo-dti-bulk-btn'));
-      pill.style.cssText = 'position:fixed;right:24px;bottom:' + (up ? 96 : 24) + 'px;z-index:2147483646;display:flex;align-items:center;gap:8px;padding:13px 44px 13px 20px;background:#3a7a5e;border:2px solid #9fca80;border-radius:40px;color:#fff;font:700 13px Arial,Helvetica,sans-serif;line-height:1.25;max-width:560px;box-shadow:0 5px 20px rgba(0,0,0,.38);cursor:pointer';
-      (document.body || document.documentElement).appendChild(pill);
-      return pill;
+    var done = false, obs = null, shown = false, panelEl = null, lastState = null;
+    function psCss() {
+      if (document.getElementById('dtr-ps-style2')) return;
+      var st = document.createElement('style'); st.id = 'dtr-ps-style2';
+      st.textContent = [
+        '#dtr-ps-panel{position:fixed;right:16px;bottom:16px;z-index:2147483000;width:316px;max-height:84vh;overflow:auto;background:#fff;border-radius:16px;box-shadow:0 14px 40px -8px rgba(30,40,60,.4);box-sizing:border-box;font-family:"Nunito","Inter",Arial,sans-serif;color:#3a3a44;}',
+        '#dtr-ps-panel *{box-sizing:border-box;}',
+        '#dtr-ps-panel .psp-hd{position:relative;padding:15px 16px 12px;}',
+        '#dtr-ps-panel .psp-hd::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:16px 16px 0 0;background:linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%);}',
+        '#dtr-ps-panel .psp-title{font:800 14px/1.2 Nunito,sans-serif;color:#2a2a33;margin:4px 0 3px;}',
+        '#dtr-ps-panel .psp-sub{font:600 11px/1.4 Nunito,sans-serif;color:#8a8a95;}',
+        '#dtr-ps-panel .psp-x{position:absolute;top:12px;right:12px;width:22px;height:22px;border:none;border-radius:50%;background:#f0f0f3;color:#7a7a85;font:700 12px Nunito;cursor:pointer;line-height:1;}',
+        '#dtr-ps-panel .psp-clock{position:absolute;top:10px;right:40px;display:flex;align-items:center;color:#948fa0;cursor:pointer;border:none;background:none;padding:4px 6px;border-radius:8px;}',
+        '#dtr-ps-panel .psp-clock:hover{background:#f6f3ec;color:#564f60;}',
+        '#dtr-ps-panel .psp-clock.on{background:#dbf5f1;color:#0f7f73;}',
+        '#dtr-ps-panel .psp-body{padding:0 16px 15px;}',
+        '#dtr-ps-panel .psp-prog{background:#f5faf9;border:1px solid #e0efec;border-radius:12px;padding:10px 12px;margin-top:13px;}',
+        '#dtr-ps-panel .psp-prog .big{font:800 20px Nunito,sans-serif;color:#159c8c;}',
+        '#dtr-ps-panel .psp-prog .cap{font:700 11px Nunito,sans-serif;color:#6a6a75;}',
+        '#dtr-ps-panel .psp-hint{font:600 11px/1.45 Nunito,sans-serif;color:#6a6a75;margin-top:11px;}',
+        '#dtr-ps-panel .psp-go{width:100%;margin-top:13px;border:none;border-radius:11px;padding:11px;font:800 12.5px Nunito,sans-serif;color:#fff;background:#159c8c;cursor:pointer;}',
+        '#dtr-ps-panel .psp-done{display:flex;align-items:flex-start;gap:8px;background:#e4f5f1;border:1px solid #bfe7dd;border-radius:12px;padding:10px 12px;margin-top:13px;font:700 11.5px/1.45 Nunito,sans-serif;color:#1e5a4e;}',
+        '#dtr-ps-panel .psp-hist{display:none;padding:0 16px 15px;}',
+        '#dtr-ps-panel.showhist .psp-body{display:none;}',
+        '#dtr-ps-panel.showhist .psp-hist{display:block;}'
+      ].join('');
+      (document.head || document.documentElement).appendChild(st);
     }
-    function wireClose(p) { var x = p.querySelector('.dtr-tp-x'); if (x) x.onclick = function (e) { e.stopPropagation(); try { p.remove(); } catch (_) {} }; }
+    function showTab() {
+      if (!document.body || done) return;
+      if (document.getElementById('dtr-ps-tab') || document.getElementById('dtr-ps-panel')) { syncTabCount(); return; }
+      if (typeof window._dtrMkEdgeTab !== 'function') return;
+      var r = matchTokens();
+      var tab = window._dtrMkEdgeTab('dtr-ps-tab', 'Styles → DTI', r.ids.length || null, 'Tag the pet styles on this page as Owned in DTI Remix');
+      tab.style.top = '62%';
+      tab.addEventListener('click', function () { try { tab.remove(); } catch (_) {} buildPanel(); });
+      document.body.appendChild(tab);
+    }
+    function syncTabCount() {
+      var c = document.querySelector('#dtr-ps-tab .dtr-et-count');
+      var r = matchTokens();
+      if (c && r.ids.length) c.textContent = r.ids.length;
+    }
     function paint(state) {
-      var p = ensurePill();
+      lastState = state;
+      if (!panelEl) return;
+      var body = panelEl.querySelector('.psp-body');
       if (state.kind === 'offer') {
-        p.style.cursor = 'pointer'; p.style.background = '#3a7a5e'; p.style.borderColor = '#9fca80';
-        p.innerHTML = '<span style="font-size:15px">✨</span><span>' + state.count + ' pet style' + (state.count === 1 ? '' : 's') + ' here — <u>tag all Owned in DTI Remix</u></span>' + CX;
 
-        p.onclick = function () { var live = matchTokens(); done = true; try { if (obs) obs.disconnect(); } catch (_) {} var added = tagOwned(live.counts); paint({ kind: 'done', added: added, total: live.ids.length, copies: live.copies }); };
-        wireClose(p);
+        body.innerHTML = '<div class="psp-prog"><span class="big">' + state.count + '</span> <span class="cap">pet style' + (state.count === 1 ? '' : 's') + ' here' + (state.copies > state.count ? ' · ' + state.copies + ' copies' : '') + '</span></div>'
+          + '<div class="psp-hint">Tagging marks these styles as <b>Owned</b> everywhere in DTI Remix. Re-tagging this page never double-counts.</div>'
+          + '<button class="psp-go" type="button">Tag all Owned in DTI Remix</button>';
+        var go = body.querySelector('.psp-go');
+        if (go) go.onclick = function () {
+          var live = matchTokens();
+          done = true; try { if (obs) obs.disconnect(); } catch (_) {}
+          var added = tagOwned(live.counts);
+          try {
+            if (typeof window._dtrRecordImport === 'function' && live.ids.length) {
+              var byName = {}; live.ids.forEach(function (id) { byName[live.names[id] || ('Style #' + id)] = live.counts[id] || 1; });
+              window._dtrRecordImport(byName, 'styles');
+            }
+          } catch (_) {}
+          paint({ kind: 'done', added: added, total: live.ids.length, copies: live.copies });
+        };
       } else if (state.kind === 'done') {
-        p.style.cursor = 'default'; p.onclick = null; p.style.background = '#de7d1f'; p.style.borderColor = '#f0ad63';
-        p.innerHTML = '<span style="font-size:15px">✓</span><span>Tagged ' + state.added + ' new · counted ' + (state.copies || state.total) + ' cop' + ((state.copies || state.total) === 1 ? 'y' : 'ies') + ' across ' + state.total + ' style' + (state.total === 1 ? '' : 's') + ' as Owned in DTI Remix</span>' + CX;
-        wireClose(p); setTimeout(function () { try { p.remove(); } catch (_) {} }, 7000);
+        var _cp = state.copies || state.total;
+        body.innerHTML = '<div class="psp-done"><span>✓</span><span>' + (_cp > state.total ? ('Tagged ' + state.added + ' new · ' + _cp + ' copies across ' + state.total + ' styles marked as Owned in DTI Remix.') : ('Tagged ' + state.added + ' new · ' + state.total + ' style' + (state.total === 1 ? '' : 's') + ' marked as Owned in DTI Remix.')) + '</span></div>'
+          + '<div class="psp-hint">Logged under Past imports (the clock above) as “Pet Styles”.</div>';
       } else if (state.kind === 'sync') {
-        p.style.cursor = 'default'; p.onclick = null;
-        p.innerHTML = '<span style="font-size:15px">↻</span><span>Open DTI Remix once to sync the style list, then revisit here to tag these Owned.</span>' + CX;
-        wireClose(p); setTimeout(function () { try { p.remove(); } catch (_) {} }, 12000);
+        body.innerHTML = '<div class="psp-hint">Open DTI Remix once to sync the style list, then revisit this page to tag these styles as Owned.</div>';
       }
     }
-
-    function refresh() { if (done) return; var r = matchTokens(); if (r.ids.length) { shown = true; paint({ kind: 'offer', count: r.ids.length }); } }
+    function buildPanel() {
+      psCss();
+      if (document.getElementById('dtr-ps-panel')) return;
+      panelEl = document.createElement('div'); panelEl.id = 'dtr-ps-panel';
+      panelEl.innerHTML = '<div class="psp-hd"><button class="psp-x" data-hide title="Hide">✕</button>'
+        + '<button class="psp-clock" data-hist type="button" title="Past imports" aria-label="Past imports">' + (window._DTR_HIST_CLOCK_SVG || '🕓') + '</button>'
+        + '<div class="psp-title">Pet Styles → DTI Sync</div>'
+        + '<div class="psp-sub">Tag the pet styles on this page as Owned in DTI Remix.</div></div>'
+        + '<div class="psp-body"></div><div class="psp-hist"></div>';
+      document.body.appendChild(panelEl);
+      panelEl.addEventListener('click', function (e) {
+        if (e.target.closest('[data-hide]')) { try { panelEl.remove(); } catch (_) {} panelEl = null; if (!done) showTab(); return; }
+        if (e.target.closest('[data-hist]')) {
+          var on = panelEl.classList.toggle('showhist');
+          panelEl.querySelector('.psp-clock').classList.toggle('on', on);
+          if (on && typeof window._dtrHistHTML === 'function') panelEl.querySelector('.psp-hist').innerHTML = window._dtrHistHTML('styles');
+          return;
+        }
+        if (typeof window._dtrHistClick === 'function' && window._dtrHistClick(e, function () { var h = panelEl.querySelector('.psp-hist'); if (h) h.innerHTML = window._dtrHistHTML('styles'); })) return;
+      });
+      var r = matchTokens();
+      if (r.ids.length) paint({ kind: 'offer', count: r.ids.length, copies: r.copies });
+      else paint({ kind: 'sync' });
+    }
+    function refresh() {
+      if (done) return;
+      var r = matchTokens();
+      if (r.ids.length) {
+        shown = true;
+        if (panelEl && lastState && lastState.kind === 'offer') paint({ kind: 'offer', count: r.ids.length, copies: r.copies });
+        else if (!panelEl) showTab();
+      }
+    }
     var _rt = null;
     function start() {
       if (!document.body) { setTimeout(start, 200); return; }
@@ -49490,7 +50570,7 @@ if (!tradeLinks.length) {
         obs.observe(document.body, { childList: true, subtree: true });
       } catch (_) {}
 
-      setTimeout(function () { if (!shown && !done) { var idx = readIdx(); if (!Object.keys(idx).length && scrapeNames().length) paint({ kind: 'sync' }); } }, 5000);
+      setTimeout(function () { if (!shown && !done) { var idx = readIdx(); if (!Object.keys(idx).length && scrapeNames().length) { if (typeof window._dtrMkEdgeTab === 'function' && !document.getElementById('dtr-ps-tab') && !document.getElementById('dtr-ps-panel')) { var tb = window._dtrMkEdgeTab('dtr-ps-tab', 'Styles → DTI', null, 'Pet styles detected — open to set up tagging'); tb.style.top = '62%'; tb.addEventListener('click', function () { try { tb.remove(); } catch (_) {} buildPanel(); }); document.body.appendChild(tb); } } } }, 5000);
       setTimeout(function () { try { if (obs) obs.disconnect(); } catch (_) {} }, 90000);
     }
     start();

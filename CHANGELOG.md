@@ -3,6 +3,32 @@
 <!-- ── UNRELEASED: running draft, updated as features land in preview. At push: date the heading,
      give it a theme label, final copy-edit (net effect only — collapse superseded churn), and move
      on. Never delete items from here except when the feature itself was removed before shipping. ── -->
+## July 10, 2026 — Preferred Traders & the item-page glow-up
+
+### Enhancements
+- **Item page:** A big layout refresh — **Trade Activity now sits on the left**, always exactly as tall as your lists area (it grows and shrinks as you show or hide lists, scrolling inside itself), and every card floats freely on the wallpaper instead of sitting inside one big bordered box.
+- **Item page (new!):** **Preferred Traders.** Starred traders are now your *Preferred Traders*, and they earn their keep: open one of your wishlists in your closet and hit **★ Check Preferred Traders' Lists**, or select items on an outfit in the Your Outfits film-strip view and do the same — DTI Remix scans their public trade lists and shows exactly who has the items you're after, so you know who to contact without clicking through everyone's lists one by one.
+- **Item page:** Trade statuses got a glow-up — the **+ status** button and the status picker are now soft rounded pills that match the rest of the site, instead of boxy yellow chips.
+- **Everywhere:** The little **"seen" eye** is now one cute, consistent icon across the whole site (it used to render as a heavy black glyph in some places).
+- **Everywhere:** The **Try On Haul side tab** now wears the same clean white-and-teal look on every page — the old glowing gold version is retired.
+- **Inventory:** The **Sync to DTI** tab matches that same style, and **Past imports** is now a pretty pastel log that shows *where* each import came from, with CSV export included.
+- **Closet:** The wooden sign on someone's closet now has a **★ button** next to the mail and lookup icons — one click makes them a Preferred Trader (it lights up gold when they are).
+- **Closet:** Adding to the **Try On Haul now confirms with a toast** just like the clipboard does, all toasts share one soft style (the bulky green one is gone), and the clipboard button **stays lit on items that are on your clipboard** — it clears itself when you remove them.
+- **Closet:** The clipboard and try-on buttons on item cards are **stacked neatly over the item art** (clipboard on top) instead of sitting side by side, and the hanger icon on the Try On Haul side tab is properly centered.
+- **Everywhere:** **Manage your Preferred Traders from the ⚙ menu** — a new panel lists everyone you've starred, with one click to open their closet, un-star them, or **add someone new by username** (it checks the name is a real DTI user first). "Your Lists" also tucked itself into a tidy flyout there instead of a mile-long scroll.
+- **Everywhere:** **Un-starring a Preferred Trader now gives you a few seconds to hit Undo**, wherever you do it.
+- **Item page:** Feeling generous? Flip to **Seeking + ★ Preferred Traders** to see which of your favorite people *want* the item you're looking at — and when none of them do, it says exactly that instead of pretending you have no Preferred Traders at all.
+- **Your Outfits:** Fixed item names and pictures **sometimes never loading** — the data was there all along; the page just forgot to repaint once it had it. Big outfit collections also load much more gently now instead of firing every request at once.
+- **Everywhere:** The header now **always fits on one row** — no more buttons floating up on their own line; it compresses gracefully in narrow windows.
+- **Everywhere:** Import history's **CSV export moved to the top** where you can actually see it.
+- **Neopets pages:** The **pet-style tagger got a full makeover** — instead of the big green pop-up pill, it's now the same tidy side tab as everything else: click it to open a soft panel, tag the styles on the page as Owned, and see it logged under **Past imports** (tagged entries show a "Pet Styles" badge).
+
+### Fixes
+- **Item page:** Fixed the **star filter getting stuck on an empty list** — the filter quietly stayed on between pages, so Offering/Seeking could show nothing but a lonely "Show next 15" button. The ★ Preferred Traders filter now always starts off, switches off when you pick Offering or Seeking, shows every starred trader it knows about, and when there are none it says so and tells you how to add some.
+- **Item page:** The value tag under the item art (like "Dyeworks thru July 15") is properly centered and wraps neatly when it's long.
+- **Item page:** The frame around the item art was oddly three-dimensional — it's flat and tidy now, like every other card.
+- **Closet:** The clipboard now sorts items onto the **correct side** when the person whose closet you're browsing both owns *and* wants the same item. Grabbing it from their wishlist (or the "wants & you own" column in Comparison Mode) kept landing it under "owns & you want" — the clipboard now goes by the section you actually clicked in.
+
 ## July 10, 2026 — The big import tune-up
 
 ### Enhancements
