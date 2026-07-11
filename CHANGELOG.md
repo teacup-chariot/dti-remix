@@ -3,6 +3,20 @@
 <!-- ── UNRELEASED: running draft, updated as features land in preview. At push: date the heading,
      give it a theme label, final copy-edit (net effect only — collapse superseded churn), and move
      on. Never delete items from here except when the feature itself was removed before shipping. ── -->
+## July 10, 2026 — The My Pet Styles makeover
+
+### Enhancements
+- **Pet Styles:** The **My Pet Styles board got a full makeover.** It now wears the same pretty pastel backdrop as the rest of the site, your Wished and Owned columns have proper labels, and the style cards size themselves to fit the space instead of leaving awkward gaps.
+- **Pet Styles:** A new **＋ Add a style** button at the top of the board lets you search every Pet Style by name and file it straight into Wished or Owned.
+- **Pet Styles:** The board's clipboard now **splits into Owned and Wished** like the main clipboard does, and you can add an optional note that's included when you copy your list. **Copy list writes plain, paste-ready text** with the same Format and Case options as the main clipboard — no more emoji headers.
+- **Pet Styles:** The share collage is simpler and friendlier — instead of fiddly counters and currency buttons, there's **one "Offering" box under each style where you just type what you're offering** (like "3 GBC" or "brushes or swap") and it prints right onto the shared image. Copied lists include your offers too.
+- **Customize:** More community-submitted Pet Styles now show their **exact Neoboards Active Box** (thank you to everyone who hit "Send it in"!), and the cap that cut submitters off after 10 styles a day is gone.
+- **Customize:** "Send it in" submissions **keep themselves fresh now** — if you sent a style in and it hasn't shipped yet, just load your pet wearing it once and DTI Remix quietly re-checks it in, so it gets measured in the next update without you doing anything else.
+
+### Fixes
+- **Import:** NP items now show their **blue NP label** on import cards, matching the item cards everywhere else — it was quietly missing whenever an item had been looked up in an earlier session.
+- **Everywhere:** Long-parked **pinned tabs now notice updates** — coming back to a DTI tab you left open for days will show the "an update landed" card if a newer build arrived in the meantime, instead of staying quiet until a manual refresh.
+
 ## July 10, 2026 — Preferred Traders & the item-page glow-up
 
 ### Enhancements

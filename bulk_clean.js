@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  window.__DTR_META = {"v":"10.648.25","history":[{"v":"10.648.25","label":"Meet Preferred Traders — plus a big item-page glow-up","ts":"July 10, 2026 · 6:01 PM PT","notes":["New: Preferred Traders! Star the traders you love — from any item’s Trade Activity, the sign on their closet, or by username in the ⚙ menu. Then let DTI Remix do the legwork: check which of them have the items on your wishlists and outfits, or flip an item’s Trade Activity to Seeking to see who’d love it as a gift. Clicking a match opens their closet straight into Comparison Mode.","The item page got a full refresh: Trade Activity sits on the left and always matches your lists’ height, statuses are soft pills, every confirmation shares one gentle toast style, and tooltips stopped covering what you’re reading.","Clipboard fix: when a trader both owns and wants the same item, adding it from their wishlist no longer lands on the wrong side. The item-card buttons are neatly stacked now, and the clipboard button stays lit on items you’ve added — click again to remove.","Your Outfits: item names and pictures now load reliably, and big collections load much more gently.","The header always fits on one row, every import panel has its own Past imports log (CSV export where you can see it), and the pet-style tagger became a tidy side tab like everything else.","Plus: the animation lock now confirms itself (“Animated” or “Static”), Starter Pack search stays open while you add items, and un-starring anything gives you a few seconds to Undo."]},{"v":"10.646.2","label":"The big import tune-up: your sorting sticks — plus type-in counts, stragglers & a calmer look","ts":"July 10, 2026 · 5:24 AM PT","notes":["Your sorting is safe now: every assignment is stored the instant you make it, survives refreshes, and finishes saving itself. Saves are verified against DTI and retried, a red banner appears if anything fails, and the import pauses honestly if you’re not logged in.","Fixed the maddening “1 more to place” that dragged you back to items you’d already sorted — placed means placed.","Anything you miss while paging gathers in a Stragglers section at the end of the last page, and “Place all” there finishes the whole import. (The “Take me to the next one” button that yanked you up the page is retired.)","Type a quantity straight into any stepper — click the number and type. Backspace to zero works too.","Arrange your import list tiles your way: drag by the ⠿ grip, leave gaps, tiles never shove each other, drop on a tile to swap.","One steady count in the header — copies, items and pages for the whole import — and a tidier, balanced layout.","Item names are links to their item pages, Offering/Seeking counts load fast and open where you clicked, and preview images that time out retry themselves.","Items with “&” in their name import properly, and items Neopets spells differently than DTI (like “Cloud Face Paint”) now match up.","Unfinished imports no longer quietly disappear after a week, and re-running an import mid-way only adds genuinely new copies.","Everywhere: DTI’s native green hover can no longer sneak onto buttons or links, plus a pile of Customize and item-page fixes (frame options restored, clean teal chevrons, no more doubled animated items)."]},{"v":"10.628.4","label":"Neoboards Active Box, import tools & a big polish pass","ts":"July 7, 2026 · 2:47 AM PT","notes":["New Neoboards Active Box viewfinder (Beta) in the Customize frame picker — see exactly which square of your custom shows up in your board avatar, from real measured data for every species and colour family (Baby, Maraquan, Mutant, 8-bit, Origami, Invisible).","The Active Box learns new Pet Styles from the community: styled pets show a close approximation for now, but load a pet by name wearing a style we don’t have yet and one click shares it (just the pet name + style) so its exact box can ship for everyone in a later update.","Customize: the variants strip can now be collapsed — click the VARIANTS header to tuck the cards away and get straight to your item list; it remembers your choice.","Import: a Try-On Preview parks beside the import list — click any item card (or Tab through them) to see it on your preferred pet, which it now remembers as you go.","Import: a “you’re almost done” guide appears when items still need sorting and walks you through each; the finished summary shows only once everything is settled.","Import: cleaner card buttons — Skip import (a calm red) discards and skips an item, and Done · keep N in inventory only shows once you’ve placed a copy with leftovers. Item zones now read as plain text under an OCCUPIES label.","Items: the Infinite Closet search page joined the reskin — our header, a proper search pill, konpeito cards and pagination.","Closet: Bulk Remove is fast now, with a progress counter, instead of freezing for several seconds.","Homepage: a warm empty state on Newest Wearables when nothing matches, and the panel opens to your Imports tab when you have one unfinished.","Fixes: the item page scrolls again (it was cutting off the pet preview); starter packs no longer pile onto real pets (they only apply to fresh, naked customs); the Active Box is honest about Pet Styles (it says a style is not supported yet rather than drawing a wrong box); and our styling no longer briefly bleeds onto Neopets’ own pages."]},{"v":"10.620.0","label":"Customize polish, board editor & a variants-safety fix","ts":"July 6, 2026 · 7:12 AM PT","notes":["Customize is smoother: your starter pack now loads into the Fitting Room on a new custom, animation reliably plays after you save or refresh (and follows the header Animated toggle everywhere), the pet preview is bigger, and the Layers button on variant cards opens properly again.","A big fix: your saved variant groups on Your Outfits no longer reset themselves into separate customs.","Lookbook boards now open into a full-width canvas — the board list tucks away while you edit so you get a proper working area, and new boards start square.","Try On Haul is cleaner and lighter: the hidden Preview tab no longer animates in the background, and the panel always opens fully on-screen on smaller windows.","Owned/Wishlisted status stays fresh automatically — no more reopening your closet to clear a stale Wishlisted flag."]},{"v":"10.613.0","label":"Homepage feed, one settings cog & List Management","ts":"July 5, 2026 · evening PT","notes":["New homepage feed: the right column now shows your recent Customs as thumbnails (variants tucked under each look), your in-progress Imports, and a What’s New tab.","One settings cog (top-left) now holds everything: theme, a Quickstart pet + starter pack for the new + New Custom button, and full List Management — rename lists, set Private/Public/Trading, add nicknames, and choose what counts in Comparison Mode.","Animation now follows one global default, and you can lock a custom’s Animated/Still state so it always opens the way you saved it.","Try On Haul: star your preferred tab and it always opens there; clicking items in the Preview tab now dresses the preview pet properly."]},{"v":"10.608.0","label":"Lookbook board editor, rebuilt","ts":"July 5, 2026 · 12:40 AM PT","notes":["The Lookbook board editor is rebuilt: a left toolbar and an always-open side panel put every control in front of you, instead of behind pop-up menus.","New Freestyle mode — drag each pet anywhere, resize them one at a time, and place the title wherever you like. Grid mode is still there for tidy rows.","A real Layers panel: drag to restack, put pets in front of or behind your decorations, hide or lock any layer, and right-click a decoration to send it forward or back.","Click a pet to select it (shift-click for several), and type an exact canvas size in pixels."]},{"v":"10.607.0","label":"Lookbook board editor + Your Outfits & Customize fixes","notes":["Lookbook boards are now a full editor. Arrange your saved looks in a grid — set how many per row, plus their size and spacing — and pick a frame shape (rounded, circle, arch, hex and more) with an optional border and soft shadow.","Style the whole board: show or hide pet names and give them their own font, size and colour; add and style the title the same way; set a background colour or drop in a background image; and add decorations by dropping in any item as art (in front of or behind your pets).","Nothing on a board changes by accident — every edit stays a draft until you hit Save. You can Clone a board to spin off a variation, and download the finished collage as an image.","Your Outfits: sorting A→Z now uses a look's crowned variant name, so it lands where you expect; the delete button is back; and a look that jumps position after you crown or group a variant now scrolls into view so you never lose track of it.","Customize: opening a custom that someone shared with you no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own Save keeps a copy."]},{"v":"10.597.5","label":"Closet & search fixes","notes":["Fixed an error that could break some closet pages (links without a name in the URL)","Item search now flags when the Hide-locked-zones setting is hiding matches, with a one-click Show them"]},{"v":"10.596.6","label":"Comparison Mode & logged-out fixes","notes":["Comparison Mode: hide lists you never trade from, and it now matches your live wishlist however an item was added","Fixed items wrongly showing as Wishlisted or Owned while logged out","Try On Haul is now hidden entirely when you are logged out","Your Outfits opens to your outfits again, not a Lookbook board"]},{"v":"10.592.1","label":"Lookbook, DTI Sync & item links","notes":["Lookbook (new!): arrange your saved looks into themed boards","DTI Sync: keep some copies in your inventory, and see each item's zones on the cards"]},{"v":"10.587.10","label":"Closet bulk-edit","notes":["Bulk-move whole stacks, and gather copies spread across several lists","Your clipboard, drafts and Try On Haul are now separate per account"]}]};
+  window.__DTR_META = {"v":"10.649.7","history":[{"v":"10.649.7","label":"The My Pet Styles makeover — plus Active Box upgrades & little fixes","ts":"July 10, 2026 · 11:27 PM PT","notes":["My Pet Styles got a top-to-bottom makeover: the pretty pastel look, Owned and Wished side by side, a ＋ Add a style search, a tidier clipboard with a note field, and an Undo when you clear a column.","Sharing what you’re seeking is simpler — type what you’re offering under each style (like “3 GBC” or “brushes or swap”) and it prints right on the collage image and in copied lists.","Import cards now show the blue NP label, so you can tell NP from NC at a glance while sorting.","The Neoboards Active Box knows more Pet Styles (thanks to your submissions!), the 10-a-day submission cap is gone, and submissions now keep themselves fresh until they ship.","Left a DTI tab pinned for days? It now notices new updates when you come back to it."]},{"v":"10.648.25","label":"Meet Preferred Traders — plus a big item-page glow-up","ts":"July 10, 2026 · 6:01 PM PT","notes":["New: Preferred Traders! Star the traders you love — from any item’s Trade Activity, the sign on their closet, or by username in the ⚙ menu. Then let DTI Remix do the legwork: check which of them have the items on your wishlists and outfits, or flip an item’s Trade Activity to Seeking to see who’d love it as a gift. Clicking a match opens their closet straight into Comparison Mode.","The item page got a full refresh: Trade Activity sits on the left and always matches your lists’ height, statuses are soft pills, every confirmation shares one gentle toast style, and tooltips stopped covering what you’re reading.","Clipboard fix: when a trader both owns and wants the same item, adding it from their wishlist no longer lands on the wrong side. The item-card buttons are neatly stacked now, and the clipboard button stays lit on items you’ve added — click again to remove.","Your Outfits: item names and pictures now load reliably, and big collections load much more gently.","The header always fits on one row, every import panel has its own Past imports log (CSV export where you can see it), and the pet-style tagger became a tidy side tab like everything else.","Plus: the animation lock now confirms itself (“Animated” or “Static”), Starter Pack search stays open while you add items, and un-starring anything gives you a few seconds to Undo."]},{"v":"10.646.2","label":"The big import tune-up: your sorting sticks — plus type-in counts, stragglers & a calmer look","ts":"July 10, 2026 · 5:24 AM PT","notes":["Your sorting is safe now: every assignment is stored the instant you make it, survives refreshes, and finishes saving itself. Saves are verified against DTI and retried, a red banner appears if anything fails, and the import pauses honestly if you’re not logged in.","Fixed the maddening “1 more to place” that dragged you back to items you’d already sorted — placed means placed.","Anything you miss while paging gathers in a Stragglers section at the end of the last page, and “Place all” there finishes the whole import. (The “Take me to the next one” button that yanked you up the page is retired.)","Type a quantity straight into any stepper — click the number and type. Backspace to zero works too.","Arrange your import list tiles your way: drag by the ⠿ grip, leave gaps, tiles never shove each other, drop on a tile to swap.","One steady count in the header — copies, items and pages for the whole import — and a tidier, balanced layout.","Item names are links to their item pages, Offering/Seeking counts load fast and open where you clicked, and preview images that time out retry themselves.","Items with “&” in their name import properly, and items Neopets spells differently than DTI (like “Cloud Face Paint”) now match up.","Unfinished imports no longer quietly disappear after a week, and re-running an import mid-way only adds genuinely new copies.","Everywhere: DTI’s native green hover can no longer sneak onto buttons or links, plus a pile of Customize and item-page fixes (frame options restored, clean teal chevrons, no more doubled animated items)."]},{"v":"10.628.4","label":"Neoboards Active Box, import tools & a big polish pass","ts":"July 7, 2026 · 2:47 AM PT","notes":["New Neoboards Active Box viewfinder (Beta) in the Customize frame picker — see exactly which square of your custom shows up in your board avatar, from real measured data for every species and colour family (Baby, Maraquan, Mutant, 8-bit, Origami, Invisible).","The Active Box learns new Pet Styles from the community: styled pets show a close approximation for now, but load a pet by name wearing a style we don’t have yet and one click shares it (just the pet name + style) so its exact box can ship for everyone in a later update.","Customize: the variants strip can now be collapsed — click the VARIANTS header to tuck the cards away and get straight to your item list; it remembers your choice.","Import: a Try-On Preview parks beside the import list — click any item card (or Tab through them) to see it on your preferred pet, which it now remembers as you go.","Import: a “you’re almost done” guide appears when items still need sorting and walks you through each; the finished summary shows only once everything is settled.","Import: cleaner card buttons — Skip import (a calm red) discards and skips an item, and Done · keep N in inventory only shows once you’ve placed a copy with leftovers. Item zones now read as plain text under an OCCUPIES label.","Items: the Infinite Closet search page joined the reskin — our header, a proper search pill, konpeito cards and pagination.","Closet: Bulk Remove is fast now, with a progress counter, instead of freezing for several seconds.","Homepage: a warm empty state on Newest Wearables when nothing matches, and the panel opens to your Imports tab when you have one unfinished.","Fixes: the item page scrolls again (it was cutting off the pet preview); starter packs no longer pile onto real pets (they only apply to fresh, naked customs); the Active Box is honest about Pet Styles (it says a style is not supported yet rather than drawing a wrong box); and our styling no longer briefly bleeds onto Neopets’ own pages."]},{"v":"10.620.0","label":"Customize polish, board editor & a variants-safety fix","ts":"July 6, 2026 · 7:12 AM PT","notes":["Customize is smoother: your starter pack now loads into the Fitting Room on a new custom, animation reliably plays after you save or refresh (and follows the header Animated toggle everywhere), the pet preview is bigger, and the Layers button on variant cards opens properly again.","A big fix: your saved variant groups on Your Outfits no longer reset themselves into separate customs.","Lookbook boards now open into a full-width canvas — the board list tucks away while you edit so you get a proper working area, and new boards start square.","Try On Haul is cleaner and lighter: the hidden Preview tab no longer animates in the background, and the panel always opens fully on-screen on smaller windows.","Owned/Wishlisted status stays fresh automatically — no more reopening your closet to clear a stale Wishlisted flag."]},{"v":"10.613.0","label":"Homepage feed, one settings cog & List Management","ts":"July 5, 2026 · evening PT","notes":["New homepage feed: the right column now shows your recent Customs as thumbnails (variants tucked under each look), your in-progress Imports, and a What’s New tab.","One settings cog (top-left) now holds everything: theme, a Quickstart pet + starter pack for the new + New Custom button, and full List Management — rename lists, set Private/Public/Trading, add nicknames, and choose what counts in Comparison Mode.","Animation now follows one global default, and you can lock a custom’s Animated/Still state so it always opens the way you saved it.","Try On Haul: star your preferred tab and it always opens there; clicking items in the Preview tab now dresses the preview pet properly."]},{"v":"10.608.0","label":"Lookbook board editor, rebuilt","ts":"July 5, 2026 · 12:40 AM PT","notes":["The Lookbook board editor is rebuilt: a left toolbar and an always-open side panel put every control in front of you, instead of behind pop-up menus.","New Freestyle mode — drag each pet anywhere, resize them one at a time, and place the title wherever you like. Grid mode is still there for tidy rows.","A real Layers panel: drag to restack, put pets in front of or behind your decorations, hide or lock any layer, and right-click a decoration to send it forward or back.","Click a pet to select it (shift-click for several), and type an exact canvas size in pixels."]},{"v":"10.607.0","label":"Lookbook board editor + Your Outfits & Customize fixes","notes":["Lookbook boards are now a full editor. Arrange your saved looks in a grid — set how many per row, plus their size and spacing — and pick a frame shape (rounded, circle, arch, hex and more) with an optional border and soft shadow.","Style the whole board: show or hide pet names and give them their own font, size and colour; add and style the title the same way; set a background colour or drop in a background image; and add decorations by dropping in any item as art (in front of or behind your pets).","Nothing on a board changes by accident — every edit stays a draft until you hit Save. You can Clone a board to spin off a variation, and download the finished collage as an image.","Your Outfits: sorting A→Z now uses a look's crowned variant name, so it lands where you expect; the delete button is back; and a look that jumps position after you crown or group a variant now scrolls into view so you never lose track of it.","Customize: opening a custom that someone shared with you no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own Save keeps a copy."]},{"v":"10.597.5","label":"Closet & search fixes","notes":["Fixed an error that could break some closet pages (links without a name in the URL)","Item search now flags when the Hide-locked-zones setting is hiding matches, with a one-click Show them"]},{"v":"10.596.6","label":"Comparison Mode & logged-out fixes","notes":["Comparison Mode: hide lists you never trade from, and it now matches your live wishlist however an item was added","Fixed items wrongly showing as Wishlisted or Owned while logged out","Try On Haul is now hidden entirely when you are logged out","Your Outfits opens to your outfits again, not a Lookbook board"]},{"v":"10.592.1","label":"Lookbook, DTI Sync & item links","notes":["Lookbook (new!): arrange your saved looks into themed boards","DTI Sync: keep some copies in your inventory, and see each item's zones on the cards"]},{"v":"10.587.10","label":"Closet bulk-edit","notes":["Bulk-move whole stacks, and gather copies spread across several lists","Your clipboard, drafts and Try On Haul are now separate per account"]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -92,6 +92,13 @@
 
       setTimeout(check, 5000);
       var iv = setInterval(function () { checks++; if (shown || checks > 12) { clearInterval(iv); return; } check(); }, 45000);
+
+      var _lastVisCheck = 0;
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState !== 'visible' || shown) return;
+        var _now = Date.now(); if (_now - _lastVisCheck < 60000) return;
+        _lastVisCheck = _now; check();
+      });
 
       try {
 
@@ -12270,8 +12277,7 @@
         const _clip = [];
         let _clipOpen = false, _clipSort = 'species', _clipNote = '';
         const _clipHas = (id) => _clip.some(c => c.id === id);
-        const _clipEntry = (id) => _clip.find(c => c.id === id);
-        const _clipToggle = (id) => { const i = _clip.findIndex(c => c.id === id); if (i >= 0) _clip.splice(i, 1); else { _clip.push({ id, star: false, caps: 0 }); _clipOpen = true; } };
+        const _clipToggle = (id) => { const i = _clip.findIndex(c => c.id === id); if (i >= 0) _clip.splice(i, 1); else { _clip.push({ id }); _clipOpen = true; } };
         const _clipSorted = () => {
           const idx = _psBoardIndex();
           const arr = _clip.map(c => ({ c, s: idx.get(c.id) }));
@@ -12281,16 +12287,28 @@
           else arr.sort((a, b) => sp(a).localeCompare(sp(b)) || cw(a).localeCompare(cw(b)));
           return arr;
         };
+
+        const _clipSplit = () => { const wish = [], own = []; _clipSorted().forEach(en => { (OWN[en.c.id] && OWN[en.c.id].w ? wish : own).push(en); }); return { wish, own }; };
+
         const _clipText = () => {
+          let fmt = 'plain', cs = 'proper';
+          try { fmt = JSON.parse(localStorage.getItem('dia_staging_fmt_v4')) || 'plain'; } catch (_) {}
+          try { cs = JSON.parse(localStorage.getItem('dia_staging_case_v4')) || 'proper'; } catch (_) {}
+          const applyCase = (s) => (cs === 'lower' ? String(s).toLowerCase() : s);
           const line = ({ c, s }) => {
             const nm = s ? (s.colorway || s.label) : ('Style #' + c.id);
             const sn = s ? (spName[s.spId] || '') : '';
-            return '• ' + (c.star ? '⭐ ' : '') + nm + (sn ? ' — ' + sn : '') + (c.caps > 0 ? ' (' + c.caps + ' cap' + (c.caps > 1 ? 's' : '') + ')' : '');
+            const of = _offerText(c.id);
+            return applyCase(nm + (sn ? ' ' + sn : '')) + (of ? ' (offering: ' + of + ')' : '');
           };
-          let out = '✨ My Pet Styles';
-          if (_clipNote.trim()) out += '\n' + _clipNote.trim();
-          out += '\n\n' + _clipSorted().map(line).join('\n');
-          return out.trim();
+          const join = (arr) => (fmt === 'csv' ? arr.join(', ') : fmt === 'plus' ? arr.join(' + ') : fmt === 'bullets' ? arr.map(e => '• ' + e).join('\n') : arr.join('\n'));
+          const { wish, own } = _clipSplit();
+          const parts = [];
+          if (_clipNote.trim()) parts.push(_clipNote.trim());
+
+          if (own.length && wish.length) { parts.push('Owned:\n' + join(own.map(line))); parts.push('Wished:\n' + join(wish.map(line))); }
+          else { const all = own.length ? own : wish; if (all.length) parts.push(join(all.map(line))); }
+          return parts.join('\n\n').trim();
         };
         const clipRender = () => {
           const ov = document.getElementById('dia-ps-board'); if (!ov) return;
@@ -12301,7 +12319,7 @@
           const panel = dock.querySelector('.dia-psb-clip-panel'); if (!panel) return;
           if (!_clipOpen) { panel.innerHTML = ''; return; }
           if (!_clip.length) { panel.innerHTML = '<div class="dia-psb-clip-empty">Tap the <span class="dia-psb-clip-emptyi">' + _CLIP_ICON + '</span> on any style to add it here, then copy a list or a collage.</div>'; return; }
-          const items = _clipSorted().map(({ c, s }) => {
+          const tile = ({ c, s }) => {
             const nm = s ? (s.colorway || s.label) : ('Style #' + c.id);
             const sn = s ? (spName[s.spId] || '') : '';
             const thumb = s ? _famThumb(s) : '<span class="dia-psb-noimg">?</span>';
@@ -12311,14 +12329,20 @@
               + '<div class="dia-psb-clip-nm" title="' + esc(nm) + '">' + esc(nm) + '</div>'
               + (sn ? '<div class="dia-psb-clip-sp">' + esc(sn) + '</div>' : '')
               + '</div>';
-          }).join('');
+          };
+          const { wish, own } = _clipSplit();
+          const colH = (key, label, arr) => '<div class="dia-psb-clip-col">'
+            + '<div class="dia-psb-clip-colhd"><span class="dia-psb-secpill ' + (key === 'w' ? 'wish' : 'own') + '">' + label + ' <span class="dia-psb-secpill-n">(' + arr.length + ')</span></span></div>'
+            + (arr.length ? '<div class="dia-psb-clip-tiles">' + arr.map(tile).join('') + '</div>' : '<div class="dia-psb-clip-colempty">None here yet</div>')
+            + '</div>';
           panel.innerHTML =
-            '<div class="dia-psb-clip-items">' + items + '</div>'
+            '<div class="dia-psb-clip-cols">' + colH('o', 'Owned', own) + colH('w', 'Wished', wish) + '</div>'
             + '<div class="dia-psb-clip-actions">'
             +   '<span class="dia-psb-clip-sort"><span class="dia-psb-clip-sortlbl">Sort</span>'
             +     '<button type="button" class="dia-psb-clip-sortbtn' + (_clipSort === 'species' ? ' on' : '') + '" data-clip-sort="species">Species</button>'
-            +     '<button type="button" class="dia-psb-clip-sortbtn' + (_clipSort === 'color' ? ' on' : '') + '" data-clip-sort="color">Colour</button>'
+            +     '<button type="button" class="dia-psb-clip-sortbtn' + (_clipSort === 'color' ? ' on' : '') + '" data-clip-sort="color">Color</button>'
             +   '</span>'
+            +   '<input type="text" class="dia-psb-clip-note" value="' + esc(_clipNote) + '" placeholder="Add a note for your copied list (optional)" maxlength="120" spellcheck="false">'
             +   '<span class="dia-psb-clip-btns">'
             +     '<button type="button" class="dia-psb-clip-clear" data-clip-clear>Clear</button>'
             +     '<button type="button" class="dia-psb-act" data-clip-copylist>Copy list</button>'
@@ -12349,9 +12373,9 @@
         const _psBoardCol = (key, label, idx, notes) => {
           const sort = (a, b) => { const sa = idx.get(a), sb = idx.get(b); const na = (sa ? (sa.colorway || sa.label) : a).toLowerCase(), nb = (sb ? (sb.colorway || sb.label) : b).toLowerCase(); return na.localeCompare(nb); };
           const ids = _ownIds(key).sort(sort);
-          return '<div class="dia-psb-col" data-col="' + key + '"><div class="dia-psb-col-head">' + label + '<span class="dia-psb-secn">' + ids.length + '</span></div>'
+          return '<div class="dia-psb-col" data-col="' + key + '"><div class="dia-psb-col-head"><span class="dia-psb-secpill ' + (key === 'w' ? 'wish' : 'own') + '">' + label + ' <span class="dia-psb-secpill-n">(' + ids.length + ')</span></span></div>'
             + (ids.length ? '<div class="dia-psb-grid">' + ids.map(id => _psBoardTile(id, idx.get(id), notes)).join('') + '</div>'
-                : '<div class="dia-psb-empty">Nothing here yet — add styles from the picker or the ⚙ Sync owned hub.</div>')
+                : '<div class="dia-psb-empty">Nothing here yet — use ＋ Add a style, or add from the Pet Style picker.</div>')
             + '</div>';
         };
         const _psbToast = (msg) => {
@@ -12371,11 +12395,11 @@
           const _sc = {}; body.querySelectorAll('.dia-psb-col').forEach(c => { _sc[c.getAttribute('data-col')] = c.scrollTop; });
           if (!total) {
             body.innerHTML = '<div class="dia-psb-blank"><div class="dia-psb-blank-h">No Pet Styles saved yet</div>'
-              + '<div class="dia-psb-blank-p">Add styles from the <b>Pet Style picker</b> (choose Wished or Owned), or use the <b>⚙ Sync owned</b> hub to bring in tokens you already have.</div></div>';
+              + '<div class="dia-psb-blank-p">Hit <b>＋ Add a style</b> above to search every Pet Style, or add them from the <b>Pet Style picker</b> on the homepage.</div></div>';
             return;
           }
           const loading = !PS.allLoaded ? '<div class="dia-psb-loading">Loading your styles…</div>' : '';
-          body.innerHTML = loading + '<div class="dia-psb-split">' + _psBoardCol('w', 'Wished', idx, notes) + _psBoardCol('o', 'Owned', idx, notes) + '</div>';
+          body.innerHTML = loading + '<div class="dia-psb-split">' + _psBoardCol('o', 'Owned', idx, notes) + _psBoardCol('w', 'Wished', idx, notes) + '</div>';
           body.querySelectorAll('.dia-psb-col').forEach(c => { const v = _sc[c.getAttribute('data-col')]; if (v != null) c.scrollTop = v; });
         };
 
@@ -12392,20 +12416,41 @@
           if (!wants.length && !owned.length) out += '(Nothing marked yet.)\n';
           return out.trim();
         };
-        const _psBoardOpenCopy = (text) => {
+        const _psBoardOpenCopy = (textOrFn) => {
           document.getElementById('dia-ps-board-copy')?.remove();
+          const live = typeof textOrFn === 'function' ? textOrFn : null;
+          let fmt = 'plain', cs = 'proper';
+          try { fmt = JSON.parse(localStorage.getItem('dia_staging_fmt_v4')) || 'plain'; } catch (_) {}
+          try { cs = JSON.parse(localStorage.getItem('dia_staging_case_v4')) || 'proper'; } catch (_) {}
+
+          const pill = (attr, v, lbl, on) => '<button type="button" class="dia-psy-pill' + (on ? ' on' : '') + '" ' + attr + '="' + v + '">' + lbl + '</button>';
+          const pillsHtml = live
+            ? '<div class="dia-psy-opts">'
+              + '<span class="dia-psy-optgrp"><span class="dia-psy-optlbl">Format</span>' + pill('data-yfmt', 'plain', 'Plain', fmt === 'plain') + pill('data-yfmt', 'bullets', 'Bullets', fmt === 'bullets') + pill('data-yfmt', 'csv', 'CSV', fmt === 'csv') + pill('data-yfmt', 'plus', 'Plus', fmt === 'plus') + '</span>'
+              + '<span class="dia-psy-optgrp"><span class="dia-psy-optlbl">Case</span>' + pill('data-ycase', 'proper', 'Aa', cs === 'proper') + pill('data-ycase', 'lower', 'aa', cs === 'lower') + '</span>'
+              + '</div>'
+            : '';
           const ov = document.createElement('div'); ov.id = 'dia-ps-board-copy';
           ov.innerHTML = '<div class="dia-psy-card">'
             + '<div class="dia-psy-head"><div class="dia-psy-title">Copy list</div><button type="button" class="dia-psy-close" data-yclose aria-label="Close">×</button></div>'
             + '<div class="dia-psy-sub">Edit if you like, then copy. Good for the Neoboards, Neopets NN, or Neocord.</div>'
+            + pillsHtml
             + '<textarea class="dia-psy-ta" spellcheck="false"></textarea>'
             + '<div class="dia-psy-foot"><button type="button" class="dia-psy-btn primary" data-ycopy>Copy to clipboard</button></div>'
             + '</div>';
           document.body.appendChild(ov);
-          const ta = ov.querySelector('.dia-psy-ta'); ta.value = text != null ? text : _psBoardText(_psBoardIndex(), _psNotes());
+          const ta = ov.querySelector('.dia-psy-ta'); ta.value = live ? live() : (textOrFn != null ? textOrFn : _psBoardText(_psBoardIndex(), _psNotes()));
           setTimeout(() => { try { ta.focus(); ta.setSelectionRange(0, 0); } catch (_) {} }, 0);
           ov.addEventListener('click', (e) => {
             if (e.target === ov || e.target.closest('[data-yclose]')) { ov.remove(); return; }
+            const fp = e.target.closest('[data-yfmt],[data-ycase]');
+            if (fp) {
+              const isFmt = fp.hasAttribute('data-yfmt');
+              try { localStorage.setItem(isFmt ? 'dia_staging_fmt_v4' : 'dia_staging_case_v4', JSON.stringify(fp.getAttribute(isFmt ? 'data-yfmt' : 'data-ycase'))); } catch (_) {}
+              ov.querySelectorAll(isFmt ? '[data-yfmt]' : '[data-ycase]').forEach(b => b.classList.toggle('on', b === fp));
+              if (live) ta.value = live();
+              return;
+            }
             if (e.target.closest('[data-ycopy]')) {
               const done = () => { const b = ov.querySelector('[data-ycopy]'); if (b) { b.textContent = 'Copied!'; setTimeout(() => { b.textContent = 'Copy to clipboard'; }, 1500); } };
               try { ta.select(); navigator.clipboard.writeText(ta.value).then(done).catch(() => { try { document.execCommand('copy'); done(); } catch (_) {} }); } catch (_) { try { document.execCommand('copy'); done(); } catch (_2) {} }
@@ -12418,19 +12463,8 @@
 
         const _loadLayers = (style, cors) => { const ls = (style.layers || []).slice().sort((a, b) => a.d - b.d); if (!ls.length) return Promise.all(style.thumb ? [_loadImg(style.thumb, cors)] : []); return Promise.all(ls.map(l => _loadImg(l.u, cors))); };
         const _CUR_LABEL = (n, cur) => (cur === 'gbc' ? 'GBC' : cur === 'bfgbc' ? 'BFGBC' : (n === 1 ? 'brush' : 'brushes'));
-        const _offerOf = (id) => { const o = OWN[id] && OWN[id].ov; return (o && o.n > 0) ? o : null; };
-        const _offerText = (id) => { const o = _offerOf(id); return o ? (o.n + ' ' + _CUR_LABEL(o.n, o.cur || 'brush')) : ''; };
-        const _setOffer = (id, dn, cur) => { const r = OWN[id] || (OWN[id] = {}); const ov = r.ov || (r.ov = { n: 0, cur: 'brush' }); if (dn != null) ov.n = Math.max(0, ov.n + dn); if (cur != null) ov.cur = cur; _ownSave(); };
-
-        const _CUR_SVG = {
-          brush: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><rect x="10" y="2.2" width="4" height="8.6" rx="2" fill="#a9743f"/><rect x="8.6" y="10" width="6.8" height="3" rx="1.3" fill="#cdd2d6"/><path d="M8.8 12.6 H15.2 L13.7 19 Q12 22.3 10.3 19 Z" fill="#f0a93a"/><path d="M11 12.6 H13 L12.4 18.4 Q12 19.6 11.6 18.4 Z" fill="#f8cd7a"/></svg>',
-          gbc: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><rect x="4" y="10" width="16" height="10.6" rx="1.6" fill="#159b8e"/><rect x="3" y="6.9" width="18" height="4.3" rx="1.4" fill="#0f7d72"/><rect x="10.6" y="7" width="2.9" height="13.6" fill="#fbeec9"/><path d="M12 7 C12 4.4 8.4 3.5 8 6 C7.8 7.4 10 7 12 7 Z" fill="#fbeec9"/><path d="M12 7 C12 4.4 15.6 3.5 16 6 C16.2 7.4 14 7 12 7 Z" fill="#fbeec9"/></svg>',
-          bfgbc: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><rect x="4" y="10" width="16" height="10.6" rx="1.6" fill="#8a5fb0"/><rect x="3" y="6.9" width="18" height="4.3" rx="1.4" fill="#6f4a96"/><rect x="10.6" y="7" width="2.9" height="13.6" fill="#f4d06b"/><path d="M12 7 C12 4.4 8.4 3.5 8 6 C7.8 7.4 10 7 12 7 Z" fill="#f4d06b"/><path d="M12 7 C12 4.4 15.6 3.5 16 6 C16.2 7.4 14 7 12 7 Z" fill="#f4d06b"/><path d="M18.6 1.9 Q19.1 4 21 4.6 Q19.1 5.2 18.6 7.3 Q18.1 5.2 16.2 4.6 Q18.1 4 18.6 1.9 Z" fill="#ffd84d"/></svg>'
-        };
-        const _CUR_ICON_URL = { brush: 'data:image/svg+xml;utf8,' + encodeURIComponent(_CUR_SVG.brush), gbc: 'data:image/svg+xml;utf8,' + encodeURIComponent(_CUR_SVG.gbc), bfgbc: 'data:image/svg+xml;utf8,' + encodeURIComponent(_CUR_SVG.bfgbc) };
-        const _curIconImg = {}; let _curIconsP = null;
-        const _ensureCurIcons = () => _curIconsP || (_curIconsP = Promise.all(['brush', 'gbc', 'bfgbc'].map(k => new Promise((res) => { const im = new Image(); im.onload = res; im.onerror = res; im.src = _CUR_ICON_URL[k]; _curIconImg[k] = im; }))));
-        const _curIconHtml = (cur, px) => { const u = _CUR_ICON_URL[cur] || _CUR_ICON_URL.brush, s = px || 17; return '<img class="dia-psc-curico" alt="" width="' + s + '" height="' + s + '" src="' + u + '">'; };
+        const _offerText = (id) => { const o = OWN[id] && OWN[id].ov; if (!o) return ''; if (typeof o.t === 'string') return o.t.trim(); return (o.n > 0) ? (o.n + ' ' + _CUR_LABEL(o.n, o.cur || 'brush')) : ''; };
+        const _setOfferText = (id, t) => { const r = OWN[id] || (OWN[id] = {}); const v = String(t || '').trim(); if (v) r.ov = { t: v }; else delete r.ov; _ownSave(); };
         let _collageTitle = (() => { try { return GM_getValue('dtr_ps_collage_title', 'Seeking') || 'Seeking'; } catch (_) { return 'Seeking'; } })();
         const _wrapLines = (ctx, text, maxW) => {
           const words = String(text).split(/\s+/), lines = []; let cur = '';
@@ -12443,18 +12477,18 @@
         const _psRenderCollage = async () => {
           const entries = _clipSorted().filter(e => e.s);
           if (!entries.length) return { empty: true };
-          await _ensureCurIcons();
           let sets = await Promise.all(entries.map(e => _loadLayers(e.s, true)));
           const flat = sets.flat(); const okc = flat.filter(r => r && r.ok).length; let tainted = false;
           if (flat.length && okc < flat.length * 0.6) { sets = await Promise.all(entries.map(e => _loadLayers(e.s, false))); tainted = true; }
-          const n = entries.length, cols = Math.max(1, Math.min(4, Math.ceil(Math.sqrt(n)))), rows = Math.ceil(n / cols);
-          const cellW = 196, iw = cellW - 16, ih = iw, gap = 14, pad = 30, titleH = 72, footH = 38;
-          const dpr = Math.min(2, window.devicePixelRatio || 1);
 
-          const tctx = document.createElement('canvas').getContext('2d'); tctx.font = '700 14px Nunito,Arial,sans-serif';
-          let maxLines = 1; const nameLines = entries.map(({ s }) => { const ls = _wrapLines(tctx, s.colorway || s.label || '', cellW - 18); maxLines = Math.max(maxLines, ls.length); return ls; });
-          const nameLH = 17, nameH = maxLines * nameLH, spH = 16, offH = 28;
-          const cellH = 8 + ih + 10 + nameH + spH + offH + 6;
+          const n = entries.length, cols = Math.max(1, Math.min(6, Math.ceil(Math.sqrt(n * 2)))), rows = Math.ceil(n / cols);
+          const cellW = 100, iw = cellW - 12, ih = iw, gap = 10, pad = 24, titleH = 56, footH = 24;
+          const dpr = 2;
+
+          const tctx = document.createElement('canvas').getContext('2d'); tctx.font = '700 10.5px Nunito,Arial,sans-serif';
+          let maxLines = 1; const nameLines = entries.map(({ s }) => { const ls = _wrapLines(tctx, s.colorway || s.label || '', cellW - 12); maxLines = Math.max(maxLines, ls.length); return ls; });
+          const nameLH = 13, nameH = maxLines * nameLH, spH = 12, offH = 20;
+          const cellH = 6 + ih + 8 + nameH + spH + offH + 4;
           const W = pad * 2 + cols * cellW + (cols - 1) * gap, H = titleH + rows * cellH + (rows - 1) * gap + footH;
           const cvs = document.createElement('canvas'); cvs.width = Math.round(W * dpr); cvs.height = Math.round(H * dpr);
           const ctx = cvs.getContext('2d'); ctx.scale(dpr, dpr);
@@ -12468,26 +12502,28 @@
           ctx.fillStyle = _bgGrad; ctx.fillRect(0, 0, W, H);
           let _sx = 0; [['#1cb6a6', .25], ['#5fb3e8', .20], ['#ff97b3', .27], ['#ffce5a', .28]].forEach(seg => { ctx.fillStyle = seg[0]; ctx.fillRect(_sx, 0, W * seg[1] + 1, 6); _sx += W * seg[1]; });
           ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
-          ctx.fillStyle = '#3a3a35'; ctx.font = '800 28px Nunito,Arial,sans-serif'; ctx.fillText((_collageTitle || 'Seeking'), pad, 54);
+          ctx.fillStyle = '#3a3a35'; ctx.font = '800 22px Nunito,Arial,sans-serif'; ctx.fillText((_collageTitle || 'Seeking'), pad, 40);
           entries.forEach(({ c, s }, i) => {
             const col = i % cols, row = Math.floor(i / cols), x = pad + col * (cellW + gap), y = titleH + row * (cellH + gap);
-            ctx.save(); ctx.shadowColor = 'rgba(80,70,90,.16)'; ctx.shadowBlur = 16; ctx.shadowOffsetY = 6;
-            ctx.fillStyle = '#fff'; _rr(ctx, x, y, cellW, cellH, 16); ctx.fill(); ctx.restore();
-            ctx.fillStyle = '#f6f4ee'; _rr(ctx, x + 8, y + 8, iw, ih, 12); ctx.fill();
+            ctx.save(); ctx.shadowColor = 'rgba(80,70,90,.16)'; ctx.shadowBlur = 10; ctx.shadowOffsetY = 4;
+            ctx.fillStyle = '#fff'; _rr(ctx, x, y, cellW, cellH, 10); ctx.fill(); ctx.restore();
+            ctx.fillStyle = '#f6f4ee'; _rr(ctx, x + 6, y + 6, iw, ih, 8); ctx.fill();
             const imgs = (sets[i] || []).filter(r => r && r.ok && r.im && r.im.naturalWidth).map(r => r.im);
-            if (imgs.length) { const b = imgs[0], sc = Math.min(iw / b.naturalWidth, ih / b.naturalHeight), dw = b.naturalWidth * sc, dh = b.naturalHeight * sc, dx = x + 8 + (iw - dw) / 2, dy = y + 8 + (ih - dh) / 2; imgs.forEach(im => ctx.drawImage(im, dx, dy, dw, dh)); }
-            else { ctx.fillStyle = '#cfcabe'; ctx.font = '700 28px Nunito,Arial,sans-serif'; ctx.textAlign = 'center'; ctx.fillText('?', x + cellW / 2, y + 8 + ih / 2 + 8); ctx.textAlign = 'left'; }
-            ctx.textAlign = 'center'; ctx.fillStyle = '#3a3a35'; ctx.font = '800 14px Nunito,Arial,sans-serif';
-            let ty = y + 8 + ih + 10 + 12; nameLines[i].forEach(ln => { ctx.fillText(ln, x + cellW / 2, ty); ty += nameLH; });
-            const sp = spName[s.spId] || ''; if (sp) { ctx.fillStyle = '#a6a69e'; ctx.font = '600 12px Nunito,Arial,sans-serif'; ctx.fillText(sp, x + cellW / 2, y + 8 + ih + 10 + nameH + 11); }
+            if (imgs.length) { const b = imgs[0], sc = Math.min(iw / b.naturalWidth, ih / b.naturalHeight), dw = b.naturalWidth * sc, dh = b.naturalHeight * sc, dx = x + 6 + (iw - dw) / 2, dy = y + 6 + (ih - dh) / 2; imgs.forEach(im => ctx.drawImage(im, dx, dy, dw, dh)); }
+            else { ctx.fillStyle = '#cfcabe'; ctx.font = '700 18px Nunito,Arial,sans-serif'; ctx.textAlign = 'center'; ctx.fillText('?', x + cellW / 2, y + 6 + ih / 2 + 6); ctx.textAlign = 'left'; }
+            ctx.textAlign = 'center'; ctx.fillStyle = '#3a3a35'; ctx.font = '800 10.5px Nunito,Arial,sans-serif';
+            let ty = y + 6 + ih + 8 + 10; nameLines[i].forEach(ln => { ctx.fillText(ln, x + cellW / 2, ty); ty += nameLH; });
+            const sp = spName[s.spId] || ''; if (sp) { ctx.fillStyle = '#a6a69e'; ctx.font = '600 9px Nunito,Arial,sans-serif'; ctx.fillText(sp, x + cellW / 2, y + 6 + ih + 8 + nameH + 9); }
 
-            const off = _offerOf(c.id);
-            if (off) {
-              ctx.font = '800 12px Nunito,Arial,sans-serif';
-              const lab = 'Offering: ' + off.n, lw = ctx.measureText(lab).width, icoS = 15, gp = 5, cw = lw + gp + icoS + 22, cx = x + (cellW - cw) / 2, cy = y + cellH - offH + 1;
-              ctx.fillStyle = '#ffe3ec'; _rr(ctx, cx, cy, cw, 21, 10); ctx.fill();
-              ctx.textAlign = 'left'; ctx.fillStyle = '#c2487c'; ctx.fillText(lab, cx + 11, cy + 14.5);
-              const ico = _curIconImg[off.cur || 'brush']; if (ico && ico.complete && ico.naturalWidth) ctx.drawImage(ico, cx + 11 + lw + gp, cy + (21 - icoS) / 2, icoS, icoS);
+            const offTxt = _offerText(c.id);
+            if (offTxt) {
+              ctx.font = '800 9px Nunito,Arial,sans-serif';
+              let lab = 'Offering: ' + offTxt;
+              const maxW = cellW - 16;
+              while (ctx.measureText(lab).width > maxW && lab.length > 12) lab = lab.slice(0, -2).trimEnd() + '…';
+              const lw = ctx.measureText(lab).width, cw = lw + 16, cx = x + (cellW - cw) / 2, cy = y + cellH - offH + 1;
+              ctx.fillStyle = '#ffe3ec'; _rr(ctx, cx, cy, cw, 15, 7); ctx.fill();
+              ctx.textAlign = 'left'; ctx.fillStyle = '#c2487c'; ctx.fillText(lab, cx + 8, cy + 10.5);
               ctx.textAlign = 'center';
             }
             ctx.textAlign = 'left';
@@ -12506,45 +12542,36 @@
             + '<div class="dia-psc-scroll">'
             +   '<div class="dia-psc-head">'
             +     '<div class="dia-psc-titlewrap"><input type="text" class="dia-psc-title-in" value="' + esc(_collageTitle) + '" maxlength="40" aria-label="Collage title"><span class="dia-psc-count"></span></div>'
-            +     '<span class="dia-psc-chips"><span class="dia-psc-sortlbl">Sort</span>' + [['species', 'Species'], ['color', 'Colour']].map(k => '<button type="button" class="dia-psc-chip' + (k[0] === _clipSort ? ' on' : '') + '" data-cset="' + k[0] + '">' + k[1] + '</button>').join('') + '</span>'
+            +     '<span class="dia-psc-chips"><span class="dia-psc-sortlbl">Sort</span>' + [['species', 'Species'], ['color', 'Color']].map(k => '<button type="button" class="dia-psc-chip' + (k[0] === _clipSort ? ' on' : '') + '" data-cset="' + k[0] + '">' + k[1] + '</button>').join('') + '</span>'
             +     '<button type="button" class="dia-psc-close" data-cclose aria-label="Close">✕</button>'
             +   '</div>'
-            +   '<div class="dia-psc-sub">Set what you are offering for each style, then copy or download the image to share.</div>'
+            +   '<div class="dia-psc-sub">Type what you’re offering for each style, then copy or download the image to share.</div>'
             +   '<div class="dia-psc-grid"></div>'
             + '</div>'
             + '<div class="dia-psc-foot"><span class="dia-psc-hint"></span><span class="dia-psc-btns"><button type="button" class="dia-psc-btn" data-cdl>' + _dlIco + ' Download PNG</button><button type="button" class="dia-psc-btn primary" data-ccopy>' + _copyIco + ' Copy image</button></span></div>'
             + '</div>';
           document.body.appendChild(ov);
           const grid = ov.querySelector('.dia-psc-grid');
-
-          const _vtag = (ovv) => {
-            const n = ovv.n || 0, cur = ovv.cur || 'brush';
-            if (!n) return '<span class="dia-psc-vtag dia-psc-vtag-empty">value not set</span>';
-            return '<span class="dia-psc-vtag" title="Offering ' + n + ' ' + esc(_CUR_LABEL(n, cur)) + '">' + _curIconHtml(cur, 14) + '<b>' + n + '</b><span class="dia-psc-vtag-u">' + esc(_CUR_LABEL(n, cur)) + '</span></span>';
+          const _syncHint = () => {
+            const hintEl = ov.querySelector('.dia-psc-hint'); if (!hintEl) return;
+            const entries = _clipSorted().filter(e => e.s);
+            const set = entries.filter(({ c }) => _offerText(c.id)).length;
+            hintEl.textContent = set ? (set + ' of ' + entries.length + (set === 1 ? ' offer' : ' offers') + ' filled in — they print on the image.') : 'Type what you’re offering under each style — it prints on the image.';
           };
           const renderGrid = () => {
             const entries = _clipSorted().filter(e => e.s);
             const cntEl = ov.querySelector('.dia-psc-count'); if (cntEl) cntEl.textContent = entries.length ? '· ' + entries.length : '';
-            const hintEl = ov.querySelector('.dia-psc-hint');
-            if (hintEl) {
-              const tot = {}; entries.forEach(({ c }) => { const o = OWN[c.id] && OWN[c.id].ov; if (o && o.n > 0) tot[o.cur || 'brush'] = (tot[o.cur || 'brush'] || 0) + o.n; });
-              const parts = Object.keys(tot).map(k => tot[k] + ' ' + _CUR_LABEL(tot[k], k));
-              hintEl.textContent = parts.length ? ('Total offering · ' + parts.join('   ·   ')) : 'Set a value on each style to show what you are offering.';
-            }
+            _syncHint();
             if (!entries.length) { grid.innerHTML = '<div class="dia-psc-empty">Your clipboard is empty — add styles with the 🗒 icon on a tile first.</div>'; return; }
             grid.innerHTML = entries.map(({ c, s }) => {
-              const id = c.id, ovv = (OWN[id] && OWN[id].ov) || { n: 0, cur: 'brush' }, sp = spName[s.spId] || '';
+              const id = c.id, sp = spName[s.spId] || '';
               return '<div class="dia-psc-cell" data-cid="' + esc(id) + '">'
                 + '<div class="dia-psc-cthumb">' + _famThumb(s) + '</div>'
                 + '<div class="dia-psc-cbody">'
                 +   '<div class="dia-psc-cnm">' + esc(s.colorway || s.label) + '</div>'
                 +   (sp ? '<div class="dia-psc-csp">' + esc(sp) + '</div>' : '')
-                +   '<div class="dia-psc-offer">'
-                +     '<div class="dia-psc-offhd"><span class="dia-psc-offlbl">Offering</span>' + _vtag(ovv) + '</div>'
-                +     '<div class="dia-psc-offctl">'
-                +       '<span class="dia-psc-offstep"><button type="button" class="dia-psc-offbtn" data-coff="-" data-cid="' + esc(id) + '" tabindex="-1">−</button><span class="dia-psc-offn">' + (ovv.n || 0) + '</span><button type="button" class="dia-psc-offbtn" data-coff="+" data-cid="' + esc(id) + '" tabindex="-1">+</button></span>'
-                +       '<span class="dia-psc-curpills" role="group" aria-label="Offer currency">' + [['brush', 'Paint Brushes'], ['gbc', 'Gift Box Capsules'], ['bfgbc', 'Black Friday Gift Box Capsules']].map(k => '<button type="button" class="dia-psc-curpill' + ((ovv.cur || 'brush') === k[0] ? ' on' : '') + '" data-ccur="' + k[0] + '" data-cid="' + esc(id) + '" title="' + k[1] + '" aria-label="' + k[1] + '">' + _curIconHtml(k[0], 17) + '</button>').join('') + '</span>'
-                +     '</div>'
+                +   '<div class="dia-psc-offer"><span class="dia-psc-offlbl">Offering</span>'
+                +     '<input type="text" class="dia-psc-offin" data-coffin="' + esc(id) + '" value="' + esc(_offerText(id)) + '" maxlength="60" placeholder="e.g. 3 GBC, BFGBC, brushes…" spellcheck="false" autocomplete="off">'
                 +   '</div>'
                 + '</div></div>';
             }).join('');
@@ -12563,13 +12590,14 @@
               catch (_) { if (hint) hint.textContent = 'Copy blocked by image security — screenshot the preview.'; }
             }
           };
-          ov.addEventListener('input', (e) => { if (e.target.classList && e.target.classList.contains('dia-psc-title-in')) { _collageTitle = e.target.value || 'Seeking'; try { GM_setValue('dtr_ps_collage_title', _collageTitle); } catch (_) {} } });
+          ov.addEventListener('input', (e) => {
+            if (e.target.classList && e.target.classList.contains('dia-psc-title-in')) { _collageTitle = e.target.value || 'Seeking'; try { GM_setValue('dtr_ps_collage_title', _collageTitle); } catch (_) {} return; }
 
+            if (e.target.classList && e.target.classList.contains('dia-psc-offin')) { _setOfferText(e.target.getAttribute('data-coffin'), e.target.value); _syncHint(); }
+          });
           ov.addEventListener('click', (e) => {
             if (e.target === ov || e.target.closest('[data-cclose]')) { ov.remove(); return; }
             const chip = e.target.closest('[data-cset]'); if (chip) { _clipSort = chip.getAttribute('data-cset'); ov.querySelectorAll('[data-cset]').forEach(b => b.classList.toggle('on', b === chip)); clipRender(); renderGrid(); return; }
-            const off = e.target.closest('[data-coff]'); if (off) { _setOffer(off.getAttribute('data-cid'), off.getAttribute('data-coff') === '+' ? 1 : -1, null); renderGrid(); return; }
-            const curp = e.target.closest('[data-ccur]'); if (curp) { _setOffer(curp.getAttribute('data-cid'), null, curp.getAttribute('data-ccur')); renderGrid(); return; }
             if (e.target.closest('[data-cdl]')) { _exportCollage('dl'); return; }
             if (e.target.closest('[data-ccopy]')) { _exportCollage('copy'); return; }
           });
@@ -12639,27 +12667,24 @@
             "#dia-ps-board-launch .dia-psbl-n{font:800 10px Nunito,Arial,sans-serif;background:var(--dtr-primary,#149c8e);color:#fff;border-radius:999px;padding:1px 6px;margin-left:1px}",
 
             "#dia-ps-board{position:fixed;inset:0;z-index:100002;background:rgba(30,26,22,.55);display:flex;align-items:center;justify-content:center;padding:24px;font-family:Nunito,Arial,sans-serif;-webkit-font-smoothing:antialiased}",
-            "#dia-ps-board .dia-psb-card{position:relative;width:min(1040px,96vw);max-height:92vh;display:flex;flex-direction:column;background:#fdfaf3;border-radius:18px;box-shadow:0 20px 60px rgba(60,60,55,.34);overflow:hidden}",
+
+            "#dia-ps-board .dia-psb-card{position:relative;width:min(1040px,96vw);max-height:92vh;display:flex;flex-direction:column;background:linear-gradient(135deg,#fbecf5 0%,#ecf0fb 28%,#e6f4fb 52%,#eafbf1 76%,#fdf6ea 100%);border-radius:18px;box-shadow:0 20px 60px rgba(60,60,55,.34);overflow:hidden}",
+            "#dia-ps-board .dia-psb-stripe{height:6px;flex:none;background:var(--dtr-stripe,linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%))}",
 
             "#dia-ps-board .dia-psb-clears{margin-left:auto;display:flex;gap:6px;flex:none}",
             "#dia-ps-board .dia-psb-clearbtn{border:none;background:none;color:#b58a6a;font:700 11px Nunito,Arial,sans-serif;padding:5px 11px;border-radius:999px;cursor:pointer}",
-            "#dia-ps-board .dia-psb-clearbtn:hover{background:#f3ece2;color:#9a6a4a}",
+            "#dia-ps-board .dia-psb-clearbtn:hover{background:rgba(255,255,255,.65);color:#9a6a4a}",
             "#dia-ps-board .dia-psb-clearbtn.confirm{background:#e06a55;color:#fff}",
             "#dia-ps-board .dia-psb-toast{position:absolute;top:64px;left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(40,36,30,.93);color:#fff;font:700 12px Nunito,Arial,sans-serif;padding:9px 16px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:7}",
             "#dia-ps-board .dia-psb-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}",
             "#dia-ps-board .dia-psb-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px 22px 10px}",
             "#dia-ps-board .dia-psb-title{font:800 21px Nunito,Arial,sans-serif;color:var(--dtr-primary,#149c8e)}",
             "#dia-ps-board .dia-psb-sub{font:600 11.5px Nunito,Arial,sans-serif;color:#8f8f85;margin-top:3px}",
-
-            "#dia-ps-board .dia-psb-uc{display:block!important;margin:0 22px 12px!important;padding:11px 16px!important;border-radius:12px!important;border:3px dashed #1a1a1a!important;background:#ffd23f!important;text-align:center!important;box-shadow:0 4px 14px rgba(0,0,0,.22)!important;transform:rotate(-1deg)}",
-            "#dia-ps-board .dia-psb-uc-main{display:block!important;font:900 18px/1.15 Nunito,Arial,sans-serif!important;letter-spacing:.05em!important;text-transform:uppercase!important;color:#2a2200!important}",
-            "#dia-ps-board .dia-psb-uc-sub{display:block!important;margin-top:3px!important;font:800 11px Nunito,Arial,sans-serif!important;letter-spacing:.02em!important;text-transform:none!important;color:#6a5600!important}",
-            "#dia-ps-board .dia-psb-close{flex:none;width:32px;height:32px;border:none;border-radius:50%;background:#efe9df;color:#7a7a72;font-size:19px;line-height:1;cursor:pointer}",
+            "#dia-ps-board .dia-psb-close{flex:none;display:flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0 0 2px;border:none;border-radius:50%;background:rgba(255,255,255,.75);color:#7a7a72;font-size:19px;line-height:1;cursor:pointer}",
             "#dia-ps-board .dia-psb-close:hover{background:var(--dtr-primary,#149c8e);color:#fff}",
-            "#dia-ps-board .dia-psb-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:4px 22px 12px;border-bottom:1px solid var(--dtr-primary-line,#ece6db)}",
+            "#dia-ps-board .dia-psb-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:4px 22px 12px;border-bottom:1px solid rgba(180,160,170,.25)}",
             "#dia-ps-board .dia-psb-add{display:inline-flex;align-items:center;gap:5px;border:none;background:var(--dtr-primary,#149c8e);color:#fff;font:800 12.5px Nunito,Arial,sans-serif;padding:8px 16px;border-radius:999px;cursor:pointer}",
             "#dia-ps-board .dia-psb-add:hover{filter:brightness(1.06)}",
-            "#dia-ps-board .dia-psb-toolnote{font:600 10.5px Nunito,Arial,sans-serif;color:#a8a89e}",
             "#dia-ps-board .dia-psb-act{border:none;background:var(--dtr-primary-bg,#e7f6f2);color:var(--dtr-primary,#149c8e);font:700 12px Nunito,Arial,sans-serif;padding:7px 14px;border-radius:999px;cursor:pointer}",
             "#dia-ps-board .dia-psb-act:hover{box-shadow:inset 0 0 0 999px rgba(0,0,0,.05)}",
             "#dia-ps-board .dia-psb-act.primary{background:var(--dtr-primary,#149c8e);color:#fff}",
@@ -12667,18 +12692,22 @@
             "#dia-ps-board .dia-psb-loading{font:600 12px Nunito,Arial,sans-serif;color:#9a9a90;padding:8px 22px 0}",
             "#dia-ps-board .dia-psb-split{flex:1;min-height:0;display:flex}",
             "#dia-ps-board .dia-psb-col{flex:1;min-width:0;overflow-y:auto;padding:8px 18px 20px}",
-            "#dia-ps-board .dia-psb-col+.dia-psb-col{border-left:1px solid var(--dtr-primary-line,#ece6db)}",
-            "#dia-ps-board .dia-psb-col-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:8px;font:800 13px Nunito,Arial,sans-serif;color:#5a5a52;background:#fdfaf3;padding:8px 2px 9px}",
-            "#dia-ps-board .dia-psb-secn{font:800 10px Nunito,Arial,sans-serif;background:var(--dtr-primary-bg,#e7f6f2);color:var(--dtr-primary,#149c8e);border-radius:999px;padding:2px 8px}",
+            "#dia-ps-board .dia-psb-col+.dia-psb-col{border-left:1px solid rgba(180,160,170,.25)}",
+            "#dia-ps-board .dia-psb-col-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.55);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);border-radius:0 0 12px 12px;padding:8px 2px}",
 
-            "#dia-ps-board .dia-psb-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-start;align-content:flex-start}",
-            "#dia-ps-board li.object{width:152px;display:flex;flex-direction:column;align-items:center;background:#fff;border:1px solid #efe7da;border-radius:14px;overflow:hidden;cursor:default;transition:box-shadow .15s,transform .15s,border-color .15s;position:relative;box-sizing:border-box;list-style:none;margin:0;padding:0 0 28px}",
+            "#dia-ps-board .dia-psb-secpill{display:inline-block;font:700 8px/1 Inter,sans-serif;letter-spacing:.07em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1.5px solid}",
+            "#dia-ps-board .dia-psb-secpill.wish{background:#eaf3ff;border-color:#c8e1f6;color:#3d83c4}",
+            "#dia-ps-board .dia-psb-secpill.own{background:#ffeef3;border-color:#ffd2de;color:#e8385a}",
+            "#dia-ps-board .dia-psb-secpill-n{opacity:.6;font-weight:600}",
+
+            "#dia-ps-board .dia-psb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px;align-content:start}",
+            "#dia-ps-board li.object{width:auto;display:flex;flex-direction:column;align-items:center;background:#fff;border:1px solid #efe7da;border-radius:14px;overflow:hidden;cursor:default;transition:box-shadow .15s,transform .15s,border-color .15s;position:relative;box-sizing:border-box;list-style:none;margin:0;padding:0 0 28px}",
             "#dia-ps-board li.object:hover{border-color:var(--dtr-scroll,#a6e4dc);box-shadow:0 0 0 3px rgba(95,179,232,.16),0 8px 18px -8px rgba(255,151,179,.5);transform:translateY(-2px)}",
             "#dia-ps-board li.object label{display:flex;flex-direction:column;align-items:center;width:100%;flex:1;position:relative;margin:0}",
             "#dia-ps-board li.object .dia-psb-thumb2{position:relative;width:100%;height:126px;display:block;cursor:pointer}",
             "#dia-ps-board li.object .dia-psb-thumb2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:14px 10px 4px;box-sizing:border-box}",
             "#dia-ps-board li.object .dia-psb-thumb2 img.dia-ps-gif{mix-blend-mode:multiply}",
-            "#dia-ps-board li.object .dia-psb-thumb2:hover{background:var(--dtr-primary-bg,#eef7f4)}",
+            "#dia-ps-board li.object .dia-psb-thumb2:hover{background:#f6f4ee}",
             "#dia-ps-board .dia-psb-noimg{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font:800 26px Nunito,Arial,sans-serif;color:#cfcabe}",
             "#dia-ps-board li.object .name.dia-item-name{display:block;font:600 10.5px/1.32 Nunito,Arial,sans-serif;color:#2a4a3a;text-align:center;padding:4px 6px 7px;word-break:break-word}",
             "#dia-ps-board li.object .dia-psb-sp2{display:block;font:600 9.5px Nunito,Arial,sans-serif;color:#9a9a90;margin-top:2px}",
@@ -12714,7 +12743,7 @@
             "#dia-ps-board li.object .cv2-clip-add.cv2-clip-added{background:#3d97d4;box-shadow:0 0 0 2px rgba(95,179,232,.45),0 0 12px rgba(95,179,232,.6)}",
             "#dia-ps-board li.object .cv2-clip-add svg{width:14px;height:14px;display:block;pointer-events:none}",
 
-            "#dia-ps-board .dia-psb-clip{flex:none;border-top:1px solid var(--dtr-primary-line,#ece6db);background:#f7f3ea;max-height:56%;display:flex;flex-direction:column;min-height:0}",
+            "#dia-ps-board .dia-psb-clip{flex:none;border-top:1px solid #f0ebe0;background:#fff;max-height:56%;display:flex;flex-direction:column;min-height:0}",
             "#dia-ps-board .dia-psb-clip-bar{display:flex;align-items:center;gap:8px;width:100%;border:none;background:none;padding:11px 22px;cursor:pointer;font:800 12.5px Nunito,Arial,sans-serif;color:var(--dtr-primary,#149c8e)}",
             "#dia-ps-board .dia-psb-clip-bar:hover{background:rgba(0,0,0,.025)}",
             "#dia-ps-board .dia-psb-clip-baricon{display:inline-flex;width:17px;height:17px}",
@@ -12726,17 +12755,26 @@
             "#dia-ps-board .dia-psb-clip-empty{display:flex;align-items:center;justify-content:center;gap:6px;padding:18px;color:#a8a89e;font:600 12px Nunito,Arial,sans-serif;text-align:center}",
             "#dia-ps-board .dia-psb-clip-emptyi{display:inline-flex;width:15px;height:15px;color:var(--dtr-primary,#149c8e);vertical-align:middle}",
             "#dia-ps-board .dia-psb-clip-emptyi svg{width:15px;height:15px}",
-            "#dia-ps-board .dia-psb-clip-items{display:flex;gap:10px;overflow-x:auto;padding:8px 2px 10px}",
-            "#dia-ps-board .dia-psb-clip-item{position:relative;flex:none;width:110px;background:#fff;border:1px solid #efe7da;border-radius:12px;padding:8px 8px 9px;display:flex;flex-direction:column;align-items:center;gap:2px;transition:border-color .12s,box-shadow .12s}",
+
+            "#dia-ps-board .dia-psb-clip-cols{display:flex;align-items:flex-start;padding:6px 0 2px}",
+            "#dia-ps-board .dia-psb-clip-col{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;padding:0 12px}",
+            "#dia-ps-board .dia-psb-clip-col+.dia-psb-clip-col{border-left:1px solid #f0ebe0}",
+            "#dia-ps-board .dia-psb-clip-colhd{display:flex;justify-content:center;padding:2px 0 4px}",
+            "#dia-ps-board .dia-psb-clip-colempty{text-align:center;font:600 10.5px Nunito,Arial,sans-serif;color:#b3b0a4;padding:10px 0 12px}",
+            "#dia-ps-board .dia-psb-clip-tiles{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:2px 0 6px}",
+            "#dia-ps-board .dia-psb-clip-item{position:relative;flex:none;width:104px;background:#fff;border:1px solid #efe7da;border-radius:12px;padding:8px 8px 9px;display:flex;flex-direction:column;align-items:center;gap:2px;transition:border-color .12s,box-shadow .12s}",
             "#dia-ps-board .dia-psb-clip-item:hover{border-color:var(--dtr-scroll,#a6e4dc);box-shadow:0 4px 12px -6px rgba(110,128,150,.4)}",
-            "#dia-ps-board .dia-psb-clip-x{position:absolute;top:5px;right:5px;z-index:2;width:18px;height:18px;border:none;background:rgba(255,255,255,.92);border-radius:50%;color:#a08c7a;font-size:13px;line-height:1;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.14);opacity:0;transition:opacity .12s}",
-            "#dia-ps-board .dia-psb-clip-item:hover .dia-psb-clip-x{opacity:1}",
-            "#dia-ps-board .dia-psb-clip-x:hover{background:#ef9a8a;color:#fff}",
-            "#dia-ps-board .dia-psb-clip-thumb{position:relative;width:100%;height:84px;background:var(--dtr-primary-bg,#eef7f4);border-radius:10px;overflow:hidden}",
-            "#dia-ps-board .dia-psb-clip-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:7px;box-sizing:border-box}",
+            "#dia-ps-board .dia-psb-clip-thumb{position:relative;width:100%;height:78px;background:#f6f4ee;border-radius:10px;overflow:hidden}",
+            "#dia-ps-board .dia-psb-clip-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:6px;box-sizing:border-box}",
             "#dia-ps-board .dia-psb-clip-thumb img.dia-ps-gif{mix-blend-mode:multiply}",
             "#dia-ps-board .dia-psb-clip-nm{font:700 10px/1.2 Nunito,Arial,sans-serif;color:#2a4a3a;text-align:center;margin-top:5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}",
             "#dia-ps-board .dia-psb-clip-sp{font:600 9px Nunito,Arial,sans-serif;color:#9a9a90}",
+            "#dia-ps-board .dia-psb-clip-x{position:absolute;top:5px;right:5px;z-index:2;display:flex;align-items:center;justify-content:center;width:18px;height:18px;padding:0 0 1px;border:none;background:rgba(255,255,255,.92);border-radius:50%;color:#a08c7a;font-size:13px;line-height:1;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.14);opacity:0;transition:opacity .12s}",
+            "#dia-ps-board .dia-psb-clip-item:hover .dia-psb-clip-x{opacity:1}",
+            "#dia-ps-board .dia-psb-clip-x:hover{background:#ef9a8a;color:#fff}",
+            "#dia-ps-board .dia-psb-clip-note{flex:1;min-width:170px;box-sizing:border-box;border:1.5px solid #ece7da!important;outline:none!important;box-shadow:none!important;border-radius:999px!important;background:#fff!important;padding:6px 13px!important;font:600 11px Nunito,Arial,sans-serif!important;color:#3a3a35!important}",
+            "#dia-ps-board .dia-psb-clip-note:focus{border-color:var(--dtr-primary,#149c8e)!important}",
+            "#dia-ps-board .dia-psb-clip-note::placeholder{color:#c0bcae!important;font-weight:600!important}",
             "#dia-ps-board .dia-psb-clip-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:11px}",
             "#dia-ps-board .dia-psb-clip-sort{display:inline-flex;align-items:center;gap:6px}",
             "#dia-ps-board .dia-psb-clip-sortlbl{font:700 9px Nunito,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#a8a89e}",
@@ -12750,9 +12788,15 @@
             "#dia-ps-board-copy .dia-psy-card{width:min(460px,94vw);max-height:86vh;display:flex;flex-direction:column;gap:11px;background:#fdfaf3;border-radius:16px;box-shadow:0 18px 50px rgba(60,60,55,.32);padding:18px}",
             "#dia-ps-board-copy .dia-psy-head{display:flex;align-items:center;justify-content:space-between}",
             "#dia-ps-board-copy .dia-psy-title{font:800 16px Nunito,Arial,sans-serif;color:var(--dtr-primary,#149c8e)}",
-            "#dia-ps-board-copy .dia-psy-close{width:28px;height:28px;border:none;border-radius:50%;background:#efe9df;color:#7a7a72;font-size:16px;cursor:pointer}",
+            "#dia-ps-board-copy .dia-psy-close{display:flex;align-items:center;justify-content:center;width:28px;height:28px;padding:0 0 1px;border:none;border-radius:50%;background:#efe9df;color:#7a7a72;font-size:16px;line-height:1;cursor:pointer}",
             "#dia-ps-board-copy .dia-psy-close:hover{background:var(--dtr-primary,#149c8e);color:#fff}",
             "#dia-ps-board-copy .dia-psy-sub{font:600 11.5px Nunito,Arial,sans-serif;color:#8f8f85;line-height:1.45}",
+            "#dia-ps-board-copy .dia-psy-opts{display:flex;align-items:center;gap:14px;flex-wrap:wrap}",
+            "#dia-ps-board-copy .dia-psy-optgrp{display:inline-flex;align-items:center;gap:5px}",
+            "#dia-ps-board-copy .dia-psy-optlbl{font:700 9px Nunito,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#a8a89e;margin-right:2px}",
+            "#dia-ps-board-copy .dia-psy-pill{border:none;background:var(--dtr-primary-bg,#e7f6f2);color:var(--dtr-primary,#149c8e);font:700 11px Nunito,Arial,sans-serif;padding:5px 12px;border-radius:999px;cursor:pointer;transition:box-shadow .12s}",
+            "#dia-ps-board-copy .dia-psy-pill:hover{box-shadow:inset 0 0 0 999px rgba(0,0,0,.05)}",
+            "#dia-ps-board-copy .dia-psy-pill.on{background:var(--dtr-primary,#149c8e);color:#fff}",
             "#dia-ps-board-copy .dia-psy-ta{width:100%;box-sizing:border-box;min-height:240px;resize:vertical;border:1.5px solid var(--dtr-primary-line,#cfe7e0)!important;border-radius:11px;background:#fff;padding:11px 13px;font:600 12.5px/1.5 Nunito,Arial,sans-serif;color:#3a3a35;outline:none!important}",
             "#dia-ps-board-copy .dia-psy-ta:focus{border-color:var(--dtr-primary,#149c8e)!important}",
             "#dia-ps-board-copy .dia-psy-foot{display:flex;justify-content:flex-end}",
@@ -12761,23 +12805,23 @@
 
             "#dia-ps-board-collage{position:fixed;inset:0;z-index:100004;background:rgba(40,40,38,.34);display:flex;align-items:center;justify-content:center;padding:24px;font-family:Nunito,Arial,sans-serif;-webkit-font-smoothing:antialiased}",
 
-            "#dia-ps-board-collage .dia-psc-shell{width:min(1000px,96vw);max-height:calc(100vh - 48px);display:flex;flex-direction:column;background:linear-gradient(135deg,#fbecf5 0%,#ecf0fb 28%,#e6f4fb 52%,#eafbf1 76%,#fdf6ea 100%);border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(40,40,38,.34)}",
+            "#dia-ps-board-collage .dia-psc-shell{width:min(1000px,96vw);max-height:calc(100vh - 48px);display:flex;flex-direction:column;background:#fdfaf3;border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(40,40,38,.34)}",
             "#dia-ps-board-collage .dia-psc-stripe{height:6px;flex:none;background:var(--dtr-stripe,linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%))}",
             "#dia-ps-board-collage .dia-psc-scroll{flex:1;min-height:0;overflow-y:auto}",
             "#dia-ps-board-collage .dia-psc-head{display:flex;align-items:center;gap:12px;padding:18px 22px 4px}",
             "#dia-ps-board-collage .dia-psc-titlewrap{flex:1;min-width:0;display:flex;align-items:baseline;gap:8px}",
             "#dia-ps-board-collage .dia-psc-title-in{min-width:0;max-width:100%;border:none!important;outline:none!important;background:transparent;font-family:'Baloo 2',Nunito,Arial,sans-serif;font-size:21px;font-weight:700;color:#3a3a35;padding:2px 3px;border-bottom:1.5px dashed transparent}",
-            "#dia-ps-board-collage .dia-psc-title-in:hover,#dia-ps-board-collage .dia-psc-title-in:focus{border-bottom-color:#d8b8e8}",
+            "#dia-ps-board-collage .dia-psc-title-in:hover,#dia-ps-board-collage .dia-psc-title-in:focus{border-bottom-color:var(--dtr-primary-line,#bfe6e0)}",
             "#dia-ps-board-collage .dia-psc-count{font:700 12px Nunito,Arial,sans-serif;color:#b0b0a6;flex:none}",
             "#dia-ps-board-collage .dia-psc-chips{display:flex;align-items:center;gap:6px;flex:none}",
             "#dia-ps-board-collage .dia-psc-sortlbl{font:700 8.5px Nunito,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#b0aea4}",
-            "#dia-ps-board-collage .dia-psc-chip{border:1.5px solid #e7e1d4;border-radius:999px;background:#fff;color:#8a8575;font:700 11px Nunito,Arial,sans-serif;padding:5px 13px;cursor:pointer;transition:all .12s}",
-            "#dia-ps-board-collage .dia-psc-chip:hover{border-color:#d8b8e8;color:#9a72c8}",
-            "#dia-ps-board-collage .dia-psc-chip.on{background:#f7f2fc;border-color:#b48fe0;color:#9a72c8}",
-            "#dia-ps-board-collage .dia-psc-close{flex:none;width:34px;height:34px;border-radius:10px;border:1px solid #e7e1d4;background:#fff;cursor:pointer;font-size:15px;color:#7a7a72;transition:all .12s}",
-            "#dia-ps-board-collage .dia-psc-close:hover{background:#b48fe0;border-color:#b48fe0;color:#fff}",
-            "#dia-ps-board-collage .dia-psc-sub{padding:0 22px 6px;font:600 11px Nunito,Arial,sans-serif;color:#b0a8b4}",
 
+            "#dia-ps-board-collage .dia-psc-chip{border:none;border-radius:999px;background:var(--dtr-primary-bg,#e7f6f2);color:var(--dtr-primary,#149c8e);font:700 11px Nunito,Arial,sans-serif;padding:6px 14px;cursor:pointer;transition:box-shadow .12s}",
+            "#dia-ps-board-collage .dia-psc-chip:hover{box-shadow:inset 0 0 0 999px rgba(0,0,0,.05)}",
+            "#dia-ps-board-collage .dia-psc-chip.on{background:var(--dtr-primary,#149c8e);color:#fff}",
+            "#dia-ps-board-collage .dia-psc-close{flex:none;display:flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0 0 1px;border-radius:50%;border:none;background:#efe9df;cursor:pointer;font-size:15px;line-height:1;color:#7a7a72;transition:all .12s}",
+            "#dia-ps-board-collage .dia-psc-close:hover{background:var(--dtr-primary,#149c8e);color:#fff}",
+            "#dia-ps-board-collage .dia-psc-sub{padding:0 22px 6px;font:600 11px Nunito,Arial,sans-serif;color:#b0a8b4}",
             "#dia-ps-board-collage .dia-psc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:14px;align-content:start;padding:8px 22px 18px}",
             "#dia-ps-board-collage .dia-psc-empty{grid-column:1/-1;text-align:center;font:600 12px Nunito,Arial,sans-serif;color:#a8a89e;padding:42px 20px}",
             "#dia-ps-board-collage .dia-psc-cell{display:flex;flex-direction:column;background:#fff;border:1px solid #ece7da;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(80,70,90,.16)}",
@@ -12787,30 +12831,18 @@
             "#dia-ps-board-collage .dia-psc-cbody{display:flex;flex-direction:column;align-items:center;flex:1;padding:11px 12px 13px}",
             "#dia-ps-board-collage .dia-psc-cnm{font-family:'Baloo 2',Nunito,Arial,sans-serif;font-size:13.5px;font-weight:700;color:#3a3a35;text-align:center;line-height:1.25;word-break:break-word}",
             "#dia-ps-board-collage .dia-psc-csp{font:600 10.5px Nunito,Arial,sans-serif;color:#a6a69e;margin-top:2px;text-align:center}",
-            "#dia-ps-board-collage .dia-psc-offer{margin-top:auto;width:100%;display:flex;flex-direction:column;align-items:center;gap:9px;padding-top:11px;border-top:1px dashed #ece7da}",
-            "#dia-ps-board-collage .dia-psc-offhd{display:flex;flex-direction:column;align-items:center;gap:5px}",
-            "#dia-ps-board-collage .dia-psc-offlbl{font:800 8px Nunito,Arial,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#b0aea4}",
 
-            "#dia-ps-board-collage .dia-psc-vtag{display:inline-flex;align-items:center;gap:5px;position:relative;border-radius:0 9px 9px 0;clip-path:polygon(11px 0,100% 0,100% 100%,11px 100%,0 50%);padding:5px 12px 5px 18px;background:radial-gradient(circle at 10px 50%,#fff 2.6px,#ffe3ec 3.3px);color:#c2487c;font:800 14px Nunito,Arial,sans-serif;filter:drop-shadow(0 1px 2px rgba(110,128,150,.3))}",
-            "#dia-ps-board-collage .dia-psc-vtag img{display:block}",
-            "#dia-ps-board-collage .dia-psc-vtag-u{font:700 8.5px Nunito,Arial,sans-serif;letter-spacing:.02em;opacity:.82}",
-            "#dia-ps-board-collage .dia-psc-vtag-empty{clip-path:none;border-radius:999px;padding:4px 12px;background:#f1ede4;color:#b0aea4;font:700 9px Nunito,Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;filter:none}",
-            "#dia-ps-board-collage .dia-psc-offctl{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap}",
-            "#dia-ps-board-collage .dia-psc-offstep{display:inline-flex;align-items:center;background:#f7f2fc;border:1px solid #ecdffb;border-radius:999px}",
-            "#dia-ps-board-collage .dia-psc-offbtn{width:22px;height:22px;border:none;background:none;color:#9a72c8;font:800 14px Nunito,Arial,sans-serif;line-height:1;cursor:pointer;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center}",
-            "#dia-ps-board-collage .dia-psc-offbtn:hover{background:rgba(180,143,224,.18)}",
-            "#dia-ps-board-collage .dia-psc-offn{min-width:18px;text-align:center;font:800 12px Nunito,Arial,sans-serif;color:#7a5fa0}",
-            "#dia-ps-board-collage .dia-psc-curpills{display:inline-flex;align-items:center;gap:2px;background:#f1ede4;border-radius:999px;padding:2px}",
-            "#dia-ps-board-collage .dia-psc-curpill{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border:none!important;outline:none!important;background:transparent;border-radius:50%;cursor:pointer;padding:0;opacity:.4;transition:opacity .12s,background .12s,box-shadow .12s}",
-            "#dia-ps-board-collage .dia-psc-curpill:hover{opacity:.8;background:rgba(0,0,0,.05)}",
-            "#dia-ps-board-collage .dia-psc-curpill.on{opacity:1;background:#fff;box-shadow:0 1px 4px rgba(154,114,200,.32)}",
-            "#dia-ps-board-collage .dia-psc-curico{display:block;width:17px;height:17px;pointer-events:none}",
+            "#dia-ps-board-collage .dia-psc-offer{margin-top:auto;width:100%;display:flex;flex-direction:column;align-items:center;gap:5px;padding-top:10px;border-top:1px dashed #ece7da}",
+            "#dia-ps-board-collage .dia-psc-offlbl{font:800 8px Nunito,Arial,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#b0aea4}",
+            "#dia-ps-board-collage .dia-psc-offin{width:100%;box-sizing:border-box;border:1.5px solid #ece7da!important;outline:none!important;box-shadow:none!important;border-radius:9px!important;background:#fdfbf6!important;padding:7px 9px!important;font:600 11.5px Nunito,Arial,sans-serif!important;color:#3a3a35!important;text-align:center}",
+            "#dia-ps-board-collage .dia-psc-offin:focus{border-color:var(--dtr-primary,#149c8e)!important;background:#fff!important}",
+            "#dia-ps-board-collage .dia-psc-offin::placeholder{color:#c4c0b2!important;font-weight:600!important}",
 
             "#dia-ps-board-collage .dia-psc-foot{flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 22px;background:rgba(255,255,255,.5);border-top:1px solid rgba(180,160,170,.2)}",
             "#dia-ps-board-collage .dia-psc-hint{font:700 10.5px Nunito,Arial,sans-serif;color:#a08bb0;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
             "#dia-ps-board-collage .dia-psc-btns{display:flex;gap:9px;flex:none}",
-            "#dia-ps-board-collage .dia-psc-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid #e7e1d4;border-radius:999px;font:700 12px Nunito,Arial,sans-serif;padding:9px 16px;cursor:pointer;background:#fff;color:#7a7a72;transition:all .12s}",
-            "#dia-ps-board-collage .dia-psc-btn:hover{border-color:#cdbfe0;color:#5a5a52}",
+            "#dia-ps-board-collage .dia-psc-btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:999px;font:700 12px Nunito,Arial,sans-serif;padding:9px 16px;cursor:pointer;background:var(--dtr-primary-bg,#e7f6f2);color:var(--dtr-primary,#149c8e);transition:box-shadow .12s}",
+            "#dia-ps-board-collage .dia-psc-btn:hover{box-shadow:inset 0 0 0 999px rgba(0,0,0,.05)}",
             "#dia-ps-board-collage .dia-psc-btn.primary{border:none;background:var(--dtr-primary,#149c8e);color:#fff}",
             "#dia-ps-board-collage .dia-psc-btn.primary:hover{filter:brightness(1.06);color:#fff}",
             "#dia-ps-board-collage .dia-psc-btn:disabled{opacity:.45;cursor:default}",
@@ -12819,7 +12851,7 @@
             "#dia-ps-board-add .dia-psa-card{width:min(520px,94vw);max-height:88vh;display:flex;flex-direction:column;gap:11px;background:#fdfaf3;border-radius:16px;box-shadow:0 18px 50px rgba(60,60,55,.32);padding:18px}",
             "#dia-ps-board-add .dia-psa-head{display:flex;align-items:center;justify-content:space-between}",
             "#dia-ps-board-add .dia-psa-title{font:800 16px Nunito,Arial,sans-serif;color:var(--dtr-primary,#149c8e)}",
-            "#dia-ps-board-add .dia-psa-close{width:28px;height:28px;border:none;border-radius:50%;background:#efe9df;color:#7a7a72;font-size:16px;cursor:pointer}",
+            "#dia-ps-board-add .dia-psa-close{display:flex;align-items:center;justify-content:center;width:28px;height:28px;padding:0 0 1px;border:none;border-radius:50%;background:#efe9df;color:#7a7a72;font-size:16px;line-height:1;cursor:pointer}",
             "#dia-ps-board-add .dia-psa-close:hover{background:var(--dtr-primary,#149c8e);color:#fff}",
             "#dia-ps-board-add .dia-psa-dest{display:flex;align-items:center;gap:6px}",
             "#dia-ps-board-add .dia-psa-destlbl{font:700 9px Nunito,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#a8a89e;margin-right:2px}",
@@ -12832,7 +12864,7 @@
             "#dia-ps-board-add .dia-psa-row{display:flex;align-items:center;gap:10px;width:100%;box-sizing:border-box;border:none!important;outline:none!important;background:#fff;border-radius:11px;padding:7px 10px;cursor:pointer;text-align:left;box-shadow:0 1px 0 rgba(0,0,0,.03)}",
             "#dia-ps-board-add .dia-psa-row:hover{background:var(--dtr-primary-bg,#f1fbf9)}",
             "#dia-ps-board-add .dia-psa-row.added{background:var(--dtr-primary-bg,#e7f6f2)}",
-            "#dia-ps-board-add .dia-psa-rthumb{position:relative;flex:none;width:42px;height:42px;background:var(--dtr-primary-bg,#eef7f4);border-radius:8px;overflow:hidden}",
+            "#dia-ps-board-add .dia-psa-rthumb{position:relative;flex:none;width:42px;height:42px;background:#f6f4ee;border-radius:8px;overflow:hidden}",
             "#dia-ps-board-add .dia-psa-rthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:3px;box-sizing:border-box}",
             "#dia-ps-board-add .dia-psa-rthumb img.dia-ps-gif{mix-blend-mode:multiply}",
             "#dia-ps-board-add .dia-psa-rmeta{flex:1;min-width:0;display:flex;flex-direction:column}",
@@ -12853,8 +12885,9 @@
           _psBoardCss();
           const ov = document.createElement('div'); ov.id = 'dia-ps-board';
           ov.innerHTML = '<div class="dia-psb-card">'
-            + '<div class="dia-psb-head"><div><div class="dia-psb-title">My Pet Styles</div><div class="dia-psb-sub">Private to you · curate your Wants and Owned tokens, set quantities, share a list or collage</div></div><button type="button" class="dia-psb-close" data-bclose aria-label="Close">×</button></div>'
-            + '<div class="dia-psb-toolbar"><div class="dia-psb-toolnote">Wished and Owned are set when you add from the picker — to move one, remove it and re-add.</div><span class="dia-psb-clears"><button type="button" class="dia-psb-clearbtn" data-bclearw>Clear Wished</button><button type="button" class="dia-psb-clearbtn" data-bclearo>Clear Owned</button></span></div>'
+            + '<div class="dia-psb-stripe"></div>'
+            + '<div class="dia-psb-head"><div><div class="dia-psb-title">My Pet Styles</div><div class="dia-psb-sub">Only you can see this — the styles you own, the ones you want, and what you’d offer.</div></div><button type="button" class="dia-psb-close" data-bclose aria-label="Close">×</button></div>'
+            + '<div class="dia-psb-toolbar"><button type="button" class="dia-psb-add" data-badd>＋ Add a style</button><span class="dia-psb-clears"><button type="button" class="dia-psb-clearbtn" data-bclearo>Clear Owned</button><button type="button" class="dia-psb-clearbtn" data-bclearw>Clear Wished</button></span></div>'
             + '<div class="dia-psb-body"></div>'
             + '<div class="dia-psb-clip"><button type="button" class="dia-psb-clip-bar" data-clip-toggle><span class="dia-psb-clip-baricon">' + _CLIP_ICON + '</span><span class="dia-psb-clip-barlbl">Clipboard</span><span class="dia-psb-clip-cnt">0</span><span class="dia-psb-clip-chev">▴</span></button><div class="dia-psb-clip-panel"></div></div>'
             + '</div>';
@@ -12871,7 +12904,15 @@
               const ids = _ownIds(key); clearTimeout(_clearT);
               const reset = () => { ov.querySelectorAll('[data-bclearw],[data-bclearo]').forEach(b => { b.classList.remove('confirm'); b.textContent = 'Clear ' + (b.hasAttribute('data-bclearw') ? 'Wished' : 'Owned'); }); };
               if (!ids.length) { _psbToast('No ' + lbl + ' styles to clear'); return; }
-              if (_clearPend === key) { _clearPend = null; ids.forEach(id => { if (OWN[id]) { delete OWN[id][key]; if (!OWN[id].o && !OWN[id].w) delete OWN[id]; } }); _ownSave(); reset(); boardRender(); _psbToast('Cleared ' + ids.length + ' ' + lbl); }
+              if (_clearPend === key) {
+                _clearPend = null;
+                const snap = {};
+                ids.forEach(id => { if (OWN[id]) { snap[id] = Object.assign({}, OWN[id]); delete OWN[id][key]; if (!OWN[id].o && !OWN[id].w) delete OWN[id]; } });
+                _ownSave(); reset(); boardRender(); _psSyncLaunchCount();
+                const undo = () => { Object.keys(snap).forEach(id => { OWN[id] = Object.assign({}, snap[id], OWN[id] || {}); OWN[id][key] = true; }); _ownSave(); boardRender(); _psSyncLaunchCount(); };
+                if (window._dtrUndoToast) window._dtrUndoToast('Cleared ' + ids.length + ' ' + lbl + (ids.length === 1 ? ' style' : ' styles'), undo);
+                else _psbToast('Cleared ' + ids.length + ' ' + lbl);
+              }
               else { _clearPend = key; reset(); clr.classList.add('confirm'); clr.textContent = 'Sure? clears ' + ids.length; _clearT = setTimeout(() => { _clearPend = null; reset(); }, 3000); }
               return;
             }
@@ -12879,11 +12920,9 @@
             if (e.target.closest('[data-clip-toggle]')) { _clipOpen = !_clipOpen; clipRender(); return; }
             const cadd = e.target.closest('[data-bclip]'); if (cadd) { _clipToggle(cadd.getAttribute('data-bclip')); boardRender(); clipRender(); return; }
             const crm = e.target.closest('[data-clip-rm]'); if (crm) { const i = _clip.findIndex(c => c.id === crm.getAttribute('data-clip-rm')); if (i >= 0) _clip.splice(i, 1); boardRender(); clipRender(); return; }
-            const cstar = e.target.closest('[data-clip-star]'); if (cstar) { const en = _clipEntry(cstar.getAttribute('data-clip-star')); if (en) en.star = !en.star; clipRender(); return; }
-            const ccap = e.target.closest('[data-clip-cap]'); if (ccap) { const en = _clipEntry(ccap.getAttribute('data-cid')); if (en) en.caps = Math.max(0, en.caps + (ccap.getAttribute('data-clip-cap') === '+' ? 1 : -1)); clipRender(); return; }
             const csort = e.target.closest('[data-clip-sort]'); if (csort) { _clipSort = csort.getAttribute('data-clip-sort'); clipRender(); return; }
             if (e.target.closest('[data-clip-clear]')) { _clip.length = 0; boardRender(); clipRender(); return; }
-            if (e.target.closest('[data-clip-copylist]')) { _psBoardOpenCopy(_clipText()); return; }
+            if (e.target.closest('[data-clip-copylist]')) { _psBoardOpenCopy(_clipText); return; }
             if (e.target.closest('[data-clip-copycollage]')) { _psBoardOpenCollage(); return; }
             const q = e.target.closest('[data-bqty]'); if (q) { const id = q.getAttribute('data-bid'); const cur = Math.max(1, (OWN[id] && OWN[id].q | 0) || 1); _ownSetQty(id, q.getAttribute('data-bqty') === '+' ? cur + 1 : cur - 1); boardRender(); return; }
 
@@ -15043,7 +15082,8 @@
     const toFetch = [];
     names.forEach(name => {
       const c = cache[norm(name)];
-      if (c && c.id) result[name] = { id: String(c.id), slug: c.slug || '', thumb: c.thumb || '', nc: ('nc' in c ? !!c.nc : undefined), pb: ('pb' in c ? !!c.pb : undefined) };
+
+      if (c && c.id && 'nc' in c) result[name] = { id: String(c.id), slug: c.slug || '', thumb: c.thumb || '', nc: !!c.nc, pb: ('pb' in c ? !!c.pb : undefined) };
       else toFetch.push(name);
     });
     const total = toFetch.length;
@@ -21267,6 +21307,7 @@
         name, id,
         slug: meta.slug || '',
         thumb: meta.thumb || '',
+        nc: meta.nc, pb: meta.pb,
         inv: batch[name] || 1,
         lebron: lebron ? lebron[name.trim().toLowerCase().replace(/\s*:\s*/g, ': ').replace(/\s{2,}/g, ' ')] : undefined,
         current, alloc, origOwned,
@@ -21486,6 +21527,8 @@
       for (let i = s; i < e; i++) if (!model[i].resolved) pend.push(model[i].name);
 
       _dibStragglers.forEach(i => { if ((i < s || i >= e) && !model[i].resolved) pend.push(model[i].name); });
+
+      for (let i = s; i < e; i++) { const it = model[i]; if (it.resolved && it.id && it.nc === undefined) pend.push(it.name); }
       if (!pend.length) return;
       let got = {};
       try { got = (await diaBulkResolveItems(pend)) || {}; } catch (_) { got = {}; }
@@ -21493,7 +21536,14 @@
       const newIds = [];
       for (let i = 0; i < model.length; i++) {
         const it = model[i];
-        if (it.resolved) continue;
+        if (it.resolved) {
+
+          if (it.nc === undefined && got[it.name] && 'nc' in got[it.name]) {
+            it.nc = got[it.name].nc; it.pb = got[it.name].pb;
+            if ((i >= ns && i < ne) || _dibStragglers.has(i)) renderItem(i);
+          }
+          continue;
+        }
         if (got[it.name]) {
           _hydrate(it, got[it.name]); newIds.push(it.id);
           if ((i >= ns && i < ne) || _dibStragglers.has(i)) renderItem(i);
@@ -43648,14 +43698,16 @@ if (!tradeLinks.length) {
     const OE_ABOX_BY_BODY = {"46":[0.5133,0.3867],"47":[0.5067,0.38],"48":[0.4733,0.6467],"49":[0.4867,0.2867],"50":[0.5,0.38],"51":[0.5,0.4733],"52":[0.5417,0.3583],"53":[0.6133,0.5],"54":[0.52,0.3867],"55":[0.5333,0.34],"56":[0.5467,0.3333],"66":[0.5067,0.5867],"67":[0.48,0.3667],"68":[0.5,0.4],"69":[0.54,0.58],"70":[0.48,0.36],"71":[0.4667,0.3467],"72":[0.54,0.3933],"73":[0.48,0.4933],"74":[0.6733,0.3],"75":[0.52,0.56],"76":[0.5467,0.42],"77":[0.5183,0.525,0.3433],"78":[0.52,0.3933],"79":[0.52,0.68],"80":[0.5067,0.5933],"82":[0.6,0.5],"83":[0.56,0.5333],"84":[0.6267,0.32],"85":[0.52,0.6],"86":[0.5133,0.6],"87":[0.68,0.28],"88":[0.5467,0.5267],"89":[0.5267,0.5267],"90":[0.5933,0.3733],"91":[0.6333,0.4133],"92":[0.58,0.3667],"93":[0.5333,0.44],"94":[0.5267,0.4333],"95":[0.56,0.4867],"96":[0.46,0.3933],"97":[0.5667,0.5533],"98":[0.5,0.5333],"99":[0.52,0.34],"100":[0.5733,0.3867],"101":[0.5733,0.3867],"102":[0.4933,0.6733],"103":[0.62,0.36],"104":[0.5733,0.3667],"105":[0.62,0.4467],"106":[0.5533,0.4467],"107":[0.5,0.58],"108":[0.5533,0.66],"109":[0.5467,0.5333],"110":[0.5267,0.54],"112":[0.54,0.4267],"115":[0.5533,0.44],"116":[0.5533,0.46],"117":[0.56,0.3933],"118":[0.5267,0.4133],"119":[0.5333,0.34],"120":[0.5067,0.5533],"121":[0.5533,0.38],"122":[0.6333,0.36],"123":[0.5133,0.32],"124":[0.54,0.54],"125":[0.54,0.5333],"126":[0.4867,0.4067],"127":[0.5,0.6],"129":[0.5667,0.4733],"130":[0.58,0.4667],"131":[0.5133,0.5133],"132":[0.5933,0.3667],"133":[0.5,0.5267],"134":[0.58,0.4067],"135":[0.4867,0.5467],"136":[0.5667,0.3733],"137":[0.52,0.48],"138":[0.5733,0.3333],"139":[0.5533,0.3867],"140":[0.48,0.6533],"141":[0.5933,0.3533],"142":[0.5267,0.4133],"143":[0.5733,0.3533],"144":[0.6,0.4533],"145":[0.6,0.36],"146":[0.4933,0.4133],"147":[0.52,0.3867],"148":[0.52,0.2867],"149":[0.5733,0.4667],"150":[0.5067,0.3467],"151":[0.62,0.34],"152":[0.58,0.36],"153":[0.4933,0.56],"154":[0.6067,0.3533],"155":[0.4867,0.64],"156":[0.48,0.42],"157":[0.48,0.48],"158":[0.4933,0.3533],"159":[0.5,0.3067],"160":[0.48,0.56],"161":[0.58,0.48],"162":[0.64,0.3867],"163":[0.54,0.3867],"164":[0.4933,0.44],"165":[0.6133,0.4933],"166":[0.58,0.3467],"167":[0.6467,0.4],"168":[0.56,0.5667],"169":[0.5067,0.3133],"170":[0.5133,0.3533],"171":[0.66,0.3667],"172":[0.5,0.4533],"173":[0.4933,0.2667],"174":[0.3667,0.4533],"175":[0.5267,0.3667],"176":[0.5067,0.38],"177":[0.6333,0.5133],"178":[0.5733,0.3],"179":[0.5333,0.3333],"180":[0.5667,0.3467],"181":[0.5,0.5333],"182":[0.5333,0.4467],"183":[0.6267,0.3333],"184":[0.6,0.4],"185":[0.4933,0.4],"186":[0.5783,0.3783,0.3433],"187":[0.5267,0.3467],"188":[0.5467,0.34],"189":[0.48,0.6533],"190":[0.5133,0.5867],"191":[0.5867,0.2867],"192":[0.58,0.3067],"193":[0.5733,0.28],"194":[0.5,0.54],"195":[0.5,0.5667],"196":[0.54,0.3933],"197":[0.56,0.34],"198":[0.5933,0.4267],"199":[0.64,0.28],"200":[0.5267,0.5],"201":[0.6,0.38],"202":[0.5467,0.3933],"203":[0.52,0.4933],"204":[0.52,0.42],"205":[0.6533,0.3533],"206":[0.54,0.4667],"207":[0.54,0.52],"208":[0.5,0.4333],"209":[0.5067,0.6467],"210":[0.6067,0.3733],"211":[0.5533,0.3067],"212":[0.5333,0.4467],"213":[0.6,0.6],"214":[0.54,0.62],"215":[0.5017,0.3983],"216":[0.5333,0.4467],"217":[0.52,0.5933],"218":[0.5,0.3933],"219":[0.5867,0.6],"220":[0.62,0.32],"221":[0.56,0.48],"222":[0.6333,0.28],"223":[0.6,0.6],"225":[0.5733,0.46],"226":[0.5933,0.42],"227":[0.54,0.3733],"228":[0.5867,0.4733],"229":[0.5467,0.6333],"230":[0.5717,0.4583],"231":[0.58,0.4733],"232":[0.5333,0.3667],"233":[0.56,0.5467],"234":[0.58,0.5933],"235":[0.5333,0.6467],"236":[0.58,0.5933],"237":[0.52,0.4333],"238":[0.6,0.4333],"239":[0.54,0.46],"240":[0.5867,0.6],"242":[0.5867,0.58],"243":[0.5333,0.62],"244":[0.5067,0.46],"245":[0.5,0.5067],"246":[0.52,0.4667],"247":[0.5,0.66],"248":[0.5067,0.5467],"249":[0.5,0.64],"250":[0.5867,0.32],"251":[0.58,0.36],"252":[0.5933,0.3067],"253":[0.4933,0.6667],"254":[0.5667,0.3533],"256":[0.5,0.5533],"257":[0.58,0.34],"258":[0.58,0.3733],"259":[0.4867,0.42],"260":[0.58,0.36],"261":[0.5333,0.3733],"262":[0.52,0.68],"264":[0.5733,0.4533],"265":[0.57,0.4633,0.3133],"266":[0.5467,0.3267],"267":[0.5167,0.49,0.3667],"268":[0.6333,0.4133],"269":[0.56,0.5733],"270":[0.6067,0.3867],"271":[0.5867,0.3467],"272":[0.5667,0.42],"273":[0.5267,0.4733],"274":[0.4933,0.56],"275":[0.56,0.5267],"276":[0.64,0.3533],"277":[0.5933,0.3333,0.4],"278":[0.6183,0.355],"279":[0.5783,0.3783,0.39],"280":[0.7167,0.3033,0.3533],"281":[0.5,0.44,0.3733],"282":[0.6467,0.3533,0.3867],"283":[0.61,0.39,0.4467],"284":[0.82,0.2733],"285":[0.595,0.355,0.5033],"286":[0.7217,0.4617,0.4033],"287":[0.6917,0.4283,0.4567],"289":[0.48,0.36,0.4667],"291":[0.5733,0.52,0.44],"292":[0.6533,0.4,0.4467],"293":[0.7533,0.5333,0.2667],"294":[0.6067,0.3067,0.3733],"295":[0.4967,0.41,0.46],"296":[0.4933,0.4267],"297":[0.5067,0.44,0.4133],"298":[0.5167,0.41,0.4333],"299":[0.5167,0.41,0.4333],"300":[0.56,0.4333,0.36],"301":[0.4567,0.2567,0.3733],"302":[0.575,0.3517,0.47],"303":[0.4733,0.34,0.44],"304":[0.5933,0.44,0.4],"305":[0.52,0.42],"306":[0.4933,0.3867],"307":[0.6167,0.35,0.4067],"308":[0.6467,0.3733],"309":[0.5267,0.3533],"310":[0.4933,0.44],"311":[0.4933,0.3667],"312":[0.5167,0.47,0.2933],"313":[0.5967,0.4167,0.38],"314":[0.5167,0.41,0.4333],"315":[0.4633,0.2833,0.3067],"316":[0.5067,0.4467],"317":[0.4733,0.4467],"318":[0.4967,0.5767,0.3933],"319":[0.4867,0.34,0.32],"320":[0.5167,0.41,0.4267],"321":[0.5167,0.41,0.4333],"322":[0.5183,0.4117,0.43],"323":[0.6383,0.3017,0.3967],"324":[0.4817,0.385],"325":[0.5433,0.33,0.2933],"326":[0.4933,0.58,0.4133],"327":[0.5283,0.425,0.3767],"328":[0.5133,0.4067,0.36],"329":[0.535,0.445,0.35],"330":[0.545,0.355,0.3767],"331":[0.3933,0.3333,0.2867],"332":[0.5467,0.4733,0.5067],"333":[0.6867,0.28,0.2933],"334":[0.5167,0.41,0.4333],"335":[0.5533,0.2733],"336":[0.4967,0.3567,0.44],"337":[0.4917,0.4217,0.4433],"338":[0.63,0.45,0.4533],"339":[0.55,0.4567,0.2733],"340":[0.5933,0.6733],"341":[0.515,0.4083,0.4367],"342":[0.5267,0.4667],"344":[0.515,0.4117,0.4367],"345":[0.515,0.4083,0.4433],"346":[0.5167,0.41,0.4333],"347":[0.7667,0.3533,0.44],"348":[0.5,0.3933],"603":[0.7,0.2867],"604":[0.5167,0.41,0.4333],"605":[0.5183,0.4117,0.43],"606":[0.6267,0.3533,0.4],"685":[0.5167,0.41,0.4333],"775":[0.5333,0.3667],"1058":[0.6533,0.3333],"1127":[0.5933,0.46],"1246":[0.7067,0.42],"1384":[0.47,0.3433,0.4467],"1613":[0.51,0.5167,0.3467],"1614":[0.5333,0.4333,0.3733]};
     const OE_ABOX_STD_BODY = {"1":93,"2":106,"3":47,"4":84,"5":146,"6":250,"7":212,"8":74,"9":94,"10":132,"11":56,"12":90,"13":136,"14":138,"15":166,"16":119,"17":126,"18":67,"19":163,"20":147,"21":80,"22":117,"23":201,"24":51,"25":208,"26":196,"27":143,"28":150,"29":175,"30":173,"31":199,"32":52,"33":109,"34":134,"35":95,"36":96,"37":154,"38":55,"39":76,"40":156,"41":78,"42":191,"43":187,"44":46,"45":178,"46":100,"47":130,"48":188,"49":257,"50":206,"51":101,"52":68,"53":182,"54":180,"55":306,"56":1058};
 
-    const OE_ABOX_BY_STYLE = { '94590': [0.62, 0.30], '93784': [0.5717, 0.4883, 0.3233], '93776': [0.5067, 0.4467], '98208': [0.66, 0.60], '97607': [0.4533, 0.4867], '93769': [0.50, 0.4933], '97581': [0.4067, 0.50], '93774': [0.52, 0.42], '93760': [0.5867, 0.4533, 0.32] };
+    const OE_ABOX_BY_STYLE = { '87408': [0.5267, 0.36], '87442': [0.52, 0.36], '93760': [0.5867, 0.4533, 0.32], '93769': [0.5, 0.4933], '93774': [0.52, 0.42], '93776': [0.5067, 0.4467], '93784': [0.5717, 0.4883, 0.3233], '94590': [0.62, 0.3], '97581': [0.4067, 0.5], '97594': [0.4833, 0.33, 0.3067], '97607': [0.4533, 0.4867], '98208': [0.66, 0.6] };
 
     const OE_ABOX_SINK = 'https://dtr-style-sink.dti-remix.workers.dev';
-    async function _dtrAboxSend(styleId) {
+
+    const _abxRefreshed = {};
+    async function _dtrAboxSend(styleId, refresh) {
       try {
         const m = _oeAboxStyleLogMap();
         const e = m[String(styleId)];
-        if (!OE_ABOX_SINK || !e || !e.name || e.sent) return;
+        if (!OE_ABOX_SINK || !e || !e.name || (e.sent && !refresh)) return;
         const r = await fetch(OE_ABOX_SINK.replace(/\/$/, '') + '/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ styleId: String(styleId), petName: e.name }) });
         const j = await r.json().catch(() => ({}));
         if (r.ok && j && j.ok) { e.sent = 1; m[String(styleId)] = e; GM_setValue('dtr_style_pet_log', JSON.stringify(m)); }
@@ -43672,11 +43724,17 @@ if (!tradeLinks.length) {
         if (!sid || !nm) return;
         if (OE_ABOX_BY_STYLE[sid]) return;
         const m = _oeAboxStyleLogMap();
-        if (m[sid]) return;
-        m[sid] = { name: nm, ts: Date.now() };
-        GM_setValue('dtr_style_pet_log', JSON.stringify(m));
+        const prior = m[sid];
+        if (!prior || prior.name !== nm) {
 
+          m[sid] = { name: nm, ts: Date.now() };
+          if (prior && prior.sent) m[sid].sent = prior.sent;
+          GM_setValue('dtr_style_pet_log', JSON.stringify(m));
+          if (!prior) void 0;
+        }
         try { oeAboxPaint(); } catch (_) {}
+
+        if (prior && prior.sent && !_abxRefreshed[sid]) { _abxRefreshed[sid] = 1; _dtrAboxSend(sid, true); }
       } catch (_) {}
     }
     try { window.__DTR_ABOX_LOG = _dtrLogStylePet; window.__DTR_ABOX_LOG_GET = _oeAboxStyleLogMap; } catch (_) {}
