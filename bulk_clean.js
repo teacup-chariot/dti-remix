@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  window.__DTR_META = {"v":"10.663.35","history":[{"v":"10.663.35","label":"Filter items by color (Beta), Pet Style combos & sharing polish","ts":"July 12, 2026 · 10:53 PM PT","notes":["New: filter item search by color (Beta). Pick up to three colors to see items that are mainly that shade — powered by itemdb’s palettes. It’s still learning, so you may see the odd wrong match for now.","Customize: build and save petpet + petpetpet combos right on your pet, compare your saved combos side by side, and shrink the canvas to roughly Neopets size for a truer preview.","Sharing your variants is friendlier: “Compare variants” is now Details, and Share as lets you tick exactly what to include — pet data, petpet & petpetpet, and item details — when you copy a set of variants as a collage.","Opening a custom someone shared with you now clearly says it’s not yours, with a one-click Save a copy — and no more misleading “Autosave on.”","Cleaner cards across Your Outfits and the variants strip: the name, species and color sit on top, with petpet/petpetpet as tidy thumbnails.","Pet Styles: your seeking/offering clipboard now sticks around after a refresh, Seeking and Offering sit side by side, and you can print your offer values right on the collage."]},{"v":"10.649.7","label":"The My Pet Styles makeover — plus Active Box upgrades & little fixes","ts":"July 10, 2026 · 11:27 PM PT","notes":["My Pet Styles got a top-to-bottom makeover: the pretty pastel look, Owned and Wished side by side, a ＋ Add a style search, a tidier clipboard with a note field, and an Undo when you clear a column.","Sharing what you’re seeking is simpler — type what you’re offering under each style (like “3 GBC” or “brushes or swap”) and it prints right on the collage image and in copied lists.","Import cards now show the blue NP label, so you can tell NP from NC at a glance while sorting.","The Neoboards Active Box knows more Pet Styles (thanks to your submissions!), the 10-a-day submission cap is gone, and submissions now keep themselves fresh until they ship.","Left a DTI tab pinned for days? It now notices new updates when you come back to it."]},{"v":"10.648.25","label":"Meet Preferred Traders — plus a big item-page glow-up","ts":"July 10, 2026 · 6:01 PM PT","notes":["New: Preferred Traders! Star the traders you love — from any item’s Trade Activity, the sign on their closet, or by username in the ⚙ menu. Then let DTI Remix do the legwork: check which of them have the items on your wishlists and outfits, or flip an item’s Trade Activity to Seeking to see who’d love it as a gift. Clicking a match opens their closet straight into Comparison Mode.","The item page got a full refresh: Trade Activity sits on the left and always matches your lists’ height, statuses are soft pills, every confirmation shares one gentle toast style, and tooltips stopped covering what you’re reading.","Clipboard fix: when a trader both owns and wants the same item, adding it from their wishlist no longer lands on the wrong side. The item-card buttons are neatly stacked now, and the clipboard button stays lit on items you’ve added — click again to remove.","Your Outfits: item names and pictures now load reliably, and big collections load much more gently.","The header always fits on one row, every import panel has its own Past imports log (CSV export where you can see it), and the pet-style tagger became a tidy side tab like everything else.","Plus: the animation lock now confirms itself (“Animated” or “Static”), Starter Pack search stays open while you add items, and un-starring anything gives you a few seconds to Undo."]},{"v":"10.646.2","label":"The big import tune-up: your sorting sticks — plus type-in counts, stragglers & a calmer look","ts":"July 10, 2026 · 5:24 AM PT","notes":["Your sorting is safe now: every assignment is stored the instant you make it, survives refreshes, and finishes saving itself. Saves are verified against DTI and retried, a red banner appears if anything fails, and the import pauses honestly if you’re not logged in.","Fixed the maddening “1 more to place” that dragged you back to items you’d already sorted — placed means placed.","Anything you miss while paging gathers in a Stragglers section at the end of the last page, and “Place all” there finishes the whole import. (The “Take me to the next one” button that yanked you up the page is retired.)","Type a quantity straight into any stepper — click the number and type. Backspace to zero works too.","Arrange your import list tiles your way: drag by the ⠿ grip, leave gaps, tiles never shove each other, drop on a tile to swap.","One steady count in the header — copies, items and pages for the whole import — and a tidier, balanced layout.","Item names are links to their item pages, Offering/Seeking counts load fast and open where you clicked, and preview images that time out retry themselves.","Items with “&” in their name import properly, and items Neopets spells differently than DTI (like “Cloud Face Paint”) now match up.","Unfinished imports no longer quietly disappear after a week, and re-running an import mid-way only adds genuinely new copies.","Everywhere: DTI’s native green hover can no longer sneak onto buttons or links, plus a pile of Customize and item-page fixes (frame options restored, clean teal chevrons, no more doubled animated items)."]},{"v":"10.628.4","label":"Neoboards Active Box, import tools & a big polish pass","ts":"July 7, 2026 · 2:47 AM PT","notes":["New Neoboards Active Box viewfinder (Beta) in the Customize frame picker — see exactly which square of your custom shows up in your board avatar, from real measured data for every species and colour family (Baby, Maraquan, Mutant, 8-bit, Origami, Invisible).","The Active Box learns new Pet Styles from the community: styled pets show a close approximation for now, but load a pet by name wearing a style we don’t have yet and one click shares it (just the pet name + style) so its exact box can ship for everyone in a later update.","Customize: the variants strip can now be collapsed — click the VARIANTS header to tuck the cards away and get straight to your item list; it remembers your choice.","Import: a Try-On Preview parks beside the import list — click any item card (or Tab through them) to see it on your preferred pet, which it now remembers as you go.","Import: a “you’re almost done” guide appears when items still need sorting and walks you through each; the finished summary shows only once everything is settled.","Import: cleaner card buttons — Skip import (a calm red) discards and skips an item, and Done · keep N in inventory only shows once you’ve placed a copy with leftovers. Item zones now read as plain text under an OCCUPIES label.","Items: the Infinite Closet search page joined the reskin — our header, a proper search pill, konpeito cards and pagination.","Closet: Bulk Remove is fast now, with a progress counter, instead of freezing for several seconds.","Homepage: a warm empty state on Newest Wearables when nothing matches, and the panel opens to your Imports tab when you have one unfinished.","Fixes: the item page scrolls again (it was cutting off the pet preview); starter packs no longer pile onto real pets (they only apply to fresh, naked customs); the Active Box is honest about Pet Styles (it says a style is not supported yet rather than drawing a wrong box); and our styling no longer briefly bleeds onto Neopets’ own pages."]},{"v":"10.620.0","label":"Customize polish, board editor & a variants-safety fix","ts":"July 6, 2026 · 7:12 AM PT","notes":["Customize is smoother: your starter pack now loads into the Fitting Room on a new custom, animation reliably plays after you save or refresh (and follows the header Animated toggle everywhere), the pet preview is bigger, and the Layers button on variant cards opens properly again.","A big fix: your saved variant groups on Your Outfits no longer reset themselves into separate customs.","Lookbook boards now open into a full-width canvas — the board list tucks away while you edit so you get a proper working area, and new boards start square.","Try On Haul is cleaner and lighter: the hidden Preview tab no longer animates in the background, and the panel always opens fully on-screen on smaller windows.","Owned/Wishlisted status stays fresh automatically — no more reopening your closet to clear a stale Wishlisted flag."]},{"v":"10.613.0","label":"Homepage feed, one settings cog & List Management","ts":"July 5, 2026 · evening PT","notes":["New homepage feed: the right column now shows your recent Customs as thumbnails (variants tucked under each look), your in-progress Imports, and a What’s New tab.","One settings cog (top-left) now holds everything: theme, a Quickstart pet + starter pack for the new + New Custom button, and full List Management — rename lists, set Private/Public/Trading, add nicknames, and choose what counts in Comparison Mode.","Animation now follows one global default, and you can lock a custom’s Animated/Still state so it always opens the way you saved it.","Try On Haul: star your preferred tab and it always opens there; clicking items in the Preview tab now dresses the preview pet properly."]},{"v":"10.608.0","label":"Lookbook board editor, rebuilt","ts":"July 5, 2026 · 12:40 AM PT","notes":["The Lookbook board editor is rebuilt: a left toolbar and an always-open side panel put every control in front of you, instead of behind pop-up menus.","New Freestyle mode — drag each pet anywhere, resize them one at a time, and place the title wherever you like. Grid mode is still there for tidy rows.","A real Layers panel: drag to restack, put pets in front of or behind your decorations, hide or lock any layer, and right-click a decoration to send it forward or back.","Click a pet to select it (shift-click for several), and type an exact canvas size in pixels."]},{"v":"10.607.0","label":"Lookbook board editor + Your Outfits & Customize fixes","notes":["Lookbook boards are now a full editor. Arrange your saved looks in a grid — set how many per row, plus their size and spacing — and pick a frame shape (rounded, circle, arch, hex and more) with an optional border and soft shadow.","Style the whole board: show or hide pet names and give them their own font, size and colour; add and style the title the same way; set a background colour or drop in a background image; and add decorations by dropping in any item as art (in front of or behind your pets).","Nothing on a board changes by accident — every edit stays a draft until you hit Save. You can Clone a board to spin off a variation, and download the finished collage as an image.","Your Outfits: sorting A→Z now uses a look's crowned variant name, so it lands where you expect; the delete button is back; and a look that jumps position after you crown or group a variant now scrolls into view so you never lose track of it.","Customize: opening a custom that someone shared with you no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own Save keeps a copy."]},{"v":"10.597.5","label":"Closet & search fixes","notes":["Fixed an error that could break some closet pages (links without a name in the URL)","Item search now flags when the Hide-locked-zones setting is hiding matches, with a one-click Show them"]},{"v":"10.596.6","label":"Comparison Mode & logged-out fixes","notes":["Comparison Mode: hide lists you never trade from, and it now matches your live wishlist however an item was added","Fixed items wrongly showing as Wishlisted or Owned while logged out","Try On Haul is now hidden entirely when you are logged out","Your Outfits opens to your outfits again, not a Lookbook board"]},{"v":"10.592.1","label":"Lookbook, DTI Sync & item links","notes":["Lookbook (new!): arrange your saved looks into themed boards","DTI Sync: keep some copies in your inventory, and see each item's zones on the cards"]},{"v":"10.587.10","label":"Closet bulk-edit","notes":["Bulk-move whole stacks, and gather copies spread across several lists","Your clipboard, drafts and Try On Haul are now separate per account"]}]};
+  window.__DTR_META = {"v":"10.663.97","history":[{"v":"10.663.97","label":"Two color sources & easier closet cleanup","ts":"July 13, 2026 · 11:55 PM PT","notes":["Two ways to filter by color now — pick the source right in the filter: DTI reads an item's real artwork, or itemdb uses its stored color data (a broader net). Switch between them for more variety, and there's a ? that explains it all.","The petpet browser's color filter now matches the item search — same dots and source choice.","Closet: removing an item is simpler now (step a quantity to zero, with Undo) — and we fixed a bug where the old trash-can method wasn't actually firing the delete.","Closet: the clipboard button no longer overlaps the quantity buttons, and a deleted item no longer shows as \"selected\"."]},{"v":"10.663.35","label":"Filter items by color (Beta), Pet Style combos & sharing polish","ts":"July 12, 2026 · 10:53 PM PT","notes":["New: filter item search by color (Beta). Pick up to three colors to see items that are mainly that shade — powered by itemdb’s palettes. It’s still learning, so you may see the odd wrong match for now.","Customize: build and save petpet + petpetpet combos right on your pet, compare your saved combos side by side, and shrink the canvas to roughly Neopets size for a truer preview.","Sharing your variants is friendlier: “Compare variants” is now Details, and Share as lets you tick exactly what to include — pet data, petpet & petpetpet, and item details — when you copy a set of variants as a collage.","Opening a custom someone shared with you now clearly says it’s not yours, with a one-click Save a copy — and no more misleading “Autosave on.”","Cleaner cards across Your Outfits and the variants strip: the name, species and color sit on top, with petpet/petpetpet as tidy thumbnails.","Pet Styles: your seeking/offering clipboard now sticks around after a refresh, Seeking and Offering sit side by side, and you can print your offer values right on the collage."]},{"v":"10.649.7","label":"The My Pet Styles makeover — plus Active Box upgrades & little fixes","ts":"July 10, 2026 · 11:27 PM PT","notes":["My Pet Styles got a top-to-bottom makeover: the pretty pastel look, Owned and Wished side by side, a ＋ Add a style search, a tidier clipboard with a note field, and an Undo when you clear a column.","Sharing what you’re seeking is simpler — type what you’re offering under each style (like “3 GBC” or “brushes or swap”) and it prints right on the collage image and in copied lists.","Import cards now show the blue NP label, so you can tell NP from NC at a glance while sorting.","The Neoboards Active Box knows more Pet Styles (thanks to your submissions!), the 10-a-day submission cap is gone, and submissions now keep themselves fresh until they ship.","Left a DTI tab pinned for days? It now notices new updates when you come back to it."]},{"v":"10.648.25","label":"Meet Preferred Traders — plus a big item-page glow-up","ts":"July 10, 2026 · 6:01 PM PT","notes":["New: Preferred Traders! Star the traders you love — from any item’s Trade Activity, the sign on their closet, or by username in the ⚙ menu. Then let DTI Remix do the legwork: check which of them have the items on your wishlists and outfits, or flip an item’s Trade Activity to Seeking to see who’d love it as a gift. Clicking a match opens their closet straight into Comparison Mode.","The item page got a full refresh: Trade Activity sits on the left and always matches your lists’ height, statuses are soft pills, every confirmation shares one gentle toast style, and tooltips stopped covering what you’re reading.","Clipboard fix: when a trader both owns and wants the same item, adding it from their wishlist no longer lands on the wrong side. The item-card buttons are neatly stacked now, and the clipboard button stays lit on items you’ve added — click again to remove.","Your Outfits: item names and pictures now load reliably, and big collections load much more gently.","The header always fits on one row, every import panel has its own Past imports log (CSV export where you can see it), and the pet-style tagger became a tidy side tab like everything else.","Plus: the animation lock now confirms itself (“Animated” or “Static”), Starter Pack search stays open while you add items, and un-starring anything gives you a few seconds to Undo."]},{"v":"10.646.2","label":"The big import tune-up: your sorting sticks — plus type-in counts, stragglers & a calmer look","ts":"July 10, 2026 · 5:24 AM PT","notes":["Your sorting is safe now: every assignment is stored the instant you make it, survives refreshes, and finishes saving itself. Saves are verified against DTI and retried, a red banner appears if anything fails, and the import pauses honestly if you’re not logged in.","Fixed the maddening “1 more to place” that dragged you back to items you’d already sorted — placed means placed.","Anything you miss while paging gathers in a Stragglers section at the end of the last page, and “Place all” there finishes the whole import. (The “Take me to the next one” button that yanked you up the page is retired.)","Type a quantity straight into any stepper — click the number and type. Backspace to zero works too.","Arrange your import list tiles your way: drag by the ⠿ grip, leave gaps, tiles never shove each other, drop on a tile to swap.","One steady count in the header — copies, items and pages for the whole import — and a tidier, balanced layout.","Item names are links to their item pages, Offering/Seeking counts load fast and open where you clicked, and preview images that time out retry themselves.","Items with “&” in their name import properly, and items Neopets spells differently than DTI (like “Cloud Face Paint”) now match up.","Unfinished imports no longer quietly disappear after a week, and re-running an import mid-way only adds genuinely new copies.","Everywhere: DTI’s native green hover can no longer sneak onto buttons or links, plus a pile of Customize and item-page fixes (frame options restored, clean teal chevrons, no more doubled animated items)."]},{"v":"10.628.4","label":"Neoboards Active Box, import tools & a big polish pass","ts":"July 7, 2026 · 2:47 AM PT","notes":["New Neoboards Active Box viewfinder (Beta) in the Customize frame picker — see exactly which square of your custom shows up in your board avatar, from real measured data for every species and color family (Baby, Maraquan, Mutant, 8-bit, Origami, Invisible).","The Active Box learns new Pet Styles from the community: styled pets show a close approximation for now, but load a pet by name wearing a style we don’t have yet and one click shares it (just the pet name + style) so its exact box can ship for everyone in a later update.","Customize: the variants strip can now be collapsed — click the VARIANTS header to tuck the cards away and get straight to your item list; it remembers your choice.","Import: a Try-On Preview parks beside the import list — click any item card (or Tab through them) to see it on your preferred pet, which it now remembers as you go.","Import: a “you’re almost done” guide appears when items still need sorting and walks you through each; the finished summary shows only once everything is settled.","Import: cleaner card buttons — Skip import (a calm red) discards and skips an item, and Done · keep N in inventory only shows once you’ve placed a copy with leftovers. Item zones now read as plain text under an OCCUPIES label.","Items: the Infinite Closet search page joined the reskin — our header, a proper search pill, konpeito cards and pagination.","Closet: Bulk Remove is fast now, with a progress counter, instead of freezing for several seconds.","Homepage: a warm empty state on Newest Wearables when nothing matches, and the panel opens to your Imports tab when you have one unfinished.","Fixes: the item page scrolls again (it was cutting off the pet preview); starter packs no longer pile onto real pets (they only apply to fresh, naked customs); the Active Box is honest about Pet Styles (it says a style is not supported yet rather than drawing a wrong box); and our styling no longer briefly bleeds onto Neopets’ own pages."]},{"v":"10.620.0","label":"Customize polish, board editor & a variants-safety fix","ts":"July 6, 2026 · 7:12 AM PT","notes":["Customize is smoother: your starter pack now loads into the Fitting Room on a new custom, animation reliably plays after you save or refresh (and follows the header Animated toggle everywhere), the pet preview is bigger, and the Layers button on variant cards opens properly again.","A big fix: your saved variant groups on Your Outfits no longer reset themselves into separate customs.","Lookbook boards now open into a full-width canvas — the board list tucks away while you edit so you get a proper working area, and new boards start square.","Try On Haul is cleaner and lighter: the hidden Preview tab no longer animates in the background, and the panel always opens fully on-screen on smaller windows.","Owned/Wishlisted status stays fresh automatically — no more reopening your closet to clear a stale Wishlisted flag."]},{"v":"10.613.0","label":"Homepage feed, one settings cog & List Management","ts":"July 5, 2026 · evening PT","notes":["New homepage feed: the right column now shows your recent Customs as thumbnails (variants tucked under each look), your in-progress Imports, and a What’s New tab.","One settings cog (top-left) now holds everything: theme, a Quickstart pet + starter pack for the new + New Custom button, and full List Management — rename lists, set Private/Public/Trading, add nicknames, and choose what counts in Comparison Mode.","Animation now follows one global default, and you can lock a custom’s Animated/Still state so it always opens the way you saved it.","Try On Haul: star your preferred tab and it always opens there; clicking items in the Preview tab now dresses the preview pet properly."]},{"v":"10.608.0","label":"Lookbook board editor, rebuilt","ts":"July 5, 2026 · 12:40 AM PT","notes":["The Lookbook board editor is rebuilt: a left toolbar and an always-open side panel put every control in front of you, instead of behind pop-up menus.","New Freestyle mode — drag each pet anywhere, resize them one at a time, and place the title wherever you like. Grid mode is still there for tidy rows.","A real Layers panel: drag to restack, put pets in front of or behind your decorations, hide or lock any layer, and right-click a decoration to send it forward or back.","Click a pet to select it (shift-click for several), and type an exact canvas size in pixels."]},{"v":"10.607.0","label":"Lookbook board editor + Your Outfits & Customize fixes","notes":["Lookbook boards are now a full editor. Arrange your saved looks in a grid — set how many per row, plus their size and spacing — and pick a frame shape (rounded, circle, arch, hex and more) with an optional border and soft shadow.","Style the whole board: show or hide pet names and give them their own font, size and color; add and style the title the same way; set a background color or drop in a background image; and add decorations by dropping in any item as art (in front of or behind your pets).","Nothing on a board changes by accident — every edit stays a draft until you hit Save. You can Clone a board to spin off a variation, and download the finished collage as an image.","Your Outfits: sorting A→Z now uses a look's crowned variant name, so it lands where you expect; the delete button is back; and a look that jumps position after you crown or group a variant now scrolls into view so you never lose track of it.","Customize: opening a custom that someone shared with you no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own Save keeps a copy."]},{"v":"10.597.5","label":"Closet & search fixes","notes":["Fixed an error that could break some closet pages (links without a name in the URL)","Item search now flags when the Hide-locked-zones setting is hiding matches, with a one-click Show them"]},{"v":"10.596.6","label":"Comparison Mode & logged-out fixes","notes":["Comparison Mode: hide lists you never trade from, and it now matches your live wishlist however an item was added","Fixed items wrongly showing as Wishlisted or Owned while logged out","Try On Haul is now hidden entirely when you are logged out","Your Outfits opens to your outfits again, not a Lookbook board"]},{"v":"10.592.1","label":"Lookbook, DTI Sync & item links","notes":["Lookbook (new!): arrange your saved looks into themed boards","DTI Sync: keep some copies in your inventory, and see each item's zones on the cards"]},{"v":"10.587.10","label":"Closet bulk-edit","notes":["Bulk-move whole stacks, and gather copies spread across several lists","Your clipboard, drafts and Try On Haul are now separate per account"]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -2670,7 +2670,7 @@
                   _saveModels();
 
                   _refreshThumbFromCanvas();
-                  btn.classList.add('saved'); btn.textContent = '✓ Saved';
+                  btn.classList.add('saved'); btn.textContent = 'Saved';
                   d._clearDirty?.();
                   setTimeout(() => { btn.classList.remove('saved'); btn.textContent = 'Save'; }, 1800);
                 }
@@ -2692,7 +2692,7 @@
               };
               try { GM_setValue('dtr_tryon_saved_canvas', JSON.stringify(sc)); } catch(_) {}
               _refreshThumbFromCanvas();
-              btn.classList.add('saved'); btn.textContent = '✓ Saved';
+              btn.classList.add('saved'); btn.textContent = 'Saved';
               d._clearDirty?.();
               setTimeout(() => { btn.classList.remove('saved'); btn.textContent = 'Save'; }, 1800);
             });
@@ -5760,7 +5760,7 @@
         "#dia-closet-v2-root .cv2-bg-special{background:#fce8d4;border-color:#eab676;color:#9a5a18;}",
 
         "#dia-closet-v2-root .cv2-fly-grid li.object.cv2-selected{border:2.5px solid transparent!important;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%) border-box!important;box-shadow:0 4px 14px rgba(0,0,0,.12)!important;}",
-        "#dia-closet-v2-root .cv2-fly-grid li.object.cv2-selected::after{content:'✓ Selected';position:absolute;top:0;left:0;right:0;z-index:15;background:linear-gradient(rgba(255,251,245,.86),rgba(255,251,245,.86)),linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%);color:#4a4a45;text-align:center;font:800 8px/1.5 'Nunito',sans-serif;letter-spacing:.07em;text-transform:uppercase;padding:4px 2px;pointer-events:none;border-radius:9px 9px 0 0;}",
+        "#dia-closet-v2-root .cv2-fly-grid li.object.cv2-selected::after{content:'Selected';position:absolute;top:0;left:0;right:0;z-index:15;background:linear-gradient(rgba(255,251,245,.86),rgba(255,251,245,.86)),linear-gradient(90deg,#1cb6a6 0 25%,#5fb3e8 25% 45%,#ff97b3 45% 72%,#ffce5a 72% 100%);color:#4a4a45;text-align:center;font:800 8px/1.5 'Nunito',sans-serif;letter-spacing:.07em;text-transform:uppercase;padding:4px 2px;pointer-events:none;border-radius:9px 9px 0 0;}",
         "#dia-closet-v2-root .cv2-fly-grid li.object.cv2-dragging{opacity:.45;}",
         "#dia-closet-v2-root .cv2-card.cv2-drop-hover{border-color:var(--dtr-mint,#5bb6a8)!important;box-shadow:0 0 0 3px rgba(91,182,168,.28)!important;background:#eafaf6!important;}",
 
@@ -6126,6 +6126,8 @@
         "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add.cv2-clip-added{background:#3d97d4;box-shadow:0 0 0 2px rgba(95,179,232,.45),0 0 12px rgba(95,179,232,.6);}",
         "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add.cv2-clip-added:hover{background:#2f86c4;box-shadow:0 0 0 3px rgba(95,179,232,.5),0 0 16px rgba(95,179,232,.75);}",
         "#dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add svg{width:14px;height:14px;display:block;pointer-events:none;}",
+
+        "#dia-closet-v2-root li.object:has(.cv2-qty-stepper:hover) .cv2-clip-add{display:none !important;}",
 
         "body.cv2-visitor-guest #dia-clipboard-tab,body.cv2-visitor-guest #dia-staging-panel{display:none !important;}",
         "body.cv2-visitor-guest #dia-closet-v2-root .cv2-fly-grid li.object .cv2-clip-add,body.cv2-visitor-guest #dia-closet-v2-root .cv2-fly-grid li.object:hover .cv2-clip-add{display:none !important;}",
@@ -10645,6 +10647,40 @@
           if (cnt) { var m = (cnt.textContent.match(/\d+/) || ['1'])[0]; cnt.textContent = Math.max(0, parseInt(m, 10) - 1) + ' items'; }
         } catch (_) {}
       };
+
+      const _cv2RemoveWithUndo = (st, li) => {
+        if (!st || !li) return;
+        var _isV = st.classList.contains('cv2-qty-vlist');
+        var iid, listId, name;
+        if (_isV) { iid = st.getAttribute('data-vlist-item') || ''; listId = st.getAttribute('data-vlist-list') || ''; name = st.getAttribute('data-vlist-name') || ''; }
+        else {
+          iid = li.getAttribute('data-item-id') || '';
+          var _nEl = li.querySelector('[data-item-name]'); name = (_nEl && _nEl.getAttribute('data-item-name')) || '';
+          listId = (typeof _cv2ActiveList !== 'undefined' && _cv2ActiveList) ? String(_cv2ActiveList.id) : '';
+          var hid = st.getAttribute('data-hanger-id') || '';
+          if (hid) { var _pc = document.querySelector('#dia-native-closet-parked .object[data-id="' + hid + '"]'); var _lc = _pc && _pc.closest('.closet-list'); if (_lc && _lc.getAttribute('data-id')) listId = _lc.getAttribute('data-id'); }
+        }
+        if (!iid || !listId) return;
+        var prevQty = 1; try { var _iv = st.querySelector('.cv2-qty-val'); prevQty = Math.max(1, parseInt(_iv && _iv.value, 10) || 1); } catch (_e) {}
+
+        var parent = li.parentNode, next = li.nextSibling, itemObj = null;
+        try { if (_cv2ActiveList && _cv2ActiveList.items) itemObj = _cv2ActiveList.items.find(function (x) { return String(x.id) === String(iid); }); } catch (_e) {}
+        _cv2SetQtyViaUpdate(iid, listId, name, 0);
+        try { li.remove(); } catch (_e) {}
+
+        try { if (_cv2Sel && _cv2Sel.has(String(iid))) { _cv2Sel.delete(String(iid)); if (typeof _cv2UpdateSelBar === 'function') _cv2UpdateSelBar(); } } catch (_e) {}
+        try { if (_cv2ActiveList && _cv2ActiveList.items) _cv2ActiveList.items = _cv2ActiveList.items.filter(function (x) { return String(x.id) !== String(iid); }); } catch (_e) {}
+        try { var cnt = document.querySelector('#cv2-fly-head .cv2-fph-count'); if (cnt) { var mm = (cnt.textContent.match(/\d+/) || ['1'])[0]; cnt.textContent = Math.max(0, parseInt(mm, 10) - 1) + ' items'; } } catch (_e) {}
+        try {
+          if (typeof window._dtrUndoToast === 'function') window._dtrUndoToast('Removed ' + (name || 'item'), function () {
+            _cv2SetQtyViaUpdate(iid, listId, name, prevQty);
+            try { var iv2 = st.querySelector('.cv2-qty-val'); if (iv2) iv2.value = String(prevQty); } catch (_e) {}
+            try { if (parent) { if (next && next.parentNode === parent) parent.insertBefore(li, next); else parent.appendChild(li); } } catch (_e) {}
+            try { if (itemObj && _cv2ActiveList && _cv2ActiveList.items && !_cv2ActiveList.items.some(function (x) { return String(x.id) === String(iid); })) _cv2ActiveList.items.push(itemObj); } catch (_e) {}
+            try { var cnt2 = document.querySelector('#cv2-fly-head .cv2-fph-count'); if (cnt2) { var m2 = (cnt2.textContent.match(/\d+/) || ['0'])[0]; cnt2.textContent = (parseInt(m2, 10) + 1) + ' items'; } } catch (_e) {}
+          });
+        } catch (_e) {}
+      };
       const _cv2EnterPendingDel = (st, li, inp) => {
         if (inp) inp.value = '0';
         if (li) li.classList.add('cv2-pending-del');
@@ -10774,12 +10810,8 @@
         var li = st.closest('li.object');
         var inp = st.querySelector('.cv2-qty-val'); var cur = parseInt(inp.value, 10) || 0;
         var _isV = st.classList.contains('cv2-qty-vlist');
-        if (st.classList.contains('cv2-pending-del')) {
-          if (dn) { if (_isV) { _cv2DeleteViaUpdate(st.getAttribute('data-vlist-item'), st.getAttribute('data-vlist-list'), st.getAttribute('data-vlist-name'), li); } else { _cv2ConfirmDeleteHanger(st, li); } }
-          else { _cv2ClearPendingDel(st, li); if (inp) inp.value = '1'; }
-          return;
-        }
-        if (dn && cur <= 1) { _cv2EnterPendingDel(st, li, inp); return; }
+
+        if (dn && cur <= 1) { _cv2RemoveWithUndo(st, li); return; }
         var nv = _isV ? _cv2SetQtyViaUpdate(st.getAttribute('data-vlist-item'), st.getAttribute('data-vlist-list'), st.getAttribute('data-vlist-name'), cur + (up ? 1 : -1)) : _cv2SaveQty(st.getAttribute('data-hanger-id'), cur + (up ? 1 : -1));
         inp.value = nv; st.classList.add('cv2-qty-saved'); setTimeout(() => st.classList.remove('cv2-qty-saved'), 700);
         _cv2ShowQtyBanner(st.closest('[data-item-id]'), cur, nv);
@@ -10793,6 +10825,8 @@
       document.addEventListener('change', (e) => {
         if (!(e.target && e.target.classList && e.target.classList.contains('cv2-qty-val'))) return;
         var st = e.target.closest('.cv2-qty-stepper'); if (!st) return;
+
+        if (parseInt(e.target.value, 10) === 0 || e.target.value.trim() === '') { _cv2RemoveWithUndo(st, st.closest('li.object')); return; }
         var _oldQty = parseInt(e.target.dataset.prev || e.target.value, 10) || 1;
         var nv = st.classList.contains('cv2-qty-vlist') ? _cv2SetQtyViaUpdate(st.getAttribute('data-vlist-item'), st.getAttribute('data-vlist-list'), st.getAttribute('data-vlist-name'), Math.max(1, parseInt(e.target.value, 10) || 1)) : _cv2SaveQty(st.getAttribute('data-hanger-id'), e.target.value);
         e.target.value = nv; if (st) { st.classList.add('cv2-qty-saved'); setTimeout(() => st.classList.remove('cv2-qty-saved'), 700); }
@@ -11487,13 +11521,14 @@
         const _psOpenNote = (btn, id) => {
           document.querySelectorAll('.dtr-note-popover').forEach(p => p.remove());
           const pop = document.createElement('div'); pop.className = 'dtr-note-popover';
-          pop.innerHTML = '<input type="text" class="dtr-note-input" placeholder="Add a note…" maxlength="200">';
+
+          pop.innerHTML = '<textarea class="dtr-note-input" placeholder="Add a note…" maxlength="200" rows="3" style="resize:vertical;height:66px;line-height:1.45"></textarea>';
           pop.style.position = 'fixed'; pop.style.zIndex = '100001';
           document.body.appendChild(pop);
           const input = pop.querySelector('.dtr-note-input'); input.value = _psNotes()[id] || '';
           const r = btn.getBoundingClientRect(), popW = 210; pop.style.width = popW + 'px';
           pop.style.left = Math.round(Math.min(window.innerWidth - popW - 8, Math.max(8, r.right - popW))) + 'px';
-          let top = r.bottom + 6; if (top + 56 > window.innerHeight) top = Math.max(8, r.top - 56);
+          let top = r.bottom + 6; if (top + 90 > window.innerHeight) top = Math.max(8, r.top - 90);
           pop.style.top = Math.round(top) + 'px';
           setTimeout(() => { try { input.focus(); input.select(); } catch (_) {} }, 0);
           const save = () => {
@@ -11502,7 +11537,7 @@
             try { if (typeof getDIASection === 'function' && typeof setDIASection === 'function') { const n = getDIASection('itemNotes', {}); if (v) n[id] = v; else delete n[id]; setDIASection('itemNotes', n); } } catch (_) {}
             pop.remove(); if ($('dia-ps-grid')) render();
           };
-          input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); save(); } else if (e.key === 'Escape') { pop.dataset.c = '1'; pop.remove(); } });
+          input.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); save(); } else if (e.key === 'Escape') { pop.dataset.c = '1'; pop.remove(); } });
           const out = (e) => { if (!pop.contains(e.target) && e.target !== btn) { save(); document.removeEventListener('mousedown', out, true); } };
           setTimeout(() => document.addEventListener('mousedown', out, true), 0);
         };
@@ -12302,16 +12337,17 @@
           if (PS.allLoaded) return;
           const ids = speciesList.map(s => s.id), CH = 8;
           await Promise.all(ids.map(async (id) => { if (PS.bySpecies[id]) return; try { const c = await _idb.get(_psKey(id)); if (c && Array.isArray(c.m)) PS.bySpecies[id] = c.m; } catch (_) {} }));
-          if (_boardOpen) boardRender();
+
+          if (_boardOpen) boardRender(); clipRender();
           const missing = ids.filter(id => !PS.bySpecies[id]);
-          for (let i = 0; i < missing.length; i += CH) { await Promise.all(missing.slice(i, i + CH).map(fetchSp)); if (_boardOpen) boardRender(); }
+          for (let i = 0; i < missing.length; i += CH) { await Promise.all(missing.slice(i, i + CH).map(fetchSp)); if (_boardOpen) boardRender(); clipRender(); }
           if (ids.every(id => PS.bySpecies[id])) { PS.allLoaded = true; _psPublishIndex(); }
-          if (_boardOpen) boardRender();
+          if (_boardOpen) boardRender(); clipRender();
         };
 
         const _CLIP_ICON = "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'><path d='M9 5H7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2V7a2 2 0 0 0 -2 -2h-2'/><path d='M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z'/><path d='M9 12h6'/><path d='M9 16h6'/></svg>";
         const _clip = (function(){ try { const a = JSON.parse(GM_getValue('dtr_ps_clip', '[]')); return Array.isArray(a) ? a.filter(x => x && x.id).map(x => ({ id: String(x.id) })) : []; } catch (_) { return []; } })();
-        let _clipOpen = false, _clipSort = 'species', _clipNote = '';
+        let _clipOpen = true, _clipSort = 'species', _clipNote = '';
         const _clipSaveList = () => { try { GM_setValue('dtr_ps_clip', JSON.stringify(_clip.map(c => ({ id: c.id })))); } catch (_) {} };
         const _clipHas = (id) => _clip.some(c => c.id === id);
         const _clipToggle = (id) => { const i = _clip.findIndex(c => c.id === id); if (i >= 0) _clip.splice(i, 1); else { _clip.push({ id }); _clipOpen = true; } _clipSaveList(); };
@@ -12338,9 +12374,11 @@
             const sn = s ? (spName[s.spId] || '') : '';
             const of = _offerText(c.id);
             const st = _statusOf(c.id);
-            return applyCase(nm + (sn ? ' ' + sn : ''))
-              + (vals && of ? ' (' + of + ')' : '')
-              + (st ? ' [' + st.toLowerCase() + ']' : '');
+
+            const paren = [];
+            if (vals && of) paren.push(of);
+            if (st) paren.push(st.toLowerCase());
+            return applyCase(nm + (sn ? ' ' + sn : '')) + (paren.length ? ' (' + paren.join(', ') + ')' : '');
           };
           const join = (arr) => (fmt === 'csv' ? arr.join(', ') : fmt === 'plus' ? arr.join(' + ') : fmt === 'bullets' ? arr.map(e => '• ' + e).join('\n') : arr.join('\n'));
           const { wish, own } = _clipSplit();
@@ -12452,7 +12490,7 @@
           const wants = _ownIds('w').sort(sort), owned = _ownIds('o').sort(sort);
           let out = '✨ My Pet Styles\n\n';
           if (wants.length) out += '💖 Want (' + wants.length + ')\n' + wants.map(line).join('\n') + '\n\n';
-          if (owned.length) out += '✓ Own (' + owned.length + ')\n' + owned.map(line).join('\n') + '\n\n';
+          if (owned.length) out += 'Own (' + owned.length + ')\n' + owned.map(line).join('\n') + '\n\n';
           if (!wants.length && !owned.length) out += '(Nothing marked yet.)\n';
           return out.trim();
         };
@@ -12518,9 +12556,35 @@
 
         const _offerLabel = (id) => (OWN[id] && OWN[id].w ? 'Offering' : 'Seeking');
 
-        const _PS_DEF_LABELS = { w: ['Top priority', 'Pending trade', 'Name your cost', 'Will overoffer'], o: ['HTPW', 'For top priority wishes only'] };
-        let _psLabels = (() => { try { const v = JSON.parse(GM_getValue('dtr_ps_labels_v1', 'null')); if (v && Array.isArray(v.w) && Array.isArray(v.o)) return v; } catch (_) {} return { w: _PS_DEF_LABELS.w.slice(), o: _PS_DEF_LABELS.o.slice() }; })();
+        const _PS_DEF_LABELS = { w: ['Top priority', 'Pending trade', 'Name your cost', 'Will overoffer'], o: ['HTPW', 'Offers welcome', 'Name your offer', 'For top priority wishes only'] };
+        let _psLabels = (() => {
+          try {
+            const v = JSON.parse(GM_getValue('dtr_ps_labels_v1', 'null'));
+            if (v && Array.isArray(v.w) && Array.isArray(v.o)) {
+
+              if (!v.w.length) v.w = _PS_DEF_LABELS.w.slice();
+              if (!v.o.length) v.o = _PS_DEF_LABELS.o.slice();
+              return v;
+            }
+          } catch (_) {}
+          return { w: _PS_DEF_LABELS.w.slice(), o: _PS_DEF_LABELS.o.slice() };
+        })();
         const _psLabelsSave = () => { try { GM_setValue('dtr_ps_labels_v1', JSON.stringify(_psLabels)); } catch (_) {} };
+
+        const _PS_LABEL_PAL = [
+          { k: 'rose',   chip: '#ffc2d4', bg: '#ffe6ee', fg: '#c2487c' },
+          { k: 'coral',  chip: '#ffccb2', bg: '#ffe9df', fg: '#c96a44' },
+          { k: 'amber',  chip: '#ffe29c', bg: '#fdf0cd', fg: '#a5811f' },
+          { k: 'green',  chip: '#bce8c9', bg: '#e6f5e9', fg: '#4a8a5a' },
+          { k: 'teal',   chip: '#aee5dd', bg: '#ddf2ee', fg: '#178578' },
+          { k: 'blue',   chip: '#b8d7f5', bg: '#e2edfc', fg: '#3f6cbf' },
+          { k: 'purple', chip: '#d6bff0', bg: '#efe4f8', fg: '#8556c2' },
+          { k: 'slate',  chip: '#d7d1e6', bg: '#eeecf3', fg: '#6a6480' }
+        ];
+        let _psLabelColor = (() => { try { const v = JSON.parse(GM_getValue('dtr_ps_label_colors_v1', 'null')); return (v && typeof v === 'object') ? v : {}; } catch (_) { return {}; } })();
+        const _psLabelColorSave = () => { try { GM_setValue('dtr_ps_label_colors_v1', JSON.stringify(_psLabelColor)); } catch (_) {} };
+        const _PS_SIDE_TINT = { w: { chip: '#ffc9dc', bg: '#ffe6ee', fg: '#c2487c' }, o: { chip: '#bce6de', bg: '#e7f6f2', fg: '#0f7f73' } };
+        const _psLabelTint = (label, side) => { const k = _psLabelColor[label]; const c = k && _PS_LABEL_PAL.find(p => p.k === k); return c || _PS_SIDE_TINT[side === 'w' ? 'w' : 'o']; };
         const _ST_LEGACY = { ow: 'Offers welcome', pt: 'Pending trade', tp: 'Top priority' };
         const _statusOf = (id) => { const v = (OWN[id] && OWN[id].st) || ''; return _ST_LEGACY[v] || v; };
         const _setStatus = (id, st) => { const r = OWN[id] || (OWN[id] = {}); if (st) r.st = st; else delete r.st; _ownSave(); };
@@ -12597,12 +12661,17 @@
               const st = _statusOf(c.id);
               const isWish = !!(OWN[c.id] && OWN[c.id].w);
               if (st) {
+                const _rt = _psLabelTint(st, isWish ? 'w' : 'o');
                 ctx.font = '800 7px Nunito,Arial,sans-serif'; ctx.textAlign = 'center';
-                let lbl = st.toUpperCase();
-                while (ctx.measureText(lbl).width > iw - 14 && lbl.length > 3) lbl = lbl.slice(0, -2);
-                const lw = ctx.measureText(lbl).width + 10;
-                ctx.fillStyle = isWish ? '#ffe3ec' : '#e7f6f2'; _rr(ctx, x + 5 + (iw - lw) / 2, y + 8, lw, 12, 6); ctx.fill();
-                ctx.fillStyle = isWish ? '#c2487c' : '#0f7f73'; ctx.fillText(lbl, x + 5 + iw / 2, y + 16.5);
+
+                const rlines = _wrapLines(ctx, st.toUpperCase(), iw - 14);
+                let rlw = 0; rlines.forEach(l => { rlw = Math.max(rlw, ctx.measureText(l).width); });
+                const rLH = 9, rw = rlw + 12, rh = rlines.length * rLH + 6;
+                ctx.fillStyle = _rt.bg; _rr(ctx, x + 5 + (iw - rw) / 2, y + 6, rw, rh, 6); ctx.fill();
+                ctx.fillStyle = _rt.fg; ctx.textBaseline = 'middle';
+                let ry = y + 6 + rh / 2 - (rlines.length - 1) * rLH / 2;
+                rlines.forEach(l => { ctx.fillText(l, x + 5 + iw / 2, ry); ry += rLH; });
+                ctx.textBaseline = 'alphabetic';
               }
 
               const sp = spName[s.spId] || '';
@@ -12622,8 +12691,11 @@
                 ctx.fillStyle = isWish ? '#ffe3ec' : '#e7f6f2';
                 _rr(ctx, x + (cellW - pillW) / 2, py, pillW, pillBoxH, 7); ctx.fill();
                 ctx.fillStyle = isWish ? '#c2487c' : '#0f7f73';
-                let oy = py + 9;
+
+                ctx.textBaseline = 'middle';
+                const nOls = m.ols.length; let oy = py + pillBoxH / 2 - (nOls - 1) * offLH / 2;
                 m.ols.forEach(l => { ctx.fillText(l, x + cellW / 2, oy); oy += offLH; });
+                ctx.textBaseline = 'alphabetic';
               }
             });
             y0 += rowsOf(sec.list.length) * (cellH + gap);
@@ -12699,7 +12771,7 @@
               const st = _statusOf(id), of = _offerText(id);
               return '<div class="dia-psc-cell" data-cid="' + esc(id) + '">'
                 + '<div class="dia-psc-cthumb">' + _famThumb(s)
-                +   (st ? '<span class="dia-psc-ribbon ' + side + '">' + esc(st) + '</span>' : '')
+                +   (st ? (function (t) { return '<span class="dia-psc-ribbon ' + side + '" style="background:' + t.bg + ';color:' + t.fg + '">' + esc(st) + '</span>'; })(_psLabelTint(st, side)) : '')
                 + '</div>'
                 + '<div class="dia-psc-cbody">'
                 +   '<div class="dia-psc-cnm">' + esc(s.colorway || s.label) + '</div>'
@@ -12711,7 +12783,20 @@
                 +   (function (sid) {
                       const cur = _statusOf(sid);
                       return '<div class="dia-psc-strow">'
-                        + _psLabels[side].map(lb => '<button type="button" class="dia-psc-st' + (cur === lb ? ' on' : '') + '" data-cst="' + esc(lb) + '" data-cstid="' + esc(sid) + '" title="' + esc(lb) + '"><span class="dia-psc-stlbl">' + esc(lb) + '</span><span class="dia-psc-sttrash" data-sttrash="' + esc(lb) + '" data-stside="' + side + '" title="Delete this label everywhere">✕</span></button>').join('')
+                        + _psLabels[side].map(lb => {
+                            const t = _psLabelTint(lb, side), on = cur === lb, hasC = !!_psLabelColor[lb];
+
+                            const chipStyle = hasC
+                              ? (on ? 'background:' + t.chip + ';color:' + t.fg + ';box-shadow:inset 0 0 0 2px ' + t.fg
+                                    : 'background:' + t.bg + ';color:' + t.fg)
+                              : (on ? 'background:#e7e1d3;color:#6a665c;box-shadow:inset 0 0 0 2px #b8b09c' : '');
+
+                            const dot = 'background:' + (hasC ? t.chip : '#c3bba8') + ';box-shadow:0 0 0 1.6px #fff,0 0 0 2.6px rgba(0,0,0,.1)';
+                            return '<button type="button" class="dia-psc-st" data-cst="' + esc(lb) + '" data-cstid="' + esc(sid) + '" title="' + esc(lb) + '"' + (chipStyle ? ' style="' + chipStyle + '"' : '') + '>'
+                              + '<span class="dia-psc-stdot" data-stcolor="' + esc(lb) + '" data-stside="' + side + '" title="Set label color" style="' + dot + '"></span>'
+                              + '<span class="dia-psc-stlbl">' + esc(lb) + '</span>'
+                              + '<span class="dia-psc-sttrash" data-sttrash="' + esc(lb) + '" data-stside="' + side + '" title="Delete this label everywhere">✕</span></button>';
+                          }).join('')
                         + '<button type="button" class="dia-psc-stnew" data-stnew="' + side + '">＋ New label</button>'
                         + '</div>';
                     })(id)
@@ -12738,7 +12823,7 @@
               if (r.dataUrl) { const a = document.createElement('a'); a.href = r.dataUrl; a.download = 'my-pet-styles.png'; document.body.appendChild(a); a.click(); a.remove(); }
               else if (hint) hint.textContent = 'Export blocked by image security — screenshot the preview to share.';
             } else if (r.cvs) {
-              try { r.cvs.toBlob((b) => { if (!b) return; navigator.clipboard.write([new ClipboardItem({ 'image/png': b })]).then(() => { if (btn) { btn.textContent = '✓ Copied!'; setTimeout(() => { btn.innerHTML = orig; }, 1500); } }).catch(() => {}); }, 'image/png'); }
+              try { r.cvs.toBlob((b) => { if (!b) return; navigator.clipboard.write([new ClipboardItem({ 'image/png': b })]).then(() => { if (btn) { btn.textContent = 'Copied!'; setTimeout(() => { btn.innerHTML = orig; }, 1500); } }).catch(() => {}); }, 'image/png'); }
               catch (_) { if (hint) hint.textContent = 'Copy blocked by image security — screenshot the preview.'; }
             }
           };
@@ -12747,8 +12832,30 @@
 
             if (e.target.classList && e.target.classList.contains('dia-psc-offin')) { _setOfferText(e.target.getAttribute('data-coffin'), e.target.value); _syncHint(); }
           });
+
+          const _psOpenLabelColor = (anchor, label) => {
+            document.querySelectorAll('.dia-psc-colorpop').forEach(p => p.remove());
+            const pop = document.createElement('div'); pop.className = 'dia-psc-colorpop';
+            const cur = _psLabelColor[label] || '';
+            const _swBase = 'width:22px;height:22px;border-radius:50%;border:2px solid #fff;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;font:800 11px Nunito,sans-serif;color:#b0a89a;';
+            pop.innerHTML = _PS_LABEL_PAL.map(p => '<button type="button" class="dia-psc-sw' + (cur === p.k ? ' on' : '') + '" data-swk="' + p.k + '" title="' + p.k + '" style="' + _swBase + 'background:' + p.chip + ';box-shadow:' + (cur === p.k ? '0 0 0 2px #8a8578' : '0 0 0 1px #e2ddd0') + '"></button>').join('')
+              + '<button type="button" class="dia-psc-sw dia-psc-sw-none' + (!cur ? ' on' : '') + '" data-swk="" title="No color (default)" style="' + _swBase + 'background:#f4f1e8;box-shadow:' + (!cur ? '0 0 0 2px #8a8578' : '0 0 0 1px #e2ddd0') + '">✕</button>';
+
+            pop.style.cssText = 'position:fixed;z-index:2147483000;display:flex;gap:5px;flex-wrap:wrap;max-width:180px;background:#fff;border:1px solid #ece7da;border-radius:12px;box-shadow:0 10px 30px rgba(60,50,70,.28);padding:8px';
+
+            ov.appendChild(pop);
+            const r = anchor.getBoundingClientRect();
+            pop.style.left = Math.round(Math.min(window.innerWidth - pop.offsetWidth - 8, Math.max(8, r.left - 6))) + 'px';
+            let top = r.bottom + 6; if (top + pop.offsetHeight > window.innerHeight) top = Math.max(8, r.top - pop.offsetHeight - 6);
+            pop.style.top = Math.round(top) + 'px';
+            pop.addEventListener('click', (ev) => { const b = ev.target.closest('[data-swk]'); if (!b) return; const k = b.getAttribute('data-swk'); if (k) _psLabelColor[label] = k; else delete _psLabelColor[label]; _psLabelColorSave(); pop.remove(); renderGrid(); });
+            const out = (ev) => { if (!pop.contains(ev.target) && ev.target !== anchor) { pop.remove(); document.removeEventListener('mousedown', out, true); } };
+            setTimeout(() => document.addEventListener('mousedown', out, true), 0);
+          };
           ov.addEventListener('click', (e) => {
             if (e.target === ov || e.target.closest('[data-cclose]')) { ov.remove(); return; }
+            const cdot = e.target.closest('[data-stcolor]');
+            if (cdot) { e.stopPropagation(); _psOpenLabelColor(cdot, cdot.getAttribute('data-stcolor')); return; }
             const trash = e.target.closest('[data-sttrash]');
             if (trash) {
               e.stopPropagation();
@@ -12814,7 +12921,8 @@
           });
           renderGrid();
 
-          if (opts.text) { ov.classList.add('textopen'); const tb2 = ov.querySelector('[data-ctext]'); if (tb2) tb2.classList.add('on'); _tFill(); }
+          _tFill();
+          if (opts.text) { ov.classList.add('textopen'); const tb2 = ov.querySelector('[data-ctext]'); if (tb2) tb2.classList.add('on'); }
         };
 
         const _psBoardOpenAdd = () => {
@@ -12849,7 +12957,7 @@
                 + '<span class="dia-psa-rthumb">' + _famThumb(x) + '</span>'
                 + '<span class="dia-psa-rmeta"><span class="dia-psa-rnm">' + esc(x.colorway || x.label) + '</span>' + (sp ? '<span class="dia-psa-rsp">' + esc(sp) + '</span>' : '') + '</span>'
                 + (other ? '<span class="dia-psa-rother">in ' + other + '</span>' : '')
-                + '<span class="dia-psa-radd">' + (inDest ? '✓ Added' : '＋') + '</span>'
+                + '<span class="dia-psa-radd">' + (inDest ? 'Added' : '＋') + '</span>'
                 + '</button>';
             }).join('') + (total > hits.length ? '<div class="dia-psa-hint">Showing ' + hits.length + ' of ' + total + ' — refine your search.</div>' : '');
           };
@@ -12952,6 +13060,8 @@
 
             "#dia-ps-board li.object .cv2-clip-add{display:none;position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;background:#5fb3e8;color:#fff;border:2px solid #fff;align-items:center;justify-content:center;cursor:pointer;padding:0!important;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:all .15s;z-index:10}",
             "#dia-ps-board li.object:hover .cv2-clip-add{display:flex}",
+
+            "#dia-ps-board li.object .cv2-clip-add.cv2-clip-added{display:flex}",
             "#dia-ps-board li.object .cv2-clip-add:hover{background:#4aa4de;transform:translateX(-50%) scale(1.15);box-shadow:0 0 0 3px rgba(95,179,232,.4),0 0 12px rgba(95,179,232,.4)}",
             "#dia-ps-board li.object .cv2-clip-add.cv2-clip-added{background:#3d97d4;box-shadow:0 0 0 2px rgba(95,179,232,.45),0 0 12px rgba(95,179,232,.6)}",
             "#dia-ps-board li.object .cv2-clip-add svg{width:14px;height:14px;display:block;pointer-events:none}",
@@ -13063,10 +13173,19 @@
             "#dia-ps-board-collage .dia-psc-offin::placeholder{color:#c4c0b2!important;font-weight:600!important}",
 
             "#dia-ps-board-collage .dia-psc-strow{display:flex;flex-direction:column;gap:4px;margin-top:6px;width:100%}",
-            "#dia-ps-board-collage .dia-psc-st{position:relative;display:flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;border:none!important;outline:none!important;box-shadow:none!important;background:#f4f1e8;color:#8a8a80;font:700 9.5px Nunito,Arial,sans-serif;padding:5px 20px 5px 12px;border-radius:999px;cursor:pointer;min-height:24px}",
-            "#dia-ps-board-collage .dia-psc-stlbl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;line-height:1.1}",
+            "#dia-ps-board-collage .dia-psc-st{position:relative;display:flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;border:none!important;outline:none!important;box-shadow:none!important;background:#f4f1e8;color:#8a8a80;font:700 9.5px Nunito,Arial,sans-serif;padding:5px 20px 5px 22px;border-radius:999px;cursor:pointer;min-height:24px}",
+            "#dia-ps-board-collage .dia-psc-stlbl{white-space:normal;word-break:break-word;max-width:100%;line-height:1.15;text-align:center}",
             "#dia-ps-board-collage .dia-psc-st.on{background:var(--dtr-primary,#149c8e);color:#fff}",
             "#dia-ps-board-collage .dia-psc-st.on .dia-psc-sttrash{color:#fff}",
+
+            "#dia-ps-board-collage .dia-psc-stdot{position:absolute;left:7px;top:50%;transform:translateY(-50%);width:14px;height:14px;border-radius:50%;cursor:pointer;flex:none;padding:0;border:none;transition:transform .1s}",
+            "#dia-ps-board-collage .dia-psc-stdot:hover{transform:translateY(-50%) scale(1.25)}",
+
+            "#dia-ps-board-collage .dia-psc-colorpop,.dia-psc-colorpop{display:flex;gap:5px;flex-wrap:wrap;max-width:170px;background:#fff;border:1px solid #ece7da;border-radius:12px;box-shadow:0 10px 30px rgba(60,50,70,.24);padding:8px}",
+            ".dia-psc-sw{width:20px;height:20px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #e2ddd0;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;font:800 10px Nunito,Arial,sans-serif;color:#b0a89a}",
+            ".dia-psc-sw:hover{transform:scale(1.12)}",
+            ".dia-psc-sw.on{box-shadow:0 0 0 2px #3a3a35}",
+            ".dia-psc-sw-none{background:#f4f1e8}",
 
             "#dia-ps-board-collage .dia-psc-foot{flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 22px;background:rgba(255,255,255,.5);border-top:1px solid rgba(180,160,170,.2)}",
             "#dia-ps-board-collage .dia-psc-hint{font:700 10.5px Nunito,Arial,sans-serif;color:#a08bb0;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
@@ -13087,7 +13206,7 @@
             "#dia-ps-board-collage .dia-psc-cnm{font:700 11px Nunito,Arial,sans-serif;color:#6a6a60}",
             "#dia-ps-board-collage .dia-psc-csp{font:600 9.5px Nunito,Arial,sans-serif;color:#adada2;margin-top:1px}",
 
-            "#dia-ps-board-collage .dia-psc-ribbon{position:absolute;top:5px;left:50%;transform:translateX(-50%);font:800 7.5px Nunito,Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase;padding:2px 8px;border-radius:6px;white-space:nowrap;max-width:calc(100% - 18px);overflow:hidden;text-overflow:ellipsis;z-index:2}",
+            "#dia-ps-board-collage .dia-psc-ribbon{position:absolute;top:5px;left:50%;transform:translateX(-50%);font:800 7.5px Nunito,Arial,sans-serif;letter-spacing:.02em;text-transform:uppercase;padding:2px 8px;border-radius:6px;white-space:normal;word-break:break-word;text-align:center;line-height:1.2;max-width:calc(100% - 12px);z-index:2}",
             "#dia-ps-board-collage .dia-psc-ribbon.w{background:#ffe3ec;color:#c2487c}",
             "#dia-ps-board-collage .dia-psc-ribbon.o{background:#e7f6f2;color:#0f7f73}",
 
@@ -13188,7 +13307,13 @@
             const cadd = e.target.closest('[data-bclip]'); if (cadd) { _clipToggle(cadd.getAttribute('data-bclip')); boardRender(); clipRender(); return; }
             const crm = e.target.closest('[data-clip-rm]'); if (crm) { const i = _clip.findIndex(c => c.id === crm.getAttribute('data-clip-rm')); if (i >= 0) _clip.splice(i, 1); _clipSaveList(); boardRender(); clipRender(); return; }
             const csort = e.target.closest('[data-clip-sort]'); if (csort) { _clipSort = csort.getAttribute('data-clip-sort'); clipRender(); return; }
-            if (e.target.closest('[data-clip-clear]')) { _clip.length = 0; _clipSaveList(); boardRender(); clipRender(); return; }
+            if (e.target.closest('[data-clip-clear]')) {
+              if (!_clip.length) return;
+              const _snap = _clip.map(c => ({ id: c.id }));
+              _clip.length = 0; _clipSaveList(); boardRender(); clipRender();
+              try { window._dtrUndoToast('Clipboard cleared', () => { _snap.forEach(c => { if (!_clip.some(e2 => e2.id === c.id)) _clip.push({ id: c.id }); }); _clipSaveList(); boardRender(); clipRender(); }); } catch (_) {}
+              return;
+            }
 
             if (e.target.closest('[data-clip-copylist]')) { _psBoardOpenCollage({ text: true }); return; }
             if (e.target.closest('[data-clip-copycollage]')) { _psBoardOpenCollage(); return; }
@@ -14480,7 +14605,7 @@
         + '<div class="sdbp-prog"><span class="big">' + shown + '</span> <span class="cap">item' + (shown !== 1 ? 's' : '') + ' captured' + (state.ncOnly && names.length !== ncCount ? ' (' + names.length + ' seen)' : '') + '</span>'
         + '<div class="cap" style="margin-top:4px">Pages read: ' + state.pages.length + (info.total ? ' of ' + info.total : '') + (info.cur ? ' · on page ' + info.cur : '') + '</div></div>'
         + (crossed
-            ? '<div class="sdbp-npwarn">✓ That looks like all your NC wearables — everything past here is NP.<br>Nothing has been sent yet: hit <b>Send</b> below to move these ' + ncCount + ' NC item' + (ncCount !== 1 ? 's' : '') + ' to DTI, then sort them there. (Switch to <b>NC + NP</b> above if you also want the NeoPoint items — those keep going on later pages.)</div>'
+            ? '<div class="sdbp-npwarn">That looks like all your NC wearables — everything past here is NP.<br>Nothing has been sent yet: hit <b>Send</b> below to move these ' + ncCount + ' NC item' + (ncCount !== 1 ? 's' : '') + ' to DTI, then sort them there. (Switch to <b>NC + NP</b> above if you also want the NeoPoint items — those keep going on later pages.)</div>'
             : '<div class="sdbp-hint">' + hint + '<br><span class="cap">Read <b>every page</b> before sending — each page only captures while it’s on screen. Nothing is imported until you hit Send.</span></div>')
         + '<button class="sdbp-send" data-sdb-send' + (shown ? '' : ' disabled') + '>Send ' + shown + ' item' + (shown !== 1 ? 's' : '') + ' to DTI →</button>'
         + '<button class="sdbp-reset" data-sdb-reset>Start over</button>';
@@ -15062,8 +15187,8 @@
         try { const r = document.getElementById('dia-bulk-root'); if (r) r.remove(); diaInitBulkSync(); } catch (_) {}
       }
       const bits = [];
-      if (addedCount) bits.push('✓ Added ' + addedCount + ' item' + (addedCount !== 1 ? 's' : '') + ' from your pets to the import below.');
-      else if (resolvedCount) bits.push('✓ Everything your pets are wearing is already in this import.');
+      if (addedCount) bits.push('Added ' + addedCount + ' item' + (addedCount !== 1 ? 's' : '') + ' from your pets to the import below.');
+      else if (resolvedCount) bits.push('Everything your pets are wearing is already in this import.');
       else if (!res.failed.length) bits.push('Your pets aren’t wearing any items DTI knows about.');
       if (res.failed.length) {
         const shown = res.failed.slice(0, 4).join(', ') + (res.failed.length > 4 ? '…' : '');
@@ -16699,15 +16824,15 @@
     if (key === 'names') return _lbRowSw(cfg, 'Show names', 'showNames')
       + (cfg.showNames ? (_lbRowFont(cfg, 'nameFont') + _lbRowRng(cfg, 'Size', 'nameSize') + _lbRowCol(cfg, 'Color', 'nameColor', true)) : '');
     if (key === 'background') return _lbRowCol(cfg, 'Color', 'bg', false)
-      + '<div class="dtr-lb-phint">Pick a background colour for the board.</div>';
+      + '<div class="dtr-lb-phint">Pick a background color for the board.</div>';
     if (key === 'header') return _lbRowSw(cfg, 'Header band', 'hdBand')
       + (cfg.hdBand ? (
           _lbRowRng(cfg, 'Height', 'hdH')
         + _lbRowCol(cfg, 'Color', 'hdBg', true)
         + _lbRowImgZone(cfg, 'hd', 'Drop word-art or a banner<br>or click to browse')
         + (cfg.hdImg ? _lbRowRng(cfg, 'Scale', 'hdScale') : '')
-        + '<div class="dtr-lb-phint">The header is the labelled band at the top. Give it a colour, drop in word-art or a banner, and drag the art to place it inside the band.</div>')
-        : '<div class="dtr-lb-phint">Turn this on for a header band across the top — a coloured strip for a title banner or word-art.</div>');
+        + '<div class="dtr-lb-phint">The header is the labelled band at the top. Give it a color, drop in word-art or a banner, and drag the art to place it inside the band.</div>')
+        : '<div class="dtr-lb-phint">Turn this on for a header band across the top — a colored strip for a title banner or word-art.</div>');
     if (key === 'decor') {
       return '<button type="button" class="dtr-lb-elbtn" data-lb-addtext="1">+ Add text</button>'
         + '<div class="dtr-lb-sech2">Floats — any DTI item as art</div>'
@@ -18602,16 +18727,26 @@
         var d = (j && j.data) || {};
         var pl = ((d.petAppearance || {}).layers) || [];
         if (!pl.length && i + 1 < chain.length) return tryPose(i + 1);
-        var rows = pl.map(function (l) { return Object.assign({ from: 'Pet' }, l); });
-        (d.items || []).forEach(function (it) { (((it.appearanceOn || {}).layers) || []).forEach(function (l) { rows.push(Object.assign({ from: it.name || ('Item ' + it.id) }, l)); }); });
+        return { pl: pl, items: (d.items || []) };
+      });
+    };
+    return tryPose(0).then(function (res) {
+
+      var bodyP = (!res.pl.length && spec.petStateId)
+        ? _yoGqlApp('{petAppearanceById(id:"' + spec.petStateId + '"){' + LF + '}}').then(function (j2) { return (((j2 && j2.data) || {}).petAppearanceById || {}).layers || []; }).catch(function () { return []; })
+        : Promise.resolve(res.pl);
+      return bodyP.then(function (pl2) {
+        var rows = pl2.map(function (l) { return Object.assign({ from: 'Pet' }, l); });
+        res.items.forEach(function (it) { (((it.appearanceOn || {}).layers) || []).forEach(function (l) { rows.push(Object.assign({ from: it.name || ('Item ' + it.id) }, l)); }); });
         rows.sort(function (a, b) { return ((a.zone && a.zone.depth) || 0) - ((b.zone && b.zone.depth) || 0); });
         return rows;
       });
-    };
-    return tryPose(0);
+    });
   }
   function _dtrLayersDownload(spec) {
+    try {  } catch (_) {}
     _dtrLayersFetch(spec).then(function (rows) {
+      try {  } catch (_) {}
       var urls = rows.map(function (l) { return l.imageUrlV2; }).filter(Boolean);
       if (!urls.length) return;
       var SZ = 1200, cv = document.createElement('canvas');
@@ -18650,36 +18785,55 @@
 
     var W = Math.min(480, window.innerWidth - 24);
     pop.style.cssText = 'position:fixed;z-index:100220;left:50%;top:50%;transform:translate(-50%,-50%);width:' + W + 'px;max-height:min(78vh,620px);display:flex;flex-direction:column;background:linear-gradient(135deg,#fbecf5 0%,#ecf0fb 28%,#e6f4fb 52%,#eafbf1 76%,#fdf6ea 100%);border:1px solid rgba(255,255,255,.92);border-radius:16px;box-shadow:0 18px 48px rgba(40,40,35,.3);padding:12px 12px 11px;font-family:Nunito,sans-serif;';
+    var view = 'list'; try { view = GM_getValue('dtr_oe_layers_view', 'list') || 'list'; } catch (_) {}
+    var vpill = function (k, lbl) { var on = view === k; return '<button data-view="' + k + '" style="border:none;border-radius:999px;padding:5px 13px;cursor:pointer;font:800 10px Nunito,sans-serif;background:' + (on ? 'var(--dtr-primary,#149c8e)' : 'transparent') + ';color:' + (on ? '#fff' : '#8a8578') + '">' + lbl + '</button>'; };
     pop.innerHTML = '<button data-x style="position:absolute;top:8px;right:10px;border:none;background:none;font:800 17px/1 Nunito,sans-serif;color:#a49cb4;cursor:pointer">×</button>'
       + '<div style="display:flex;align-items:center;gap:10px;margin:0 0 8px;padding-right:22px"><span style="font:700 14px \'Baloo 2\',Nunito,sans-serif;color:#564f60">Outfit layers</span>'
-      + '<button data-dl style="display:inline-flex;align-items:center;gap:4px;border:none;border-radius:999px;background:var(--dtr-primary,#149c8e);color:#fff;font:800 10px Nunito,sans-serif;padding:6px 12px;cursor:pointer;box-shadow:0 2px 8px rgba(20,156,142,.28)">⬇ Download PNG</button></div>'
-      + '<div data-rows style="flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:5px;scrollbar-width:thin"><div style="font:600 11.5px Nunito,sans-serif;color:#948fa0;padding:12px;text-align:center">Loading layers…</div></div>';
+      + '<span style="margin-left:auto;display:inline-flex;background:rgba(255,255,255,.72);border-radius:999px;padding:2px">' + vpill('list', 'List') + vpill('tiles', 'Tiles') + '</span></div>'
+      + '<div data-rows style="flex:1;min-height:0;overflow-y:auto;scrollbar-width:thin"><div style="font:600 11.5px Nunito,sans-serif;color:#948fa0;padding:12px;text-align:center">Loading layers…</div></div>';
     document.body.appendChild(pop);
     var kill = function (e) { if (e && pop.contains(e.target)) return; pop.remove(); document.removeEventListener('mousedown', kill, true); };
 
     setTimeout(function () { document.addEventListener('mousedown', kill, true); }, 0);
+    var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); };
+    var btn = 'display:inline-flex;align-items:center;padding:4px 9px;border:none;border-radius:999px;background:#f4f1e8;color:#4a4a45;font:800 9.5px Nunito,sans-serif;text-decoration:none;cursor:pointer';
+    var links = function (l) { return (l.imageUrlV2 ? '<a href="' + l.imageUrlV2 + '" target="_blank" rel="noopener" style="' + btn + '">PNG</a>' : '') + (l.svgUrl ? '<a href="' + l.svgUrl + '" target="_blank" rel="noopener" style="' + btn + '">SVG</a>' : '') + (l.swfUrl ? '<a href="' + l.swfUrl + '" target="_blank" rel="noopener" style="' + btn + '">SWF</a>' : ''); };
+    var _rows = null;
+
+    var draw = function () {
+      var host = pop.querySelector('[data-rows]'); if (!host) return;
+      if (!_rows) { host.innerHTML = '<div style="font:600 11.5px Nunito,sans-serif;color:#948fa0;padding:12px;text-align:center">Loading layers…</div>'; return; }
+      if (!_rows.length) { host.innerHTML = '<div style="font:600 11.5px Nunito,sans-serif;color:#948fa0;padding:12px;text-align:center">No layers to show.</div>'; return; }
+      if (view === 'tiles') {
+        host.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px;padding:2px">'
+          + _rows.map(function (l) {
+              return '<div style="display:flex;flex-direction:column;align-items:center;gap:5px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);border-radius:12px;padding:9px 7px">'
+                + '<span style="width:90px;height:90px;border-radius:9px;background:#fff;overflow:hidden;box-shadow:0 1px 5px rgba(60,60,55,.12);display:flex;align-items:center;justify-content:center">' + (l.imageUrlV2 ? '<img src="' + l.imageUrlV2 + '" alt="" loading="lazy" style="width:100%;height:100%;object-fit:contain">' : '') + '</span>'
+                + '<span style="font:800 11px Nunito,sans-serif;color:#4a4a45;text-align:center;line-height:1.2;max-width:100%;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical">' + esc(l.from || '') + '</span>'
+                + '<span style="font:600 9px Nunito,sans-serif;color:#a49cb4;text-align:center">' + esc((l.zone && l.zone.label) || '') + '</span>'
+                + '<span style="display:inline-flex;gap:4px;flex-wrap:wrap;justify-content:center">' + links(l) + '</span>'
+                + '</div>';
+            }).join('')
+          + '</div>';
+      } else {
+        host.innerHTML = _rows.map(function (l) {
+          return '<div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);border-radius:11px;padding:6px 9px;margin-bottom:5px">'
+            + '<span style="flex:none;width:38px;height:38px;border-radius:8px;background:#fff;overflow:hidden;box-shadow:0 1px 4px rgba(60,60,55,.12)">' + (l.imageUrlV2 ? '<img src="' + l.imageUrlV2 + '" alt="" loading="lazy" style="width:100%;height:100%;object-fit:contain">' : '') + '</span>'
+            + '<span style="flex:1;min-width:0;display:flex;flex-direction:column">'
+            +   '<span style="font:800 11.5px Nunito,sans-serif;color:#4a4a45;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(l.from || '') + '</span>'
+            +   '<span style="font:600 9.5px Nunito,sans-serif;color:#a49cb4">' + esc((l.zone && l.zone.label) || '') + '</span>'
+            + '</span>'
+            + '<span style="flex:none;display:inline-flex;gap:4px">' + links(l) + '</span>'
+            + '</div>';
+        }).join('');
+      }
+    };
     pop.addEventListener('click', function (e) {
       if (e.target.closest('[data-x]')) { kill(); return; }
-      if (e.target.closest('[data-dl]')) { e.stopPropagation(); _dtrLayersDownload(spec); }
+      var vb = e.target.closest('[data-view]');
+      if (vb) { view = vb.getAttribute('data-view'); try { GM_setValue('dtr_oe_layers_view', view); } catch (_) {} pop.querySelectorAll('[data-view]').forEach(function (b) { var on = b.getAttribute('data-view') === view; b.style.background = on ? 'var(--dtr-primary,#149c8e)' : 'transparent'; b.style.color = on ? '#fff' : '#8a8578'; }); draw(); return; }
     });
-    var btn = 'display:inline-flex;align-items:center;padding:4px 9px;border:none;border-radius:999px;background:#f4f1e8;color:#4a4a45;font:800 9.5px Nunito,sans-serif;text-decoration:none;cursor:pointer';
-    _dtrLayersFetch(spec).then(function (rows) {
-      var host = pop.querySelector('[data-rows]');
-      if (!host) return;
-      if (!rows.length) { host.innerHTML = '<div style="font:600 11.5px Nunito,sans-serif;color:#948fa0;padding:12px;text-align:center">No layers to show.</div>'; return; }
-      var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); };
-      host.innerHTML = rows.map(function (l) {
-        return '<div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);border-radius:11px;padding:6px 9px;">'
-          + '<span style="flex:none;width:36px;height:36px;border-radius:8px;background:#fff;overflow:hidden;box-shadow:0 1px 4px rgba(60,60,55,.12)">' + (l.imageUrlV2 ? '<img src="' + l.imageUrlV2 + '" alt="" loading="lazy" style="width:100%;height:100%;object-fit:contain">' : '') + '</span>'
-          + '<span style="flex:none;font:700 10.5px \'DM Mono\',monospace;color:#948fa0;min-width:42px">' + esc(l.id || '') + '</span>'
-          + '<span style="flex:1;min-width:0;font:700 11.5px Nunito,sans-serif;color:#4a4a45;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + esc(l.from || '') + '">' + esc((l.zone && l.zone.label) || '') + '</span>'
-          + '<span style="flex:none;display:inline-flex;gap:4px">'
-          + (l.imageUrlV2 ? '<a href="' + l.imageUrlV2 + '" target="_blank" rel="noopener" style="' + btn + '">PNG</a>' : '')
-          + (l.svgUrl ? '<a href="' + l.svgUrl + '" target="_blank" rel="noopener" style="' + btn + '">SVG</a>' : '')
-          + (l.swfUrl ? '<a href="' + l.swfUrl + '" target="_blank" rel="noopener" style="' + btn + '">SWF</a>' : '')
-          + '</span></div>';
-      }).join('');
-    }).catch(function () {
+    _dtrLayersFetch(spec).then(function (rows) { _rows = rows; draw(); }).catch(function () {
       var host = pop.querySelector('[data-rows]');
       if (host) host.innerHTML = '<div style="font:600 11.5px Nunito,sans-serif;color:#c0566c;padding:12px;text-align:center">Couldn’t load the layer list — try again.</div>';
     });
@@ -22424,7 +22578,7 @@
             const over = tp < 0 ? ` · ${-tp} over` : '';
             vi = `<span class="dib-tag saved">Moved ✓${over}</span><span class="dib-detail">${placedDetail(it) || 'cleared from all lists'}</span><button class="dib-undo" type="button" data-act="undo-import" title="Remove these copies from your DTI lists and send the item back to the queue — your Neopets inventory is never touched">Undo import</button>`;
           } else if (it.save === 'noop') {
-            vi = `<span class="dib-tag saved">✓ already placed</span><span class="dib-detail">${placedDetail(it)}</span>`;
+            vi = `<span class="dib-tag saved">already placed</span><span class="dib-detail">${placedDetail(it)}</span>`;
           } else {
             vi = `<span class="dib-tag error">Couldn’t save</span><span class="dib-detail" style="color:#a86a60;">network error — your changes are kept</span><span class="dib-btn err" data-act="retry">Retry</span>`;
           }
@@ -22452,7 +22606,7 @@
           statusHtml = `<div class="dib-status"><span class="dib-tag saved">Moved ✓${over}</span><span class="dib-detail">${placedDetail(it) || 'cleared from all lists'}</span><button class="dib-undo" type="button" data-act="undo-import" title="Remove these copies from your DTI lists and send the item back to the queue — your Neopets inventory is never touched">Undo import</button></div>`;
           cardCls += ' done';
         } else if (it.save === 'noop') {
-          statusHtml = `<div class="dib-status"><span class="dib-tag saved">✓ already placed</span><span class="dib-detail">${placedDetail(it)}</span></div>`;
+          statusHtml = `<div class="dib-status"><span class="dib-tag saved">already placed</span><span class="dib-detail">${placedDetail(it)}</span></div>`;
           cardCls += ' done';
         } else if (it.save === 'error') {
           statusHtml = `<div class="dib-status"><span class="dib-tag error">Couldn’t save</span><span class="dib-detail" style="color:#a86a60;">network error — your changes are kept</span><span class="dib-btn err" data-act="retry">Retry</span></div>`;
@@ -41396,7 +41550,7 @@ if (!tradeLinks.length) {
         const go = panel.querySelector('.ndsp-go');
         if (ready) ready.textContent = `${count} wearable item${count !== 1 ? 's' : ''} ready to sync`;
         if (go) {
-          if (launchedThisPage) { go.disabled = true; go.textContent = `✓ Synced ${launchedCount} — see the DTI tab`; }
+          if (launchedThisPage) { go.disabled = true; go.textContent = `Synced ${launchedCount} — see the DTI tab`; }
           else { go.disabled = false; go.textContent = `Sync ${count} item${count !== 1 ? 's' : ''} to DTI`; }
         }
 
@@ -44043,6 +44197,8 @@ if (!tradeLinks.length) {
         revealLocked:   false,
         colorFilter:    null,
         colorMode:      'any',
+        colorEngine: (() => { try { return GM_getValue('dtr_oe_color_engine', 'pixel') === 'itemdb' ? 'itemdb' : 'pixel'; } catch (_) { return 'pixel'; } })(),
+        colorHelpOpen:  false,
         colorAccents:   false,
         colorMenuOpen:  false,
         sortKey:        (_oeSavedPrefs.sortKey && _oeSavedPrefs.sortKey !== 'Name') ? _oeSavedPrefs.sortKey : 'Name A→Z',
@@ -44187,7 +44343,7 @@ if (!tradeLinks.length) {
       'copied','loggedIn','speciesId','colorId',
       'speciesName','colorName','allSpecies','allColors','altStyles','outfitId','saveState','altStyleId','poseThumbTick','oeLoadingPet','oeOutfitLoading','validPosesReady']);
     const OE_RIGHT_KEYS = new Set(['searchQuery','searchResults','searchLoading','searchError',
-      'searchFilter','ownedOnly','hideLockedZones','revealLocked','colorFilter','colorMenuOpen','sortKey','sortOpen','visible',
+      'searchFilter','ownedOnly','hideLockedZones','revealLocked','colorFilter','colorMenuOpen','colorHelpOpen','sortKey','sortOpen','visible',
       'searchView','activeZone','zonePickerOpen','sortLoadingAll','considering','removeConfirm','searchTotal','searchHasMore','searchOffset','outfitLocked',
       'speciesId','colorId','loggedIn','locks','variants','activeIdx']);
 
@@ -44703,6 +44859,7 @@ if (!tradeLinks.length) {
       if (s.zonePickerOpen && outside('[data-zone-picker-btn]') && outside('[data-zone-picker]')) { OE.set({zonePickerOpen:false}); changed=true; }
       if (s.sortOpen       && outside('[data-sort-toggle]'))  { OE.set({sortOpen:false});      changed=true; }
       if (s.colorMenuOpen  && outside('[data-color-toggle]') && outside('[data-color-panel]')) { OE.set({colorMenuOpen:false}); changed=true; }
+      if (s.colorHelpOpen  && outside('[data-color-help]') && outside('[data-color-help-pop]')) { OE.set({colorHelpOpen:false}); changed=true; }
     }
 
     function oeWearingCard(s) {
@@ -45484,6 +45641,8 @@ if (!tradeLinks.length) {
             sp: String(bio.speciesId || s.speciesId),
             co: String(bio.colorId || s.colorId),
             pose: OE_POSE_URLS[poseIdx] || null,
+
+            petStateId: bio.petStateId ? String(bio.petStateId) : (s.petStateId ? String(s.petStateId) : null),
             itemIds: oeVarItems(s, i).filter(x => x && x.applied !== false).map(x => String(x.id)),
             name: (((s.variants || [])[i] || {}).name) || s.outfitName || 'outfit'
           };
@@ -46196,7 +46355,8 @@ if (!tradeLinks.length) {
             +_petOutLbl('Petpet')
             +'<button data-p2-open '+(oLock?'disabled ':'')+'title="'+(oLock?'Unlock the outfit to change':'Change petpet')+'" style="'+_petWellBig+';border:none;cursor:'+(oLock?'default':'pointer')+';padding:0">'
             +'<img src="'+_p2sel.image+'" style="width:80px;height:80px;object-fit:contain" loading="lazy"></button>'
-            +'<div style="min-width:0;max-width:120px;text-align:right;padding-left:14px">'
+
+            +'<div style="flex:1 1 0;min-width:0;max-width:120px;text-align:right;padding-left:14px">'
             +(_p2s && _p2s.color
               ? '<div style="font:600 10.5px Nunito,sans-serif;color:#4a4a42;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+_oeEsc(_p2s.color)+'</div>'
                 +'<div style="font:600 10.5px Nunito,sans-serif;color:#4a4a42;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px">'+_oeEsc(_p2s.sp)+'</div>'
@@ -46217,7 +46377,8 @@ if (!tradeLinks.length) {
             +_petOutLbl('Petpetpet')
             +'<button data-p3-open '+(oLock?'disabled ':'')+'title="'+(oLock?'Unlock the outfit to change':'Change petpetpet')+'" style="'+_petWellBig+';border:none;cursor:'+(oLock?'default':'pointer')+';padding:0">'
             +'<img src="'+_p3sel.image+'" style="width:80px;height:80px;object-fit:contain" loading="lazy"></button>'
-            +'<div style="min-width:0;max-width:120px;padding-right:14px">'
+
+            +'<div style="flex:1 1 0;min-width:0;max-width:120px;padding-right:14px">'
             +'<div style="font:600 10.5px Nunito,sans-serif;color:#4a4a42;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+_oeEsc(_p3sel.name||'')+'</div>'
             +'</div>'
             +(oLock?'':'<button data-p3-clear title="Remove petpetpet" style="position:absolute;top:5px;right:5px;width:20px;height:20px;border-radius:50%;border:none;background:#f0ece2;color:#8a8a80;font:700 11px/1 Nunito,sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0">✕</button>')
@@ -46249,7 +46410,7 @@ if (!tradeLinks.length) {
                   ? (s.saveState === 'saving'
                       ? '<span style="font:700 10px Nunito,sans-serif;color:#8a7a3f;background:#faf1d6;padding:3px 9px;border-radius:999px">Saving…</span>'
                       : s.saveState === 'saved'
-                        ? '<span style="font:700 10px Nunito,sans-serif;color:#5a8a64;background:#e7f1e9;padding:3px 9px;border-radius:999px">✓ Saved</span>'
+                        ? '<span style="font:700 10px Nunito,sans-serif;color:#5a8a64;background:#e7f1e9;padding:3px 9px;border-radius:999px">Saved</span>'
                         : s.saveState === 'error'
                           ? '<span style="font:700 10px Nunito,sans-serif;color:#c0594e;background:#f7e3df;padding:3px 9px;border-radius:999px" title="Autosave hit a snag — it will retry on your next edit, or hit Save.">Save failed</span>'
                           : '<span style="font:700 10px Nunito,sans-serif;color:#5a8a64;background:#e7f1e9;padding:3px 9px;border-radius:999px">Autosave on</span>')
@@ -47365,7 +47526,7 @@ if (!tradeLinks.length) {
           const headerLabel = multi ? 'Item-by-item' : (names.length + ' item' + (names.length === 1 ? '' : 's'));
 
           const anyDiff = multi && names.some(differs);
-          const idBanner = '<div style="padding:11px 16px;background:#f7f2fc;border-bottom:1px dashed #eee9f5;font:700 11px Nunito,sans-serif;color:#9a72c8;text-align:center">✓ These variants are identical — same items in every one.</div>';
+          const idBanner = '<div style="padding:11px 16px;background:#f7f2fc;border-bottom:1px dashed #eee9f5;font:700 11px Nunito,sans-serif;color:#9a72c8;text-align:center">These variants are identical — same items in every one.</div>';
 
           const _hdr = label => '<div style="display:flex;align-items:flex-end;padding:9px 14px;font:700 10px Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#9a96aa">' + label + '</div>';
 
@@ -47751,8 +47912,8 @@ if (!tradeLinks.length) {
 
         const petData = includePets ? cards.map(c => { try { return JSON.parse(c.dataset.cmpPetimgs || '[]'); } catch (_) { return []; } }) : cards.map(function () { return []; });
         const anyPets = petData.some(a => a.length > 0);
-        const SC = 2, CW = 282, GAP = 18, PAD = 24, THUMB = CW, WM = 26;
-        const PETSTRIP_H = anyPets ? 116 : 0;
+        const SC = 2, CW = 282, GAP = 18, PAD = 24, PET = 210, THUMB = PET, WM = 26;
+        const PETSTRIP_H = anyPets ? 78 : 0;
         const NAMEH = includeNames ? 56 : 32;
         const DETAILH = includeData ? 74 : 0, BREAKH = (includeBreakdown && maxItems) ? (12 + maxItems * 17) : 0, DATAH = DETAILH + BREAKH, CARDH = THUMB + PETSTRIP_H + NAMEH + DATAH;
 
@@ -47760,6 +47921,8 @@ if (!tradeLinks.length) {
         const W = PAD*2 + cols*CW + (cols-1)*GAP, H = PAD*2 + rows*CARDH + (rows-1)*GAP + WM;
         const cv = document.createElement('canvas'); cv.width = W*SC; cv.height = H*SC;
         const ctx = cv.getContext('2d'); ctx.scale(SC, SC);
+
+        ctx.imageSmoothingEnabled = true; try { ctx.imageSmoothingQuality = 'high'; } catch (_) {}
         ctx.fillStyle = '#fffdf9'; ctx.fillRect(0, 0, W, H);
 
         const pill = (cxc, top, text, bg, fg, fontPx) => { ctx.font = '800 ' + fontPx + "px Nunito,sans-serif"; const w = ctx.measureText(text).width + 20, h = fontPx + 11; ctx.fillStyle = bg; rr(ctx, cxc - w/2, top, w, h, h/2); ctx.fill(); ctx.fillStyle = fg; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, cxc, top + h/2 + 0.5); };
@@ -47795,27 +47958,29 @@ if (!tradeLinks.length) {
           const fit = (txt, max) => { let t = txt || ''; if (ctx.measureText(t).width <= max) return t; while (t.length > 1 && ctx.measureText(t + '…').width > max) t = t.slice(0, -1); return t + '…'; };
           ctx.save(); rr(ctx, cx, cy, CW, CARDH, 16); ctx.fillStyle = '#fff'; ctx.shadowColor = 'rgba(80,70,90,.18)'; ctx.shadowBlur = 16; ctx.shadowOffsetY = 6; ctx.fill(); ctx.restore();
 
-          ctx.save(); ctx.beginPath(); ctx.rect(cx, py, CW, THUMB); ctx.clip();
-          ctx.fillStyle = '#f6f4ee'; ctx.fillRect(cx, py, CW, THUMB);
-          for (const src of cardSrcs[idx]) { const im = imgMap[src]; if (im) ctx.drawImage(im, cx, py, CW, THUMB); }
+          const pdx = cx + (CW - PET) / 2;
+          ctx.save(); ctx.beginPath(); ctx.rect(pdx, py, PET, PET); ctx.clip();
+          ctx.fillStyle = '#f6f4ee'; ctx.fillRect(pdx, py, PET, PET);
+          for (const src of cardSrcs[idx]) { const im = imgMap[src]; if (im) ctx.drawImage(im, pdx, py, PET, PET); }
           ctx.restore();
-          ctx.beginPath(); ctx.arc(cx+27, py+27, 17, 0, Math.PI*2); ctx.fillStyle = '#fff'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = '#e3ded0'; ctx.stroke();
-          ctx.fillStyle = '#3a3a35'; ctx.font = "800 16px Nunito,sans-serif"; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(idx+1), cx+27, py+28);
+          ctx.beginPath(); ctx.arc(pdx+24, py+24, 16, 0, Math.PI*2); ctx.fillStyle = '#fff'; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = '#e3ded0'; ctx.stroke();
+          ctx.fillStyle = '#3a3a35'; ctx.font = "800 15px Nunito,sans-serif"; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(idx+1), pdx+24, py+25);
 
           const _pets = petData[idx] || [];
           if (_pets.length) {
             const stripY = py + THUMB, slotW = 132, totalW = _pets.length * slotW, sx0 = cx + (CW - totalW) / 2;
             _pets.forEach((p, pi) => {
-              const scx = sx0 + pi * slotW + slotW / 2, im = imgMap[p.u], isz = 80;
+
+              const scx = sx0 + pi * slotW + slotW / 2, im = imgMap[p.u], isz = 40;
               if (im && im.naturalWidth) {
                 const sc = Math.min(isz / im.naturalWidth, isz / im.naturalHeight), dw = im.naturalWidth * sc, dh = im.naturalHeight * sc;
-                ctx.drawImage(im, scx - dw / 2, stripY + 8 + (80 - dh), dw, dh);
+                ctx.drawImage(im, scx - dw / 2, stripY + 8 + (isz - dh), dw, dh);
               } else {
                 ctx.fillStyle = '#c9c4b6'; ctx.font = "800 10px Nunito,sans-serif"; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-                ctx.fillText((p.r || '').toUpperCase(), scx, stripY + 48);
+                ctx.fillText((p.r || '').toUpperCase(), scx, stripY + 28);
               }
               ctx.fillStyle = '#7a7a72'; ctx.font = "700 10px Nunito,sans-serif"; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-              ctx.fillText(fit(p.n || '', slotW - 8), scx, stripY + 104);
+              ctx.fillText(fit(p.n || '', slotW - 8), scx, stripY + 64);
             });
           }
 
@@ -48079,14 +48244,24 @@ if (!tradeLinks.length) {
       }
 
       if (Array.isArray(st.colorFilter) && st.colorFilter.length) {
-        _oePalEnsure(p);
         const allMode = st.colorMode === 'all';
-        p = p.filter(x => {
-          const pal = _oePalGet(x);
-          if (pal === undefined) return false;
-          const f = _oeItemFams(pal, allMode);
-          return allMode ? (f && st.colorFilter.every(k => f.has(k))) : (f && st.colorFilter.some(k => f.has(k)));
-        });
+        if (st.colorEngine === 'pixel') {
+
+          const mode = allMode ? 'accents' : 'mostly';
+          p = p.filter(x => {
+            const f = _pixHistFams(x.thumb, mode);
+            if (f === undefined) return false;
+            return f && (allMode ? st.colorFilter.every(k => f.has(k)) : st.colorFilter.some(k => f.has(k)));
+          });
+        } else {
+          _oePalEnsure(p);
+          p = p.filter(x => {
+            const pal = _oePalGet(x);
+            if (pal === undefined) return false;
+            const f = _oeItemFams(pal, allMode);
+            return allMode ? (f && st.colorFilter.every(k => f.has(k))) : (f && st.colorFilter.some(k => f.has(k)));
+          });
+        }
       }
       return p;
     }
@@ -48124,7 +48299,7 @@ if (!tradeLinks.length) {
 
     function _oeRightShellSig(s) {
 
-      return [s.searchFilter, s.ownedOnly, s.sortKey, s.sortOpen, s.colorMenuOpen, (s.colorFilter || []).join(','), s.colorAccents, s.colorMode,
+      return [s.searchFilter, s.ownedOnly, s.sortKey, s.sortOpen, s.colorMenuOpen, (s.colorFilter || []).join(','), s.colorAccents, s.colorMode, s.colorEngine, s.colorHelpOpen,
               s.activeZone, s.zonePickerOpen, s.sortLoadingAll, s.speciesId, s.colorId, s.loggedIn, s.searchOffset, s.searchTotal,
               !!oeActiveVar(s).locked].join('§');
     }
@@ -48255,9 +48430,11 @@ if (!tradeLinks.length) {
         const grandT  = (_clientFiltered || !st.searchHasMore) ? null : st.searchTotal;
         const startT  = st.searchOffset || 0;
         const _colorOnlyT = !st.activeZone && !(st.searchQuery || '').trim() && Array.isArray(st.colorFilter) && st.colorFilter.length > 0;
+        const _colorActive = Array.isArray(st.colorFilter) && st.colorFilter.length > 0;
         const _checkedT = (st.searchResults || []).length;
-        const countLabelT = _colorOnlyT
-          ? (loadedT + ' match' + (loadedT === 1 ? '' : 'es') + ' in ' + _checkedT + ' checked')
+
+        const countLabelT = _colorActive
+          ? (loadedT + ' match' + (loadedT === 1 ? '' : 'es') + ' · ' + _checkedT + (st.searchTotal ? ' of ' + st.searchTotal : '') + ' checked')
           : st.activeZone
           ? ((st.ownedOnly ? loadedT : (loadedT + ' of ' + (st.searchTotal || loadedT))) + ' in ' + st.activeZone)
           : (grandT != null)
@@ -48266,7 +48443,7 @@ if (!tradeLinks.length) {
         const sentinelT = st.searchLoading
           ? '<div style="padding:18px 0;text-align:center"><span style="display:inline-flex;align-items:center;gap:8px;font:700 11px Nunito,sans-serif;color:#b0b0a6"><span style="width:14px;height:14px;border-radius:50%;border:2px solid #ddd7c8;border-top-color:'+A+';display:inline-block;animation:oe-spin .7s linear infinite"></span>'
 
-            + (_colorOnlyT ? 'Scanning colors… checked '+_checkedT+(st.searchTotal ? ' of '+st.searchTotal : '')+' · '+loadedT+' match'+(loadedT===1?'':'es')
+            + (_colorActive ? 'Checking colors… ' + _checkedT + (st.searchTotal ? ' of '+st.searchTotal : '') + ' checked · '+loadedT+' match'+(loadedT===1?'':'es')
                            : 'Searching…' + (loadedT ? ' · '+loadedT+' found so far' : (st.searchTotal ? ' · 0 of '+st.searchTotal : '')))
             + '</span></div>'
           : st.searchError
@@ -48288,11 +48465,18 @@ if (!tradeLinks.length) {
                   ? '<div style="padding:24px 8px;text-align:center;color:#b0b0a6;font:600 12px Nunito,sans-serif">'
                     + (st.activeZone ? 'No '+_oeEsc(st.activeZone)+' items in these results — keep scrolling or refine' : 'No items found — try a different search')
                     + '</div>'
-                  : '<div style="padding:40px 16px;text-align:center;color:#b8b3a6">'
-                    +'<div style="font-size:30px;margin-bottom:8px;opacity:.5">🔍</div>'
-                    +'<div style="font:700 13px Nunito,sans-serif;color:#8a8575;margin-bottom:3px">'+(st.activeZone ? 'Search within '+_oeEsc(st.activeZone) : 'Search for an item to start')+'</div>'
-                    +'<div style="font:600 11px Nunito,sans-serif;color:#b8b3a6;line-height:1.4">'+(st.activeZone ? 'Type a name to find '+_oeEsc(st.activeZone)+' items for this pet.' : 'Type a name above to find wearables for this pet.')+'</div>'
-                    +'</div>')
+                  : (_colorOnlyT
+
+                    ? '<div style="padding:34px 16px;text-align:center;line-height:1.5">'
+                      +'<div style="font-size:26px;margin-bottom:7px;opacity:.55">🎨</div>'
+                      +'<div style="font:800 12.5px Nunito,sans-serif;color:#8a8575;margin-bottom:4px">Pick a Zone or search first</div>'
+                      +'<div style="font:600 11px Nunito,sans-serif;color:#b0aa9c">Color filtering needs a starting set to stay fast — choose a <b style="color:'+A+'">Zone</b> above, or type an item name. Your color picks stay and apply once you do.</div>'
+                      +'</div>'
+                    : '<div style="padding:40px 16px;text-align:center;color:#b8b3a6">'
+                      +'<div style="font-size:30px;margin-bottom:8px;opacity:.5">🔍</div>'
+                      +'<div style="font:700 13px Nunito,sans-serif;color:#8a8575;margin-bottom:3px">'+(st.activeZone ? 'Search within '+_oeEsc(st.activeZone) : 'Search for an item to start')+'</div>'
+                      +'<div style="font:600 11px Nunito,sans-serif;color:#b8b3a6;line-height:1.4">'+(st.activeZone ? 'Type a name to find '+_oeEsc(st.activeZone)+' items for this pet.' : 'Type a name above to find wearables for this pet.')+'</div>'
+                      +'</div>'))
               : st.searchHasMore
 
                 ? '<div style="padding:12px 0 6px;text-align:center"><span style="font:800 13px Nunito,sans-serif;letter-spacing:.18em;color:#cfc9ba">· · ·</span></div>'
@@ -48357,6 +48541,62 @@ if (!tradeLinks.length) {
       const ownedChipStyle = s.ownedOnly
         ? 'display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:999px;border:none;background:'+S+';color:#fff;font:700 11px Nunito,sans-serif;cursor:pointer'
         : 'display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:999px;border:1px solid var(--border);background:#fff;color:#7a7a72;font:700 11px Nunito,sans-serif;cursor:pointer';
+
+      const _colPicks = s.colorFilter || [];
+      const _colEng = s.colorEngine === 'pixel' ? 'pixel' : 'itemdb';
+      const _colIsAll = s.colorMode === 'all';
+      const _colFams = OE_COLOR_FAMS.concat(_colEng === 'pixel' ? [['multicolor', 'Multicolor', OE_RAINBOW]] : []);
+
+      const _pillBtn = (attr, on, lbl, tip) => '<button ' + attr + ' title="' + tip + '" style="border:none;border-radius:999px;padding:3px 11px;cursor:pointer;font:' + (on ? '800' : '700') + ' 9.5px Nunito,sans-serif;white-space:nowrap;background:' + (on ? S : 'transparent') + ';color:' + (on ? '#fff' : '#b3ab99') + '">' + lbl + '</button>';
+      const _pillWrap = (inner) => '<span style="display:inline-flex;background:#e9e4d8;border-radius:999px;padding:2px;flex:none">' + inner + '</span>';
+      const _cmbtn = (k, lbl, tip) => _pillBtn('data-color-cmode="' + k + '"', (k === 'all') === _colIsAll, lbl, tip);
+      const _cengbtn = (k, lbl, tip) => _pillBtn('data-color-engine="' + k + '"', k === _colEng, lbl, tip);
+      const _anyAllPill = (_colPicks.length >= 2)
+        ? _pillWrap(_cmbtn('any', 'Any of these', 'Items that are mainly any one of your colors') + _cmbtn('all', 'All of these', 'Items that combine every color you picked'))
+        : '';
+      const _engineGroup = '<span style="display:inline-flex;align-items:center;gap:4px;flex:none">'
+        + '<span style="font:800 8px Nunito,sans-serif;letter-spacing:.05em;color:#a89f8d;text-transform:uppercase">Source</span>'
+        + _pillWrap(_cengbtn('pixel', 'DTI', 'Items that ARE this color (its main color) — precise') + _cengbtn('itemdb', 'itemdb', 'Items that HAVE this color anywhere — broad'))
+        + (_colEng === 'itemdb' ? '<button data-color-idb title="Color data by itemdb — open itemdb.com.br" style="border:none;background:transparent;padding:0;cursor:pointer;display:inline-flex"><img src="https://itemdb.com.br/logo_icon.svg" style="width:13px;height:13px;object-fit:contain" alt="itemdb"></button>' : '')
+        + '<button data-color-help title="Click for a guide to these settings" style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:none;border-radius:50%;background:' + (s.colorHelpOpen ? S : '#e8e5dc') + ';color:' + (s.colorHelpOpen ? '#fff' : '#8a857a') + ';font:800 9px Nunito,sans-serif;cursor:pointer;padding:0">?</button>'
+        + '</span>';
+
+      const _hd = 'font:800 8.5px Nunito,sans-serif;color:#a89f8d;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px';
+      const _hp = 'font:600 10.5px Nunito,sans-serif;color:#6a6558;line-height:1.5;margin-bottom:6px';
+      const _hb = 'color:#4a4a45';
+      const _colorHelp =
+        '<div data-color-help-pop style="margin-top:8px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:11px 13px;box-shadow:0 6px 16px rgba(40,35,30,.08)">'
+        + '<div style="font:800 11.5px Nunito,sans-serif;color:#4a4a45;margin-bottom:8px">How color matching works</div>'
+        + '<div style="' + _hd + '">Color source — where the colors come from</div>'
+        + '<div style="' + _hp + '">There are two ways to find the colors in an item. Try both; one may work better for what you want.</div>'
+        + '<div style="' + _hp + '"><b style="' + _hb + '">DTI:</b> reads the actual item artwork. Shows items that <b style="' + _hb + '">are</b> this color (its main color). Precise. Best for "show me pink things."</div>'
+        + '<div style="' + _hp + ';margin-bottom:10px"><b style="' + _hb + '">itemdb</b> <button data-color-idb title="Open itemdb.com.br" style="border:none;background:transparent;padding:0;margin:0 1px -2px;cursor:pointer;display:inline-flex;vertical-align:baseline"><img src="https://itemdb.com.br/logo_icon.svg" style="width:12px;height:12px;object-fit:contain" alt=""></button><b style="' + _hb + '">:</b> uses color data from itemdb (another Neopets database). Shows items that <b style="' + _hb + '">have</b> this color anywhere, even a little. Broad. Best for "anything with some pink."</div>'
+        + '<div style="' + _hd + '">Any vs All (2+ colors)</div>'
+        + '<div style="' + _hp + '"><b style="' + _hb + '">Any of these:</b> items that are any one of your colors (red or blue). A wider list.</div>'
+        + '<div style="' + _hp + ';margin-bottom:10px"><b style="' + _hb + '">All of these:</b> items that contain every color you picked (red and blue together). A narrower list.</div>'
+        + '<div style="' + _hp + '"><b style="' + _hb + '">Multicolor:</b> items made of several colors with no single dominant one, like rainbows, tie-dye, or patchwork.</div>'
+        + '<div style="' + _hd + ';margin-top:9px">Sorting with colors</div>'
+        + '<div style="' + _hp + ';margin-bottom:0">Color filters find the most matches with the <b style="' + _hb + '">Name A→Z</b> sort, which checks the whole list as you scroll. Value and release-date sorts scan only the first few hundred items, so some color matches further down may not show.</div>'
+        + '</div>';
+      const colorRow =
+        '<div style="margin-bottom:11px">'
+
+        + '<div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap' + (_colPicks.length ? ';margin-bottom:7px' : '') + '">'
+        + _colFams.map(f => {
+            const on = _colPicks.indexOf(f[0]) !== -1;
+            return '<button data-color-fam="' + f[0] + '" title="' + f[1] + '" aria-label="' + f[1] + '" style="width:16px;height:16px;padding:0;border-radius:50%;border:none;cursor:pointer;flex:none;background:' + f[2] + ';box-shadow:' + (on ? '0 0 0 2px #fff,0 0 0 3px ' + S : 'inset 0 0 0 1px rgba(0,0,0,.18)') + (on ? ';transform:scale(1.08)' : '') + '"></button>';
+          }).join('')
+        + '<span title="Color matching is still being refined" style="font:800 7.5px Nunito,sans-serif;letter-spacing:.3px;color:#d1503f;background:#ffe1da;padding:2px 5px;border-radius:999px;flex:none">BETA</span>'
+        + '</div>'
+
+        + (_colPicks.length
+            ? '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">'
+              + _anyAllPill + _engineGroup
+              + '<button data-color-clear title="Clear colors" style="margin-left:auto;border:none;border-radius:999px;padding:3px 10px;cursor:pointer;font:700 9.5px Nunito,sans-serif;background:#f4f1e8;color:#8a8a80;flex:none">Clear</button>'
+              + '</div>'
+              + (s.colorHelpOpen ? _colorHelp : '')
+            : '')
+        + '</div>';
 
       function thumbBgStyle(it) {
         return it.thumb
@@ -48493,71 +48733,22 @@ if (!tradeLinks.length) {
 
         + zoneChip
 
-        +'<div style="position:relative;display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:11px">'
+        +'<div style="position:relative;display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:9px">'
         +'<div style="display:flex;flex:none;background:#f4f1e8;border:1px solid var(--border);border-radius:999px;padding:2px">'
         +'<button data-filter="all" style="'+seg(s.searchFilter==='all')+'">All</button>'
-        +'<button data-filter="nc"  style="'+seg(s.searchFilter==='nc') +'">NC Only</button>'
-        +'<button data-filter="np"  style="'+seg(s.searchFilter==='np') +'">NP Only</button>'
+        +'<button data-filter="nc"  title="NC only" style="'+seg(s.searchFilter==='nc') +'">NC</button>'
+        +'<button data-filter="np"  title="NP only" style="'+seg(s.searchFilter==='np') +'">NP</button>'
         +'</div>'
         +'<button data-owned-toggle style="'+ownedChipStyle+';flex:none;white-space:nowrap">Owned</button>'
-
         +'<div style="position:relative;flex:none">'
         +'<button data-sort-toggle style="display:inline-flex;align-items:center;gap:5px;padding:6px 9px;border-radius:10px;border:none;background:#f1ede4;cursor:pointer;font:700 11px Nunito,sans-serif;color:#5a5a52;white-space:nowrap">'
         +'<span style="color:#b0b0a6">↕</span>'+s.sortKey+'<span style="color:#b0b0a6;font-size:10px">▾</span>'
         +'</button>'
         + sortGroupsHTML
         +'</div>'
-
-        +'<div style="flex:none">'
-        +'<button data-color-toggle title="Filter by color" style="display:inline-flex;align-items:center;gap:5px;padding:5px 9px 5px 7px;border-radius:999px;border:none;background:'+((s.colorFilter||[]).length?S:'#f1ede4')+';cursor:pointer;font:700 11px Nunito,sans-serif;color:'+((s.colorFilter||[]).length?'#fff':'#5a5a52')+'">'
-        +((s.colorFilter||[]).length
-          ? (s.colorFilter.map(k => { const f = OE_COLOR_FAMS.find(x => x[0] === k); return '<span style="width:11px;height:11px;border-radius:50%;background:'+(f?f[2]:'#ccc')+';box-shadow:inset 0 0 0 1px rgba(0,0,0,.18)"></span>'; }).join(''))
-          : '<span style="width:12px;height:12px;border-radius:50%;background:conic-gradient(#e8574a,#f2c94c,#63b45c,#5b8fd6,#9b7fd0,#e8574a);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)"></span>')
-        +'Color<span style="margin-left:4px;display:inline-flex;align-items:center;gap:2px;background:#ffe1da;color:#d1503f;font:800 8px Nunito,sans-serif;letter-spacing:.2px;padding:2px 5px;border-radius:999px">✨BETA</span><span style="font-size:9px;opacity:.7;margin-left:3px">▾</span></button>'
-        +'</div>'
         +'</div>'
 
-        +(s.colorMenuOpen ? (function () {
-          const picks = s.colorFilter || [];
-          const nm = (j) => picks.map(k => { const f = OE_COLOR_FAMS.find(x => x[0] === k); return '<b>' + (f ? f[1] : k) + '</b>'; }).join(j);
-
-          const isAll = s.colorMode === 'all';
-          const explain = !picks.length
-            ? 'Pick a color to see items that are mainly that color. You can pick up to 3.'
-            : picks.length === 1
-              ? 'Showing items that are mainly ' + nm('') + '.'
-              : isAll
-                ? 'Showing items that <b>combine</b> ' + nm(' + ') + ' (each color appears in the item).'
-                : 'Showing items that are mainly ' + nm(' or ') + '.';
-          const mbtn = (k, lbl, tip) => '<button data-color-cmode="' + k + '" title="' + tip + '" style="border:none;border-radius:999px;padding:4px 12px;cursor:pointer;font:700 10px Nunito,sans-serif;white-space:nowrap;background:' + ((k === 'all') === isAll ? S : 'transparent') + ';color:' + ((k === 'all') === isAll ? '#fff' : '#8a8a80') + '">' + lbl + '</button>';
-          return '<div data-color-panel style="margin:-4px 0 11px;width:100%;box-sizing:border-box;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 6px 18px rgba(40,35,30,.10);padding:10px">'
-            + '<div style="display:flex;flex-wrap:wrap;gap:5px">'
-            + OE_COLOR_FAMS.map(f => {
-                const on = picks.indexOf(f[0]) !== -1;
-                return '<button data-color-fam="' + f[0] + '" style="display:inline-flex;align-items:center;gap:5px;padding:4px 9px 4px 5px;border-radius:999px;border:none;cursor:pointer;font:700 10.5px Nunito,sans-serif;background:' + (on ? S : '#f4f1e8') + ';color:' + (on ? '#fff' : '#5a5a52') + '">'
-                  + '<span style="width:13px;height:13px;border-radius:50%;background:' + f[2] + ';box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)"></span>' + f[1] + '</button>';
-              }).join('')
-            + '</div>'
-
-            + '<div style="font:600 9.5px Nunito,sans-serif;color:#a89f8d;line-height:1.45;margin-top:8px">' + explain + '</div>'
-
-            + '<div style="display:flex;gap:5px;align-items:flex-start;font:600 9px Nunito,sans-serif;color:#c58b7f;line-height:1.45;margin-top:6px;background:#fdf2ef;border-radius:9px;padding:6px 8px"><span style="flex:none">✨</span><span><b style="color:#d1503f">Beta</b> — color matching is still being refined, so you may see some unexpected or incorrect matches for now.</span></div>'
-            + '<div style="display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap">'
-
-            + (picks.length >= 2
-                ? '<span style="display:inline-flex;background:#f4f1e8;border-radius:999px;padding:2px;flex:none">'
-                  + mbtn('any', 'Any of these', 'Items that are mainly any one of your colors')
-                  + mbtn('all', 'All of these', 'Items that combine every color you picked')
-                  + '</span>'
-                : '')
-            + '<button data-color-clear style="margin-left:auto;border:none;border-radius:999px;padding:4px 10px;cursor:pointer;font:700 10px Nunito,sans-serif;background:#f4f1e8;color:#8a8a80">Clear</button>'
-            + '</div>'
-            + '<div style="display:flex;align-items:center;justify-content:center;gap:7px;padding:9px 10px 0">'
-            + '<span style="font:600 8.5px Nunito,sans-serif;letter-spacing:.3em;color:#c3bdb0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">data provided by itemdb</span>'
-            + '<button data-color-idb title="Open itemdb.com.br (new tab)" style="border:none;background:transparent;padding:0;cursor:pointer;display:inline-flex;flex:none"><img src="https://itemdb.com.br/logo_icon.svg" style="width:14px;height:14px;object-fit:contain" alt="itemdb"></button>'
-            + '</div>'
-            + '</div>';
-        })() : '')
+        + colorRow
 
         +'<div data-locked-hidden>'+lockedNoticeInner(tail.hiddenByLock)+'</div>'
 
@@ -48602,7 +48793,7 @@ if (!tradeLinks.length) {
 
       onOne('[data-clear-zone]', e => { e.stopPropagation(); OE.set({ activeZone:null }); oeKickSearch(); });
 
-      onOne('[data-search-clear]', e => { e.stopPropagation(); OE.set({ searchQuery:'', activeZone:null }); oeKickSearch(); });
+      onOne('[data-search-clear]', e => { e.stopPropagation(); const _li = card.querySelector('[data-search-input]'); if (_li) _li.value = ''; OE.set({ searchQuery:'', activeZone:null }); oeKickSearch(); });
 
       on('[data-zone-picker-btn]', e => { e.stopPropagation(); OE.set({ zonePickerOpen: !OE.get().zonePickerOpen }); });
       on('[data-zone-pick]', e => { e.stopPropagation(); const z = e.currentTarget.dataset.zonePick || null;
@@ -48640,7 +48831,6 @@ if (!tradeLinks.length) {
         const on = Array.isArray(s2.colorFilter) && s2.colorFilter.length;
         if (!on || (!(s2.searchResults || []).length && !s2.searchLoading)) oeKickSearch();
       };
-      onOne('[data-color-toggle]', e => { e.stopPropagation(); OE.set(s2 => ({ colorMenuOpen:!s2.colorMenuOpen, sortOpen:false })); });
       on('[data-color-fam]', e => {
         e.stopPropagation();
         const k = e.currentTarget.dataset.colorFam;
@@ -48658,8 +48848,22 @@ if (!tradeLinks.length) {
         OE.set({ colorMode: e.currentTarget.dataset.colorCmode === 'all' ? 'all' : 'any', visible: 30 });
         _colorKickMaybe();
       });
+
+      on('[data-color-engine]', e => {
+        e.stopPropagation();
+        const eng2 = e.currentTarget.dataset.colorEngine === 'pixel' ? 'pixel' : 'itemdb';
+        try { GM_setValue('dtr_oe_color_engine', eng2); } catch (_) {}
+        OE.set(s2 => {
+
+          let cf = s2.colorFilter;
+          if (eng2 === 'itemdb' && Array.isArray(cf) && cf.indexOf('multicolor') !== -1) { cf = cf.filter(k => k !== 'multicolor'); if (!cf.length) cf = null; }
+          return { colorEngine: eng2, colorFilter: cf, visible: 30 };
+        });
+        _colorKickMaybe();
+      });
+      on('[data-color-help]', e => { e.stopPropagation(); OE.set(s2 => ({ colorHelpOpen: !s2.colorHelpOpen })); });
       onOne('[data-color-clear]', e => { e.stopPropagation(); OE.set({ colorFilter: null, colorMenuOpen: false, visible: 30 }); _colorKickMaybe(); });
-      onOne('[data-color-idb]', e => { e.stopPropagation(); try { window._dtrOpenTab('https://itemdb.com.br'); } catch (_) {} });
+      on('[data-color-idb]', e => { e.stopPropagation(); try { window._dtrOpenTab('https://itemdb.com.br'); } catch (_) {} });
 
       onOne('[data-sort-toggle]', e => { e.stopPropagation(); OE.set(s2 => ({ sortOpen:!s2.sortOpen })); });
 
@@ -50127,6 +50331,9 @@ if (!tradeLinks.length) {
       ['aqua', 'Aqua', '#4ec6c0'], ['blue', 'Blue', '#5b8fd6'], ['purple', 'Purple', '#9b7fd0'],
       ['black', 'Black', '#3a3a38'], ['white', 'White', '#ffffff'], ['grey', 'Grey', '#a9a9a4'],
     ];
+
+    const OE_RAINBOW = 'conic-gradient(#e8574a,#f2c94c,#63b45c,#5b8fd6,#9b7fd0,#e8574a)';
+    const oeFamMeta = (k) => k === 'multicolor' ? ['multicolor', 'Multicolor', OE_RAINBOW] : (OE_COLOR_FAMS.find(x => x[0] === k) || [k, k, '#ccc']);
     function _oeHexHSL(hex) {
       const m = String(hex || '').replace('#', '');
       const r = parseInt(m.slice(0, 2), 16) / 255, g = parseInt(m.slice(2, 4), 16) / 255, b = parseInt(m.slice(4, 6), 16) / 255;
@@ -50145,7 +50352,8 @@ if (!tradeLinks.length) {
     function _oeHexFamily(hex) {
       const c = _oeHexHSL(hex); if (!c) return null;
       const h = c.h, s = c.s, l = c.l;
-      if (l >= .86 && s <= .3) return 'white';
+      if (l >= .75 && s <= .22) return 'white';
+
       if (l <= .13) return 'black';
       if (s <= .14) return 'grey';
       if (h < 12 || h >= 345) return l >= .7 ? 'pink' : 'red';
@@ -50178,24 +50386,181 @@ if (!tradeLinks.length) {
       const tot = es.reduce((a2, e) => a2 + (e.population || 0), 0) || 1;
       const sums = {};
       es.forEach(e => { const f = _oeHexFamily(e.hex); if (f) sums[f] = (sums[f] || 0) + (e.population || 0); });
-      const keys = Object.keys(sums);
-      if (!keys.length) return null;
-      keys.sort((a2, b2) => sums[b2] - sums[a2]);
 
-      const _CHROMA = f => f !== 'black' && f !== 'grey' && f !== 'white';
-      const _share = f => sums[f] / tot;
-      const _chromaShare = keys.filter(_CHROMA).reduce((a2, f) => a2 + _share(f), 0);
-      let _primary = keys[0];
-
-      if (!_CHROMA(_primary) && (_share(_primary) < .5 || _chromaShare >= .18)) {
-        const _topC = keys.find(_CHROMA);
-
-        _primary = (_topC && _share(_topC) >= .35) ? _topC : null;
-      }
       const fams = new Set();
-      if (accents) { fams.add(keys[0]); keys.forEach(f => { if (_share(f) >= .15) fams.add(f); }); }
-      else if (_primary) { fams.add(_primary); }
-      return fams;
+      Object.keys(sums).forEach(f => { if (sums[f] / tot >= .20) fams.add(f); });
+      return fams.size ? fams : null;
+    }
+
+    const _PIXHIST_KEY = 'dtr_oe_pixhist_v8';
+    const _pixHist = {};
+    let _pixHistReady = false, _pixHistSaveT = null, _pixHistRepaintT = null;
+    const _pixHistInflight = {};
+    let _pixHistActive = 0;
+    const _pixHistStem = (url) => ((url || '').split('/').pop() || '').split('?')[0].toLowerCase();
+    function _pixHistLoad() { if (_pixHistReady) return; _pixHistReady = true; try { const v = JSON.parse(GM_getValue(_PIXHIST_KEY, '{}')); if (v && typeof v === 'object') Object.assign(_pixHist, v); } catch (_) {} }
+    function _pixHistSave() { clearTimeout(_pixHistSaveT); _pixHistSaveT = setTimeout(() => { try { GM_setValue(_PIXHIST_KEY, JSON.stringify(_pixHist)); } catch (_) {} }, 900); }
+    function _pixHistRepaint() { clearTimeout(_pixHistRepaintT); _pixHistRepaintT = setTimeout(() => { try { OE.set(s2 => ({ searchResults: (s2.searchResults || []).slice() })); } catch (_) {} try { if (typeof window.__DTR_P2_REPAINT === 'function') window.__DTR_P2_REPAINT(); } catch (_) {} }, 200); }
+
+    const _PIX_WHITE_L = 0.75, _PIX_WHITE_S = 0.28;
+    const _PIX_WHITE_L2 = 0.88, _PIX_WHITE_S2 = 0.50;
+    const _PIX_BLACK_L = 0.13;
+    const _PIX_GREY_S  = 0.14;
+    const _PIX_DARK_L  = 0.22;
+    const _PIX_HALO_PASSES = 2;
+    const _PIX_BG_EXACT = 16;
+
+    function _pixFamily(r, g, b) {
+      const rn = r / 255, gn = g / 255, bn = b / 255;
+      const mx = Math.max(rn, gn, bn), mn = Math.min(rn, gn, bn), dl = mx - mn, l = (mx + mn) / 2;
+      const s = dl === 0 ? 0 : dl / (1 - Math.abs(2 * l - 1));
+      if ((l >= _PIX_WHITE_L && s <= _PIX_WHITE_S) || (l >= _PIX_WHITE_L2 && s <= _PIX_WHITE_S2)) return 'white';
+      if (l <= _PIX_BLACK_L) return 'black';
+      if (s <= _PIX_GREY_S) return 'grey';
+      let h = 0;
+      if (dl) { if (mx === rn) h = 60 * (((gn - bn) / dl) % 6); else if (mx === gn) h = 60 * ((bn - rn) / dl + 2); else h = 60 * ((rn - gn) / dl + 4); if (h < 0) h += 360; }
+      if (h < 12 || h >= 345) return l >= .7 ? 'pink' : 'red';
+      if (h < 50) { if (l < .34) return 'brown'; if (s < .5 && l < .70) return 'brown'; return h < 42 ? 'orange' : 'yellow'; }
+      if (h < 66) { if (l < .42 || s < .35) return 'brown'; return 'yellow'; }
+      if (h < 160) return 'green';
+      if (h < 196) return 'aqua';
+      if (h < 254) return 'blue';
+      if (h < 300) return 'purple';
+      return 'pink';
+    }
+    function _pixHistCompute(url) {
+      return new Promise(res => {
+        const im = new Image(); im.crossOrigin = 'anonymous';
+
+        const attempt = (u, retry) => {
+          im.onload = () => {
+            try {
+
+              let W = im.naturalWidth || 80, H = im.naturalHeight || 80;
+              const cap = 128, sc = Math.min(1, cap / Math.max(W, H));
+              W = Math.max(1, Math.round(W * sc)); H = Math.max(1, Math.round(H * sc));
+              const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+              const ctx = cv.getContext('2d'); ctx.imageSmoothingEnabled = false; ctx.drawImage(im, 0, 0, W, H);
+              const d = ctx.getImageData(0, 0, W, H).data;
+              const P = (x, y) => (y * W + x) * 4;
+
+              const bg = new Uint8Array(W * H);
+              const seeds = [];
+              [[0, 0], [W - 1, 0], [0, H - 1], [W - 1, H - 1]].forEach(([cx, cy]) => { const p = P(cx, cy); if (d[p + 3] >= 128) seeds.push([d[p], d[p + 1], d[p + 2]]); });
+              const isBg = (p) => seeds.some(s => (Math.abs(d[p] - s[0]) + Math.abs(d[p + 1] - s[1]) + Math.abs(d[p + 2] - s[2])) < 50);
+              if (seeds.length) {
+                const stack = [];
+                const seed = (x, y) => { const q = y * W + x, p = P(x, y); if (!bg[q] && d[p + 3] >= 128 && isBg(p)) { bg[q] = 1; stack.push(x, y); } };
+                for (let x = 0; x < W; x++) { seed(x, 0); seed(x, H - 1); }
+                for (let y = 0; y < H; y++) { seed(0, y); seed(W - 1, y); }
+                while (stack.length) {
+                  const y = stack.pop(), x = stack.pop();
+                  if (x > 0) seed(x - 1, y); if (x < W - 1) seed(x + 1, y);
+                  if (y > 0) seed(x, y - 1); if (y < H - 1) seed(x, y + 1);
+                }
+
+                const isExactBg = (p) => seeds.some(s => (Math.abs(d[p] - s[0]) + Math.abs(d[p + 1] - s[1]) + Math.abs(d[p + 2] - s[2])) <= _PIX_BG_EXACT);
+                for (let i2 = 0; i2 < W * H; i2++) { if (bg[i2]) continue; const p = i2 * 4; if (d[p + 3] >= 128 && isExactBg(p)) bg[i2] = 1; }
+              }
+
+              const item = new Uint8Array(W * H), dark = new Uint8Array(W * H);
+              for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+                const i = y * W + x, p = P(x, y);
+                if (d[p + 3] < 128 || bg[i]) continue;
+                item[i] = 1;
+                if ((Math.max(d[p], d[p + 1], d[p + 2]) + Math.min(d[p], d[p + 1], d[p + 2])) / 510 <= _PIX_DARK_L) dark[i] = 1;
+              }
+
+              for (let pass = 0; pass < _PIX_HALO_PASSES; pass++) {
+                const rm = [];
+                for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+                  const i = y * W + x; if (!item[i]) continue;
+                  if (!((x > 0 && bg[i - 1]) || (x < W - 1 && bg[i + 1]) || (y > 0 && bg[i - W]) || (y < H - 1 && bg[i + W]))) continue;
+                  const p = P(x, y), f = _pixFamily(d[p], d[p + 1], d[p + 2]);
+                  if (f === 'white' || f === 'grey') rm.push(i);
+                }
+                if (!rm.length) break;
+                rm.forEach(i => { item[i] = 0; bg[i] = 1; });
+              }
+
+              const solid = new Uint8Array(W * H);
+              for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+                const i = y * W + x; if (!dark[i]) continue;
+                let all = true;
+                for (let dy = -1; dy <= 1 && all; dy++) for (let dx = -1; dx <= 1; dx++) {
+                  const nx = x + dx, ny = y + dy;
+                  if (nx < 0 || ny < 0 || nx >= W || ny >= H || !dark[ny * W + nx]) { all = false; break; }
+                }
+                if (all) solid[i] = 1;
+              }
+
+              const cnt = {}; let op = 0;
+              for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+                const i = y * W + x; if (!item[i]) continue;
+                if (dark[i] && !solid[i]) continue;
+                const p = P(x, y);
+                const f = _pixFamily(d[p], d[p + 1], d[p + 2]); if (!f) continue;
+                cnt[f] = (cnt[f] || 0) + 1; op++;
+              }
+              if (!op) { res(null); return; }
+              const frac = {}; Object.keys(cnt).forEach(f => { frac[f] = cnt[f] / op; });
+              res(frac);
+            } catch (_) { res(null); }
+          };
+          im.onerror = () => { if (retry) attempt(u + (u.indexOf('?') >= 0 ? '&' : '?') + '_dtrpx=1', false); else res(null); };
+          im.src = u;
+        };
+        attempt(url, true);
+      });
+    }
+
+    function _pixHistGet(url) {
+      _pixHistLoad();
+      const stem = _pixHistStem(url); if (!stem) return null;
+      if (Object.prototype.hasOwnProperty.call(_pixHist, stem)) return _pixHist[stem];
+      if (!_pixHistInflight[stem]) {
+        _pixHistActive++;
+        _pixHistInflight[stem] = _pixHistCompute(url).then(fr => { _pixHist[stem] = fr; _pixHistSave(); delete _pixHistInflight[stem]; _pixHistActive = Math.max(0, _pixHistActive - 1); _pixHistRepaint(); return fr; });
+      }
+      return undefined;
+    }
+
+    const _PIX_CHROMA = f => f !== 'white' && f !== 'grey' && f !== 'black';
+    const _PIX_MIN_CHROMA   = 0.35;
+    const _PIX_MULTI_MINFAM = 0.15;
+    const _PIX_MULTI_DOMCAP = 0.65;
+
+    function _pixIsMulti(fr) {
+      const chroma = Object.keys(fr).filter(_PIX_CHROMA);
+      if (chroma.length < 2) return false;
+      let tot = 0; chroma.forEach(f => { tot += fr[f]; });
+      if (tot < _PIX_MIN_CHROMA) return false;
+      let nSig = 0, top = 0;
+      chroma.forEach(f => { const p = fr[f] / tot; if (p >= _PIX_MULTI_MINFAM) nSig++; if (p > top) top = p; });
+      return nSig >= 2 && top <= _PIX_MULTI_DOMCAP;
+    }
+
+    function _pixHistFams(url, mode) {
+      const fr = _pixHistGet(url);
+      if (fr === undefined) return undefined;
+      if (!fr) return null;
+      const keys = Object.keys(fr); if (!keys.length) return null;
+      const set = new Set();
+      if (mode === 'accents') {
+        keys.forEach(f => { if (fr[f] >= .10) set.add(f); });
+      } else {
+
+        let top = null, mx = 0; keys.forEach(f => { if (fr[f] > mx) { mx = fr[f]; top = f; } });
+        if (top && mx >= .30) {
+          if (_PIX_CHROMA(top)) set.add(top);
+          else {
+            const topC = keys.filter(_PIX_CHROMA).reduce((a, f) => (a == null || fr[f] > fr[a]) ? f : a, null);
+            if (!(topC && fr[topC] >= .20)) set.add(top);
+          }
+        }
+      }
+      if (_pixIsMulti(fr)) set.add('multicolor');
+      return set;
     }
 
     let _oePalMem = null, _oePalTimer = null, _oePalErr = false, _oePalRetryT = null, _oePalRetryN = 0;
@@ -50875,20 +51240,13 @@ if (!tradeLinks.length) {
         + '<div style="display:flex;gap:6px;padding:0 18px 8px;align-items:stretch">'
         + '<span style="position:relative;display:inline-flex;align-items:center;background:' + A + '24;border-radius:999px;flex:none">'
         + '<select data-p2-cw style="appearance:none;-webkit-appearance:none;border:none;outline:none;box-shadow:none;background:transparent;color:' + A + ';font:700 11px Nunito,sans-serif;padding:8px 22px 8px 12px;cursor:pointer;max-width:130px">'
-        + '<option value="">Any colorway</option>'
+        + '<option value="">Any paint</option>'
         + ['Blue','Checkered','Chocolate','Christmas','Cloud','Darigan','Desert','Disco','Dung','Electric','Faerie','Fire','Ghost','Glowing','Golden','Green','Grey','Halloween','Ice','Island','Mallow','Maraquan','Mutant','Orange','Pink','Pirate','Plushie','Purple','Rainbow','Red','Robot','Royal','Sketch','Snow','Spotted','Starry','Stealthy','Toy','Tyrannian','White','Yellow','Zombie'].map(c => '<option>' + c + '</option>').join('')
         + '</select><span style="position:absolute;right:9px;pointer-events:none;color:' + A + ';font-size:9px;opacity:.7">▾</span></span>'
         + '<input data-p2-search placeholder="Search…" style="flex:1;min-width:0;box-sizing:border-box;padding:9px 14px;border:none;border-radius:999px;background:rgba(255,255,255,.82);color:#4a4a42;font:600 12.5px Nunito,sans-serif;outline:none;box-shadow:inset 0 1px 3px rgba(150,140,160,.18)">'
         + '</div>'
 
-        + '<div data-p2-famrow title="Filter by visual color (up to 3)" style="display:flex;gap:6px;padding:0 18px 10px;flex-wrap:wrap;align-items:center">'
-        + '<button data-p2-nocolor title="No color filter — show all petpets" style="border:none;border-radius:999px;padding:3px 10px;cursor:pointer;font:700 9px Nunito,sans-serif;background:' + A + ';color:#fff">None</button>'
-        + OE_COLOR_FAMS.map(f => '<span data-p2-famdot="' + f[0] + '" role="button" title="' + f[1] + '" style="width:18px;height:18px;border-radius:50%;background:' + f[2] + ';box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);cursor:pointer;display:inline-block"></span>').join('')
-        + '<span data-p2-modewrap style="display:none;background:rgba(255,255,255,.75);border-radius:999px;padding:2px;margin-left:auto">'
-        + '<button data-p2-fammode="any" title="Petpet\'s MAIN color is one of your picks" style="border:none;border-radius:999px;padding:2px 8px;cursor:pointer;font:700 9.5px Nunito,sans-serif;background:transparent;color:#8a8a80">Any</button>'
-        + '<button data-p2-fammode="all" title="Petpet combines ALL your picked colors (main or accent)" style="border:none;border-radius:999px;padding:2px 8px;cursor:pointer;font:700 9.5px Nunito,sans-serif;background:transparent;color:#8a8a80">All</button>'
-        + '</span>'
-        + '</div>'
+        + '<div data-p2-famrow title="Filter by visual color (up to 3)" style="padding:0 18px 10px"></div>'
         + '<div data-p2-grid style="flex:1;overflow:auto;padding:4px 18px 14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(106px,1fr));gap:10px;align-content:start">'
         + '<div style="grid-column:1/-1;text-align:center;font:600 11.5px Nunito,sans-serif;color:#8a8578;padding:22px 0">Loading petpets…</div>'
         + '</div>'
@@ -51001,11 +51359,23 @@ if (!tradeLinks.length) {
       };
       const famFilter = (arr) => {
         if (!fams.length) return arr;
+        let _usePixel = true; try { _usePixel = GM_getValue('dtr_oe_p2_color_engine', 'pixel') !== 'itemdb'; } catch (_) {}
+        if (_usePixel) {
+
+          let mode = famMode === 'all' ? 'accents' : 'mostly';
+          const out = []; let pend = 0;
+          arr.forEach(x => {
+            const f = _pixHistFams(x.image, mode);
+            if (f === undefined) { pend++; return; }
+            if (f && (famMode === 'all' ? fams.every(k => f.has(k)) : fams.some(k => f.has(k)))) out.push(x);
+          });
+          _p2FamPend += pend;
+          return out;
+        }
         const out = []; const pending = [];
         arr.forEach(x => {
           const pal = _oePalGet({ thumb: x.image });
           if (pal === undefined) { pending.push(x); return; }
-
           const ok = famMode === 'all'
             ? (function () { const f = _oeItemFams(pal, true); return f && fams.every(k => f.has(k)); })()
             : (function () { const f = _oeItemFams(pal, false); return f && fams.some(k => f.has(k)); })();
@@ -51162,37 +51532,59 @@ if (!tradeLinks.length) {
         _p2DotsSave();
         paint(searchIn.value); _p2Place();
       });
-      const famSync = () => {
-        pop.querySelectorAll('[data-p2-famdot]').forEach(d => {
-          const on = fams.indexOf(d.getAttribute('data-p2-famdot')) !== -1;
-          d.style.boxShadow = on ? 'inset 0 0 0 1px rgba(0,0,0,.15), 0 0 0 2.5px ' + A : 'inset 0 0 0 1px rgba(0,0,0,.15)';
-          d.style.transform = on ? 'scale(1.12)' : '';
-        });
 
-        const nc = pop.querySelector('[data-p2-nocolor]');
-        if (nc) { const active = !fams.length; nc.style.background = active ? A : 'rgba(255,255,255,.75)'; nc.style.color = active ? '#fff' : '#8a8a80'; }
-
-        const modeWrap = pop.querySelector('[data-p2-modewrap]');
-        if (modeWrap) modeWrap.style.display = fams.length >= 2 ? 'inline-flex' : 'none';
-        pop.querySelectorAll('[data-p2-fammode]').forEach(b => {
-          const on = b.getAttribute('data-p2-fammode') === famMode;
-          b.style.background = on ? A : 'transparent';
-          b.style.color = on ? '#fff' : '#8a8a80';
-        });
+      const _p2eng = () => { try { return GM_getValue('dtr_oe_p2_color_engine', 'pixel') === 'itemdb' ? 'itemdb' : 'pixel'; } catch (_) { return 'pixel'; } };
+      const _p2wrap = (inner) => '<span style="display:inline-flex;background:#e9e4d8;border-radius:999px;padding:2px;flex:none">' + inner + '</span>';
+      const _p2btn = (attr, on, lbl, tip) => '<button ' + attr + ' title="' + tip + '" style="border:none;border-radius:999px;padding:3px 10px;cursor:pointer;font:' + (on ? '800' : '700') + ' 9.5px Nunito,sans-serif;white-space:nowrap;background:' + (on ? A : 'transparent') + ';color:' + (on ? '#fff' : '#b3ab99') + '">' + lbl + '</button>';
+      let _p2HelpOpen = false;
+      const _p2FamHTML = () => {
+        const eng = _p2eng();
+        const list = OE_COLOR_FAMS.concat(eng === 'pixel' ? [['multicolor', 'Multicolor', OE_RAINBOW]] : []);
+        let h = '<div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap' + (fams.length ? ';margin-bottom:8px' : '') + '">'
+          + list.map(f => { const on = fams.indexOf(f[0]) !== -1;
+              return '<button data-p2-famdot="' + f[0] + '" title="' + f[1] + '" style="width:16px;height:16px;padding:0;border-radius:50%;border:none;cursor:pointer;flex:none;background:' + f[2] + ';box-shadow:' + (on ? '0 0 0 2px #fff,0 0 0 3px ' + A : 'inset 0 0 0 1px rgba(0,0,0,.18)') + (on ? ';transform:scale(1.08)' : '') + '"></button>'; }).join('')
+          + '<span title="Color matching is still being refined" style="font:800 7.5px Nunito,sans-serif;letter-spacing:.3px;color:#d1503f;background:#ffe1da;padding:2px 5px;border-radius:999px;flex:none">BETA</span>'
+          + '</div>';
+        if (fams.length) {
+          h += '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">'
+            + (fams.length >= 2 ? _p2wrap(_p2btn('data-p2-fammode="any"', famMode !== 'all', 'Any of these', 'Mainly any one of your colors') + _p2btn('data-p2-fammode="all"', famMode === 'all', 'All of these', 'Combines every color you picked')) : '')
+            + '<span style="display:inline-flex;align-items:center;gap:4px;flex:none"><span style="font:800 8px Nunito,sans-serif;letter-spacing:.05em;color:#a89f8d;text-transform:uppercase">Source</span>'
+            + _p2wrap(_p2btn('data-p2-engine="pixel"', eng === 'pixel', 'DTI', 'Petpets that ARE this color (its main color) — precise') + _p2btn('data-p2-engine="itemdb"', eng === 'itemdb', 'itemdb', 'Petpets that HAVE this color anywhere — broad'))
+            + (eng === 'itemdb' ? '<button data-p2-coloridb title="Open itemdb.com.br" style="border:none;background:transparent;padding:0;cursor:pointer;display:inline-flex"><img src="https://itemdb.com.br/logo_icon.svg" style="width:13px;height:13px;object-fit:contain" alt="itemdb"></button>' : '')
+            + '<button data-p2-help title="Click for a guide to these settings" style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:none;border-radius:50%;background:' + (_p2HelpOpen ? A : '#e8e5dc') + ';color:' + (_p2HelpOpen ? '#fff' : '#8a857a') + ';font:800 9px Nunito,sans-serif;cursor:pointer;padding:0">?</button>'
+            + '</span>'
+            + '<button data-p2-clear title="Clear colors" style="margin-left:auto;border:none;border-radius:999px;padding:3px 10px;cursor:pointer;font:700 9.5px Nunito,sans-serif;background:rgba(255,255,255,.75);color:#8a8a80;flex:none">Clear</button>'
+            + '</div>';
+          if (_p2HelpOpen) {
+            const hp = 'font:600 10px Nunito,sans-serif;color:#6a6558;line-height:1.5;margin-bottom:6px', hb = 'color:#4a4a45', hd = 'font:800 8.5px Nunito,sans-serif;color:#a89f8d;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px';
+            h += '<div data-p2-helppop style="margin-top:8px;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:11px 13px;box-shadow:0 6px 16px rgba(40,35,30,.08)">'
+              + '<div style="' + hd + '">Color source — where the colors come from</div>'
+              + '<div style="' + hp + '">Two ways to find a petpet colors. Try both; one may work better.</div>'
+              + '<div style="' + hp + '"><b style="' + hb + '">DTI:</b> reads the petpet artwork. Petpets that <b style="' + hb + '">are</b> this color (its main color). Precise.</div>'
+              + '<div style="' + hp + ';margin-bottom:9px"><b style="' + hb + '">itemdb</b> <button data-p2-coloridb title="Open itemdb.com.br" style="border:none;background:transparent;padding:0;margin:0 0 -2px;cursor:pointer;display:inline-flex;vertical-align:baseline"><img src="https://itemdb.com.br/logo_icon.svg" style="width:12px;height:12px;object-fit:contain" alt=""></button><b style="' + hb + '">:</b> uses color data from itemdb. Petpets that <b style="' + hb + '">have</b> this color anywhere. Broad.</div>'
+              + '<div style="' + hd + '">Any vs All (2+ colors)</div>'
+              + '<div style="' + hp + ';margin-bottom:0"><b style="' + hb + '">Any:</b> any one of your colors. <b style="' + hb + '">All:</b> every color together. <b style="' + hb + '">Multicolor:</b> several colors, no single dominant one.</div>'
+              + '</div>';
+          }
+        }
+        return h;
       };
+      const p2FamRender = () => { const el = pop.querySelector('[data-p2-famrow]'); if (el) el.innerHTML = _p2FamHTML(); };
       pop.querySelector('[data-p2-famrow]').addEventListener('click', e => {
-        if (e.target.closest('[data-p2-nocolor]')) { if (fams.length) { fams.length = 0; famSync(); paint(searchIn.value); } return; }
-        const m = e.target.closest('[data-p2-fammode]');
-        if (m) { famMode = m.getAttribute('data-p2-fammode') === 'all' ? 'all' : 'any'; _p2DotsSave(); famSync(); paint(searchIn.value); return; }
-        const d = e.target.closest('[data-p2-famdot]'); if (!d) return;
-        const k = d.getAttribute('data-p2-famdot');
-        const i = fams.indexOf(k);
-        if (i >= 0) fams.splice(i, 1); else { if (fams.length >= 3) return; fams.push(k); }
-        _p2DotsSave();
-        famSync(); paint(searchIn.value);
+        const dot = e.target.closest('[data-p2-famdot]');
+        if (dot) { const k = dot.getAttribute('data-p2-famdot'); const i = fams.indexOf(k); if (i >= 0) fams.splice(i, 1); else { if (fams.length >= 3) return; fams.push(k); } _p2DotsSave(); p2FamRender(); paint(searchIn.value); return; }
+        const fm = e.target.closest('[data-p2-fammode]');
+        if (fm) { famMode = fm.getAttribute('data-p2-fammode') === 'all' ? 'all' : 'any'; _p2DotsSave(); p2FamRender(); paint(searchIn.value); return; }
+        const en = e.target.closest('[data-p2-engine]');
+        if (en) { try { GM_setValue('dtr_oe_p2_color_engine', en.getAttribute('data-p2-engine') === 'itemdb' ? 'itemdb' : 'pixel'); } catch (_) {} p2FamRender(); paint(searchIn.value); return; }
+        if (e.target.closest('[data-p2-coloridb]')) { try { window._dtrOpenTab('https://itemdb.com.br'); } catch (_) {} return; }
+        if (e.target.closest('[data-p2-help]')) { _p2HelpOpen = !_p2HelpOpen; p2FamRender(); return; }
+        if (e.target.closest('[data-p2-clear]')) { if (fams.length) { fams.length = 0; _p2HelpOpen = false; _p2DotsSave(); p2FamRender(); paint(searchIn.value); } return; }
       });
-      famSync();
+      p2FamRender();
       window.__dtrP2SweepTick = () => { try { if (document.getElementById('dtr-oe-p2-pop')) paint(searchIn.value); } catch (_) {} };
+
+      window.__DTR_P2_REPAINT = () => { try { if (document.getElementById('dtr-oe-p2-pop')) paint(searchIn.value); } catch (_) {} };
       _idbPetpets().then(d => {
         tops = (d && d.items) || [];
         if (!_p2Sweep.tops) _p2Sweep.tops = tops;
@@ -51308,12 +51700,21 @@ if (!tradeLinks.length) {
         const candSet3 = new Set(_petCandList(av, 'p3').map(c => c.slug));
         pop.querySelector('[data-cb-strip2]').innerHTML = strip('p2', options('p2'), sel2, candSet2);
         pop.querySelector('[data-cb-strip3]').innerHTML = strip('p3', options('p3'), sel3, candSet3);
+
+        const _stKey = (s2o ? s2o.slug : '') + '×' + (s3o ? s3o.slug : '');
+        const _isDup = !!(s2o || s3o) && _petCombos().some(c => _petComboKey(c) === _stKey);
         pop.querySelector('[data-cb-stage]').innerHTML =
 
           '<span style="flex:1;min-width:0"></span>'
           + '<span style="display:inline-flex;align-items:center;gap:6px;flex:none">' + well(s2o, 80) + '<span style="font:700 12px Nunito,sans-serif;color:#c9c4b8">＋</span>' + well(s3o, 80) + '</span>'
           + '<span style="flex:1;min-width:0;display:flex;justify-content:flex-start;padding-left:18px">'
-          + '<button data-cb-add ' + ((s2o || s3o) ? '' : 'disabled ') + 'style="border:none;border-radius:999px;padding:7px 15px;cursor:' + ((s2o || s3o) ? 'pointer' : 'default') + ';background:' + ((s2o || s3o) ? A : '#eee9dd') + ';color:' + ((s2o || s3o) ? '#fff' : '#b3ada0') + ';font:700 11px Nunito,sans-serif;white-space:nowrap">Save combo</button>'
+          + '<button data-cb-add ' + ((s2o || s3o) ? '' : 'disabled ') + 'style="border-radius:999px;padding:7px 15px;font:700 11px Nunito,sans-serif;white-space:nowrap;'
+            + (!(s2o || s3o)
+                ? 'border:none;cursor:default;background:#eee9dd;color:#b3ada0'
+                : _isDup
+                  ? 'border:1.5px solid ' + A + ';cursor:pointer;background:#fff;color:' + A
+                  : 'border:none;cursor:pointer;background:' + A + ';color:#fff')
+            + '">' + (_isDup ? 'Already saved' : 'Save combo') + '</button>'
           + '</span>';
         const grid = pop.querySelector('[data-pkc-grid]');
         grid.innerHTML = combos.length ? combos.map((c, i) => {
@@ -51505,7 +51906,7 @@ if (!tradeLinks.length) {
             + (on ? 'linear-gradient(#fff,#fff) padding-box,' + OE_SEL_STRIPE + ' border-box' : 'rgba(255,255,255,.85)')
             + ';box-shadow:0 2px 10px rgba(150,140,160,.16)">'
             + '<div data-cc-pet style="position:relative;width:112px;height:112px;border-radius:10px;overflow:hidden;background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)">'
-            + (on ? '<span style="position:absolute;top:5px;left:5px;z-index:60;font:800 7.5px/1 Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:rgba(120,90,175,.92);padding:3px 6px;border-radius:999px">✓ On pet</span>' : '')
+            + (on ? '<span style="position:absolute;top:5px;left:5px;z-index:60;font:800 7.5px/1 Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:rgba(120,90,175,.92);padding:3px 6px;border-radius:999px">On pet</span>' : '')
             + '</div>'
             + '<div style="display:flex;gap:6px;align-items:center;justify-content:center">' + well(c.p2) + '<span style="font:700 10px Nunito,sans-serif;color:#c9c4b8">＋</span>' + well(c.p3) + '</div>'
             + '</button>';
@@ -51781,7 +52182,7 @@ if (!tradeLinks.length) {
 
       if (j && j.errors && j.errors.length) {
         const m = String(j.errors[0].message || '');
-        throw new Error(/pet type not found/i.test(m) ? 'This species + colour isn’t a real pet, so nothing fits it. Pick a valid colour.' : 'Zone search failed.');
+        throw new Error(/pet type not found/i.test(m) ? 'This species + color isn’t a real pet, so nothing fits it. Pick a valid color.' : 'Zone search failed.');
       }
       const sr = (((j||{}).data||{}).itemSearch) || {};
       const zoneLabel = st.activeZone || '';
@@ -51889,6 +52290,12 @@ if (!tradeLinks.length) {
         const colorOn = Array.isArray(s.colorFilter) && s.colorFilter.length > 0;
 
         if (!query.trim() && !zone && !colorOn) {
+          OE.set({ searchLoading: false, searchError: null, searchQuery: query, sortLoadingAll: false,
+                   searchResults: [], searchTotal: 0, searchNextOffset: 0, searchHasMore: false, searchOffset: 0 });
+          return;
+        }
+
+        if (!query.trim() && !zone && colorOn) {
           OE.set({ searchLoading: false, searchError: null, searchQuery: query, sortLoadingAll: false,
                    searchResults: [], searchTotal: 0, searchNextOffset: 0, searchHasMore: false, searchOffset: 0 });
           return;

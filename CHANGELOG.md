@@ -5,6 +5,17 @@
      on. Never delete items from here except when the feature itself was removed before shipping. ── -->
 ## Unreleased
 
+## July 13, 2026 — Two color sources & easier closet cleanup
+
+### Enhancements
+- **Customize:** **Two ways to filter by color now.** Pick the **source** right in the color filter: **DTI**, which reads an item's actual artwork (items that *are* that color), or **itemdb**, which uses its stored color data (items that *have* that color anywhere, a broader net) — switch between them for more variety in what turns up. There's a **?** that explains it all in plain language, and the whole control is more compact and tucks neatly by the sort dropdown.
+- **Customize:** The **petpet browser's color filter now matches the item search** — same color dots and DTI/itemdb source choice.
+- **Closet:** **Removing an item is simpler.** Step its quantity down to zero (or type 0) and it's gone — no more separate trash button — with a quick **Undo** in case you change your mind.
+
+### Fixes
+- **Closet:** Addressed a bug where removing an item with the trash can wasn't firing the delete, so it came back on refresh.
+- **Closet:** The clipboard button no longer pops up over the quantity buttons (no more misclicks), and a deleted item no longer lingers in the "items selected" bar.
+
 ## July 12, 2026 — Petpets & petpetpets, color filter & Pet Style trading
 
 ### Enhancements
