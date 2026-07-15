@@ -3,7 +3,7 @@
 (function () {
   'use strict';
 
-  window.__DTR_META = {"v":"10.663.97","history":[{"v":"10.663.97","label":"Two color sources & easier closet cleanup","ts":"July 13, 2026 · 11:55 PM PT","notes":["Two ways to filter by color now — pick the source right in the filter: DTI reads an item's real artwork, or itemdb uses its stored color data (a broader net). Switch between them for more variety, and there's a ? that explains it all.","The petpet browser's color filter now matches the item search — same dots and source choice.","Closet: removing an item is simpler now (step a quantity to zero, with Undo) — and we fixed a bug where the old trash-can method wasn't actually firing the delete.","Closet: the clipboard button no longer overlaps the quantity buttons, and a deleted item no longer shows as \"selected\"."]},{"v":"10.663.35","label":"Filter items by color (Beta), Pet Style combos & sharing polish","ts":"July 12, 2026 · 10:53 PM PT","notes":["New: filter item search by color (Beta). Pick up to three colors to see items that are mainly that shade — powered by itemdb’s palettes. It’s still learning, so you may see the odd wrong match for now.","Customize: build and save petpet + petpetpet combos right on your pet, compare your saved combos side by side, and shrink the canvas to roughly Neopets size for a truer preview.","Sharing your variants is friendlier: “Compare variants” is now Details, and Share as lets you tick exactly what to include — pet data, petpet & petpetpet, and item details — when you copy a set of variants as a collage.","Opening a custom someone shared with you now clearly says it’s not yours, with a one-click Save a copy — and no more misleading “Autosave on.”","Cleaner cards across Your Outfits and the variants strip: the name, species and color sit on top, with petpet/petpetpet as tidy thumbnails.","Pet Styles: your seeking/offering clipboard now sticks around after a refresh, Seeking and Offering sit side by side, and you can print your offer values right on the collage."]},{"v":"10.649.7","label":"The My Pet Styles makeover — plus Active Box upgrades & little fixes","ts":"July 10, 2026 · 11:27 PM PT","notes":["My Pet Styles got a top-to-bottom makeover: the pretty pastel look, Owned and Wished side by side, a ＋ Add a style search, a tidier clipboard with a note field, and an Undo when you clear a column.","Sharing what you’re seeking is simpler — type what you’re offering under each style (like “3 GBC” or “brushes or swap”) and it prints right on the collage image and in copied lists.","Import cards now show the blue NP label, so you can tell NP from NC at a glance while sorting.","The Neoboards Active Box knows more Pet Styles (thanks to your submissions!), the 10-a-day submission cap is gone, and submissions now keep themselves fresh until they ship.","Left a DTI tab pinned for days? It now notices new updates when you come back to it."]},{"v":"10.648.25","label":"Meet Preferred Traders — plus a big item-page glow-up","ts":"July 10, 2026 · 6:01 PM PT","notes":["New: Preferred Traders! Star the traders you love — from any item’s Trade Activity, the sign on their closet, or by username in the ⚙ menu. Then let DTI Remix do the legwork: check which of them have the items on your wishlists and outfits, or flip an item’s Trade Activity to Seeking to see who’d love it as a gift. Clicking a match opens their closet straight into Comparison Mode.","The item page got a full refresh: Trade Activity sits on the left and always matches your lists’ height, statuses are soft pills, every confirmation shares one gentle toast style, and tooltips stopped covering what you’re reading.","Clipboard fix: when a trader both owns and wants the same item, adding it from their wishlist no longer lands on the wrong side. The item-card buttons are neatly stacked now, and the clipboard button stays lit on items you’ve added — click again to remove.","Your Outfits: item names and pictures now load reliably, and big collections load much more gently.","The header always fits on one row, every import panel has its own Past imports log (CSV export where you can see it), and the pet-style tagger became a tidy side tab like everything else.","Plus: the animation lock now confirms itself (“Animated” or “Static”), Starter Pack search stays open while you add items, and un-starring anything gives you a few seconds to Undo."]},{"v":"10.646.2","label":"The big import tune-up: your sorting sticks — plus type-in counts, stragglers & a calmer look","ts":"July 10, 2026 · 5:24 AM PT","notes":["Your sorting is safe now: every assignment is stored the instant you make it, survives refreshes, and finishes saving itself. Saves are verified against DTI and retried, a red banner appears if anything fails, and the import pauses honestly if you’re not logged in.","Fixed the maddening “1 more to place” that dragged you back to items you’d already sorted — placed means placed.","Anything you miss while paging gathers in a Stragglers section at the end of the last page, and “Place all” there finishes the whole import. (The “Take me to the next one” button that yanked you up the page is retired.)","Type a quantity straight into any stepper — click the number and type. Backspace to zero works too.","Arrange your import list tiles your way: drag by the ⠿ grip, leave gaps, tiles never shove each other, drop on a tile to swap.","One steady count in the header — copies, items and pages for the whole import — and a tidier, balanced layout.","Item names are links to their item pages, Offering/Seeking counts load fast and open where you clicked, and preview images that time out retry themselves.","Items with “&” in their name import properly, and items Neopets spells differently than DTI (like “Cloud Face Paint”) now match up.","Unfinished imports no longer quietly disappear after a week, and re-running an import mid-way only adds genuinely new copies.","Everywhere: DTI’s native green hover can no longer sneak onto buttons or links, plus a pile of Customize and item-page fixes (frame options restored, clean teal chevrons, no more doubled animated items)."]},{"v":"10.628.4","label":"Neoboards Active Box, import tools & a big polish pass","ts":"July 7, 2026 · 2:47 AM PT","notes":["New Neoboards Active Box viewfinder (Beta) in the Customize frame picker — see exactly which square of your custom shows up in your board avatar, from real measured data for every species and color family (Baby, Maraquan, Mutant, 8-bit, Origami, Invisible).","The Active Box learns new Pet Styles from the community: styled pets show a close approximation for now, but load a pet by name wearing a style we don’t have yet and one click shares it (just the pet name + style) so its exact box can ship for everyone in a later update.","Customize: the variants strip can now be collapsed — click the VARIANTS header to tuck the cards away and get straight to your item list; it remembers your choice.","Import: a Try-On Preview parks beside the import list — click any item card (or Tab through them) to see it on your preferred pet, which it now remembers as you go.","Import: a “you’re almost done” guide appears when items still need sorting and walks you through each; the finished summary shows only once everything is settled.","Import: cleaner card buttons — Skip import (a calm red) discards and skips an item, and Done · keep N in inventory only shows once you’ve placed a copy with leftovers. Item zones now read as plain text under an OCCUPIES label.","Items: the Infinite Closet search page joined the reskin — our header, a proper search pill, konpeito cards and pagination.","Closet: Bulk Remove is fast now, with a progress counter, instead of freezing for several seconds.","Homepage: a warm empty state on Newest Wearables when nothing matches, and the panel opens to your Imports tab when you have one unfinished.","Fixes: the item page scrolls again (it was cutting off the pet preview); starter packs no longer pile onto real pets (they only apply to fresh, naked customs); the Active Box is honest about Pet Styles (it says a style is not supported yet rather than drawing a wrong box); and our styling no longer briefly bleeds onto Neopets’ own pages."]},{"v":"10.620.0","label":"Customize polish, board editor & a variants-safety fix","ts":"July 6, 2026 · 7:12 AM PT","notes":["Customize is smoother: your starter pack now loads into the Fitting Room on a new custom, animation reliably plays after you save or refresh (and follows the header Animated toggle everywhere), the pet preview is bigger, and the Layers button on variant cards opens properly again.","A big fix: your saved variant groups on Your Outfits no longer reset themselves into separate customs.","Lookbook boards now open into a full-width canvas — the board list tucks away while you edit so you get a proper working area, and new boards start square.","Try On Haul is cleaner and lighter: the hidden Preview tab no longer animates in the background, and the panel always opens fully on-screen on smaller windows.","Owned/Wishlisted status stays fresh automatically — no more reopening your closet to clear a stale Wishlisted flag."]},{"v":"10.613.0","label":"Homepage feed, one settings cog & List Management","ts":"July 5, 2026 · evening PT","notes":["New homepage feed: the right column now shows your recent Customs as thumbnails (variants tucked under each look), your in-progress Imports, and a What’s New tab.","One settings cog (top-left) now holds everything: theme, a Quickstart pet + starter pack for the new + New Custom button, and full List Management — rename lists, set Private/Public/Trading, add nicknames, and choose what counts in Comparison Mode.","Animation now follows one global default, and you can lock a custom’s Animated/Still state so it always opens the way you saved it.","Try On Haul: star your preferred tab and it always opens there; clicking items in the Preview tab now dresses the preview pet properly."]},{"v":"10.608.0","label":"Lookbook board editor, rebuilt","ts":"July 5, 2026 · 12:40 AM PT","notes":["The Lookbook board editor is rebuilt: a left toolbar and an always-open side panel put every control in front of you, instead of behind pop-up menus.","New Freestyle mode — drag each pet anywhere, resize them one at a time, and place the title wherever you like. Grid mode is still there for tidy rows.","A real Layers panel: drag to restack, put pets in front of or behind your decorations, hide or lock any layer, and right-click a decoration to send it forward or back.","Click a pet to select it (shift-click for several), and type an exact canvas size in pixels."]},{"v":"10.607.0","label":"Lookbook board editor + Your Outfits & Customize fixes","notes":["Lookbook boards are now a full editor. Arrange your saved looks in a grid — set how many per row, plus their size and spacing — and pick a frame shape (rounded, circle, arch, hex and more) with an optional border and soft shadow.","Style the whole board: show or hide pet names and give them their own font, size and color; add and style the title the same way; set a background color or drop in a background image; and add decorations by dropping in any item as art (in front of or behind your pets).","Nothing on a board changes by accident — every edit stays a draft until you hit Save. You can Clone a board to spin off a variation, and download the finished collage as an image.","Your Outfits: sorting A→Z now uses a look's crowned variant name, so it lands where you expect; the delete button is back; and a look that jumps position after you crown or group a variant now scrolls into view so you never lose track of it.","Customize: opening a custom that someone shared with you no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own Save keeps a copy."]},{"v":"10.597.5","label":"Closet & search fixes","notes":["Fixed an error that could break some closet pages (links without a name in the URL)","Item search now flags when the Hide-locked-zones setting is hiding matches, with a one-click Show them"]},{"v":"10.596.6","label":"Comparison Mode & logged-out fixes","notes":["Comparison Mode: hide lists you never trade from, and it now matches your live wishlist however an item was added","Fixed items wrongly showing as Wishlisted or Owned while logged out","Try On Haul is now hidden entirely when you are logged out","Your Outfits opens to your outfits again, not a Lookbook board"]},{"v":"10.592.1","label":"Lookbook, DTI Sync & item links","notes":["Lookbook (new!): arrange your saved looks into themed boards","DTI Sync: keep some copies in your inventory, and see each item's zones on the cards"]},{"v":"10.587.10","label":"Closet bulk-edit","notes":["Bulk-move whole stacks, and gather copies spread across several lists","Your clipboard, drafts and Try On Haul are now separate per account"]}]};
+  window.__DTR_META = {"v":"10.663.110","history":[{"v":"10.663.110","label":"Color filters everywhere — your closet, others' closets & Pet Styles","ts":"July 15, 2026 · 7:14 AM PT","notes":["The color filter is in your closet now — and anyone else's. Narrow a closet down to just the reds, or the pastels, using the same color dots as the item search, tucked into one compact button.","Pet Styles can be filtered by color too, in Customize and on the homepage — plus a new compact view with smaller thumbnails so you can scan far more styles at once.","Color filtering is faster and steadier: a live counter shows how many items it has checked, it clearly says when every result is loaded, and it now scans the whole catalog to the end instead of stopping short.","More accurate color matching: picture frames, foregrounds and garlands are no longer mistaken for white.","Pets that only come in a single pose (like Baby Varwolf) now load properly instead of showing up blank.","Tidied the closet's bulk-action bar so it stands out, and cleared out a stray button that could appear in the Try On Haul."]},{"v":"10.663.97","label":"Two color sources & easier closet cleanup","ts":"July 13, 2026 · 11:55 PM PT","notes":["Two ways to filter by color now — pick the source right in the filter: DTI reads an item's real artwork, or itemdb uses its stored color data (a broader net). Switch between them for more variety, and there's a ? that explains it all.","The petpet browser's color filter now matches the item search — same dots and source choice.","Closet: removing an item is simpler now (step a quantity to zero, with Undo) — and we fixed a bug where the old trash-can method wasn't actually firing the delete.","Closet: the clipboard button no longer overlaps the quantity buttons, and a deleted item no longer shows as \"selected\"."]},{"v":"10.663.35","label":"Filter items by color (Beta), Pet Style combos & sharing polish","ts":"July 12, 2026 · 10:53 PM PT","notes":["New: filter item search by color (Beta). Pick up to three colors to see items that are mainly that shade — powered by itemdb’s palettes. It’s still learning, so you may see the odd wrong match for now.","Customize: build and save petpet + petpetpet combos right on your pet, compare your saved combos side by side, and shrink the canvas to roughly Neopets size for a truer preview.","Sharing your variants is friendlier: “Compare variants” is now Details, and Share as lets you tick exactly what to include — pet data, petpet & petpetpet, and item details — when you copy a set of variants as a collage.","Opening a custom someone shared with you now clearly says it’s not yours, with a one-click Save a copy — and no more misleading “Autosave on.”","Cleaner cards across Your Outfits and the variants strip: the name, species and color sit on top, with petpet/petpetpet as tidy thumbnails.","Pet Styles: your seeking/offering clipboard now sticks around after a refresh, Seeking and Offering sit side by side, and you can print your offer values right on the collage."]},{"v":"10.649.7","label":"The My Pet Styles makeover — plus Active Box upgrades & little fixes","ts":"July 10, 2026 · 11:27 PM PT","notes":["My Pet Styles got a top-to-bottom makeover: the pretty pastel look, Owned and Wished side by side, a ＋ Add a style search, a tidier clipboard with a note field, and an Undo when you clear a column.","Sharing what you’re seeking is simpler — type what you’re offering under each style (like “3 GBC” or “brushes or swap”) and it prints right on the collage image and in copied lists.","Import cards now show the blue NP label, so you can tell NP from NC at a glance while sorting.","The Neoboards Active Box knows more Pet Styles (thanks to your submissions!), the 10-a-day submission cap is gone, and submissions now keep themselves fresh until they ship.","Left a DTI tab pinned for days? It now notices new updates when you come back to it."]},{"v":"10.648.25","label":"Meet Preferred Traders — plus a big item-page glow-up","ts":"July 10, 2026 · 6:01 PM PT","notes":["New: Preferred Traders! Star the traders you love — from any item’s Trade Activity, the sign on their closet, or by username in the ⚙ menu. Then let DTI Remix do the legwork: check which of them have the items on your wishlists and outfits, or flip an item’s Trade Activity to Seeking to see who’d love it as a gift. Clicking a match opens their closet straight into Comparison Mode.","The item page got a full refresh: Trade Activity sits on the left and always matches your lists’ height, statuses are soft pills, every confirmation shares one gentle toast style, and tooltips stopped covering what you’re reading.","Clipboard fix: when a trader both owns and wants the same item, adding it from their wishlist no longer lands on the wrong side. The item-card buttons are neatly stacked now, and the clipboard button stays lit on items you’ve added — click again to remove.","Your Outfits: item names and pictures now load reliably, and big collections load much more gently.","The header always fits on one row, every import panel has its own Past imports log (CSV export where you can see it), and the pet-style tagger became a tidy side tab like everything else.","Plus: the animation lock now confirms itself (“Animated” or “Static”), Starter Pack search stays open while you add items, and un-starring anything gives you a few seconds to Undo."]},{"v":"10.646.2","label":"The big import tune-up: your sorting sticks — plus type-in counts, stragglers & a calmer look","ts":"July 10, 2026 · 5:24 AM PT","notes":["Your sorting is safe now: every assignment is stored the instant you make it, survives refreshes, and finishes saving itself. Saves are verified against DTI and retried, a red banner appears if anything fails, and the import pauses honestly if you’re not logged in.","Fixed the maddening “1 more to place” that dragged you back to items you’d already sorted — placed means placed.","Anything you miss while paging gathers in a Stragglers section at the end of the last page, and “Place all” there finishes the whole import. (The “Take me to the next one” button that yanked you up the page is retired.)","Type a quantity straight into any stepper — click the number and type. Backspace to zero works too.","Arrange your import list tiles your way: drag by the ⠿ grip, leave gaps, tiles never shove each other, drop on a tile to swap.","One steady count in the header — copies, items and pages for the whole import — and a tidier, balanced layout.","Item names are links to their item pages, Offering/Seeking counts load fast and open where you clicked, and preview images that time out retry themselves.","Items with “&” in their name import properly, and items Neopets spells differently than DTI (like “Cloud Face Paint”) now match up.","Unfinished imports no longer quietly disappear after a week, and re-running an import mid-way only adds genuinely new copies.","Everywhere: DTI’s native green hover can no longer sneak onto buttons or links, plus a pile of Customize and item-page fixes (frame options restored, clean teal chevrons, no more doubled animated items)."]},{"v":"10.628.4","label":"Neoboards Active Box, import tools & a big polish pass","ts":"July 7, 2026 · 2:47 AM PT","notes":["New Neoboards Active Box viewfinder (Beta) in the Customize frame picker — see exactly which square of your custom shows up in your board avatar, from real measured data for every species and color family (Baby, Maraquan, Mutant, 8-bit, Origami, Invisible).","The Active Box learns new Pet Styles from the community: styled pets show a close approximation for now, but load a pet by name wearing a style we don’t have yet and one click shares it (just the pet name + style) so its exact box can ship for everyone in a later update.","Customize: the variants strip can now be collapsed — click the VARIANTS header to tuck the cards away and get straight to your item list; it remembers your choice.","Import: a Try-On Preview parks beside the import list — click any item card (or Tab through them) to see it on your preferred pet, which it now remembers as you go.","Import: a “you’re almost done” guide appears when items still need sorting and walks you through each; the finished summary shows only once everything is settled.","Import: cleaner card buttons — Skip import (a calm red) discards and skips an item, and Done · keep N in inventory only shows once you’ve placed a copy with leftovers. Item zones now read as plain text under an OCCUPIES label.","Items: the Infinite Closet search page joined the reskin — our header, a proper search pill, konpeito cards and pagination.","Closet: Bulk Remove is fast now, with a progress counter, instead of freezing for several seconds.","Homepage: a warm empty state on Newest Wearables when nothing matches, and the panel opens to your Imports tab when you have one unfinished.","Fixes: the item page scrolls again (it was cutting off the pet preview); starter packs no longer pile onto real pets (they only apply to fresh, naked customs); the Active Box is honest about Pet Styles (it says a style is not supported yet rather than drawing a wrong box); and our styling no longer briefly bleeds onto Neopets’ own pages."]},{"v":"10.620.0","label":"Customize polish, board editor & a variants-safety fix","ts":"July 6, 2026 · 7:12 AM PT","notes":["Customize is smoother: your starter pack now loads into the Fitting Room on a new custom, animation reliably plays after you save or refresh (and follows the header Animated toggle everywhere), the pet preview is bigger, and the Layers button on variant cards opens properly again.","A big fix: your saved variant groups on Your Outfits no longer reset themselves into separate customs.","Lookbook boards now open into a full-width canvas — the board list tucks away while you edit so you get a proper working area, and new boards start square.","Try On Haul is cleaner and lighter: the hidden Preview tab no longer animates in the background, and the panel always opens fully on-screen on smaller windows.","Owned/Wishlisted status stays fresh automatically — no more reopening your closet to clear a stale Wishlisted flag."]},{"v":"10.613.0","label":"Homepage feed, one settings cog & List Management","ts":"July 5, 2026 · evening PT","notes":["New homepage feed: the right column now shows your recent Customs as thumbnails (variants tucked under each look), your in-progress Imports, and a What’s New tab.","One settings cog (top-left) now holds everything: theme, a Quickstart pet + starter pack for the new + New Custom button, and full List Management — rename lists, set Private/Public/Trading, add nicknames, and choose what counts in Comparison Mode.","Animation now follows one global default, and you can lock a custom’s Animated/Still state so it always opens the way you saved it.","Try On Haul: star your preferred tab and it always opens there; clicking items in the Preview tab now dresses the preview pet properly."]},{"v":"10.608.0","label":"Lookbook board editor, rebuilt","ts":"July 5, 2026 · 12:40 AM PT","notes":["The Lookbook board editor is rebuilt: a left toolbar and an always-open side panel put every control in front of you, instead of behind pop-up menus.","New Freestyle mode — drag each pet anywhere, resize them one at a time, and place the title wherever you like. Grid mode is still there for tidy rows.","A real Layers panel: drag to restack, put pets in front of or behind your decorations, hide or lock any layer, and right-click a decoration to send it forward or back.","Click a pet to select it (shift-click for several), and type an exact canvas size in pixels."]},{"v":"10.607.0","label":"Lookbook board editor + Your Outfits & Customize fixes","notes":["Lookbook boards are now a full editor. Arrange your saved looks in a grid — set how many per row, plus their size and spacing — and pick a frame shape (rounded, circle, arch, hex and more) with an optional border and soft shadow.","Style the whole board: show or hide pet names and give them their own font, size and color; add and style the title the same way; set a background color or drop in a background image; and add decorations by dropping in any item as art (in front of or behind your pets).","Nothing on a board changes by accident — every edit stays a draft until you hit Save. You can Clone a board to spin off a variation, and download the finished collage as an image.","Your Outfits: sorting A→Z now uses a look's crowned variant name, so it lands where you expect; the delete button is back; and a look that jumps position after you crown or group a variant now scrolls into view so you never lose track of it.","Customize: opening a custom that someone shared with you no longer quietly saves a copy — or a variant of it — into your own outfits. Edit it freely to suggest changes; only your own Save keeps a copy."]},{"v":"10.597.5","label":"Closet & search fixes","notes":["Fixed an error that could break some closet pages (links without a name in the URL)","Item search now flags when the Hide-locked-zones setting is hiding matches, with a one-click Show them"]},{"v":"10.596.6","label":"Comparison Mode & logged-out fixes","notes":["Comparison Mode: hide lists you never trade from, and it now matches your live wishlist however an item was added","Fixed items wrongly showing as Wishlisted or Owned while logged out","Try On Haul is now hidden entirely when you are logged out","Your Outfits opens to your outfits again, not a Lookbook board"]},{"v":"10.592.1","label":"Lookbook, DTI Sync & item links","notes":["Lookbook (new!): arrange your saved looks into themed boards","DTI Sync: keep some copies in your inventory, and see each item's zones on the cards"]},{"v":"10.587.10","label":"Closet bulk-edit","notes":["Bulk-move whole stacks, and gather copies spread across several lists","Your clipboard, drafts and Try On Haul are now separate per account"]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -5764,7 +5764,7 @@
         "#dia-closet-v2-root .cv2-fly-grid li.object.cv2-dragging{opacity:.45;}",
         "#dia-closet-v2-root .cv2-card.cv2-drop-hover{border-color:var(--dtr-mint,#5bb6a8)!important;box-shadow:0 0 0 3px rgba(91,182,168,.28)!important;background:#eafaf6!important;}",
 
-        "#cv2-sel-bar{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:linear-gradient(120deg,#fdf1f8,#f1f8fb 52%,#eefbf4);color:#6a6076;display:flex;align-items:center;gap:11px;padding:10px 13px 10px 18px;border-radius:999px;border:1.5px solid rgba(255,255,255,.85);box-shadow:0 10px 30px rgba(150,120,160,.22),0 2px 8px rgba(150,120,160,.12);z-index:9095;font:600 12px/1 'Nunito',sans-serif;transition:bottom .18s ease;}",
+        "#cv2-sel-bar{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#fff;color:#6a6076;display:flex;align-items:center;gap:10px;padding:9px 12px 9px 18px;border-radius:999px;border:1.5px solid #e9dff0;box-shadow:0 16px 42px rgba(90,68,110,.34),0 3px 12px rgba(90,68,110,.18);z-index:9095;font:600 12px/1 'Nunito',sans-serif;transition:bottom .18s ease;}",
         "#cv2-sel-bar button{border-radius:999px !important;transition:background .12s,transform .12s;}",
         "#cv2-sel-bar button:active{transform:translateY(.5px);}",
         "#dia-closet-v2-root .cv2-colhead>span:first-child::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--dtr-pink,#ff97b3);margin-right:7px;vertical-align:1px;box-shadow:9px 0 0 -1px #ffce5a,18px 0 0 -2px var(--dtr-scroll-a,#5fb3e8);}",
@@ -5773,10 +5773,10 @@
         "#cv2-sel-bar .cv2-sel-hint{color:#9a8fa6;font-size:11px;white-space:nowrap;}",
         "#cv2-sel-bar .cv2-sel-clear{background:#efeaf3;border:none;color:#7c7488;font:800 11px/1 'Nunito',sans-serif;padding:7px 13px;cursor:pointer;}",
         "#cv2-sel-bar .cv2-sel-clear:hover{background:#e5ddec;}",
-        "#cv2-sel-bar .cv2-sel-remove{display:flex;align-items:center;gap:5px;background:#fce3e1;border:none;color:#c26a62;font:800 11px/1 'Nunito',sans-serif;padding:7px 12px;cursor:pointer;}",
-        "#cv2-sel-bar .cv2-sel-remove:hover{background:#f9d3d0;}",
-        "#cv2-sel-bar .cv2-sel-haul{display:flex;align-items:center;gap:5px;background:#ffe8d6;border:none;color:#bd7440;font:800 11px/1 'Nunito',sans-serif;padding:7px 12px;cursor:pointer;}",
-        "#cv2-sel-bar .cv2-sel-haul:hover{background:#ffddc4;}",
+        "#cv2-sel-bar .cv2-sel-remove{display:flex;align-items:center;gap:5px;background:#f6ddda;border:none;color:#bd5a51;font:800 11px/1 'Nunito',sans-serif;padding:8px 13px;cursor:pointer;}",
+        "#cv2-sel-bar .cv2-sel-remove:hover{background:#f0cbc7;}",
+        "#cv2-sel-bar .cv2-sel-haul{display:flex;align-items:center;gap:5px;background:#f59c56;border:none;color:#fff;font:800 11px/1 'Nunito',sans-serif;padding:8px 14px;cursor:pointer;box-shadow:0 2px 8px rgba(230,140,70,.34);}",
+        "#cv2-sel-bar .cv2-sel-haul:hover{background:#ee9047;}",
         "#cv2-sel-bar .cv2-sel-haul.loading{opacity:.6;pointer-events:none;}",
         "#cv2-sel-bar .cv2-sel-haul svg{width:13px;height:13px;display:block;}",
         "#cv2-sel-bar .cv2-sel-clip{display:flex;align-items:center;gap:5px;background:#e7edfc;border:none;color:#6b7fc4;font:800 11px/1 'Nunito',sans-serif;padding:7px 12px;cursor:pointer;}",
@@ -6653,14 +6653,17 @@
       var _cv2CatMode = 'any', _cv2ZoneMode = 'any';
       var _cv2Currency = 'all';
       let _cv2ZoneSel = new Set();
+
+      var _cv2Color = { fams: [], mode: 'any', engine: 'pixel', helpOpen: false };
+      var _cv2ColorOpen = false, _cv2ColorRepaintReg = false;
       let _cv2Scope = 'cur';
 
       let _cv2LockOn = false, _cv2LockLast = '';
       const _cv2LockKey = () => (_cv2Visitor ? 'dtr_cv2_flock_others' : 'dtr_cv2_flock_mine');
       const _cv2LockRead = () => { try { return JSON.parse(GM_getValue(_cv2LockKey(), '') || 'null'); } catch (_) { return null; } };
-      const _cv2LockSnap = () => ({ scope: _cv2Scope, grp: !!_cv2GroupBy, cur: _cv2Currency, sort: _cv2SortMode, cat: [..._cv2CatSel], catM: _cv2CatMode, zone: [..._cv2ZoneSel], zoneM: _cv2ZoneMode, compare: !!_cv2CompareMode });
+      const _cv2LockSnap = () => ({ scope: _cv2Scope, grp: !!_cv2GroupBy, cur: _cv2Currency, sort: _cv2SortMode, cat: [..._cv2CatSel], catM: _cv2CatMode, zone: [..._cv2ZoneSel], zoneM: _cv2ZoneMode, compare: !!_cv2CompareMode, color: (_cv2Color.fams || []).slice(), colorEng: _cv2Color.engine, colorM: _cv2Color.mode });
       const _cv2LockSave = () => { if (!_cv2LockOn) return; try { var js = JSON.stringify({ on: true, f: _cv2LockSnap() }); if (js === _cv2LockLast) return; _cv2LockLast = js; GM_setValue(_cv2LockKey(), js); } catch (_) {} };
-      const _cv2LockApply = (f) => { if (!f) return; _cv2Scope = f.scope || 'cur'; _cv2GroupBy = !!f.grp; _cv2Currency = f.cur || 'all'; _cv2SortMode = f.sort || 'na'; _cv2CatSel = new Set(f.cat || []); _cv2CatMode = f.catM || 'any'; _cv2ZoneSel = new Set(f.zone || []); _cv2ZoneMode = f.zoneM || 'any'; _cv2CompareMode = !!f.compare; };
+      const _cv2LockApply = (f) => { if (!f) return; _cv2Scope = f.scope || 'cur'; _cv2GroupBy = !!f.grp; _cv2Currency = f.cur || 'all'; _cv2SortMode = f.sort || 'na'; _cv2CatSel = new Set(f.cat || []); _cv2CatMode = f.catM || 'any'; _cv2ZoneSel = new Set(f.zone || []); _cv2ZoneMode = f.zoneM || 'any'; _cv2CompareMode = !!f.compare; _cv2Color.fams = Array.isArray(f.color) ? f.color.slice() : []; _cv2Color.engine = f.colorEng === 'itemdb' ? 'itemdb' : 'pixel'; _cv2Color.mode = f.colorM === 'all' ? 'all' : 'any'; };
       const _cv2LockRestore = () => { _cv2LockLast = ''; var r = _cv2LockRead(); _cv2LockOn = !!(r && r.on); if (_cv2LockOn && r && r.f) { _cv2LockApply(r.f); _cv2LockLast = JSON.stringify({ on: true, f: _cv2LockSnap() }); } };
       const _cv2LockToggle = () => { _cv2LockOn = !_cv2LockOn; if (_cv2LockOn) { _cv2LockLast = ''; _cv2LockSave(); } else { try { var r = _cv2LockRead() || {}; r.on = false; GM_setValue(_cv2LockKey(), JSON.stringify(r)); } catch (_) {} } try { if (typeof _cv2RenderRail === 'function') _cv2RenderRail(); } catch (_) {} };
       const _cv2LockSvg = () => '<svg viewBox="0 0 24 24" width=18 height=18 aria-hidden=true><path class="lk-sh lk-sh-open" d="M8 10V7.4a4 4 0 0 1 7.5-1.8"/><path class="lk-sh lk-sh-closed" d="M8 10V7.4a4 4 0 0 1 8 0V10"/><rect class=lk-body x=5 y=9.6 width=14 height=9.6 rx="2.7"/><circle class=lk-hole cx=12 cy=13.7 r="1.5"/><rect class=lk-hole2 x=11.2 y=13.6 width=1.6 height=3.2 rx=".8"/></svg>';
@@ -6856,6 +6859,10 @@
           }
         }
         var zactive = _cv2ZoneSel.size > 0;
+        var _colActive = !!(_cv2Color.fams && _cv2Color.fams.length) && typeof window._dtrColorClassify === 'function';
+        var _colEng = _cv2Color.engine === 'itemdb' ? 'itemdb' : 'pixel';
+        var _colAll = _cv2Color.mode === 'all';
+        var _colMode = _colAll ? 'accents' : 'mostly';
         return (items || []).filter(function (it) {
           if (_cv2Currency === 'nc' && !it.isNc) return false;
           if (_cv2Currency === 'np' && it.isNc) return false;
@@ -6875,6 +6882,13 @@
             if (_cv2ZoneMode === 'all') { hit = true; _cv2ZoneSel.forEach(function (zz) { if (zs.indexOf(zz) < 0) hit = false; }); }
             else { hit = false; for (var z = 0; z < zs.length; z++) if (_cv2ZoneSel.has(zs[z])) { hit = true; break; } }
             if (!hit) return false;
+          }
+          if (_colActive) {
+
+            var cf = window._dtrColorClassify(it.thumbnailUrl, _colEng, _colMode);
+            if (!cf || typeof cf.has !== 'function') return false;
+            var okc = _colAll ? _cv2Color.fams.every(function (kk) { return cf.has(kk); }) : _cv2Color.fams.some(function (kk) { return cf.has(kk); });
+            if (!okc) return false;
           }
           return true;
         });
@@ -7121,8 +7135,28 @@
           } else { sc.scrollTo({ top: 0, behavior: 'smooth' }); }
         } catch (_) {}
       };
+
+      const _cv2ColorCtrl = () => {
+        var W = window._dtrColorWidget; if (!W || typeof W.html !== 'function') return '';
+        var sw = function (k) { if (k === 'multicolor') return W.rainbow; var m = (W.families || []).filter(function (x) { return x[0] === k; })[0]; return m ? m[2] : '#ccc'; };
+        var fams = _cv2Color.fams || [];
+        var inner = fams.length
+          ? fams.slice(0, 3).map(function (k) { return '<span style="width:14px;height:14px;border-radius:50%;background:' + sw(k) + ';box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);display:inline-block"></span>'; }).join('')
+          : '<span style="width:16px;height:16px;border-radius:50%;background:' + W.rainbow + ';box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);display:inline-block"></span>';
+
+        return '<div class=cv2-rl-cwrap style="flex:none;display:flex;align-items:center">'
+          + '<button id=cv2-rl-cbtn type=button title="Filter by color" aria-label="Filter by color" style="display:inline-flex;align-items:center;gap:5px;border:1.5px solid ' + (fams.length || _cv2ColorOpen ? '#149c8e' : '#efe7da') + ';background:#fff;border-radius:999px;padding:6px 10px;cursor:pointer;color:#8a857a;font:700 11px/1 var(--f);transition:border-color .15s">' + inner + '<i style="font-style:normal;font-size:9px;color:#b7b1a3">▾</i></button>'
+          + '</div>';
+      };
+
+      const _cv2ColorPanel = () => {
+        var W = window._dtrColorWidget; if (!W || typeof W.html !== 'function' || !_cv2ColorOpen) return '';
+        return '<div id=cv2-rl-cpanel style="margin:8px 0 2px;background:#fff;border:1.5px solid #efe7da;border-radius:13px;padding:11px 12px;box-shadow:0 4px 14px rgba(110,128,150,.10)">' + W.html(_cv2Color, { accent: '#149c8e', showSource: true, dotSize: 16 }) + '</div>';
+      };
       const _cv2RenderRail = () => {
         var rail = document.getElementById('cv2-filter-rail'); if (!rail) return;
+
+        if (!_cv2ColorRepaintReg && typeof window._dtrColorOnRepaint === 'function') { _cv2ColorRepaintReg = true; window._dtrColorOnRepaint(function () { try { if ((_cv2Color.fams || []).length && document.getElementById('cv2-filter-rail')) _cv2RebuildView(); } catch (_) {} }); }
         var sorts = [['Name', [['Name A\u2192Z', 'na'], ['Name Z\u2192A', 'nz']]], ['Value', [['Value low\u2192high', 'vl'], ['Value high\u2192low', 'vh']]], ['Release date', [['Oldest first', 'ro'], ['Newest first', 'rn']]]];
         var curLbl = 'Name A\u2192Z';
         sorts.forEach(function (g) { g[1].forEach(function (o) { if (o[1] === _cv2SortMode) curLbl = o[0]; }); });
@@ -7137,7 +7171,12 @@
           + '<div class=cv2-rl-cur><button class="cv2-rl-cu cv2-cu-all' + (_cv2Currency === 'all' ? ' on' : '') + '" data-cur="all">All</button><button class="cv2-rl-cu cv2-cu-nc' + (_cv2Currency === 'nc' ? ' on' : '') + '" data-cur="nc">NC Only</button><button class="cv2-rl-cu cv2-cu-np' + (_cv2Currency === 'np' ? ' on' : '') + '" data-cur="np">NP Only</button></div>'
           + '<div class=cv2-rl-sec>Sort by</div>'
           + '<div class=cv2-rl-sortwrap><button class=cv2-rl-sortbtn id=cv2-rl-sortbtn><span>' + curLbl + '</span><i>\u25be</i></button><div class=cv2-rl-menu id=cv2-rl-sortmenu>' + sortMenu + '</div></div>'
-          + '<div class=cv2-rl-sec>Filter by zone</div><div class=cv2-rl-zwrap><button class=cv2-rl-zbtn id=cv2-rl-zbtn type=button><span>' + (_cv2ZoneSel.size ? ('Showing <b>' + _cv2ZoneSel.size + '</b> zone' + (_cv2ZoneSel.size > 1 ? 's' : '')) : 'All zones') + '</span><i>\u25be</i></button><div class=cv2-rl-zpanel id=cv2-rl-zpanel><input class=cv2-rl-zsearch id=cv2-rl-zsearch placeholder="Search zones\u2026"><div class=cv2-rl-zlist id=cv2-rl-zlist>' + zoneItemsHtml + '</div></div></div>'
+          + '<div class=cv2-rl-sec>Filter by zone &amp; color</div>'
+          + '<div class=cv2-rl-zcrow style="display:flex;gap:6px;align-items:center">'
+          +   '<div class=cv2-rl-zwrap style="flex:1;min-width:0"><button class=cv2-rl-zbtn id=cv2-rl-zbtn type=button style="width:100%"><span>' + (_cv2ZoneSel.size ? ('Showing <b>' + _cv2ZoneSel.size + '</b> zone' + (_cv2ZoneSel.size > 1 ? 's' : '')) : 'All zones') + '</span><i>\u25be</i></button><div class=cv2-rl-zpanel id=cv2-rl-zpanel style="min-width:200px"><input class=cv2-rl-zsearch id=cv2-rl-zsearch placeholder="Search zones\u2026"><div class=cv2-rl-zlist id=cv2-rl-zlist>' + zoneItemsHtml + '</div></div></div>'
+          +   _cv2ColorCtrl()
+          + '</div>'
+          + _cv2ColorPanel()
           + '<div class=cv2-rl-sec>Apply to</div><div class=cv2-rl-scope><button class="cv2-rl-scp' + (_cv2Scope === 'cur' ? ' on' : '') + '" data-scope="cur">' + ((_cv2MultiSel && _cv2MultiSel.size >= 2) ? 'Selected Lists' : 'Selected List') + '</button><button class="cv2-rl-scp' + (_cv2Scope === 'all' ? ' on' : '') + '" data-scope="all">All Lists</button><button class="cv2-rl-scp' + (_cv2Scope === 'own' ? ' on' : '') + '" data-scope="own">' + (_cv2Visitor ? 'All Trade Lists' : 'All Owned') + '</button><button class="cv2-rl-scp' + (_cv2Scope === 'want' ? ' on' : '') + '" data-scope="want">All Wishlists</button></div>'
           + (_cv2Visitor
               ? (function () {
@@ -7265,6 +7304,9 @@
         if (e.target.closest('#cv2-rl-zbtn')) { e.stopPropagation(); if (menu) menu.classList.remove('open'); var _zp = document.getElementById('cv2-rl-zpanel'); if (_zp) _zp.classList.toggle('open'); return; }
         var _zpan = document.getElementById('cv2-rl-zpanel');
         if (_zpan && _zpan.classList.contains('open') && !e.target.closest('#dia-closet-v2-root .cv2-rl-zwrap')) _zpan.classList.remove('open');
+
+        if (e.target.closest('#cv2-rl-cbtn')) { e.stopPropagation(); if (menu) menu.classList.remove('open'); if (_zpan) _zpan.classList.remove('open'); _cv2ColorOpen = !_cv2ColorOpen; _cv2RenderRail(); return; }
+        if (e.target.closest('#cv2-rl-cpanel')) { e.stopPropagation(); if (window._dtrColorWidget && window._dtrColorWidget.onClick(e.target, _cv2Color, {})) { _cv2RenderRail(); _cv2RebuildView(); } return; }
         var cu = e.target.closest('#dia-closet-v2-root .cv2-rl-cu');
         if (cu) { _cv2Currency = cu.getAttribute('data-cur'); _cv2RenderRail(); _cv2RebuildView(); return; }
         var cm = e.target.closest('#dia-closet-v2-root .cv2-rl-cm');
@@ -7306,7 +7348,7 @@
           _cv2SyncCollapseAllBtn();
           return;
         }
-        if (e.target.closest('#dia-closet-v2-root .cv2-rl-clear')) { _cv2CatSel.clear(); _cv2ZoneSel.clear(); _cv2CatMode = 'any'; _cv2ZoneMode = 'any'; _cv2Currency = 'all'; _cv2SortMode = 'na'; _cv2Filter = ''; _cv2ZoneExpanded = false; _cv2RenderRail(); _cv2RebuildView(); return; }
+        if (e.target.closest('#dia-closet-v2-root .cv2-rl-clear')) { _cv2CatSel.clear(); _cv2ZoneSel.clear(); _cv2CatMode = 'any'; _cv2ZoneMode = 'any'; _cv2Currency = 'all'; _cv2SortMode = 'na'; _cv2Filter = ''; _cv2ZoneExpanded = false; _cv2Color.fams = []; _cv2Color.helpOpen = false; _cv2ColorOpen = false; _cv2RenderRail(); _cv2RebuildView(); return; }
       });
       document.addEventListener('change', function (e) {
         var cb = e.target.closest && e.target.closest('#dia-closet-v2-root .cv2-rl-crow input[data-cat]');
@@ -11673,7 +11715,37 @@
 
         const _psPref = (k, d) => { try { const v = GM_getValue('dtr_ps_' + k, null); return v == null ? d : v; } catch (_) { return d; } };
         const _psSavePref = (k, v) => { try { GM_setValue('dtr_ps_' + k, v); } catch (_) {} };
-        const M = { scope:(cfg.defaultScope || 'all'), q:'', cwName:'', cwOpen:false, cwQuery:'', spOpen:false, spQuery:'', sort:_psPref('sort', 'abc'), takeover:null, tkVariant:'', tkvOpen:false, ownFilter:(_psPref('ownf', 'all') === 'only' ? 'only' : 'all'), dense:(_psPref('dense', '0') === '1'), loaded:0 };
+        const M = { scope:(cfg.defaultScope || 'all'), q:'', cwName:'', cwOpen:false, cwQuery:'', spOpen:false, spQuery:'', sort:_psPref('sort', 'abc'), takeover:null, tkVariant:'', tkvOpen:false, ownFilter:(_psPref('ownf', 'all') === 'only' ? 'only' : 'all'), dense:(_psPref('dense', '0') === '1'), color:{ fams:[], mode:'any', engine:'pixel', helpOpen:false }, _colorOpen:false, loaded:0 };
+
+        let _psColorReg = false, _psColorPoll = 0;
+        const _psColorCtrl = () => {
+          var W = window._dtrColorWidget;
+          if (!W || typeof W.html !== 'function') {
+
+            if (!_psColorPoll) {
+              _psColorPoll = setInterval(function () {
+                if (window._dtrColorWidget && typeof window._dtrColorWidget.html === 'function') {
+                  clearInterval(_psColorPoll); _psColorPoll = -1;
+                  var sb = document.querySelector('#dia-ps-sortbar');
+                  if (sb && !sb.querySelector('.dia-ps-colorwrap')) { var lbl = sb.querySelector('.dia-ps-sortlbl'); var tmp = document.createElement('span'); tmp.innerHTML = _psColorCtrl(); var node = tmp.firstElementChild; if (node) { if (lbl) sb.insertBefore(node, lbl); else sb.appendChild(node); } }
+                }
+              }, 200);
+              setTimeout(function () { if (_psColorPoll && _psColorPoll !== -1) { clearInterval(_psColorPoll); _psColorPoll = -1; } }, 8000);
+            }
+            return '';
+          }
+          if (!_psColorReg && typeof window._dtrColorOnRepaint === 'function') { _psColorReg = true; window._dtrColorOnRepaint(function () { try { if ((M.color.fams || []).length && $('dia-ps-pop')) render(); } catch (_) {} }); }
+          var sw = function (k) { if (k === 'multicolor') return W.rainbow; var m = (W.families || []).filter(function (x) { return x[0] === k; })[0]; return m ? m[2] : '#ccc'; };
+          var fams = M.color.fams || [];
+          var inner = fams.length
+            ? fams.slice(0, 3).map(function (k) { return '<span style="width:12px;height:12px;border-radius:50%;background:' + sw(k) + ';box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);display:inline-block"></span>'; }).join('')
+            : '<span style="width:14px;height:14px;border-radius:50%;background:' + W.rainbow + ';box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);display:inline-block"></span>';
+          return '<span class="dia-ps-colorwrap" style="position:relative;display:inline-flex">'
+            + '<button type="button" data-pscolor-btn class="dia-ps-sortbtn" title="Filter by color" style="display:inline-flex;align-items:center;gap:3px' + (fams.length ? ';box-shadow:0 0 0 2px #149c8e55' : '') + '">' + inner + '<span class="dia-ps-sortcaret">▾</span></button>'
+            + '<div data-pscolor-panel style="display:' + (M._colorOpen ? 'block' : 'none') + ';position:absolute;top:calc(100% + 6px);right:0;z-index:70;width:232px;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;box-shadow:0 10px 28px rgba(40,35,30,.14);padding:12px;text-align:left">' + W.html(M.color, { accent:'#149c8e', showSource:false, dotSize:16 }) + '</div>'
+            + '</span>';
+        };
+        const _psRefreshColorCtrl = () => { try { var w = document.querySelector('#dia-ps-pop .dia-ps-colorwrap'); if (!w) return; var tmp = document.createElement('div'); tmp.innerHTML = _psColorCtrl(); var nw = tmp.firstElementChild; if (nw) w.replaceWith(nw); } catch (_) {} };
         let _allRun = false;
         const _bgRefreshAll = async (staleIds) => {
           const CH = 8;
@@ -11848,7 +11920,7 @@
 
           grid.classList.toggle('dense', !!M.dense);
 
-          try { const _db = document.querySelector('#dia-ps-pop [data-ps-dense]'); if (_db) { _db.classList.toggle('on', !!M.dense); _db.style.display = (M.scope !== 'all' || M.takeover) ? '' : 'none'; } } catch (_) {}
+          try { const _db = document.querySelector('#dia-ps-pop [data-ps-dense]'); if (_db) { _db.classList.toggle('on', !!M.dense); const _flatView = (M.scope !== 'all' || M.takeover || !!M.q.trim() || M.ownFilter === 'only' || !!(M.color && M.color.fams && M.color.fams.length)); _db.style.display = _flatView ? '' : 'none'; } } catch (_) {}
           _psNotesNow = _psNotes();
           const all = pool();
 
@@ -11863,6 +11935,15 @@
           const qSet = all.filter(matchesQ);
           let list = qSet.slice();
           if (M.ownFilter === 'only') list = list.filter(x => ownIs(x.id, 'o'));
+          if (M.color && M.color.fams && M.color.fams.length && typeof window._dtrColorClassify === 'function') {
+
+            var _psCmode = M.color.mode === 'all' ? 'accents' : 'mostly', _psCall = M.color.mode === 'all';
+            list = list.filter(function (x) {
+              var cf = window._dtrColorClassify(x.thumb, 'pixel', _psCmode);
+              if (!cf || typeof cf.has !== 'function') return false;
+              return _psCall ? M.color.fams.every(function (k) { return cf.has(k); }) : M.color.fams.some(function (k) { return cf.has(k); });
+            });
+          }
           { const _pe = $('dia-ps-pop'); if (_pe) {
               _pe.querySelectorAll('[data-ownf]').forEach(b => b.classList.toggle('on', b.getAttribute('data-ownf') === M.ownFilter));
               const _ownN = qSet.reduce((a, x) => a + (ownIs(x.id, 'o') ? 1 : 0), 0);
@@ -11916,7 +11997,7 @@
           fams.forEach(f => { f.name = (f.key === '<New>') ? '<Data Missing>' : ((f._baseCw.size === 1) ? [...f._baseCw][0] : f.key); if (!f.base) f.base = f.members[0]; });
           M._fams = fmap;
 
-          const filtering = !!M.q.trim() || M.scope !== 'all' || M.ownFilter === 'only';
+          const filtering = !!M.q.trim() || M.scope !== 'all' || M.ownFilter === 'only' || !!(M.color && M.color.fams && M.color.fams.length);
 
           { const owf = popEl && popEl.querySelector('.dia-ps-ownf'); if (owf) owf.style.display = 'flex'; }
           const tk = (!filtering && M.takeover) ? fmap.get(M.takeover) : null;
@@ -11944,7 +12025,7 @@
             items = mem; memCount = mem.length;
           } else { renderer = _tileHtml; items = fams; memCount = list.length; }
 
-          const sig = M.scope + '|' + M.q + '|' + M.cwName + '|' + M.sort + '|' + (M.takeover || '') + '|' + M.tkVariant + '|' + M.ownFilter;
+          const sig = M.scope + '|' + M.q + '|' + M.cwName + '|' + M.sort + '|' + (M.takeover || '') + '|' + M.tkVariant + '|' + M.ownFilter + '|' + ((M.color && M.color.fams) ? M.color.fams.join(',') + ':' + M.color.mode : '');
           const fresh = sig !== M._sig; if (fresh) { M._sig = sig; M.shown = _PS_PAGE; }
           M._list = items; M._render = renderer;
           if (popEl) popEl.classList.toggle('tk-open', !!tk);
@@ -13381,7 +13462,7 @@
             +     '<svg class="dia-ps-qico" viewBox="0 0 18 18" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="7.5" cy="7.5" r="4.7"></circle><line x1="11.2" y1="11.2" x2="15" y2="15"></line></svg>'
             +     '<input id="dia-ps-q" class="dia-ps-q" type="text" autocomplete="off" placeholder="Search Pet Styles" aria-label="Search Pet Styles">'
             +   '</div>'
-            +   '<button type="button" class="dia-ps-densebtn" data-ps-dense aria-label="Toggle mini icons view" title="Mini icons — show just the style thumbnails"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><rect x="2.5" y="2.5" width="5" height="5" rx="1"/><rect x="9.5" y="2.5" width="5" height="5" rx="1"/><rect x="16.5" y="2.5" width="5" height="5" rx="1"/><rect x="2.5" y="9.5" width="5" height="5" rx="1"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><rect x="16.5" y="9.5" width="5" height="5" rx="1"/><rect x="2.5" y="16.5" width="5" height="5" rx="1"/><rect x="9.5" y="16.5" width="5" height="5" rx="1"/><rect x="16.5" y="16.5" width="5" height="5" rx="1"/></svg></button>'
+            +   '<button type="button" class="dia-ps-densebtn" data-ps-dense aria-label="Toggle mini icons view" title="Mini icons — show just the style thumbnails"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="2" y="2" width="6" height="6" rx="1.3"/><rect x="9" y="2" width="6" height="6" rx="1.3"/><rect x="16" y="2" width="6" height="6" rx="1.3"/><rect x="2" y="9" width="6" height="6" rx="1.3"/><rect x="9" y="9" width="6" height="6" rx="1.3"/><rect x="16" y="9" width="6" height="6" rx="1.3"/><rect x="2" y="16" width="6" height="6" rx="1.3"/><rect x="9" y="16" width="6" height="6" rx="1.3"/><rect x="16" y="16" width="6" height="6" rx="1.3"/></svg></button>'
             +   '<button type="button" class="dia-ps-cog" data-ps-cog aria-label="Tools" title="Tools (sync owned)">⚙</button>'
             + '</div>'
             + '<div id="dia-ps-sortbar">'
@@ -13389,6 +13470,7 @@
             +     '<button type="button" class="dia-ps-sortbtn" data-ownf="all">All</button>'
             +     '<button type="button" class="dia-ps-sortbtn" data-ownf="only">Show Owned <span class="dia-ps-ownf-n"></span></button>'
             +   '</span>'
+            +   _psColorCtrl()
             +   '<span class="dia-ps-sortlbl">Sort</span>'
             +   '<span class="dia-ps-sortwrap" data-ps-sortwrap>'
             +     '<button type="button" class="dia-ps-sortbtn" data-ps-sortbtn>' + (M.sort === 'newest' ? 'Newest' : 'A–Z') + '<span class="dia-ps-sortcaret">▾</span></button>'
@@ -13480,6 +13562,10 @@
 
             const ownf = e.target.closest('[data-ownf]');
             if (ownf) { M.ownFilter = ownf.getAttribute('data-ownf'); _psSavePref('ownf', M.ownFilter); render(); return; }
+
+            if (e.target.closest('[data-pscolor-btn]')) { e.stopPropagation(); M._colorOpen = !M._colorOpen; _psRefreshColorCtrl(); return; }
+            if (e.target.closest('[data-pscolor-panel]')) { e.stopPropagation(); if (window._dtrColorWidget && window._dtrColorWidget.onClick(e.target, M.color, {})) { _psRefreshColorCtrl(); render(); } return; }
+            if (M._colorOpen && !e.target.closest('.dia-ps-colorwrap')) { M._colorOpen = false; _psRefreshColorCtrl(); }
             if (e.target.closest('[data-ps-dense]')) { M.dense = !M.dense; _psSavePref('dense', M.dense ? '1' : '0'); render(); return; }
 
             try { const _sp0 = pop.querySelector('[data-ps-sortpop]'); if (_sp0 && !_sp0.hidden && !e.target.closest('[data-ps-sortwrap]')) _sp0.hidden = true; } catch (_) {}
@@ -18348,7 +18434,7 @@
   }
 
   var _qpListsCache = null, _qpPoseCache = {}, _qpThumbCache = {};
-  var _QP_POSES = ['HAPPY_FEM', 'HAPPY_MASC', 'SAD_FEM', 'SAD_MASC', 'SICK_FEM', 'SICK_MASC', 'UNCONVERTED'];
+  var _QP_POSES = ['HAPPY_FEM', 'HAPPY_MASC', 'SAD_FEM', 'SAD_MASC', 'SICK_FEM', 'SICK_MASC', 'UNCONVERTED', 'UNKNOWN'];
   function _qpFetchLists() {
     if (_qpListsCache) return Promise.resolve(_qpListsCache);
     return _yoGqlApp('{allSpecies{id name} allColors{id name}}').then(function (j) {
@@ -24480,7 +24566,7 @@
           <div class="dia-wl-header">
             <div class="dia-wl-preview-group">
               <button class="tryon-open-btn" style="${_wlIsConfigured() ? '' : 'display:none'}"><svg class="tryon-open-icon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2" width="18" height="16" rx="2"/><line x1="7" y1="2" x2="7" y2="18"/><polyline points="11,7 14,10 11,13"/></svg></button>
-              <button class="tryon-focus-chip" style="display:none"><svg width="15" height="10" viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="5"/><circle cx="18" cy="7" r="5"/><path d="M11 7h2"/><path d="M1 7h0"/><path d="M23 7h0"/></svg></button>
+              <!-- retired "focus" chip removed (it was only kept alive by a display:none!important rule that Turbo drops on in-app nav, so it leaked back as a stray green button in the closet). The querySelectors that referenced it are all null-guarded, so removing the element is a no-op elsewhere. -->
             </div>
             <div>
               <div class="dia-wl-title">Try On Haul</div>
@@ -48433,54 +48519,60 @@ if (!tradeLinks.length) {
         const _colorActive = Array.isArray(st.colorFilter) && st.colorFilter.length > 0;
         const _checkedT = (st.searchResults || []).length;
 
+        const _totalT = st.searchTotal || _checkedT;
+        const _matchesT = loadedT + ' match' + (loadedT === 1 ? '' : 'es');
+        const _pixEngineT = st.colorEngine === 'pixel';
+
+        const _colorBusyT = _colorActive && (st.searchLoading
+          || (_pixEngineT ? (!_pixTableReady || _pixHistActive > 0) : (_oePalInflight.size > 0)));
+        const _colorGateT = _colorActive && _colorOnlyT;
+        const _colorDoneT = _colorActive && !_colorGateT && !_colorBusyT && !st.searchHasMore && !(_oePalErr && !_pixEngineT);
+        const _colorMoreT = _colorActive && !_colorGateT && !_colorBusyT && st.searchHasMore;
+
         const countLabelT = _colorActive
-          ? (loadedT + ' match' + (loadedT === 1 ? '' : 'es') + ' · ' + _checkedT + (st.searchTotal ? ' of ' + st.searchTotal : '') + ' checked')
+          ? (_colorGateT ? 'Pick a Zone or search first'
+             : _colorBusyT ? ('Scanning ' + _checkedT + '/' + _totalT + ' · ' + _matchesT)
+             : _colorMoreT ? (_matchesT + ' · ' + _checkedT + '/' + _totalT)
+             : _matchesT)
           : st.activeZone
           ? ((st.ownedOnly ? loadedT : (loadedT + ' of ' + (st.searchTotal || loadedT))) + ' in ' + st.activeZone)
           : (grandT != null)
             ? (startT > 0 ? (startT + 1) + '–' + (startT + loadedT) + ' of ' + grandT : loadedT + ' of ' + grandT)
             : (loadedT + ' item' + (loadedT === 1 ? '' : 's'));
-        const sentinelT = st.searchLoading
-          ? '<div style="padding:18px 0;text-align:center"><span style="display:inline-flex;align-items:center;gap:8px;font:700 11px Nunito,sans-serif;color:#b0b0a6"><span style="width:14px;height:14px;border-radius:50%;border:2px solid #ddd7c8;border-top-color:'+A+';display:inline-block;animation:oe-spin .7s linear infinite"></span>'
 
-            + (_colorActive ? 'Checking colors… ' + _checkedT + (st.searchTotal ? ' of '+st.searchTotal : '') + ' checked · '+loadedT+' match'+(loadedT===1?'':'es')
-                           : 'Searching…' + (loadedT ? ' · '+loadedT+' found so far' : (st.searchTotal ? ' · 0 of '+st.searchTotal : '')))
-            + '</span></div>'
-          : st.searchError
-            ? '<div style="padding:14px 8px;text-align:center;color:#b05050;font:600 11px Nunito,sans-serif">'+st.searchError+'</div>'
-            : loadedT === 0
-
-              ? ((Array.isArray(st.colorFilter) && st.colorFilter.length && ((st.searchResults || []).length))
-                  ? (_oePalErr
-                      ? '<div style="padding:24px 8px;text-align:center;color:#b05050;font:600 11.5px Nunito,sans-serif;line-height:1.5">Color matching is paused — itemdb\'s hourly budget is used up.<br>'
-                        + (_oePalBlockedUntil > Date.now()
-                            ? 'It resumes automatically in about <b>' + Math.max(1, Math.ceil((_oePalBlockedUntil - Date.now()) / 60000)) + ' min</b> — nothing for you to do.'
-                            : 'It resumes automatically (2 hours at most) — nothing for you to do.')
-                        + '<br><span style="color:#b08a8a">Colors loaded before keep working; Clear the color filter to browse normally meanwhile.</span></div>'
-                      : (_oePalInflight.size
-                          ? '<div style="padding:20px 0;text-align:center"><span style="display:inline-flex;align-items:center;gap:8px;font:700 11px Nunito,sans-serif;color:#b0b0a6"><span style="width:14px;height:14px;border-radius:50%;border:2px solid #ddd7c8;border-top-color:'+A+';display:inline-block;animation:oe-spin .7s linear infinite"></span>Matching colors… '+Math.max(0, _checkedT - _oePalInflight.size)+' of '+_checkedT+' checked</span></div>'
-                          : '<div style="padding:24px 8px;text-align:center;color:#b0b0a6;font:600 12px Nunito,sans-serif">No loaded items match those colors'+(st.searchHasMore ? ' yet — scroll to check more' : ' — try other families, or switch to Has any / Has all')+'</div>'))
-
-              : (st.searchQuery || '').trim()
-                  ? '<div style="padding:24px 8px;text-align:center;color:#b0b0a6;font:600 12px Nunito,sans-serif">'
-                    + (st.activeZone ? 'No '+_oeEsc(st.activeZone)+' items in these results — keep scrolling or refine' : 'No items found — try a different search')
-                    + '</div>'
-                  : (_colorOnlyT
-
-                    ? '<div style="padding:34px 16px;text-align:center;line-height:1.5">'
-                      +'<div style="font-size:26px;margin-bottom:7px;opacity:.55">🎨</div>'
-                      +'<div style="font:800 12.5px Nunito,sans-serif;color:#8a8575;margin-bottom:4px">Pick a Zone or search first</div>'
-                      +'<div style="font:600 11px Nunito,sans-serif;color:#b0aa9c">Color filtering needs a starting set to stay fast — choose a <b style="color:'+A+'">Zone</b> above, or type an item name. Your color picks stay and apply once you do.</div>'
-                      +'</div>'
-                    : '<div style="padding:40px 16px;text-align:center;color:#b8b3a6">'
-                      +'<div style="font-size:30px;margin-bottom:8px;opacity:.5">🔍</div>'
-                      +'<div style="font:700 13px Nunito,sans-serif;color:#8a8575;margin-bottom:3px">'+(st.activeZone ? 'Search within '+_oeEsc(st.activeZone) : 'Search for an item to start')+'</div>'
-                      +'<div style="font:600 11px Nunito,sans-serif;color:#b8b3a6;line-height:1.4">'+(st.activeZone ? 'Type a name to find '+_oeEsc(st.activeZone)+' items for this pet.' : 'Type a name above to find wearables for this pet.')+'</div>'
-                      +'</div>'))
-              : st.searchHasMore
-
-                ? '<div style="padding:12px 0 6px;text-align:center"><span style="font:800 13px Nunito,sans-serif;letter-spacing:.18em;color:#cfc9ba">· · ·</span></div>'
-                : '<div style="padding:10px 0 4px;text-align:center"><span style="font:700 11px Nunito,sans-serif;color:#c2bdb0">'+loadedT+' item'+(loadedT===1?'':'s')+'</span></div>';
+        const _spinT = (txt) => '<div style="padding:18px 0;text-align:center"><span style="display:inline-flex;align-items:center;gap:8px;font:700 11px Nunito,sans-serif;color:#b0b0a6"><span style="width:14px;height:14px;border-radius:50%;border:2px solid #ddd7c8;border-top-color:'+A+';display:inline-block;animation:oe-spin .7s linear infinite"></span>'+txt+'</span></div>';
+        const _idbPausedT = '<div style="padding:24px 8px;text-align:center;color:#b05050;font:600 11.5px Nunito,sans-serif;line-height:1.5">Color matching is paused — itemdb\'s hourly budget is used up.<br>'
+          + (_oePalBlockedUntil > Date.now()
+              ? 'It resumes automatically in about <b>' + Math.max(1, Math.ceil((_oePalBlockedUntil - Date.now()) / 60000)) + ' min</b> — nothing for you to do.'
+              : 'It resumes automatically (2 hours at most) — nothing for you to do.')
+          + '<br><span style="color:#b08a8a">Colors loaded before keep working; Clear the color filter to browse normally meanwhile.</span></div>';
+        const _colorHintT = (lead) => '<div style="padding:16px 16px 8px;text-align:center;line-height:1.55">'
+          + '<div style="font:800 12px Nunito,sans-serif;color:#8a8575;margin-bottom:4px">'+lead+'</div>'
+          + '<div style="font:600 10.5px Nunito,sans-serif;color:#b0aa9c">Expected to see more? Try the other <b style="color:'+A+'">Source</b> above — <b style="color:'+A+'">DTI</b> matches the main color, <b style="color:'+A+'">itemdb</b> also picks up accents.</div>'
+          + '</div>';
+        let sentinelT;
+        if (_colorActive) {
+          sentinelT =
+            _colorGateT
+              ? '<div style="padding:34px 16px;text-align:center;line-height:1.5"><div style="font-size:26px;margin-bottom:7px;opacity:.55">🎨</div><div style="font:800 12.5px Nunito,sans-serif;color:#8a8575;margin-bottom:4px">Pick a Zone or search first</div><div style="font:600 11px Nunito,sans-serif;color:#b0aa9c">Color filtering needs a starting set to stay fast — choose a <b style="color:'+A+'">Zone</b> above, or type an item name. Your color picks stay and apply once you do.</div></div>'
+            : (_oePalErr && !_pixEngineT) ? _idbPausedT
+            : _colorBusyT ? (loadedT === 0 ? _spinT(_pixEngineT && !_pixTableReady ? 'Loading color data…' : 'Scanning…') : '')
+            : _colorDoneT ? _colorHintT(loadedT === 0 ? 'No matches for those colors' : 'Loaded all results')
+            : _colorMoreT ? '<div style="padding:12px 0 6px;text-align:center"><span style="font:800 13px Nunito,sans-serif;letter-spacing:.18em;color:#cfc9ba">· · ·</span></div>'
+            : '';
+        } else if (st.searchLoading) {
+          sentinelT = _spinT('Searching…' + (loadedT ? ' · '+loadedT+' found so far' : (st.searchTotal ? ' · 0 of '+st.searchTotal : '')));
+        } else if (st.searchError) {
+          sentinelT = '<div style="padding:14px 8px;text-align:center;color:#b05050;font:600 11px Nunito,sans-serif">'+st.searchError+'</div>';
+        } else if (loadedT === 0) {
+          sentinelT = (st.searchQuery || '').trim()
+            ? '<div style="padding:24px 8px;text-align:center;color:#b0b0a6;font:600 12px Nunito,sans-serif">'+(st.activeZone ? 'No '+_oeEsc(st.activeZone)+' items in these results — keep scrolling or refine' : 'No items found — try a different search')+'</div>'
+            : '<div style="padding:40px 16px;text-align:center;color:#b8b3a6"><div style="font-size:30px;margin-bottom:8px;opacity:.5">🔍</div><div style="font:700 13px Nunito,sans-serif;color:#8a8575;margin-bottom:3px">'+(st.activeZone ? 'Search within '+_oeEsc(st.activeZone) : 'Search for an item to start')+'</div><div style="font:600 11px Nunito,sans-serif;color:#b8b3a6;line-height:1.4">'+(st.activeZone ? 'Type a name to find '+_oeEsc(st.activeZone)+' items for this pet.' : 'Type a name above to find wearables for this pet.')+'</div></div>';
+        } else if (st.searchHasMore) {
+          sentinelT = '<div style="padding:12px 0 6px;text-align:center"><span style="font:800 13px Nunito,sans-serif;letter-spacing:.18em;color:#cfc9ba">· · ·</span></div>';
+        } else {
+          sentinelT = '<div style="padding:10px 0 4px;text-align:center"><span style="font:700 11px Nunito,sans-serif;color:#c2bdb0">'+loadedT+' item'+(loadedT===1?'':'s')+'</span></div>';
+        }
         return { countLabel: countLabelT, sentinel: sentinelT, hiddenByLock };
       }
 
@@ -48758,7 +48850,7 @@ if (!tradeLinks.length) {
         + resultsHTML
 
         +'<div style="position:sticky;bottom:0;z-index:6;display:flex;justify-content:center;pointer-events:none;padding-top:8px">'
-        +'<span data-sticky-count style="background:rgba(55,55,50,.8);color:#fff;font:700 10px Nunito,sans-serif;padding:4px 12px;border-radius:999px;backdrop-filter:blur(2px)">Showing '+tail.countLabel+'</span>'
+        +'<span data-sticky-count style="background:rgba(55,55,50,.8);color:#fff;font:700 10px Nunito,sans-serif;padding:4px 12px;border-radius:999px;backdrop-filter:blur(2px)">'+tail.countLabel+'</span>'
         +'</div>'
 
         +'<div data-sentinel style="min-height:54px;display:flex;align-items:center;justify-content:center;flex-direction:column">'+tail.sentinel+'</div>'
@@ -48827,9 +48919,9 @@ if (!tradeLinks.length) {
       const _colorKickMaybe = () => {
         const s2 = OE.get();
 
-        if ((s2.searchQuery || '').trim() || s2.activeZone) { oeKickSearch(); return; }
-        const on = Array.isArray(s2.colorFilter) && s2.colorFilter.length;
-        if (!on || (!(s2.searchResults || []).length && !s2.searchLoading)) oeKickSearch();
+        if ((s2.searchResults || []).length || s2.searchLoading) { oeAutoFill(); return; }
+
+        oeKickSearch();
       };
       on('[data-color-fam]', e => {
         e.stopPropagation();
@@ -49049,7 +49141,7 @@ if (!tradeLinks.length) {
       };
       card._updateTail = function(st) {
         const t  = computeTail(st);
-        const sc = card.querySelector('[data-sticky-count]');  if (sc) sc.textContent = 'Showing ' + t.countLabel;
+        const sc = card.querySelector('[data-sticky-count]');  if (sc) sc.textContent = t.countLabel;
         const se = card.querySelector('[data-sentinel]');      if (se) se.innerHTML = t.sentinel;
         const lh = card.querySelector('[data-locked-hidden]'); if (lh) lh.innerHTML = lockedNoticeInner(t.hiddenByLock);
       };
@@ -50392,7 +50484,7 @@ if (!tradeLinks.length) {
       return fams.size ? fams : null;
     }
 
-    const _PIXHIST_KEY = 'dtr_oe_pixhist_v8';
+    const _PIXHIST_KEY = 'dtr_oe_pixhist_v9';
     const _pixHist = {};
     let _pixHistReady = false, _pixHistSaveT = null, _pixHistRepaintT = null;
     const _pixHistInflight = {};
@@ -50400,7 +50492,7 @@ if (!tradeLinks.length) {
     const _pixHistStem = (url) => ((url || '').split('/').pop() || '').split('?')[0].toLowerCase();
     function _pixHistLoad() { if (_pixHistReady) return; _pixHistReady = true; try { const v = JSON.parse(GM_getValue(_PIXHIST_KEY, '{}')); if (v && typeof v === 'object') Object.assign(_pixHist, v); } catch (_) {} }
     function _pixHistSave() { clearTimeout(_pixHistSaveT); _pixHistSaveT = setTimeout(() => { try { GM_setValue(_PIXHIST_KEY, JSON.stringify(_pixHist)); } catch (_) {} }, 900); }
-    function _pixHistRepaint() { clearTimeout(_pixHistRepaintT); _pixHistRepaintT = setTimeout(() => { try { OE.set(s2 => ({ searchResults: (s2.searchResults || []).slice() })); } catch (_) {} try { if (typeof window.__DTR_P2_REPAINT === 'function') window.__DTR_P2_REPAINT(); } catch (_) {} }, 200); }
+    function _pixHistRepaint() { clearTimeout(_pixHistRepaintT); _pixHistRepaintT = setTimeout(() => { try { OE.set(s2 => ({ searchResults: (s2.searchResults || []).slice() })); } catch (_) {} try { if (typeof window.__DTR_P2_REPAINT === 'function') window.__DTR_P2_REPAINT(); } catch (_) {} try { _dtrFireColorRepaint(); } catch (_) {} }, 200); }
 
     const _PIX_WHITE_L = 0.75, _PIX_WHITE_S = 0.28;
     const _PIX_WHITE_L2 = 0.88, _PIX_WHITE_S2 = 0.50;
@@ -50409,6 +50501,8 @@ if (!tradeLinks.length) {
     const _PIX_DARK_L  = 0.22;
     const _PIX_HALO_PASSES = 2;
     const _PIX_BG_EXACT = 16;
+    const _PIX_BGW_MIN  = 250;
+    const _PIX_BGW_FLAT = 2;
 
     function _pixFamily(r, g, b) {
       const rn = r / 255, gn = g / 255, bn = b / 255;
@@ -50428,20 +50522,8 @@ if (!tradeLinks.length) {
       if (h < 300) return 'purple';
       return 'pink';
     }
-    function _pixHistCompute(url) {
-      return new Promise(res => {
-        const im = new Image(); im.crossOrigin = 'anonymous';
 
-        const attempt = (u, retry) => {
-          im.onload = () => {
-            try {
-
-              let W = im.naturalWidth || 80, H = im.naturalHeight || 80;
-              const cap = 128, sc = Math.min(1, cap / Math.max(W, H));
-              W = Math.max(1, Math.round(W * sc)); H = Math.max(1, Math.round(H * sc));
-              const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
-              const ctx = cv.getContext('2d'); ctx.imageSmoothingEnabled = false; ctx.drawImage(im, 0, 0, W, H);
-              const d = ctx.getImageData(0, 0, W, H).data;
+    function _pixHistFromData(d, W, H) {
               const P = (x, y) => (y * W + x) * 4;
 
               const bg = new Uint8Array(W * H);
@@ -50461,6 +50543,18 @@ if (!tradeLinks.length) {
 
                 const isExactBg = (p) => seeds.some(s => (Math.abs(d[p] - s[0]) + Math.abs(d[p + 1] - s[1]) + Math.abs(d[p + 2] - s[2])) <= _PIX_BG_EXACT);
                 for (let i2 = 0; i2 < W * H; i2++) { if (bg[i2]) continue; const p = i2 * 4; if (d[p + 3] >= 128 && isExactBg(p)) bg[i2] = 1; }
+              }
+
+              for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+                const i = y * W + x, p = P(x, y);
+                if (bg[i] || d[p + 3] < 128) continue;
+                if (d[p] < _PIX_BGW_MIN || d[p + 1] < _PIX_BGW_MIN || d[p + 2] < _PIX_BGW_MIN) continue;
+                let mx = 0;
+                if (x > 0)     { const q = P(x - 1, y); mx = Math.max(mx, Math.abs(d[p] - d[q]), Math.abs(d[p + 1] - d[q + 1]), Math.abs(d[p + 2] - d[q + 2])); }
+                if (x < W - 1) { const q = P(x + 1, y); mx = Math.max(mx, Math.abs(d[p] - d[q]), Math.abs(d[p + 1] - d[q + 1]), Math.abs(d[p + 2] - d[q + 2])); }
+                if (y > 0)     { const q = P(x, y - 1); mx = Math.max(mx, Math.abs(d[p] - d[q]), Math.abs(d[p + 1] - d[q + 1]), Math.abs(d[p + 2] - d[q + 2])); }
+                if (y < H - 1) { const q = P(x, y + 1); mx = Math.max(mx, Math.abs(d[p] - d[q]), Math.abs(d[p + 1] - d[q + 1]), Math.abs(d[p + 2] - d[q + 2])); }
+                if (mx <= _PIX_BGW_FLAT) bg[i] = 1;
               }
 
               const item = new Uint8Array(W * H), dark = new Uint8Array(W * H);
@@ -50502,9 +50596,25 @@ if (!tradeLinks.length) {
                 const f = _pixFamily(d[p], d[p + 1], d[p + 2]); if (!f) continue;
                 cnt[f] = (cnt[f] || 0) + 1; op++;
               }
-              if (!op) { res(null); return; }
+              if (!op) return null;
               const frac = {}; Object.keys(cnt).forEach(f => { frac[f] = cnt[f] / op; });
-              res(frac);
+              return frac;
+    }
+
+    function _pixHistCompute(url) {
+      return new Promise(res => {
+        const im = new Image(); im.crossOrigin = 'anonymous';
+
+        const attempt = (u, retry) => {
+          im.onload = () => {
+            try {
+              let W = im.naturalWidth || 80, H = im.naturalHeight || 80;
+              const cap = 128, sc = Math.min(1, cap / Math.max(W, H));
+              W = Math.max(1, Math.round(W * sc)); H = Math.max(1, Math.round(H * sc));
+              const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+              const ctx = cv.getContext('2d'); ctx.imageSmoothingEnabled = false; ctx.drawImage(im, 0, 0, W, H);
+              const d = ctx.getImageData(0, 0, W, H).data;
+              res(_pixHistFromData(d, W, H));
             } catch (_) { res(null); }
           };
           im.onerror = () => { if (retry) attempt(u + (u.indexOf('?') >= 0 ? '&' : '?') + '_dtrpx=1', false); else res(null); };
@@ -50514,10 +50624,60 @@ if (!tradeLinks.length) {
       });
     }
 
+    const _PIXTABLE_URL = 'https://raw.githubusercontent.com/teacup-chariot/dti-remix/main/color-table.json';
+    const _PIXTABLE_GMKEY = 'dtr_oe_pixtable';
+    let _pixTable = null;
+    let _pixTableReady = false, _pixTableLoading = false, _pixTableCount = 0;
+    function _pixTableToFractions(t) {
+      const out = Object.create(null);
+      for (const stem in t) { const rec = t[stem], fr = {}; for (const f in rec) fr[f] = rec[f] / 1000; out[stem] = fr; }
+      return out;
+    }
+    function _pixTableUse(v, table, fromCache) {
+      _pixTable = _pixTableToFractions(table);
+      _pixTableReady = true; _pixTableLoading = false;
+      _pixTableCount = Object.keys(_pixTable).length;
+      try { window.__DTR_PIXTABLE = { ready: true, count: _pixTableCount, v: v, source: fromCache ? 'cached' : 'fetched' }; } catch (_) {}
+      try {  } catch (_) {}
+      _pixHistRepaint();
+    }
+    function _pixTableDegrade(reason) {
+      _pixTable = _pixTable || Object.create(null);
+      _pixTableReady = true; _pixTableLoading = false;
+      try {  } catch (_) {}
+      _pixHistRepaint();
+    }
+    function _pixTableEnsure() {
+      if (_pixTableReady || _pixTableLoading) return;
+      _pixTableLoading = true;
+      const wantV = _PIXHIST_KEY;
+      try {
+        const txt = GM_getValue(_PIXTABLE_GMKEY, '');
+        if (txt) { const cached = JSON.parse(txt); if (cached && cached.v === wantV && cached.table) { _pixTableUse(cached.v, cached.table, true); return; } }
+      } catch (_) {}
+
+      fetch(_PIXTABLE_URL, { cache: 'no-cache' })
+        .then(r => r.ok ? r.text() : null)
+        .then(txt => {
+          let data = null; try { data = txt ? JSON.parse(txt) : null; } catch (_) {}
+          if (data && data.v === wantV && data.table) {
+            try { GM_setValue(_PIXTABLE_GMKEY, txt); } catch (_) {}
+            _pixTableUse(data.v, data.table, false);
+          } else _pixTableDegrade(data ? 'version mismatch' : 'bad payload');
+        })
+        .catch(() => _pixTableDegrade('fetch failed'));
+    }
+
     function _pixHistGet(url) {
       _pixHistLoad();
       const stem = _pixHistStem(url); if (!stem) return null;
+
       if (Object.prototype.hasOwnProperty.call(_pixHist, stem)) return _pixHist[stem];
+
+      _pixTableEnsure();
+      if (_pixTable && Object.prototype.hasOwnProperty.call(_pixTable, stem)) return _pixTable[stem];
+
+      if (!_pixTableReady) return undefined;
       if (!_pixHistInflight[stem]) {
         _pixHistActive++;
         _pixHistInflight[stem] = _pixHistCompute(url).then(fr => { _pixHist[stem] = fr; _pixHistSave(); delete _pixHistInflight[stem]; _pixHistActive = Math.max(0, _pixHistActive - 1); _pixHistRepaint(); return fr; });
@@ -50587,12 +50747,14 @@ if (!tradeLinks.length) {
           _oePalMem = _idbColAll();
           need.forEach(x => _oePalInflight.delete(x));
           OE.set(s2 => ({ searchResults: (s2.searchResults || []).slice() }));
+          try { _dtrFireColorRepaint(); } catch (_) {}
           try { oeAutoFill(); } catch (_) {}
         }).catch(e => {
           _oePalErr = true;
           _oePalBlockedUntil = (e && e.retryAfter) ? Date.now() + e.retryAfter * 1000 : (_oePalBlockedUntil || Date.now() + 10 * 60000);
           need.forEach(x => _oePalInflight.delete(x));
           OE.set(s2 => ({ searchResults: (s2.searchResults || []).slice() }));
+          try { _dtrFireColorRepaint(); } catch (_) {}
 
           if (_oePalRetryN < 8) {
             clearTimeout(_oePalRetryT);
@@ -50670,6 +50832,75 @@ if (!tradeLinks.length) {
           try { GM_setValue(_IDB_COL_KEY, JSON.stringify(store)); } catch (_) {}
           return out;
         });
+    };
+
+    const _dtrColorRepaintSubs = [];
+    function _dtrFireColorRepaint() { _dtrColorRepaintSubs.forEach(fn => { try { fn(); } catch (_) {} }); }
+    window._dtrColorOnRepaint = function (fn) { if (typeof fn === 'function' && _dtrColorRepaintSubs.indexOf(fn) < 0) _dtrColorRepaintSubs.push(fn); };
+
+    window._dtrColorClassify = function (url, engine, mode) {
+      try {
+        if (engine === 'itemdb') {
+          const pal = _oePalGet({ thumb: url });
+          if (pal === undefined) { _oePalEnsure([{ thumb: url }]); return undefined; }
+          return _oeItemFams(pal, mode === 'accents');
+        }
+        return _pixHistFams(url, mode);
+      } catch (_) { return null; }
+    };
+
+    const _dcwBtn = (attr, on, label, A) => '<button ' + attr + ' style="border:none;background:' + (on ? A : 'transparent') + ';color:' + (on ? '#fff' : '#b3ab99') + ';font:' + (on ? '800' : '700') + ' 9.5px Nunito,sans-serif;padding:3px 10px;cursor:pointer;border-radius:999px;white-space:nowrap">' + label + '</button>';
+    const _dcwPill = (inner) => '<span style="display:inline-flex;background:#e9e4d8;border-radius:999px;padding:2px;flex:none">' + inner + '</span>';
+    const _dcwHelpBtn = (open, A) => '<button data-dcw-help title="Guide to these settings" style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:none;border-radius:50%;background:' + (open ? A : '#e8e5dc') + ';color:' + (open ? '#fff' : '#8a857a') + ';font:800 9px Nunito,sans-serif;cursor:pointer;padding:0;flex:none">?</button>';
+    window._dtrColorWidget = {
+      families: OE_COLOR_FAMS, rainbow: OE_RAINBOW,
+
+      html: function (state, cfg) {
+        state = state || {}; cfg = cfg || {};
+        const A = cfg.accent || '#149c8e';
+        const fams = state.fams || [];
+        const showSrc = !!cfg.showSource;
+        const eng = showSrc ? (state.engine === 'itemdb' ? 'itemdb' : 'pixel') : 'pixel';
+        const sz = cfg.dotSize || 15;
+        const list = OE_COLOR_FAMS.concat(eng === 'pixel' ? [['multicolor', 'Multicolor', OE_RAINBOW]] : []);
+        let h = '<div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">'
+          + list.map(f => { const on = fams.indexOf(f[0]) !== -1;
+              return '<button data-dcw-dot="' + f[0] + '" title="' + f[1] + '" style="width:' + sz + 'px;height:' + sz + 'px;padding:0;border-radius:50%;border:none;cursor:pointer;flex:none;background:' + f[2] + ';box-shadow:' + (on ? '0 0 0 2px #fff,0 0 0 3px ' + A : 'inset 0 0 0 1px rgba(0,0,0,.18)') + (on ? ';transform:scale(1.08)' : '') + '"></button>'; }).join('')
+          + '<span title="Color matching is still being refined" style="font:800 7.5px Nunito,sans-serif;letter-spacing:.3px;color:#d1503f;background:#ffe1da;padding:2px 5px;border-radius:999px;flex:none">BETA</span>'
+          + '</div>';
+        if (fams.length) {
+
+          const tgl = (attr, on, label) => '<button ' + attr + ' style="border:none;border-radius:999px;padding:4px 11px;cursor:pointer;font:800 10px Nunito,sans-serif;white-space:nowrap;background:' + (on ? A : '#efeae0') + ';color:' + (on ? '#fff' : '#9a9384') + '">' + label + '</button>';
+          const lbl = (t) => '<span style="font:800 8px Nunito,sans-serif;letter-spacing:.05em;color:#a89f8d;text-transform:uppercase;margin-right:1px">' + t + '</span>';
+          if (fams.length >= 2) h += '<div style="display:flex;align-items:center;gap:5px;margin-top:8px">' + lbl('Match') + tgl('data-dcw-mode="any"', state.mode !== 'all', 'Any') + tgl('data-dcw-mode="all"', state.mode === 'all', 'All') + '</div>';
+          h += '<div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-top:8px">'
+            + (showSrc ? lbl('Source') + tgl('data-dcw-eng="pixel"', eng === 'pixel', 'DTI') + tgl('data-dcw-eng="itemdb"', eng === 'itemdb', 'itemdb') : '')
+            + _dcwHelpBtn(state.helpOpen, A)
+            + '<button data-dcw-clear title="Clear colors" style="margin-left:auto;border:none;border-radius:999px;padding:4px 12px;cursor:pointer;font:800 10px Nunito,sans-serif;background:#efeae0;color:#9a9384">Clear</button>'
+            + '</div>';
+          if (state.helpOpen) {
+            const hp = 'font:600 10px Nunito,sans-serif;color:#6a6558;line-height:1.5;margin-bottom:6px', hb = 'color:#4a4a45', hd = 'font:800 8.5px Nunito,sans-serif;color:#a89f8d;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px';
+            h += '<div style="margin-top:8px;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:11px 13px;box-shadow:0 6px 16px rgba(40,35,30,.08)">'
+              + (showSrc ? '<div style="' + hd + '">Color source</div><div style="' + hp + '"><b style="' + hb + '">DTI:</b> reads the artwork — things that <b style="' + hb + '">are</b> this color. <b style="' + hb + '">itemdb:</b> things that <b style="' + hb + '">have</b> it anywhere (broader).</div>' : '')
+              + '<div style="' + hd + '">Any vs All (2+ colors)</div>'
+              + '<div style="' + hp + ';margin-bottom:0"><b style="' + hb + '">Any:</b> any one of your colors. <b style="' + hb + '">All:</b> every color together. <b style="' + hb + '">Multicolor:</b> several colors, none dominant.</div>'
+              + '</div>';
+          }
+        }
+        return h;
+      },
+
+      onClick: function (target, state, cfg) {
+        const el = target && target.closest ? target.closest('[data-dcw-dot],[data-dcw-mode],[data-dcw-eng],[data-dcw-help],[data-dcw-clear]') : null;
+        if (!el) return false;
+        state.fams = state.fams || [];
+        if (el.hasAttribute('data-dcw-dot')) { const k = el.getAttribute('data-dcw-dot'); const i = state.fams.indexOf(k); if (i >= 0) state.fams.splice(i, 1); else { if (state.fams.length >= 3) return false; state.fams.push(k); } return true; }
+        if (el.hasAttribute('data-dcw-mode')) { state.mode = el.getAttribute('data-dcw-mode') === 'all' ? 'all' : 'any'; return true; }
+        if (el.hasAttribute('data-dcw-eng')) { state.engine = el.getAttribute('data-dcw-eng') === 'itemdb' ? 'itemdb' : 'pixel'; if (state.engine === 'itemdb') state.fams = (state.fams || []).filter(k => k !== 'multicolor'); return true; }
+        if (el.hasAttribute('data-dcw-help')) { state.helpOpen = !state.helpOpen; return true; }
+        if (el.hasAttribute('data-dcw-clear')) { state.fams = []; state.helpOpen = false; return true; }
+        return false;
+      }
     };
 
     function _idbTokenMatch(name, needle) {
@@ -51300,6 +51531,8 @@ if (!tradeLinks.length) {
       if (sortMode === 'price') sortMode = 'pl';
       if (_IDB_SORT_OK.indexOf(sortMode) < 0) sortMode = 'az';
       let tops = [], colors = [];
+
+      let allPetpets = [], allLoading = true, allErr = false;
       let onlyFav = false;
       let view = { mode: 'top' };
 
@@ -51413,21 +51646,18 @@ if (!tradeLinks.length) {
             + '<span style="font:600 10px Nunito,sans-serif;color:#a89f8d;flex:none">' + list.length + (list.length === 1 ? ' color' : ' colors') + '</span>'
             + '</div>'
             + (list.length ? list.map(x => card(x, 'data-p2-pick', _vLabel(x.name || ''), candSet)).join('') : (_p2FamPend ? '' : _emptyRow('No match')));
+        } else if (needle) {
+
+          let list = famFilter(allPetpets.filter(x => _idbTokenMatch(x.name, needle))).slice().sort(_idbSortCmp(sortMode));
+          html = list.length
+            ? list.map(x => card(x, 'data-p2-pick', x.name || '', candSet)).join('')
+            : (allLoading ? _emptyRow('Loading petpets…')
+               : allErr ? _emptyRow('Couldn\'t load the full petpet list — try again in a minute', true)
+               : (_p2FamPend ? '' : _emptyRow('No match')));
         } else {
-          let list = needle ? tops.filter(x => _idbTokenMatch(x.name, needle)) : tops;
-          list = famFilter(list).slice().sort(_idbSortCmp(sortMode));
+          let list = famFilter(tops).slice().sort(_idbSortCmp(sortMode));
           html = list.length ? list.map(x => card(x, 'data-p2-enter', x.name || '', candSet)).join('') : '';
-          if (needle) {
-            kickPainted(needle);
-            const topSet = new Set(tops.map(t => t.slug));
-            let pList = painted.items.filter(x => !topSet.has(x.slug) && _idbTokenMatch(x.name, needle));
-            pList = famFilter(pList).slice().sort(_idbSortCmp(sortMode));
-            if (list.length && (pList.length || painted.loading)) html = _secHead('Petpets') + html;
-            if (pList.length) html += _secHead('Painted petpets') + pList.map(x => card(x, 'data-p2-pick', x.name || '', candSet)).join('');
-            else if (painted.loading) html += _secHead('Painted petpets') + _emptyRow('Searching painted petpets…');
-            else if (painted.err && !list.length) html += _emptyRow('Painted-petpet search is resting (itemdb limit) — try again soon', true);
-            if (!html && !_p2FamPend) html = _emptyRow('No match');
-          } else if (fams.length) {
+          if (fams.length) {
 
             sweepEnsure();
             const topSet = new Set(tops.map(t => t.slug));
@@ -51595,6 +51825,10 @@ if (!tradeLinks.length) {
         paint(searchIn.value); _p2Place();
       })
         .catch(() => { grid.innerHTML = _emptyRow('Couldn\'t reach itemdb — try again in a minute', true); });
+
+      _idbCachedGet('/petpets-all', 24 * 3600 * 1000)
+        .then(d => { allPetpets = (d && d.items) || []; allLoading = false; if (searchIn.value.trim()) paint(searchIn.value); })
+        .catch(() => { allLoading = false; allErr = true; if (searchIn.value.trim()) paint(searchIn.value); });
       searchIn.addEventListener('input', () => paint(searchIn.value));
       setTimeout(() => { try { searchIn.focus(); } catch (_) {} }, 0);
     }
@@ -52366,7 +52600,7 @@ if (!tradeLinks.length) {
     }
 
     async function oeAutoFill() {
-      const gen = _oeSearchGen; let guard = 0;
+      const gen = _oeSearchGen; let guard = 0, stalls = 0;
 
       while (guard++ < 700) {
         if (gen !== _oeSearchGen) break;
@@ -52374,15 +52608,18 @@ if (!tradeLinks.length) {
         if (!s.searchHasMore || s.searchLoading || _loadingMore) break;
         const filtered = s.ownedOnly || s.hideLockedZones || (s.searchFilter && s.searchFilter !== 'all') || (Array.isArray(s.colorFilter) && s.colorFilter.length > 0);
         if (!filtered) break;
-        const colorOnly = !s.activeZone && !(s.searchQuery || '').trim() && Array.isArray(s.colorFilter) && s.colorFilter.length > 0;
-        if (!colorOnly && guard > 30) break;
 
-        if (!colorOnly && oeVisiblePool(s).length >= 36) break;
+        const colorScan = Array.isArray(s.colorFilter) && s.colorFilter.length > 0;
+        if (!colorScan && guard > 30) break;
+        if (!colorScan && oeVisiblePool(s).length >= 36) break;
+        if (s.activeZone || colorScan) {
 
-        if (s.activeZone || colorOnly) {
-          const more = await oeZoneFillBatch(gen, 6);
+          const before = OE.get().searchResults.length;
+          const more = await oeZoneFillBatch(gen, 4);
           if (!more) break;
-          if (colorOnly) await new Promise(r => setTimeout(r, 250));
+
+          if (OE.get().searchResults.length === before) { if (++stalls >= 3) break; } else stalls = 0;
+          await new Promise(r => setTimeout(r, colorScan ? 150 : 100));
         }
         else await oeLoadMore();
       }
@@ -52398,14 +52635,29 @@ if (!tradeLinks.length) {
         const offs = [];
         for (let k = 0; k < n && (!total || off < total); k++, off += lim) offs.push(off);
         if (!offs.length) { OE.set({ searchLoading: false, searchHasMore: false }); return false; }
-        const rs = await Promise.all(offs.map(o => oeFetchZoneItems(zoneIds, s.searchQuery, o).catch(() => null)));
+
+        const fetchPage = async (o) => {
+          for (let a = 0; a < 3; a++) {
+            try { const r = await oeFetchZoneItems(zoneIds, s.searchQuery, o); if (r) return r; } catch (_) {}
+            if (gen !== _oeSearchGen) return null;
+            await new Promise(res => setTimeout(res, 350 * (a + 1)));
+          }
+          return null;
+        };
+        const rs = await Promise.all(offs.map(fetchPage));
         if (gen !== _oeSearchGen) return false;
         const cur = OE.get().searchResults.slice(), seen = new Set(cur.map(x => x.id));
         let total2 = total, fresh = [];
-        rs.forEach(r => { if (r) { if (r.total != null) total2 = r.total; (r.items || []).forEach(it => { if (!seen.has(it.id)) { seen.add(it.id); cur.push(it); fresh.push(it); } }); } });
-        OE.set({ searchResults: cur, searchTotal: total2, searchNextOffset: off, searchHasMore: off < total2, searchLoading: false });
+
+        let advanceTo = off, hitFail = false;
+        rs.forEach((r, i) => {
+          if (r) { if (r.total != null) total2 = r.total; (r.items || []).forEach(it => { if (!seen.has(it.id)) { seen.add(it.id); cur.push(it); fresh.push(it); } }); }
+          else if (!hitFail) { hitFail = true; advanceTo = offs[i]; }
+        });
+        const stillMore = advanceTo < total2;
+        OE.set({ searchResults: cur, searchTotal: total2, searchNextOffset: advanceTo, searchHasMore: stillMore, searchLoading: false });
         if (fresh.length) oeEnrichOwned(fresh.map(x => x.id));
-        return off < total2;
+        return stillMore;
       } catch (e) { OE.set({ searchLoading: false, searchError: e.message }); return false; }
       finally { _loadingMore = false; }
     }
@@ -52498,7 +52750,7 @@ if (!tradeLinks.length) {
       }
     }
 
-    const _OE_SORT_LOADALL_CAP = 600;
+    const _OE_SORT_LOADALL_CAP = 3000;
     function _oeSortNeedsFullSet(k) {
       return k === 'Value low→high' || k === 'Value high→low' || k === 'Oldest first' || k === 'Newest first';
     }
@@ -52520,18 +52772,30 @@ if (!tradeLinks.length) {
         if (!st0.searchHasMore || startOff >= maxOff) return;
 
         OE.set({ searchLoading: true, searchHasMore: false, sortLoadingAll: false });
-        const fetchPage = (off) => st0.activeZone
-          ? oeFetchZoneItems(oeZoneIdsForLabel(st0.activeZone), st0.searchQuery, off)
-          : oeFetchItems(st0.searchQuery, { ncFilter: st0.searchFilter !== 'all' ? st0.searchFilter : null, offset: off });
+
+        const fetchPage = async (off) => {
+          for (let a = 0; a < 3; a++) {
+            try {
+              const r = await (st0.activeZone
+                ? oeFetchZoneItems(oeZoneIdsForLabel(st0.activeZone), st0.searchQuery, off)
+                : oeFetchItems(st0.searchQuery, { ncFilter: st0.searchFilter !== 'all' ? st0.searchFilter : null, offset: off }));
+              if (r) return r;
+            } catch (_) {}
+            if (gen !== _oeSearchGen) return null;
+            await new Promise(res => setTimeout(res, 350 * (a + 1)));
+          }
+          return null;
+        };
         const offsets = [];
         for (let off = startOff; off < maxOff; off += lim) offsets.push(off);
-        const CONC = 6;
+        const CONC = 4;
         for (let i = 0; i < offsets.length; i += CONC) {
           if (gen !== _oeSearchGen) return;
-          const rs = await Promise.all(offsets.slice(i, i + CONC).map(off => fetchPage(off).catch(() => null)));
+          const rs = await Promise.all(offsets.slice(i, i + CONC).map(off => fetchPage(off)));
           rs.forEach(r => { ((r && r.items) || []).forEach(it => { if (!seen.has(it.id)) { seen.add(it.id); acc.push(it); } }); });
           if (gen !== _oeSearchGen) return;
           OE.set({ searchResults: acc.slice() });
+          await new Promise(res => setTimeout(res, 70));
         }
         if (gen !== _oeSearchGen) return;
         OE.set({ searchResults: acc, searchTotal: total, searchNextOffset: maxOff, searchHasMore: maxOff < total, searchLoading: false, sortLoadingAll: false });
@@ -52651,6 +52915,11 @@ if (!tradeLinks.length) {
         if (!a && stateId) {
           const j2 = await _oeGql('{ petAppearanceById(id:'+JSON.stringify(String(stateId))+'){ id bodyId '+LYR+' } }');
           a = (j2.data || {}).petAppearanceById;
+        }
+
+        if (!a && pose !== 'UNKNOWN') {
+          const j3 = await _oeGql('{ petAppearance(speciesId:'+JSON.stringify(String(speciesId))+', colorId:'+JSON.stringify(String(colorId))+', pose:UNKNOWN){ id bodyId '+LYR+' } }');
+          a = (j3.data || {}).petAppearance;
         }
         if (a) res = { petLayers: a.layers||[], bodyId: a.bodyId||null, restrictedZones: a.restrictedZones||[], petStateId: a.id||null };
       } catch (e) { try {  } catch (_) {} }

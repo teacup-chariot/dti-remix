@@ -5,6 +5,22 @@
      on. Never delete items from here except when the feature itself was removed before shipping. ── -->
 ## Unreleased
 
+## July 15, 2026 — Color filters everywhere: your closet, others' closets & Pet Styles
+
+### Enhancements
+- **Closet:** **Filter your closet by color.** The same color filter from the item search is now in your closet — pick up to three color families to narrow your lists down to just those items, from one compact color button sitting right by the zone filter. Works alongside the zone filter and the NC/NP toggle.
+- **Closet (visiting):** The color filter works on **other people's closets** too, so you can quickly find the reds (or the pastels, or the blues) in someone's trade list without scrolling through everything.
+- **Customize & Homepage:** **Filter Pet Styles by color.** Both Pet Style pickers now take a color filter — pick a color and the matching styles show as individual tiles instead of grouped sets. There's also a new **compact view** (the grid button by the ⚙) that shrinks the thumbnails so you can scan far more styles at once.
+- **Customize:** Color filtering is **steadier and clearer.** A live counter shows how many items it's checked so far, it plainly tells you when every result is loaded, and it now scans the whole catalog to the end instead of occasionally stopping short. The status message stays pinned at the bottom instead of jumping around while you're reading it.
+
+### Fixes
+- **Customize:** **More accurate color matching** — picture frames, foregrounds and garlands (the ones with a plain white pet area behind them) are no longer wrongly counted as white, so a **white** filter returns genuinely white items.
+- **Customize:** Switching the color **source** (DTI ↔ itemdb) no longer throws away the results and re-scans everything from scratch — it reuses what it already found.
+- **Customize:** Sorting color results by **value** or **newest** no longer stops short of the full set.
+- **Everywhere:** **Pets that only come in a single pose** — like Baby Varwolf — now load properly in the editor and previews instead of coming up blank.
+- **Closet:** The **bulk-action bar** (when you've selected several items) now stands out as its own clear card instead of blending into the page, with cleaner Add-to-Haul and Remove buttons.
+- **Closet:** Cleared out a **stray leftover button** that could appear in the Try On Haul panel when you reached your closet by clicking through the site.
+
 ## July 13, 2026 — Two color sources & easier closet cleanup
 
 ### Enhancements
