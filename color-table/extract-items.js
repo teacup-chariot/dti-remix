@@ -80,8 +80,23 @@ async function main() {
   const index = [];
   const seenStem = new Set();
   let scanned = 0, wearable = 0, skippedHost = 0, dupStem = 0;
+  let dumpStamp = null;   // the dump's OWN completion date, read from mysqldump's footer (see below)
 
   for await (const line of rl) {
+    // ⛔ THE DUMP IS OFTEN OLDER THAN THE FILE. mysqldump writes "-- Dump completed on YYYY-MM-DD H:MM:SS",
+    // and THAT is what "fresh through" means. We used the downloaded FILE's mtime, which in CI is simply
+    // "just now" on every run — so a five-day-old dump was published stamped with today's date. That stamp
+    // is what the client compares against /items/latest to decide which days it still has to top up, so a
+    // date of "now" told it there was nothing newer and switched the top-up off completely. The index then
+    // both lagged the dump AND disabled the mechanism built to cover exactly that lag.
+    if (!dumpStamp && line.startsWith('-- Dump completed on')) {
+      // ⚠ Parse the parts by hand. mysqldump does NOT zero-pad the hour ("2026-08-09  1:15:15"), so the
+      // obvious Date.parse of a patched-up ISO string returns NaN and falls silently back to the mtime —
+      // which is the exact failure this code exists to prevent. Read as UTC: the stamp is really local
+      // time, so treating it as UTC lands EARLIER than the true instant, which is the safe direction.
+      const m = line.match(/(\d{4})-(\d{2})-(\d{2})\s+(\d{1,2}):(\d{2}):(\d{2})/);
+      if (m) dumpStamp = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +m[6])).toISOString();
+    }
     if (line.startsWith('CREATE TABLE `items`')) { inCreate = true; cols = []; continue; }
     if (inCreate) {
       const m = line.match(/^\s*`([^`]+)`/);
@@ -120,9 +135,13 @@ async function main() {
 
   if (!cols) throw new Error('CREATE TABLE `items` not found in dump');
   fs.writeFileSync(OUT, JSON.stringify(out));
-  // The dump's own mtime is the index's "fresh through" date — the client compares it against
-  // /items/latest to know exactly which days it still has to top up.
-  const dumpDate = fs.statSync(DUMP).mtime.toISOString();
+  // "Fresh through" = when the DUMP was taken, not when we downloaded it. Prefer the dump's own footer;
+  // fall back to the file's mtime only if it is missing (which would be a mysqldump format change).
+  // ⚠ The footer stamp carries no timezone, so it can be out by hours. That is fine and deliberately not
+  // corrected: the top-up compares against DAY headings and dedupes by item id, so an early cutoff merely
+  // re-offers a few items already in the dump. Erring late is the direction that loses items.
+  const dumpDate = dumpStamp || fs.statSync(DUMP).mtime.toISOString();
+  if (!dumpStamp) console.warn('WARNING: no "Dump completed on" line found — falling back to file mtime, which in CI is the download time, NOT the dump date.');
   fs.writeFileSync(OUT_INDEX, JSON.stringify({
     v: 1,
     generatedAt: new Date().toISOString(),
