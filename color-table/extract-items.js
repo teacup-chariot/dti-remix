@@ -27,6 +27,13 @@ const OUT = path.join(__dirname, 'cache', 'items.json');
 // Shape: { v, generatedAt, count, items: [ [id, name, stem, [zoneId,…]], … ] } — arrays, not objects,
 // since the key names would otherwise repeat 28,000 times.
 const OUT_INDEX = path.join(__dirname, 'cache', 'index.json');
+// ⚠ cache/ is GITIGNORED, so it does not exist on a fresh clone — and in CI the only thing that would
+// have created it is actions/cache restoring `cache/thumbs`, which on a cold cache restores NOTHING and
+// still reports success. Every writer below then died on ENOENT at the FIRST write of the run. Create it
+// here rather than in the workflow: the scripts are runnable standalone and must not depend on a step
+// somewhere else having made their output directory.
+const CACHE_DIR = path.join(__dirname, 'cache');
+if (!fs.existsSync(CACHE_DIR)) fs.mkdirSync(CACHE_DIR, { recursive: true });
 
 // Parse one SQL VALUES list "(1,'a',NULL),(...)" → array of arrays. Minimal but handles quoted strings
 // with backslash escapes (all mysqldump emits). NULL becomes the literal string 'NULL' (callers check).
