@@ -40,7 +40,7 @@ jobs:
       - name: Restore thumbnail cache
         uses: actions/cache@v4
         with:
-          path: tools/color-table/cache/thumbs
+          path: color-table/cache/thumbs
           # rolling key: today's run restores yesterday's cache, then saves its own
           key: dtr-thumbs-${{ github.run_id }}
           restore-keys: |
@@ -48,41 +48,41 @@ jobs:
 
       # decode.js needs omggif + pngjs to read the thumbnails. Nothing else here has dependencies.
       - name: Install the generator's dependencies
-        working-directory: tools/color-table
+        working-directory: color-table
         run: npm ci --omit=dev || npm install --omit=dev
 
       - name: Download DTI's public data dump
         run: |
-          mkdir -p tools/active-box/cache
+          mkdir -p active-box/cache
           curl -sSL --fail --retry 3 --retry-delay 10 \
-            -o tools/active-box/cache/latest.sql.gz \
+            -o active-box/cache/latest.sql.gz \
             https://impress.openneo.net/public-data/latest.sql.gz
-          ls -la tools/active-box/cache/latest.sql.gz
+          ls -la active-box/cache/latest.sql.gz
 
       - name: Extract the item index from the dump
-        run: node tools/color-table/extract-items.js
+        run: node color-table/extract-items.js
 
       # Petpets are Neopets items, not DTI wearables, so they are absent from the dump entirely. Their
       # list comes from our own itemdb proxy (KV-cached there, so this costs itemdb nothing extra) and
       # appends to the same fetch list. Without this every user pays a multi-minute in-browser scan.
       - name: Add petpet + petpetpet thumbnails to the fetch list
-        run: node tools/color-table/extract-petpets.js
+        run: node color-table/extract-petpets.js
 
       # Pet Styles replace the pet rather than occupying a zone, so the wearable filter drops them too.
       # They ARE in the dump, in `alt_styles`, with a thumbnail on the same CDN — same pipeline.
       - name: Add pet style thumbnails to the fetch list
-        run: node tools/color-table/extract-alt-styles.js
+        run: node color-table/extract-alt-styles.js
 
       - name: Fetch thumbnails we have not seen before
-        run: node tools/color-table/fetch-thumbs.js
+        run: node color-table/fetch-thumbs.js
 
       - name: Recompute colour fractions
-        run: node tools/color-table/compute-table.js
+        run: node color-table/compute-table.js
 
       - name: Emit both shipped files
         run: |
-          node tools/color-table/emit-index.js
-          node tools/color-table/emit-table.js
+          node color-table/emit-index.js
+          node color-table/emit-table.js
 
       # ⚠ SANITY GATE. A truncated dump or a parse change could otherwise commit an index with 12 items
       # in it and break colour filtering for everyone. Refuse to commit anything that lost items.
