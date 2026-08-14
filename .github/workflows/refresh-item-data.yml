@@ -46,6 +46,11 @@ jobs:
           restore-keys: |
             dtr-thumbs-
 
+      # decode.js needs omggif + pngjs to read the thumbnails. Nothing else here has dependencies.
+      - name: Install the generator's dependencies
+        working-directory: tools/color-table
+        run: npm ci --omit=dev || npm install --omit=dev
+
       - name: Download DTI's public data dump
         run: |
           mkdir -p tools/active-box/cache
