@@ -1,0 +1,106 @@
+# Nightly refresh of the two shipped data files: item-index.json and color-table.json.
+#
+# WHY THIS EXISTS: colour filtering used to page DTI's API ~87 times per filter because the client had
+# no way to know what items exist. These two files ARE that knowledge, shipped. They go stale as items
+# are released, and nobody is hand-uploading files daily — so this job rebuilds and commits them.
+#
+# WHAT IT COSTS DTI: one download of the dump they already publish for this purpose. No API crawling.
+# (Their dump is not daily — the client tops up anything newer from /items/latest, one 23KB page.)
+#
+# WHAT IT COSTS NEOPETS: only thumbnails we have never seen, from the public item CDN — ~280 images on
+# a month-old cache, a handful on a daily one. Read-only, throttled, no account involved.
+#
+# ⚠ THE THUMBNAIL CACHE IS THE WHOLE COST MODEL. Without it every run would re-download ~28,000 images.
+# It is restored from actions/cache; a cold cache makes the first run slow but correct, never wrong.
+name: Refresh item data
+
+on:
+  schedule:
+    - cron: '25 4 * * *'   # 04:25 UTC nightly — after DTI's own dump job, before most users are up
+  workflow_dispatch: {}     # ...and a manual "Run workflow" button
+
+permissions:
+  contents: write           # it commits the regenerated files
+
+concurrency:
+  group: refresh-item-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Restore thumbnail cache
+        uses: actions/cache@v4
+        with:
+          path: tools/color-table/cache/thumbs
+          # rolling key: today's run restores yesterday's cache, then saves its own
+          key: dtr-thumbs-${{ github.run_id }}
+          restore-keys: |
+            dtr-thumbs-
+
+      - name: Download DTI's public data dump
+        run: |
+          mkdir -p tools/active-box/cache
+          curl -sSL --fail --retry 3 --retry-delay 10 \
+            -o tools/active-box/cache/latest.sql.gz \
+            https://impress.openneo.net/public-data/latest.sql.gz
+          ls -la tools/active-box/cache/latest.sql.gz
+
+      - name: Extract the item index from the dump
+        run: node tools/color-table/extract-items.js
+
+      # Petpets are Neopets items, not DTI wearables, so they are absent from the dump entirely. Their
+      # list comes from our own itemdb proxy (KV-cached there, so this costs itemdb nothing extra) and
+      # appends to the same fetch list. Without this every user pays a multi-minute in-browser scan.
+      - name: Add petpet + petpetpet thumbnails to the fetch list
+        run: node tools/color-table/extract-petpets.js
+
+      # Pet Styles replace the pet rather than occupying a zone, so the wearable filter drops them too.
+      # They ARE in the dump, in `alt_styles`, with a thumbnail on the same CDN — same pipeline.
+      - name: Add pet style thumbnails to the fetch list
+        run: node tools/color-table/extract-alt-styles.js
+
+      - name: Fetch thumbnails we have not seen before
+        run: node tools/color-table/fetch-thumbs.js
+
+      - name: Recompute colour fractions
+        run: node tools/color-table/compute-table.js
+
+      - name: Emit both shipped files
+        run: |
+          node tools/color-table/emit-index.js
+          node tools/color-table/emit-table.js
+
+      # ⚠ SANITY GATE. A truncated dump or a parse change could otherwise commit an index with 12 items
+      # in it and break colour filtering for everyone. Refuse to commit anything that lost items.
+      - name: Sanity-check before committing
+        run: |
+          node -e "
+            const fs=require('fs');
+            const idx=JSON.parse(fs.readFileSync('item-index.json','utf8'));
+            const tbl=JSON.parse(fs.readFileSync('color-table.json','utf8'));
+            const idxN=idx.items.length, tblN=Object.keys(tbl.table).length;
+            console.log('index items:', idxN, '| table stems:', tblN, '| dump date:', idx.dumpDate);
+            if (idxN < 20000) throw new Error('index collapsed to ' + idxN + ' items — refusing to commit');
+            if (tblN < 20000) throw new Error('colour table collapsed to ' + tblN + ' stems — refusing to commit');
+          "
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name  "DTI Remix"
+          git config user.email "dti-remix@users.noreply.github.com"
+          git add item-index.json color-table.json
+          if git diff --cached --quiet; then
+            echo "no change — nothing to commit"
+          else
+            git commit -m "data: nightly refresh of the item index and colour table"
+            git push
+          fi
