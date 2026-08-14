@@ -1,0 +1,16 @@
+{
+  "name": "color-table",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline precompute of DTI Remix's per-item colour-family fractions (the pixel engine's histogram), shipped as color-table.json so live colour filtering is a lookup instead of thousands of in-browser thumbnail fetches.",
+  "scripts": {
+    "extract": "node extract-items.js",
+    "fetch": "node fetch-thumbs.js",
+    "compute": "node compute-table.js",
+    "emit": "node emit-table.js"
+  },
+  "dependencies": {
+    "omggif": "^1.0.10",
+    "pngjs": "^6.0.0"
+  }
+}
