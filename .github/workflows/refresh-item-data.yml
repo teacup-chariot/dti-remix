@@ -73,6 +73,11 @@ jobs:
       - name: Add pet style thumbnails to the fetch list
         run: node color-table/extract-alt-styles.js
 
+      # The styles INDEX: release dates + official names that the live alt-styles API hides. Third
+      # shipped file, delivered like item-index.json; the client uses it to enrich what it loads live.
+      - name: Extract the style index from the dump
+        run: node color-table/extract-style-index.js
+
       - name: Fetch thumbnails we have not seen before
         run: node color-table/fetch-thumbs.js
 
@@ -92,17 +97,19 @@ jobs:
             const fs=require('fs');
             const idx=JSON.parse(fs.readFileSync('item-index.json','utf8'));
             const tbl=JSON.parse(fs.readFileSync('color-table.json','utf8'));
-            const idxN=idx.items.length, tblN=Object.keys(tbl.table).length;
-            console.log('index items:', idxN, '| table stems:', tblN, '| dump date:', idx.dumpDate);
+            const sty=JSON.parse(fs.readFileSync('style-index.json','utf8'));
+            const idxN=idx.items.length, tblN=Object.keys(tbl.table).length, styN=sty.styles.length;
+            console.log('index items:', idxN, '| table stems:', tblN, '| styles:', styN, '| dump date:', idx.dumpDate);
             if (idxN < 20000) throw new Error('index collapsed to ' + idxN + ' items — refusing to commit');
             if (tblN < 20000) throw new Error('colour table collapsed to ' + tblN + ' stems — refusing to commit');
+            if (styN < 2000) throw new Error('style index collapsed to ' + styN + ' styles — refusing to commit');
           "
 
       - name: Commit if anything changed
         run: |
           git config user.name  "DTI Remix"
           git config user.email "dti-remix@users.noreply.github.com"
-          git add item-index.json color-table.json
+          git add item-index.json color-table.json style-index.json
           if git diff --cached --quiet; then
             echo "no change — nothing to commit"
           else
