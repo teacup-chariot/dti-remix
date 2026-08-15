@@ -19,6 +19,8 @@ const readline = require('readline');
 
 const DUMP = path.join(__dirname, '..', 'active-box', 'cache', 'latest.sql.gz');
 const ITEMS = path.join(__dirname, 'cache', 'items.json');
+// cache/ is gitignored, so it is absent on a fresh clone and in CI on a cold actions/cache. See extract-items.js.
+if (!fs.existsSync(path.join(__dirname, 'cache'))) fs.mkdirSync(path.join(__dirname, 'cache'), { recursive: true });
 
 const stemOf = (url) => ((url || '').split('/').pop() || '').split('?')[0].toLowerCase();
 
@@ -63,7 +65,7 @@ async function main() {
   });
 
   let cols = null, inCreate = false;
-  let scanned = 0, added = 0, skippedHost = 0, dupStem = 0;
+  let scanned = 0, added = 0, skippedHost = 0, dupStem = 0, placeholder = 0;
 
   for await (const line of rl) {
     if (line.startsWith('CREATE TABLE `alt_styles`')) { inCreate = true; cols = []; continue; }
@@ -82,6 +84,10 @@ async function main() {
         if (!/^https?:\/\/images\.neopets\.com\/items\//i.test(url)) { skippedHost++; continue; }
         const stem = stemOf(url);
         if (!stem) continue;
+        // mall_bg_circle.gif = DTI's shared placeholder for styles with no portrait yet. Stem-dedupe
+        // would collapse every placeholder row into one entry and classify a grey circle as a real
+        // palette — keep it out of the colour table entirely.
+        if (stem === 'mall_bg_circle.gif') { placeholder++; continue; }
         if (seen.has(stem)) { dupStem++; continue; }
         seen.add(stem);
         out.push({ id: +rec.id, stem, url });
@@ -93,7 +99,7 @@ async function main() {
   if (!cols) throw new Error('CREATE TABLE `alt_styles` not found in dump');
   fs.writeFileSync(ITEMS, JSON.stringify(out));
   console.log('alt_styles rows scanned:', scanned);
-  console.log('pet style thumbnails added:', added, '(dup stem: ' + dupStem + ', non-CDN: ' + skippedHost + ')');
+  console.log('pet style thumbnails added:', added, '(dup stem: ' + dupStem + ', non-CDN: ' + skippedHost + ', placeholder: ' + placeholder + ')');
   console.log('fetch list:', before, '->', out.length, '@', ITEMS);
 }
 
