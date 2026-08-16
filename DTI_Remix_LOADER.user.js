@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         DTI Remix
-// @version      1.7.0
+// @version      1.8.0
 // @namespace    dti-remix
 // @description  DTI Remix — a full accessible reskin of Neopets Dress to Impress. Tiny loader: shows an instant cover (kills the cold-load flash), then runs the full reskin from GitHub (downloaded once, cached, auto-updates in the background).
 // @author       teacup-chariot
@@ -40,6 +40,13 @@
   // GitHub serves the CLEAN build (bulk_clean.js) to all users.
   var BULK_URL = 'https://raw.githubusercontent.com/teacup-chariot/dti-remix/main/bulk_clean.js';
 
+  // Set the moment the bulk has been HANDED to the page (eval'd, or given up on). The generic-route
+  // cover below must not reveal before this: `readyState === 'complete'` means the NATIVE page has
+  // finished painting, which on /items is exactly the green frame we are trying to hide. Waiting for
+  // the reskin's own marker is the real test; this flag only guards the escape hatch for pages the
+  // reskin never touches, so a cover can still never stick forever.
+  var bulkTried = false;
+
   // ── 1) Instant cold-load cover (runs first; tiny so it injects before paint) ──
   (function () {
     try {
@@ -78,7 +85,7 @@
         if (route === 'home') return !!document.getElementById('dia-hp-page');
         if (route === 'closet') return !!document.getElementById('dia-closet-v2-root');
         if (route === 'outfit') return !!document.getElementById('dtr-outfit-editor');
-        if (route === 'any') return (!!document.getElementById('dia-critical-early-css') && document.readyState !== 'loading') || document.readyState === 'complete';
+        if (route === 'any') return (!!document.getElementById('dia-critical-early-css') && document.readyState !== 'loading') || (bulkTried && document.readyState === 'complete');
         return document.readyState === 'complete';
       };
       var iv = setInterval(function () {
@@ -104,6 +111,7 @@
   // ── 2) Run the bulk — CACHE-FIRST so it's instant after the first download ───
   function dropCover() { try { window.__dtrDropColdCover && window.__dtrDropColdCover(); } catch (_) {} }
   function runBulk(code) {
+    bulkTried = true;     // set BEFORE the eval: either the reskin takes over, or the cover may reveal
     if (!code) { dropCover(); return; }
     try { eval(code); }   // direct eval keeps the bulk in this sandbox (GM_* + unsafeWindow available)
     catch (e) { console.error('[DTR loader] bulk failed to run:', e); dropCover(); }
@@ -187,7 +195,10 @@
   if (devPreview) {
     try {
       GM_xmlhttpRequest({
-        method: 'GET', url: 'http://localhost:8731/bulk.js', timeout: 3000,
+        // 800ms, not 3000: a dev server that IS running answers in single-digit ms, so the only thing
+        // a long timeout buys is a long stall on every page load when the dev server is DOWN — which
+        // delays the reskin past the native page's own load and re-opens the green window.
+        method: 'GET', url: 'http://localhost:8731/bulk.js', timeout: 800,
         onload: function (res) {
           if (res && res.status >= 200 && res.status < 300 && res.responseText) {
             console.log('%c[DTR] PREVIEW MODE — running bulk.js from your local dev helper (not GitHub)', 'color:#3a7a5e;font-weight:700');
