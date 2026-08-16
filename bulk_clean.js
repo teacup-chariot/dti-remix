@@ -1762,12 +1762,49 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
 
   try {
-    var _dtrNotFramed = true;
-    try { _dtrNotFramed = (window.top === window.self); } catch (_) { _dtrNotFramed = false; }
-    if (_dtrNotFramed && !((typeof unsafeWindow !== 'undefined' && unsafeWindow) || window).__dtrRealOpenTab) {
+
+
+
+    var _dtrCanInstallOpener = true;
+    try { _dtrCanInstallOpener = (window.top === window.self) || !!(window.frameElement && window.frameElement.id === 'dtr-frame'); } catch (_) { _dtrCanInstallOpener = false; }
+    if (_dtrCanInstallOpener && !((typeof unsafeWindow !== 'undefined' && unsafeWindow) || window).__dtrRealOpenTab) {
       var _dtrPopScript = document.createElement('script');
       _dtrPopScript.textContent = '(' + (function () {
         if (window.__dtrRealOpenTab) return;
+
+
+
+
+        var _dtrShellBoot = function () {
+          var f = document.getElementById('dtr-frame');
+          if (!f) return;
+          var lab = document.getElementById('dtr-shell-msg');
+          var shown = false, t0 = Date.now(), lastUrl = '';
+          var frameDoc = function () { try { return f.contentDocument; } catch (_) { return null; } };
+          var reveal = function () {
+            if (shown) return;
+            shown = true;
+            f.style.visibility = 'visible';
+            try { if (lab && lab.parentNode) lab.parentNode.removeChild(lab); } catch (_) {}
+          };
+          var sync = function () {
+            var d = frameDoc();
+            if (!d) return;
+            try {
+              var u = d.URL;
+              if (u && u.indexOf('about:') !== 0 && u !== lastUrl) { lastUrl = u; history.replaceState({}, '', u); }
+            } catch (_) {}
+            try { if (d.title && d.title !== document.title) document.title = d.title; } catch (_) {}
+          };
+          var fast = setInterval(function () {
+            var d = frameDoc();
+            if (d && (d.getElementById('dtr-cold-cover-css') || d.getElementById('dia-critical-early-css'))) reveal();
+
+
+            if (!shown && Date.now() - t0 > 8000) reveal();
+            if (shown) { clearInterval(fast); sync(); setInterval(sync, 300); }
+          }, 16);
+        };
         window.__dtrRealOpenTab = function (url) {
           var w = null;
           try { w = window.open('about:blank', '_blank'); } catch (_) {}
@@ -1775,6 +1812,44 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           if (!w) return;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          var _sameOrigin = false;
+          try { _sameOrigin = (new URL(String(url), location.href)).origin === location.origin; } catch (_) {}
+          if (_sameOrigin) {
+            var _wrote = false;
+            try {
+              var _safe = String(url).replace(/</g, '%3C').replace(/"/g, '%22');
+              w.document.open();
+              w.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>Loading…</title><style>'
+                + 'html,body{margin:0;height:100%;overflow:hidden;background:#fdf7f0}'
+                + '#dtr-frame{position:fixed;inset:0;width:100%;height:100%;border:0;visibility:hidden}'
+                + '#dtr-shell-msg{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font:700 13px Nunito,Arial,sans-serif;color:#c9b8a4;letter-spacing:.04em}'
+                + '</style></head><body><div id="dtr-shell-msg">Loading…</div>'
+                + '<iframe id="dtr-frame" src="' + _safe + '"></iframe>'
+                + '<scr' + 'ipt>(' + _dtrShellBoot.toString() + ')();</scr' + 'ipt></body></html>');
+              w.document.close();
+              _wrote = true;
+            } catch (_) {}
+            if (_wrote) {
+              try { w.history.replaceState({}, '', String(url)); } catch (_) {}
+              return;
+            }
+
+          }
 
 
 
@@ -1985,6 +2060,24 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
 
 
+  document.addEventListener('click', function (e) {
+    try { if (!(window.frameElement && window.frameElement.id === 'dtr-frame')) return; } catch (_) { return; }
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || a.target === '_blank') return;
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (a.hasAttribute('download')) return;
+    var u; try { u = new URL(a.getAttribute('href') || a.href, location.href); } catch (_) { return; }
+    if (u.origin === location.origin) return;
+    if (!/^https?:$/.test(u.protocol)) return;
+    e.preventDefault();
+    try { window.top.location.href = u.href; } catch (_) { location.href = u.href; }
+  }, true);
+
+
+
+
+
+
 
 
 
@@ -2037,7 +2130,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
 
       var _isOurEditorFrame = false;
-      try { _isOurEditorFrame = !!(window.frameElement && window.frameElement.id === 'dtrf'); } catch (_) {}
+      try { _isOurEditorFrame = !!(window.frameElement && window.frameElement.id === 'dtr-frame'); } catch (_) {}
       if (_looksLikePreviewFrame && !_isOurEditorFrame) {
         try {  } catch (_) {}
         return;
@@ -8074,7 +8167,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
 
       try {
-        if (window.self !== window.top && window.frameElement && window.frameElement.id === 'dtrf') {
+        if (window.self !== window.top && window.frameElement && window.frameElement.id === 'dtr-frame') {
           window.top.location.href = u.href; return;
         }
       } catch (_) {}
