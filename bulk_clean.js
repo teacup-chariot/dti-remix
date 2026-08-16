@@ -8275,7 +8275,8 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
       const _from = (history.state && history.state.from) || '';
       setTimeout(function () {
-        try { _dtrShellTeardown(); } catch (_) {}
+
+
 
 
 
@@ -8283,13 +8284,26 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
         try {
           if (_from && new URL(dest, location.href).href === new URL(_from, location.href).href) {
+            _dtrShellTeardown();
             history.replaceState({}, '', _from);
             return;
           }
         } catch (_) {}
 
 
-        try { window.dtrNav(dest); } catch (_) {}
+
+
+
+
+        let _done = false;
+        const _finish = () => { if (_done) return; _done = true; try { _dtrShellTeardown(); } catch (_) {} };
+        try { const _fr = document.getElementById('dtr-frame'); if (_fr) _fr.style.visibility = 'hidden'; } catch (_) {}
+        document.addEventListener('turbo:load', function _once() {
+          document.removeEventListener('turbo:load', _once);
+          setTimeout(_finish, 0);
+        });
+        setTimeout(_finish, 6000);
+        try { window.dtrNav(dest); } catch (_) { _finish(); }
       }, 0);
     } catch (_) {}
   });
