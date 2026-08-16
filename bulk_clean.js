@@ -43,7 +43,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
 
 
-  window.__DTR_META = {"v":"10.734.7","history":[{"v":"10.734.7","label":"Saved customs open right & Fitting Room upgrades","ts":"August 15, 2026 · late night PT","notes":["Customize: a saved custom that mixed up its pet and Pet Style opens cleanly now, and the variants strip draws every styled pet in its style, whatever species is active.","Customize: switching variants while a save was still finishing no longer creates a duplicate custom.","Customize: every Fitting Room card has an add-to-wishlist button, in both the list and tile views. One click picks the list, and anything already wishlisted reads WISHLISTED. An owned item reads OWNED and can still be wishlisted.","Customize: the Fitting Room and Zone Map controls follow your theme's colors instead of sitting grey.","Everywhere: the Owned and Wishlisted badges wear a cleaner pill look.","Customize: an item's tooltip stays beside the card while its details load, and hovering the top row of search results keeps its full outline.","Closet: the settings cog menus open above the Clipboard and Try On Haul tabs instead of behind them.","The In Progress Imports count in the settings cog updates the moment you clear an import.","Headings keep their rounded look now even when Google Fonts cannot be reached."]},{"v":"10.733.7","label":"The NC Mall on your homepage & filter by color alone","ts":"August 15, 2026 · evening PT","notes":["Homepage: a live <b>NC Mall</b> tab shows what’s new, what’s leaving soon with a countdown, and what’s on sale. Hover a capsule’s magnifier to see what’s inside. The tab glows when something lands you haven’t seen. Mall data provided by itemdb.","Hovering an item tells you how to get it: the mall price and any sale, the capsule it comes from, or the date it left the mall.","Customize: filter by color on its own. Click a color and everything your pet can wear in that color appears in about a second.","The Pet Style picker wears the soft <b>?</b> tooltip panel on both pages. Sets show as little film strips and open three styles per row, with search, filters and sort working inside. Unnamed new styles borrow their real names from their token items.","The petpet and petpetpet pickers match, with the same title bar, search pill and controls.","Imports live in the settings cog now: <b>In Progress Imports</b> keeps your cards and Resume, and <b>New Import</b> has the links and steps.","While the Try On Haul is open the page dims behind it. Clicking the dim closes it.","Plus neater customs cards on the homepage, a tidier settings cog, and lots of smaller fixes."]},{"v":"10.725.0","label":"Newest petpets on top & a fresher Pet Styles","ts":"August 13, 2026 · late evening PT","notes":["Customize: <b>Newest first</b> in the petpet picker puts today’s releases at the very top. A petpet can arrive before it has been fully catalogued, and those were the ones sorting to the bottom.","Customize: a Pet Styles set shows four styles per row in slightly smaller cards, and each card is now the same soft panel as the <b>?</b> tooltips."]},{"v":"10.723.0","label":"Rose Matcha Latte, a faster Customize & petpet combo tools","ts":"August 13, 2026 · evening PT","notes":["A third theme, Rose Matcha Latte, joins Konpeito and Milk Tea. Matcha green leads the buttons, links and headings, rose carries the hanger, the clipboard and the Try On Haul, and the page itself is poured like the drink: matcha at the top fading through milk to rose at the bottom.","Themes are chosen from a dropdown in the settings menu now, instead of a row for every theme.","Customize: picking a zone shows its items straight away, and changing zones while one is still loading no longer leaves the new zone waiting behind the old one. Picking a zone also never asks you to search again, it says plainly when nothing in that zone fits your pet.","Customize: an item that fills two zones at once, like a foreground collectible that is also its own background, hands both zones back when you take it off, and your saved outfit matches what the pet is actually showing.","Customize: a guide behind the ? between the petpet slots walks you through finding a combo. Star widely first, then mix and match in the palette. View all lists every color on its own row so you can star one without opening its base petpet first.","Customize: When comparing P2 & P3 combos, View N Saved opens a compare window showing your outfit with each saved combo on the pet, side by side. Both combo windows resize from the corner.","Your Outfits: the page shows a first batch of outfits and fills in the rest as you scroll, instead of building your whole collection before showing you anything. It also follows your theme now, and petpets sit under your pet with their names beneath them.","Your Outfits: outfits with no variants show an Add variant button on the card.","Importing from your Neopets closet works whether your closet shows a list or tiles, and the import badges stay put and tell you what they could not find instead of disappearing.","Settings: a new Imports section explains how importing works and links you straight to the five Neopets pages that start one, including Neolodge for what your pets are currently wearing.","The homepage ? now shows how many copies you own and which of your lists they are in, matching the closet. Tooltips open upward so they stop covering what you are reading, and after picking from a dropdown the arrow keys move to the next choice without reopening it."]},{"v":"10.715.0","label":"Faster Your Outfits, one look everywhere & a big round of fixes","ts":"August 12, 2026 · evening PT","notes":["Your Outfits starts fetching your outfit list the moment the page begins loading, which trims a few seconds off big collections. Tampermonkey picks up the loader update that makes this possible on its own.","Checking Preferred Traders for an item you have not wishlisted lands in a curated comparison of just that outfit's items, what they have that you are after beside what they want that you own. Ordinary Comparison Mode is unchanged.","One visual language everywhere: a single icon set, one trash bin in a soft berry, one white search pill with the magnifier inside it, one dropdown menu style, and the same item cards on the homepage and the search page.","Dress to Impress's own green no longer shows through, on hovered buttons, in dropdown menus or behind text, on any page.","The homepage's middle tile is the Customisation Spotlight, with the contest trophies and Enter and Vote buttons.","Try On Haul: One at a time works on the Preview tab, items stay on when you pick them and swap cleanly when you pick another. The preview, pet picker and haul list sit inside one outline, and the panel's buttons match the rest of the app.","Customize: the Zone Map and Variants bars match when collapsed, long dropdowns open with a search box, and petpet slots size to what is in them.","When Dress to Impress cannot be reached, a notice says so and offers to check again, instead of showing a blank pet and an empty list.","Plus a long list of small fixes: trader name badges keep their rounded ends, Dim owned and Dim wishlisted dim again, a selected closet list keeps its full glow, and tooltips share one look."]}]};
+  window.__DTR_META = {"v":"10.734.7","history":[{"v":"10.734.7","label":"Saved customs open right & Fitting Room upgrades","ts":"August 15, 2026 · late night PT","notes":["Customize: a saved custom that mixed up its pet and Pet Style opens cleanly now, and the variants strip draws every styled pet in its style, whatever species is active.","Customize: switching variants while a save was still finishing no longer creates a duplicate custom.","Customize: every Fitting Room card has an add-to-wishlist button, in both the list and tile views. One click picks the list, and anything already wishlisted reads WISHLISTED. An owned item reads OWNED and can still be wishlisted.","Customize: the Fitting Room and Zone Map controls follow your theme's colors instead of sitting grey.","Everywhere: the Owned and Wishlisted badges wear a cleaner pill look.","Customize: an item's tooltip stays beside the card while its details load, and hovering the top row of search results keeps its full outline.","Closet: the settings cog menus open above the Clipboard and Try On Haul tabs instead of behind them.","The In Progress Imports count in the settings cog updates the moment you clear an import.","Headings keep their rounded look now even when Google Fonts cannot be reached."]},{"v":"10.733.7","label":"The NC Mall on your homepage & filter by color alone","notes":["New features and misc bug fixes."]},{"v":"10.725.0","label":"Newest petpets on top & a fresher Pet Styles","notes":["New features and misc bug fixes."]},{"v":"10.723.0","label":"Rose Matcha Latte, a faster Customize & petpet combo tools","notes":["New features and misc bug fixes."]},{"v":"10.715.0","label":"Faster Your Outfits, one look everywhere & a big round of fixes","notes":["New features and misc bug fixes."]}]};
 
 
 
@@ -8159,6 +8159,149 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
 
 
+
+
+
+
+
+
+
+
+  let _dtrShellSync = 0, _dtrShellFast = 0, _dtrShellTitle = '', _dtrShellOverflow = null;
+  function _dtrShellTeardown() {
+    try { clearInterval(_dtrShellFast); } catch (_) {}
+    try { clearInterval(_dtrShellSync); } catch (_) {}
+    _dtrShellFast = _dtrShellSync = 0;
+    try { document.getElementById('dtr-shell')?.remove(); } catch (_) {}
+    try { if (_dtrShellTitle) document.title = _dtrShellTitle; } catch (_) {}
+
+    try {
+      if (_dtrShellOverflow !== null) { document.documentElement.style.overflow = _dtrShellOverflow; _dtrShellOverflow = null; }
+    } catch (_) {}
+  }
+  window._dtrShellNav = function (url, noPush) {
+    try {
+      const u = new URL(url, location.href);
+      if (u.origin !== location.origin) return false;
+      if (window.self !== window.top) return false;
+      if (document.getElementById('dtr-shell')) return false;
+      if (!document.documentElement) return false;
+
+      const from = noPush ? '' : location.href;
+      if (!noPush) history.pushState({ dtrShell: 1, from: from }, '', u.href);
+      _dtrShellTitle = document.title;
+
+      const wrap = document.createElement('div');
+      wrap.id = 'dtr-shell';
+      wrap.style.cssText = 'position:fixed;inset:0;z-index:2147483646;background:#fdf7f0';
+      const msg = document.createElement('div');
+      msg.id = 'dtr-shell-msg';
+      msg.textContent = 'Loading…';
+      msg.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 13px Nunito,Arial,sans-serif;color:#c9b8a4;letter-spacing:.04em';
+      const f = document.createElement('iframe');
+      f.id = 'dtr-frame';
+      f.src = u.href;
+      f.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;visibility:hidden';
+      wrap.appendChild(msg); wrap.appendChild(f);
+      document.documentElement.appendChild(wrap);
+
+
+
+      try { _dtrShellOverflow = document.documentElement.style.overflow; document.documentElement.style.overflow = 'hidden'; } catch (_) {}
+
+      let shown = false; const t0 = Date.now(); let lastUrl = '';
+      const fdoc = () => { try { return f.contentDocument; } catch (_) { return null; } };
+      const reveal = () => { if (shown) return; shown = true; f.style.visibility = 'visible'; try { msg.remove(); } catch (_) {} };
+      const sync = () => {
+        const d = fdoc(); if (!d) return;
+        try {
+          const cu = d.URL;
+          if (cu && cu.indexOf('about:') !== 0 && cu !== lastUrl) { lastUrl = cu; history.replaceState({ dtrShell: 1, from: from }, '', cu); }
+        } catch (_) {}
+        try { if (d.title && d.title !== document.title) document.title = d.title; } catch (_) {}
+      };
+      _dtrShellFast = setInterval(() => {
+        const d = fdoc();
+
+
+        if (d && (d.getElementById('dtr-cold-cover-css') || d.getElementById('dia-critical-early-css'))) reveal();
+        if (!shown && Date.now() - t0 > 8000) reveal();
+        if (shown) { clearInterval(_dtrShellFast); _dtrShellFast = 0; sync(); _dtrShellSync = setInterval(sync, 300); }
+      }, 16);
+      return true;
+    } catch (_) { return false; }
+  };
+
+
+
+  window.addEventListener('popstate', function () {
+    try {
+      const wantShell = !!(history.state && history.state.dtrShell);
+      const have = !!document.getElementById('dtr-shell');
+      if (wantShell && !have) window._dtrShellNav(location.href, true);
+      else if (!wantShell && have) _dtrShellTeardown();
+    } catch (_) {}
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+  document.addEventListener('dtr:shell-exit', function () {
+    try {
+      const sh = document.getElementById('dtr-shell');
+      const dest = sh && sh.getAttribute('data-dtr-exit');
+      if (!dest) return;
+      sh.removeAttribute('data-dtr-exit');
+
+
+
+
+
+
+
+
+
+
+
+
+
+      const _from = (history.state && history.state.from) || '';
+      setTimeout(function () {
+        try { _dtrShellTeardown(); } catch (_) {}
+
+
+
+
+
+        try {
+          if (_from && new URL(dest, location.href).href === new URL(_from, location.href).href) {
+            history.replaceState({}, '', _from);
+            return;
+          }
+        } catch (_) {}
+
+
+        try { window.dtrNav(dest); } catch (_) {}
+      }, 0);
+    } catch (_) {}
+  });
+
+
+
+
+
+
+
+
+
   window.dtrNav = function dtrNav(url) {
     try {
       const u = new URL(url, location.href);
@@ -8168,7 +8311,49 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
       try {
         if (window.self !== window.top && window.frameElement && window.frameElement.id === 'dtr-frame') {
-          window.top.location.href = u.href; return;
+
+
+
+
+
+
+
+          let _stayInFrame = false;
+
+
+
+          try { _stayInFrame = window.dtrRoute.is(['editor', 'editor-new'], u); } catch (_) {}
+
+
+
+
+
+
+
+          try {
+            _stayInFrame = _stayInFrame
+              || (u.origin === location.origin && !window.top.document.getElementById('dia-critical-early-css'));
+          } catch (_) {}
+
+
+
+
+
+
+          if (!_stayInFrame) {
+            let _handedUp = false;
+            try {
+              const _top = window.top;
+              const _sh = _top.document.getElementById('dtr-shell');
+              if (_sh && _top.document.getElementById('dia-critical-early-css')) {
+                _sh.setAttribute('data-dtr-exit', u.href);
+                _top.document.dispatchEvent(new CustomEvent('dtr:shell-exit'));
+                _handedUp = !_sh.hasAttribute('data-dtr-exit');
+              }
+            } catch (_) {}
+            if (!_handedUp) window.top.location.href = u.href;
+            return;
+          }
         }
       } catch (_) {}
 
@@ -8178,7 +8363,26 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
 
 
-      if (u.origin !== location.origin || window.dtrRoute.is(['editor', 'editor-new'], u) || window.dtrRoute.is(['editor', 'editor-new'])
+      const _destEditor = window.dtrRoute.is(['editor', 'editor-new'], u);
+      const _srcEditor = window.dtrRoute.is(['editor', 'editor-new']);
+
+
+
+
+
+
+
+
+
+
+
+
+      const _destYO = window.dtrRoute.is('outfits', u);
+      const _srcYO = window.dtrRoute.is('outfits');
+      if (u.origin === location.origin
+        && ((_destEditor && !_srcEditor) || (_destYO && !_srcYO))
+        && window._dtrShellNav(u.href)) return;
+      if (u.origin !== location.origin || _destEditor || _srcEditor
         || window.dtrRoute.is('outfits', u)
       ) { location.href = u.href; return; }
       let T = null;
@@ -8396,11 +8600,35 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
 
 
+
+
+
+
+
+      'html.dia-itemv2-preactive #container > *:not(#dia-hp-nav):not(#dia-shell):not(style):not(script){visibility:hidden!important}',
+
+
+
       'html.dia-items-preactive body{background:var(--dtr-cream, #f3efe7)!important}',
 
 
 
+
+
+
+      'html.dia-items-preactive #container > *:not(#dia-hp-nav):not(style):not(script){visibility:hidden!important}',
+
+
+
       'html.dtr-yo-preactive::before{content:"";position:fixed;inset:0;z-index:2147483646;background:var(--dtr-card, #fdf7f0);pointer-events:none}',
+
+
+
+
+
+
+
+      'html.dtr-nav-preactive::before{content:"";position:fixed;inset:0;z-index:2147483646;background:var(--dtr-card, #fdf7f0);pointer-events:none}',
 
 
 
@@ -15813,6 +16041,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         if (!isClosetUrl()) return;
         document.getElementById('dia-loading-badge')?.remove();
         document.getElementById('dia-closet-prerender-hide')?.remove();
+        document.body?.classList.remove('dtr-closet-prehide');
         const cont = window.dtrDom.containerOrBody();
         if (cont) cont.style.visibility = 'visible';
         window.dtrDom.container()?.classList.add('cv2-active');
@@ -15879,10 +16108,31 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       }
 
 
-      if (newBody.querySelector('#' + window.dtrDom.SELECTORS.closetRootId)) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      let _destIsCloset = false;
+      try { _destIsCloset = window.dtrRoute.is('closet'); } catch (_) {}
+      try { _destIsCloset = _destIsCloset || newBody.classList.contains('closet_hangers'); } catch (_) {}
+      if (_destIsCloset) {
         const style = newBody.querySelector('#dia-closet-prerender-hide') || document.createElement('style');
         style.id = 'dia-closet-prerender-hide';
-        style.textContent = '#container { visibility: hidden !important; }';
+
+
+        style.textContent = '#container{visibility:hidden!important}'
+          + 'body.dtr-closet-prehide{background:var(--dtr-card, #fdf7f0)!important}';
+        newBody.classList.add('dtr-closet-prehide');
         newBody.prepend(style);
 
       }
@@ -31575,7 +31825,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       try { if (e && e.detail && e.detail.url) return new URL(e.detail.url, location.href).pathname; } catch (_) {}
       return location.pathname;
     };
-    let _itemsPreT = null, _oePreT = null, _itemPreT = null, _yoPreT = null;
+    let _itemsPreT = null, _oePreT = null, _itemPreT = null, _yoPreT = null, _genPreT = null;
     const _preHideFor = (path) => {
       const html = document.documentElement;
 
@@ -31610,9 +31860,26 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       if (isItem) _itemPreT = setTimeout(() => html.classList.remove('dia-itemv2-preactive'), 4000);
       clearTimeout(_oePreT);
       if (isOutfit) _oePreT = setTimeout(() => html.classList.remove('dtr-outfit-preactive'), 6000);
+
+
+
+      const _owned = isItem || isHome || isItems || isOutfit || isYo;
+      html.classList.toggle('dtr-nav-preactive', !_owned);
+      clearTimeout(_genPreT);
+
+
+      if (!_owned) _genPreT = setTimeout(() => html.classList.remove('dtr-nav-preactive'), 1400);
+    };
+
+    const _dropGenericVeil = () => {
+      requestAnimationFrame(() => {
+        clearTimeout(_genPreT);
+        document.documentElement.classList.remove('dtr-nav-preactive');
+      });
     };
     document.addEventListener('turbo:visit', (e) => _preHideFor(_destPath(e)));
     document.addEventListener('turbo:before-render', (e) => _preHideFor(_destPath(e)));
+    document.addEventListener('turbo:load', _dropGenericVeil);
   }
 
   function showRedirectNotice(text) {
