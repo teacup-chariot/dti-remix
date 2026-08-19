@@ -1,0 +1,2 @@
+- 2026-08-17 — polled 15 pets, measured 2, applied 0, held 0, waiting 16
+- 2026-08-17 — polled 15 pets, measured 0, applied 0, held 0, waiting 15

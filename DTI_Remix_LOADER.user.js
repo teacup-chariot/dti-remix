@@ -3,7 +3,7 @@
 // @version      1.8.0
 // @namespace    dti-remix
 // @description  DTI Remix — a full accessible reskin of Neopets Dress to Impress. Tiny loader: shows an instant cover (kills the cold-load flash), then runs the full reskin from GitHub (downloaded once, cached, auto-updates in the background).
-// @author       teacup-chariot
+// @author       DTI Remix
 // @match        *://*.neopets.com/inventory.phtml*
 // @match        *://*.neopets.com/safetydeposit.phtml*
 // @match        *://*.neopets.com/stylingchamber*
