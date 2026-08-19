@@ -1,0 +1,97 @@
+# Nightly hunt for Pet Style active-box crops.
+#
+# WHY THIS EXISTS: a style's crop can only be measured while some real pet is WEARING it — Neopets
+# bakes it into that pet's live render and DTI stores no hash for a styled look, so there is nothing
+# to come back to later. Submissions therefore go stale within days, and a pet that wore an unmeasured
+# style for one afternoon is simply missed unless someone looks that afternoon. Nobody is going to do
+# that by hand, so this looks every night.
+#
+# WHAT IT COSTS DTI: one /pets/load per pet on the roster (~15 today, the same request the sink worker
+# already makes to verify a submission), throttled 400ms apart.
+#
+# WHAT IT COSTS NEOPETS: two public renders per style it has never measured — usually zero, a handful
+# on a good night. Read-only, throttled, no account involved. Same shape as the thumbnail fetches in
+# refresh-item-data.yml. ⚠ pets.neopets.com TLS-fingerprints and 403s non-browser clients, so this
+# drives the runner's real Chrome (CHROME_PATH) exactly as the local harvest drives ours.
+#
+# WHAT IT DOES NOT DO: touch the userscript. It commits the measurement ledger, and those numbers are
+# folded into the table by hand at the next build.
+name: Harvest pet style boxes
+
+on:
+  # THE MAIN PATH: the sink worker pings this the moment it accepts a style it has no crop for, so the
+  # measurement happens while the pet is still demonstrably wearing it. A runner is warm in ~40s.
+  repository_dispatch:
+    types: [style-submitted]
+  # ...and a nightly sweep of the whole roster, which is what catches styles nobody submitted at all
+  # (a pet on the roster wearing something new is free coverage) and anything a ping missed.
+  schedule:
+    - cron: '40 5 * * *'   # 05:40 UTC, after the item-data job has had its hour
+  workflow_dispatch: {}     # ...and a manual "Run workflow" button
+
+permissions:
+  contents: write           # it commits the ledger + roster
+
+# A submitter cycling five tokens fires five pings. Each run measures everything still pending, so
+# queueing them (never cancelling) means each one catches whatever is on the pet at its turn.
+concurrency:
+  group: harvest-styles
+  cancel-in-progress: false
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install the matcher's dependencies
+        working-directory: active-box
+        run: npm ci --omit=dev || npm install --omit=dev
+
+      - name: Poll and measure anything new
+        working-directory: active-box
+        env:
+          ABOX_CACHE: ${{ github.workspace }}/active-box
+          ABOX_BULK: ${{ github.workspace }}/bulk_clean.js
+          CHROME_PATH: /usr/bin/google-chrome
+          # a submitter's pet name, straight from the ping. Read through the environment, never
+          # interpolated into the shell — it is a string someone else supplied.
+          PET: ${{ github.event.client_payload.petName }}
+        # --no-apply: there is no bulk.js here to write to, and the shipped build is edited by hand.
+        # A ping names one pet and asks about it alone; a scheduled run sweeps everybody.
+        run: |
+          if [ -n "$PET" ]; then
+            node harvest-styles.js --no-apply --pet "$PET"
+          else
+            node harvest-styles.js --no-apply
+          fi
+
+      # ⚠ SANITY GATE. A bad parse could otherwise commit an empty roster and lose every pet name we
+      # have ever collected — the one thing here that cannot be re-fetched from anywhere.
+      - name: Sanity-check before committing
+        run: |
+          node -e "
+            const fs=require('fs');
+            const roster=JSON.parse(fs.readFileSync('active-box/style-roster.json','utf8'));
+            const led=JSON.parse(fs.readFileSync('active-box/harvested.json','utf8'));
+            const pets=Object.keys(roster).length, meas=Object.keys(led).length;
+            console.log('roster pets:', pets, '| ledger entries:', meas);
+            if (pets < 10) throw new Error('roster collapsed to ' + pets + ' pets — refusing to commit');
+          "
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name  "DTI Remix"
+          git config user.email "dti-remix@users.noreply.github.com"
+          git add active-box/harvested.json active-box/style-roster.json
+          if git diff --cached --quiet; then
+            echo "nothing new tonight"
+          else
+            git commit -m "data: nightly pet style box harvest"
+            git push
+          fi
