@@ -169,7 +169,11 @@ async function currentStyleOf(name) {
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
       });
       const loc = (r.headers && r.headers.location) || '';
-      return new URLSearchParams(loc.split('?')[1] || '').get('style') || '';
+      const q = new URLSearchParams(loc.split('?')[1] || '');
+      // no Location, or a Location that carries no pet, means the load did not happen — retry, and
+      // if it still will not answer, say so instead of recording "wearing nothing".
+      if (!loc || !q.get('name')) { if (attempt) { console.log('  ! DTI would not load "' + name + '" — leaving it alone'); return null; } await sleep(1500); continue; }
+      return q.get('style') || '';
     } catch (e) {
       if (attempt) { console.log('  ! could not reach DTI for "' + name + '": ' + e.message); return null; }
       await sleep(1500);
