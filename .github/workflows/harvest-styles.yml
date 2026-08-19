@@ -27,7 +27,12 @@ on:
   # (a pet on the roster wearing something new is free coverage) and anything a ping missed.
   schedule:
     - cron: '40 5 * * *'   # 05:40 UTC, after the item-data job has had its hour
-  workflow_dispatch: {}     # ...and a manual "Run workflow" button
+  workflow_dispatch:        # ...and a manual "Run workflow" button
+    inputs:
+      probe:
+        description: 'Probe only: ask Neopets for one render and report the status, no harvest'
+        type: boolean
+        default: false
 
 permissions:
   contents: write           # it commits the ledger + roster
@@ -53,7 +58,23 @@ jobs:
         working-directory: active-box
         run: npm ci --omit=dev || npm install --omit=dev
 
+      # THE OPEN QUESTION, ON DEMAND. A green harvest proves nothing about the render host when there
+      # was nothing to measure — the fetch never runs. This asks for one known-good render through the
+      # runner's Chrome and prints the status, so "will Neopets serve a datacentre address" is a button
+      # rather than a wait. 200 = the approach works. 403 = it does not, and we go back to the laptop.
+      - name: Probe whether Neopets serves this runner
+        if: ${{ inputs.probe }}
+        working-directory: active-box
+        env:
+          ABOX_CACHE: ${{ github.workspace }}/active-box
+          CHROME_PATH: /usr/bin/google-chrome
+        run: |
+          node -e "require('fs').writeFileSync('probe.json', JSON.stringify([{url:'https://pets.neopets.com/cpn/aprif/1/1.png', out:'probe-render.png'}]))"
+          node fetch-images.js probe.json
+          node -e "const fs=require('fs');const p=process.env.ABOX_CACHE+'/img/probe-render.png';const ok=fs.existsSync(p)&&fs.statSync(p).size>0;console.log(ok?'PROBE OK - Neopets served this runner ('+fs.statSync(p).size+' bytes)':'PROBE FAILED - no image came back');if(!ok)process.exit(1);"
+
       - name: Poll and measure anything new
+        if: ${{ !inputs.probe }}
         working-directory: active-box
         env:
           ABOX_CACHE: ${{ github.workspace }}/active-box
