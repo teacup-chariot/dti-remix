@@ -44,8 +44,8 @@
    "89126",
    "99450"
   ],
-  "last": "",
-  "seen": "2026-08-17"
+  "last": "99450",
+  "seen": "2026-08-22"
  },
  "irasibeth": {
   "name": "irasibeth",
@@ -141,6 +141,18 @@
   "name": "gr",
   "styles": [
    "99409"
+  ]
+ },
+ "pupb": {
+  "name": "pupb",
+  "styles": [
+   "87978"
+  ]
+ },
+ "bepb": {
+  "name": "bepb",
+  "styles": [
+   "99384"
   ]
  }
 }
