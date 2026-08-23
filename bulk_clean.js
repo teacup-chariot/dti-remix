@@ -122,7 +122,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
   (function () {
     if (window.dtrStore) return;
-    var REVERSE = {"dtr:sys:uid":"dtr_uid","dtr:sys:csrf":"dtr_csrf","dtr:sys:dev":"dtr_dev","dtr:sys:bridge_done":"dtr_bridge_done","dtr:sys:ping_day":"dtr_ping_day","dtr:sys:nav_reload_log":"dtr_nav_reload_log","dtr:sys:user_names":"dtr_user_names","dtr:theme:current":"dib-theme","dtr:settings:anim_enabled":"dtr_anim_enabled","dtr:settings:anim_locks":"dtr_anim_locks","dtr:settings:cond_lists":"dtr_cond_lists","dtr:settings:hp_notes":"dtr_hp_notes","dtr:settings:pet_thumb_mode":"dtr_pet_thumb_mode","dtr:settings:picker_view":"dtr_picker_view","dtr:settings:thumb_render":"dtr_thumb_render","dtr:settings:freezewatch":"dtr_freezewatch","dtr:settings:feed_collapsed":"dtr_dib_collapsed","dtr:settings:feed_pagesize":"dtr_dib_pagesize","dtr:settings:feed_preview_off":"dtr_dib_preview_off","dtr:settings:favchk_view":"dtr_favchk_view","dtr:settings:filter_nc":"dtr_filter_nc","dtr:settings:filter_np":"dtr_filter_np","dtr:settings:filter_pb":"dtr_filter_pb","dtr:settings:filter_unowned":"dtr_filter_unowned","dtr:settings:filter_unwanted":"dtr_filter_unwanted","dtr:settings:gallery_nc_only":"dtr_gallery_nc_only","dtr:settings:hp_color":"dtr_hp_color","dtr:settings:hp_species":"dtr_hp_species","dtr:settings:quickstart_pack":"dtr_quickstart_pack","dtr:settings:qp_anim":"dtr_qp_anim","dtr:settings:qp_starred":"dtr_qp_starred","dtr:settings:wl_state":"dtr_wl_state","dtr:closet:flock_mine":"dtr_cv2_flock_mine","dtr:closet:flock_others":"dtr_cv2_flock_others","dtr:closet:groupby":"dtr_cv2_groupby","dtr:closet:starred":"dtr_cv2_starred","dtr:closet:history":"dia_closet_history_v1","dtr:closet:filter_chip_dyeworks":"neo_dti_filter_chip_dyeworks","dtr:closet:filter_chip_baby":"neo_dti_filter_chip_baby","dtr:closet:filter_chip_mutant":"neo_dti_filter_chip_mutant","dtr:cmp:ownsort":"dtr_cv2_cmp_ownsort2","dtr:cmp:intent":"dtr_cmp_intent","dtr:haul:pintab":"dtr_toh_pintab","dtr:haul:sort":"dtr_toh_sort","dtr:haul:sortdir":"dtr_toh_sortdir","dtr:haul:source":"dtr_toh_source","dtr:haul:last_pet":"dtr_tryon_last_pet","dtr:haul:models":"dtr_tryon_models","dtr:haul:roster":"dtr_tryon_roster","dtr:haul:saved_canvas":"dtr_tryon_saved_canvas","dtr:yo:showhidden":"dtr_yo_showhidden","dtr:yo:sort":"dtr_yo_sort","dtr:yo:top":"dtr_yo_top","dtr:yo:view":"dtr_yo_view","dtr:oe:canvas_shrink":"dtr_oe_canvas_shrink","dtr:oe:hide_locked":"dtr_oe_hide_locked","dtr:oe:hires":"dtr_oe_hires","dtr:oe:img_archive":"dtr_oe_img_archive","dtr:oe:pinned_zones":"dtr_oe_pinned_zones","dtr:oe:variant_hidden":"dtr_oe_variant_hidden","dtr:oe:zonemap_show":"dtr_oe_zonemap_show","dtr:oe:color_engine":"dtr_oe_color_engine","dtr:oe:colormatch":"dtr_oe_colormatch","dtr:oe:combo_crown":"dtr_oe_combo_crown","dtr:oe:cs_view":"dtr_oe_cs_view","dtr:oe:layers_view":"dtr_oe_layers_view","dtr:oe:p2_color_engine":"dtr_oe_p2_color_engine","dtr:oe:p2_colormatch":"dtr_oe_p2_colormatch","dtr:oe:p2_dots_v1":"dtr_oe_p2_dots_v1","dtr:oe:p2_sort":"dtr_oe_p2_sort","dtr:oe:p3_sort":"dtr_oe_p3_sort","dtr:oe:pk_dense":"dtr_oe_pk_dense","dtr:oe:search_h":"dtr_oe_search_h","dtr:oe:search_prefs":"dtr_oe_search_prefs","dtr:oe:share_break":"dtr_oe_share_break","dtr:oe:share_details":"dtr_oe_share_details","dtr:oe:share_level":"dtr_oe_share_level","dtr:oe:share_names":"dtr_oe_share_names","dtr:oe:share_pets":"dtr_oe_share_pets","dtr:oe:starred":"dtr_oe_starred","dtr:oe:starter_packs":"dtr_oe_starter_packs","dtr:oe:strip_collapsed":"dtr_oe_strip_collapsed","dtr:oe:tags":"dtr_oe_tags","dtr:oe:variant_groups":"dtr_oe_variant_groups","dtr:oe:zonemap":"dtr_oe_zonemap","dtr:oe:zonemap_docked":"dtr_oe_zonemap_docked","dtr:oe:zonemap_locked":"dtr_oe_zonemap_locked","dtr:oe:zonemap_mini":"dtr_oe_zonemap_mini","dtr:ps:clip":"dtr_ps_clip","dtr:ps:collage_title":"dtr_ps_collage_title","dtr:ps:cw_open":"dtr_ps_cw_open","dtr:ps:dense":"dtr_ps_dense","dtr:ps:label_colors_v1":"dtr_ps_label_colors_v1","dtr:ps:labels_v1":"dtr_ps_labels_v1","dtr:ps:own":"dtr_ps_own","dtr:ps:ownf":"dtr_ps_ownf","dtr:ps:sort":"dtr_ps_sort","dtr:ps:style_pet_log":"dtr_style_pet_log","dtr:import:closet_harvest":"dtr_closet_harvest","dtr:import:sdb_harvest":"dtr_sdb_harvest","dtr:import:pets_queue":"dtr_pets_import_queue","dtr:import:sdb_queue":"dtr_sdb_import_queue","dtr:import:closet_queue":"dtr_closet_import_queue","dtr:import:gallery_queue":"dtr_gallery_import_queue","dtr:trade:dia_data_v1":"dti_import_apprentice_data_v1","dtr:import:history":"neo_dti_import_history","dtr:import:pending_sync":"neo_dti_pending_sync","dtr:import:export_mode":"neo_dti_export_mode","dtr:import:last_updated":"neo_dti_last_updated","dtr:import:bulk_cols":"neo_dti_bulk_cols","dtr:import:bulk_board":"neo_dti_bulk_board","dtr:import:bulk_gridpos":"neo_dti_bulk_gridpos","dtr:import:bulk_tilesize":"neo_dti_bulk_tilesize","dtr:trade:favorite_owners":"neo_dti_favorite_owners","dtr:trade:owner_notes":"neo_dti_owner_notes","dtr:trade:fav_only":"neo_dti_trade_fav_only","dtr:trade:tab":"neo_dti_trade_tab","dtr:trade:visited_links":"neo_dti_visited_links","dtr:trade:login_state":"neo_dti_login_state","dtr:trade:statuses":"neo_dti_trade_statuses","dtr:trade:revealed":"neo_dti_trades_revealed","dtr:trade:custom_statuses":"neo_dti_custom_status_options","dtr:trade:status_order":"neo_dti_status_order","dtr:trade:status_colors":"neo_dti_status_colors","dtr:trade:date_filter_v1":"dia_date_filter_v1","dtr:lists:nicknames":"neo_dti_nicknames","dtr:lists:order":"neo_dti_order","dtr:lists:inactive":"neo_dti_inactive","dtr:lists:show_hidden":"neo_dti_show_hidden","dtr:lists:preview_prefs":"neo_dti_preview_prefs","dtr:lists:preview_open":"neo_dti_preview_open","dtr:lists:disable_list_drag":"neo_dti_disable_list_drag","dtr:lists:disable_shortlist_drag":"neo_dti_disable_shortlist_drag","dtr:cache:idb_v1":"dtr_idb_cache_v1","dtr:cache:idb_v2":"dtr_idb_cache_v2","dtr:cache:idb_colors_v1":"dtr_idb_colors_v1","dtr:cache:item_names":"dtr_item_names","dtr:cache:item_nc":"dtr_item_nc","dtr:cache:item_thumbs":"dtr_item_thumbs","dtr:cache:item_zones":"dtr_item_zones","dtr:cache:item_resolve":"dtr_item_resolve_cache","dtr:cache:zone_tip":"dtr_zone_tip_cache","dtr:cache:lebron":"dtr_lebron","dtr:cache:lebron_ts":"dtr_lebron_ts","dtr:cache:pet_thumbs":"dtr_pet_thumbs","dtr:cache:last_pts":"dtr_last_pts","dtr:cache:last_user":"dtr_last_user","dtr:cache:spco_names":"dtr_spco_names","dtr:cache:trade_dates_v1":"dia_date_cache_v1","dtr:cache:tryon_pet_data":"dtr_tryon_pet_data","dtr:cache:cv2_items_v2":"dtr_cv2_item_cache_v2","dtr:cache:my_lists":"dtr_my_lists_cache","dtr:cache:ps_nameidx":"dtr_ps_nameidx","dtr:cache:ps_thumbs":"dtr_ps_thumbs","dtr:cache:pixhist_v1":"dtr_oe_pixhist_v1","dtr:cache:pixhist_v2":"dtr_oe_pixhist_v2","dtr:cache:pixhist_v3":"dtr_oe_pixhist_v3","dtr:cache:pixhist_v4":"dtr_oe_pixhist_v4","dtr:cache:pixhist_v5":"dtr_oe_pixhist_v5","dtr:cache:pixhist_v6":"dtr_oe_pixhist_v6","dtr:cache:pixhist_v7":"dtr_oe_pixhist_v7","dtr:cache:pixhist_v8":"dtr_oe_pixhist_v8","dtr:cache:pixhist_v9":"dtr_oe_pixhist_v9","dtr:cache:pixtable":"dtr_oe_pixtable","dtr:cache:item_index":"dtr_item_index","dtr:cache:p2_sweep_v1":"dtr_oe_p2_sweep_v1","dtr:cache:petpets":"dtr_oe_petpets"};
+    var REVERSE = {"dtr:sys:uid":"dtr_uid","dtr:sys:csrf":"dtr_csrf","dtr:sys:dev":"dtr_dev","dtr:sys:bridge_done":"dtr_bridge_done","dtr:sys:ping_day":"dtr_ping_day","dtr:sys:nav_reload_log":"dtr_nav_reload_log","dtr:sys:user_names":"dtr_user_names","dtr:theme:current":"dib-theme","dtr:settings:anim_enabled":"dtr_anim_enabled","dtr:settings:anim_locks":"dtr_anim_locks","dtr:settings:cond_lists":"dtr_cond_lists","dtr:settings:hp_notes":"dtr_hp_notes","dtr:settings:pet_thumb_mode":"dtr_pet_thumb_mode","dtr:settings:picker_view":"dtr_picker_view","dtr:settings:rec_sort":"dtr_rec_sort","dtr:settings:thumb_render":"dtr_thumb_render","dtr:settings:freezewatch":"dtr_freezewatch","dtr:settings:feed_collapsed":"dtr_dib_collapsed","dtr:settings:feed_pagesize":"dtr_dib_pagesize","dtr:settings:feed_preview_off":"dtr_dib_preview_off","dtr:settings:favchk_view":"dtr_favchk_view","dtr:settings:filter_nc":"dtr_filter_nc","dtr:settings:filter_np":"dtr_filter_np","dtr:settings:filter_pb":"dtr_filter_pb","dtr:settings:filter_unowned":"dtr_filter_unowned","dtr:settings:filter_unwanted":"dtr_filter_unwanted","dtr:settings:gallery_nc_only":"dtr_gallery_nc_only","dtr:settings:hp_color":"dtr_hp_color","dtr:settings:hp_species":"dtr_hp_species","dtr:settings:quickstart_pack":"dtr_quickstart_pack","dtr:settings:qp_anim":"dtr_qp_anim","dtr:settings:qp_starred":"dtr_qp_starred","dtr:settings:wl_state":"dtr_wl_state","dtr:closet:flock_mine":"dtr_cv2_flock_mine","dtr:closet:flock_others":"dtr_cv2_flock_others","dtr:closet:groupby":"dtr_cv2_groupby","dtr:closet:starred":"dtr_cv2_starred","dtr:closet:history":"dia_closet_history_v1","dtr:closet:filter_chip_dyeworks":"neo_dti_filter_chip_dyeworks","dtr:closet:filter_chip_baby":"neo_dti_filter_chip_baby","dtr:closet:filter_chip_mutant":"neo_dti_filter_chip_mutant","dtr:cmp:ownsort":"dtr_cv2_cmp_ownsort2","dtr:cmp:intent":"dtr_cmp_intent","dtr:haul:pintab":"dtr_toh_pintab","dtr:haul:sort":"dtr_toh_sort","dtr:haul:sortdir":"dtr_toh_sortdir","dtr:haul:source":"dtr_toh_source","dtr:haul:last_pet":"dtr_tryon_last_pet","dtr:haul:models":"dtr_tryon_models","dtr:haul:roster":"dtr_tryon_roster","dtr:haul:saved_canvas":"dtr_tryon_saved_canvas","dtr:yo:showhidden":"dtr_yo_showhidden","dtr:yo:sort":"dtr_yo_sort","dtr:yo:top":"dtr_yo_top","dtr:yo:view":"dtr_yo_view","dtr:oe:canvas_shrink":"dtr_oe_canvas_shrink","dtr:oe:hide_locked":"dtr_oe_hide_locked","dtr:oe:hires":"dtr_oe_hires","dtr:oe:img_archive":"dtr_oe_img_archive","dtr:oe:pinned_zones":"dtr_oe_pinned_zones","dtr:oe:variant_hidden":"dtr_oe_variant_hidden","dtr:oe:zonemap_show":"dtr_oe_zonemap_show","dtr:oe:color_engine":"dtr_oe_color_engine","dtr:oe:colormatch":"dtr_oe_colormatch","dtr:oe:combo_crown":"dtr_oe_combo_crown","dtr:oe:cs_view":"dtr_oe_cs_view","dtr:oe:layers_view":"dtr_oe_layers_view","dtr:oe:p2_color_engine":"dtr_oe_p2_color_engine","dtr:oe:p2_colormatch":"dtr_oe_p2_colormatch","dtr:oe:p2_dots_v1":"dtr_oe_p2_dots_v1","dtr:oe:p2_sort":"dtr_oe_p2_sort","dtr:oe:p3_sort":"dtr_oe_p3_sort","dtr:oe:pk_dense":"dtr_oe_pk_dense","dtr:oe:search_h":"dtr_oe_search_h","dtr:oe:search_prefs":"dtr_oe_search_prefs","dtr:oe:share_break":"dtr_oe_share_break","dtr:oe:share_details":"dtr_oe_share_details","dtr:oe:share_level":"dtr_oe_share_level","dtr:oe:share_names":"dtr_oe_share_names","dtr:oe:share_pets":"dtr_oe_share_pets","dtr:oe:starred":"dtr_oe_starred","dtr:oe:starter_packs":"dtr_oe_starter_packs","dtr:oe:strip_collapsed":"dtr_oe_strip_collapsed","dtr:oe:tags":"dtr_oe_tags","dtr:oe:variant_groups":"dtr_oe_variant_groups","dtr:oe:zonemap":"dtr_oe_zonemap","dtr:oe:zonemap_docked":"dtr_oe_zonemap_docked","dtr:oe:zonemap_locked":"dtr_oe_zonemap_locked","dtr:oe:zonemap_mini":"dtr_oe_zonemap_mini","dtr:ps:clip":"dtr_ps_clip","dtr:ps:collage_title":"dtr_ps_collage_title","dtr:ps:cw_open":"dtr_ps_cw_open","dtr:ps:dense":"dtr_ps_dense","dtr:ps:label_colors_v1":"dtr_ps_label_colors_v1","dtr:ps:labels_v1":"dtr_ps_labels_v1","dtr:ps:own":"dtr_ps_own","dtr:ps:ownf":"dtr_ps_ownf","dtr:ps:sort":"dtr_ps_sort","dtr:ps:style_pet_log":"dtr_style_pet_log","dtr:import:closet_harvest":"dtr_closet_harvest","dtr:import:sdb_harvest":"dtr_sdb_harvest","dtr:import:pets_queue":"dtr_pets_import_queue","dtr:import:sdb_queue":"dtr_sdb_import_queue","dtr:import:closet_queue":"dtr_closet_import_queue","dtr:import:gallery_queue":"dtr_gallery_import_queue","dtr:trade:dia_data_v1":"dti_import_apprentice_data_v1","dtr:import:history":"neo_dti_import_history","dtr:import:pending_sync":"neo_dti_pending_sync","dtr:import:export_mode":"neo_dti_export_mode","dtr:import:last_updated":"neo_dti_last_updated","dtr:import:bulk_cols":"neo_dti_bulk_cols","dtr:import:bulk_board":"neo_dti_bulk_board","dtr:import:bulk_gridpos":"neo_dti_bulk_gridpos","dtr:import:bulk_tilesize":"neo_dti_bulk_tilesize","dtr:trade:favorite_owners":"neo_dti_favorite_owners","dtr:trade:owner_notes":"neo_dti_owner_notes","dtr:trade:fav_only":"neo_dti_trade_fav_only","dtr:trade:tab":"neo_dti_trade_tab","dtr:trade:visited_links":"neo_dti_visited_links","dtr:trade:login_state":"neo_dti_login_state","dtr:trade:statuses":"neo_dti_trade_statuses","dtr:trade:revealed":"neo_dti_trades_revealed","dtr:trade:custom_statuses":"neo_dti_custom_status_options","dtr:trade:status_order":"neo_dti_status_order","dtr:trade:status_colors":"neo_dti_status_colors","dtr:trade:date_filter_v1":"dia_date_filter_v1","dtr:lists:nicknames":"neo_dti_nicknames","dtr:lists:order":"neo_dti_order","dtr:lists:inactive":"neo_dti_inactive","dtr:lists:show_hidden":"neo_dti_show_hidden","dtr:lists:preview_prefs":"neo_dti_preview_prefs","dtr:lists:preview_open":"neo_dti_preview_open","dtr:lists:disable_list_drag":"neo_dti_disable_list_drag","dtr:lists:disable_shortlist_drag":"neo_dti_disable_shortlist_drag","dtr:cache:idb_v1":"dtr_idb_cache_v1","dtr:cache:idb_v2":"dtr_idb_cache_v2","dtr:cache:idb_colors_v1":"dtr_idb_colors_v1","dtr:cache:item_names":"dtr_item_names","dtr:cache:item_nc":"dtr_item_nc","dtr:cache:item_thumbs":"dtr_item_thumbs","dtr:cache:item_zones":"dtr_item_zones","dtr:cache:item_resolve":"dtr_item_resolve_cache","dtr:cache:zone_tip":"dtr_zone_tip_cache","dtr:cache:lebron":"dtr_lebron","dtr:cache:lebron_ts":"dtr_lebron_ts","dtr:cache:pet_thumbs":"dtr_pet_thumbs","dtr:cache:last_pts":"dtr_last_pts","dtr:cache:last_user":"dtr_last_user","dtr:cache:spco_names":"dtr_spco_names","dtr:cache:trade_dates_v1":"dia_date_cache_v1","dtr:cache:tryon_pet_data":"dtr_tryon_pet_data","dtr:cache:cv2_items_v2":"dtr_cv2_item_cache_v2","dtr:cache:my_lists":"dtr_my_lists_cache","dtr:cache:ps_nameidx":"dtr_ps_nameidx","dtr:cache:ps_thumbs":"dtr_ps_thumbs","dtr:cache:pixhist_v1":"dtr_oe_pixhist_v1","dtr:cache:pixhist_v2":"dtr_oe_pixhist_v2","dtr:cache:pixhist_v3":"dtr_oe_pixhist_v3","dtr:cache:pixhist_v4":"dtr_oe_pixhist_v4","dtr:cache:pixhist_v5":"dtr_oe_pixhist_v5","dtr:cache:pixhist_v6":"dtr_oe_pixhist_v6","dtr:cache:pixhist_v7":"dtr_oe_pixhist_v7","dtr:cache:pixhist_v8":"dtr_oe_pixhist_v8","dtr:cache:pixhist_v9":"dtr_oe_pixhist_v9","dtr:cache:pixtable":"dtr_oe_pixtable","dtr:cache:item_index":"dtr_item_index","dtr:cache:p2_sweep_v1":"dtr_oe_p2_sweep_v1","dtr:cache:petpets":"dtr_oe_petpets"};
     var RP = [[/^dtr:u:([^:]+):haul:items$/,"dtr_cv2_haul::$1"],[/^dtr:u:([^:]+):haul:migrated$/,"dtr_cv2_haul_migrated::$1"],[/^dtr:u:([^:]+):lb:boards$/,"dtr_lookbook::$1"],[/^dtr:u:([^:]+):lb:drafts$/,"dtr_lb_drafts::$1"],[/^dtr:u:([^:]+):cmp:excluded$/,"dtr_cv2_cmp_excluded::$1"],[/^dtr:u:([^:]+):clip:list_(id|name)(_backup)?$/,"dtr_qa_list_$2$3::$1"],[/^dtr:lb:img::(.+)$/,"dtr_lb_img::$1"],[/^dtr:import:batch([a-z_]*)$/,"neo_dti_batch$1"],[/^dtr:import:staging_v4::(.+)$/,"dia_staging_v4::$1"],[/^dtr:haul:active::(.+)$/,"dtr_haul_active_$1"],[/^dtr:ps:(.+)$/,"dtr_ps_$1"]];
     function oldKeyFor(k) {
       if (Object.prototype.hasOwnProperty.call(REVERSE, k)) return REVERSE[k];
@@ -956,6 +956,8 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       { name: 'sign-in', site: 'impress', test: function (p) { return /^\/users\/sign_in\b/.test(p); } },
       { name: 'settings', site: 'impress', test: function (p) { return /^\/users\/edit\b/.test(p); } },
 
+      { name: 'terms', site: 'impress', test: function (p) { return /^\/terms\b/.test(p); } },
+
       { name: 'np-inventory', site: 'neopets', test: function (p) { return /\/inventory\.phtml/.test(p); } },
       { name: 'np-sdb', site: 'neopets', test: function (p) { return /\/safetydeposit\.phtml/.test(p); } },
       { name: 'np-closet', site: 'neopets', test: function (p) { return /\/closet\.phtml/.test(p); } },
@@ -1076,6 +1078,8 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       content_copy: 'M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z',
 
       copy_rounded: 'M5.6 3 H13.4 Q14.9 3 14.9 4 Q14.9 5 13.9 5 H5.6 Q5 5 5 5.6 V13.9 Q5 14.9 4 14.9 Q3 14.9 3 13.9 V5.6 Q3 3 5.6 3 Z M10.6 8 H18.4 Q21 8 21 10.6 V18.4 Q21 21 18.4 21 H10.6 Q8 21 8 18.4 V10.6 Q8 8 10.6 8 Z M10.7 9.9 Q9.9 9.9 9.9 10.7 V18.3 Q9.9 19.1 10.7 19.1 H18.3 Q19.1 19.1 19.1 18.3 V10.7 Q19.1 9.9 18.3 9.9 Z',
+
+      copy_thin: { vb: '0 -960 960 960', d: 'M375-262q-36.73 0-61.36-24.64Q289-311.27 289-348v-424q0-36.72 24.64-61.36Q338.27-858 375-858h304q36.72 0 61.36 24.64T765-772v424q0 36.73-24.64 61.36Q715.72-262 679-262H375Zm0-54h304q12 0 22-10t10-22v-424q0-12-10-22t-22-10H375q-12 0-22 10t-10 22v424q0 12 10 22t22 10ZM241-128q-36.73 0-61.36-24.64Q155-177.27 155-214v-478h54v478q0 12 10 22t22 10h358v54H241Zm102-188v-488 488Z' },
       delete:       'M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z',
 
       edit:         { vb: '0 -960 960 960', d: 'M160-400v-80h280v80H160Zm0-160v-80h440v80H160Zm0-160v-80h440v80H160Zm360 560v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T863-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z' },
@@ -9252,6 +9256,15 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           return;
         }
         _cv2Lists = lists;
+
+        try {
+          _cv2Lists.forEach(function (_gl) {
+            if (!_gl || _gl.descriptionHtml || _gl.id == null) return;
+            var _sel2 = (window.CSS && CSS.escape) ? CSS.escape(String(_gl.id)) : String(_gl.id);
+            var _dc2 = window.dtrParkedQ('.closet-list[data-id="' + _sel2 + '"] .closet-list-content');
+            if (_dc2 && window._dtrDescHtml) { var _dh2 = window._dtrDescHtml(_dc2); if (_dh2) _gl.descriptionHtml = _dh2; }
+          });
+        } catch (_) {}
         try { _cv2HaulMigrateHomepage(); _cv2HaulSyncCount(); if (document.getElementById('dia-cv2-haul-panel')) _cv2HaulRenderPanel(); } catch (_e) {}
 
         try {
@@ -10548,7 +10561,9 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           + (_fNick ? '<div class=cv2-fph-nick>' + esc(_fNick) + '</div>' : '')
           + '<div class=cv2-fph-badges>' + _cv2Badges(l) + '</div>'
           + ((_cv2IsUnlisted(l.id) && !_cv2Visitor) ? ('<div class=cv2-fph-unlhint><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l-3 3 3 3"/><path d="M2 12h12"/><path d="M14 5h4a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-4"/></svg><span>These aren’t in a list yet, drag any onto a list on the left to file it.</span></div>') : '')
-          + (_fRawDesc ? '<div class=cv2-fph-desc>' + esc(_fRawDesc) + '</div>' : '')
+
+          + (l.descriptionHtml ? '<div class="cv2-fph-desc cv2-desc-rich">' + l.descriptionHtml + '</div>'
+             : (_fRawDesc ? '<div class=cv2-fph-desc>' + esc(_fRawDesc) + '</div>' : ''))
           + '</div>' + '<div class=cv2-fly-grid id=cv2-fly-grid></div>';
 
         if (l.ownsOrWantsItems === 'WANTS') {
@@ -20373,7 +20388,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
                <a class="dia-ql" href="${itemsHref}">Items</a>
                <button type="button" class="dia-ql dia-ql-psboard" data-ps-board><span class="dia-ql-stack"><span>Pet</span><span>Styles</span></span></button>
                <a class="dia-ql" href="https://impress.openneo.net/your-outfits">Outfits</a>
-               <a class="dia-ql" href="https://impress.openneo.net/your-outfits#records">Records</a>
+               <a class="dia-ql" href="https://impress.openneo.net/terms#records">Records</a>
                <a class="dia-ql" href="/users/edit">Settings</a>
                <div class="dia-ql-divider"></div>
                <div class="dia-more">
@@ -21112,15 +21127,30 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   };
 
   window._dtrWLNewRow = {
+
+    css: function () {
+      if (location.hostname !== 'impress.openneo.net') return;
+      if (document.getElementById('dtr-wlnew-css')) return;
+      var st = document.createElement('style'); st.id = 'dtr-wlnew-css';
+      st.textContent =
+        '.dtr-wlnew-stripe{height:3px;border-radius:999px;margin:1px 6px 5px;opacity:.75;background:var(--dtr-stripe, linear-gradient(90deg,#5fc9b8 0 25%,#7fb8ec 25% 45%,#ff9ec0 45% 72%,#ffd66b 72% 100%))}' +
+        '.dtr-wlnew-vispill{font:600 9.5px/1 Nunito,sans-serif;letter-spacing:.02em;padding:4px 8px;border-radius:6px;border:1px solid transparent;cursor:pointer;background:var(--dtr-cream,#f4f1ea);color:var(--dtr-grey6,#8a857c)}' +
+
+        '.dtr-wlnew-vispill.on[data-dtr-wlnew-visopt=public]{background:color-mix(in srgb,var(--dtr-primary,#149c8e) 12%,#fff);border-color:color-mix(in srgb,var(--dtr-primary,#149c8e) 45%,#fff);color:var(--dtr-primary,#1c6b4e)}' +
+        '.dtr-wlnew-vispill.on[data-dtr-wlnew-visopt=private]{background:var(--dtr-cream, #efeae4);border-color:var(--dtr-grey4, #cabfb0);color:#6a5d4a}';
+      (document.head || document.documentElement).appendChild(st);
+    },
     html: function (cls) {
+      try { window._dtrWLNewRow.css(); } catch (_) {}
       return '<div class="dtr-wlnew" data-dtr-wlnew-wrap>'
         + '<button type="button" class="' + (cls || '') + '" data-dtr-wlnew-btn style="display:block;width:100%;text-align:left;border:none;background:transparent;cursor:pointer;font:700 11px Nunito,sans-serif;color:var(--dtr-primary-d, #347f76);padding:7px 9px;border-radius:7px">+ New list</button>'
         + '<div data-dtr-wlnew-form style="display:none;padding:4px 6px 6px"><input data-dtr-wlnew-name maxlength="60" placeholder="List name" style="width:100%;box-sizing:border-box;padding:7px 9px;border:1.5px solid var(--dtr-line,#e7e1d4);border-radius:8px;font:700 11px Nunito,sans-serif;color:var(--dtr-ink-strong,#46463f);background:var(--dtr-card,#fff)">'
         + '<div data-dtr-wlnew-vis style="display:flex;gap:5px;padding:6px 0 0">'
-        +   '<button type="button" data-dtr-wlnew-visopt="private" aria-pressed="true" style="border:none;border-radius:999px;padding:4px 11px;font:700 10px Nunito,sans-serif;cursor:pointer;background:var(--dtr-primary-bg,#dbf5f1);color:var(--dtr-primary-d,#0f7f73)">Private</button>'
-        +   '<button type="button" data-dtr-wlnew-visopt="public" aria-pressed="false" style="border:none;border-radius:999px;padding:4px 11px;font:700 10px Nunito,sans-serif;cursor:pointer;background:var(--dtr-cream,#f4f1ea);color:var(--dtr-grey6,#8a857c)">Public</button>'
+        +   '<button type="button" data-dtr-wlnew-visopt="private" aria-pressed="true" class="dtr-wlnew-vispill on">Private</button>'
+        +   '<button type="button" data-dtr-wlnew-visopt="public" aria-pressed="false" class="dtr-wlnew-vispill">Public</button>'
         + '</div>'
         + '<div data-dtr-wlnew-note style="font:600 9px Nunito,sans-serif;color:var(--dtr-grey5,#a09e94);padding:4px 2px 0">Enter to create, Esc to cancel</div></div>'
+        + '<div class="dtr-wlnew-stripe" aria-hidden="true"></div>'
         + '</div>';
     },
     wire: function (menuEl, onCreated) {
@@ -21135,8 +21165,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           Array.prototype.forEach.call(row.querySelectorAll('[data-dtr-wlnew-visopt]'), function (b2) {
             const on = b2 === vp;
             b2.setAttribute('aria-pressed', on ? 'true' : 'false');
-            b2.style.background = on ? 'var(--dtr-primary-bg,#dbf5f1)' : 'var(--dtr-cream,#f4f1ea)';
-            b2.style.color = on ? 'var(--dtr-primary-d,#0f7f73)' : 'var(--dtr-grey6,#8a857c)';
+            b2.classList.toggle('on', on);
           });
           const inp2 = vp.closest('[data-dtr-wlnew-form]').querySelector('[data-dtr-wlnew-name]');
           setTimeout(function () { try { inp2.focus(); } catch (_) {} }, 0);
@@ -22400,6 +22429,8 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   var _YO_CROWN_SVG = '<svg viewBox="0 0 24 18" width="17" height="13" fill="none"><path d="M3.4 5 L7.7 9 L12 2.6 L16.3 9 L20.6 5 L19.2 16.4 L4.8 16.4 Z" fill="#f8d24d" stroke="#d99f27" stroke-width="1.6" stroke-linejoin="round"/></svg>';
 
   var _rec = { tab: 'itemnotes', q: '', confirm: null, edit: null, selMode: false, sel: {}, sort: {} };
+
+  try { var _recSortSaved = window.dtrStore.get('dtr:settings:rec_sort', ''); if (_recSortSaved) _rec.sort = JSON.parse(_recSortSaved) || {}; } catch (_) {}
   function _recWho() { try { return (typeof dtrWhoKey === 'function') ? dtrWhoKey() : 'guest'; } catch (_) { return 'guest'; } }
   function _recClipBoards() {
     var out = [], pre = 'dia_staging_v4::' + _recWho() + '::';
@@ -22429,16 +22460,59 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   function _recItemMeta(id) {
     var row = null;
     try { row = window.__dtrItemById ? window.__dtrItemById(id) : null; } catch (_) {}
-    if (!row) return { name: 'Item ' + id, thumb: '' };
-    var st = String(row[2] || '');
-    if (st && !/\.(gif|png|jpg)$/i.test(st)) st += '.gif';
-    return { name: row[1], thumb: st ? 'https://images.neopets.com/items/' + st : '' };
+    if (row) {
+      var st = String(row[2] || '');
+      if (st && !/\.(gif|png|jpg)$/i.test(st)) st += '.gif';
+      return { name: row[1], thumb: st ? 'https://images.neopets.com/items/' + st : '' };
+    }
+
+    try {
+      if (!_recNameCache) _recNameCache = JSON.parse(GM_getValue('dtr_item_names', '{}')) || {};
+      if (!_recThumbCache) _recThumbCache = JSON.parse(GM_getValue('dtr_item_thumbs', '{}')) || {};
+    } catch (_) { _recNameCache = _recNameCache || {}; _recThumbCache = _recThumbCache || {}; }
+    var nm = _recNameCache[String(id)];
+    if (nm) return { name: nm, thumb: _recThumbCache[String(id)] || '' };
+    return { name: 'Item ' + id, thumb: '', unknown: true };
+  }
+  var _recNameCache = null, _recThumbCache = null, _recMetaTried = {};
+
+  function _recFetchMeta(ids, onDone) {
+    ids = (ids || []).map(function (id) { return String(parseInt(id, 10)); }).filter(function (id) { return id !== 'NaN' && !_recMetaTried[id]; });
+    if (!ids.length) return;
+    ids.forEach(function (id) { _recMetaTried[id] = 1; });
+    var q = '{' + ids.map(function (id, i) { return 'i' + i + ': item(id:"' + id + '"){id name thumbnailUrl}'; }).join(' ') + '}';
+    fetch('https://impress-2020.openneo.net/api/graphql', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: q }),
+    }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
+      var d = j && j.data; if (!d) return;
+      var got = 0;
+      var names = {}, thumbs = {};
+      try { names = JSON.parse(GM_getValue('dtr_item_names', '{}')) || {}; } catch (_) {}
+      try { thumbs = JSON.parse(GM_getValue('dtr_item_thumbs', '{}')) || {}; } catch (_) {}
+      Object.keys(d).forEach(function (k) {
+        var it = d[k];
+        if (it && it.id && it.name) { got++; names[String(it.id)] = it.name; if (it.thumbnailUrl) thumbs[String(it.id)] = it.thumbnailUrl; }
+      });
+      if (!got) return;
+      try { GM_setValue('dtr_item_names', JSON.stringify(names)); } catch (_) {}
+      try { GM_setValue('dtr_item_thumbs', JSON.stringify(thumbs)); } catch (_) {}
+      _recNameCache = names; _recThumbCache = thumbs;
+      if (onDone) { try { onDone(); } catch (_) {} }
+    }).catch(function () {});
   }
 
   function _recEmpty(msg) { return '<div style="text-align:center;font:600 11.5px/1.6 Nunito,sans-serif;color:var(--dtr-grey5,#a9a0b4);padding:38px 10px">' + msg + '</div>'; }
 
   function _recRow(cols, cells, key) {
 
+    var pend = _rec.pending && _rec.pending.tab === _rec.tab && _rec.pending.keys && _rec.pending.keys[String(key)];
+    if (pend) {
+      return '<div data-dtr-rec-row="' + _yoEsc(key || '') + '" data-dtr-rec-pend style="display:flex;align-items:center;justify-content:flex-end;gap:10px;padding:10px 6px;border-bottom:1px solid var(--dtr-line,#f0e9df);background:var(--dtr-card,#fffbf4)">'
+        + '<span style="font:700 11px Nunito,sans-serif;color:var(--dtr-ink3,#5f5b69)">Deleted</span>'
+        + '<button data-dtr-rec-act="undo" data-dtr-rec-arg="" style="border:none;background:var(--dtr-pink-pale,#ffe3ec);color:var(--dtr-berry,#c2487c);border-radius:999px;font:800 10.5px Nunito,sans-serif;padding:5px 12px;cursor:pointer;flex-shrink:0">Undo</button>'
+        + '</div>';
+    }
     return '<div data-dtr-rec-row="' + _yoEsc(key || '') + '" style="display:grid;grid-template-columns:' + cols + ';gap:14px;align-items:center;padding:10px 6px;border-bottom:1px solid var(--dtr-line,#f0e9df)">' + cells.join('') + '</div>';
   }
   function _recCb(key) {
@@ -22545,7 +22619,6 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
     var q = (_rec.q || '').trim();
     return '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:2px 4px 8px;flex:none;min-height:34px;box-sizing:border-box">'
       + (n ? _recBtn('bulkdel', '', _rec.confirm === 'bulk' ? 'Sure? Delete ' + n : 'Delete selected (' + n + ')', true) : '')
-      + (_rec.undo ? _recBtn('undo', '', 'Undo delete', false) : '')
       + '<span style="flex:1"></span>'
       + (q ? '<span style="display:inline-flex;align-items:center;gap:5px;font:700 10px Nunito,sans-serif;color:var(--dtr-berry,#c2487c);background:var(--dtr-pink-pale,#ffe3ec);border-radius:999px;padding:4px 6px 4px 11px;max-width:60%;min-width:0"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Filtering: ' + _yoEsc(q) + '</span><button data-dtr-rec-act="clearq" aria-label="Clear search" title="Clear search" style="border:none;background:transparent;color:inherit;cursor:pointer;padding:2px;display:inline-flex;flex:none">' + window.dtrIcon.html('close', { size: 11 }) + '</button></span>' : '')
       + '</div>';
@@ -22748,6 +22821,9 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
     }
 
     var TABCOL = { itemnotes: ['var(--dtr-mint-pale,#e2efe6)', '#4b7a58'], traders: ['var(--dtr-butter,#fdf3d9)', '#9a7200'], statuses: ['var(--dtr-pink-pale,#ffe3ec)', 'var(--dtr-berry,#c2487c)'], clips: ['var(--dtr-lilac,#f1ddec)', '#7c5f92'] };
+
+    var _scPrev = root.querySelector('[data-dtr-rec-scroll]');
+    var _scTopPrev = _scPrev ? _scPrev.scrollTop : 0;
     root.innerHTML =
 
       '<div style="width:min(820px,95vw);box-sizing:border-box;margin:0 auto;padding:12px 16px 46px;font-family:Nunito,sans-serif">'
@@ -22772,6 +22848,14 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       + body
       + '</div>'
       + '</div>';
+
+    var _scNew = root.querySelector('[data-dtr-rec-scroll]');
+    if (_scNew && _scTopPrev) _scNew.scrollTop = _scTopPrev;
+
+    try {
+      var _unk = Object.keys(notes).filter(function (nid) { return _recItemMeta(nid).unknown; });
+      if (_unk.length) _recFetchMeta(_unk, function () { try { _recRender(root); } catch (_) {} });
+    } catch (_) {}
     var qi = root.querySelector('[data-dtr-rec-q]');
     if (_rec._qFocus && qi) { qi.focus(); try { qi.setSelectionRange(qi.value.length, qi.value.length); } catch (_) {} _rec._qFocus = false; }
 
@@ -22786,6 +22870,11 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   function _recWire(root) {
     if (root._dtrRecWired) return;
     root._dtrRecWired = true;
+
+    try {
+      var _recIdxFill = function (ok) { if (ok && root.isConnected) { try { _recRender(root); } catch (_) {} } return ok; };
+      window._dtrIndexWait(8000).then(function (ok) { if (!_recIdxFill(ok)) window._dtrIndexWait(30000).then(_recIdxFill); });
+    } catch (_) {}
     root.addEventListener('input', function (e) {
       if (!e.target.matches || !e.target.matches('[data-dtr-rec-q]')) return;
       _rec.q = e.target.value; _rec._qFocus = true; _recRender(root);
@@ -22800,6 +22889,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         var st = (_rec.sort = _rec.sort || {})[_rec.tab] || (_rec.sort[_rec.tab] = {});
         if (st.col === scol) st.dir = -(st.dir || 1);
         else { st.col = scol; st.dir = (scol === 'when' || scol === 'contents') ? -1 : 1; }
+        try { window.dtrStore.set('dtr:settings:rec_sort', JSON.stringify(_rec.sort)); } catch (_) {}
         _recRender(root); return;
       }
       var b = e.target.closest && e.target.closest('[data-dtr-rec-act]');
@@ -22807,10 +22897,48 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       var act = b.getAttribute('data-dtr-rec-act'), arg = b.getAttribute('data-dtr-rec-arg');
       var rerender = function () { _recRender(root); };
 
-      var stashUndo = function (u) {
-        _rec.undo = u;
-        if (_rec._undoT) clearTimeout(_rec._undoT);
-        _rec._undoT = setTimeout(function () { _rec.undo = null; try { _recRender(root); } catch (_) {} }, 12000);
+      var finalizePending = function (immediate) {
+        var p = _rec.pending;
+        if (!p) return;
+        if (p.timer) { clearTimeout(p.timer); p.timer = null; }
+
+        if (!immediate && !p._closing) {
+          p._closing = true;
+          var rows = [];
+          try { root.querySelectorAll('[data-dtr-rec-pend]').forEach(function (el) { rows.push(el); }); } catch (_) {}
+          if (rows.length) {
+            rows.forEach(function (el) {
+              el.style.height = el.offsetHeight + 'px';
+              el.style.overflow = 'hidden';
+              el.style.boxSizing = 'border-box';
+              void el.offsetHeight;
+              el.style.transition = 'height .24s ease, opacity .18s ease, padding .24s ease';
+              el.style.height = '0px'; el.style.opacity = '0';
+              el.style.paddingTop = '0px'; el.style.paddingBottom = '0px';
+            });
+            setTimeout(function () { if (_rec.pending === p) finalizePending(true); }, 260);
+            return;
+          }
+        }
+        _rec.pending = null;
+        var keys = Object.keys(p.keys || {});
+        if (keys.length) {
+          if (p.kind === 'clips') {
+            keys.forEach(function (k) { try { localStorage.removeItem(k); localStorage.removeItem(k.replace('dia_staging_v4::', 'dia_staging_meta_v1::')); } catch (_) {} });
+          } else {
+            var all = getDIASection(p.sec, {}) || {};
+            keys.forEach(function (k) { delete all[k]; });
+            setDIASection(p.sec, all);
+          }
+        }
+        try { _recRender(root); } catch (_) {}
+      };
+      var armPending = function (kind, sec, keys) {
+        if (_rec.pending) finalizePending(true);
+        var m = {}; keys.forEach(function (k) { m[String(k)] = true; });
+        _rec.pending = { kind: kind, sec: sec, tab: _rec.tab, keys: m };
+        _rec.pending.timer = setTimeout(function () { finalizePending(); }, 2000);
+        rerender();
       };
       var confirmTwice = function (tag) {
         if (_rec.confirm !== tag) { _rec.confirm = tag; rerender(); setTimeout(function () { if (_rec.confirm === tag) { _rec.confirm = null; try { _recRender(root); } catch (_) {} } }, 2600); return false; }
@@ -22820,68 +22948,38 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       if (act === 'openuser') { try { window._dtrOpenTab(arg); } catch (_) {} return; }
       if (act === 'clearq') { _rec.q = ''; _recRender(root); return; }
       if (act === 'undo') {
-        var u = _rec.undo; _rec.undo = null;
-        if (_rec._undoT) { clearTimeout(_rec._undoT); _rec._undoT = null; }
-        if (u) {
-          if (u.kind === 'clips') {
-            u.items.forEach(function (it) {
-              try {
-                if (it.raw != null) localStorage.setItem(it.k, it.raw);
-                if (it.meta != null) localStorage.setItem(it.k.replace('dia_staging_v4::', 'dia_staging_meta_v1::'), it.meta);
-              } catch (_) {}
-            });
-          } else {
-            var allU = getDIASection(u.sec, {}) || {};
-            u.items.forEach(function (it) { if (it.v != null) allU[it.k] = it.v; });
-            setDIASection(u.sec, allU);
 
-            if (u.tsName) {
-              var tsU = getDIASection(u.tsName, {}) || {};
-              u.items.forEach(function (it) { if (it.ts) tsU[it.k] = it.ts; else delete tsU[it.k]; });
-              setDIASection(u.tsName, tsU);
-            }
-          }
-        }
+        var p = _rec.pending;
+        if (p) { if (p.timer) clearTimeout(p.timer); _rec.pending = null; }
         rerender(); return;
       }
       if (act === 'bulkdel') {
         var selset = (_rec.sel && _rec.sel[_rec.tab]) || {};
         var bkeys = Object.keys(selset).filter(function (k) { return selset[k]; });
+
+        var _visNow = {};
+        try { root.querySelectorAll('[data-dtr-rec-cb]').forEach(function (cbEl) { _visNow[cbEl.getAttribute('data-dtr-rec-cb')] = true; }); } catch (_) {}
+        bkeys = bkeys.filter(function (k) { return _visNow[k]; });
         if (!bkeys.length) return;
         if (!confirmTwice('bulk')) return;
+        _rec.sel[_rec.tab] = {};
         if (_rec.tab === 'clips') {
-          stashUndo({ kind: 'clips', items: bkeys.map(function (k) { var mk = k.replace('dia_staging_v4::', 'dia_staging_meta_v1::'); return { k: k, raw: localStorage.getItem(k), meta: localStorage.getItem(mk) }; }) });
-          bkeys.forEach(function (k) { try { localStorage.removeItem(k); localStorage.removeItem(k.replace('dia_staging_v4::', 'dia_staging_meta_v1::')); } catch (_) {} });
+          armPending('clips', null, bkeys);
         } else {
           var sec3 = _rec.tab === 'itemnotes' ? 'itemNotes' : _rec.tab === 'traders' ? 'traderNotes' : 'tradeStatuses';
-          var tsn3 = _rec.tab === 'itemnotes' ? 'itemNoteTs' : _rec.tab === 'traders' ? 'traderNoteTs' : null;
-          var all3 = getDIASection(sec3, {}) || {};
-          var tsm3 = tsn3 ? (getDIASection(tsn3, {}) || {}) : {};
-          stashUndo({ kind: 'sec', sec: sec3, tsName: tsn3, items: bkeys.map(function (k) { return { k: k, v: all3[k], ts: tsm3[k] }; }) });
-          bkeys.forEach(function (k) { delete all3[k]; });
-          setDIASection(sec3, all3);
+          armPending('sec', sec3, bkeys);
         }
-        _rec.sel[_rec.tab] = {};
-        rerender(); return;
+        return;
       }
       if (act === 'delin' || act === 'deltr' || act === 'delst') {
-        var tag = (act === 'delin' ? 'in:' : act === 'deltr' ? 'tr:' : 'st:') + arg;
-        if (!confirmTwice(tag)) return;
+
         var sec2 = act === 'delin' ? 'itemNotes' : act === 'deltr' ? 'traderNotes' : 'tradeStatuses';
-        var tsn2 = act === 'delin' ? 'itemNoteTs' : act === 'deltr' ? 'traderNoteTs' : null;
-        var all2 = getDIASection(sec2, {}) || {};
-        var tsm2 = tsn2 ? (getDIASection(tsn2, {}) || {}) : {};
-        stashUndo({ kind: 'sec', sec: sec2, tsName: tsn2, items: [{ k: arg, v: all2[arg], ts: tsm2[arg] }] });
-        delete all2[arg];
-        setDIASection(sec2, all2);
-        rerender(); return;
+        armPending('sec', sec2, [arg]);
+        return;
       }
       if (act === 'clipclear') {
-        if (!confirmTwice('cl:' + arg)) return;
-        var mk1 = String(arg).replace('dia_staging_v4::', 'dia_staging_meta_v1::');
-        stashUndo({ kind: 'clips', items: [{ k: String(arg), raw: localStorage.getItem(arg), meta: localStorage.getItem(mk1) }] });
-        try { localStorage.removeItem(arg); localStorage.removeItem(mk1); } catch (_) {}
-        rerender(); return;
+        armPending('clips', null, [String(arg)]);
+        return;
       }
     });
 
@@ -22917,9 +23015,11 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       var tip = document.getElementById('dia-global-note-tooltip') || (function () { var el = document.createElement('div'); el.id = 'dia-global-note-tooltip'; el.className = 'dia-ui-tooltip'; document.body.appendChild(el); return el; })();
       tip.textContent = t.getAttribute('data-dtr-rec-itemtip');
       tip.classList.add('show');
-      var rect = t.getBoundingClientRect(); var tw = tip.offsetWidth;
+      var rect = t.getBoundingClientRect(); var tw = tip.offsetWidth; var th = tip.offsetHeight;
       tip.style.left = Math.min(window.innerWidth - tw - 8, Math.max(8, rect.left + rect.width / 2 - tw / 2)) + 'px';
-      tip.style.top = (rect.bottom + 6) + 'px';
+
+      var _tUp = rect.top - th - 6;
+      tip.style.top = (_tUp >= 8 ? _tUp : rect.bottom + 6) + 'px';
     });
     root.addEventListener('mouseout', function (e) {
       var t = e.target.closest && e.target.closest('[data-dtr-rec-itemtip]');
@@ -23187,10 +23287,10 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           + '<div class="dtr-yo-wladd-wrap">'
           +   '<button type="button" class="dtr-yo-wladd' + (nSel ? '' : ' dis') + '" data-yo-wladd="' + oid + '"' + (nSel ? '' : ' disabled') + '>+ Add to wishlist ' + window.dtrIcon.html('expand_more', { size: 12 }) + '</button>'
           +   '<div class="dtr-yo-wlmenu" data-yo-wlmenu="' + oid + '" hidden>'
+          +     (window._dtrWLNewRow ? window._dtrWLNewRow.html('dtr-yo-menurow') : '')
           +     (wls.length
                   ? '<div class="dtr-yo-menuhead">Add selected to…</div>' + wls.map(function (l) { return '<button type="button" class="dtr-yo-menurow" data-yo-wlpick="' + oid + ':' + _yoEsc(String(l.id)) + '">' + _yoEsc(l.name || 'Wishlist') + '</button>'; }).join('')
                   : '<div class="dtr-yo-menuhead">No Wants lists yet</div><div class="dtr-yo-wlnote">Make one right here.</div>')
-          +     (window._dtrWLNewRow ? window._dtrWLNewRow.html('dtr-yo-menurow') : '')
           +   '</div>'
           + '</div>'
           + '</div>'
@@ -23677,6 +23777,59 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', _dtrBuildComingSoon, { once: true });
   else _dtrBuildComingSoon();
   document.addEventListener('turbo:load', _dtrBuildComingSoon);
+
+  function _recTermsSkin() {
+    if (document.getElementById('dtr-rec-terms-skin')) return;
+    var sk = document.createElement('style'); sk.id = 'dtr-rec-terms-skin';
+    sk.textContent = [
+      'html.dtr-rec-terms body{background:var(--dtr-polka,#fdf7f0) var(--dtr-card, #fdf7f0)!important;background-attachment:fixed!important;font-family:"Nunito",Inter,Arial,sans-serif!important}',
+      'html.dtr-rec-terms #main-nav{display:none!important}',
+      'html.dtr-rec-terms #title{display:none!important}',
+      'html.dtr-rec-terms #footer{display:none!important}',
+      'html.dtr-rec-terms #container>*:not(#dia-hp-nav):not(#dtr-rec-root){display:none!important}',
+      'html.dtr-rec-terms #container{padding:0 14px;max-width:1040px;width:auto;margin:0 auto;box-sizing:border-box}',
+    ].join('');
+    (document.head || document.documentElement).appendChild(sk);
+  }
+  function _dtrBuildRecordsPage() {
+    if (!window.dtrRoute.is('terms') || (location.hash || '').indexOf('#records') !== 0) return;
+    _recTermsSkin();
+    document.documentElement.classList.add('dtr-rec-terms');
+    try { window._dtrIndexReady(); } catch (_) {}
+    try { window.__dtrDropColdCover && window.__dtrDropColdCover(); } catch (_) {}
+
+    try {
+      if (!document.getElementById('dia-hp-nav') && typeof diaNavInnerHTML === 'function' && typeof diaScrapeNavInfo === 'function') {
+        var navWrap = document.createElement('div');
+        navWrap.id = 'dia-hp-nav';
+        navWrap.innerHTML = diaNavInnerHTML(diaScrapeNavInfo());
+        var cont0 = window.dtrDom.containerOrBody();
+        cont0.insertBefore(navWrap, cont0.firstChild);
+      }
+    } catch (_) {}
+    var root = document.getElementById('dtr-rec-root');
+    if (!root) {
+      root = document.createElement('div');
+      root.id = 'dtr-rec-root';
+      window.dtrDom.containerOrBody().appendChild(root);
+    }
+    _recWire(root);
+    _recRender(root);
+  }
+
+  try { if (window.dtrRoute.is('terms') && (location.hash || '').indexOf('#records') === 0) { _recTermsSkin(); document.documentElement.classList.add('dtr-rec-terms'); } } catch (_) {}
+
+  document.addEventListener('turbo:before-visit', function (e) {
+    try {
+      var u = String((e.detail && e.detail.url) || '');
+      if (u.indexOf('/terms#records') !== -1) { _recTermsSkin(); document.documentElement.classList.add('dtr-rec-terms'); }
+      else document.documentElement.classList.remove('dtr-rec-terms');
+    } catch (_) {}
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', _dtrBuildRecordsPage, { once: true });
+  else _dtrBuildRecordsPage();
+  document.addEventListener('turbo:load', _dtrBuildRecordsPage);
+  window.addEventListener('hashchange', function () { try { _dtrBuildRecordsPage(); } catch (_) {} });
 
   function _dtrBuildLogin() {
     if (!window.dtrRoute.is('sign-in')) return;
@@ -43183,7 +43336,7 @@ if (!tradeLinks.length) {
           .filter(x => (fz === 'All zones' || x.zone === fz) && (!s.lovedOnly || x.loved) && (!s.appliedOnly || _drawn.has(x.name)) && oeSmartMatch(x.name, s.csQuery));
         const hasNonLoved = allItems.some(x => !x.loved);
 
-        const csSeg = on => 'flex:1;display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:5px 11px;border-radius:999px;border:none;cursor:pointer;font:700 11px Nunito,sans-serif;white-space:nowrap;'+(on ? 'background:'+S+';color:#fff' : 'background:transparent;color:var(--dtr-primary-d, #347f76)');
+        const csSeg = on => 'flex:none;display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:4px 9px;border-radius:999px;border:none;cursor:pointer;font:700 10.5px Nunito,sans-serif;white-space:nowrap;'+(on ? 'background:'+S+';color:#fff' : 'background:transparent;color:var(--dtr-primary-d, #347f76)');
 
         const csStar = on => '<span style="display:flex;color:'+(on ? '#fff' : 'var(--dtr-value-gold2, #f0ad3a)')+'">'+OE_STAR(12)+'</span>';
         const grpOnStyle    = 'display:inline-flex;align-items:center;gap:4px;padding:6px 11px;border-radius:999px;border:none;background:'+S+';color:#fff;font:700 11px Nunito,sans-serif;cursor:pointer';
@@ -43371,20 +43524,27 @@ if (!tradeLinks.length) {
             })()
           + '</div>'
 
-          + '<div style="display:flex;align-items:center;gap:6px;margin-bottom:11px">'
-          + '<div style="display:flex;flex:1;min-width:0;background:var(--dtr-cream, #f4f1e8);border:1px solid var(--border);border-radius:999px;padding:2px">'
+          + '<div style="display:flex;align-items:center;gap:5px;margin-bottom:11px">'
+          + '<div style="display:flex;flex:none;background:var(--dtr-cream, #f4f1e8);border:1px solid var(--border);border-radius:999px;padding:2px">'
           + '<button data-cs-all style="'+csSeg(!s.lovedOnly && !s.appliedOnly)+'">All</button>'
           + '<button data-cs-loved style="'+csSeg(s.lovedOnly)+'">'+csStar(s.lovedOnly)+'Starred</button>'
-          + '<button data-cs-applied style="'+csSeg(s.appliedOnly)+'">Currently Applied</button>'
+          + '<button data-cs-applied style="'+csSeg(s.appliedOnly)+';flex-direction:column;gap:0;padding:3px 11px;line-height:1.2">'
+          +   '<span style="display:block">Currently</span><span style="display:block">Worn</span></button>'
           + '</div>'
 
-          + (hasNonLoved
-              ? '<button data-cs-declutter style="margin-left:auto;padding:6px 11px;border-radius:999px;border:none;background:var(--dtr-cream, #fbeee8);color:#cf7a4a;font:700 11px Nunito,sans-serif;cursor:pointer">Declutter</button>'
-              : '<button disabled title="Nothing unstarred to remove yet" style="margin-left:auto;padding:6px 11px;border-radius:999px;border:none;background:var(--dtr-cream, #f1ede4);color:var(--dtr-grey4, #6a6a63);font:700 11px Nunito,sans-serif;cursor:default">Declutter</button>')
-
-          + (s.appliedOnly && filtered.length
-              ? '<button data-cs-sendall title="Add everything currently on your pet to one of your wishlists" style="padding:4px 11px;border-radius:999px;border:none;background:var(--dtr-primary-bg, #eaf5f0);color:var(--dtr-primary-d, #347f76);font:700 10px/1.25 Nunito,sans-serif;cursor:pointer;white-space:nowrap;display:inline-flex;flex-direction:column;align-items:center"><span>+ Add all worn</span><span>to WL</span></button>'
-              : '')
+          + (function () {
+              var _ml = 'margin-left:auto;';
+              var _decl = function (ml) {
+                return hasNonLoved
+                  ? '<button data-cs-declutter style="' + (ml ? _ml : '') + 'flex:none;padding:5px 8px;border-radius:999px;border:none;background:var(--dtr-cream, #fbeee8);color:#cf7a4a;font:700 10.5px Nunito,sans-serif;cursor:pointer">Declutter</button>'
+                  : '<button disabled title="Nothing unstarred to remove yet" style="' + (ml ? _ml : '') + 'flex:none;padding:5px 8px;border-radius:999px;border:none;background:var(--dtr-cream, #f1ede4);color:var(--dtr-grey4, #6a6a63);font:700 10.5px Nunito,sans-serif;cursor:default">Declutter</button>';
+              };
+              var _wl = s.appliedOnly && filtered.length;
+              var _send = _wl
+                ? '<button data-cs-sendall title="Add everything currently on your pet to one of your wishlists" style="' + (_wl ? _ml : '') + 'flex:none;padding:3px 8px;border-radius:999px;border:none;background:var(--dtr-primary-bg, #eaf5f0);color:var(--dtr-primary-d, #347f76);font:700 10px/1.25 Nunito,sans-serif;cursor:pointer;white-space:nowrap;display:inline-flex;flex-direction:column;align-items:center"><span>+ Add all</span><span>worn to WL</span></button>'
+                : '';
+              return _wl ? (_send + _decl(false)) : (_decl(true) + _send);
+            })()
           + '</div>'
           + declutterHTML
 
@@ -43463,9 +43623,9 @@ if (!tradeLinks.length) {
         const m = document.createElement('div');
         m.id = 'dtr-fr-addmenu'; m.dataset.for = '__all__';
         m.style.cssText = 'position:fixed;z-index:120;background:var(--dtr-card, #fff);border:1px solid var(--dtr-beige, #e7e1d4);border-radius:11px;box-shadow:0 10px 26px var(--dtr-shade2, rgba(80,70,90,.22));padding:6px;min-width:170px;max-height:240px;overflow:auto;text-align:left';
-        m.innerHTML = '<div style="font:800 8px Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--dtr-grey4, #b0aea4);padding:3px 8px 5px">Send ' + uniq.length + (uniq.length === 1 ? ' item' : ' items') + ' to</div>'
-          + lists.map(l => '<button data-dtr-sendpick="'+_oeEsc(String(l.id))+'" style="display:block;width:100%;text-align:left;border:none;background:transparent;cursor:pointer;font:700 11px Nunito,sans-serif;color:var(--dtr-ink-strong, #46463f);padding:7px 9px;border-radius:7px">'+_oeEsc(l.name)+'</button>').join('')
-          + (window._dtrWLNewRow ? window._dtrWLNewRow.html() : '');
+        m.innerHTML = (window._dtrWLNewRow ? window._dtrWLNewRow.html() : '')
+          + '<div style="font:800 8px Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--dtr-grey4, #b0aea4);padding:3px 8px 5px">Send ' + uniq.length + (uniq.length === 1 ? ' item' : ' items') + ' to</div>'
+          + lists.map(l => '<button data-dtr-sendpick="'+_oeEsc(String(l.id))+'" style="display:block;width:100%;text-align:left;border:none;background:transparent;cursor:pointer;font:700 11px Nunito,sans-serif;color:var(--dtr-ink-strong, #46463f);padding:7px 9px;border-radius:7px">'+_oeEsc(l.name)+'</button>').join('');
         (document.getElementById('dtr-outfit-editor') || card).appendChild(m);
         const r = btn.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
         const px = v => Math.round(v * dpr) / dpr;
@@ -43522,11 +43682,11 @@ if (!tradeLinks.length) {
         m.style.cssText = 'position:fixed;z-index:120;background:var(--dtr-card, #fff);border:1px solid var(--dtr-beige, #e7e1d4);border-radius:11px;box-shadow:0 10px 26px var(--dtr-shade2, rgba(80,70,90,.22));padding:6px;min-width:160px;max-height:240px;overflow:auto;text-align:left';
 
         const _newRow = (window._dtrWLNewRow ? window._dtrWLNewRow.html() : '');
-        m.innerHTML = (lists.length
+        m.innerHTML = _newRow
+          + (lists.length
           ? '<div style="font:800 8px Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--dtr-grey4, #b0aea4);padding:3px 8px 5px">Add to wishlist</div>'
             + lists.map(l => '<button data-fr-addpick="'+_oeEsc(String(l.id))+'" style="display:block;width:100%;text-align:left;border:none;background:transparent;cursor:pointer;font:700 11px Nunito,sans-serif;color:var(--dtr-ink-strong, #46463f);padding:7px 9px;border-radius:7px">'+_oeEsc(l.name)+'</button>').join('')
-          : '<div style="font:600 10px Nunito,sans-serif;color:var(--dtr-grey5, #a09e94);padding:8px 10px;text-align:center;line-height:1.4">No wishlists yet, make one right here.</div>')
-          + _newRow;
+          : '<div style="font:600 10px Nunito,sans-serif;color:var(--dtr-grey5, #a09e94);padding:8px 10px;text-align:center;line-height:1.4">No wishlists yet, make one right here.</div>');
         (document.getElementById('dtr-outfit-editor') || card).appendChild(m);
 
         const r = btn.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
@@ -45940,11 +46100,12 @@ if (!tradeLinks.length) {
           + '<button data-cmp-addto="' + id + '" data-cmp-occ="' + occ + '" data-cmp-addname="' + _oeEsc(it.name) + '" title="Add to a wishlist" style="border:1.5px solid ' + GRAPE + ';background:' + (picking ? GRAPE_BG : 'var(--dtr-card, #fff)') + ';color:' + GRAPE_D + ';font:800 8.5px Nunito,sans-serif;letter-spacing:.03em;text-transform:uppercase;padding:5px 9px;border-radius:12px;cursor:pointer;line-height:1.25'+(added?';opacity:.5':'')+'">+ Add to list</button>';
         if (picking) {
           html += '<div data-cmp-addmenu style="position:absolute;top:100%;left:0;margin-top:5px;z-index:90;background:var(--dtr-card, #fff);border:1px solid var(--dtr-beige, #e7e1d4);border-radius:11px;box-shadow:0 10px 26px var(--dtr-shade2, rgba(80,70,90,.22));padding:6px;min-width:160px;max-height:240px;overflow:auto;text-align:left">';
+          html += (window._dtrWLNewRow ? window._dtrWLNewRow.html() : '');
           html += _wishlists.length
             ? '<div style="font:800 8px Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--dtr-grey4, #b0aea4);padding:3px 8px 5px">Add to wishlist</div>'
               + _wishlists.map(l => '<button data-cmp-addpick="' + id + '" data-cmp-addlist="' + _oeEsc(String(l.id)) + '" data-cmp-addname="' + _oeEsc(it.name) + '" style="display:block;width:100%;text-align:left;border:none;background:transparent;cursor:pointer;font:700 11px Nunito,sans-serif;color:var(--dtr-ink-strong, #46463f);padding:7px 9px;border-radius:7px">' + _oeEsc(l.name) + '</button>').join('')
             : '<div style="font:600 10px Nunito,sans-serif;color:var(--dtr-grey5, #a09e94);padding:8px 10px;text-align:center;line-height:1.4">No wishlists yet, make one right here.</div>';
-          html += (window._dtrWLNewRow ? window._dtrWLNewRow.html() : '') + '</div>';
+          html += '</div>';
         }
         return html + '</div>';
       };
@@ -45980,11 +46141,12 @@ if (!tradeLinks.length) {
               : '<button data-cmp-addto="'+id+'" data-cmp-occ="'+occ+'" data-cmp-addname="'+_oeEsc(it.name)+'" title="Add to a wishlist" style="width:18px;height:18px;border-radius:50%;border:1.5px solid '+GRAPE+';background:'+(picking?GRAPE_BG:'var(--dtr-card, #fff)')+';color:'+GRAPE_D+';font:800 13px/1 Nunito,sans-serif;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center">+</button>');
         if (picking) {
           html += '<div data-cmp-addmenu style="position:absolute;top:100%;right:0;margin-top:5px;z-index:90;background:var(--dtr-card, #fff);border:1px solid var(--dtr-beige, #e7e1d4);border-radius:11px;box-shadow:0 10px 26px var(--dtr-shade2, rgba(80,70,90,.22));padding:6px;min-width:160px;max-height:240px;overflow:auto;text-align:left">'
+            + (window._dtrWLNewRow ? window._dtrWLNewRow.html() : '')
             + (_wishlists.length
                 ? '<div style="font:800 8px Nunito,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:var(--dtr-grey4, #b0aea4);padding:3px 8px 5px">Add to wishlist</div>'
                   + _wishlists.map(l => '<button data-cmp-addpick="'+id+'" data-cmp-addlist="'+_oeEsc(String(l.id))+'" data-cmp-addname="'+_oeEsc(it.name)+'" style="display:block;width:100%;text-align:left;border:none;background:transparent;cursor:pointer;font:700 11px Nunito,sans-serif;color:var(--dtr-ink-strong, #46463f);padding:7px 9px;border-radius:7px">'+_oeEsc(l.name)+'</button>').join('')
                 : '<div style="font:600 10px Nunito,sans-serif;color:var(--dtr-grey5, #a09e94);padding:8px 10px;text-align:center;line-height:1.4">No wishlists yet, make one right here.</div>')
-            + (window._dtrWLNewRow ? window._dtrWLNewRow.html() : '') + '</div>';
+            + '</div>';
         }
         return html + '</span>';
       };
@@ -54209,9 +54371,9 @@ if (!tradeLinks.length) {
     var css = document.createElement('style');
     css.id = 'dtr-copy-btn-css';
     css.textContent =
-      '.dtr-copy-btn{position:absolute;top:6px;left:50%;transform:translateX(-50%);z-index:16;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:999px;background:var(--dtr-card,#fff);border:1.5px solid var(--dtr-line2,#a8d4c4);cursor:pointer;padding:0;color:var(--dtr-grey6,#8a857c);box-shadow:0 1px 3px var(--dtr-shade1,rgba(0,0,0,.12));opacity:0;pointer-events:none;transition:background .12s,box-shadow .12s,color .12s,opacity .15s}' +
+      '.dtr-copy-btn{position:absolute;top:2px;left:50%;transform:translateX(-50%);z-index:16;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:6px;background:transparent;border:none;cursor:pointer;padding:0;color:var(--dtr-grey6,#8a857c);opacity:0;pointer-events:none;transition:color .12s,opacity .15s,transform .12s}' +
       ':hover > .dtr-copy-btn,.dtr-copy-btn:focus-visible{opacity:1;pointer-events:auto}' +
-      '.dtr-copy-btn:hover{background:var(--dtr-primary-bg,#dbf5f1);border-color:var(--dtr-primary,#149c8e);color:var(--dtr-primary,#149c8e);box-shadow:0 0 0 3px var(--dtr-primary-bg,#dbf5f1)}' +
+      '.dtr-copy-btn:hover{color:var(--dtr-primary,#149c8e);transform:translateX(-50%) scale(1.12)}' +
       '.dtr-copy-flash{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--dtr-haulwash,linear-gradient(135deg,rgba(156,148,196,.92),rgba(188,150,180,.90)));border-radius:12px;z-index:17;pointer-events:none;opacity:1;transition:opacity .4s}' +
       '.dtr-copy-flash span{color:#fff;font:600 11px/1.3 Inter,sans-serif;text-align:center;padding:0 10px}' +
       '.dtr-copy-flash.fade{opacity:0}';
@@ -54227,7 +54389,7 @@ if (!tradeLinks.length) {
         b.className = 'dtr-copy-btn';
         b.setAttribute('aria-label', 'Copy item name');
         b.title = 'Copy item name';
-        if (typeof window.dtrIcon === 'function') b.appendChild(window.dtrIcon('copy_rounded', { size: 14 }));
+        if (typeof window.dtrIcon === 'function') b.appendChild(window.dtrIcon('copy_thin', { size: 14 }));
         b.addEventListener('click', function (e) {
           e.preventDefault(); e.stopPropagation();
           var nmEl = card.querySelector('.dia-item-name') || card.querySelector('.name') || card.querySelector('[data-item-name]');
