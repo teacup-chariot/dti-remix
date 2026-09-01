@@ -150,19 +150,26 @@
   "name": "pupb",
   "styles": [
    "87978"
-  ]
+  ],
+  "seen": "2026-09-01",
+  "last": "87978"
  },
  "bepb": {
   "name": "bepb",
   "styles": [
    "99384"
-  ]
+  ],
+  "seen": "2026-09-01",
+  "last": "99384"
  },
  "melee": {
   "name": "Melee",
   "styles": [
-   "99405"
-  ]
+   "99405",
+   "89454"
+  ],
+  "seen": "2026-09-01",
+  "last": "89454"
  },
  "clyric": {
   "name": "clyric",
