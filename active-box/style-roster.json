@@ -175,6 +175,20 @@
   "name": "clyric",
   "styles": [
    "98836"
+  ],
+  "seen": "2026-09-02",
+  "last": "98836"
+ },
+ "ozcee": {
+  "name": "ozcee",
+  "styles": [
+   "98179"
+  ]
+ },
+ "malyvor": {
+  "name": "malyvor",
+  "styles": [
+   "99398"
   ]
  }
 }
