@@ -9,21 +9,17 @@ variants, comparisons, trade planning, saved context, larger controls, petpet
 and petpetpet matching, easy NC Pet Style token previews and management, sorting
 by latest, and visibility into NC Mall item launches.
 
-DTI Remix is shaped by years of being part of the customization community and
-months of more focused delving into how players actually interact with DTI,
-the NC Mall, and the customization experience on neopets.com. Conversations
-with casual customizers, item collectors with thousands of wearables, and traders of all levels,
-along with perusal of Neocord, Neopets Nation, and /r/neopets, helped surface common pain points, time
-sinks, and plenty of “I wish DTI could do this” moments. Those patterns helped
-guide which ideas made it into DTI Remix and where they could have the most
-impact.
+DTI Remix is shaped by years of participation in the customization community and months of closer attention to how players actually use DTI, the NC Mall, and customization on Neopets.com. Conversations with casual customizers, collectors with thousands of wearables, and traders at every level, along with discussions across Neocord, Neopets Nation, and /r/neopets, surfaced the same pain points, time sinks, and “I wish DTI could do this” moments again and again.
 
-Accessibility is part of the project throughout, with larger targets, stronger
-contrast, fewer repetitive actions, clearer state, and keyboard navigation
-across much of the interface. Tab support is being improved by the day.
+Accessibility is part of the project throughout, with larger targets, fewer repetitive actions, clearer state, and keyboard navigation
+across key parts of the interface.
 
 DTI Remix is free, has no ads or paid features, and is shared as an unofficial
 fan project.
+
+<p align="center">
+  <img src="https://i.ibb.co/jP0zkSy4/dti-remix.png" alt="DTI Remix" width="520">
+</p>
 
 ### Why a userscript?
 
