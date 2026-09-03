@@ -230,6 +230,7 @@ little longer to load.
 
 - **Dress to Impress**, the foundation DTI Remix is built on.
 - **itemdb**, for mall data, as well as p2/p3, color filtering.
+- **shenkuun**, for providing custom assets used throughout the UI.
 - **The early test Meepits**, for invaluable feedback and patience.
 
 Neopets is a trademark of its respective owners. This project is unaffiliated
