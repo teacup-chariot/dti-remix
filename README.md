@@ -221,9 +221,9 @@ little longer to load.
 
 DTI Remix is only possible because of the work, resources, ideas, and generosity of others throughout the Neopets community.
 
-- **Dress to Impress**, the foundation DTI Remix is built on, and the years of work that have made it such an important part of Neopets customization.
-- **itemdb**, for the mall data, petpet and petpetpet data, and color information used throughout DTI Remix.
-- **Stylisher**, the NC value guide behind the cap values shown on item cards.
+- **[Dress to Impress](https://impress.openneo.net/)**, the foundation DTI Remix is built on, and the years of work that have made it such an important part of Neopets customization.
+- **[itemdb](https://itemdb.com.br/)**, for the mall data, petpet and petpetpet data, and color information used throughout DTI Remix.
+- **[Stylisher](https://stylisher.club/)**, the NC value guide behind the cap values shown on item cards.
 - **shenkuun**, for the custom assets used throughout the UI.
 - **The early test Meepits**, for all of the testing, feedback, ideas, patience, and willingness to poke at things until they broke.
 
