@@ -8,7 +8,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   var IS_IMPRESS = false;
   try { IS_IMPRESS = location.hostname === 'impress.openneo.net'; } catch (_) {}
 
-  window.__DTR_META = {"v":"10.807.1","history":[{"v":"10.807.1","label":"Update notices, guided imports, and easier closet browsing","ts":"September 6, 2026 · night PT","notes":["## Update notices","<b>You only get told about an update once.</b> The notice appears one time per update, in one tab, and stays gone once you close it.","<b>Miss it and you will still see what changed.</b> If you refresh past the notice, or you were on another tab, DTI Remix shows you what is new the next time you open it.","## SDB & Closet imports","<b>SDB and Closet exports are now guided step by step.</b> DTI Remix tells you which Neopets filters to use, points you to the right controls, and captures each page as you move through it.","<b>You can see your progress before syncing.</b> The panel shows the page you just captured, how many pages are done, and how many remain. Nothing is sent to DTI Remix until you hit <b>Sync</b>.","<b>Missed a page? DTI Remix catches it.</b> If you skip one, the panel tells you which page is missing. If you try to sync early, you’ll get a warning about what would be left out.","<b>You can reload without starting over.</b> Your export progress is saved, and DTI Remix tells you which page to return to. Pagination also stays visible while you scroll.","<b>Closet exports now work in both grid and list view, including closet searches.</b> Searches and exports with 90 items or fewer are treated as a single page.","<b>Import cards are clearer and safer to use.</b> They’re labeled by source and item type, such as <b>SDB import: NC</b> or <b>Closet import: NC, NP</b>, show both unique items and total copies, and list your real destination lists with their Public or Private status.","<b>Starting another import of the same type now replaces the unfinished one instead of merging them together.</b> Your import card always represents the export you just sent.","<b>Import quantities and item types are more reliable.</b> Fixed NC items being mistaken for NP, quantities being lost in large closets, and a handful of import-card display issues.","## Closet","<b>Browsing your closet is much clearer.</b> Choose <b>Selected List, All lists, All owned,</b> or <b>All wishlists</b> from the filters, with <b>Group by list</b> available for the classic DTI-style view.","<b>All lists + Group by list is now the starting view.</b> After that, DTI Remix remembers how you prefer to browse, along with your filters.","<b>Individual lists are easier to work with.</b> The list you’re viewing is clearly marked, selected lists appear as removable chips, and clearing them shows a quick guide to browsing from either the list cards or the filters.","<b>You can now sort by quantity</b>, highest or lowest first, within a single list or across everything.","<b>Closet quantities and item types are more accurate.</b> Three-digit quantities display properly, large closets no longer collapse quantities to 1, and NC, NP, and paint brush clothes are read directly from Neopets’ closet data.","<b>The old list star and filter padlock are gone.</b> DTI Remix simply remembers what you were viewing and how you had it filtered.","## Also included","<b>Neomail settings are easier to manage</b> and save immediately.","<b>Inventory imports are easier to place and review</b>, with import tips, a <b>+ New trade list</b> option, clearer selected cards, and cleaner pet previews.","<b>Try On Haul changes now update the homepage immediately</b>, including hanger badges, card highlighting, and wishlist states.","<b>DTI accounts stay separate when you switch between them in the same browser</b>, including each account’s lists and settings.","<b>Pet previews on the homepage load faster.</b>"]},{"v":"10.805.10","label":"Two new themes, nudges, and a lot of polish","notes":["New features and misc bug fixes."]},{"v":"10.758.71","label":"The Records page, user search & a big polish pass","notes":["New features and misc bug fixes."]},{"v":"10.735.31","label":"The NC Mall panel, rebuilt","notes":["New features and misc bug fixes."]},{"v":"10.735.10","label":"Petpet Workspace","notes":["New features and misc bug fixes."]}]};
+  window.__DTR_META = {"v":"10.807.3","history":[{"v":"10.807.3","label":"Update notices, guided imports, and easier closet browsing","ts":"September 6, 2026 · night PT","notes":["## Update notices","<b>You only get told about an update once.</b> The notice appears one time per update, in one tab, and stays gone once you close it.","<b>Miss it and you will still see what changed.</b> If you refresh past the notice, or you were on another tab, DTI Remix shows you what is new the next time you open it.","## Import screen","<b>Place a whole page at once.</b> The card checkboxes are gone. Place & Review sends every item on the page, while clicking a card still puts that item on the pet.","<b>Tab through cards one at a time.</b> Each press moves to the next card and centers it, instead of skipping ahead to the next unsorted item.","<b>Keep your place more easily.</b> The card you’re currently on is more clearly highlighted as you move through the page.","<b>The Try-On Preview stays out of the way.</b> It sits beside the cards instead of over them, and an expanded wishlist opens to the right.","## SDB & Closet imports","<b>SDB and Closet exports are now guided step by step.</b> DTI Remix tells you which Neopets filters to use, points you to the right controls, and captures each page as you move through it.","<b>You can see your progress before syncing.</b> The panel shows the page you just captured, how many pages are done, and how many remain. Nothing is sent to DTI Remix until you hit <b>Sync</b>.","<b>Missed a page? DTI Remix catches it.</b> If you skip one, the panel tells you which page is missing. If you try to sync early, you’ll get a warning about what would be left out.","<b>You can reload without starting over.</b> Your export progress is saved, and DTI Remix tells you which page to return to. Pagination also stays visible while you scroll.","<b>Closet exports now work in both grid and list view, including closet searches.</b> Searches and exports with 90 items or fewer are treated as a single page.","<b>Import cards are clearer and safer to use.</b> They’re labeled by source and item type, such as <b>SDB import: NC</b> or <b>Closet import: NC, NP</b>, show both unique items and total copies, and list your real destination lists with their Public or Private status.","<b>Starting another import of the same type now replaces the unfinished one instead of merging them together.</b> Your import card always represents the export you just sent.","<b>Import quantities and item types are more reliable.</b> Fixed NC items being mistaken for NP, quantities being lost in large closets, and a handful of import-card display issues.","## Closet","<b>Browsing your closet is much clearer.</b> Choose <b>Selected List, All lists, All owned,</b> or <b>All wishlists</b> from the filters, with <b>Group by list</b> available for the classic DTI-style view.","<b>All lists + Group by list is now the starting view.</b> After that, DTI Remix remembers how you prefer to browse, along with your filters.","<b>Individual lists are easier to work with.</b> The list you’re viewing is clearly marked, selected lists appear as removable chips, and clearing them shows a quick guide to browsing from either the list cards or the filters.","<b>You can now sort by quantity</b>, highest or lowest first, within a single list or across everything.","<b>Closet quantities and item types are more accurate.</b> Three-digit quantities display properly, large closets no longer collapse quantities to 1, and NC, NP, and paint brush clothes are read directly from Neopets’ closet data.","<b>The old list star and filter padlock are gone.</b> DTI Remix simply remembers what you were viewing and how you had it filtered.","## Also included","<b>Neomail settings are easier to manage</b> and save immediately.","<b>Inventory imports are easier to place and review</b>, with import tips, a <b>+ New trade list</b> option, clearer selected cards, and cleaner pet previews.","<b>Try On Haul changes now update the homepage immediately</b>, including hanger badges, card highlighting, and wishlist states.","<b>DTI accounts stay separate when you switch between them in the same browser</b>, including each account’s lists and settings.","<b>Pet previews on the homepage load faster.</b>"]},{"v":"10.805.10","label":"Two new themes, nudges, and a lot of polish","notes":["New features and misc bug fixes."]},{"v":"10.758.71","label":"The Records page, user search & a big polish pass","notes":["New features and misc bug fixes."]},{"v":"10.735.31","label":"The NC Mall panel, rebuilt","notes":["New features and misc bug fixes."]},{"v":"10.735.10","label":"Petpet Workspace","notes":["New features and misc bug fixes."]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -46,11 +46,14 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         var after = mode === 'after';
         var floor = after ? readSeen() : ownV();
         var fresh = (meta.history || []).filter(function (h) { return verCmp(h.v, floor) > 0; });
+
+        if (!fresh.length && !previewing) { if (after) writeSeen(ownV()); return; }
         if (!fresh.length) fresh = [{ label: '', notes: [] }];
 
-        var notesHtml = fresh.map(function (h) {
+        var notesHtml = fresh.map(function (h, i) {
+
           return '<div class="dtr-upd-grp">' + (h.label ? '<div class="dtr-upd-grplbl">' + esc(h.label) + '</div>' : '')
-            + (h.ts ? '<div class="dtr-upd-date">' + esc(h.ts) + '</div>' : '')
+            + (h.ts && i > 0 ? '<div class="dtr-upd-date">' + esc(h.ts) + '</div>' : '')
 
           + '<ul class="dtr-upd-list">' + (h.notes || []).map(function (n) {
               var t = String(n == null ? '' : n);
@@ -68,8 +71,10 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           '#dtr-update-toast .dtr-upd-card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--dtr-stripe-soft,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a))}',
           '#dtr-update-toast .dtr-upd-x{position:absolute;top:9px;right:10px;z-index:1;}',
           '#dtr-update-toast .dtr-upd-x:hover{}',
-          '#dtr-update-toast .dtr-upd-title{flex:none;font:800 16px/1.2 Nunito,sans-serif;color:var(--dtr-ink-strong, #46463f);margin:2px 0 3px}',
-          '#dtr-update-toast .dtr-upd-sub{flex:none;font:600 11.5px/1.4 Nunito,sans-serif;color:var(--dtr-grey6, #8a8378);margin:0 0 9px}',
+
+          '#dtr-update-toast .dtr-upd-head{flex:none;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:10px;row-gap:2px;margin:2px 26px 10px 0}',
+          '#dtr-update-toast .dtr-upd-title{flex:0 1 auto;font:800 16px/1.2 Nunito,sans-serif;color:var(--dtr-ink-strong, #46463f);margin:0}',
+          '#dtr-update-toast .dtr-upd-when{flex:none;margin-left:auto;white-space:nowrap;font:600 9.5px/1.2 Nunito,sans-serif;color:var(--dtr-grey5, #a79f94)}',
           '#dtr-update-toast .dtr-upd-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;padding-right:8px;margin-right:-8px}',
           '#dtr-update-toast .dtr-upd-scroll::-webkit-scrollbar{width:7px}',
           '#dtr-update-toast .dtr-upd-scroll::-webkit-scrollbar-thumb{background:var(--dtr-shadow-tint, rgba(150,140,160,.4));border-radius:7px}',
@@ -90,8 +95,8 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         var wrap = document.createElement('div'); wrap.id = 'dtr-update-toast';
         wrap.innerHTML = '<div class="dtr-upd-card">'
           + '<button type="button" class="dtr-upd-x dtr-x" aria-label="Dismiss">' + window.dtrIcon.html('close', { size: 14 }) + '</button>'
-          + '<div class="dtr-upd-title">' + (after ? 'DTI Remix just updated' : 'An update landed') + '</div>'
-          + '<div class="dtr-upd-sub">' + (after ? 'Here’s what’s new:' : 'Here’s what’s new since your last refresh:') + '</div>'
+          + '<div class="dtr-upd-head"><div class="dtr-upd-title">' + (after ? 'DTI Remix just updated' : 'An update landed') + '</div>'
+          + (fresh[0] && fresh[0].ts ? '<div class="dtr-upd-when">' + esc(fresh[0].ts) + '</div>' : '') + '</div>'
           + '<div class="dtr-upd-scroll">' + notesHtml + '</div>'
           + '<button type="button" class="dtr-upd-reload">' + (after ? 'Got it' : 'Reload now to update') + '</button>'
           + (after ? '' : '<div class="dtr-upd-hint">or press <b>' + combo + '</b></div>')
@@ -27540,21 +27545,17 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       .dib-count.clear{color:var(--mint-d);background:var(--mint-bg);border-color:var(--mint-line);cursor:default;}
       .dib-count-still{display:inline-flex;flex-direction:column;align-items:flex-start;gap:1px;cursor:default;line-height:1.25;}
       .dib-count-still i{font-style:normal;font-weight:700;opacity:.75;}
-      .dib-item{margin-bottom:10px;}
+      .dib-item{margin-bottom:10px;width:min(100%,var(--dib-cardw,440px));}   
       
       .dib-card{background:var(--card);border:1px solid var(--line);border-radius:var(--dib-cardr,18px);--dib-cardr:18px;width:fit-content;max-width:min(100%,var(--dib-cardw,440px));box-shadow:var(--sh);transition:box-shadow .15s,border-color .15s;}
-      .dib-card.dib-wopen{max-width:100%;}   
+      .dib-card.dib-wopen{max-width:var(--dib-roomr,100%);}   
+      .dib-card.dib-wopen > .dib-head{width:100%;}   
       .dib-card:hover{box-shadow:0 2px 6px rgba(96,72,150,.08),0 14px 32px rgba(96,72,150,.10);}
       .dib-card.attn{border-color:var(--gold);}
       .dib-card.err{border-color:#f3a9a0;}
       .dib-card.done{opacity:.66;}
       
       .dib-head{display:flex;align-items:center;gap:12px;padding:13px 18px;cursor:pointer;width:var(--dib-cardw,440px);max-width:100%;box-sizing:border-box;}
-      .dib-selbox{width:22px;height:22px;flex-shrink:0;border:2px solid #d8d0ea;border-radius:7px;background:var(--dtr-card, #fff);cursor:pointer;position:relative;transition:all .1s;}
-      .dib-selbox:hover{border-color:var(--grape);}
-      .dib-selbox.on{background:var(--grape);border-color:var(--grape-d);}
-      .dib-selbox.on::after{content:"";position:absolute;left:7px;top:2px;width:5px;height:11px;border:solid var(--dtr-card, #fff);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
-      .dib-card.sel{border-color:var(--dtr-primary,#149c8e);box-shadow:0 0 0 3px var(--dtr-primary,#149c8e);}
       
       
       .dib-thumbwrap{width:54px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:5px;}
@@ -27970,7 +27971,6 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       
       .dib-thumb-try{cursor:pointer;transition:box-shadow .12s;border-radius:10px;}
       .dib-thumb-try:hover{box-shadow:0 0 0 2.5px var(--mint-line,#a6e4dc);}
-      .dib-thumb.dtr-previewing{box-shadow:0 0 0 2.5px var(--mint-d,#149c8e);}
       @media (max-width:1180px){#dib-tryon-dock{width:280px;}}
       
       .dib-balloc-lbl{font:700 11px var(--f);color:var(--ink);}
@@ -27979,8 +27979,6 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       
       .dib-act-msg{font:600 12px var(--f);color:var(--ink2);flex:1 1 280px;min-width:0;}
       .dib-act-msg strong{font-weight:800;color:var(--grape-d);}
-      .dib-act-clear{display:inline-flex;align-items:center;font:800 10px var(--f);color:var(--grape-d);background:var(--dtr-cream, #f4f1e8);border-radius:999px;padding:4px 11px;text-decoration:none;cursor:pointer;margin-left:8px;white-space:nowrap;}
-      .dib-act-clear:hover{color:var(--dtr-onfill,#fff);background:var(--grape);}
       .dib-act-badge{font:700 10px/1 var(--f);color:var(--berry-d);background:var(--berry-bg);border:1px solid var(--berry-line);border-radius:999px;padding:4px 9px;margin-right:9px;display:inline-block;vertical-align:middle;white-space:nowrap;}
       .dib-act-ctl{display:flex;align-items:center;flex-wrap:wrap;gap:8px;flex:0 0 auto;margin-left:auto;}
       .dib-act-lbl{font:600 11px var(--f);color:var(--ink2);}
@@ -28100,17 +28098,16 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       html[data-dib-theme=konpeito] .dib-card{border-radius:var(--dib-cardr,18px);--dib-cardr:18px;}
       html[data-dib-theme=konpeito] .dib-card:hover{box-shadow:0 6px 18px -8px var(--dtr-shadow-tint,rgba(110,128,150,.4));}
       
-      @keyframes dibFridgeGlow{0%,100%{box-shadow:0 0 16px 3px var(--dtr-fridge,rgba(167,139,250,.42));}50%{box-shadow:0 0 30px 7px var(--dtr-fridge,rgba(167,139,250,.42)),0 0 16px 3px var(--dtr-fridge,rgba(167,139,250,.42));}}
-      html[data-dib-theme=konpeito] .dib-card.dib-editing{animation:dibFridgeGlow 2.6s ease-in-out infinite;}
+      
+      
+      html[data-dib-theme=konpeito] .dib-card.dib-editing{--dib-lift:color-mix(in srgb,var(--card,#fff) 85%,transparent);--dib-glow:color-mix(in srgb,var(--dtr-berry,#c2487c) 88%,transparent);border-color:color-mix(in srgb,var(--dtr-berry,#c2487c) 55%,var(--line,#efe7da))!important;box-shadow:0 0 14px 5px var(--dib-lift,rgba(255,255,255,.85)),0 0 46px 16px var(--dib-glow,rgba(194,72,124,.85)),0 0 26px 8px var(--dib-glow,rgba(194,72,124,.85));}
       
       html[data-dib-theme=konpeito] .dib-wflap{background:linear-gradient(180deg,var(--dtr-primary-bg,#e4eff8),var(--dtr-scroll,#c8def2))!important;color:var(--dtr-primary,#4f8fc9)!important;box-shadow:inset 0 0 0 1.5px var(--dtr-primary-line,#c2d8ee),0 2px 7px -5px rgba(var(--dtr-primary-rgb,79,143,201),.5)!important;border-radius:14px!important;}
       html[data-dib-theme=konpeito] .dib-wflap:hover{background:linear-gradient(180deg,var(--dtr-scroll,#c8def2),var(--dtr-primary-bg,#e4eff8))!important;}
       html[data-dib-theme=konpeito] .dib-wflap-lbl{color:var(--dtr-primary,#4f8fc9)!important;letter-spacing:.8px;-webkit-font-smoothing:antialiased;text-shadow:none;}
       html[data-dib-theme=konpeito] .dib-wflap-chev{color:var(--dtr-primary,#4f8fc9)!important;}
       html[data-dib-theme=konpeito] .dib-wflap-badge{background:var(--dtr-primary,#4f8fc9)!important;color:var(--dtr-onfill,#fff)!important;}
-      html[data-dib-theme=konpeito] .dib-card.sel{border-color:var(--dtr-primary,#149c8e)!important;box-shadow:0 0 0 3px var(--dtr-primary,#149c8e)!important;}
       
-      html[data-dib-theme=konpeito] .dib-card.sel .dib-selbox{border-color:var(--dtr-primary,#149c8e)!important;background:var(--dtr-primary,#149c8e)!important;}
       html[data-dib-theme=konpeito] .dib-chip,html[data-dib-theme=konpeito] .dib-vis,html[data-dib-theme=konpeito] .dib-ignore,html[data-dib-theme=konpeito] .dib-undo,html[data-dib-theme=konpeito] .dib-lm-btn{border-radius:999px!important;}
       html[data-dib-theme=konpeito] .dib-vis.public{color:var(--dtr-primary,#149c8e)!important;background:var(--dtr-primary-bg,#dbf5f1)!important;}
       html[data-dib-theme=konpeito] .dib-vis.trading{color:var(--dtr-warnink,#b9760a)!important;background:var(--dtr-butter, #fff2cd)!important;}
@@ -28842,7 +28839,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
     let showHidden = !!window.dtrStore.get(SHOW_HIDDEN_KEY, false);
     let bulkTarget = null;
-    const selected = new Set();
+
     let gridSetting = (() => {
       try {
         let v = String(window.dtrStore.get(COLS_KEY, 'auto'));
@@ -29028,7 +29025,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       _dibStragglers.forEach(i => { if (i < s || i >= e) a.push(i); });
       return a;
     };
-    const currentScope = () => selected.size ? [...selected] : pageScope();
+    const currentScope = () => pageScope();
     const placeable = i => { const it = model[i]; return !!(it && !it.ignored && !it.leaveRest && toPlace(it) > 0); };
     let _nextUnsortedPage = -1;
     const dibPageSizeHTML = () => '<span class="dib-pgsize">Show <select class="dib-pgsize-sel" aria-label="Items per page">'
@@ -29182,7 +29179,6 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       `;
       gridboxEl.innerHTML = '';
 
-      const selCount = selected.size;
       const scopeIdx = currentScope();
       const scopeCopies = scopeIdx.reduce((s, i) => { const it = model[i]; return s + ((it.ignored || it.leaveRest) ? 0 : Math.max(0, toPlace(it))); }, 0);
       const _otherUnplaced = Math.max(0, totalUnplaced - scopeCopies);
@@ -29196,7 +29192,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           if (has) { _nextUnsortedPage = p; break; }
         }
       }
-      if (selCount > 0 || scopeCopies > 0) {
+      if (scopeCopies > 0) {
         const pendId = findPendingId();
         const allOwn = diaBulkAllLists(closet.listMeta).own;
         const pendVisible = pendId && allOwn.some(l => l.listId === pendId);
@@ -29216,22 +29212,17 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
               ? `<option disabled>──────── HIDDEN ────────</option>` + restOwn.filter(l => l.hidden).map(opt).join('')
               : '');
 
-        const _pageAll = pageScope().filter(placeable);
-        const allTicked = selCount > 0 && _pageAll.length > 0 && _pageAll.every(i => selected.has(i));
-
         const _pageItems = scopeIdx.filter(placeable).length;
         const _here = _pc > 1 ? ' on this page' : '';
-        const msg = (selCount && !allTicked)
-          ? `Send the <strong>${_pageItems}</strong> selected item${_pageItems !== 1 ? 's' : ''} to:`
-          : (_pageItems === 1
-              ? `Send the <strong>1</strong> item${_here} to:`
-              : `Send all <strong>${_pageItems}</strong> items${_here} to:`);
+        const msg = _pageItems === 1
+          ? `Send the <strong>1</strong> item${_here} to:`
+          : `Send all <strong>${_pageItems}</strong> items${_here} to:`;
 
         actionEl.style.display = '';
         topEl && topEl.classList.add('has-action');
         actionEl.innerHTML = `
           <div class="dib-act-msg"><span class="dib-act-badge">Unsorted copies found!</span>${msg}</div>
-          <div class="dib-act-ctl">${selCount ? `<span class="dib-act-clear" data-act="clearsel">clear selection</span>` : ''}
+          <div class="dib-act-ctl">
             <select class="dib-balloc-sel" data-act="balloc-sel">${pendOpt}${ownOpts}</select>
             <button class="dib-balloc-go" type="button" data-act="balloc-go"${scopeCopies ? '' : ' disabled'}>Place &amp; Review</button>
           </div>`;
@@ -29254,7 +29245,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
             }
           });
         } catch (_) {}
-      } else if (!selCount && _nextUnsortedPage > -1) {
+      } else if (_nextUnsortedPage > -1) {
 
         actionEl.style.display = '';
         topEl && topEl.classList.add('has-action');
@@ -29377,7 +29368,13 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       const rows = base.concat(extras);
       const hint = showHint ? `<div class="dib-want-hint">Still on your wishlist. Tap <span class="dib-hint-key">−</span> on the tile below to remove the copies you just moved to a trade list.</div>` : '';
 
-      return `<div class="dib-col want"><div class="dib-colh want">WANTED</div>${hint}<div class="dib-owngrid dib-wgrid" data-side="want" style="grid-template-columns:repeat(${ownCols(rows.length)},118px)">${rows.map(l => wantRowHtml(it, i, l, glow)).join('')}</div></div>`;
+      let cols = ownCols(rows.length);
+      try {
+        const room = parseFloat(listEl.style.getPropertyValue('--dib-roomr')) || 0;
+        const cardW = parseFloat(getComputedStyle(listEl).getPropertyValue('--dib-cardw')) || 440;
+        if (room > 0) cols = Math.max(1, Math.min(cols, Math.floor((room - cardW - 53) / 125)));
+      } catch (_) {}
+      return `<div class="dib-col want"><div class="dib-colh want">WANTED</div>${hint}<div class="dib-owngrid dib-wgrid" data-side="want" style="grid-template-columns:repeat(${cols},118px)">${rows.map(l => wantRowHtml(it, i, l, glow)).join('')}</div></div>`;
     };
 
     const _dibTrades = {};
@@ -29770,9 +29767,8 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         ? `<div class="dib-nf looking">Looking this up on DTI…</div>`
         : `<div class="dib-nf">Looks like this item hasn’t been uploaded to DTI yet. To log it, please <strong>model it for us on a pet</strong>!</div>`);
       itemEls[i].innerHTML = `
-        <div class="${cardCls}${selected.has(i) ? ' sel' : ''}">
+        <div class="${cardCls}">
           <div class="dib-head" data-act="toggle">
-            <div class="dib-selbox ${selected.has(i) ? 'on' : ''}" data-act="select" role="checkbox" aria-checked="${selected.has(i)}"></div>
             <div class="dib-thumbwrap"><div class="dib-thumb${it.id ? ' dib-thumb-try' : ''}${_dibTryOnIdx === i && it.id ? ' dtr-previewing' : ''}" style="${thumb}"${it.id ? ' data-act="tryon" title="Preview this item on a pet, replaces the previous preview"' : ''}></div>${lebHtml}${(it.resolved && it.id) ? `<div class="dib-trades-col">${_dibTradeChipInner(it.id)}</div>` : ''}</div>
             <div class="dib-hmain"><div class="dib-name">${(it.resolved && it.id)
               ? `<span class="dib-nmtxt"><a class="dib-nmlink" href="https://impress.openneo.net/items/${it.id}${it.slug ? '-' + diaBulkEsc(it.slug) : ''}" title="Open this item’s page in a new tab">${diaBulkEsc(it.name)}</a></span>`
@@ -29871,9 +29867,23 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
     const _dibPlaceDock = (d) => {
       if (d.__dtrDragged) return;
       try {
-        const r = listEl.getBoundingClientRect();
         const w = d.offsetWidth || 380;
-        d.style.left = Math.max(8, Math.round(r.left - w - 16)) + 'px';
+        const need = 8 + w + 16;
+
+        listEl.style.marginLeft = '';
+        const cardLeft = () => { const f = listEl.querySelector('.dib-item'); return (f || listEl).getBoundingClientRect().left; };
+        let left = cardLeft();
+        if (left < need) {
+          const lr = listEl.getBoundingClientRect();
+          const cardW = parseFloat(getComputedStyle(listEl).getPropertyValue('--dib-cardw')) || 440;
+          let m = Math.round((need - left) * 2);
+          if (lr.width - m < cardW) m = Math.round(Math.max(0, Math.min(need - lr.left, lr.width - 240)));
+          listEl.style.marginLeft = m + 'px';
+          left = cardLeft();
+        }
+
+        listEl.style.setProperty('--dib-roomr', Math.max(200, Math.round(window.innerWidth - 24 - left)) + 'px');
+        d.style.left = Math.max(8, Math.round(left - w - 16)) + 'px';
       } catch (_) { d.style.left = '10px'; }
     };
     window.addEventListener('resize', () => { const d = document.getElementById('dib-tryon-dock'); if (d && d.style.display !== 'none') _dibPlaceDock(d); });
@@ -29959,6 +29969,21 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       _dibMountQp(d, it.id, it.name);
       if (prev != null && prev !== i && model[prev]) renderItem(prev);
       renderItem(i);
+    };
+
+    const dibPreviewQuiet = (i) => {
+      const it = model[i];
+
+      if (!it || !it.id || !window.__DTR_QP || _dibDockClosed) return;
+      if (_dibTryOnIdx === i) return;
+      const prev = _dibTryOnIdx;
+      _dibTryOnIdx = i;
+      const d = _dibDock();
+      d.style.display = '';
+      _dibMountQp(d, it.id, it.name);
+      const ring = (idx, on) => { const t = itemEls[idx] && itemEls[idx].querySelector('.dib-thumb'); if (t) t.classList.toggle('dtr-previewing', on); };
+      if (prev != null && prev !== i) ring(prev, false);
+      ring(i, true);
     };
 
     try { window.__dibAutoPreview = (i) => { try { if (model[i] && model[i].id) dibTryOn(i, true); } catch (_) {} }; } catch (_) {}
@@ -30210,7 +30235,6 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       it.save = 'idle';
       it.ignored = true;
       it._batchQty = (it.name in batch) ? batch[it.name] : it.inv;
-      if (selected.has(i)) selected.delete(i);
 
       try { _dibDoneBump(it.name, parseInt(it._batchQty, 10) || 0); delete batch[it.name]; saveBatch(batch); diaTouchImport(); } catch (_) {}
       _dibPendSave(it);
@@ -30396,7 +30420,6 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         await Promise.all(Array.from({ length: Math.min(5, total) }, worker));
 
         modalBusy = false;
-        if (!failed.length) selected.clear();
         renderAll();
         if (failed.length) {
           prog.classList.add('err');
@@ -30597,16 +30620,6 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
       const _idxOf = (el) => { const n = el.closest('.dib-item') || el.closest('[data-i]'); return (n && n.dataset && n.dataset.i != null) ? +n.dataset.i : -1; };
 
-      const _dibToggleSel = (i) => {
-        if (selected.has(i)) selected.delete(i); else selected.add(i);
-        const on = selected.has(i);
-        const el = itemEls[i];
-        const card = el && el.querySelector('.dib-card');
-        const sb = el && el.querySelector('[data-act="select"]');
-        if (card && sb) { card.classList.toggle('sel', on); sb.classList.toggle('on', on); sb.setAttribute('aria-checked', on ? 'true' : 'false'); }
-        else renderItem(i);
-        renderBar();
-      };
       const nml = e.target.closest('.dib-nmlink');
       if (nml) {
         e.preventDefault(); e.stopPropagation();
@@ -30626,7 +30639,6 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       const lr = e.target.closest('[data-act="leaverest"]'); if (lr) { e.stopPropagation(); const i = _idxOf(lr); if (i > -1) leaveRestItem(i); return; }
       const unig = e.target.closest('[data-act="unignore"]'); if (unig) { e.stopPropagation(); const i = _idxOf(unig); if (i > -1) unignoreItem(i); return; }
       const undi = e.target.closest('[data-act="undo-import"]'); if (undi) { e.stopPropagation(); const i = _idxOf(undi); if (i > -1) undoImport(i); return; }
-      const selbox = e.target.closest('[data-act="select"]'); if (selbox) { e.stopPropagation(); const i = _idxOf(selbox); if (i < 0) return; _dibToggleSel(i); return; }
       const wt = e.target.closest('[data-act="wtoggle"]');
       if (wt) {
         e.stopPropagation();
@@ -30658,9 +30670,9 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         if (e.target.closest('a,button,input,select,textarea,label,[data-act]:not([data-act="toggle"]):not([data-act="tryon"])')) return;
         const i = _idxOf(head); if (i < 0) return;
         e.stopPropagation();
-        try { window.__dibSkipGlowOnce = true; } catch (_) {}
+
         if (!model[i].expanded) { toggleItem(i); syncCardWidths(); }
-        _dibToggleSel(i);
+        dibPreviewQuiet(i);
         return;
       }
     });
@@ -30726,21 +30738,16 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
     };
     const _dibMoveToItem = (cur, dir) => {
       const n = model.length;
-      const anyAttn = model.some(needsAttention);
-      let nx = cur, found = false;
-      for (let s = 0; s < n; s++) {
-        nx += dir; if (nx < 0) nx = n - 1; if (nx >= n) nx = 0;
+      if (n < 2) return;
 
-        if (nx !== cur && !model[nx].ignored && (!anyAttn || needsAttention(model[nx]))) { found = true; break; }
-      }
-      if (!found) return;
+      let nx = cur + dir; if (nx < 0) nx = n - 1; if (nx >= n) nx = 0;
       collapseItem(cur);
       dibActiveItem = String(nx);
       dibEnsurePage(nx);
       if (!model[nx].expanded) expandItem(nx);
       dibApplyEditingGlow();
       itemEls[nx].scrollIntoView({ behavior: 'smooth', block: 'center' });
-      dibShowToast(dir < 0 ? '↑ Previous item' : '↓ Next item');
+
     };
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'Tab') return;
@@ -30799,8 +30806,6 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         openSendModal(sel ? sel.value : '__PENDING__');
       } else if (a.dataset.act === 'nextunsorted') {
         if (_nextUnsortedPage > -1) gotoPage(_nextUnsortedPage);
-      } else if (a.dataset.act === 'clearsel') {
-        selected.clear(); renderAll();
       }
     });
 
@@ -60170,7 +60175,7 @@ if (!tradeLinks.length) {
     ,
 
     { id: 'import', within: '#dia-bulk-root', nudges: [
-      { id: 'imp-place', anchor: '#dib-action .dib-act-ctl', also: '#dib-action .dib-act-msg', bulbAt: 'below', heading: '**Place & Review** sends the whole page to one list.', bullets: ['Pick the list in the dropdown, then **Place & Review** sends every item on this page there.', 'Tick the box on a few cards to send only those.', 'Need a fresh trade list? **+ New trade list** sits at the top of that dropdown.'] },
+      { id: 'imp-place', anchor: '#dib-action .dib-act-ctl', also: '#dib-action .dib-act-msg', bulbAt: 'below', heading: '**Place & Review** sends the whole page to one list.', bullets: ['Pick the list in the dropdown, then **Place & Review** sends every item on this page there.', 'Need a fresh trade list? **+ New trade list** sits at the top of that dropdown.'] },
       { id: 'imp-preview', anchor: '#dib-tryon-dock .dib-td-head', bulbAt: 'below', heading: '**Try-On Preview** follows you down the list.', bullets: ['As you navigate through the items, they auto apply to the pet preview.', 'You can also Tab through the cards.', 'The {icon:power_settings_new} turns the preview off.'] },
       { id: 'imp-card', anchor: '#dib-list .dib-card .dib-head', heading: 'Each item comes over with its quantities.', bullets: ['The **to place** line is how many copies you still need to allocate.', 'Copies you already owned show under **Owned** and **Wished**. Those counts are kept separate from what came over.', '**Offering** and **Seeking** are the ratio of copies up for trade to copies wanted. Open either one to see how other users have categorized this item.'] },
       { id: 'imp-tiles', anchor: '#dib-list .dib-card .dib-cell.dib-tile', heading: 'Tidy the list tiles so sorting goes quicker.', bullets: ['Hover a tile and click its {icon:edit} to give the list a short nickname, or to hide it if you never import into it.', 'The **Show hidden** chip on the card brings hidden lists back.', 'Drag a tile by its {icon:drag_indicator} to rearrange the order for current and future imports.'] },
