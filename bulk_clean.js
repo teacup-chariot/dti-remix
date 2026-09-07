@@ -8,12 +8,12 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   var IS_IMPRESS = false;
   try { IS_IMPRESS = location.hostname === 'impress.openneo.net'; } catch (_) {}
 
-  window.__DTR_META = {"v":"10.806.89","history":[{"v":"10.806.89","label":"Guided SDB & Closet imports, plus easier closet browsing","ts":"September 6, 2026 · evening PT","notes":["## SDB & Closet imports","<b>SDB and Closet exports are now guided step by step.</b> DTI Remix tells you which Neopets filters to use, points you to the right controls, and captures each page as you move through it.","<b>You can see your progress before syncing.</b> The panel shows the page you just captured, how many pages are done, and how many remain. Nothing is sent to DTI Remix until you hit <b>Sync</b>.","<b>Missed a page? DTI Remix catches it.</b> If you skip one, the panel tells you which page is missing. If you try to sync early, you’ll get a warning about what would be left out.","<b>You can reload without starting over.</b> Your export progress is saved, and DTI Remix tells you which page to return to. Pagination also stays visible while you scroll.","<b>Closet exports now work in both grid and list view, including closet searches.</b> Searches and exports with 90 items or fewer are treated as a single page.","<b>Import cards are clearer and safer to use.</b> They’re labeled by source and item type, such as <b>SDB import: NC</b> or <b>Closet import: NC, NP</b>, show both unique items and total copies, and list your real destination lists with their Public or Private status.","<b>Starting another import of the same type now replaces the unfinished one instead of merging them together.</b> Your import card always represents the export you just sent.","<b>Import quantities and item types are more reliable.</b> Fixed NC items being mistaken for NP, quantities being lost in large closets, and a handful of import-card display issues.","## Closet","<b>Browsing your closet is much clearer.</b> Choose <b>Selected List, All lists, All owned,</b> or <b>All wishlists</b> from the filters, with <b>Group by list</b> available for the classic DTI-style view.","<b>All lists + Group by list is now the starting view.</b> After that, DTI Remix remembers how you prefer to browse, along with your filters.","<b>Individual lists are easier to work with.</b> The list you’re viewing is clearly marked, selected lists appear as removable chips, and clearing them shows a quick guide to browsing from either the list cards or the filters.","<b>You can now sort by quantity</b>, highest or lowest first, within a single list or across everything.","<b>Closet quantities and item types are more accurate.</b> Three-digit quantities display properly, large closets no longer collapse quantities to 1, and NC, NP, and paint brush clothes are read directly from Neopets’ closet data.","<b>The old list star and filter padlock are gone.</b> DTI Remix simply remembers what you were viewing and how you had it filtered.","## Also included","<b>Neomail settings are easier to manage</b> and save immediately.","<b>Inventory imports are easier to place and review</b>, with import tips, a <b>+ New trade list</b> option, clearer selected cards, and cleaner pet previews.","<b>Try On Haul changes now update the homepage immediately</b>, including hanger badges, card highlighting, and wishlist states.","<b>DTI accounts stay separate when you switch between them in the same browser</b>, including each account’s lists and settings."]},{"v":"10.805.10","label":"Two new themes, nudges, and a lot of polish","notes":["New features and misc bug fixes."]},{"v":"10.758.71","label":"The Records page, user search & a big polish pass","notes":["New features and misc bug fixes."]},{"v":"10.735.31","label":"The NC Mall panel, rebuilt","notes":["New features and misc bug fixes."]},{"v":"10.735.10","label":"Petpet Workspace","notes":["New features and misc bug fixes."]}]};
+  window.__DTR_META = {"v":"10.807.1","history":[{"v":"10.807.1","label":"Update notices, guided imports, and easier closet browsing","ts":"September 6, 2026 · night PT","notes":["## Update notices","<b>You only get told about an update once.</b> The notice appears one time per update, in one tab, and stays gone once you close it.","<b>Miss it and you will still see what changed.</b> If you refresh past the notice, or you were on another tab, DTI Remix shows you what is new the next time you open it.","## SDB & Closet imports","<b>SDB and Closet exports are now guided step by step.</b> DTI Remix tells you which Neopets filters to use, points you to the right controls, and captures each page as you move through it.","<b>You can see your progress before syncing.</b> The panel shows the page you just captured, how many pages are done, and how many remain. Nothing is sent to DTI Remix until you hit <b>Sync</b>.","<b>Missed a page? DTI Remix catches it.</b> If you skip one, the panel tells you which page is missing. If you try to sync early, you’ll get a warning about what would be left out.","<b>You can reload without starting over.</b> Your export progress is saved, and DTI Remix tells you which page to return to. Pagination also stays visible while you scroll.","<b>Closet exports now work in both grid and list view, including closet searches.</b> Searches and exports with 90 items or fewer are treated as a single page.","<b>Import cards are clearer and safer to use.</b> They’re labeled by source and item type, such as <b>SDB import: NC</b> or <b>Closet import: NC, NP</b>, show both unique items and total copies, and list your real destination lists with their Public or Private status.","<b>Starting another import of the same type now replaces the unfinished one instead of merging them together.</b> Your import card always represents the export you just sent.","<b>Import quantities and item types are more reliable.</b> Fixed NC items being mistaken for NP, quantities being lost in large closets, and a handful of import-card display issues.","## Closet","<b>Browsing your closet is much clearer.</b> Choose <b>Selected List, All lists, All owned,</b> or <b>All wishlists</b> from the filters, with <b>Group by list</b> available for the classic DTI-style view.","<b>All lists + Group by list is now the starting view.</b> After that, DTI Remix remembers how you prefer to browse, along with your filters.","<b>Individual lists are easier to work with.</b> The list you’re viewing is clearly marked, selected lists appear as removable chips, and clearing them shows a quick guide to browsing from either the list cards or the filters.","<b>You can now sort by quantity</b>, highest or lowest first, within a single list or across everything.","<b>Closet quantities and item types are more accurate.</b> Three-digit quantities display properly, large closets no longer collapse quantities to 1, and NC, NP, and paint brush clothes are read directly from Neopets’ closet data.","<b>The old list star and filter padlock are gone.</b> DTI Remix simply remembers what you were viewing and how you had it filtered.","## Also included","<b>Neomail settings are easier to manage</b> and save immediately.","<b>Inventory imports are easier to place and review</b>, with import tips, a <b>+ New trade list</b> option, clearer selected cards, and cleaner pet previews.","<b>Try On Haul changes now update the homepage immediately</b>, including hanger badges, card highlighting, and wishlist states.","<b>DTI accounts stay separate when you switch between them in the same browser</b>, including each account’s lists and settings.","<b>Pet previews on the homepage load faster.</b>"]},{"v":"10.805.10","label":"Two new themes, nudges, and a lot of polish","notes":["New features and misc bug fixes."]},{"v":"10.758.71","label":"The Records page, user search & a big polish pass","notes":["New features and misc bug fixes."]},{"v":"10.735.31","label":"The NC Mall panel, rebuilt","notes":["New features and misc bug fixes."]},{"v":"10.735.10","label":"Petpet Workspace","notes":["New features and misc bug fixes."]}]};
 
   (function _dtrUpdateWatch(){
     try {
       if (location.hostname !== 'impress.openneo.net') return;
-      var shown = false, checks = 0;
+      var shown = false, checks = 0, previewing = false;
       var verCmp = function (a, b) {
         var A = String(a || '0').split('.'), B = String(b || '0').split('.');
         for (var i = 0; i < Math.max(A.length, B.length); i++) { var x = parseInt(A[i] || '0', 10) || 0, y = parseInt(B[i] || '0', 10) || 0; if (x !== y) return x > y ? 1 : -1; }
@@ -21,10 +21,31 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       };
       var ownV = function () { try { return (window.__DTR_META && window.__DTR_META.v) || '0'; } catch (_) { return '0'; } };
       var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); };
-      var show = function (meta) {
+
+      var SEEN_KEY = 'dtr:sys:upd_seen';
+      var readSeen = function () {
+        try { return String(window.dtrStore.get(SEEN_KEY, '') || ''); }
+        catch (_) { try { return String(GM_getValue('dtr_upd_seen', '') || ''); } catch (__) { return ''; } }
+      };
+      var writeSeen = function (v) {
+        try { window.dtrStore.set(SEEN_KEY, String(v || '')); return; } catch (_) {}
+        try { GM_setValue('dtr_upd_seen', String(v || '')); } catch (__) {}
+      };
+
+      var isReturning = function () {
+        try { if (window.dtrStore.get('dtr:sys:uid', '')) return true; } catch (_) {}
+        try { return !!GM_getValue('dtr_uid', ''); } catch (__) { return false; }
+      };
+
+      var show = function (meta, mode) {
         if (shown || document.getElementById('dtr-update-toast') || !document.body) return;
-        shown = true;
-        var fresh = (meta.history || []).filter(function (h) { return verCmp(h.v, ownV()) > 0; });
+
+        if (!previewing && document.visibilityState !== 'visible') return;
+
+        if (!window.dtrIcon || !window.dtrIcon.html) return;
+        var after = mode === 'after';
+        var floor = after ? readSeen() : ownV();
+        var fresh = (meta.history || []).filter(function (h) { return verCmp(h.v, floor) > 0; });
         if (!fresh.length) fresh = [{ label: '', notes: [] }];
 
         var notesHtml = fresh.map(function (h) {
@@ -47,7 +68,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           '#dtr-update-toast .dtr-upd-card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--dtr-stripe-soft,linear-gradient(90deg,#1cb6a6,#5fb3e8 35%,#ff97b3 68%,#ffce5a))}',
           '#dtr-update-toast .dtr-upd-x{position:absolute;top:9px;right:10px;z-index:1;}',
           '#dtr-update-toast .dtr-upd-x:hover{}',
-          '#dtr-update-toast .dtr-upd-h{flex:none;font:800 16px/1.2 Nunito,sans-serif;color:var(--dtr-ink-strong, #46463f);margin:2px 0 3px}',
+          '#dtr-update-toast .dtr-upd-title{flex:none;font:800 16px/1.2 Nunito,sans-serif;color:var(--dtr-ink-strong, #46463f);margin:2px 0 3px}',
           '#dtr-update-toast .dtr-upd-sub{flex:none;font:600 11.5px/1.4 Nunito,sans-serif;color:var(--dtr-grey6, #8a8378);margin:0 0 9px}',
           '#dtr-update-toast .dtr-upd-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;padding-right:8px;margin-right:-8px}',
           '#dtr-update-toast .dtr-upd-scroll::-webkit-scrollbar{width:7px}',
@@ -69,14 +90,19 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         var wrap = document.createElement('div'); wrap.id = 'dtr-update-toast';
         wrap.innerHTML = '<div class="dtr-upd-card">'
           + '<button type="button" class="dtr-upd-x dtr-x" aria-label="Dismiss">' + window.dtrIcon.html('close', { size: 14 }) + '</button>'
-          + '<div class="dtr-upd-h">An update landed</div>'
-          + '<div class="dtr-upd-sub">Here’s what’s new since your last refresh:</div>'
+          + '<div class="dtr-upd-title">' + (after ? 'DTI Remix just updated' : 'An update landed') + '</div>'
+          + '<div class="dtr-upd-sub">' + (after ? 'Here’s what’s new:' : 'Here’s what’s new since your last refresh:') + '</div>'
           + '<div class="dtr-upd-scroll">' + notesHtml + '</div>'
-          + '<button type="button" class="dtr-upd-reload">Reload now to update</button>'
-          + '<div class="dtr-upd-hint">or press <b>' + combo + '</b></div>'
+          + '<button type="button" class="dtr-upd-reload">' + (after ? 'Got it' : 'Reload now to update') + '</button>'
+          + (after ? '' : '<div class="dtr-upd-hint">or press <b>' + combo + '</b></div>')
           + '</div>';
         document.body.appendChild(wrap);
-        wrap.querySelector('.dtr-upd-reload').addEventListener('click', function () { try { location.reload(); } catch (_) {} });
+        shown = true;
+
+        if (!previewing) writeSeen(meta.v || ownV());
+        wrap.querySelector('.dtr-upd-reload').addEventListener('click', function () {
+          try { if (after) { wrap.remove(); return; } location.reload(); } catch (_) {}
+        });
         wrap.querySelector('.dtr-upd-x').addEventListener('click', function () { try { wrap.remove(); } catch (_) {} });
       };
       var check = function () {
@@ -94,7 +120,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
                   var m = code.match(/window\.__DTR_META\s*=\s*(\{.*\})\s*;/);
                   if (!m) return;
                   var meta; try { meta = JSON.parse(m[1]); } catch (_) { return; }
-                  if (meta && meta.v && verCmp(meta.v, ownV()) > 0) show(meta);
+                  if (meta && meta.v && verCmp(meta.v, ownV()) > 0 && verCmp(meta.v, readSeen()) > 0) show(meta, 'before');
                 } catch (_) {}
               };
             } catch (_) {}
@@ -102,26 +128,42 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         } catch (_) {}
       };
 
-      setTimeout(check, 5000);
-      var iv = setInterval(function () { checks++; if (shown || checks > 12) { clearInterval(iv); return; } check(); }, 45000);
+      var afterCheck = function () {
+        if (shown) return;
+        try {
+          var seen = readSeen(), own = ownV();
+
+          if (!seen) {
+            var hist = (window.__DTR_META && window.__DTR_META.history) || [];
+            writeSeen(isReturning() && hist[1] && hist[1].v ? hist[1].v : own);
+            seen = readSeen();
+          }
+          if (own !== '0' && verCmp(own, seen) > 0) show(window.__DTR_META || {}, 'after');
+        } catch (_) {}
+      };
+
+      setTimeout(function () { afterCheck(); check(); }, 5000);
+      var iv = setInterval(function () { checks++; if (shown || checks > 12) { clearInterval(iv); return; } afterCheck(); check(); }, 45000);
 
       var _lastVisCheck = 0;
       document.addEventListener('visibilitychange', function () {
         if (document.visibilityState !== 'visible' || shown) return;
         var _now = Date.now(); if (_now - _lastVisCheck < 60000) return;
-        _lastVisCheck = _now; check();
+        _lastVisCheck = _now; afterCheck(); check();
       });
 
       try {
 
         var _hookTgt = (typeof unsafeWindow !== 'undefined' && unsafeWindow) ? unsafeWindow : window;
-        _hookTgt.__dtrTestUpdatePrompt = function (n) {
-          shown = false; var _t = document.getElementById('dtr-update-toast'); if (_t) _t.remove();
+
+        _hookTgt.__dtrTestUpdatePrompt = function (n, mode) {
+          shown = false; previewing = true; var _t = document.getElementById('dtr-update-toast'); if (_t) _t.remove();
 
           var real = (window.__DTR_META && window.__DTR_META.history) || [];
-          var pick = real.slice(0, (n && n > 0) ? n : 1).map(function (h) { return { v: '999.0.0', label: h.label, notes: h.notes }; });
+          var pick = real.slice(0, (n && n > 0) ? n : 1).map(function (h) { return { v: '999.0.0', label: h.label, ts: h.ts, notes: h.notes }; });
           if (!pick.length) pick = [{ v: '999.0.0', label: 'Preview', notes: ['This is what the update prompt looks like.', 'A real one lists what actually changed since your version.', 'The button reloads you straight into the new build.'] }];
-          show({ v: '999.0.0', history: pick });
+          show({ v: '999.0.0', history: pick }, mode === 'after' ? 'after' : 'before');
+          previewing = false;
         };
       } catch (_) {}
     } catch (_) {}
@@ -131,7 +173,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
   (function () {
     if (window.dtrStore) return;
-    var REVERSE = {"dtr:sys:uid":"dtr_uid","dtr:sys:csrf":"dtr_csrf","dtr:sys:dev":"dtr_dev","dtr:sys:bridge_done":"dtr_bridge_done","dtr:sys:ping_day":"dtr_ping_day","dtr:sys:nav_reload_log":"dtr_nav_reload_log","dtr:sys:user_names":"dtr_user_names","dtr:theme:current":"dib-theme","dtr:settings:anim_enabled":"dtr_anim_enabled","dtr:settings:anim_locks":"dtr_anim_locks","dtr:settings:cond_lists":"dtr_cond_lists","dtr:settings:hp_notes":"dtr_hp_notes","dtr:settings:pet_thumb_mode":"dtr_pet_thumb_mode","dtr:settings:picker_view":"dtr_picker_view","dtr:settings:rec_sort":"dtr_rec_sort","dtr:settings:thumb_render":"dtr_thumb_render","dtr:settings:freezewatch":"dtr_freezewatch","dtr:settings:feed_collapsed":"dtr_dib_collapsed","dtr:settings:feed_pagesize":"dtr_dib_pagesize","dtr:settings:feed_preview_off":"dtr_dib_preview_off","dtr:settings:favchk_view":"dtr_favchk_view","dtr:settings:filter_nc":"dtr_filter_nc","dtr:settings:filter_np":"dtr_filter_np","dtr:settings:filter_pb":"dtr_filter_pb","dtr:settings:filter_unowned":"dtr_filter_unowned","dtr:settings:filter_unwanted":"dtr_filter_unwanted","dtr:settings:gallery_nc_only":"dtr_gallery_nc_only","dtr:settings:hp_color":"dtr_hp_color","dtr:settings:hp_species":"dtr_hp_species","dtr:settings:quickstart_pack":"dtr_quickstart_pack","dtr:settings:qp_anim":"dtr_qp_anim","dtr:settings:qp_starred":"dtr_qp_starred","dtr:settings:wl_state":"dtr_wl_state","dtr:closet:flock_mine":"dtr_cv2_flock_mine","dtr:closet:flock_others":"dtr_cv2_flock_others","dtr:closet:groupby":"dtr_cv2_groupby","dtr:closet:starred":"dtr_cv2_starred","dtr:closet:history":"dia_closet_history_v1","dtr:closet:filter_chip_dyeworks":"neo_dti_filter_chip_dyeworks","dtr:closet:filter_chip_baby":"neo_dti_filter_chip_baby","dtr:closet:filter_chip_mutant":"neo_dti_filter_chip_mutant","dtr:cmp:ownsort":"dtr_cv2_cmp_ownsort2","dtr:cmp:intent":"dtr_cmp_intent","dtr:haul:pintab":"dtr_toh_pintab","dtr:haul:sort":"dtr_toh_sort","dtr:haul:sortdir":"dtr_toh_sortdir","dtr:haul:source":"dtr_toh_source","dtr:haul:last_pet":"dtr_tryon_last_pet","dtr:haul:models":"dtr_tryon_models","dtr:haul:roster":"dtr_tryon_roster","dtr:haul:saved_canvas":"dtr_tryon_saved_canvas","dtr:yo:showhidden":"dtr_yo_showhidden","dtr:yo:sort":"dtr_yo_sort","dtr:yo:top":"dtr_yo_top","dtr:yo:view":"dtr_yo_view","dtr:oe:canvas_shrink":"dtr_oe_canvas_shrink","dtr:oe:hide_locked":"dtr_oe_hide_locked","dtr:oe:hires":"dtr_oe_hires","dtr:oe:img_archive":"dtr_oe_img_archive","dtr:oe:pinned_zones":"dtr_oe_pinned_zones","dtr:oe:variant_hidden":"dtr_oe_variant_hidden","dtr:oe:zonemap_show":"dtr_oe_zonemap_show","dtr:oe:color_engine":"dtr_oe_color_engine","dtr:oe:colormatch":"dtr_oe_colormatch","dtr:oe:combo_crown":"dtr_oe_combo_crown","dtr:oe:cs_view":"dtr_oe_cs_view","dtr:oe:layers_view":"dtr_oe_layers_view","dtr:oe:p2_color_engine":"dtr_oe_p2_color_engine","dtr:oe:p2_colormatch":"dtr_oe_p2_colormatch","dtr:oe:p2_dots_v1":"dtr_oe_p2_dots_v1","dtr:oe:p2_sort":"dtr_oe_p2_sort","dtr:oe:p3_sort":"dtr_oe_p3_sort","dtr:oe:pk_dense":"dtr_oe_pk_dense","dtr:oe:search_h":"dtr_oe_search_h","dtr:oe:search_prefs":"dtr_oe_search_prefs","dtr:oe:share_break":"dtr_oe_share_break","dtr:oe:share_details":"dtr_oe_share_details","dtr:oe:share_level":"dtr_oe_share_level","dtr:oe:share_names":"dtr_oe_share_names","dtr:oe:share_pets":"dtr_oe_share_pets","dtr:oe:starred":"dtr_oe_starred","dtr:oe:starter_packs":"dtr_oe_starter_packs","dtr:oe:strip_collapsed":"dtr_oe_strip_collapsed","dtr:oe:tags":"dtr_oe_tags","dtr:oe:variant_groups":"dtr_oe_variant_groups","dtr:oe:zonemap":"dtr_oe_zonemap","dtr:oe:zonemap_docked":"dtr_oe_zonemap_docked","dtr:oe:zonemap_locked":"dtr_oe_zonemap_locked","dtr:oe:zonemap_mini":"dtr_oe_zonemap_mini","dtr:ps:clip":"dtr_ps_clip","dtr:ps:collage_title":"dtr_ps_collage_title","dtr:ps:cw_open":"dtr_ps_cw_open","dtr:ps:dense":"dtr_ps_dense","dtr:ps:label_colors_v1":"dtr_ps_label_colors_v1","dtr:ps:labels_v1":"dtr_ps_labels_v1","dtr:ps:own":"dtr_ps_own","dtr:ps:ownf":"dtr_ps_ownf","dtr:ps:sort":"dtr_ps_sort","dtr:ps:style_pet_log":"dtr_style_pet_log","dtr:import:closet_harvest":"dtr_closet_harvest","dtr:import:sdb_harvest":"dtr_sdb_harvest","dtr:import:pets_queue":"dtr_pets_import_queue","dtr:import:sdb_queue":"dtr_sdb_import_queue","dtr:import:closet_queue":"dtr_closet_import_queue","dtr:import:gallery_queue":"dtr_gallery_import_queue","dtr:trade:dia_data_v1":"dti_import_apprentice_data_v1","dtr:import:history":"neo_dti_import_history","dtr:import:pending_sync":"neo_dti_pending_sync","dtr:import:export_mode":"neo_dti_export_mode","dtr:import:last_updated":"neo_dti_last_updated","dtr:import:bulk_cols":"neo_dti_bulk_cols","dtr:import:bulk_board":"neo_dti_bulk_board","dtr:import:bulk_gridpos":"neo_dti_bulk_gridpos","dtr:import:bulk_tilesize":"neo_dti_bulk_tilesize","dtr:trade:favorite_owners":"neo_dti_favorite_owners","dtr:trade:owner_notes":"neo_dti_owner_notes","dtr:trade:fav_only":"neo_dti_trade_fav_only","dtr:trade:tab":"neo_dti_trade_tab","dtr:trade:visited_links":"neo_dti_visited_links","dtr:trade:login_state":"neo_dti_login_state","dtr:trade:statuses":"neo_dti_trade_statuses","dtr:trade:revealed":"neo_dti_trades_revealed","dtr:trade:custom_statuses":"neo_dti_custom_status_options","dtr:trade:status_order":"neo_dti_status_order","dtr:trade:status_colors":"neo_dti_status_colors","dtr:trade:date_filter_v1":"dia_date_filter_v1","dtr:lists:nicknames":"neo_dti_nicknames","dtr:lists:order":"neo_dti_order","dtr:lists:inactive":"neo_dti_inactive","dtr:lists:show_hidden":"neo_dti_show_hidden","dtr:lists:preview_prefs":"neo_dti_preview_prefs","dtr:lists:preview_open":"neo_dti_preview_open","dtr:lists:disable_list_drag":"neo_dti_disable_list_drag","dtr:lists:disable_shortlist_drag":"neo_dti_disable_shortlist_drag","dtr:cache:idb_v1":"dtr_idb_cache_v1","dtr:cache:idb_v2":"dtr_idb_cache_v2","dtr:cache:idb_colors_v1":"dtr_idb_colors_v1","dtr:cache:item_names":"dtr_item_names","dtr:cache:item_nc":"dtr_item_nc","dtr:cache:item_thumbs":"dtr_item_thumbs","dtr:cache:item_zones":"dtr_item_zones","dtr:cache:item_resolve":"dtr_item_resolve_cache","dtr:cache:zone_tip":"dtr_zone_tip_cache","dtr:cache:lebron":"dtr_lebron","dtr:cache:lebron_ts":"dtr_lebron_ts","dtr:cache:pet_thumbs":"dtr_pet_thumbs","dtr:cache:last_pts":"dtr_last_pts","dtr:cache:last_user":"dtr_last_user","dtr:cache:spco_names":"dtr_spco_names","dtr:cache:trade_dates_v1":"dia_date_cache_v1","dtr:cache:tryon_pet_data":"dtr_tryon_pet_data","dtr:cache:cv2_items_v2":"dtr_cv2_item_cache_v2","dtr:cache:my_lists":"dtr_my_lists_cache","dtr:cache:ps_nameidx":"dtr_ps_nameidx","dtr:cache:ps_thumbs":"dtr_ps_thumbs","dtr:cache:pixhist_v1":"dtr_oe_pixhist_v1","dtr:cache:pixhist_v2":"dtr_oe_pixhist_v2","dtr:cache:pixhist_v3":"dtr_oe_pixhist_v3","dtr:cache:pixhist_v4":"dtr_oe_pixhist_v4","dtr:cache:pixhist_v5":"dtr_oe_pixhist_v5","dtr:cache:pixhist_v6":"dtr_oe_pixhist_v6","dtr:cache:pixhist_v7":"dtr_oe_pixhist_v7","dtr:cache:pixhist_v8":"dtr_oe_pixhist_v8","dtr:cache:pixhist_v9":"dtr_oe_pixhist_v9","dtr:cache:pixtable":"dtr_oe_pixtable","dtr:cache:item_index":"dtr_item_index","dtr:cache:p2_sweep_v1":"dtr_oe_p2_sweep_v1","dtr:cache:petpets":"dtr_oe_petpets"};
+    var REVERSE = {"dtr:sys:uid":"dtr_uid","dtr:sys:csrf":"dtr_csrf","dtr:sys:dev":"dtr_dev","dtr:sys:bridge_done":"dtr_bridge_done","dtr:sys:ping_day":"dtr_ping_day","dtr:sys:upd_seen":"dtr_upd_seen","dtr:sys:nav_reload_log":"dtr_nav_reload_log","dtr:sys:user_names":"dtr_user_names","dtr:theme:current":"dib-theme","dtr:settings:anim_enabled":"dtr_anim_enabled","dtr:settings:anim_locks":"dtr_anim_locks","dtr:settings:cond_lists":"dtr_cond_lists","dtr:settings:hp_notes":"dtr_hp_notes","dtr:settings:pet_thumb_mode":"dtr_pet_thumb_mode","dtr:settings:picker_view":"dtr_picker_view","dtr:settings:rec_sort":"dtr_rec_sort","dtr:settings:thumb_render":"dtr_thumb_render","dtr:settings:freezewatch":"dtr_freezewatch","dtr:settings:feed_collapsed":"dtr_dib_collapsed","dtr:settings:feed_pagesize":"dtr_dib_pagesize","dtr:settings:feed_preview_off":"dtr_dib_preview_off","dtr:settings:favchk_view":"dtr_favchk_view","dtr:settings:filter_nc":"dtr_filter_nc","dtr:settings:filter_np":"dtr_filter_np","dtr:settings:filter_pb":"dtr_filter_pb","dtr:settings:filter_unowned":"dtr_filter_unowned","dtr:settings:filter_unwanted":"dtr_filter_unwanted","dtr:settings:gallery_nc_only":"dtr_gallery_nc_only","dtr:settings:hp_color":"dtr_hp_color","dtr:settings:hp_species":"dtr_hp_species","dtr:settings:quickstart_pack":"dtr_quickstart_pack","dtr:settings:qp_anim":"dtr_qp_anim","dtr:settings:qp_starred":"dtr_qp_starred","dtr:settings:wl_state":"dtr_wl_state","dtr:closet:flock_mine":"dtr_cv2_flock_mine","dtr:closet:flock_others":"dtr_cv2_flock_others","dtr:closet:groupby":"dtr_cv2_groupby","dtr:closet:starred":"dtr_cv2_starred","dtr:closet:history":"dia_closet_history_v1","dtr:closet:filter_chip_dyeworks":"neo_dti_filter_chip_dyeworks","dtr:closet:filter_chip_baby":"neo_dti_filter_chip_baby","dtr:closet:filter_chip_mutant":"neo_dti_filter_chip_mutant","dtr:cmp:ownsort":"dtr_cv2_cmp_ownsort2","dtr:cmp:intent":"dtr_cmp_intent","dtr:haul:pintab":"dtr_toh_pintab","dtr:haul:sort":"dtr_toh_sort","dtr:haul:sortdir":"dtr_toh_sortdir","dtr:haul:source":"dtr_toh_source","dtr:haul:last_pet":"dtr_tryon_last_pet","dtr:haul:models":"dtr_tryon_models","dtr:haul:roster":"dtr_tryon_roster","dtr:haul:saved_canvas":"dtr_tryon_saved_canvas","dtr:yo:showhidden":"dtr_yo_showhidden","dtr:yo:sort":"dtr_yo_sort","dtr:yo:top":"dtr_yo_top","dtr:yo:view":"dtr_yo_view","dtr:oe:canvas_shrink":"dtr_oe_canvas_shrink","dtr:oe:hide_locked":"dtr_oe_hide_locked","dtr:oe:hires":"dtr_oe_hires","dtr:oe:img_archive":"dtr_oe_img_archive","dtr:oe:pinned_zones":"dtr_oe_pinned_zones","dtr:oe:variant_hidden":"dtr_oe_variant_hidden","dtr:oe:zonemap_show":"dtr_oe_zonemap_show","dtr:oe:color_engine":"dtr_oe_color_engine","dtr:oe:colormatch":"dtr_oe_colormatch","dtr:oe:combo_crown":"dtr_oe_combo_crown","dtr:oe:cs_view":"dtr_oe_cs_view","dtr:oe:layers_view":"dtr_oe_layers_view","dtr:oe:p2_color_engine":"dtr_oe_p2_color_engine","dtr:oe:p2_colormatch":"dtr_oe_p2_colormatch","dtr:oe:p2_dots_v1":"dtr_oe_p2_dots_v1","dtr:oe:p2_sort":"dtr_oe_p2_sort","dtr:oe:p3_sort":"dtr_oe_p3_sort","dtr:oe:pk_dense":"dtr_oe_pk_dense","dtr:oe:search_h":"dtr_oe_search_h","dtr:oe:search_prefs":"dtr_oe_search_prefs","dtr:oe:share_break":"dtr_oe_share_break","dtr:oe:share_details":"dtr_oe_share_details","dtr:oe:share_level":"dtr_oe_share_level","dtr:oe:share_names":"dtr_oe_share_names","dtr:oe:share_pets":"dtr_oe_share_pets","dtr:oe:starred":"dtr_oe_starred","dtr:oe:starter_packs":"dtr_oe_starter_packs","dtr:oe:strip_collapsed":"dtr_oe_strip_collapsed","dtr:oe:tags":"dtr_oe_tags","dtr:oe:variant_groups":"dtr_oe_variant_groups","dtr:oe:zonemap":"dtr_oe_zonemap","dtr:oe:zonemap_docked":"dtr_oe_zonemap_docked","dtr:oe:zonemap_locked":"dtr_oe_zonemap_locked","dtr:oe:zonemap_mini":"dtr_oe_zonemap_mini","dtr:ps:clip":"dtr_ps_clip","dtr:ps:collage_title":"dtr_ps_collage_title","dtr:ps:cw_open":"dtr_ps_cw_open","dtr:ps:dense":"dtr_ps_dense","dtr:ps:label_colors_v1":"dtr_ps_label_colors_v1","dtr:ps:labels_v1":"dtr_ps_labels_v1","dtr:ps:own":"dtr_ps_own","dtr:ps:ownf":"dtr_ps_ownf","dtr:ps:sort":"dtr_ps_sort","dtr:ps:style_pet_log":"dtr_style_pet_log","dtr:import:closet_harvest":"dtr_closet_harvest","dtr:import:sdb_harvest":"dtr_sdb_harvest","dtr:import:pets_queue":"dtr_pets_import_queue","dtr:import:sdb_queue":"dtr_sdb_import_queue","dtr:import:closet_queue":"dtr_closet_import_queue","dtr:import:gallery_queue":"dtr_gallery_import_queue","dtr:trade:dia_data_v1":"dti_import_apprentice_data_v1","dtr:import:history":"neo_dti_import_history","dtr:import:pending_sync":"neo_dti_pending_sync","dtr:import:export_mode":"neo_dti_export_mode","dtr:import:last_updated":"neo_dti_last_updated","dtr:import:bulk_cols":"neo_dti_bulk_cols","dtr:import:bulk_board":"neo_dti_bulk_board","dtr:import:bulk_gridpos":"neo_dti_bulk_gridpos","dtr:import:bulk_tilesize":"neo_dti_bulk_tilesize","dtr:trade:favorite_owners":"neo_dti_favorite_owners","dtr:trade:owner_notes":"neo_dti_owner_notes","dtr:trade:fav_only":"neo_dti_trade_fav_only","dtr:trade:tab":"neo_dti_trade_tab","dtr:trade:visited_links":"neo_dti_visited_links","dtr:trade:login_state":"neo_dti_login_state","dtr:trade:statuses":"neo_dti_trade_statuses","dtr:trade:revealed":"neo_dti_trades_revealed","dtr:trade:custom_statuses":"neo_dti_custom_status_options","dtr:trade:status_order":"neo_dti_status_order","dtr:trade:status_colors":"neo_dti_status_colors","dtr:trade:date_filter_v1":"dia_date_filter_v1","dtr:lists:nicknames":"neo_dti_nicknames","dtr:lists:order":"neo_dti_order","dtr:lists:inactive":"neo_dti_inactive","dtr:lists:show_hidden":"neo_dti_show_hidden","dtr:lists:preview_prefs":"neo_dti_preview_prefs","dtr:lists:preview_open":"neo_dti_preview_open","dtr:lists:disable_list_drag":"neo_dti_disable_list_drag","dtr:lists:disable_shortlist_drag":"neo_dti_disable_shortlist_drag","dtr:cache:idb_v1":"dtr_idb_cache_v1","dtr:cache:idb_v2":"dtr_idb_cache_v2","dtr:cache:idb_colors_v1":"dtr_idb_colors_v1","dtr:cache:item_names":"dtr_item_names","dtr:cache:item_nc":"dtr_item_nc","dtr:cache:item_thumbs":"dtr_item_thumbs","dtr:cache:item_zones":"dtr_item_zones","dtr:cache:item_resolve":"dtr_item_resolve_cache","dtr:cache:zone_tip":"dtr_zone_tip_cache","dtr:cache:lebron":"dtr_lebron","dtr:cache:lebron_ts":"dtr_lebron_ts","dtr:cache:pet_thumbs":"dtr_pet_thumbs","dtr:cache:last_pts":"dtr_last_pts","dtr:cache:last_user":"dtr_last_user","dtr:cache:spco_names":"dtr_spco_names","dtr:cache:trade_dates_v1":"dia_date_cache_v1","dtr:cache:tryon_pet_data":"dtr_tryon_pet_data","dtr:cache:cv2_items_v2":"dtr_cv2_item_cache_v2","dtr:cache:my_lists":"dtr_my_lists_cache","dtr:cache:ps_nameidx":"dtr_ps_nameidx","dtr:cache:ps_thumbs":"dtr_ps_thumbs","dtr:cache:pixhist_v1":"dtr_oe_pixhist_v1","dtr:cache:pixhist_v2":"dtr_oe_pixhist_v2","dtr:cache:pixhist_v3":"dtr_oe_pixhist_v3","dtr:cache:pixhist_v4":"dtr_oe_pixhist_v4","dtr:cache:pixhist_v5":"dtr_oe_pixhist_v5","dtr:cache:pixhist_v6":"dtr_oe_pixhist_v6","dtr:cache:pixhist_v7":"dtr_oe_pixhist_v7","dtr:cache:pixhist_v8":"dtr_oe_pixhist_v8","dtr:cache:pixhist_v9":"dtr_oe_pixhist_v9","dtr:cache:pixtable":"dtr_oe_pixtable","dtr:cache:item_index":"dtr_item_index","dtr:cache:p2_sweep_v1":"dtr_oe_p2_sweep_v1","dtr:cache:petpets":"dtr_oe_petpets"};
     var RP = [[/^dtr:u:([^:]+):haul:items$/,"dtr_cv2_haul::$1"],[/^dtr:u:([^:]+):haul:migrated$/,"dtr_cv2_haul_migrated::$1"],[/^dtr:u:([^:]+):lb:boards$/,"dtr_lookbook::$1"],[/^dtr:u:([^:]+):lb:drafts$/,"dtr_lb_drafts::$1"],[/^dtr:u:([^:]+):cmp:excluded$/,"dtr_cv2_cmp_excluded::$1"],[/^dtr:u:([^:]+):clip:list_(id|name)(_backup)?$/,"dtr_qa_list_$2$3::$1"],[/^dtr:lb:img::(.+)$/,"dtr_lb_img::$1"],[/^dtr:import:batch([a-z_]*)$/,"neo_dti_batch$1"],[/^dtr:import:staging_v4::(.+)$/,"dia_staging_v4::$1"],[/^dtr:haul:active::(.+)$/,"dtr_haul_active_$1"],[/^dtr:ps:(.+)$/,"dtr_ps_$1"]];
     function oldKeyFor(k) {
       if (Object.prototype.hasOwnProperty.call(REVERSE, k)) return REVERSE[k];
@@ -16258,7 +16300,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
     let cached = null, ts = 0;
     try { const raw = GM_getValue('dtr_lebron'); cached = (typeof raw === 'string' && raw) ? JSON.parse(raw) : null; ts = parseInt(GM_getValue('dtr_lebron_ts', '0'), 10) || 0; } catch (_) { cached = null; }
     const usable = cached && typeof cached === 'object' && Object.keys(cached).length > 0;
-    if (usable && (Date.now() - ts) < 172800000) return Promise.resolve(cached);
+    if (usable && (Date.now() - ts) < 259200000) return Promise.resolve(cached);
     return fetch('https://lebron-values.netlify.app/item_values.json')
       .then(r => r.ok ? r.json() : null)
       .then(d => {
@@ -35284,13 +35326,38 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
       const rpColor = document.getElementById('dia-hp-rp-color');
       const rpSpecies = document.getElementById('dia-hp-rp-species');
       const rpPreview = document.getElementById('dia-hp-rp-preview');
-      let _rpM = null, _rpCols = 120, _rpReq = 0, _scRefilterFn = null;
+      let _rpM = null, _rpMReady = null, _rpCols = 120, _rpReq = 0, _scRefilterFn = null;
       const rpCell = (s, c) => _rpM ? _rpM[2 + (s - 1) * _rpCols + (c - 1)] : 1;
       const rpRefilter = () => {
         if (!_rpM) return;
         const c = rpColor && rpColor.value, s = rpSpecies && rpSpecies.value;
         if (rpSpecies) [...rpSpecies.options].forEach(o => { if (!o.value) return; const ok = !c || rpCell(+o.value, +c) !== 0; o.hidden = !ok; o.disabled = !ok; });
         if (rpColor) [...rpColor.options].forEach(o => { if (!o.value) return; const ok = !s || rpCell(+s, +o.value) !== 0; o.hidden = !ok; o.disabled = !ok; });
+      };
+
+      const _rpPoseBits = [['HAPPY_FEM', 8], ['HAPPY_MASC', 1], ['UNCONVERTED', 64], ['SAD_FEM', 16], ['SAD_MASC', 2], ['SICK_FEM', 32], ['SICK_MASC', 4], ['UNKNOWN', 128]];
+
+      const _rpLayerMemo = new Map();
+      const rpFetchLayers = (s, c) => {
+        const key = s + ':' + c;
+        if (_rpLayerMemo.has(key)) return _rpLayerMemo.get(key);
+        const job = (async () => {
+          if (!_rpM && _rpMReady) { try { await _rpMReady; } catch (_) {} }
+          const bits = _rpM ? rpCell(+s, +c) : 255;
+          const poses = _rpPoseBits.filter(pb => bits & pb[1]).map(pb => pb[0]);
+          let layers = null;
+          for (const p of poses) {
+            const r = await fetch('https://impress-2020.openneo.net/api/graphql', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: `{ petAppearance(speciesId:"${s}", colorId:"${c}", pose:${p}){ layers{ imageUrl:imageUrlV2(idealSize:SIZE_300) zone{depth} } } }` }) });
+            const j = await r.json();
+            const L = j.data && j.data.petAppearance && j.data.petAppearance.layers;
+            if (L && L.length) { layers = L; break; }
+          }
+          if (layers) layers.sort((a, b) => ((a.zone && a.zone.depth) || 0) - ((b.zone && b.zone.depth) || 0));
+          return layers;
+        })();
+        _rpLayerMemo.set(key, job);
+        job.catch(() => { if (_rpLayerMemo.get(key) === job) _rpLayerMemo.delete(key); });
+        return job;
       };
       const rpRenderPreview = async () => {
         if (!rpPreview) return;
@@ -35299,22 +35366,14 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
         const reqId = ++_rpReq;
         rpPreview.classList.add('has');
         rpPreview.innerHTML = '<div class="dia-rp-spin"></div>';
-        const poses = ['HAPPY_FEM', 'HAPPY_MASC', 'UNCONVERTED', 'SAD_FEM', 'SAD_MASC', 'UNKNOWN'];
         try {
-          let layers = null;
-          for (const p of poses) {
-            const r = await fetch('https://impress-2020.openneo.net/api/graphql', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: `{ petAppearance(speciesId:"${s}", colorId:"${c}", pose:${p}){ layers{ imageUrl:imageUrlV2(idealSize:SIZE_300) zone{depth} } } }` }) });
-            const j = await r.json();
-            const L = j.data && j.data.petAppearance && j.data.petAppearance.layers;
-            if (L && L.length) { layers = L; break; }
-          }
+          const layers = await rpFetchLayers(s, c);
           if (reqId !== _rpReq) return;
           if (!layers) { rpPreview.classList.remove('has'); rpPreview.textContent = 'No preview available'; return; }
-          layers.sort((a, b) => ((a.zone && a.zone.depth) || 0) - ((b.zone && b.zone.depth) || 0));
           rpPreview.innerHTML = `<div class="dia-rp-pet">${layers.map(l => `<img src="${l.imageUrl}" alt="" loading="lazy">`).join('')}</div>`;
         } catch (_) { if (reqId === _rpReq) { rpPreview.classList.remove('has'); rpPreview.textContent = 'Preview unavailable'; } }
       };
-      fetch('https://impress-2020.openneo.net/api/validPetPoses').then(r => r.arrayBuffer()).then(buf => {
+      _rpMReady = fetch('https://impress-2020.openneo.net/api/validPetPoses').then(r => r.arrayBuffer()).then(buf => {
         _rpM = new Uint8Array(buf); _rpCols = _rpM[1] || 120; rpRefilter(); if (_scRefilterFn) _scRefilterFn();
       }).catch(() => {});
       rpColor?.addEventListener('change', () => {
@@ -35353,18 +35412,10 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
           const host = document.getElementById('dia-hp-hero-img'); if (!host) return;
           const s = scSp.value, c = scCo.value; if (!s || !c) return;
           const reqId = ++_scReq;
-          const poses = ['HAPPY_FEM', 'HAPPY_MASC', 'UNCONVERTED', 'SAD_FEM', 'SAD_MASC', 'UNKNOWN'];
           let layers = null;
-          try {
-            for (const p of poses) {
-              const r = await fetch('https://impress-2020.openneo.net/api/graphql', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: `{ petAppearance(speciesId:"${s}", colorId:"${c}", pose:${p}){ layers{ imageUrl:imageUrlV2(idealSize:SIZE_300) zone{depth} } } }` }) });
-              const j = await r.json(); const L = j.data && j.data.petAppearance && j.data.petAppearance.layers;
-              if (L && L.length) { layers = L; break; }
-            }
-          } catch (_) { return; }
+          try { layers = await rpFetchLayers(s, c); } catch (_) { return; }
           if (reqId !== _scReq || window._dtrHpStyleId) return;
           if (!layers || !layers.length) return;
-          layers.sort((a, b) => ((a.zone && a.zone.depth) || 0) - ((b.zone && b.zone.depth) || 0));
           const im = host.querySelector('img');
           const cap = document.getElementById('dia-hp-hero-caption');
           const ribbon = document.getElementById('dia-hp-worn-ribbon');

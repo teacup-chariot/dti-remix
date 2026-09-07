@@ -1,21 +1,16 @@
 # DTI Remix
 
-DTI Remix is a browser userscript that adds accessibility, organization, and
-quality-of-life tools to **[Dress to Impress](https://impress.openneo.net/)**.
+DTI Remix is a free browser userscript that adds accessibility, organization, and quality-of-life tools to **[Dress to Impress](https://impress.openneo.net/)**.
 
-Having started out as a tool for managing a large NC collection, DTI Remix grew
-over four months of development and iteration to include importing, color search, outfit
-variants, comparisons, trade planning, saved context, larger controls, petpet
-and petpetpet matching, easy NC Pet Style token previews and management, sorting
-by latest, and visibility into NC Mall item launches.
+What started as a way to make managing a large NC collection a little easier grew over four months into something much bigger: importing, color search, outfit variants, comparisons, trade planning, saved context, larger controls, petpet and petpetpet matching, easy NC Pet Style token previews and management, sorting by latest, visibility into NC Mall launches, and more.
 
-DTI Remix is shaped by years of participation in the customization community and months of closer attention to how players actually use DTI, the NC Mall, and customization on Neopets.com. Conversations with casual customizers, collectors with thousands of wearables, and traders at every level, along with discussions across Neocord, Neopets Nation, and /r/neopets, surfaced the same pain points, time sinks, and “I wish DTI could do this” moments again and again.
+At its heart, DTI Remix is a love letter to the customization community. It's shaped by years spent in that community and months of paying closer attention to how people actually customize, collect, trade, and use DTI alongside Neopets and the NC Mall.
 
-Accessibility is part of the project throughout, with larger targets, fewer repetitive actions, clearer state, and keyboard navigation
-across key parts of the interface.
+That has meant talking with casual customizers, collectors with thousands of wearables, and traders at every level, along with listening to conversations across Neocord, Neopets Nation, and /r/neopets. Again and again, the same wishes and ideas came up: things that could take fewer steps, information that could be easier to keep track of, and little “I wish DTI could do this” moments that felt worth exploring.
 
-DTI Remix is free, has no ads or paid features, and is shared as an unofficial
-fan project.
+Accessibility is part of the project throughout, with larger targets, fewer repetitive actions, clearer state, and keyboard navigation across key parts of the interface.
+
+DTI Remix is completely free, with no ads, subscriptions, paid features, or other monetization. It's shared as an unofficial fan project for the community that inspired it.
 
 <p align="center">
   <img src="https://i.ibb.co/jP0zkSy4/dti-remix.png" alt="DTI Remix" width="520">
@@ -23,17 +18,13 @@ fan project.
 
 ### Why a userscript?
 
-When Flash support ended, Dress to Impress helped revive the customization scene. Thanks
-to years of work and maintenance from its creator, DTI became a household name
-among Neopians and a tool customizers rely on every day.
+Dress to Impress has been part of the Neopets customization community for years. When Flash support ended, DTI helped bring customization forward into a new era, and years of work and maintenance have made it a familiar home for customizers and their outfits, lists, and collections.
 
-Replacing it was never the goal. Players already know and love DTI, and it's
-where years of outfits, lists, and collection data live. Since DTI is open
-source, building on top of it made much more sense. DTI Remix can add new tools
-without asking anyone to leave DTI or start over somewhere else.
+DTI Remix is meant to build on that foundation, not replace it.
 
-It also means DTI Remix doesn't need player accounts or its own database of
-personal data.
+Because DTI is open source, a userscript makes it possible to add new ideas and tools directly to an experience people already know and love. Existing outfits, lists, collections, and workflows can stay right where they are, while DTI Remix adds another layer on top.
+
+That approach also means DTI Remix doesn't need player accounts or its own database of personal user data.
 
 ## About the project
 
@@ -147,7 +138,7 @@ external services.
 | **GitHub** | `raw.githubusercontent.com` | Hosting the script and supporting data files that DTI Remix downloads and caches. Neopets and DTI account data isn't attached to these requests. |
 | **itemdb proxy** | `dtr-itemdb.…workers.dev` | Item and petpet lookups through the cached itemdb proxy. |
 | **itemdb** | `itemdb.com.br` | Ordinary links and a logo image. Itemdb lookups use the proxy above. |
-| **Lebron values** | `lebron-values.netlify.app` | The cap values shown on item cards, in the closet, and in the Copy panel. One download of a public values file, cached for two days. Neopets and DTI account data isn't attached to the request. |
+| **Lebron values** | `lebron-values.netlify.app` | The cap values shown on item cards, in the closet, and in the Copy panel. One download of a public values file, cached for three days. Neopets and DTI account data isn't attached to the request. |
 | **Pet Style measurements** | `dtr-style-sink.…workers.dev` | Receives the **pet name and Pet Style ID** when a missing Pet Style preview measurement is needed. No Neopets username, inventory, credentials, or other Neopets account data is included. |
 | **Anonymous usage counter** | `dtr-count.…workers.dev` | Receives a random locally generated installation ID and cache-busting timestamp at most once per UTC day. The ID isn't derived from a Neopets or DTI account and doesn't include usernames, pet names, inventory, closet, SDB, gallery contents, or activity history. |
 | **Google Fonts** | `fonts.googleapis.com` | Font resources used by the interface. Neopets and DTI account data isn't attached to the request. |
@@ -228,13 +219,17 @@ little longer to load.
 
 ## Credits and thanks
 
-- **Dress to Impress**, the foundation DTI Remix is built on.
-- **itemdb**, for mall data, as well as p2/p3, color filtering.
-- **shenkuun**, for providing custom assets used throughout the UI.
-- **The early test Meepits**, for invaluable feedback and patience.
+DTI Remix is only possible because of the work, resources, ideas, and generosity of others throughout the Neopets community.
 
-Neopets is a trademark of its respective owners. This project is unaffiliated
-with them.
+- **Dress to Impress**, the foundation DTI Remix is built on, and the years of work that have made it such an important part of Neopets customization.
+- **itemdb**, for the mall data, petpet and petpetpet data, and color information used throughout DTI Remix.
+- **Stylisher**, the NC value guide behind the cap values shown on item cards.
+- **shenkuun**, for the custom assets used throughout the UI.
+- **The early test Meepits**, for all of the testing, feedback, ideas, patience, and willingness to poke at things until they broke.
+
+And, more broadly, thank you to everyone who has shared an idea, answered a question, described how they customize or trade, or said some version of “wouldn't it be cool if...?” DTI Remix has grown around those conversations.
+
+Neopets is a trademark of its respective owners. This project is unaffiliated with them.
 
 ------------------------------------------------------------------------
 
