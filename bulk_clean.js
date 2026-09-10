@@ -25573,7 +25573,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
     var petRZ = {}; (petData.restrictedZones || []).forEach(function (z) { petRZ[z.id] = 1; });
 
     var _hindHidden = itemRZ['5'] || itemRZ['9'];
-    var _headHidden = itemRZ['33'] && itemRZ['34'] && itemRZ['37'];
+    var _headHidden = valid.some(function (a) { var rz = {}; (a.restrictedZones || []).forEach(function (z) { rz[z.id] = 1; }); return rz['33'] && rz['34'] && rz['37']; });
     return petLayers.concat(itemLayers).filter(function (l) {
       if (l.source === 'pet' && (itemRZ[l.zone.id] || (_hindHidden && String(l.zone.id) === '4') || (_headHidden && String(l.zone.id) === '30'))) return false;
       if (l.source === 'item') { if (!l._fitsBody) return false; if (l.bodyId !== '0' && (petData.pose === 'UNCONVERTED' || petRZ[l.zone.id])) return false; }
@@ -26412,7 +26412,10 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
               if (!b) { reject(new Error('toBlob failed')); return; }
               var a = document.createElement('a');
               a.href = URL.createObjectURL(b);
-              a.download = (String(spec.name || 'outfit').replace(/[^\w\- ]+/g, '').trim() || 'outfit') + '.png';
+
+              var _st = new Date(), _p2 = function (n) { return (n < 10 ? '0' : '') + n; };
+              var _stamp = _st.getFullYear() + '-' + _p2(_st.getMonth() + 1) + '-' + _p2(_st.getDate()) + ' ' + _p2(_st.getHours()) + _p2(_st.getMinutes());
+              a.download = (String(spec.name || 'outfit').replace(/[^\w\- ]+/g, '').trim() || 'outfit') + ' ' + _stamp + '.png';
               a.click();
               setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
               resolve();
@@ -57174,7 +57177,7 @@ if (!tradeLinks.length) {
 
       const _hindHidden = itemRestricted.has('5') || itemRestricted.has('9');
 
-      const _headHidden = itemRestricted.has('33') && itemRestricted.has('34') && itemRestricted.has('37');
+      const _headHidden = valid.some(a => { const rz = new Set((a.restrictedZones||[]).map(z => z.id)); return rz.has('33') && rz.has('34') && rz.has('37'); });
 
       return [...petLayers, ...itemLayers].filter(l => {
         if (l.source === 'pet'  && (itemRestricted.has(l.zone.id) || petRestricted.has(l.zone.id) || (_hindHidden && String(l.zone.id) === '4') || (_headHidden && String(l.zone.id) === '30'))) return false;
