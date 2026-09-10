@@ -136,7 +136,7 @@ external services.
 | **DTI GraphQL API** | `impress-2020.openneo.net/api/graphql` | Item search, item information, and appearance data used by DTI Remix features. |
 | **DTI outfit images** | `outfits.openneo-assets.net` | Outfit images displayed by DTI Remix. |
 | **GitHub** | `raw.githubusercontent.com` | Hosting the script and supporting data files that DTI Remix downloads and caches. Neopets and DTI account data isn't attached to these requests. |
-| **itemdb proxy** | `dtr-itemdb.…workers.dev` | Item and petpet lookups through the cached itemdb proxy. |
+| **itemdb proxy** | `dtr-itemdb.…workers.dev` | Item, petpet, petpetpet, and NC Mall lookups through the cached itemdb proxy. The API key stays on the server. Neopets and DTI account data isn't attached to these requests. |
 | **itemdb** | `itemdb.com.br` | Ordinary links and a logo image. Itemdb lookups use the proxy above. |
 | **Lebron values** | `lebron-values.netlify.app` | The cap values shown on item cards, in the closet, and in the Copy panel. One download of a public values file, cached for three days. Neopets and DTI account data isn't attached to the request. |
 | **Pet Style measurements** | `dtr-style-sink.…workers.dev` | Receives the **pet name and Pet Style ID** when a missing Pet Style preview measurement is needed. No Neopets username, inventory, credentials, or other Neopets account data is included. |
@@ -182,7 +182,7 @@ stay in sync afterward.**
 | `item-index.json` | Local wearable item index used for browsing and filtering. |
 | `color-table.json` | Pre-computed color data used by color filtering. |
 | `style-index.json` | Pet Style names and release dates that aren't available through the live API. |
-| `color-table/` | Scripts that generate the item, color, and style data files from DTI's public data. |
+| `color-table/` | Scripts that generate the item, color, and style data files from DTI's public data and the itemdb proxy. |
 | `active-box/` | Scripts that measure the Neoboards active-pet preview crop for Pet Styles. |
 | `.github/workflows/` | Scheduled jobs that refresh the data files and check for new Pet Style measurements. |
 
@@ -199,12 +199,20 @@ little longer to load.
   and runs at `document-start`.
 - **Rendering:** The interface uses the DOM directly. CreateJS loads only for
   animated item previews. Pet previews composite DTI's public layer images.
-- **Data:** Item, color, and style indexes are generated from DTI's public data
-  by a nightly GitHub Action and committed as JSON. Color filtering uses a
-  local lookup plus one batched query.
+- **Data:** The item and Pet Style indexes are generated from DTI's public data
+  by a nightly GitHub Action and committed as JSON. That job takes one file
+  from DTI, and only when it has changed since the last run, so most nights
+  cost them nothing. Color matching uses DTI Remix's own formula, which reads
+  each item's picture and figures out its colors. Every wearable is
+  pre-computed into a table that ships with the script; anything not in the
+  table is computed in the browser.
 - **Services:** Three Cloudflare Workers handle the itemdb cache/proxy, Pet
   Style preview measurement collection and validation, and the daily usage
   counter. None are required for the core app.
+- **itemdb API:** Item lookups and petpet searches use itemdb's API v2. The NC
+  Mall list, capsule contents, last mall record, and petpet species records
+  use API v1, which has no v2 equivalent. Every answer is cached on the proxy
+  and in the browser.
 - **Neopets:** DTI Remix makes no programmatic account-action requests.
   Automatic traffic is limited to image loads. Importers read the loaded page
   DOM, and imported account data isn't sent to DTI Remix-operated servers.
@@ -222,7 +230,7 @@ little longer to load.
 DTI Remix is only possible because of the work, resources, ideas, and generosity of others throughout the Neopets community.
 
 - **[Dress to Impress](https://impress.openneo.net/)**, the foundation DTI Remix is built on, and the years of work that have made it such an important part of Neopets customization.
-- **[itemdb](https://itemdb.com.br/)**, for the mall data, petpet and petpetpet data, and color information used throughout DTI Remix.
+- **[itemdb](https://itemdb.com.br/)**, for the mall data and the petpet and petpetpet data used throughout DTI Remix.
 - **[Stylisher](https://stylisher.club/)**, the NC value guide behind the cap values shown on item cards.
 - **shenkuun**, for the custom assets used throughout the UI.
 - **The early test Meepits**, for all of the testing, feedback, ideas, patience, and willingness to poke at things until they broke.
