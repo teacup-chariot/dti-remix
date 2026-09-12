@@ -2,13 +2,95 @@
 
 var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
 
+(function dtrNoteHoverPrimitive() {
+  try {
+    if (location.hostname !== 'impress.openneo.net') return;
+    if (window.dtrNoteHover) return;
+
+    function el() {
+      var t = document.getElementById('dia-global-note-tooltip');
+      if (!t) {
+        var host = document.body || document.documentElement;
+        if (!host) return null;
+        t = document.createElement('div');
+        t.id = 'dia-global-note-tooltip';
+        t.className = 'dia-ui-tooltip';
+        host.appendChild(t);
+      }
+      return t;
+    }
+
+    function place(anchor, t, opt) {
+      var r = anchor.getBoundingClientRect();
+      var w = t.offsetWidth, h = t.offsetHeight;
+      var gap = (opt && opt.gap != null) ? opt.gap : 6, pad = 8;
+      var vw = window.innerWidth, vh = window.innerHeight;
+      var left = (opt && opt.align === 'left') ? r.left : r.left + r.width / 2 - w / 2;
+      left = Math.max(pad, Math.min(vw - w - pad, left));
+      var top = r.top - h - gap;
+      if (top < pad) top = r.bottom + gap;
+      top = Math.max(pad, Math.min(vh - h - pad, top));
+      var dpr = window.devicePixelRatio || 1;
+      t.style.left = (Math.round(left * dpr) / dpr) + 'px';
+      t.style.top = (Math.round(top * dpr) / dpr) + 'px';
+    }
+
+    function hide() {
+      var t = document.getElementById('dia-global-note-tooltip');
+      if (t) t.classList.remove('show');
+    }
+
+    function show(anchor, text, opt) {
+      opt = opt || {};
+      if (!anchor || !anchor.getBoundingClientRect) return null;
+      var markup = opt.html == null ? null : String(opt.html);
+      var body = markup == null ? (text == null ? '' : String(text)) : markup;
+      if (!body) { hide(); return null; }
+      var t = el();
+      if (!t) return null;
+      if (markup == null) t.textContent = body; else t.innerHTML = markup;
+
+      t.style.width = opt.width || '';
+      t.style.maxWidth = opt.maxWidth || '';
+      t.style.whiteSpace = opt.whiteSpace || '';
+      t.classList.add('show');
+
+      (typeof opt.place === 'function' ? opt.place : place)(anchor, t, opt);
+      return t;
+    }
+
+    function bind(root, selector, getText, opt) {
+      if (!root || !root.addEventListener) return;
+      opt = opt || {};
+      var cap = !!opt.capture;
+      root.addEventListener('mouseover', function (e) {
+        var b = (e.target && e.target.closest) ? e.target.closest(selector) : null;
+        if (!b) return;
+        if (opt.skip && opt.skip(b)) return;
+        var txt = '';
+        try { txt = getText(b) || ''; } catch (_) { txt = ''; }
+        if (!txt) { hide(); return; }
+        show(b, txt, opt);
+      }, cap);
+      root.addEventListener('mouseout', function (e) {
+        var b = (e.target && e.target.closest) ? e.target.closest(selector) : null;
+        if (!b) return;
+        if (e.relatedTarget && b.contains(e.relatedTarget)) return;
+        hide();
+      }, cap);
+    }
+
+    window.dtrNoteHover = { el: el, show: show, hide: hide, bind: bind, place: place };
+  } catch (_dtrNoteHoverErr) {}
+})();
+
 (function () {
   'use strict';
 
   var IS_IMPRESS = false;
   try { IS_IMPRESS = location.hostname === 'impress.openneo.net'; } catch (_) {}
 
-  window.__DTR_META = {"v":"10.809.12","history":[{"v":"10.809.12","label":"The inventory export, more petpets, and faster zone browsing","ts":"September 8, 2026 · early PT","notes":["## Petpet picker","Picking and removing petpets is much faster, including petpetpets.","Double-click a petpet or petpetpet card to star or unstar it without changing your selection.","Quickly clicking between different petpets selects the one you meant to choose.","<b>Save combo</b> keeps the current petpet + petpetpet pair on your pet. Save as many combinations as you like, then swap either slot when you want to try something new.","Favorite stars sit neatly inside their cards, with a simple <b>Starred</b> or <b>Unstarred</b> confirmation.","Fanciful Fauna petpets are now available in the picker, including <b>Belonthiss, Juma, Kazeriu, Quilin</b> and fourteen more, in every painted color.","Petpet name search now covers the full picker, including <b>Altadorian, Maraquan and Moltaran</b> petpets.","## Color filter","The color filter is now one compact dropdown across <b>Customize, the closet, Pet Styles and the petpet picker</b>.","Your selected colors appear in a pill that opens the swatches, <b>Any / All</b>, and <b>Clear</b>.","The DTI / itemdb switch and <b>?</b> guide have been retired.","## Inventory export","Inventory now uses the same guided panel as the Safety Deposit Box and closet.","Open it from the tab on the right edge of your inventory page and sync the wearables currently on screen in one press.","NP wearables can be exported too. Flip the inventory page between <b>NP | NC</b> and the panel follows along.","NC and NP arrive on DTI as separate imports: <b>Inventory import: NC</b> and <b>Inventory import: NP</b>.","## Safety Deposit Box and closet","Filters grey out while you're capturing pages to help keep the current capture intact.","Hover to see why they're disabled, or click one if you want to use it anyway.","## Browsing by zone","Picking a zone is dramatically faster. With <b>Newest first</b>, Backpack dropped from more than <b>50 seconds to under 3</b>.","End-of-browse counts are clearer, for example: <b>Showing all 2032 in Background</b>.","Empty zones explain when your pet can't wear anything there.","If DTI can't determine whether some items work for your pet, the count tells you how many couldn't be checked.","## Closet","Comparison mode is much easier to spot. A callout at the top explains that you're only seeing items that match across both sets of lists, with a clear button to leave comparison mode.","The selected list is easier to distinguish, especially on <b>Milk Tea</b> and <b>Rose Matcha Latte</b>.","## Mood picker","The mood picker only shows moods available for your pet.","If DTI has no artwork for a mood, it's greyed out.","Pets with no available moods will say so instead of showing a picker full of identical options."]},{"v":"10.807.3","label":"Update notices, guided imports, and easier closet browsing","notes":["New features and misc bug fixes."]},{"v":"10.805.10","label":"Two new themes, nudges, and a lot of polish","notes":["New features and misc bug fixes."]},{"v":"10.758.71","label":"The Records page, user search & a big polish pass","notes":["New features and misc bug fixes."]},{"v":"10.735.31","label":"The NC Mall panel, rebuilt","notes":["New features and misc bug fixes."]}]};
+  window.__DTR_META = {"v":"10.810.0","history":[{"v":"10.810.0","label":"Minor Housekeeping","ts":"September 12, 2026","notes":["## Homepage","The page stays put while it loads. The pet strip, newest items and footer no longer shift around as everything comes in.","## Customize","Your Quickstart pet is used no matter how you open Customize. Bookmarks, typed addresses and older links will no longer drop you onto a Blue Acara.","## Item cards","The <b>?</b> and note buttons have a new hover effect, with a soft rim instead of the flat white cutout.","Tooltips wait half a second before opening, so moving across a row of items doesn’t trigger a chain of them.","## Item notes","Hover over a note button to see the note. <b>Customize</b> and <b>item search</b> were the last two places that still required a click.","Notes now open <b>above</b> the button, so writing one doesn’t cover the items underneath.","Closing a note no longer leaves a dark ring around the button."]},{"v":"10.809.12","label":"The inventory export, more petpets, and faster zone browsing","notes":["New features and misc bug fixes."]},{"v":"10.807.3","label":"Update notices, guided imports, and easier closet browsing","notes":["New features and misc bug fixes."]},{"v":"10.805.10","label":"Two new themes, nudges, and a lot of polish","notes":["New features and misc bug fixes."]},{"v":"10.758.71","label":"The Records page, user search & a big polish pass","notes":["New features and misc bug fixes."]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -180,8 +262,6 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       } catch (_) {}
     } catch (_) {}
   })();
-
-  try { if (localStorage.getItem('dtr_dev') === '1') GM_setValue('dtr_dev', 1); } catch (_) {}
 
   (function () {
     if (window.dtrStore) return;
@@ -2031,7 +2111,8 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
             if (raw) {
               var blob = JSON.parse(raw);
               var d = (blob && blob.data) || {};
-              Object.keys(d).forEach(function (k) { try { GM_setValue(k, d[k]); } catch (_) {} });
+
+              Object.keys(d).forEach(function (k) { if (k === 'dtr_dev' || k === 'dtr:sys:dev' || k.indexOf('dtr:dev:') === 0) return; try { GM_setValue(k, d[k]); } catch (_) {} });
 
             }
           } catch (_) {}
@@ -2426,7 +2507,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   const DIB_THEME_KEY = 'dtr:theme:current';
 
   const DIB_THEMES = ['konpeito', 'milktea', 'matcha', 'lychee', 'blacksesame'].concat((function () {
-    try { var _g = GM_getValue('dtr_dev', 0); if (_g === 1 || _g === true || _g === '1' || localStorage.getItem('dtr_dev') === '1') return ['ubejelly']; } catch (_) {}
+    try { var _g = GM_getValue('dtr_dev', 0); if (_g === 1 || _g === true || _g === '1') return ['ubejelly']; } catch (_) {}
     return [];
   })());
 
@@ -5988,6 +6069,10 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       'html body .dtr-note-btn:focus-visible{outline:none!important;box-shadow:inset 0 0 0 2px var(--dtr-primary,#149c8e),inset 0 2px 3px -1px rgba(255,255,255,.55),inset 0 -3px 4px -2px rgba(0,0,0,.16),0 2px 5px -1px rgba(0,0,0,.30)!important;}',
       'html body .dtr-note-btn:active{box-shadow:inset 0 2px 4px rgba(0,0,0,.30),0 1px 2px rgba(0,0,0,.24)!important;}',
 
+      'html:is(#dtr-hover-rank#dtr-hover-rank,html) body :is(.dtr-info-btn,.dtr-note-btn,.dia-wl-info-badge,.dia-wl-note-badge){transition:transform .15s ease,box-shadow .15s ease,background .15s ease,border-color .15s ease,color .15s ease,opacity .15s ease!important;}',
+      'html:is(#dtr-hover-rank#dtr-hover-rank,html) body :is(.dtr-info-btn,.dtr-note-btn,.dia-wl-info-badge,.dia-wl-note-badge):hover{opacity:1!important;transform:scale(1.08)!important;color:var(--dtr-hang-h,#d07f52)!important;border-color:color-mix(in srgb,var(--dtr-hang,#e89868) 70%,#fff)!important;background:radial-gradient(120% 110% at 50% 18%,color-mix(in srgb,var(--dtr-card,#fff) 55%,#fff) 0%,color-mix(in srgb,var(--dtr-hang,#e89868) 16%,var(--dtr-card,#fff)) 72%)!important;box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--dtr-hang,#e89868) 55%,transparent),inset 0 2px 3px -1px rgba(255,255,255,.6),inset 0 -3px 4px -2px rgba(0,0,0,.14),0 1px 4px color-mix(in srgb,var(--dtr-hang,#e89868) 45%,transparent)!important;}',
+      'html:is(#dtr-hover-rank#dtr-hover-rank,html) body .dtr-note-btn:hover::before{opacity:1!important;}',
+
       'html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-gear-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-gear-flyout,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-more-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dib-theme-pill .dib-pill-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-csel-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dtr-note-popover,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-tophat,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-cmp-cogpop,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-add-pop,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-haul-movepop,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-cv2-haul-panel,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-staging-panel,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-ps-panel,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-board,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-import,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-board-copy,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-board-collage,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-board-add,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-status-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dib-trade-drill,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dtr-toast,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-nl-toast,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-move-toast,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-update-toast,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dtr-modal,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dib-modal,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-ps-pop,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-fly,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-ui-tooltip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-zone-tooltip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-oe-petws,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-hp-wl-panel,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dib-lm-back>div,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dtr-nudge,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-mall-pool,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-zone-tooltip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-yo-info-tip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-toh-info-tip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-oe-info-tip{box-shadow:0 0 0 1px rgba(92,68,78,.08),0 0 14px rgba(92,68,78,.18),0 0 40px rgba(92,68,78,.22),0 20px 56px -14px rgba(92,68,78,.30)!important;}',
 
       'html[data-dtr-skin=blacksesame] .dia-psb-card,html[data-dtr-skin=blacksesame] .dia-psa-card,html[data-dtr-skin=blacksesame] .dia-psc-shell,html[data-dtr-skin=blacksesame] .dia-gear-menu,html[data-dtr-skin=blacksesame] #dia-gear-flyout,html[data-dtr-skin=blacksesame] .dia-more-menu,html[data-dtr-skin=blacksesame] #dib-theme-pill .dib-pill-menu,html[data-dtr-skin=blacksesame] .dia-csel-menu,html[data-dtr-skin=blacksesame] .dtr-note-popover,html[data-dtr-skin=blacksesame] #dtr-tophat,html[data-dtr-skin=blacksesame] .cv2-cmp-cogpop,html[data-dtr-skin=blacksesame] .cv2-add-pop,html[data-dtr-skin=blacksesame] .cv2-haul-movepop,html[data-dtr-skin=blacksesame] #dia-cv2-haul-panel,html[data-dtr-skin=blacksesame] #dia-staging-panel,html[data-dtr-skin=blacksesame] #dtr-ps-panel,html[data-dtr-skin=blacksesame] #dia-ps-board,html[data-dtr-skin=blacksesame] #dia-ps-import,html[data-dtr-skin=blacksesame] #dia-ps-board-copy,html[data-dtr-skin=blacksesame] #dia-ps-board-collage,html[data-dtr-skin=blacksesame] #dia-ps-board-add,html[data-dtr-skin=blacksesame] .dia-status-menu,html[data-dtr-skin=blacksesame] .dib-trade-drill,html[data-dtr-skin=blacksesame] #dib-tryon-dock,html[data-dtr-skin=blacksesame] .dtr-toast,html[data-dtr-skin=blacksesame] .cv2-nl-toast,html[data-dtr-skin=blacksesame] .cv2-move-toast,html[data-dtr-skin=blacksesame] #dtr-update-toast,html[data-dtr-skin=blacksesame] .dtr-modal,html[data-dtr-skin=blacksesame] .dib-modal,html[data-dtr-skin=blacksesame] .dia-ps-pop,html[data-dtr-skin=blacksesame] .cv2-fly,html[data-dtr-skin=blacksesame] .dia-ui-tooltip,html[data-dtr-skin=blacksesame] .dia-zone-tooltip,html[data-dtr-skin=blacksesame] #dtr-oe-petws,html[data-dtr-skin=blacksesame] #dia-hp-wl-panel,html[data-dtr-skin=blacksesame] #dib-lm-back>div,html[data-dtr-skin=blacksesame] .dtr-nudge,html[data-dtr-skin=blacksesame] #dia-mall-pool{box-shadow:0 0 0 1px rgba(255,255,255,.10),0 0 0 5px rgba(226,214,192,.05),0 0 22px rgba(0,0,0,.55),0 0 54px rgba(226,214,192,.16),0 28px 64px -18px rgba(0,0,0,.88)!important;}',
@@ -7828,17 +7913,23 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         noteBtn.type = 'button';
         noteBtn.className = 'dtr-card-btn dtr-note-btn';
         noteBtn.setAttribute('aria-label', 'Note');
+        const readNote = () => (typeof getDIASection === 'function' ? (getDIASection('itemNotes', {}) || {}) : {})[id] || '';
         const paint = () => {
-          const n = (typeof getDIASection === 'function' ? (getDIASection('itemNotes', {}) || {}) : {})[id] || '';
+          const n = readNote();
           noteBtn.classList.toggle('has-note', !!n);
-          noteBtn.title = n || 'Add a note';
+
+          if (n) noteBtn.removeAttribute('title'); else noteBtn.title = 'Add a note';
         };
         paint();
+
+        noteBtn.addEventListener('mouseenter', () => { try { window.dtrNoteHover.show(noteBtn, readNote()); } catch (_) {} });
+        noteBtn.addEventListener('mouseleave', () => { try { window.dtrNoteHover.hide(); } catch (_) {} });
         noteBtn.addEventListener('click', e => {
           e.preventDefault();
           e.stopPropagation();
+          try { window.dtrNoteHover.hide(); } catch (_) {}
           if (typeof window.dtrNote !== 'object') return;
-          const cur = (typeof getDIASection === 'function' ? (getDIASection('itemNotes', {}) || {}) : {})[id] || '';
+          const cur = readNote();
           window.dtrNote.open({
             anchor: noteBtn, value: cur, title: 'Item note',
             onSave: v => {
@@ -9669,7 +9760,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         "@keyframes cv2-opal{0%,100%{opacity:.45;}50%{opacity:.85;}}",
 
         "#dia-closet-v2-root .cv2-card.cv2-active-card{border-color:var(--dtr-accent, var(--dtr-berry, #c2487c))!important;}",
-        "#dia-closet-v2-root .cv2-card.cv2-active-card::before{content:'';position:absolute;left:0;top:9px;bottom:9px;width:3px;border-radius:0 3px 3px 0;z-index:3;pointer-events:none;background:var(--dtr-accent, var(--dtr-berry, #c2487c));}",
+
         "",
         "@keyframes cv2-candyglow{0%{box-shadow:0 0 0 2px color-mix(in srgb,var(--dtr-mint,#1cb6a6) 55%,transparent),0 0 14px color-mix(in srgb,var(--dtr-mint,#1cb6a6) 40%,transparent);}25%{box-shadow:0 0 0 2px color-mix(in srgb,var(--dtr-scroll-a,#5fb3e8) 55%,transparent),0 0 14px color-mix(in srgb,var(--dtr-scroll-a,#5fb3e8) 40%,transparent);}50%{box-shadow:0 0 0 2px color-mix(in srgb,var(--dtr-pink2,#ff97b3) 55%,transparent),0 0 14px color-mix(in srgb,var(--dtr-pink2,#ff97b3) 40%,transparent);}75%{box-shadow:0 0 0 2px color-mix(in srgb,var(--dtr-gold,#ffce5a) 55%,transparent),0 0 14px color-mix(in srgb,var(--dtr-gold,#ffce5a) 40%,transparent);}100%{box-shadow:0 0 0 2px color-mix(in srgb,var(--dtr-mint,#1cb6a6) 55%,transparent),0 0 14px color-mix(in srgb,var(--dtr-mint,#1cb6a6) 40%,transparent);}}",
         "#dia-closet-v2-root .cv2-multi-titlerow{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;}",
@@ -10823,28 +10914,12 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         if (!window.__cv2SignNoteWired) {
           window.__cv2SignNoteWired = true;
 
-          const _signNoteTip = () => document.getElementById('dia-global-note-tooltip')
-            || (function () { var t = document.createElement('div'); t.id = 'dia-global-note-tooltip'; t.className = 'dia-ui-tooltip'; document.body.appendChild(t); return t; })();
-          document.addEventListener('mouseover', function (e) {
-            var b = e.target.closest && e.target.closest('#dia-closet-v2-root .cv2-sign-note');
-            if (!b) return;
-            try {
+          try {
+            window.dtrNoteHover.bind(document, '#dia-closet-v2-root .cv2-sign-note', function (b) {
               var nm = b.getAttribute('data-note-owner') || '';
-              if (!nm) return;
-              var note = (getDIASection('traderNotes', {}) || {})[makeOwnerKey(nm)] || '';
-              if (!note) return;
-              var tip = _signNoteTip();
-              tip.textContent = note;
-              tip.classList.add('show');
-              var rect = b.getBoundingClientRect(), tw = tip.offsetWidth;
-              tip.style.left = Math.min(window.innerWidth - tw - 8, Math.max(8, rect.left + rect.width / 2 - tw / 2)) + 'px';
-              tip.style.top = (rect.bottom + 6) + 'px';
-            } catch (_) {}
-          }, true);
-          document.addEventListener('mouseout', function (e) {
-            if (!(e.target.closest && e.target.closest('#dia-closet-v2-root .cv2-sign-note'))) return;
-            try { var t = document.getElementById('dia-global-note-tooltip'); if (t) t.classList.remove('show'); } catch (_) {}
-          }, true);
+              return nm ? ((getDIASection('traderNotes', {}) || {})[makeOwnerKey(nm)] || '') : '';
+            }, { capture: true });
+          } catch (_) {}
           document.addEventListener('click', function (e) {
             var b = e.target.closest && e.target.closest('#dia-closet-v2-root .cv2-sign-note');
             if (!b) return;
@@ -13101,21 +13176,16 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         var noteBtn = document.createElement('button'); noteBtn.type = 'button'; noteBtn.className = 'dtr-card-btn dtr-note-btn'; noteBtn.setAttribute('aria-label', 'Note'); noteBtn.innerHTML = '';
         var refreshNote = () => { var n = getDIASection('itemNotes', {})[id] || ''; noteBtn.classList.toggle('has-note', !!n); };
         refreshNote();
+
         noteBtn.addEventListener('mouseenter', () => {
           if (noteBtn.dataset.editing) return;
-          var note = getDIASection('itemNotes', {})[id] || '';
           refreshNote();
-          if (!note) return;
-          var tip = document.getElementById('dia-global-note-tooltip') || (function () { var t = document.createElement('div'); t.id = 'dia-global-note-tooltip'; t.className = 'dia-ui-tooltip'; document.body.appendChild(t); return t; })();
-          tip.textContent = note; tip.classList.add('show');
-          var rect = noteBtn.getBoundingClientRect(); var tw = tip.offsetWidth;
-          tip.style.left = Math.min(window.innerWidth - tw - 8, Math.max(8, rect.left + rect.width / 2 - tw / 2)) + 'px';
-          tip.style.top = (rect.bottom + 6) + 'px';
+          try { window.dtrNoteHover.show(noteBtn, getDIASection('itemNotes', {})[id] || ''); } catch (_) {}
         });
-        noteBtn.addEventListener('mouseleave', () => { var t = document.getElementById('dia-global-note-tooltip'); if (t) t.classList.remove('show'); });
+        noteBtn.addEventListener('mouseleave', () => { try { window.dtrNoteHover.hide(); } catch (_) {} });
         noteBtn.addEventListener('click', (e) => {
           e.preventDefault(); e.stopPropagation();
-          var gt = document.getElementById('dia-global-note-tooltip'); if (gt) gt.classList.remove('show');
+          try { window.dtrNoteHover.hide(); } catch (_) {}
 
           if (!window.dtrNote || typeof window.dtrNote.open !== 'function') return;
           noteBtn.dataset.editing = '1';
@@ -16934,7 +17004,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   dtrImportCardsMount.hasAny = () => !!(diaImportState('') || diaImportState('inv_np') || diaImportState('pets') || diaImportState('sdb') || diaImportState('sdb_nc') || diaImportState('sdb_np') || diaImportState('closet') || diaImportState('gallery'));
 
   window._dtrMallSvc = (function () {
-    const BASE = () => { try { return localStorage.getItem('dtr:dev:idb-worker') || 'https://dtr-itemdb.dti-remix.workers.dev'; } catch (_) { return 'https://dtr-itemdb.dti-remix.workers.dev'; } };
+    const BASE = () => { try { if (window.dtrStore.get('dtr:sys:dev', false)) return localStorage.getItem('dtr:dev:idb-worker') || 'https://dtr-itemdb.dti-remix.workers.dev'; } catch (_) {} return 'https://dtr-itemdb.dti-remix.workers.dev'; };
 
     const MALL_TTL = 5 * 60 * 1000, SRC_TTL = 3 * 86400 * 1000;
     let mem = null, inflight = null;
@@ -27317,24 +27387,11 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       });
     });
 
-    root.addEventListener('mouseover', function (e) {
-      var t = e.target.closest && e.target.closest('[data-dtr-rec-itemtip]');
-      if (!t) return;
-      var tip = document.getElementById('dia-global-note-tooltip') || (function () { var el = document.createElement('div'); el.id = 'dia-global-note-tooltip'; el.className = 'dia-ui-tooltip'; document.body.appendChild(el); return el; })();
-      tip.textContent = t.getAttribute('data-dtr-rec-itemtip');
-      tip.classList.add('show');
-      var rect = t.getBoundingClientRect(); var tw = tip.offsetWidth; var th = tip.offsetHeight;
-      tip.style.left = Math.min(window.innerWidth - tw - 8, Math.max(8, rect.left + rect.width / 2 - tw / 2)) + 'px';
-
-      var _tUp = rect.top - th - 6;
-      tip.style.top = (_tUp >= 8 ? _tUp : rect.bottom + 6) + 'px';
-    });
-    root.addEventListener('mouseout', function (e) {
-      var t = e.target.closest && e.target.closest('[data-dtr-rec-itemtip]');
-      if (!t) return;
-      var tip = document.getElementById('dia-global-note-tooltip');
-      if (tip) tip.classList.remove('show');
-    });
+    try {
+      window.dtrNoteHover.bind(root, '[data-dtr-rec-itemtip]', function (t) {
+        return t.getAttribute('data-dtr-rec-itemtip') || '';
+      });
+    } catch (_) {}
     root.addEventListener('change', function (e) {
       var cball = e.target.closest && e.target.closest('[data-dtr-rec-cball]');
       if (cball) {
@@ -33665,11 +33722,10 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
           _tohZCache['_p' + itemId] = p;
           return p;
         };
-        const _tohNoteTipEl = () => document.getElementById('dia-global-note-tooltip') || (function () { const t = document.createElement('div'); t.id = 'dia-global-note-tooltip'; t.className = 'dia-ui-tooltip'; document.body.appendChild(t); return t; })();
 
         const _tohOpenNoteEditor = (badge, id) => {
           if (!window.dtrNote || typeof window.dtrNote.open !== 'function') return;
-          _tohNoteTipEl().classList.remove('show');
+          try { window.dtrNoteHover.hide(); } catch (_) {}
           window.dtrNote.open({
             anchor: badge,
             value: getDIASection('itemNotes', {})[id] || '',
@@ -33724,12 +33780,12 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
           if (nb) {
             const note = getDIASection('itemNotes', {})[nb.dataset.noteId] || '';
             if (!note) return;
-            const t = _tohNoteTipEl(); t.textContent = note; _tohPlaceTip(nb, t);
+            try { window.dtrNoteHover.show(nb, note, { place: _tohPlaceTip }); } catch (_) {}
           }
         });
         panel.querySelector('.dia-wl-body')?.addEventListener('mouseout', (e) => {
           if (e.target.closest && e.target.closest('.dia-wl-info-badge')) window._dtrTipDelayHide(_tohTipEl, _tohHideZoneTip);
-          if (e.target.closest && e.target.closest('.dia-wl-note-badge')) { const t = document.getElementById('dia-global-note-tooltip'); if (t) t.classList.remove('show'); }
+          if (e.target.closest && e.target.closest('.dia-wl-note-badge')) { try { window.dtrNoteHover.hide(); } catch (_) {} }
         });
 
         panel.querySelector('.dia-wl-body')?.addEventListener('click', (e) => {
@@ -33813,11 +33869,14 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
           font:400 11px/1 Inter,sans-serif;color:var(--dtr-grey3, #ccc);letter-spacing:.05em;
           text-transform:uppercase;min-height:200px;}
         #dia-hp-newest{margin-bottom:16px;padding:0}
+        
+        #dia-hp-page:not(.dtr-hp-newest-ready)>#footer{visibility:hidden}
         #dia-hp-newest-header{display:block;margin-bottom:8px}
         #dia-hp-newest-header h3{font:600 14px/1 Inter,sans-serif;color:var(--dtr-ink-max, #1a2e28);margin:0 0 10px;text-align:center}
         #dia-hp-newest-filters{display:flex;gap:6px}
         #dia-hp-newest-controls{display:flex;flex-wrap:nowrap;align-items:center;gap:8px;width:100%;max-width:100%;min-width:0;box-sizing:border-box;margin-bottom:10px}
-        #dia-hp-newest-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;max-height:520px;overflow-y:scroll;overflow-x:hidden;padding:4px 2px}
+        
+        #dia-hp-newest-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;max-height:520px;min-height:194px;overflow-y:scroll;overflow-x:hidden;padding:4px 2px}
         #dia-hp-newest-grid li.object,.dtr-itemcard{display:flex;flex-direction:column;align-items:center;background:var(--dtr-card, #fff);border:1px solid #b8dca0;border-radius:12px;overflow:hidden;width:135px;max-width:135px;min-width:0;flex-shrink:0;cursor:pointer;transition:box-shadow .15s,transform .15s;position:relative;box-sizing:border-box}
         
         #dia-hp-quickadd-cog{background:none;border:1px solid var(--dtr-line2,#c8e4da);border-radius:8px;padding:4px 8px;color:var(--dtr-deep,#3a7a5e);cursor:pointer;font-size:14px;line-height:1;transition:all .12s;flex-shrink:0}
@@ -33910,7 +33969,8 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
         #dia-hp-hero{grid-column:1/3;background:var(--dtr-panel, var(--dtr-card, #fff));border:1px solid var(--dtr-shellline, var(--dtr-line2,#a8d4c4));border-radius:10px;display:grid;grid-template-columns:80px 250px 1fr;overflow:hidden;min-height:340px}
         
         
-        #dia-hp-worn-ribbon{border-right:1px solid var(--dtr-mint-pale, #e8f4ef);overflow-y:auto;display:flex;flex-direction:column;padding:6px 0 10px;margin-top:8px;scrollbar-width:thin;scrollbar-color:var(--dtr-line2,#a8d4c4) var(--dtr-mint-pale, #e8f4ef);align-self:stretch;max-height:460px}
+        
+        #dia-hp-worn-ribbon{border-right:1px solid var(--dtr-mint-pale, #e8f4ef);overflow-y:auto;display:flex;flex-direction:column;padding:6px 0 10px;margin-top:8px;scrollbar-width:thin;scrollbar-color:var(--dtr-line2,#a8d4c4) var(--dtr-mint-pale, #e8f4ef);align-self:stretch;height:460px;max-height:460px}
         #dia-hp-worn-ribbon.hidden{visibility:hidden}
         #dia-hp-worn-label{font:600 8px/1 Inter,sans-serif;color:var(--dtr-mint, #7aaa94);text-transform:uppercase;letter-spacing:.08em;text-align:center;padding:2px 4px 9px;flex-shrink:0}
         #dia-hp-worn-list{display:flex;flex-direction:column;gap:4px;align-items:center;padding:0 4px;flex:1;justify-content:space-evenly}
@@ -34031,7 +34091,7 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
           #dia-hp-hero-img{height:250px;min-height:0}
           #dia-hp-hero-img img{min-height:0}
           #dia-hp-hero-body{padding:22px 20px}
-          #dia-hp-worn-ribbon{flex-direction:row;flex-wrap:wrap;max-height:none;border-right:none;border-bottom:1px solid var(--dtr-mint-pale, #e8f4ef);padding:6px 4px}
+          #dia-hp-worn-ribbon{flex-direction:row;flex-wrap:wrap;height:auto;max-height:none;border-right:none;border-bottom:1px solid var(--dtr-mint-pale, #e8f4ef);padding:6px 4px}
           #dia-hp-worn-list{flex-direction:row;flex-wrap:wrap;justify-content:flex-start;gap:8px}
           .dia-hp-worn-item{width:56px}
           #dia-hp-feats{grid-template-columns:repeat(2,1fr)}
@@ -35186,30 +35246,16 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
 
           noteBtn.addEventListener('mouseenter', () => {
             if (noteBtn.dataset.editing) return;
-            const note = getDIASection('itemNotes', {})[itemId] || '';
             refreshNoteBtn();
-            const tip = document.getElementById('dia-global-note-tooltip') || (() => {
-              const t = document.createElement('div');
-              t.id = 'dia-global-note-tooltip';
-              t.className = 'dia-ui-tooltip';
-              document.body.appendChild(t);
-              return t;
-            })();
-            if (!note) return;
-            tip.textContent = note;
-            tip.classList.add('show');
-            const rect = noteBtn.getBoundingClientRect();
-            const tw = tip.offsetWidth;
-            tip.style.left = Math.min(window.innerWidth - tw - 8, Math.max(8, rect.left + rect.width / 2 - tw / 2)) + 'px';
-            tip.style.top = (rect.bottom + 6) + 'px';
+            try { window.dtrNoteHover.show(noteBtn, getDIASection('itemNotes', {})[itemId] || ''); } catch (_) {}
           });
           noteBtn.addEventListener('mouseleave', () => {
-            document.getElementById('dia-global-note-tooltip')?.classList.remove('show');
+            try { window.dtrNoteHover.hide(); } catch (_) {}
           });
           noteBtn.addEventListener('click', e => {
             e.preventDefault();
             e.stopPropagation();
-            document.getElementById('dia-global-note-tooltip')?.classList.remove('show');
+            try { window.dtrNoteHover.hide(); } catch (_) {}
 
             if (!window.dtrNote || typeof window.dtrNote.open !== 'function') return;
             noteBtn.dataset.editing = '1';
@@ -36302,6 +36348,7 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
         return fmt(s) + ' – ' + fmt(e) + ', ' + s.getFullYear();
       };
 
+      const _hpNewestReady = () => { try { document.getElementById('dia-hp-page')?.classList.add('dtr-hp-newest-ready'); } catch (_) {} };
       const _hpNewestLoad = async (week) => {
         const grid = document.getElementById('dia-hp-newest-grid');
         const label = document.getElementById('dia-hp-week-label');
@@ -36353,6 +36400,10 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
             li.className = 'object dtr-itemcard';
             li.dataset.itemId = item.id;
             li.dataset.rarity = item.rarity_index || 0;
+
+            const _pbCard = /paint brush set/i.test(item.description || '');
+            if (_pbCard) li.dataset.pb = '1';
+            if (_hpHideByFilter(parseInt(item.rarity_index || 0, 10), _pbCard)) li.classList.add('dtr-hp-hidden');
             const slug = item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
             const NC_ICON_SRC = document.querySelector('img.nc-icon')?.src || document.querySelector('img[src*="/assets/nc-"]')?.src || 'https://impress.openneo.net/assets/nc-0d399de5fe3e09ec5d8c2c7ec0dcc48dd1c14242477d4fdd180d489a6b138a8f.png';
 
@@ -36388,6 +36439,7 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
               e.preventDefault();
             });
           });
+          _hpSyncCaughtUp();
           saveDateCache();
           wireHomepageCardActions();
           if (_dtrHpLebronData) _hpInjectLebron(_dtrHpLebronData);
@@ -36406,7 +36458,9 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
 
               const w = grid ? grid.getBoundingClientRect().width : span;
               ctrl.style.width = Math.round(w) + 'px';
-              ctrl.style.margin = '0 auto';
+
+              ctrl.style.marginLeft = 'auto';
+              ctrl.style.marginRight = 'auto';
             }
           });
 
@@ -36415,6 +36469,8 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
         } catch(e) {
           if (grid) grid.innerHTML = '<li style="list-style:none;padding:20px;color:var(--dtr-grey6, #888);font-size:12px;">Could not load items.</li>';
           if (prevBtn) prevBtn.disabled = false;
+        } finally {
+          _hpNewestReady();
         }
       };
 
@@ -36450,6 +36506,8 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
       document.getElementById('dia-hp-filter-unowned') ?.classList.toggle('active', _hpFilterUnowned);
       document.getElementById('dia-hp-filter-unwanted')?.classList.toggle('active', _hpFilterUnwanted);
       let _hpStatusMap = {};
+
+      const _hpHideByFilter = (rarity, pb) => !!((_hpFilterNp && rarity !== 500 && !pb) || (_hpFilterNc && rarity === 500) || (_hpFilterPb && pb));
 
       let _hpOwnedIds  = null;
       let _hpWantedIds = null;
@@ -36620,10 +36678,7 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
             const id = li.dataset.itemId;
             const rarity = parseInt(li.dataset.rarity || '0', 10);
             const status = _hpStatusMap[id];
-            let hide = false;
-            if (_hpFilterNp && rarity !== 500 && !status?.pb) hide = true;
-            if (_hpFilterNc && rarity === 500) hide = true;
-            if (_hpFilterPb && status?.pb) hide = true;
+            const hide = _hpHideByFilter(rarity, !!(status && status.pb) || li.dataset.pb === '1');
             li.classList.toggle('dtr-hp-hidden', hide);
 
             _hpPaintStatus(li, id);
@@ -37207,6 +37262,7 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
 
       try { window.openTryOnHaul({ context: 'homepage' }); } catch (_e) {  }
 
+      setTimeout(_hpNewestReady, 8000);
       _hpNewestLoad();
 
       _hpQaLoadLists();
@@ -40767,39 +40823,16 @@ border-color: #bd9516;
 
         const showTip = () => {
           btn.removeAttribute('title');
-
-          let tooltip = document.getElementById('dia-global-note-tooltip');
-
-          if (!tooltip) {
-            tooltip = document.createElement('div');
-            tooltip.id = 'dia-global-note-tooltip';
-            tooltip.className = 'dia-ui-tooltip';
-            document.body.appendChild(tooltip);
-          }
-
           const tip = btn.dataset.tooltip || '';
-
-          if (!tip) {
-            tooltip.classList.remove('show');
-            return;
-          }
-
+          if (!tip) { try { window.dtrNoteHover.hide(); } catch (_) {} return; }
           const parts = tip.split('|');
-      tooltip.innerHTML = parts.length === 2
-        ? '<div style="font-weight:800;opacity:0.7;font-size:9px;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px;">' + parts[0] + '</div><div>' + parts[1] + '</div>'
-        : '<div>' + tip + '</div>';
-          tooltip.style.width = 'auto';
-          tooltip.style.maxWidth = 'min(260px, calc(100vw - 24px))';
-          tooltip.style.whiteSpace = 'normal';
-          tooltip.classList.add('show');
-
-          diaPositionTooltipNear(btn, tooltip, { margin: 8, gap: 8 });
+          const html = parts.length === 2
+            ? '<div style="font-weight:800;opacity:0.7;font-size:9px;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px;">' + parts[0] + '</div><div>' + parts[1] + '</div>'
+            : '<div>' + tip + '</div>';
+          try { window.dtrNoteHover.show(btn, null, { html: html, gap: 8 }); } catch (_) {}
         };
 
-        const hideTip = () => {
-          const tooltip = document.getElementById('dia-global-note-tooltip');
-          if (tooltip) tooltip.classList.remove('show');
-        };
+        const hideTip = () => { try { window.dtrNoteHover.hide(); } catch (_) {} };
 
         btn.addEventListener('mouseenter', showTip);
         btn.addEventListener('mouseleave', hideTip);
@@ -40976,25 +41009,10 @@ border-color: #bd9516;
           more.style.color = 'var(--dtr-mint, #78b8a0)';
 
           more.addEventListener('mouseenter', () => {
-            let tooltip = document.getElementById('dia-global-note-tooltip');
-            if (!tooltip) {
-              tooltip = document.createElement('div');
-              tooltip.id = 'dia-global-note-tooltip';
-              tooltip.className = 'dia-ui-tooltip';
-              document.body.appendChild(tooltip);
-            }
-            tooltip.textContent = allText;
-            tooltip.classList.add('show');
-            const rect = more.getBoundingClientRect();
-            tooltip.style.left = Math.min(window.innerWidth - tooltip.offsetWidth - 8, Math.max(8, rect.left)) + 'px';
-            const _nth = tooltip.offsetHeight || 40;
-            tooltip.style.top = (rect.top - _nth - 6 < 12 ? rect.bottom + 6 : rect.top - _nth - 6) + 'px';
+            try { window.dtrNoteHover.show(more, allText, { align: 'left' }); } catch (_) {}
           });
 
-          more.addEventListener('mouseleave', () => {
-            const tooltip = document.getElementById('dia-global-note-tooltip');
-            if (tooltip) tooltip.classList.remove('show');
-          });
+          more.addEventListener('mouseleave', () => { try { window.dtrNoteHover.hide(); } catch (_) {} });
 
           const ul = section.querySelector('ul');
           if (ul) ul.appendChild(more);
@@ -42919,15 +42937,6 @@ const previewBody = previewCard.querySelector('#dia-preview-body');
       const ensureCustomNoteTooltips = () => {
         stripNativeTitlesForSavedNotes(document);
 
-        let tooltip = document.getElementById('dia-global-note-tooltip');
-
-        if (!tooltip) {
-          tooltip = document.createElement('div');
-          tooltip.id = 'dia-global-note-tooltip';
-          tooltip.className = 'dia-ui-tooltip';
-          document.body.appendChild(tooltip);
-        }
-
         document.querySelectorAll('.dia-owner-note-btn, #dia-toolbar-edit-note').forEach(btn => {
           if (btn.dataset.tooltip) btn.removeAttribute('title');
 
@@ -42944,25 +42953,13 @@ const previewBody = previewCard.querySelector('#dia-preview-body');
               btn.removeAttribute('title');
               btn.querySelectorAll('[title]').forEach(el => el.removeAttribute('title'));
             }
-
             const tip = btn.dataset.tooltip || '';
-
-            if (!tip) {
-              tooltip.classList.remove('show');
-              return;
-            }
-
+            if (!tip) { try { window.dtrNoteHover.hide(); } catch (_) {} return; }
             btn.removeAttribute('title');
-
-            tooltip.textContent = tip;
-            tooltip.classList.add('show');
-
-            diaPositionTooltipNear(btn, tooltip, { margin: 8, gap: 8 });
+            try { window.dtrNoteHover.show(btn, tip, { gap: 8 }); } catch (_) {}
           });
 
-          btn.addEventListener('mouseleave', () => {
-            tooltip.classList.remove('show');
-          });
+          btn.addEventListener('mouseleave', () => { try { window.dtrNoteHover.hide(); } catch (_) {} });
         });
       };
 
@@ -48002,6 +47999,8 @@ if (!tradeLinks.length) {
 
     let _oeQsAppliedHref = '';
     let _oeSyncedSeedHref = '';
+
+    let _oeBareLandingUsed = false;
     setInterval(function () {
       try {
         if (!window.dtrRoute.is('editor-new')) { _oeQsAppliedHref = ''; return; }
@@ -50770,6 +50769,9 @@ if (!tradeLinks.length) {
 
       overlay.addEventListener('dblclick', e => { const nm = e.target.closest('[data-cmp-name]'); if (nm) { e.preventDefault(); OE.set({ cmpRenameIdx: +nm.dataset.cmpName, cmpDelConfirm:null, renameError:null }); } });
 
+      try {
+        window.dtrNoteHover.bind(overlay, '[data-note-btn]', b => oeGetItemNotes()[b.dataset.noteBtn] || '');
+      } catch (_) {}
       overlay.querySelectorAll('[data-info-btn]').forEach(b => {
         b.addEventListener('mouseenter', () => { try { oeShowInfoTip(b, b.dataset.infoBtn, b.dataset.infoName, overlay); } catch (err) { try {  } catch (_) {} } });
         b.addEventListener('mouseleave', () => { try { window._dtrTipDelayHide(document.getElementById('dtr-oe-info-tip'), oeHideInfoTip); } catch (_) {} });
@@ -52045,6 +52047,10 @@ if (!tradeLinks.length) {
           const ib = e.target.closest('[data-info-btn]');
           if (ib && (!e.relatedTarget || !ib.contains(e.relatedTarget))) { _oeHoverInfoBtn = null; window._dtrTipDelayHide(document.getElementById('dtr-oe-info-tip'), oeHideInfoTip); }
         });
+
+        try {
+          window.dtrNoteHover.bind(ulEl, '[data-note-btn]', b => oeGetItemNotes()[b.dataset.noteBtn] || '');
+        } catch (_) {}
       }
 
       const scrollEl = card.querySelector('[data-results-scroll]');
@@ -55759,6 +55765,7 @@ if (!tradeLinks.length) {
     }
 
     function oeOpenNotePopover(btn) {
+      try { window.dtrNoteHover.hide(); } catch (_) {}
       if (!window.dtrNote || typeof window.dtrNote.open !== 'function') return;
       const id = btn.dataset.noteBtn;
       window.dtrNote.open({
@@ -57389,8 +57396,21 @@ if (!tradeLinks.length) {
 
       const _rsp = (() => { try { return window.dtrStore.get('dtr:settings:hp_species', '') || ''; } catch(_) { return ''; } })();
       const _rco = (() => { try { return window.dtrStore.get('dtr:settings:hp_color', '')   || ''; } catch(_) { return ''; } })();
-      const speciesId = getP('species') || _rsp || '2';
-      const colorId   = getP('color')   || _rco || '84';
+
+      function _oeLandedWithoutAPet() {
+        try {
+          const nav = performance.getEntriesByType('navigation')[0];
+          if (!nav || !nav.name) return false;
+          const u = new URL(nav.name, location.href);
+          if (u.pathname !== location.pathname) return false;
+          return !u.searchParams.get('species') && !u.searchParams.get('color');
+        } catch (_) { return false; }
+      }
+      const _bareLanding = (!_oeBareLandingUsed && _rsp && _rco && window.dtrRoute.is('editor-new'))
+        ? _oeLandedWithoutAPet() : false;
+      _oeBareLandingUsed = true;
+      const speciesId = (_bareLanding ? _rsp : '') || getP('species') || _rsp || '2';
+      const colorId   = (_bareLanding ? _rco : '') || getP('color')   || _rco || '84';
       const poseStr   = (getP('pose')   || 'HAPPY_FEM').toUpperCase();
       const rawName   = getP('name')    || '';
       const styleId   = getP('style')   || null;
@@ -58722,14 +58742,52 @@ if (!tradeLinks.length) {
     };
 
     var _replay = false;
+
+    var HOVER_WAIT_MS = 500;
+    var WAITED = BADGE + ',.dtr-note-btn,.dia-wl-note-badge';
+    var _wait = null;
+    var _opened = null;
+    function _cancelWait() { if (_wait) { clearTimeout(_wait.timer); _wait = null; } }
     function _swallowHover(e) {
-      if (mode() !== 'click' || _replay) return;
-      var b = e.target && e.target.closest && e.target.closest(BADGE);
-      if (!b || armed === b) return;
+      if (_replay) return;
+      var t = e.target && e.target.closest ? e.target : null;
+      if (!t) return;
+      var badge = t.closest(BADGE);
+      if (badge && mode() === 'click') {
+        if (armed === badge) return;
+        e.stopPropagation();
+        return;
+      }
+      var b = t.closest(WAITED);
+      if (!b || _opened === b) return;
       e.stopPropagation();
+      if (_wait && _wait.badge === b) return;
+      _cancelWait();
+      _wait = { badge: b, timer: setTimeout(function () {
+        var w = _wait; _wait = null;
+        if (!w || !w.badge.isConnected || !w.badge.matches(':hover')) return;
+        _opened = w.badge;
+        _replay = true;
+        try { w.badge.dispatchEvent(new MouseEvent('mouseover', { bubbles: true, cancelable: true })); } catch (_) {}
+        try { w.badge.dispatchEvent(new MouseEvent('mouseenter', { bubbles: false, cancelable: true })); } catch (_) {}
+        _replay = false;
+      }, HOVER_WAIT_MS) };
     }
     document.addEventListener('mouseover', _swallowHover, true);
     document.addEventListener('mouseenter', _swallowHover, true);
+
+    document.addEventListener('mouseout', function (e) {
+      var b = e.target && e.target.closest && e.target.closest(WAITED);
+      if (!b) return;
+      if (e.relatedTarget && b.contains(e.relatedTarget)) return;
+      if (_wait && _wait.badge === b) _cancelWait();
+      if (_opened === b) _opened = null;
+    }, true);
+
+    document.addEventListener('mousedown', function (e) {
+      var b = e.target && e.target.closest && e.target.closest(WAITED);
+      if (b && _wait && _wait.badge === b) _cancelWait();
+    }, true);
 
     var _letThrough = false;
     document.addEventListener('click', function (e) {
@@ -58779,6 +58837,9 @@ if (!tradeLinks.length) {
 
     var cur = null;
 
+    var lastPointerDownAt = 0;
+    document.addEventListener('pointerdown', function () { lastPointerDownAt = Date.now(); }, true);
+
     function place(el, anchor, opt) {
       opt = opt || {};
       var r = anchor.getBoundingClientRect();
@@ -58788,7 +58849,7 @@ if (!tradeLinks.length) {
 
       var roomBelow = vh - r.bottom - gap - pad >= h;
       var roomAbove = r.top - gap - pad >= h;
-      var wantBelow = opt.placement !== 'top';
+      var wantBelow = opt.placement === 'bottom';
       var below = wantBelow ? (roomBelow || !roomAbove) : (!roomAbove && roomBelow);
 
       var top = below ? r.bottom + gap : r.top - h - gap;
@@ -58869,6 +58930,7 @@ if (!tradeLinks.length) {
       var pop = built.pop, field = built.field;
       var opener = cfg.anchor;
       var done = false;
+      var openedByPointer = (Date.now() - lastPointerDownAt) < 1500;
 
       function finish(mode) {
         if (done) return;
@@ -58880,7 +58942,7 @@ if (!tradeLinks.length) {
         try { pop.remove(); } catch (_) {}
         if (cur && cur.el === pop) cur = null;
 
-        try { if (opener && opener.focus) opener.focus(); } catch (_) {}
+        if (!openedByPointer) { try { if (opener && opener.focus) opener.focus(); } catch (_) {} }
         if (mode === 'clear') { if (typeof cfg.onClear === 'function') cfg.onClear(); return; }
         if (mode === 'save') { if (typeof cfg.onSave === 'function') cfg.onSave(field.value.trim()); return; }
         if (typeof cfg.onCancel === 'function') cfg.onCancel();
@@ -60629,7 +60691,7 @@ if (!tradeLinks.length) {
   try {
     if (location.hostname !== 'impress.openneo.net') return;
     var dev = false;
-    try { dev = !!GM_getValue('dtr_dev', 0) || localStorage.getItem('dtr_dev') === '1'; } catch (_) {}
+    try { dev = !!GM_getValue('dtr_dev', 0); } catch (_) {}
     if (!dev) return;
     if (typeof unsafeWindow === 'undefined' || !unsafeWindow) return;
 
@@ -60653,7 +60715,7 @@ if (!tradeLinks.length) {
   try {
 
     var _dev = false;
-    try { var _g = GM_getValue('dtr_dev', 0); _dev = (_g === 1 || _g === true || _g === '1') || localStorage.getItem('dtr_dev') === '1'; } catch (_) {}
+    try { var _g = GM_getValue('dtr_dev', 0); _dev = (_g === 1 || _g === true || _g === '1'); } catch (_) {}
     if (!_dev) return;
     var t1 = performance.now();
     var evalMs = Math.round(t1 - __DTR_BOOT_T0);
