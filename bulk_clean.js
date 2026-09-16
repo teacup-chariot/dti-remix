@@ -90,7 +90,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   var IS_IMPRESS = false;
   try { IS_IMPRESS = location.hostname === 'impress.openneo.net'; } catch (_) {}
 
-  window.__DTR_META = {"v":"10.810.0","history":[{"v":"10.810.0","label":"Minor Housekeeping","ts":"September 12, 2026","notes":["## Homepage","The page stays put while it loads. The pet strip, newest items and footer no longer shift around as everything comes in.","## Customize","Your Quickstart pet is used no matter how you open Customize. Bookmarks, typed addresses and older links will no longer drop you onto a Blue Acara.","## Item cards","The <b>?</b> and note buttons have a new hover effect, with a soft rim instead of the flat white cutout.","Tooltips wait half a second before opening, so moving across a row of items doesn’t trigger a chain of them.","## Item notes","Hover over a note button to see the note. <b>Customize</b> and <b>item search</b> were the last two places that still required a click.","Notes now open <b>above</b> the button, so writing one doesn’t cover the items underneath.","Closing a note no longer leaves a dark ring around the button."]},{"v":"10.809.12","label":"The inventory export, more petpets, and faster zone browsing","notes":["New features and misc bug fixes."]},{"v":"10.807.3","label":"Update notices, guided imports, and easier closet browsing","notes":["New features and misc bug fixes."]},{"v":"10.805.10","label":"Two new themes, nudges, and a lot of polish","notes":["New features and misc bug fixes."]},{"v":"10.758.71","label":"The Records page, user search & a big polish pass","notes":["New features and misc bug fixes."]}]};
+  window.__DTR_META = {"v":"10.811.0","history":[{"v":"10.811.0","label":"Docked Zone Map fix","ts":"September 16, 2026","notes":["## Customize","The docked Zone Map no longer comes up empty when you're watching a zone."]},{"v":"10.810.0","label":"Minor Housekeeping","notes":["New features and misc bug fixes."]},{"v":"10.809.12","label":"The inventory export, more petpets, and faster zone browsing","notes":["New features and misc bug fixes."]},{"v":"10.807.3","label":"Update notices, guided imports, and easier closet browsing","notes":["New features and misc bug fixes."]},{"v":"10.805.10","label":"Two new themes, nudges, and a lot of polish","notes":["New features and misc bug fixes."]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -38204,7 +38204,7 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
       }
 
       const itemIdFromPath = window.dtrRoute.params().itemId || '';
-      const itemKey = itemIdFromPath || normalize(titleEl?.textContent || q || location.href);
+      const itemKey = itemIdFromPath || normalize(titleEl?.textContent || qParam || location.href);
       const buildItemNotesPanel = () => {
         const panel = document.createElement('aside');
         panel.id = 'dia-item-note-panel';
@@ -52407,8 +52407,6 @@ if (!tradeLinks.length) {
             + '</div>';
         } else {
           const _zSearching = _oeZmSearching && _oeZmSearching.zone === zone && Date.now() < _oeZmSearching.until;
-
-          const _chunkyLock = window.dtrIcon.html(itemLocked ? 'lock' : 'lock_open', { size: 13 });
           bodyHTML = '<div style="padding:8px;text-align:center">'
             + '<div style="font:800 8.5px/1.1 Nunito,sans-serif;letter-spacing:.02em;text-transform:uppercase;color:var(--dtr-grey8, #6f6f66);max-width:100%;overflow-wrap:anywhere;margin-bottom:6px">'+zone+'</div>'
             + (_zSearching
@@ -52417,6 +52415,7 @@ if (!tradeLinks.length) {
             + '</div>';
         }
 
+        const _chunkyLock = window.dtrIcon.html(itemLocked ? 'lock' : 'lock_open', { size: 13 });
         const lockBtnHTML = confirming ? '' :
           '<button data-zm-lock="'+zone+'" title="'+(itemLocked?'Protected, this item will not be removed by try-ons. Click to unlock.':'Protect this item from being removed by try-ons')+'" '
           + 'style="position:absolute;top:-7px;left:-7px;width:20px;height:20px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;'
