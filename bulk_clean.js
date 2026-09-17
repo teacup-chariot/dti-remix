@@ -90,7 +90,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   var IS_IMPRESS = false;
   try { IS_IMPRESS = location.hostname === 'impress.openneo.net'; } catch (_) {}
 
-  window.__DTR_META = {"v":"10.811.0","history":[{"v":"10.811.0","label":"Docked Zone Map fix","ts":"September 16, 2026","notes":["## Customize","The docked Zone Map no longer comes up empty when you're watching a zone."]},{"v":"10.810.0","label":"Minor Housekeeping","notes":["New features and misc bug fixes."]},{"v":"10.809.12","label":"The inventory export, more petpets, and faster zone browsing","notes":["New features and misc bug fixes."]},{"v":"10.807.3","label":"Update notices, guided imports, and easier closet browsing","notes":["New features and misc bug fixes."]},{"v":"10.805.10","label":"Two new themes, nudges, and a lot of polish","notes":["New features and misc bug fixes."]}]};
+  window.__DTR_META = {"v":"10.812.0","history":[{"v":"10.812.0","label":"Customize sign-in fix","ts":"September 16, 2026","notes":["## Customize","Customize no longer thinks you're logged out after you sign back in. Save, Lock and your outfit variants are available right away."]},{"v":"10.811.0","label":"Docked Zone Map fix","notes":["New features and misc bug fixes."]},{"v":"10.810.0","label":"Minor Housekeeping","notes":["New features and misc bug fixes."]},{"v":"10.809.12","label":"The inventory export, more petpets, and faster zone browsing","notes":["New features and misc bug fixes."]},{"v":"10.807.3","label":"Update notices, guided imports, and easier closet browsing","notes":["New features and misc bug fixes."]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -333,6 +333,8 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
     var CSRF = 'meta[name="csrf-token"]';
     var SIGNED_IN = 'meta[name="user-signed-in"]';
 
+    var EDITOR_USER = 'meta[name="dti-current-user-id"]';
+
     var SIGN_OUT = 'a[href*="sign_out"],form[action*="sign_out"],.dia-logout';
     var CONTAINER = 'container';
     var ITEM_DESCRIPTION = '.item-description';
@@ -378,6 +380,15 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         var el = one(doc, SIGNED_IN);
         if (!el) return null;
         return el.getAttribute('content') === 'true';
+      },
+
+      editorUserId: function (doc) {
+        var el = one(doc, EDITOR_USER);
+        if (!el) return null;
+        var v = null;
+        try { v = el.getAttribute('content'); } catch (_) { return null; }
+        if (typeof v !== 'string' || v === '' || v === 'null') return null;
+        return v;
       },
 
       hasSignOutControl: function (doc) { return !!one(doc, SIGN_OUT); },
@@ -558,6 +569,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       SELECTORS: {
         csrf: CSRF,
         signedIn: SIGNED_IN,
+        editorUserId: EDITOR_USER,
         signOut: SIGN_OUT,
         containerId: CONTAINER,
         itemDescription: ITEM_DESCRIPTION,
@@ -24638,7 +24650,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   } catch (_) {}
 
   function diaNavInnerHTML(info) {
-    const { greeting, pts, logoutHref, itemsHref } = info || {};
+    const { greeting, pts, logoutHref, itemsHref, signedIn } = info || {};
 
     const gearHTML = `<div class="dia-gearwrap"><button type="button" class="dib-gear" title="Settings" aria-label="Settings">${window.dtrIcon.html('settings', { size: 15 })}</button><div class="dia-gear-menu"></div></div>`;
     return `
@@ -24647,10 +24659,10 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           <a class="dia-ql dia-ql-dti" href="https://impress.openneo.net/">Home</a>
         </div>
         <div id="dia-hp-nav-right">
-          ${greeting
-            ? `<span class="dia-nav-greeting"><span class="dia-greet-l1">Hey, <strong>${greeting}</strong></span><span class="dia-pts"><span class="dia-pts-sep">&middot;</span>${pts} pts</span></span>
+          ${(greeting || signedIn)
+            ? `${greeting ? `<span class="dia-nav-greeting"><span class="dia-greet-l1">Hey, <strong>${greeting}</strong></span><span class="dia-pts"><span class="dia-pts-sep">&middot;</span>${pts} pts</span></span>
                <div class="dia-ql-divider"></div>
-               <a class="dia-ql dia-ql-newcustom" href="/outfits/new" data-dtr-newcustom title="Jump straight into a fresh customization with your Quickstart pet (set it in the settings menu)"><span class="dia-ql-stack"><span>+ New</span><span>Custom</span></span></a>
+               ` : ''}<a class="dia-ql dia-ql-newcustom" href="/outfits/new" data-dtr-newcustom title="Jump straight into a fresh customization with your Quickstart pet (set it in the settings menu)"><span class="dia-ql-stack"><span>+ New</span><span>Custom</span></span></a>
                <a class="dia-ql" href="${itemsHref}">Items</a>
                <button type="button" class="dia-ql dia-ql-psboard" data-ps-board><span class="dia-ql-stack"><span>Pet</span><span>Styles</span></span></button>
                <a class="dia-ql" href="https://impress.openneo.net/your-outfits">Outfits</a>
@@ -34498,6 +34510,8 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
       const pts      = ptsMatch?.[1] || '';
       const logoutHref = window.dtrDom.logoutHref();
       const itemsHref = document.querySelector('a[href*="/user/"][href*="/closet"]')?.href || '/users/current-user/closet';
+
+      try { diaScrapeNavInfo(); } catch (_) {}
       const nav = document.createElement('div');
       nav.id = 'dia-hp-nav';
       nav.innerHTML = diaNavInnerHTML({ greeting, pts, logoutHref, itemsHref });
@@ -48456,19 +48470,29 @@ if (!tradeLinks.length) {
       return wrap;
     }
 
+    function _oeLoginVerdict(editorUserId, signedOutClass, cachedName) {
+
+      var loggedIn = typeof editorUserId === 'string' && editorUserId !== '';
+      var greeting = (loggedIn && !signedOutClass && cachedName) ? String(cachedName) : '';
+      return { loggedIn: loggedIn, greeting: greeting };
+    }
+
+    function _oeLoginState() {
+      var name = '', pts = '', out = false, id = null;
+      try { name = GM_getValue('dtr_last_user', '') || ''; pts = GM_getValue('dtr_last_pts', '') || ''; } catch (_) {}
+      try { out = document.documentElement.classList.contains('dtr-signed-out'); } catch (_) {}
+      try { id = window.dtrDom.editorUserId(); } catch (_) {}
+      var v = _oeLoginVerdict(id, out, name);
+      return { loggedIn: v.loggedIn, greeting: v.greeting, pts: v.greeting ? pts : '' };
+    }
+
     function oeRenderRealNav() {
       const wrap = document.createElement('div');
       wrap.id = 'dtr-oe-header';
 
       wrap.style.cssText = 'display:flex;justify-content:center;padding:0 24px 4px;flex-shrink:0';
-      let user = '', pts = '';
-
-      let _signedOut = false;
-      try { _signedOut = document.documentElement.classList.contains('dtr-signed-out'); } catch (_) {}
-      if (!_signedOut) { try { user = GM_getValue('dtr_last_user', '') || ''; pts = GM_getValue('dtr_last_pts', '') || ''; } catch (_) {} }
-      const info = user
-        ? { greeting: user, pts: pts, logoutHref: 'https://impress.openneo.net/users/sign_out', itemsHref: 'https://impress.openneo.net/users/current-user/closet' }
-        : { greeting: '', pts: '', logoutHref: '#', itemsHref: 'https://impress.openneo.net/users/current-user/closet' };
+      const st = _oeLoginState();
+      const info = { greeting: st.greeting, pts: st.pts, logoutHref: 'https://impress.openneo.net/users/sign_out', itemsHref: 'https://impress.openneo.net/users/current-user/closet', signedIn: st.loggedIn };
       const navHtml = (typeof window !== 'undefined' && window.__DTR_NAV && typeof window.__DTR_NAV.html === 'function')
         ? window.__DTR_NAV.html(info)
         : '<span style="font:700 14px Nunito,sans-serif;color:var(--dtr-grey4, #6a6a63)">DTR</span>';
@@ -57433,22 +57457,7 @@ if (!tradeLinks.length) {
         _oeLoadedBio = { sp: speciesId, co: colorId, pose: poseIdx >= 0 ? poseIdx : 3 };
       }
 
-      try {
-
-        let _oeSignedOut = false;
-        try { _oeSignedOut = document.documentElement.classList.contains('dtr-signed-out'); } catch (_) {}
-        const storedUser = _oeSignedOut ? '' : GM_getValue('dtr_last_user', '');
-        if (storedUser) {
-          OE.set({ loggedIn: true });
-          const uDiv = document.querySelector('[data-oe-user-info]');
-          if (uDiv) {
-            const u = storedUser.replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
-            uDiv.innerHTML =
-              '<span style="font:600 13px \'Nunito\',sans-serif;color:var(--dtr-grey7, #5b5b54)">Hey, <b style="color:var(--dtr-ink-strong, #4a4a45)">' + u + '</b></span>' +
-              '<a href="/users/sign_out" style="padding:7px 15px;border-radius:999px;border:1.5px solid #f0c9b0;background:var(--dtr-card, #fff7f0);color:#cf7a4a;font:700 12px \'Nunito\',sans-serif;text-decoration:none">Log out</a>';
-          }
-        }
-      } catch (_) {}
+      try { if (_oeLoginState().loggedIn) OE.set({ loggedIn: true }); } catch (_) {}
 
       oeFindDTIContext(0);
       oeLoadValidPoses();
