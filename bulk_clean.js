@@ -3209,7 +3209,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   var IS_IMPRESS = false;
   try { IS_IMPRESS = location.hostname === 'impress.openneo.net'; } catch (_) {}
 
-  window.__DTR_META = {"v":"10.813.0","history":[{"v":"10.813.0","label":"Keep customizing, clearer Pet Styles, and accurate inventory counts","ts":"September 26, 2026","notes":["## Customize from item pages","Hover over the pet preview on an item page and click <b>Keep customizing</b> in the corner. Customize opens in a new tab with the pet you picked wearing that item, without your Quickstart pet or starter pack.","## Customize","Zone Map locks now last until you leave Customize. Refreshing keeps them in place, and your next custom starts with nothing locked.","In the item list, click an item's thumbnail to open its page in a new tab. Long names wrap in full.","## Try On Haul","Preview and Custom Preview both have <b>Keep customizing</b> and <b>Remove worn items</b>.","Item names are smaller and wrap in full. Cards stay put when you hover over them, and the X is bigger and easier to hit.","The haul stays in one piece when you switch between Preview and Custom Preview, and the sort menu has room for its full text.","## Clearer Pet Styles cards","Wants, Owned, and the note button now have their own row on each card, so nothing covers the pet.","Cards are shorter without shrinking the pets, and names now show in full.","Mini view fits more styles on screen.","Press Tab to reach <b>Add to Wants</b> on any style card, then Enter or Space to add it. It also has a larger click target.","The picker stays open while you search the species list, and a popped-out picker stays anchored to its edge when you resize the window.","## Tidier closet lists","With <b>Group by list</b> on, empty lists stay in place. During a search, they hide like any other list with no matches.","The Preferred Traders button now says <b>Scan</b>, with room beside it for long list names.","You can bulk remove items from <b>Not in a list</b>.","## Imports","Inventory exports count exactly the items you can see, whether your inventory shows stacks or one tile per copy.","The <b>Expand Wishlists</b> tab now sits at the right edge of each card.","## Minor housekeeping","The code was reorganized into smaller pieces to make future fixes safer. This isn't meant to change anything you see."]},{"v":"10.812.0","label":"Customize sign-in fix","notes":["New features and misc bug fixes."]},{"v":"10.811.0","label":"Docked Zone Map fix","notes":["New features and misc bug fixes."]},{"v":"10.810.0","label":"Minor Housekeeping","notes":["New features and misc bug fixes."]},{"v":"10.809.12","label":"The inventory export, more petpets, and faster zone browsing","notes":["New features and misc bug fixes."]}]};
+  window.__DTR_META = {"v":"10.814.1","history":[{"v":"10.814.1","label":"Large PNG downloads and smoother animations","ts":"September 28, 2026","notes":["## Large PNG downloads","Download any item or pet as a large PNG (2400 × 2400 pixels). In Customize, right-click the pet preview or use a variant card, then choose <b>Layers</b>. In Your Outfits, open <b>Layers</b> on any outfit. <b>Large PNG</b> saves one layer. For items with more than one layer, use <b>Large PNG</b> on <b>All layers</b> at the end of the item's group to save them together, the way they look on your pet.","Pets wearing a Pet Style show the style's name and look in Layers and in Large PNG.","Layers lists each item once, even items that sit in two places on the pet, like Red Rain.","## Animations","Animations play at the speed they were made for, in Customize, the Try On Haul and every preview.","Animated items start smoothly in Customize while they load.","## Themes","Switching themes updates Customize right away."]},{"v":"10.813.0","label":"Keep customizing, clearer Pet Styles, and accurate inventory counts","notes":["New features and misc bug fixes."]},{"v":"10.812.0","label":"Customize sign-in fix","notes":["New features and misc bug fixes."]},{"v":"10.811.0","label":"Docked Zone Map fix","notes":["New features and misc bug fixes."]},{"v":"10.810.0","label":"Minor Housekeeping","notes":["New features and misc bug fixes."]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -6096,10 +6096,10 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       'html:is(#dtr-hover-rank#dtr-hover-rank,html) body :is(.dtr-info-btn,.dtr-note-btn,.dia-wl-info-badge,.dia-wl-note-badge):hover{opacity:1!important;transform:scale(1.08)!important;color:var(--dtr-hang-h,#d07f52)!important;border-color:color-mix(in srgb,var(--dtr-hang,#e89868) 70%,#fff)!important;background:radial-gradient(120% 110% at 50% 18%,color-mix(in srgb,var(--dtr-card,#fff) 55%,#fff) 0%,color-mix(in srgb,var(--dtr-hang,#e89868) 16%,var(--dtr-card,#fff)) 72%)!important;box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--dtr-hang,#e89868) 55%,transparent),inset 0 2px 3px -1px rgba(255,255,255,.6),inset 0 -3px 4px -2px rgba(0,0,0,.14),0 1px 4px color-mix(in srgb,var(--dtr-hang,#e89868) 45%,transparent)!important;}',
       'html:is(#dtr-hover-rank#dtr-hover-rank,html) body .dtr-note-btn:hover::before{opacity:1!important;}',
 
-      'html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-gear-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-gear-flyout,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-more-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dib-theme-pill .dib-pill-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-csel-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dtr-note-popover,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-tophat,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-cmp-cogpop,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-add-pop,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-haul-movepop,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-cv2-haul-panel,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-staging-panel,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-ps-panel,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-board,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-import,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-board-copy,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-board-collage,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-board-add,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-status-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dib-trade-drill,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dtr-toast,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-nl-toast,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-move-toast,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-update-toast,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dtr-modal,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dib-modal,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-ps-pop,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-fly,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-ui-tooltip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-zone-tooltip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-oe-petws,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-hp-wl-panel,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dib-lm-back>div,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dtr-nudge,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-mall-pool,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-zone-tooltip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-yo-info-tip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-toh-info-tip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-oe-info-tip{box-shadow:0 0 0 1px rgba(92,68,78,.08),0 0 14px rgba(92,68,78,.18),0 0 40px rgba(92,68,78,.22),0 20px 56px -14px rgba(92,68,78,.30)!important;}',
+      'html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-gear-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-gear-flyout,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-more-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dib-theme-pill .dib-pill-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-csel-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dtr-note-popover,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-tophat,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-cmp-cogpop,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-add-pop,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-haul-movepop,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-cv2-haul-panel,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-staging-panel,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-ps-panel,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-board,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-import,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-board-copy,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-board-collage,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-ps-board-add,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-status-menu,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dib-trade-drill,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dtr-toast,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-nl-toast,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-move-toast,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-update-toast,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dtr-modal,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dib-modal,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-ps-pop,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .cv2-fly,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-ui-tooltip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dia-zone-tooltip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-oe-petws,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-hp-wl-panel,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dib-lm-back>div,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) .dtr-nudge,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-mall-pool,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-zone-tooltip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-yo-info-tip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dia-toh-info-tip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-oe-info-tip,html:not([data-dtr-skin=blacksesame]):not([data-dtr-skin=ubejelly]) #dtr-layers-pop{box-shadow:0 0 0 1px rgba(92,68,78,.08),0 0 14px rgba(92,68,78,.18),0 0 40px rgba(92,68,78,.22),0 20px 56px -14px rgba(92,68,78,.30)!important;}',
 
-      'html[data-dtr-skin=blacksesame] .dia-psb-card,html[data-dtr-skin=blacksesame] .dia-psa-card,html[data-dtr-skin=blacksesame] .dia-psc-shell,html[data-dtr-skin=blacksesame] .dia-gear-menu,html[data-dtr-skin=blacksesame] #dia-gear-flyout,html[data-dtr-skin=blacksesame] .dia-more-menu,html[data-dtr-skin=blacksesame] #dib-theme-pill .dib-pill-menu,html[data-dtr-skin=blacksesame] .dia-csel-menu,html[data-dtr-skin=blacksesame] .dtr-note-popover,html[data-dtr-skin=blacksesame] #dtr-tophat,html[data-dtr-skin=blacksesame] .cv2-cmp-cogpop,html[data-dtr-skin=blacksesame] .cv2-add-pop,html[data-dtr-skin=blacksesame] .cv2-haul-movepop,html[data-dtr-skin=blacksesame] #dia-cv2-haul-panel,html[data-dtr-skin=blacksesame] #dia-staging-panel,html[data-dtr-skin=blacksesame] #dtr-ps-panel,html[data-dtr-skin=blacksesame] #dia-ps-board,html[data-dtr-skin=blacksesame] #dia-ps-import,html[data-dtr-skin=blacksesame] #dia-ps-board-copy,html[data-dtr-skin=blacksesame] #dia-ps-board-collage,html[data-dtr-skin=blacksesame] #dia-ps-board-add,html[data-dtr-skin=blacksesame] .dia-status-menu,html[data-dtr-skin=blacksesame] .dib-trade-drill,html[data-dtr-skin=blacksesame] #dib-tryon-dock,html[data-dtr-skin=blacksesame] .dtr-toast,html[data-dtr-skin=blacksesame] .cv2-nl-toast,html[data-dtr-skin=blacksesame] .cv2-move-toast,html[data-dtr-skin=blacksesame] #dtr-update-toast,html[data-dtr-skin=blacksesame] .dtr-modal,html[data-dtr-skin=blacksesame] .dib-modal,html[data-dtr-skin=blacksesame] .dia-ps-pop,html[data-dtr-skin=blacksesame] .cv2-fly,html[data-dtr-skin=blacksesame] .dia-ui-tooltip,html[data-dtr-skin=blacksesame] .dia-zone-tooltip,html[data-dtr-skin=blacksesame] #dtr-oe-petws,html[data-dtr-skin=blacksesame] #dia-hp-wl-panel,html[data-dtr-skin=blacksesame] #dib-lm-back>div,html[data-dtr-skin=blacksesame] .dtr-nudge,html[data-dtr-skin=blacksesame] #dia-mall-pool{box-shadow:0 0 0 1px rgba(255,255,255,.10),0 0 0 5px rgba(226,214,192,.05),0 0 22px rgba(0,0,0,.55),0 0 54px rgba(226,214,192,.16),0 28px 64px -18px rgba(0,0,0,.88)!important;}',
-      'html[data-dtr-skin=ubejelly] .dia-psb-card,html[data-dtr-skin=ubejelly] .dia-psa-card,html[data-dtr-skin=ubejelly] .dia-psc-shell,html[data-dtr-skin=ubejelly] .dia-gear-menu,html[data-dtr-skin=ubejelly] #dia-gear-flyout,html[data-dtr-skin=ubejelly] .dia-more-menu,html[data-dtr-skin=ubejelly] #dib-theme-pill .dib-pill-menu,html[data-dtr-skin=ubejelly] .dia-csel-menu,html[data-dtr-skin=ubejelly] .dtr-note-popover,html[data-dtr-skin=ubejelly] #dtr-tophat,html[data-dtr-skin=ubejelly] .cv2-cmp-cogpop,html[data-dtr-skin=ubejelly] .cv2-add-pop,html[data-dtr-skin=ubejelly] .cv2-haul-movepop,html[data-dtr-skin=ubejelly] #dia-cv2-haul-panel,html[data-dtr-skin=ubejelly] #dia-staging-panel,html[data-dtr-skin=ubejelly] #dtr-ps-panel,html[data-dtr-skin=ubejelly] #dia-ps-board,html[data-dtr-skin=ubejelly] #dia-ps-import,html[data-dtr-skin=ubejelly] #dia-ps-board-copy,html[data-dtr-skin=ubejelly] #dia-ps-board-collage,html[data-dtr-skin=ubejelly] #dia-ps-board-add,html[data-dtr-skin=ubejelly] .dia-status-menu,html[data-dtr-skin=ubejelly] .dib-trade-drill,html[data-dtr-skin=ubejelly] .dtr-toast,html[data-dtr-skin=ubejelly] .cv2-nl-toast,html[data-dtr-skin=ubejelly] .cv2-move-toast,html[data-dtr-skin=ubejelly] #dtr-update-toast,html[data-dtr-skin=ubejelly] .dtr-modal,html[data-dtr-skin=ubejelly] .dib-modal,html[data-dtr-skin=ubejelly] .dia-ps-pop,html[data-dtr-skin=ubejelly] .cv2-fly,html[data-dtr-skin=ubejelly] .dia-ui-tooltip,html[data-dtr-skin=ubejelly] .dia-zone-tooltip,html[data-dtr-skin=ubejelly] #dtr-oe-petws,html[data-dtr-skin=ubejelly] #dia-hp-wl-panel,html[data-dtr-skin=ubejelly] #dib-lm-back>div,html[data-dtr-skin=ubejelly] .dtr-nudge,html[data-dtr-skin=ubejelly] #dia-mall-pool{box-shadow:0 0 0 1px rgba(255,255,255,.42),0 0 16px rgba(58,42,66,.22),0 0 46px rgba(58,42,66,.26),0 0 46px rgba(232,212,159,.30),0 24px 60px -18px rgba(58,42,66,.50)!important;}',
+      'html[data-dtr-skin=blacksesame] .dia-psb-card,html[data-dtr-skin=blacksesame] .dia-psa-card,html[data-dtr-skin=blacksesame] .dia-psc-shell,html[data-dtr-skin=blacksesame] .dia-gear-menu,html[data-dtr-skin=blacksesame] #dia-gear-flyout,html[data-dtr-skin=blacksesame] .dia-more-menu,html[data-dtr-skin=blacksesame] #dib-theme-pill .dib-pill-menu,html[data-dtr-skin=blacksesame] .dia-csel-menu,html[data-dtr-skin=blacksesame] .dtr-note-popover,html[data-dtr-skin=blacksesame] #dtr-tophat,html[data-dtr-skin=blacksesame] .cv2-cmp-cogpop,html[data-dtr-skin=blacksesame] .cv2-add-pop,html[data-dtr-skin=blacksesame] .cv2-haul-movepop,html[data-dtr-skin=blacksesame] #dia-cv2-haul-panel,html[data-dtr-skin=blacksesame] #dia-staging-panel,html[data-dtr-skin=blacksesame] #dtr-ps-panel,html[data-dtr-skin=blacksesame] #dia-ps-board,html[data-dtr-skin=blacksesame] #dia-ps-import,html[data-dtr-skin=blacksesame] #dia-ps-board-copy,html[data-dtr-skin=blacksesame] #dia-ps-board-collage,html[data-dtr-skin=blacksesame] #dia-ps-board-add,html[data-dtr-skin=blacksesame] .dia-status-menu,html[data-dtr-skin=blacksesame] .dib-trade-drill,html[data-dtr-skin=blacksesame] #dib-tryon-dock,html[data-dtr-skin=blacksesame] .dtr-toast,html[data-dtr-skin=blacksesame] .cv2-nl-toast,html[data-dtr-skin=blacksesame] .cv2-move-toast,html[data-dtr-skin=blacksesame] #dtr-update-toast,html[data-dtr-skin=blacksesame] .dtr-modal,html[data-dtr-skin=blacksesame] .dib-modal,html[data-dtr-skin=blacksesame] .dia-ps-pop,html[data-dtr-skin=blacksesame] .cv2-fly,html[data-dtr-skin=blacksesame] .dia-ui-tooltip,html[data-dtr-skin=blacksesame] .dia-zone-tooltip,html[data-dtr-skin=blacksesame] #dtr-oe-petws,html[data-dtr-skin=blacksesame] #dia-hp-wl-panel,html[data-dtr-skin=blacksesame] #dib-lm-back>div,html[data-dtr-skin=blacksesame] .dtr-nudge,html[data-dtr-skin=blacksesame] #dia-mall-pool,html[data-dtr-skin=blacksesame] #dtr-layers-pop{box-shadow:0 0 0 1px rgba(255,255,255,.10),0 0 0 5px rgba(226,214,192,.05),0 0 22px rgba(0,0,0,.55),0 0 54px rgba(226,214,192,.16),0 28px 64px -18px rgba(0,0,0,.88)!important;}',
+      'html[data-dtr-skin=ubejelly] .dia-psb-card,html[data-dtr-skin=ubejelly] .dia-psa-card,html[data-dtr-skin=ubejelly] .dia-psc-shell,html[data-dtr-skin=ubejelly] .dia-gear-menu,html[data-dtr-skin=ubejelly] #dia-gear-flyout,html[data-dtr-skin=ubejelly] .dia-more-menu,html[data-dtr-skin=ubejelly] #dib-theme-pill .dib-pill-menu,html[data-dtr-skin=ubejelly] .dia-csel-menu,html[data-dtr-skin=ubejelly] .dtr-note-popover,html[data-dtr-skin=ubejelly] #dtr-tophat,html[data-dtr-skin=ubejelly] .cv2-cmp-cogpop,html[data-dtr-skin=ubejelly] .cv2-add-pop,html[data-dtr-skin=ubejelly] .cv2-haul-movepop,html[data-dtr-skin=ubejelly] #dia-cv2-haul-panel,html[data-dtr-skin=ubejelly] #dia-staging-panel,html[data-dtr-skin=ubejelly] #dtr-ps-panel,html[data-dtr-skin=ubejelly] #dia-ps-board,html[data-dtr-skin=ubejelly] #dia-ps-import,html[data-dtr-skin=ubejelly] #dia-ps-board-copy,html[data-dtr-skin=ubejelly] #dia-ps-board-collage,html[data-dtr-skin=ubejelly] #dia-ps-board-add,html[data-dtr-skin=ubejelly] .dia-status-menu,html[data-dtr-skin=ubejelly] .dib-trade-drill,html[data-dtr-skin=ubejelly] .dtr-toast,html[data-dtr-skin=ubejelly] .cv2-nl-toast,html[data-dtr-skin=ubejelly] .cv2-move-toast,html[data-dtr-skin=ubejelly] #dtr-update-toast,html[data-dtr-skin=ubejelly] .dtr-modal,html[data-dtr-skin=ubejelly] .dib-modal,html[data-dtr-skin=ubejelly] .dia-ps-pop,html[data-dtr-skin=ubejelly] .cv2-fly,html[data-dtr-skin=ubejelly] .dia-ui-tooltip,html[data-dtr-skin=ubejelly] .dia-zone-tooltip,html[data-dtr-skin=ubejelly] #dtr-oe-petws,html[data-dtr-skin=ubejelly] #dia-hp-wl-panel,html[data-dtr-skin=ubejelly] #dib-lm-back>div,html[data-dtr-skin=ubejelly] .dtr-nudge,html[data-dtr-skin=ubejelly] #dia-mall-pool,html[data-dtr-skin=ubejelly] #dtr-layers-pop{box-shadow:0 0 0 1px rgba(255,255,255,.42),0 0 16px rgba(58,42,66,.22),0 0 46px rgba(58,42,66,.26),0 0 46px rgba(232,212,159,.30),0 24px 60px -18px rgba(58,42,66,.50)!important;}',
 
       'html[data-dtr-skin=blacksesame] .dia-ui-tooltip{background:var(--dtr-irid2)!important;background-origin:border-box;background-clip:border-box;border-color:var(--dtr-shellline, var(--dtr-ink-dim))!important;}',
       'html[data-dtr-skin=ubejelly] .dia-ui-tooltip{background:var(--dtr-irid2)!important;background-origin:border-box;background-clip:border-box;border-color:var(--dtr-shellline, var(--dtr-line2))!important;}',
@@ -26638,10 +26638,19 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   function _dtrLayersFetch(spec) {
     var chain = spec.pose ? [spec.pose].concat(_QP_POSES.filter(function (p) { return p !== spec.pose; })) : _QP_POSES.slice();
     var LF = 'layers{id imageUrlV2(idealSize:SIZE_600) canvasMovieLibraryUrl svgUrl swfUrl zone{id label depth}}';
+    var idList = function () { return spec.itemIds.map(function (id) { return '"' + id + '"'; }).join(','); };
+
+    var toRows = function (petLayers, items, petName) {
+      var rows = [];
+      (petLayers || []).forEach(function (l) { rows.push(Object.assign({ from: petName || 'Pet' }, l)); });
+      (items || []).forEach(function (it) { (((it.appearanceOn || {}).layers) || []).forEach(function (l) { rows.push(Object.assign({ from: it.name || ('Item ' + it.id), itemId: String(it.id) }, l)); }); });
+      rows.sort(function (a, b) { return ((a.zone && a.zone.depth) || 0) - ((b.zone && b.zone.depth) || 0); });
+      return rows;
+    };
     var tryPose = function (i) {
       if (i >= chain.length) return Promise.resolve({ pa: null, items: [] });
       var q = '{petAppearance(speciesId:"' + spec.sp + '",colorId:"' + spec.co + '",pose:' + chain[i] + '){' + LF + '}'
-        + ((spec.itemIds || []).length ? ' items(ids:[' + spec.itemIds.map(function (id) { return '"' + id + '"'; }).join(',') + ']){id name appearanceOn(speciesId:"' + spec.sp + '",colorId:"' + spec.co + '"){' + LF + '}}' : '') + '}';
+        + ((spec.itemIds || []).length ? ' items(ids:[' + idList() + ']){id name appearanceOn(speciesId:"' + spec.sp + '",colorId:"' + spec.co + '"){' + LF + '}}' : '') + '}';
       return _yoGqlApp(q).then(function (j) {
         var d = (j && j.data) || {};
         var pa = d.petAppearance || null;
@@ -26649,18 +26658,39 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         return { pa: pa, items: (d.items || []) };
       });
     };
-    return tryPose(0).then(function (res) {
+    var plain = function () {
+      return tryPose(0).then(function (res) {
 
-      var paP = (!(res.pa && ((res.pa.layers) || []).length) && spec.petStateId)
-        ? _yoGqlApp('{petAppearanceById(id:"' + spec.petStateId + '"){' + LF + '}}').then(function (j2) { return (((j2 && j2.data) || {}).petAppearanceById) || null; }).catch(function () { return null; })
-        : Promise.resolve(res.pa);
-      return paP.then(function (pa) {
-        var rows = [];
-        ((pa && pa.layers) || []).forEach(function (l) { rows.push(Object.assign({ from: 'Pet' }, l)); });
-        res.items.forEach(function (it) { (((it.appearanceOn || {}).layers) || []).forEach(function (l) { rows.push(Object.assign({ from: it.name || ('Item ' + it.id) }, l)); }); });
-        rows.sort(function (a, b) { return ((a.zone && a.zone.depth) || 0) - ((b.zone && b.zone.depth) || 0); });
-        return rows;
+        var paP = (!(res.pa && ((res.pa.layers) || []).length) && spec.petStateId)
+          ? _yoGqlApp('{petAppearanceById(id:"' + spec.petStateId + '"){' + LF + '}}').then(function (j2) { return (((j2 && j2.data) || {}).petAppearanceById) || null; }).catch(function () { return null; })
+          : Promise.resolve(res.pa);
+        return paP.then(function (pa) { return toRows(pa && pa.layers, res.items); });
       });
+    };
+    if (!spec.altStyleId) return plain();
+
+    var asid = String(spec.altStyleId), styleName = null;
+    var styleP = fetch('/species/' + encodeURIComponent(spec.sp) + '/alt-styles.json', { headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (list) {
+        var st = (Array.isArray(list) ? list : []).find(function (x) { return String(x.id) === asid; });
+        if (!st) return null;
+        styleName = String(st.adjective_name || st.series_main_name || '').trim() || null;
+        return (st.swf_assets || []).map(function (a) {
+          var u = a.urls || {};
+          return { id: String(a.id), imageUrlV2: u.png || null, svgUrl: u.svg || null, swfUrl: u.swf || null, canvasMovieLibraryUrl: u.canvas_library || null,
+            zone: a.zone ? { id: String(a.zone.id), label: a.zone.label, depth: a.zone.depth } : null };
+        });
+      })
+      .catch(function () { return null; });
+    var itemsP = (spec.itemIds || []).length
+      ? _yoGqlApp('{items(ids:[' + idList() + ']){id name appearanceOn(speciesId:"' + spec.sp + '",colorId:"' + spec.co + '",altStyleId:"' + asid + '"){' + LF + '}}}').then(function (j) { return (((j && j.data) || {}).items) || []; })
+      : Promise.resolve([]);
+    return Promise.all([styleP, itemsP]).then(function (r) {
+      var fromList = !!(r[0] && r[0].length);
+      var petLayers = fromList ? r[0] : ((spec.altStyleLayers && spec.altStyleLayers.length) ? spec.altStyleLayers : null);
+      if (!petLayers) return plain();
+      return toRows(petLayers, r[1], (fromList ? styleName : null) || spec.altStyleName || null);
     });
   }
 
@@ -26692,6 +26722,83 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
     });
   }
 
+  function _dtrMovieFrame(movieUrl, px, paint) {
+    var CORE = null; try { CORE = window.__DTR_ANIM_CORE || null; } catch (_) {}
+    if (!CORE || !CORE.mountMovieLayer || !CORE.ensureCreateJS) return Promise.resolve(false);
+    var mvCanvas = document.createElement('canvas');
+    mvCanvas.width = px; mvCanvas.height = px;
+    var disposer = null;
+    return CORE.ensureCreateJS().then(function (w) {
+      return CORE.loadScript(movieUrl)
+        .then(function () { return new Promise(function (r) { setTimeout(r, 50); }); })
+        .then(function () { return CORE.mountMovieLayer(w, mvCanvas, movieUrl, []); })
+        .then(function (dispose) {
+          disposer = dispose;
+
+          return new Promise(function (r) { setTimeout(r, 260); });
+        })
+        .then(function () {
+          var ok = true;
+          try { paint(mvCanvas); } catch (_) { ok = false; }
+          if (disposer) { try { disposer(); } catch (_) {} }
+          return ok;
+        });
+    }).catch(function (e) {
+      try {  } catch (_) {}
+      if (disposer) { try { disposer(); } catch (_) {} }
+      return false;
+    });
+  }
+
+  function _dtrSavePng(cv, name, fallback) {
+    return new Promise(function (resolve, reject) {
+      try {
+        cv.toBlob(function (b) {
+          if (!b) { reject(new Error('toBlob failed')); return; }
+          var a = document.createElement('a');
+          a.href = URL.createObjectURL(b);
+
+          var _st = new Date(), _p2 = function (n) { return (n < 10 ? '0' : '') + n; };
+          var _stamp = _st.getFullYear() + '-' + _p2(_st.getMonth() + 1) + '-' + _p2(_st.getDate()) + ' ' + _p2(_st.getHours()) + _p2(_st.getMinutes());
+          a.download = (String(name || fallback).replace(/[^\w\- ]+/g, '').trim() || fallback) + ' ' + _stamp + '.png';
+          a.click();
+          setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+          resolve();
+        }, 'image/png');
+      } catch (e) {  reject(e); }
+    });
+  }
+
+  var _DTR_LARGE_PNG_PX = 2400;
+  function _dtrItemLargePng(layers, name) {
+    var px = _DTR_LARGE_PNG_PX, out = document.createElement('canvas');
+    out.width = px; out.height = px;
+    var ctx = out.getContext('2d');
+    var drawUrl = function (u) {
+      return new Promise(function (res) {
+        if (!u || /assetImage/i.test(u)) { res(false); return; }
+        var im = new Image();
+        im.crossOrigin = 'anonymous';
+        im.onload = function () { try { ctx.drawImage(im, 0, 0, px, px); res(true); } catch (_) { res(false); } };
+        im.onerror = function () { res(false); };
+        im.src = u;
+      });
+    };
+    var chain = Promise.resolve();
+    (layers || []).forEach(function (l) {
+      chain = chain.then(function () {
+        var p = l.canvasMovieLibraryUrl
+          ? _dtrMovieFrame(l.canvasMovieLibraryUrl, px, function (c) { ctx.drawImage(c, 0, 0); })
+          : drawUrl(l.svgUrl).then(function (ok) { return ok || drawUrl(l.imageUrlV2); });
+        return p.then(function (ok) { if (!ok) throw new Error('layer failed: ' + ((l.zone && l.zone.label) || l.id)); });
+      });
+    });
+    return chain.then(function () {
+      if (!(layers || []).length) throw new Error('no layers');
+      return _dtrSavePng(out, (name || 'item') + ' large', 'item');
+    });
+  }
+
   function _dtrLayersDownload(spec) {
     try {  } catch (_) {}
     return _dtrVisibleRows(spec).then(function (rows) {
@@ -26701,7 +26808,6 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
       var SZ = 1200, cv = document.createElement('canvas');
       cv.width = SZ; cv.height = SZ;
       var ctx = cv.getContext('2d'), chain = Promise.resolve();
-      var CORE = null; try { CORE = window.__DTR_ANIM_CORE || null; } catch (_) {}
 
       var isAsset = function (u) { return /assetImage/i.test(u || ''); };
       var drawImg = function (u) {
@@ -26713,30 +26819,9 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           im.src = u;
         });
       };
-      var drawMovie = function (movieUrl) {
-        if (!CORE || !CORE.mountMovieLayer || !CORE.ensureCreateJS) return Promise.resolve(false);
-        var mvCanvas = document.createElement('canvas');
-        mvCanvas.width = 600; mvCanvas.height = 600;
-        var disposer = null;
-        return CORE.ensureCreateJS().then(function (w) {
-          return CORE.loadScript(movieUrl)
-            .then(function () { return new Promise(function (r) { setTimeout(r, 50); }); })
-            .then(function () { return CORE.mountMovieLayer(w, mvCanvas, movieUrl, []); })
-            .then(function (dispose) {
-              disposer = dispose;
 
-              return new Promise(function (r) { setTimeout(r, 260); });
-            })
-            .then(function () {
-              try { ctx.drawImage(mvCanvas, 0, 0, SZ, SZ); } catch (_) {}
-              if (disposer) { try { disposer(); } catch (_) {} }
-              return true;
-            });
-        }).catch(function (e) {
-          try {  } catch (_) {}
-          if (disposer) { try { disposer(); } catch (_) {} }
-          return false;
-        });
+      var drawMovie = function (movieUrl) {
+        return _dtrMovieFrame(movieUrl, 600, function (c) { ctx.drawImage(c, 0, 0, SZ, SZ); });
       };
       drawable.forEach(function (l) {
         chain = chain.then(function () {
@@ -26748,24 +26833,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           if (l.imageUrlV2) return drawImg(l.imageUrlV2);
         });
       });
-      return chain.then(function () {
-        return new Promise(function (resolve, reject) {
-          try {
-            cv.toBlob(function (b) {
-              if (!b) { reject(new Error('toBlob failed')); return; }
-              var a = document.createElement('a');
-              a.href = URL.createObjectURL(b);
-
-              var _st = new Date(), _p2 = function (n) { return (n < 10 ? '0' : '') + n; };
-              var _stamp = _st.getFullYear() + '-' + _p2(_st.getMonth() + 1) + '-' + _p2(_st.getDate()) + ' ' + _p2(_st.getHours()) + _p2(_st.getMinutes());
-              a.download = (String(spec.name || 'outfit').replace(/[^\w\- ]+/g, '').trim() || 'outfit') + ' ' + _stamp + '.png';
-              a.click();
-              setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
-              resolve();
-            }, 'image/png');
-          } catch (e) {  reject(e); }
-        });
-      });
+      return chain.then(function () { return _dtrSavePng(cv, spec.name, 'outfit'); });
     });
   }
 
@@ -26788,8 +26856,8 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
     var W = Math.min(480, window.innerWidth - 24);
     pop.style.cssText = 'position:fixed;z-index:100220;left:50%;top:50%;transform:translate(-50%,-50%);width:' + W + 'px;max-height:min(78vh,620px);display:flex;flex-direction:column;background:var(--dtr-irid2,linear-gradient(135deg,#fbecf5 0%,#ecf0fb 28%,#e6f4fb 52%,#eafbf1 76%,#fdf6ea 100%));background-origin:border-box;background-clip:border-box;border:1px solid var(--dtr-shellline, var(--dtr-line, #efe7da));border-radius:16px;box-shadow:0 18px 48px var(--dtr-scrim, rgba(40,40,35,.3));padding:12px 12px 11px;font-family:Nunito,sans-serif;';
     var view = 'list'; try { view = window.dtrStore.get('dtr:oe:layers_view', 'list') || 'list'; } catch (_) {}
-    var vpill = function (k, lbl) { var on = view === k; return '<button data-view="' + k + '" style="border:none;border-radius:999px;padding:5px 13px;cursor:pointer;font:800 10px Nunito,sans-serif;background:' + (on ? 'var(--dtr-primary,#149c8e)' : 'transparent') + ';color:' + (on ? '#fff' : 'var(--dtr-grey6, #8a8578)') + '">' + lbl + '</button>'; };
-    pop.innerHTML = '<button data-x style="position:absolute;top:8px;right:10px;border:none;background:none;font:800 17px/1 Nunito,sans-serif;color:var(--dtr-quietink,#a49cb4);cursor:pointer">' + window.dtrIcon.html('close', { size: 14 }) + '</button>'
+    var vpill = function (k, lbl) { var on = view === k; return '<button data-view="' + k + '" style="border:none;border-radius:999px;padding:5px 13px;cursor:pointer;font:800 10px Nunito,sans-serif;background:' + (on ? 'var(--dtr-primary,#149c8e)' : 'transparent') + ';color:' + (on ? 'var(--dtr-onfill,#fff)' : 'var(--dtr-grey6, #8a8578)') + '">' + lbl + '</button>'; };
+    pop.innerHTML = '<button data-x style="position:absolute;top:8px;right:10px;border:none;background:none;font:800 17px/1 Nunito,sans-serif;color:var(--dtr-ink3,#5f5b69);cursor:pointer">' + window.dtrIcon.html('close', { size: 14 }) + '</button>'
       + '<div style="display:flex;align-items:center;gap:10px;margin:0 0 8px;padding-right:22px"><span style="font:800 14px Nunito,Nunito,sans-serif;color:var(--dtr-ink,#564f60)">Outfit layers</span>'
       + '<span style="margin-left:auto;display:inline-flex;background:var(--dtr-glass, rgba(255,255,255,.72));border-radius:999px;padding:2px">' + vpill('list', 'List') + vpill('tiles', 'Tiles') + '</span></div>'
       + '<div data-rows style="flex:1;min-height:0;overflow-y:auto;scrollbar-width:thin"><div style="font:600 11.5px Nunito,sans-serif;color:var(--dtr-ink3,#5f5b69);padding:12px;text-align:center">Loading layers…</div></div>';
@@ -26798,42 +26866,113 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
 
     setTimeout(function () { document.addEventListener('mousedown', kill, true); }, 0);
     var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); };
-    var btn = 'display:inline-flex;align-items:center;padding:4px 9px;border:none;border-radius:999px;background:var(--dtr-cream, #f4f1e8);color:var(--dtr-ink-strong, #4a4a45);font:800 9.5px Nunito,sans-serif;text-decoration:none;cursor:pointer';
-    var links = function (l) { return (l.imageUrlV2 ? '<a href="' + l.imageUrlV2 + '" target="_blank" rel="noopener" style="' + btn + '">PNG</a>' : '') + (l.svgUrl ? '<a href="' + l.svgUrl + '" target="_blank" rel="noopener" style="' + btn + '">SVG</a>' : '') + (l.swfUrl ? '<a href="' + l.swfUrl + '" target="_blank" rel="noopener" style="' + btn + '">SWF</a>' : ''); };
+
+    var btn = 'display:inline-flex;align-items:center;padding:4px 9px;border:none;border-radius:999px;background:var(--dtr-track, var(--dtr-cream, #f4f1e8));color:var(--dtr-ink-strong, #4a4a45);font:800 9.5px Nunito,sans-serif;text-decoration:none;cursor:pointer';
+
+    var bigOk = function (l) { return !!(l.canvasMovieLibraryUrl || l.svgUrl || (l.imageUrlV2 && !/assetImage/i.test(l.imageUrlV2))); };
+    var bkey = function (r) { return r.itemId || r.from; };
+    var groupOf = function (l) { return (_rows || []).filter(function (r) { return bkey(r) === bkey(l); }); };
+    var bigBtn = btn + ';appearance:none;margin:0;min-width:0;min-height:0;width:auto;height:auto;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;background:var(--dtr-primary,#149c8e);color:var(--dtr-onfill,#fff)';
+    var links = function (l, i) { return (l.imageUrlV2 ? '<a href="' + l.imageUrlV2 + '" target="_blank" rel="noopener" style="' + btn + '">PNG</a>' : '') + (l.svgUrl ? '<a href="' + l.svgUrl + '" target="_blank" rel="noopener" style="' + btn + '">SVG</a>' : '') + (l.swfUrl ? '<a href="' + l.swfUrl + '" target="_blank" rel="noopener" style="' + btn + '">SWF</a>' : '') + (bigOk(l) ? '<button type="button" data-bigpng="' + i + '" style="' + bigBtn + '">Large PNG</button>' : ''); };
     var _rows = null;
 
     var draw = function () {
       var host = pop.querySelector('[data-rows]'); if (!host) return;
       if (!_rows) { host.innerHTML = '<div style="font:600 11.5px Nunito,sans-serif;color:var(--dtr-ink3,#5f5b69);padding:12px;text-align:center">Loading layers…</div>'; return; }
       if (!_rows.length) { host.innerHTML = '<div style="font:600 11.5px Nunito,sans-serif;color:var(--dtr-ink3,#5f5b69);padding:12px;text-align:center">No layers to show.</div>'; return; }
+
+      var entries = [], seen = {};
+      _rows.forEach(function (l, i) {
+        var k = bkey(l), idxs = [];
+        _rows.forEach(function (r, j) { if (bkey(r) === k) idxs.push(j); });
+        if (idxs.length < 2) { entries.push({ i: i }); return; }
+        if (seen[k]) return;
+        seen[k] = true;
+        entries.push({ group: idxs });
+      });
+      var stackThumb = function (idxs, px, r) {
+        return '<span style="flex:none;position:relative;width:' + px + 'px;height:' + px + 'px;border-radius:' + r + 'px;background:var(--dtr-well, var(--dtr-card, #fff));overflow:hidden;box-shadow:0 1px 5px var(--dtr-shade1, rgba(60,60,55,.12))">'
+          + idxs.map(function (j) { var u = _rows[j].imageUrlV2; return u ? '<img src="' + u + '" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain">' : ''; }).join('')
+          + '</span>';
+      };
+
+      var allLabel = function (idxs) { return 'All ' + idxs.length + ' layers of ' + esc(_rows[idxs[0]].from || ''); };
+      var allBtn = function (idxs) { return idxs.map(function (j) { return _rows[j]; }).every(bigOk) ? '<button type="button" data-bigpng-all="' + idxs[0] + '" style="' + bigBtn + '">Large PNG</button>' : ''; };
+      var allTile = function (idxs) {
+        return '<div style="display:flex;flex-direction:column;align-items:center;gap:5px;background:var(--dtr-card, #fff);border:1px solid var(--dtr-hairline, var(--dtr-card, rgba(255,255,255,.95)));border-radius:12px;padding:9px 7px">'
+          + stackThumb(idxs, 90, 9)
+          + '<span style="font:800 11px Nunito,sans-serif;color:var(--dtr-ink-strong, #4a4a45);text-align:center;line-height:1.2;overflow-wrap:anywhere">' + allLabel(idxs) + '</span>'
+          + '<span style="display:inline-flex;gap:4px;flex-wrap:wrap;justify-content:center">' + allBtn(idxs) + '</span>'
+          + '</div>';
+      };
+      var allRow = function (idxs) {
+        return '<div style="display:flex;align-items:center;gap:9px;background:var(--dtr-card, #fff);border:1px solid var(--dtr-hairline, var(--dtr-card, rgba(255,255,255,.95)));border-radius:11px;padding:6px 9px;margin-bottom:5px">'
+          + stackThumb(idxs, 38, 8)
+          + '<span style="flex:1;min-width:0;font:800 11.5px Nunito,sans-serif;color:var(--dtr-ink-strong, #4a4a45);overflow-wrap:anywhere">' + allLabel(idxs) + '</span>'
+          + '<span style="flex:none;display:inline-flex;gap:4px">' + allBtn(idxs) + '</span>'
+          + '</div>';
+      };
+      var thumb = function (l, px, r) { return '<span style="flex:none;width:' + px + 'px;height:' + px + 'px;border-radius:' + r + 'px;background:var(--dtr-well, var(--dtr-card, #fff));overflow:hidden;box-shadow:0 1px 5px var(--dtr-shade1, rgba(60,60,55,.12));display:flex;align-items:center;justify-content:center">' + (l.imageUrlV2 ? '<img src="' + l.imageUrlV2 + '" alt="" loading="lazy" style="width:100%;height:100%;object-fit:contain">' : '') + '</span>'; };
+
+      var tile = function (l, i, inGroup) {
+        return '<div style="display:flex;flex-direction:column;align-items:center;gap:5px;background:var(--dtr-card, #fff);border:1px solid var(--dtr-hairline, var(--dtr-card, rgba(255,255,255,.95)));border-radius:12px;padding:9px 7px">'
+          + thumb(l, 90, 9)
+          + '<span style="font:800 11px Nunito,sans-serif;color:var(--dtr-ink-strong, #4a4a45);text-align:center;line-height:1.2;max-width:100%;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical">' + esc(inGroup ? ((l.zone && l.zone.label) || '') : (l.from || '')) + '</span>'
+          + (inGroup ? '' : '<span style="font:600 9px Nunito,sans-serif;color:var(--dtr-ink3,#5f5b69);text-align:center">' + esc((l.zone && l.zone.label) || '') + '</span>')
+          + '<span style="display:inline-flex;gap:4px;flex-wrap:wrap;justify-content:center">' + links(l, i) + '</span>'
+          + '</div>';
+      };
+      var row = function (l, i, inGroup) {
+        return '<div style="display:flex;align-items:center;gap:9px;background:var(--dtr-card, #fff);border:1px solid var(--dtr-hairline, var(--dtr-card, rgba(255,255,255,.95)));border-radius:11px;padding:6px 9px;margin-bottom:5px">'
+          + thumb(l, 38, 8)
+          + '<span style="flex:1;min-width:0;display:flex;flex-direction:column">'
+          +   '<span style="font:800 11.5px Nunito,sans-serif;color:var(--dtr-ink-strong, #4a4a45);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(inGroup ? ((l.zone && l.zone.label) || '') : (l.from || '')) + '</span>'
+          +   (inGroup ? '' : '<span style="font:600 9.5px Nunito,sans-serif;color:var(--dtr-ink3,#5f5b69)">' + esc((l.zone && l.zone.label) || '') + '</span>')
+          + '</span>'
+          + '<span style="flex:none;display:inline-flex;gap:4px">' + links(l, i) + '</span>'
+          + '</div>';
+      };
+      var groupHead = function (idxs) {
+        var l0 = _rows[idxs[0]];
+        return '<div style="display:flex;flex-direction:column;margin:0 2px 8px">'
+          +   '<span style="font:800 12px Nunito,sans-serif;color:var(--dtr-ink-strong, #4a4a45);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(l0.from || '') + '</span>'
+          +   '<span style="font:600 9.5px Nunito,sans-serif;color:var(--dtr-ink3,#5f5b69)">' + idxs.length + ' layers</span>'
+          + '</div>';
+      };
+      var groupBox = 'background:var(--dtr-sink, transparent);border:1px solid var(--dtr-hairline, var(--dtr-line2, rgba(60,60,55,.12)));border-radius:14px;padding:8px 8px 3px';
       if (view === 'tiles') {
-        host.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px;padding:2px">'
-          + _rows.map(function (l) {
-              return '<div style="display:flex;flex-direction:column;align-items:center;gap:5px;background:var(--dtr-glass, rgba(255,255,255,.72));border:1px solid var(--dtr-card, rgba(255,255,255,.95));border-radius:12px;padding:9px 7px">'
-                + '<span style="width:90px;height:90px;border-radius:9px;background:var(--dtr-card, #fff);overflow:hidden;box-shadow:0 1px 5px var(--dtr-shade1, rgba(60,60,55,.12));display:flex;align-items:center;justify-content:center">' + (l.imageUrlV2 ? '<img src="' + l.imageUrlV2 + '" alt="" loading="lazy" style="width:100%;height:100%;object-fit:contain">' : '') + '</span>'
-                + '<span style="font:800 11px Nunito,sans-serif;color:var(--dtr-ink-strong, #4a4a45);text-align:center;line-height:1.2;max-width:100%;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical">' + esc(l.from || '') + '</span>'
-                + '<span style="font:600 9px Nunito,sans-serif;color:var(--dtr-quietink,#a49cb4);text-align:center">' + esc((l.zone && l.zone.label) || '') + '</span>'
-                + '<span style="display:inline-flex;gap:4px;flex-wrap:wrap;justify-content:center">' + links(l) + '</span>'
-                + '</div>';
+        var grid = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px';
+        host.innerHTML = '<div style="' + grid + ';padding:2px">'
+          + entries.map(function (en) {
+              if (!en.group) return tile(_rows[en.i], en.i, false);
+              return '<div style="grid-column:1/-1;' + groupBox + ';padding-bottom:8px">' + groupHead(en.group)
+                + '<div style="' + grid + '">' + en.group.map(function (j) { return tile(_rows[j], j, true); }).join('') + allTile(en.group) + '</div></div>';
             }).join('')
           + '</div>';
       } else {
-        host.innerHTML = _rows.map(function (l) {
-          return '<div style="display:flex;align-items:center;gap:9px;background:var(--dtr-glass, rgba(255,255,255,.72));border:1px solid var(--dtr-card, rgba(255,255,255,.95));border-radius:11px;padding:6px 9px;margin-bottom:5px">'
-            + '<span style="flex:none;width:38px;height:38px;border-radius:8px;background:var(--dtr-card, #fff);overflow:hidden;box-shadow:0 1px 4px var(--dtr-shade1, rgba(60,60,55,.12))">' + (l.imageUrlV2 ? '<img src="' + l.imageUrlV2 + '" alt="" loading="lazy" style="width:100%;height:100%;object-fit:contain">' : '') + '</span>'
-            + '<span style="flex:1;min-width:0;display:flex;flex-direction:column">'
-            +   '<span style="font:800 11.5px Nunito,sans-serif;color:var(--dtr-ink-strong, #4a4a45);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(l.from || '') + '</span>'
-            +   '<span style="font:600 9.5px Nunito,sans-serif;color:var(--dtr-quietink,#a49cb4)">' + esc((l.zone && l.zone.label) || '') + '</span>'
-            + '</span>'
-            + '<span style="flex:none;display:inline-flex;gap:4px">' + links(l) + '</span>'
-            + '</div>';
+        host.innerHTML = entries.map(function (en) {
+          if (!en.group) return row(_rows[en.i], en.i, false);
+          return '<div style="' + groupBox + ';margin-bottom:5px">' + groupHead(en.group)
+            + en.group.map(function (j) { return row(_rows[j], j, true); }).join('') + allRow(en.group) + '</div>';
         }).join('');
       }
     };
     pop.addEventListener('click', function (e) {
       if (e.target.closest('[data-x]')) { kill(); return; }
+      var bp = e.target.closest('[data-bigpng],[data-bigpng-all]');
+      if (bp) {
+        var whole = bp.hasAttribute('data-bigpng-all');
+        var bl = _rows && _rows[+bp.getAttribute(whole ? 'data-bigpng-all' : 'data-bigpng')];
+        if (!bl || bp.disabled) return;
+
+        var set = whole ? groupOf(bl) : [bl];
+        var nm = whole ? (bl.from + ' all layers') : (bl.from + ((bl.zone && bl.zone.label) ? ' ' + bl.zone.label : ''));
+        _dtrPillState(bp, 'loading', '…');
+        _dtrItemLargePng(set, nm).then(function () { _dtrPillState(bp, 'success', 'Saved'); }).catch(function () { _dtrPillState(bp, 'reset'); });
+        return;
+      }
       var vb = e.target.closest('[data-view]');
-      if (vb) { view = vb.getAttribute('data-view'); try { window.dtrStore.set('dtr:oe:layers_view', view); } catch (_) {} pop.querySelectorAll('[data-view]').forEach(function (b) { var on = b.getAttribute('data-view') === view; b.style.background = on ? 'var(--dtr-primary,#149c8e)' : 'transparent'; b.style.color = on ? '#fff' : 'var(--dtr-grey6, #8a8578)'; }); draw(); return; }
+      if (vb) { view = vb.getAttribute('data-view'); try { window.dtrStore.set('dtr:oe:layers_view', view); } catch (_) {} pop.querySelectorAll('[data-view]').forEach(function (b) { var on = b.getAttribute('data-view') === view; b.style.background = on ? 'var(--dtr-primary,#149c8e)' : 'transparent'; b.style.color = on ? 'var(--dtr-onfill,#fff)' : 'var(--dtr-grey6, #8a8578)'; }); draw(); return; }
     });
     _dtrLayersFetch(spec).then(function (rows) { _rows = rows; draw(); }).catch(function () {
       var host = pop.querySelector('[data-rows]');
@@ -26859,7 +26998,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           var a = yc.querySelector('a[href*="/outfits/"]');
           var id = a && (String(a.getAttribute('href')).match(/\/outfits\/(\d+)/) || [])[1];
           var o = id && (_yo.outfits || []).find(function (x) { return String(x.id) === String(id); });
-          if (o) spec = { sp: String(o.species_id), co: String(o.color_id), pose: (typeof o.pose === 'string' && o.pose) || null, itemIds: (((o.item_ids || {}).worn) || []).map(String), name: o.name || ('outfit-' + o.id) };
+          if (o) spec = { sp: String(o.species_id), co: String(o.color_id), pose: (typeof o.pose === 'string' && o.pose) || null, itemIds: (((o.item_ids || {}).worn) || []).map(String), altStyleId: o.alt_style_id ? String(o.alt_style_id) : null, name: o.name || ('outfit-' + o.id) };
         }
       }
       if (!spec) {
@@ -28236,6 +28375,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
           sp: String(_dlO.species_id), co: String(_dlO.color_id),
           pose: (typeof _dlO.pose === 'string' && _dlO.pose) || null,
           itemIds: (((_dlO.item_ids || {}).worn) || []).map(String),
+          altStyleId: _dlO.alt_style_id ? String(_dlO.alt_style_id) : null,
           name: _dlO.name || ('outfit-' + _dlO.id)
         };
         var _L = window.__DTR_LAYERS, _S = _L.btnState, _b = t;
@@ -37979,21 +38119,13 @@ const targetName = moveSelect.options[moveSelect.selectedIndex]?.text || 'wishli
           stage.tickEnabled = true;
 
           const frameMs = 1000 / fps;
-          let _lastDraw = 0;
-          const onTick = (evt) => {
-            try {
-              const now = createjs.Ticker.getTime();
-              if (_lastDraw && (now - _lastDraw) < frameMs) return;
-              _lastDraw = now;
-              stage.update(evt);
-            } catch (_) {}
-          };
-          createjs.Ticker.addEventListener('tick', onTick);
-          sharedTickListeners.push(onTick);
+          const intervalId = setInterval(() => {
+            try { if (!document.hidden) stage.update(); } catch (_) {}
+          }, frameMs);
           stage.update();
           log('animated layer PLAYING (', chosenName, '@', fps, 'fps) on canvas for', movieUrl);
           return () => {
-            try { createjs.Ticker.removeEventListener('tick', onTick); } catch (_) {}
+            try { clearInterval(intervalId); } catch (_) {}
             try { stage.removeAllChildren(); stage.clear(); } catch (_) {}
           };
         };
@@ -47672,7 +47804,7 @@ if (!tradeLinks.length) {
       };
     })();
 
-    const OE_LEFT_KEYS = new Set(['watchZones','pinnedZones','locks','activeZone','selectedZone','addZoneOpen','activeCogZone',
+    const OE_LEFT_KEYS = new Set(['skinTick','watchZones','pinnedZones','locks','activeZone','selectedZone','addZoneOpen','activeCogZone',
       'activeWishZone','conflict','removeConfirm','wearMode','considering','lovedOnly','appliedOnly','favZoneFilter','groupByZone',
       'haulMenuOpen','declutterOpen','managerOpen','packGallery','packDeleteConfirm','packs','activePackIdx','renamingPack','packQuery','packSearchResults',
       'wishLists','wished','loggedIn','styleWarn','csQuery','csView','zoneMapShow','zoneMapDocked',
@@ -47781,11 +47913,11 @@ if (!tradeLinks.length) {
     }
 
     const OE_ABOX_BETA = true;
-    const OE_CENTER_KEYS = new Set(['outfitName','editingName','frameShape','outfitLocked',
+    const OE_CENTER_KEYS = new Set(['skinTick','outfitName','editingName','frameShape','outfitLocked',
       'pose','poseOpen','appQuery','appOpen','variants','activeIdx','compareOpen','cmpRenameIdx','cmpDelConfirm','cmpSelected','cmpShowHidden','cmpCollage','cmpCopying','cmpCopied','cmpSavedName','cmpDeepCollapsed','renameError','cmpDimOwned','cmpAddPickFor','cmpAddedItems','cmpAddingId','delPendingKeys','delDoneKeys',
       'copied','loggedIn','speciesId','colorId',
       'speciesName','colorName','allSpecies','allColors','altStyles','outfitId','saveState','altStyleId','poseThumbTick','oeLoadingPet','oeOutfitLoading','validPosesReady']);
-    const OE_RIGHT_KEYS = new Set(['searchQuery','searchResults','searchLoading','searchError','searchOutage',
+    const OE_RIGHT_KEYS = new Set(['skinTick','searchQuery','searchResults','searchLoading','searchError','searchOutage',
       'searchFilter','ownedOnly','hideLockedZones','revealLocked','colorFilter','sortKey','sortOpen','visible',
       'searchView','activeZone','zonePickerOpen','sortLoadingAll','considering','removeConfirm','searchTotal','zoneTotal','searchUnresolved','searchHasMore','searchOffset','outfitLocked',
       'speciesId','colorId','loggedIn','locks','variants','activeIdx']);
@@ -49509,13 +49641,20 @@ if (!tradeLinks.length) {
           const i = (variantIdx == null || isNaN(variantIdx)) ? s.activeIdx : variantIdx;
           const bio = (i === s.activeIdx) ? oeActiveBiology(s) : (((s.variants || [])[i] || {}).biology || {});
           const poseIdx = (bio.pose != null ? bio.pose : s.pose);
+
+          const asId = bio.altStyleId ? String(bio.altStyleId) : null;
+          const asEntry = asId ? ((s.altStyles || []).find(x => String(x.id) === asId) || (window.__dtrOEAltNames || {})[asId] || null) : null;
           return {
             sp: String(bio.speciesId || s.speciesId),
             co: String(bio.colorId || s.colorId),
             pose: OE_POSE_URLS[poseIdx] || null,
 
             petStateId: bio.petStateId ? String(bio.petStateId) : (s.petStateId ? String(s.petStateId) : null),
-            itemIds: oeVarItems(s, i).filter(x => x && x.applied !== false).map(x => String(x.id)),
+
+            itemIds: Array.from(new Set(oeVarItems(s, i).filter(x => x && x.applied !== false).map(x => String(x.id)))),
+            altStyleId: asId,
+            altStyleLayers: (asEntry && asEntry.layers && asEntry.layers.length) ? asEntry.layers : null,
+            altStyleName: (asEntry && asEntry.label) ? String(asEntry.label) : null,
             name: (((s.variants || [])[i] || {}).name) || s.outfitName || 'outfit'
           };
         } catch (_) { return null; }
@@ -52337,7 +52476,7 @@ if (!tradeLinks.length) {
 
     function _oeRightShellSig(s) {
 
-      return [s.searchFilter, s.ownedOnly, s.sortKey, s.sortOpen, (s.colorFilter || []).join(','), s.colorAccents, s.colorMode,
+      return [s.skinTick || 0, s.searchFilter, s.ownedOnly, s.sortKey, s.sortOpen, (s.colorFilter || []).join(','), s.colorAccents, s.colorMode,
               s.activeZone, s.zonePickerOpen, s.sortLoadingAll, s.speciesId, s.colorId, s.loggedIn,
               !!oeActiveVar(s).locked].join('§');
     }
@@ -57199,11 +57338,12 @@ if (!tradeLinks.length) {
 
     let _oeAnimTicks = [];
     let _oeLastLayers = null;
-    let _oeAnimEnsureTimer = null, _oeAnimEnsureTries = 0;
+    let _oeAnimEnsureTimer = null, _oeAnimEnsureTries = 0, _oeAnimEnsureWaits = 0;
+    let _oeAnimBuilding = 0;
 
     function _oeScheduleAnimEnsure() {
       clearTimeout(_oeAnimEnsureTimer);
-      _oeAnimEnsureTries = 0;
+      _oeAnimEnsureTries = 0; _oeAnimEnsureWaits = 0;
       const tick = () => {
         let done = false;
         try {
@@ -57212,6 +57352,7 @@ if (!tradeLinks.length) {
           if (!wantN) { done = true; return; }
 
           if (_oeAnimById.size >= wantN) { done = true; return; }
+          if (_oeAnimBuilding > 0) { if (++_oeAnimEnsureWaits < 30) _oeAnimEnsureTries--; return; }
           const le = document.querySelector('#dtr-oe-canvas .dtr-oe-layers');
           if (!le) return;
 
@@ -57227,6 +57368,10 @@ if (!tradeLinks.length) {
     function _oeLayerKey(l) { return String(l.id != null ? l.id : (((l.zone&&l.zone.depth)||0) + '|' + (l.imageUrlV2 || l.imageUrl || ''))); }
 
     async function oeBuildAnim(layers, gen, layersEl, force) {
+      _oeAnimBuilding++;
+      try { return await _oeBuildAnimRun(layers, gen, layersEl, force); } finally { _oeAnimBuilding--; }
+    }
+    async function _oeBuildAnimRun(layers, gen, layersEl, force) {
       const CORE = (typeof window !== 'undefined') ? window.__DTR_ANIM_CORE : null;
       const animLayers = (layers || []).filter(l => l.canvasMovieLibraryUrl);
       const want = new Set(animLayers.map(_oeLayerKey));
@@ -57924,6 +58069,8 @@ if (!tradeLinks.length) {
         if (!root) return;
 
         if (root.style.backgroundImage) root.style.backgroundImage = '';
+
+        try { OE.set({ skinTick: (OE.get().skinTick || 0) + 1 }); } catch (_) {}
       });
       mo.observe(html, { attributes: true, attributeFilter: ['data-dtr-skin'] });
     }
