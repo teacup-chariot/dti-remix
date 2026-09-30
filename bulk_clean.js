@@ -3209,7 +3209,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   var IS_IMPRESS = false;
   try { IS_IMPRESS = location.hostname === 'impress.openneo.net'; } catch (_) {}
 
-  window.__DTR_META = {"v":"10.814.1","history":[{"v":"10.814.1","label":"Large PNG downloads and smoother animations","ts":"September 28, 2026","notes":["## Large PNG downloads","Download any item or pet as a large PNG (2400 × 2400 pixels). In Customize, right-click the pet preview or use a variant card, then choose <b>Layers</b>. In Your Outfits, open <b>Layers</b> on any outfit. <b>Large PNG</b> saves one layer. For items with more than one layer, use <b>Large PNG</b> on <b>All layers</b> at the end of the item's group to save them together, the way they look on your pet.","Pets wearing a Pet Style show the style's name and look in Layers and in Large PNG.","Layers lists each item once, even items that sit in two places on the pet, like Red Rain.","## Animations","Animations play at the speed they were made for, in Customize, the Try On Haul and every preview.","Animated items start smoothly in Customize while they load.","## Themes","Switching themes updates Customize right away."]},{"v":"10.813.0","label":"Keep customizing, clearer Pet Styles, and accurate inventory counts","notes":["New features and misc bug fixes."]},{"v":"10.812.0","label":"Customize sign-in fix","notes":["New features and misc bug fixes."]},{"v":"10.811.0","label":"Docked Zone Map fix","notes":["New features and misc bug fixes."]},{"v":"10.810.0","label":"Minor Housekeeping","notes":["New features and misc bug fixes."]}]};
+  window.__DTR_META = {"v":"10.814.2","history":[{"v":"10.814.2","label":"Theme fixes","ts":"September 29, 2026","notes":["## Themes","An issue where themes weren't displaying correctly when navigating between pages has been resolved.","In Black Sesame, the items in Your Outfits' Sourcing view each sit on their own tile, with clear PNG and Layers buttons."]},{"v":"10.814.1","label":"Large PNG downloads and smoother animations","notes":["New features and misc bug fixes."]},{"v":"10.813.0","label":"Keep customizing, clearer Pet Styles, and accurate inventory counts","notes":["New features and misc bug fixes."]},{"v":"10.812.0","label":"Customize sign-in fix","notes":["New features and misc bug fixes."]},{"v":"10.811.0","label":"Docked Zone Map fix","notes":["New features and misc bug fixes."]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -5693,8 +5693,25 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
     document.documentElement.setAttribute('data-dib-theme', 'konpeito');
     document.documentElement.setAttribute('data-dtr-skin', theme);
     try { window.dtrStore.set(DIB_THEME_KEY, theme); } catch (_) {}
+
+    const _stamp = (d) => {
+      try { if (d && d !== document && d.documentElement) { d.documentElement.setAttribute('data-dib-theme', 'konpeito'); d.documentElement.setAttribute('data-dtr-skin', theme); } } catch (_) {}
+    };
+    const _docs = [document];
+    try { if (window.top && window.top !== window) { _stamp(window.top.document); _docs.push(window.top.document); } } catch (_) {}
+    _docs.forEach((d) => { try { d.querySelectorAll('iframe#dtr-frame').forEach((f) => { try { _stamp(f.contentDocument); } catch (_) {} }); } catch (_) {} });
     const pill = document.getElementById('dib-theme-pill');
     if (pill) dibSyncPillActive(pill);
+  }
+
+  function _dtrSkinFromStore() {
+    try {
+      if (!IS_IMPRESS) return;
+      const t = window.dtrStore.get(DIB_THEME_KEY);
+      if (DIB_THEMES.indexOf(t) < 0) return;
+      const h = document.documentElement;
+      if (h.getAttribute('data-dtr-skin') !== t) { h.setAttribute('data-dib-theme', 'konpeito'); h.setAttribute('data-dtr-skin', t); }
+    } catch (_) {}
   }
   if (IS_IMPRESS) {
     document.documentElement.setAttribute('data-dib-theme', 'konpeito');
@@ -24963,7 +24980,8 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         '.dtr-yo-card.dtr-yo-hiddencard{opacity:.62}',
 
         '.dtr-yo-dlrow{display:flex;gap:5px;justify-content:center;margin-top:8px}',
-        '.dtr-yo-dlpill{border:1px solid var(--border,#e7e1d4);border-radius:999px;background:var(--dtr-card,#fff);color:var(--dtr-primary,#149c8e);font:800 9.5px Nunito,sans-serif;padding:5px 11px;cursor:pointer;box-shadow:0 1px 4px var(--dtr-shade1, rgba(60,60,55,.12));transition:transform .1s,box-shadow .1s}',
+
+        '.dtr-yo-dlpill{border:1px solid var(--dtr-hairline, var(--border,#e7e1d4));border-radius:999px;background:var(--dtr-track, var(--dtr-card,#fff));color:var(--dtr-primary,#149c8e);font:800 9.5px Nunito,sans-serif;padding:5px 11px;cursor:pointer;box-shadow:0 1px 4px var(--dtr-shade1, rgba(60,60,55,.12));transition:transform .1s,box-shadow .1s}',
         '.dtr-yo-dlpill:hover{transform:translateY(-1px);box-shadow:0 3px 9px var(--dtr-shade1, rgba(60,60,55,.18))}',
         '#dtr-yo-grid.dense .dtr-yo-dlrow{display:none}',
 
@@ -25140,11 +25158,12 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         '.dtr-yo-wlnote{font:600 10px "Nunito",sans-serif;color:var(--dtr-grey4, #b0aa9c);padding:3px 8px 5px;line-height:1.4}',
         '.dtr-yo-itemgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}',
         '.dtr-yo-itemgrid>.dtr-yo-wcard{flex:1 1 150px;max-width:200px}',
-        '.dtr-yo-wcard{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:13px 9px 10px;border-radius:13px;background:var(--dtr-card, #faf8f2);border:2px solid transparent;cursor:pointer;transition:background .1s,border-color .1s,box-shadow .1s}',
-        '.dtr-yo-wcard:hover{background:var(--dtr-card, #fff);border-color:var(--dtr-primary-line,#cfe7e0)}',
-        '.dtr-yo-wcard.sel{background:var(--dtr-card, #fff);border-color:var(--dtr-accent,#ff8576);box-shadow:0 3px 11px rgba(255,133,118,.2)}',
+
+        '.dtr-yo-wcard{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:13px 9px 10px;border-radius:13px;background:var(--dtr-well, var(--dtr-card, #faf8f2));border:2px solid transparent;cursor:pointer;transition:background .1s,border-color .1s,box-shadow .1s}',
+        '.dtr-yo-wcard:hover{background:var(--dtr-well, var(--dtr-card, #fff));border-color:var(--dtr-primary-line,#cfe7e0)}',
+        '.dtr-yo-wcard.sel{background:var(--dtr-well, var(--dtr-card, #fff));border-color:var(--dtr-accent,#ff8576);box-shadow:0 3px 11px rgba(255,133,118,.2)}',
         '.dtr-yo-wcard.done{opacity:.72;cursor:default}',
-        '.dtr-yo-wcard.tok,.dtr-yo-wcard.tok:hover{cursor:default;background:var(--dtr-card, #faf8f2);border-color:transparent}',
+        '.dtr-yo-wcard.tok,.dtr-yo-wcard.tok:hover{cursor:default;background:var(--dtr-well, var(--dtr-card, #faf8f2));border-color:transparent}',
         '.dtr-yo-wcheck{position:absolute;top:7px;right:7px;width:18px;height:18px;border-radius:6px;border:2px solid var(--dtr-grey3, #d8d2c4);background:var(--dtr-card, #fff);transition:background .1s,border-color .1s}',
 
         '#dtr-yo-root .dtr-card-info{position:absolute;top:6px;left:6px;z-index:6;width:22px;height:22px;display:flex;align-items:center;justify-content:center}',
@@ -32624,8 +32643,9 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         document.documentElement.classList.remove('dtr-nav-preactive');
       });
     };
-    document.addEventListener('turbo:visit', (e) => _preHideFor(_destPath(e)));
-    document.addEventListener('turbo:before-render', (e) => _preHideFor(_destPath(e)));
+
+    document.addEventListener('turbo:visit', (e) => { _dtrSkinFromStore(); _preHideFor(_destPath(e)); });
+    document.addEventListener('turbo:before-render', (e) => { _dtrSkinFromStore(); _preHideFor(_destPath(e)); });
     document.addEventListener('turbo:load', _dropGenericVeil);
   }
 
