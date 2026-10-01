@@ -3209,7 +3209,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   var IS_IMPRESS = false;
   try { IS_IMPRESS = location.hostname === 'impress.openneo.net'; } catch (_) {}
 
-  window.__DTR_META = {"v":"10.814.2","history":[{"v":"10.814.2","label":"Theme fixes","ts":"September 29, 2026","notes":["## Themes","An issue where themes weren't displaying correctly when navigating between pages has been resolved.","In Black Sesame, the items in Your Outfits' Sourcing view each sit on their own tile, with clear PNG and Layers buttons."]},{"v":"10.814.1","label":"Large PNG downloads and smoother animations","notes":["New features and misc bug fixes."]},{"v":"10.813.0","label":"Keep customizing, clearer Pet Styles, and accurate inventory counts","notes":["New features and misc bug fixes."]},{"v":"10.812.0","label":"Customize sign-in fix","notes":["New features and misc bug fixes."]},{"v":"10.811.0","label":"Docked Zone Map fix","notes":["New features and misc bug fixes."]}]};
+  window.__DTR_META = {"v":"10.814.3","history":[{"v":"10.814.3","label":"Smoother pet loading and Active Box updates","ts":"September 30, 2026","notes":["## Customize","Loading pets by name, one after another, shows each pet's own items as wearable.","When you load a pet by name, the outfit takes that pet's name and its items go on. The previous pet's items stay in the Fitting Room, taken off, and each one says if this pet can't wear it.","The browser tab's title and address follow the pet you load by name. Once the outfit is saved, the address points to it.","## Active Box","New Pet Styles get their Neoboards Active Box soon after someone views a pet wearing them, without waiting for an update.","The dashed outline sits just outside the crop and lines up with the pet, so the whole crop shows.","## Imports","Signing in to Dress to Impress during an inventory import keeps you on Dress to Impress, ready to sort your items."]},{"v":"10.814.2","label":"Theme fixes","notes":["New features and misc bug fixes."]},{"v":"10.814.1","label":"Large PNG downloads and smoother animations","notes":["New features and misc bug fixes."]},{"v":"10.813.0","label":"Keep customizing, clearer Pet Styles, and accurate inventory counts","notes":["New features and misc bug fixes."]},{"v":"10.812.0","label":"Customize sign-in fix","notes":["New features and misc bug fixes."]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -32300,7 +32300,8 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         setStoredDTILoginState('logged_in');
         clearPendingSync();
 
-        window.location.href = 'https://www.neopets.com/inventory.phtml';
+        const _su = 'https://impress.openneo.net/items?dti_sync=bulk';
+        if (typeof window.dtrNav === 'function') window.dtrNav(_su); else location.href = _su;
       }
     };
 
@@ -32431,7 +32432,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
         <button class="neo-dti-login-failed-close dtr-x" type="button" aria-label="Dismiss">${window.dtrIcon.html('close', { size: 14 })}</button>
         <strong>DTI sync from inventory failed</strong>
         <p>You are not logged into Dress to Impress, so the inventory sync could not start.</p>
-        <p><strong class="neo-dti-login-inline">Log in.</strong> After logging in, head back to inventory to retry syncing.</p>
+        <p><strong class="neo-dti-login-inline">Log in.</strong> After you log in, you can carry on sorting your imported items.</p>
       `;
 
       document.body.appendChild(banner);
@@ -47840,6 +47841,25 @@ if (!tradeLinks.length) {
 
     const OE_ABOX_SINK = 'https://dtr-style-sink.dti-remix.workers.dev';
 
+    const OE_ABOX_CROPS_URL = 'https://raw.githubusercontent.com/teacup-chariot/dti-remix/main/active-box/style-crops.json';
+    const _oeAboxCrops = { m: {}, s: {}, p: null };
+    function _oeAboxCropsLoad() {
+      if (_oeAboxCrops.p) return _oeAboxCrops.p;
+      const ok = (b) => Array.isArray(b) && (b.length === 2 || b.length === 3) && b.every(n => typeof n === 'number' && n > 0 && n < 1);
+      _oeAboxCrops.p = fetch(OE_ABOX_CROPS_URL, { cache: 'no-cache' })
+        .then(r => (r.ok ? r.json() : null))
+        .then(d => {
+          if (!d || d.v !== 1) return;
+          [['measured', _oeAboxCrops.m], ['siblings', _oeAboxCrops.s]].forEach(([k, dst]) => {
+            const src = (d[k] && typeof d[k] === 'object') ? d[k] : {};
+            Object.keys(src).forEach(id => { if (/^\d{1,8}$/.test(id) && ok(src[id])) dst[id] = src[id]; });
+          });
+          try { oeAboxPaint(); } catch (_) {}
+        })
+        .catch(() => {});
+      return _oeAboxCrops.p;
+    }
+
     const _abxRefreshed = {};
     async function _dtrAboxSend(styleId, refresh) {
       try {
@@ -47860,7 +47880,7 @@ if (!tradeLinks.length) {
       try {
         const sid = String(styleId || '').trim(), nm = String(petName || '').trim();
         if (!sid || !nm) return;
-        if (OE_ABOX_BY_STYLE[sid]) return;
+        if (OE_ABOX_BY_STYLE[sid] || _oeAboxCrops.m[sid]) return;
         const m = _oeAboxStyleLogMap();
         const prior = m[sid];
         if (!prior || prior.name !== nm) {
@@ -47872,7 +47892,7 @@ if (!tradeLinks.length) {
         }
         try { oeAboxPaint(); } catch (_) {}
 
-        if (!_abxRefreshed[sid]) { _abxRefreshed[sid] = 1; _dtrAboxSend(sid, true); }
+        if (!_abxRefreshed[sid]) { _abxRefreshed[sid] = 1; _oeAboxCropsLoad().then(() => { if (!_oeAboxCrops.m[sid]) _dtrAboxSend(sid, true); }); }
       } catch (_) {}
     }
     try { window.__DTR_ABOX_LOG = _dtrLogStylePet; window.__DTR_ABOX_LOG_GET = _oeAboxStyleLogMap; } catch (_) {}
@@ -47884,7 +47904,9 @@ if (!tradeLinks.length) {
 
       let c = null, approx = false;
       if (s.altStyleId) {
-        c = OE_ABOX_BY_STYLE[String(s.altStyleId)] || OE_ABOX_BY_STYLE_SIB[String(s.altStyleId)] || null;
+        const sid = String(s.altStyleId);
+        _oeAboxCropsLoad();
+        c = OE_ABOX_BY_STYLE[sid] || _oeAboxCrops.m[sid] || OE_ABOX_BY_STYLE_SIB[sid] || _oeAboxCrops.s[sid] || null;
         if (!c) return null;
       } else {
         c = (_oeAboxBodyId != null && _oeAboxBodyId !== '') ? OE_ABOX_BY_BODY[String(_oeAboxBodyId)] : null;
@@ -47926,7 +47948,7 @@ if (!tradeLinks.length) {
         return;
       }
       host.innerHTML =
-        '<div data-oe-activebox data-oe-nocap style="position:absolute;left:' + box.l.toFixed(2) + '%;top:' + box.t.toFixed(2) + '%;width:' + box.w.toFixed(2) + '%;height:' + box.h.toFixed(2) + '%;z-index:3;pointer-events:none;box-shadow:0 0 0 9999px rgba(30,32,42,.55);border:2px dashed var(--dtr-glass-strong, rgba(255,255,255,.92));border-radius:3px;box-sizing:border-box"></div>'
+        '<div data-oe-activebox data-oe-nocap style="position:absolute;left:' + box.l.toFixed(2) + '%;top:' + box.t.toFixed(2) + '%;width:' + box.w.toFixed(2) + '%;height:' + box.h.toFixed(2) + '%;z-index:3;pointer-events:none;box-shadow:0 0 0 9999px rgba(30,32,42,.55);outline:2px dashed var(--dtr-glass-strong, rgba(255,255,255,.92));outline-offset:0;border-radius:3px;box-sizing:border-box"></div>'
         + '<div data-oe-nocap style="position:absolute;left:' + (box.l + box.w / 2).toFixed(2) + '%;transform:translateX(-50%);top:calc(' + (box.t + box.h).toFixed(2) + '% + 7px);z-index:3;pointer-events:none;text-align:center;white-space:nowrap;font:800 9px/1.35 Nunito,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7)">Neoboards<br>Active Box <span style="color:var(--dtr-gold,#ffce5a);letter-spacing:.02em">✦ Beta!</span>'
         + (box.approx ? '<br><span style="font-weight:700;font-size:8px;letter-spacing:0;text-transform:none;opacity:.95;background:var(--dtr-scrim, rgba(0,0,0,.45));padding:1px 4px;border-radius:4px">approximate, no exact box for this body' + (OE.get().altStyleId ? ' (Pet Style)' : '') + '</span>' : '')
         + '</div>';
@@ -48667,7 +48689,7 @@ if (!tradeLinks.length) {
           const hue   = it.hue || 0;
           const thumb = it.thumb || it.thumbnailUrl || '';
           const applied = _drawn.has(it.name);
-          const blocked = !!it.demotedByStyle || !!it.bodyConflict;
+          const blocked = !!it.demotedByStyle || !!it.bodyConflict || !!it.styleConflict;
           const blockMsg = it.bodyConflict ? "Can't be worn by this pet" : "Can't be worn with this style";
           const warn    = s.styleWarn === it.name;
           const confirming = s.removeConfirm === it.name;
@@ -48730,7 +48752,7 @@ if (!tradeLinks.length) {
           const hue = it.hue || 0;
           const thumb = it.thumb || it.thumbnailUrl || '';
           const applied = _drawn.has(it.name);
-          const blocked = !!it.demotedByStyle || !!it.bodyConflict;
+          const blocked = !!it.demotedByStyle || !!it.bodyConflict || !!it.styleConflict;
           const warn = s.styleWarn === it.name;
           const confirming = s.removeConfirm === it.name;
           const tsz = big ? 84 : small ? 40 : 60;
@@ -49154,6 +49176,8 @@ if (!tradeLinks.length) {
     setInterval(function () {
       try {
         if (!window.dtrRoute.is('editor-new')) { _oeQsAppliedHref = ''; return; }
+
+        if (document.getElementById('dtr-shell')) return;
         if (_oeQsAppliedHref === location.href) return;
         const _sp0 = new URLSearchParams(location.search);
         const _seedNm = (_sp0.get('name') || '').trim();
@@ -50596,7 +50620,7 @@ if (!tradeLinks.length) {
           +(_oeAboxBetaOn() ? '<button data-frame="active" title="Neoboards Active Box viewfinder" style="'+fsBtn(s.frameShape==='active')+'"><span style="width:9px;height:9px;background:currentColor;border-radius:2px;display:flex;align-items:center;justify-content:center"><span style="width:4px;height:4px;background:var(--dtr-card, #fff);border-radius:1px;opacity:.9"></span></span></button>' : '')
           +'</div>')
 
-        +((_oeAboxBetaOn() && s.frameShape==='active' && !_zmOnNow) ? '<div data-oe-abox-host data-oe-nocap style="position:absolute;inset:0;z-index:3;pointer-events:none"></div>' : '')
+        +((_oeAboxBetaOn() && s.frameShape==='active' && !_zmOnNow) ? '<div data-oe-abox-host data-oe-nocap style="position:absolute;inset:0;z-index:3;pointer-events:none;transform:scale(1.006);transform-origin:50% 50%"></div>' : '')
 
         + lockedBanner
 
@@ -50680,10 +50704,19 @@ if (!tradeLinks.length) {
 
               const styleId = q.get('style') || null;
               const poseIdx = OE_POSE_URLS.indexOf(String(q.get('pose') || '').toUpperCase());
+
+              const petNm = String(q.get('name') || n).trim() || n;
+              const curNm = String(st.outfitName || '').trim();
+              const autoNamed = !curNm || curNm === 'My Outfit' || (st.autoName && curNm.toLowerCase() === String(st.autoName).toLowerCase());
               OE.set(Object.assign(
-                { speciesId: sid, speciesName: spName, colorId: cid, colorName: coName, altStyleId: styleId, altStyles: [], appQuery: '' },
-                poseIdx >= 0 ? { pose: poseIdx } : {}));
+
+                { speciesId: sid, speciesName: spName, colorId: cid, colorName: coName, altStyleId: styleId, altStyles: [], appQuery: '', petStateId: q.get('state') || null },
+                poseIdx >= 0 ? { pose: poseIdx } : {},
+                autoNamed ? { outfitName: petNm, autoName: petNm, variants: oePatchActiveVar(OE.get(), { name: petNm }) } : {}));
+
+              if (autoNamed) { try { document.title = petNm + ' | Dress to Impress'; } catch (_) {} }
               _oeLoadedStateId = q.get('state') || null;
+              if (q.get('state')) _oeNotePetState(q.get('state'), sid, cid);
               _oeLoadedBio = { sp: sid, co: cid, pose: poseIdx >= 0 ? poseIdx : OE.get().pose };
 
               try { if (styleId && window.__DTR_ABOX_LOG) window.__DTR_ABOX_LOG(styleId, n); } catch (_) {}
@@ -50691,7 +50724,9 @@ if (!tradeLinks.length) {
                 window.__dtrOEDispatch({ type: 'setSpeciesAndColor', speciesId: sid, colorId: cid, pose: OE_POSE_URLS[OE.get().pose] || 'HAPPY_FEM' });
               oeFetchAltStyles(sid);
               oeKickSearch();
-              await oeLoadWornItems(q.getAll('objects[]'), true);
+              await oeLoadWornItems(q.getAll('objects[]'), true, { keepPrevious: true });
+
+              if (_gen === _pnGen) { try { oeReconcileAltStyle(); oeRecheckUnworn(); } catch (_) {} }
               try { oeToast('Loaded '+n+'!', document.querySelector('[data-petname-inp]')); } catch (_) {}
               return;
             }
@@ -50724,6 +50759,7 @@ if (!tradeLinks.length) {
 
           if (oeNameClashesVariant(v, OE.get().activeIdx)) { OE.set({ editingName:true, renameError: '“' + v + '” is already used, pick a unique name' }); setTimeout(() => { const e2 = card.querySelector('[data-name-input]'); if (e2) { e2.focus(); e2.select(); } }, 0); return; }
           OE.set(s2 => ({ outfitName:v, editingName:false, renameError:null, variants: oePatchActiveVar(s2, { name:v }) }));
+          try { document.title = v + ' | Dress to Impress'; } catch (_) {}
           oeSaveVariantAt(OE.get().activeIdx).catch(() => {});
         };
         nameIn.addEventListener('blur', commitName);
@@ -50898,6 +50934,7 @@ if (!tradeLinks.length) {
           layersEl.className = 'dtr-oe-layers';
 
           layersEl.style.cssText = 'position:absolute;inset:0;z-index:2;pointer-events:none;transform:scale(1.006);transform-origin:50% 50%';
+
           oeCanvasEl.insertBefore(layersEl, oeCanvasEl.firstChild);
         }
         oeRenderPet();
@@ -54136,9 +54173,18 @@ if (!tradeLinks.length) {
       return { worn, zones, incomplete: ids.some(id => !_resolved.has(id)) };
     }
 
-    async function oeLoadWornItems(objectIds, force) {
+    function _oeCarryUnworn(prev, worn) {
+      const ids = new Set((worn || []).filter(x => x.id).map(x => String(x.id)));
+      const names = new Set((worn || []).map(x => x.name));
+      return (prev || [])
+        .filter(x => !(x.id ? ids.has(String(x.id)) : names.has(x.name)))
+        .map(x => { const c = Object.assign({}, x, { applied: false }); delete c.demotedByStyle; return c; });
+    }
+
+    async function oeLoadWornItems(objectIds, force, opts) {
+      const keep = !!(opts && opts.keepPrevious);
       const ids = (objectIds || []).map(String).filter(Boolean);
-      if (!ids.length) { if (force) OE.set({ considering: [] }); return; }
+      if (!ids.length) { if (force) OE.set(s2 => ({ considering: keep ? _oeCarryUnworn(s2.considering, []) : [] })); return; }
       const s = OE.get();
       const det = await oeFetchWornItemDetails(ids, s.speciesId || '1', s.colorId || '8', s.altStyleId || null);
       const worn = det.worn, zones = det.zones;
@@ -54147,7 +54193,7 @@ if (!tradeLinks.length) {
       if (det.failed) {  return; }
       if (force || (zones.length > 0 && (!cur.watchZones || cur.watchZones.length === 0))) {
 
-        OE.set({ watchZones: zones, considering: worn });
+        OE.set(s2 => ({ watchZones: zones, considering: keep ? _oeCarryUnworn(s2.considering, worn).concat(worn) : worn }));
         oeEnrichOwned(worn.map(x => x.id));
       }
     }
@@ -54209,6 +54255,7 @@ if (!tradeLinks.length) {
           if (_miss.length) { const _ex = await oeFetchWornItemDetails(_miss, sp, co, alt); (_ex.worn || []).forEach(x => _considering.push(Object.assign({}, x, { loved: true, applied: false }))); }
         }
       } catch (_) {}
+      if (o.pet_state_id) _oeNotePetState(o.pet_state_id, sp, co);
       return {
         outfitId: String(o.id), name: o.name || 'My Outfit',
         speciesId: sp, colorId: co, pose: poseIdx >= 0 ? poseIdx : 3, altStyleId: alt,
@@ -54238,6 +54285,7 @@ if (!tradeLinks.length) {
           const rPose = OE_POSE_URLS.indexOf(rec.pose), rsp = String(rec.species_id), rco = String(rec.color_id);
           const ralt = rec.alt_style_id ? String(rec.alt_style_id) : null, rp = rPose >= 0 ? rPose : 3;
           _oeLoadedStateId = rec.pet_state_id ? String(rec.pet_state_id) : null;
+          if (rec.pet_state_id) _oeNotePetState(rec.pet_state_id, rsp, rco);
           _oeLoadedBio = { sp: rsp, co: rco, pose: rp };
           OE.set(s2 => ({
             speciesId: rsp, colorId: rco, pose: rp, altStyleId: ralt,
@@ -54442,10 +54490,20 @@ if (!tradeLinks.length) {
       } catch (_) {}
     }
 
+    function _oeNotePetState(id, sp, co) {
+      try { if (!id || !sp || !co) return; const m = window.__dtrOEPetStateOf || (window.__dtrOEPetStateOf = {}); m[String(id)] = String(sp) + ':' + String(co); } catch (_) {}
+    }
     async function oeSaveOutfitData(name, wornIds, outfitId, bio) {
       const s    = OE.get();
       const csrf = window.dtrDom.csrfToken();
       let B = bio || { species_id: s.speciesId, color_id: s.colorId, pose: OE_POSE_URLS[s.pose] || 'HAPPY_FEM', pet_state_id: s.petStateId || null, alt_style_id: s.altStyleId || null };
+
+      try {
+        if (B.pet_state_id) {
+          const _ps = (window.__dtrOEPetStateOf || {})[String(B.pet_state_id)];
+          if (_ps && _ps !== String(B.species_id) + ':' + String(B.color_id)) B = Object.assign({}, B, { pet_state_id: null });
+        }
+      } catch (_) {}
 
       try {
         if (B.alt_style_id) {
@@ -54573,10 +54631,12 @@ if (!tradeLinks.length) {
       if (!v) return null;
       if (idx === s.activeIdx) {
 
+        const priorId = s.outfitId;
         OE.set({ saveState: 'saving' });
         try {
           const id = await oeSaveOutfit();
           OE.set({ saveState: 'saved' });
+          try { if (id && !priorId && OE.get().activeIdx === idx) history.pushState({}, '', '/outfits/' + id); } catch (_) {}
           setTimeout(function () { try { if (OE.get().saveState === 'saved') OE.set({ saveState: 'idle' }); } catch (_) {} }, 1800);
           return id;
         } catch (e) {
@@ -57539,7 +57599,7 @@ if (!tradeLinks.length) {
         const src = inList || (s2.searchResults || []).find(x => x.name === name);
         if (!inListEntries.length && (!src || !src.id || !src.name)) return {};
         const newest = inListEntries.length
-          ? inListEntries.map(e => Object.assign({}, e, { applied: true, bodyConflict: false }))
+          ? inListEntries.map(e => Object.assign({}, e, { applied: true, bodyConflict: false, styleConflict: false }))
 
           : ((src.zones && src.zones.length) ? src.zones : [src.zone || null]).map(zl =>
               ({ name: src.name, id: String(src.id), zone: zl, hue: zl ? oeZoneHue(zl) : (src.hue || 0), loved: false, applied: true, thumb: src.thumb || '', nc: !!src.nc, owned: !!src.owned }));
@@ -57555,26 +57615,36 @@ if (!tradeLinks.length) {
     }
 
     async function oeReconcileAltStyle() {
-      const st = OE.get();
-      const styleId = st.altStyleId;
-      const altStyle = styleId ? (st.altStyles || []).find(x => String(x.id) === String(styleId)) : null;
-      const styleBody = altStyle && altStyle.bodyId ? String(altStyle.bodyId) : null;
-      const items = st.considering || [];
-      if (!items.length) return;
+      const has = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+      const bodyOf = (st) => {
+        const a = st.altStyleId ? (st.altStyles || []).find(x => String(x.id) === String(st.altStyleId)) : null;
+        return a && a.bodyId ? String(a.bodyId) : null;
+      };
+      const keyOf = (st) => [st.altStyleId || '', bodyOf(st) || '', st.speciesId || '', st.colorId || ''].join('|');
+      const st0 = OE.get();
+      if (!(st0.considering || []).length) return;
+      const key = keyOf(st0);
+      const styleBody = bodyOf(st0);
 
       const fits = {};
-      await Promise.all(items.map(async x => {
-        if (!x.id || !styleBody) { fits[x.name] = true; return; }
-        try {
-          const la = await oeFetchItemLayersOE(String(x.id), st.speciesId, st.colorId);
-          const ids = (la.compatibleBodyIds || []).map(String);
-          const layers = la.layers || [];
-          if (!ids.length && !layers.length) { fits[x.name] = true; return; }
-          fits[x.name] = ids.includes(styleBody) || ids.includes('0') || layers.some(l => String(l.bodyId) === '0' || String(l.bodyId) === styleBody);
-        } catch (_) { fits[x.name] = true; }
-      }));
+      for (let pass = 0; pass < 4; pass++) {
+        const todo = (OE.get().considering || []).filter(x => !has(fits, x.name));
+        await Promise.all(todo.map(async x => {
+          if (!x.id || !styleBody) { fits[x.name] = true; return; }
+          try {
+            const la = await oeFetchItemLayersOE(String(x.id), st0.speciesId, st0.colorId);
+            const ids = (la.compatibleBodyIds || []).map(String);
+            const layers = la.layers || [];
+            if (!ids.length && !layers.length) { fits[x.name] = true; return; }
+            fits[x.name] = ids.includes(styleBody) || ids.includes('0') || layers.some(l => String(l.bodyId) === '0' || String(l.bodyId) === styleBody);
+          } catch (_) { fits[x.name] = true; }
+        }));
+        if (keyOf(OE.get()) !== key) return;
+        if (!(OE.get().considering || []).some(x => !has(fits, x.name))) break;
+      }
       OE.set(s2 => ({
         considering: s2.considering.map(x => {
+          if (!has(fits, x.name)) return x;
           if (styleBody) {
             if (!fits[x.name] && x.applied !== false) return Object.assign({}, x, { applied: false, demotedByStyle: true });
             if (fits[x.name] && x.demotedByStyle) { const c = Object.assign({}, x, { applied: true }); delete c.demotedByStyle; return c; }
@@ -57601,6 +57671,42 @@ if (!tradeLinks.length) {
         if (!ids.length && !layers.length) return true;
         return ids.includes(styleBody) || ids.includes('0') || layers.some(l => String(l.bodyId) === '0' || String(l.bodyId) === styleBody);
       } catch (_) { return true; }
+    }
+
+    async function oeRecheckUnworn() {
+      const has = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+      const bodyOf = (st) => {
+        const a = st.altStyleId ? (st.altStyles || []).find(x => String(x.id) === String(st.altStyleId)) : null;
+        return a && a.bodyId ? String(a.bodyId) : null;
+      };
+      const keyOf = (st) => [st.altStyleId || '', bodyOf(st) || '', st.speciesId || '', st.colorId || ''].join('|');
+      const st0 = OE.get();
+      const todo = (st0.considering || []).filter(x => x.applied === false && !x.demotedByStyle && x.id);
+      if (!todo.length) return;
+      const key = keyOf(st0);
+      const styleBody = bodyOf(st0);
+      const verdict = {};
+      await Promise.all(todo.map(async x => {
+        try {
+          const la = await oeFetchItemLayersOE(String(x.id), st0.speciesId, st0.colorId);
+          const layers = la.layers || [];
+          const ids = (la.compatibleBodyIds || []).map(String);
+          if (!layers.length && !ids.length) return;
+          const fitsPet = layers.length > 0;
+          const fitsStyle = !(fitsPet && styleBody) || ids.includes(styleBody) || ids.includes('0') || layers.some(l => String(l.bodyId) === '0' || String(l.bodyId) === styleBody);
+          verdict[x.name] = { fitsPet, fitsStyle };
+        } catch (_) {}
+      }));
+      if (keyOf(OE.get()) !== key) return;
+      OE.set(s2 => ({
+        considering: (s2.considering || []).map(x => {
+          if (x.applied !== false || x.demotedByStyle || !has(verdict, x.name)) return x;
+          const v = verdict[x.name];
+          const c = Object.assign({}, x, { bodyConflict: !v.fitsPet });
+          if (v.fitsPet && !v.fitsStyle) c.styleConflict = true; else delete c.styleConflict;
+          return c;
+        })
+      }));
     }
     async function oeToggleApply(name) {
 
@@ -57783,6 +57889,7 @@ if (!tradeLinks.length) {
       _oeAboxBodyId = altStyle ? null : (pet.bodyId || null);
       try { oeAboxPaint(); } catch (_) {}
 
+      if (pet && pet.petStateId) _oeNotePetState(pet.petStateId, s.speciesId, s.colorId);
       if (pet && pet.petStateId && OE.get().petStateId !== pet.petStateId) OE.set({ petStateId: pet.petStateId });
       const worn    = items.map((a, i) => ({ ...a, _itemId: itemIds[i] }));
 
@@ -57879,6 +57986,7 @@ if (!tradeLinks.length) {
     function _oeMirrorUrlNow() {
       try {
         if (!window.dtrRoute.is('editor-new')) return;
+        if (document.getElementById('dtr-shell')) return;
         const s = OE.get();
         if (s.oeLoadingPet || s.oeOutfitLoading || _oeAutoLoading) return;
         if (s.outfitId || oeActiveVar(s).outfitId) return;
@@ -57950,6 +58058,7 @@ if (!tradeLinks.length) {
           colorId,
           pose:        poseIdx >= 0 ? poseIdx : 3,
           outfitName:  rawName || 'My Outfit',
+          autoName:    rawName || null,
           variants:    oePatchActiveVar(OE.get(), { name: rawName || 'My Outfit' }),
           altStyleId:  styleId,
           oeLoadingPet: false,
