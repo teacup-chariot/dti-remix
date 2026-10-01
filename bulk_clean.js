@@ -3209,7 +3209,7 @@ var __DTR_BOOT_T0 = (typeof performance !== 'undefined' && performance.now) ? pe
   var IS_IMPRESS = false;
   try { IS_IMPRESS = location.hostname === 'impress.openneo.net'; } catch (_) {}
 
-  window.__DTR_META = {"v":"10.814.3","history":[{"v":"10.814.3","label":"Smoother pet loading and Active Box updates","ts":"September 30, 2026","notes":["## Customize","Loading pets by name, one after another, shows each pet's own items as wearable.","When you load a pet by name, the outfit takes that pet's name and its items go on. The previous pet's items stay in the Fitting Room, taken off, and each one says if this pet can't wear it.","The browser tab's title and address follow the pet you load by name. Once the outfit is saved, the address points to it.","## Active Box","New Pet Styles get their Neoboards Active Box soon after someone views a pet wearing them, without waiting for an update.","The dashed outline sits just outside the crop and lines up with the pet, so the whole crop shows.","## Imports","Signing in to Dress to Impress during an inventory import keeps you on Dress to Impress, ready to sort your items."]},{"v":"10.814.2","label":"Theme fixes","notes":["New features and misc bug fixes."]},{"v":"10.814.1","label":"Large PNG downloads and smoother animations","notes":["New features and misc bug fixes."]},{"v":"10.813.0","label":"Keep customizing, clearer Pet Styles, and accurate inventory counts","notes":["New features and misc bug fixes."]},{"v":"10.812.0","label":"Customize sign-in fix","notes":["New features and misc bug fixes."]}]};
+  window.__DTR_META = {"v":"10.814.4","history":[{"v":"10.814.4","label":"Smoother pet loading and Active Box updates","ts":"October 1, 2026","notes":["## Customize","Loading pets by name, one after another, shows each pet's own items as wearable.","When you load a pet by name, the outfit takes that pet's name and its items go on. The previous pet's items stay in the Fitting Room, taken off, and each one says if this pet can't wear it.","If a pet's items can't be loaded when you search for it by name, Customize lets you know so you can try again.","The browser tab's title and address follow the pet you load by name. Once the outfit is saved, the address points to it.","## Active Box","New Pet Styles get their Neoboards Active Box soon after someone views a pet wearing them, without waiting for an update.","When a Pet Style hasn't been measured yet, the preview says it can take up to 10 minutes, so you know when to check back.","The dashed outline sits just outside the crop and lines up with the pet, so the whole crop shows.","## Imports","Signing in to Dress to Impress during an inventory import keeps you on Dress to Impress, ready to sort your items."]},{"v":"10.814.2","label":"Theme fixes","notes":["New features and misc bug fixes."]},{"v":"10.814.1","label":"Large PNG downloads and smoother animations","notes":["New features and misc bug fixes."]},{"v":"10.813.0","label":"Keep customizing, clearer Pet Styles, and accurate inventory counts","notes":["New features and misc bug fixes."]},{"v":"10.812.0","label":"Customize sign-in fix","notes":["New features and misc bug fixes."]}]};
 
   (function _dtrUpdateWatch(){
     try {
@@ -47937,7 +47937,8 @@ if (!tradeLinks.length) {
           const _lg = _oeAboxStyleLogMap()[String(_stId)] || null;
           const _nm = _lg && _lg.name;
           let inner;
-          if (_nm && _lg.sent) inner = 'DTI Remix hasn’t seen this style in an active box yet! Check back tomorrow.';
+
+          if (_nm && _lg.sent) inner = 'DTI Remix hasn’t seen this style in an active box yet! Measuring can take up to 10 minutes, so check back soon.';
           else if (_nm && OE_ABOX_SINK) inner = 'Active Box: logged via “' + _nm + '” <button type="button" data-abox-send style="pointer-events:auto;border:none;border-radius:999px;background:var(--dtr-gold,#ffce5a);color:#5a4a20;font:800 9.5px Nunito,sans-serif;padding:3px 10px;cursor:pointer;margin-left:4px;vertical-align:1px">Send it in</button><br>Sending it failed, this button retries. Pet name and style only, nothing else.';
           else if (_nm) inner = 'Active Box: this Pet Style is logged (via “' + _nm + '”), its real box arrives in a future update.';
           else inner = 'Active Box doesn’t know this Pet Style yet, every style has its own crop. Load a pet wearing it by name (Search a pet…) and DTI Remix logs it for a future update.';
@@ -50724,10 +50725,12 @@ if (!tradeLinks.length) {
                 window.__dtrOEDispatch({ type: 'setSpeciesAndColor', speciesId: sid, colorId: cid, pose: OE_POSE_URLS[OE.get().pose] || 'HAPPY_FEM' });
               oeFetchAltStyles(sid);
               oeKickSearch();
-              await oeLoadWornItems(q.getAll('objects[]'), true, { keepPrevious: true });
+              const _worn = await oeLoadWornItems(q.getAll('objects[]'), true, { keepPrevious: true });
 
               if (_gen === _pnGen) { try { oeReconcileAltStyle(); oeRecheckUnworn(); } catch (_) {} }
-              try { oeToast('Loaded '+n+'!', document.querySelector('[data-petname-inp]')); } catch (_) {}
+
+              const _msg = (_worn && _worn.failed) ? ('Couldn’t load ' + n + '’s items, give it another try') : ('Loaded ' + n + '!');
+              try { oeToast(_msg, document.querySelector('[data-petname-inp]')); } catch (_) {}
               return;
             }
           }
@@ -54190,7 +54193,11 @@ if (!tradeLinks.length) {
       const worn = det.worn, zones = det.zones;
       const cur = OE.get();
 
-      if (det.failed) {  return; }
+      if (det.failed) {
+
+        if (keep) OE.set(s2 => ({ considering: _oeCarryUnworn(s2.considering, []) }));
+        return { failed: true };
+      }
       if (force || (zones.length > 0 && (!cur.watchZones || cur.watchZones.length === 0))) {
 
         OE.set(s2 => ({ watchZones: zones, considering: keep ? _oeCarryUnworn(s2.considering, worn).concat(worn) : worn }));
